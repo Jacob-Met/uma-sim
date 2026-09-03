@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "description": "Example content pack — merge into runtime catalog without engine changes",
+  "kinds": {
+    "event_local": [
+      {
+        "id": "pack:example:training_boost",
+        "title": "Training Boost",
+        "payload": {
+          "owner_kind": "shared",
+          "owner_name": "Coach",
+          "options": [
+            "Push harder\nSpeed +15\nEnergy -10",
+            "Take it easy\nEnergy +20"
+          ]
+        }
+      }
+    ]
+  }
+}

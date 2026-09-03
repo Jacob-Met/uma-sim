@@ -1,0 +1,377 @@
+{
+  "course_id": 10606,
+  "grade": "OP",
+  "live_log_prior": "research/race_telemetry_corpus.json win_rate≈0.70 (bot-selected races)",
+  "mean_margin_ahead_when_winning_s": 0.19999999999998863,
+  "mean_margin_to_winner_when_losing_s": 0.3043478260869392,
+  "mean_place": 1.9375,
+  "n": 48,
+  "notes": [
+    "Career physics log lines include ordinal place + margin_win/margin_ahead (engine do_race).",
+    "Live-game capture still win/not_first only (research/race_telemetry_corpus.json).",
+    "This corpus is the physics-side place/margin distribution gate vs placeholder NPCs."
+  ],
+  "place_hist": [
+    25,
+    12,
+    5,
+    4,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "samples": [
+    {
+      "finish_time": 118.99999999999837,
+      "margin_ahead_s": 0.19999999999998863,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2000
+    },
+    {
+      "finish_time": 118.9333333333317,
+      "margin_ahead_s": 0.19999999999998863,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2001
+    },
+    {
+      "finish_time": 118.86666666666504,
+      "margin_ahead_s": 0.19999999999998863,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2002
+    },
+    {
+      "finish_time": 118.73333333333171,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2003
+    },
+    {
+      "finish_time": 119.06666666666503,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.06666666666666288,
+      "place": 2,
+      "seed": 2004
+    },
+    {
+      "finish_time": 118.86666666666504,
+      "margin_ahead_s": 0.19999999999998863,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2005
+    },
+    {
+      "finish_time": 119.79999999999832,
+      "margin_ahead_s": 0.0,
+      "margin_to_winner_s": 0.46666666666664014,
+      "place": 4,
+      "seed": 2006
+    },
+    {
+      "finish_time": 118.86666666666504,
+      "margin_ahead_s": 0.39999999999997726,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2007
+    },
+    {
+      "finish_time": 119.19999999999835,
+      "margin_ahead_s": 0.2666666666666515,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2008
+    },
+    {
+      "finish_time": 119.26666666666502,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2009
+    },
+    {
+      "finish_time": 119.06666666666503,
+      "margin_ahead_s": 0.39999999999997726,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2010
+    },
+    {
+      "finish_time": 119.19999999999835,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.06666666666666288,
+      "place": 3,
+      "seed": 2011
+    },
+    {
+      "finish_time": 118.9333333333317,
+      "margin_ahead_s": 0.0,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2012
+    },
+    {
+      "finish_time": 119.53333333333167,
+      "margin_ahead_s": 0.3333333333333144,
+      "margin_to_winner_s": 0.19999999999998863,
+      "place": 5,
+      "seed": 2013
+    },
+    {
+      "finish_time": 119.13333333333169,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.13333333333332575,
+      "place": 2,
+      "seed": 2014
+    },
+    {
+      "finish_time": 119.13333333333169,
+      "margin_ahead_s": 0.0,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2015
+    },
+    {
+      "finish_time": 118.99999999999837,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2016
+    },
+    {
+      "finish_time": 118.99999999999837,
+      "margin_ahead_s": 0.0,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2017
+    },
+    {
+      "finish_time": 118.73333333333171,
+      "margin_ahead_s": 0.2666666666666515,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2018
+    },
+    {
+      "finish_time": 118.59999999999839,
+      "margin_ahead_s": 0.5999999999999659,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2019
+    },
+    {
+      "finish_time": 119.26666666666502,
+      "margin_ahead_s": 0.13333333333332575,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2020
+    },
+    {
+      "finish_time": 119.466666666665,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.6666666666666288,
+      "place": 2,
+      "seed": 2021
+    },
+    {
+      "finish_time": 120.46666666666495,
+      "margin_ahead_s": 0.13333333333332575,
+      "margin_to_winner_s": 1.5333333333332462,
+      "place": 8,
+      "seed": 2022
+    },
+    {
+      "finish_time": 118.86666666666504,
+      "margin_ahead_s": 0.2666666666666515,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2023
+    },
+    {
+      "finish_time": 122.06666666666486,
+      "margin_ahead_s": 0.19999999999998863,
+      "margin_to_winner_s": 0.06666666666666288,
+      "place": 2,
+      "seed": 2024
+    },
+    {
+      "finish_time": 122.5333333333315,
+      "margin_ahead_s": 0.3333333333333144,
+      "margin_to_winner_s": 0.2666666666666515,
+      "place": 2,
+      "seed": 2025
+    },
+    {
+      "finish_time": 122.86666666666481,
+      "margin_ahead_s": 0.0,
+      "margin_to_winner_s": 0.3333333333333144,
+      "place": 4,
+      "seed": 2026
+    },
+    {
+      "finish_time": 119.33333333333168,
+      "margin_ahead_s": 0.0,
+      "margin_to_winner_s": 0.13333333333332575,
+      "place": 2,
+      "seed": 2027
+    },
+    {
+      "finish_time": 118.86666666666504,
+      "margin_ahead_s": 0.5999999999999659,
+      "margin_to_winner_s": 0.06666666666666288,
+      "place": 2,
+      "seed": 2028
+    },
+    {
+      "finish_time": 119.39999999999834,
+      "margin_ahead_s": 0.3333333333333144,
+      "margin_to_winner_s": 0.06666666666666288,
+      "place": 2,
+      "seed": 2029
+    },
+    {
+      "finish_time": 118.9333333333317,
+      "margin_ahead_s": 0.2666666666666515,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2030
+    },
+    {
+      "finish_time": 119.666666666665,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.13333333333332575,
+      "place": 2,
+      "seed": 2031
+    },
+    {
+      "finish_time": 119.39999999999834,
+      "margin_ahead_s": 0.39999999999997726,
+      "margin_to_winner_s": 0.2666666666666515,
+      "place": 4,
+      "seed": 2032
+    },
+    {
+      "finish_time": 119.33333333333168,
+      "margin_ahead_s": 0.39999999999997726,
+      "margin_to_winner_s": 0.39999999999997726,
+      "place": 3,
+      "seed": 2033
+    },
+    {
+      "finish_time": 119.13333333333169,
+      "margin_ahead_s": 0.46666666666664014,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2034
+    },
+    {
+      "finish_time": 119.33333333333168,
+      "margin_ahead_s": 0.2666666666666515,
+      "margin_to_winner_s": 0.46666666666664014,
+      "place": 2,
+      "seed": 2035
+    },
+    {
+      "finish_time": 118.79999999999838,
+      "margin_ahead_s": 0.39999999999997726,
+      "margin_to_winner_s": 0.19999999999998863,
+      "place": 2,
+      "seed": 2036
+    },
+    {
+      "finish_time": 119.59999999999833,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.7999999999999545,
+      "place": 4,
+      "seed": 2037
+    },
+    {
+      "finish_time": 119.466666666665,
+      "margin_ahead_s": 0.0,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2038
+    },
+    {
+      "finish_time": 119.26666666666502,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.06666666666666288,
+      "place": 3,
+      "seed": 2039
+    },
+    {
+      "finish_time": 118.99999999999837,
+      "margin_ahead_s": 0.2666666666666515,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2040
+    },
+    {
+      "finish_time": 118.9333333333317,
+      "margin_ahead_s": 0.39999999999997726,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2041
+    },
+    {
+      "finish_time": 119.39999999999834,
+      "margin_ahead_s": 0.2666666666666515,
+      "margin_to_winner_s": 0.06666666666666288,
+      "place": 2,
+      "seed": 2042
+    },
+    {
+      "finish_time": 119.26666666666502,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.13333333333332575,
+      "place": 3,
+      "seed": 2043
+    },
+    {
+      "finish_time": 119.19999999999835,
+      "margin_ahead_s": 0.13333333333332575,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2044
+    },
+    {
+      "finish_time": 119.13333333333169,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2045
+    },
+    {
+      "finish_time": 119.06666666666503,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.0,
+      "place": 1,
+      "seed": 2046
+    },
+    {
+      "finish_time": 119.26666666666502,
+      "margin_ahead_s": 0.06666666666666288,
+      "margin_to_winner_s": 0.39999999999997726,
+      "place": 3,
+      "seed": 2047
+    }
+  ],
+  "schema_version": 1,
+  "status": "physics Monte-Carlo V4 bootstrap — not live-game placement telemetry",
+  "trainee": "mid Senkou ~800",
+  "win_rate": 0.5208333333333334,
+  "wins": 25
+}

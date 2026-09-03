@@ -1,0 +1,48 @@
+[
+  {
+    "type": "event",
+    "energy": 25,
+    "mood": "NORMAL",
+    "speed": 200,
+    "options": ["Speed +10", "Energy +30"],
+    "expectedIndex": 1,
+    "description": "low energy prefers energy option"
+  },
+  {
+    "type": "event",
+    "energy": 60,
+    "mood": "GREAT",
+    "speed": 300,
+    "options": ["Mood +1", "Speed +10"],
+    "expectedIndex": 1,
+    "description": "great mood ignores mood gain"
+  },
+  {
+    "type": "event",
+    "energy": 60,
+    "mood": "NORMAL",
+    "speed": 400,
+    "options": ["Skill points +40", "Speed +15"],
+    "expectedIndex": 1,
+    "description": "stat_total prefers speed"
+  },
+  {
+    "type": "event",
+    "energy": 20,
+    "mood": "BAD",
+    "speed": 250,
+    "options": ["Speed +5", "Energy +25"],
+    "expectedIndex": 1,
+    "description": "low energy two-option pick"
+  },
+  {
+    "type": "training",
+    "energy": 80,
+    "mood": "GREAT",
+    "speed": 400,
+    "stamina": 300,
+    "power": 300,
+    "expectedFacility": "speed",
+    "description": "prioritized speed training"
+  }
+]

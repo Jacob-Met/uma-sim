@@ -1,0 +1,52 @@
+{
+  "status": "bootstrap — not telemetry-validated (R8.6 V4 pending)",
+  "schema_version": 2,
+  "field_size_default": 9,
+  "grade_stat_baselines": {
+    "G1": 1050,
+    "G2": 960,
+    "G3": 870,
+    "OP": 720,
+    "PRE_OP": 580,
+    "DEBUT": 500
+  },
+  "strategy_mix": ["Nige", "Senkou", "Sasi", "Oikomi"],
+  "aptitude_mix": ["A", "A", "B", "B", "C", "C", "D"],
+  "mood_mix": [-1, 0, 0, 1, 1, 2],
+  "wobble_per_slot": 12,
+  "skills_per_npc": { "min": 0, "max": 2 },
+  "white_skill_allowlist": {
+    "notes": "Rarity-1 skills whose effects are only modeled types 27/31/9 (target speed / accel / heal). Assigned 0–2 per NPC from the race seed stream (not career RNG).",
+    "modeled_effect_types": [27, 31, 9],
+    "ids": [
+      "200332",
+      "200342",
+      "200352",
+      "200362",
+      "200372",
+      "200382",
+      "200512",
+      "200532",
+      "200542",
+      "200552",
+      "200582",
+      "200602"
+    ]
+  },
+  "entries_from_race_json": {
+    "status": "wired",
+    "field": "payload.entries",
+    "api": "uma_sim_core::race::npc_count_for_race",
+    "rule": "npc_count = clamp(entries - 1, 1, 17); symbolic career ids (debut/finales/optional) fall back to field_size_default - 1"
+  },
+  "seed": {
+    "notes": "NPC variation uses a derived Prando stream from derive_race_seed (career_seed, turn, race_id). Does not draw from career SimRandom."
+  },
+  "notes": [
+    "Career physics builds NPCs in uma_sim_core::race::placeholder_npc_field (mirrors this file).",
+    "Win/not-first prior from live bot logs: research/race_telemetry_corpus.json (410 races, win_rate≈0.70).",
+    "2026-09-02: soft-calibrated grade baselines downward (~10%) so mid@OP soft gate is not near-zero; still not V4-fit.",
+    "Replace with full telemetry-fit distributions (stats, placement, margins) before treating V4 as met.",
+    "Do not copy GPL umalator sources into this tree."
+  ]
+}

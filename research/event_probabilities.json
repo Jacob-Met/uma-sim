@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-01",
+  "sources": [
+    "knowledge/canonical/by_kind/event_local.json",
+    "GameTora training_events/*",
+    "community support chain docs"
+  ],
+  "confidence_default": "estimated",
+  "support_chain": {
+    "base_trigger_chance_per_turn": 0.35,
+    "bond_threshold": 80,
+    "specialty_required": true,
+    "confidence": "estimated",
+    "notes": "Calibrate via TurnTelemetry event frequency"
+  },
+  "random_branch_default": {
+    "type": "uniform",
+    "weights": null,
+    "confidence": "estimated",
+    "notes": "When option text contains (random), pick uniformly unless event-specific override"
+  },
+  "energy_variance_options": {
+    "pattern": "Energy -5/-20",
+    "outcomes": [
+      { "delta": -5, "weight": 0.5 },
+      { "delta": -20, "weight": 0.5 }
+    ],
+    "confidence": "estimated"
+  },
+  "race_hint_random": {
+    "trigger_on_victory_events": true,
+    "hint_given_weight": 0.7,
+    "confidence": "estimated"
+  },
+  "inspiration": {
+    "ura_chance_per_turn": 0.02,
+    "scenario_specific_overrides": {},
+    "confidence": "estimated"
+  },
+  "event_categories": {
+    "trainee": { "priority": 1 },
+    "support": { "priority": 2 },
+    "scenario": { "priority": 3 },
+    "shared": { "priority": 4 }
+  }
+}

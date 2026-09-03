@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-01",
+  "sources": [
+    "knowledge/mechanics/training_stat_gain.md",
+    "uma.guide training charts",
+    "GameTora support_effects.calc",
+    "FormulaGain.kt stacking rules"
+  ],
+  "formula": {
+    "expression": "floor((baseMain + statBonus) * friendshipProd * moodMult * trainingEffMult * presenceMult * growthMult)",
+    "friendship_stacking": "multiplicative_per_card_on_specialty_bond_gte_80",
+    "other_effects": "additive_within_type_then_multiplicative_across_types",
+    "presence_bonus_pct_per_character": 5,
+    "uma_growth_source": "trainee.json payload.stat_bonus per stat index",
+    "support_stat_bonus_source": "support_card effects 8-12 (Initial * stats) on facility",
+    "confidence": "high"
+  },
+  "facilities": {
+    "speed": { "stat_index": 0, "energy_cost_base": 20 },
+    "stamina": { "stat_index": 1, "energy_cost_base": 20 },
+    "power": { "stat_index": 2, "energy_cost_base": 20 },
+    "guts": { "stat_index": 3, "energy_cost_base": 20 },
+    "wit": { "stat_index": 4, "energy_cost_base": 15 }
+  },
+  "facility_level_multipliers": {
+    "1": 1.0,
+    "2": 1.2,
+    "3": 1.4,
+    "4": 1.6,
+    "5": 2.0,
+    "confidence": "medium",
+    "notes": "Approximate; calibrate against TurnTelemetry"
+  },
+  "base_main_gain_by_level": {
+    "1": { "min": 8, "typical": 10, "max": 12 },
+    "2": { "min": 10, "typical": 12, "max": 14 },
+    "3": { "min": 12, "typical": 14, "max": 17 },
+    "4": { "min": 14, "typical": 17, "max": 20 },
+    "5": { "min": 16, "typical": 20, "max": 24 },
+    "confidence": "estimated",
+    "notes": "Pre-multiplier main stat; varies by facility and trainee growth"
+  },
+  "sub_stat_gain_ratio": {
+    "secondary": 0.5,
+    "tertiary": 0.2,
+    "confidence": "medium",
+    "notes": "Secondary ~50% of main; tertiary ~20% of main (GameTora URA base tables)"
+  },
+  "sub_stat_facilities": {
+    "speed": { "secondary": "power", "tertiary": "guts" },
+    "stamina": { "secondary": "guts", "tertiary": "power" },
+    "power": { "secondary": "stamina", "tertiary": "speed" },
+    "guts": { "secondary": "speed", "tertiary": "power" },
+    "wit": { "secondary": "speed", "tertiary": "stamina" },
+    "confidence": "medium",
+    "source": "GameTora URA base training values"
+  },
+  "facility_level_up": {
+    "trains_per_level": 4,
+    "max_level": 5,
+    "confidence": "high",
+    "source": "GameTora URA / Game8 — level rises every 4 uses per facility"
+  },
+  "facility_level_mode": {
+    "train_count_scenarios": ["ura", "ura_finale", "grand_concert", "grand_live", "gl", "trackblazer", "tb"],
+    "rank_based_scenarios": ["unity", "unity_cup"],
+    "notes": "Unity Cup ties facility level to team stat rank instead"
+  },
+  "mood_base_offset": {
+    "GREAT": 0.2,
+    "GOOD": 0.1,
+    "NORMAL": 0.0,
+    "BAD": -0.1,
+    "AWFUL": -0.2,
+    "confidence": "high"
+  },
+  "friendship_training": {
+    "requires_bond_gte": 80,
+    "requires_rainbow_on_specialty": true,
+    "when_active_all_on_facility_stack_friendship": true,
+    "confidence": "high",
+    "source": "knowledge/mechanics/training_stat_gain.md"
+  },
+  "soft_cap": {
+    "threshold": 1200,
+    "gain_multiplier_above": 0.5,
+    "confidence": "high"
+  },
+  "energy_cost_by_level": {
+    "1": 20,
+    "2": 21,
+    "3": 23,
+    "4": 25,
+    "5": 30,
+    "confidence": "estimated"
+  },
+  "wit_energy_recovery_by_level": {
+    "1": 5,
+    "2": 5,
+    "3": 6,
+    "4": 7,
+    "5": 8,
+    "confidence": "medium",
+    "source": "GameTora URA — Wit training restores energy instead of costing"
+  }
+}

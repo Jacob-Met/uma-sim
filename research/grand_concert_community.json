@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "scenario_id": "grand_concert",
+  "as_of": "2026-09-01",
+  "confidence_tier": "community_high",
+  "primary_sources": [
+    {
+      "id": "uma_guide_grand_concert",
+      "url": "https://uma.guide/guides/grand-concert",
+      "type": "community_guide",
+      "last_updated": "2026-07-20",
+      "notes": "Most detailed — includes token formula, technique gate sequences, concert rewards"
+    },
+    {
+      "id": "gametora_grand_concert",
+      "url": "https://gametora.com/umamusume/our-grand-concert",
+      "type": "datamine_community",
+      "notes": "60/30/10 split, cap +50 after live, SP between lives"
+    },
+    {
+      "id": "game8_grand_live",
+      "url": "https://game8.co/games/Umamusume-Pretty-Derby/archives/607337",
+      "type": "community_guide",
+      "notes": "4 songs per half-year heuristic, 18-song path, Light Hello"
+    },
+    {
+      "id": "umamusu_wiki_grand_concert",
+      "url": "https://umamusu.wiki/Game:Grand_Concert",
+      "type": "wiki",
+      "notes": "Token types, song costs cross-check"
+    },
+    {
+      "id": "kuc_grand_live_api",
+      "url": "grand_live_api.md (private bot docs; not shipped)",
+      "type": "packet_capture",
+      "notes": "Authoritative for hype=cycle songs; confirms not a gauge"
+    }
+  ],
+  "performance_token_formula": {
+    "expression": "floor((S + F) * 1.15^C + 2*L)",
+    "variables": {
+      "S": "Base by facility — Wit=5, others=9",
+      "F": "Facility level 1-5",
+      "C": "Support cards on facility 0-5",
+      "L": "Scenario-link cards on facility"
+    },
+    "examples": [
+      { "facility": "speed", "level": 1, "supports": 0, "links": 0, "total": 10 },
+      { "facility": "speed", "level": 1, "supports": 2, "links": 0, "total": 13 },
+      { "facility": "speed", "level": 1, "supports": 2, "links": 1, "total": 15 },
+      { "facility": "wit", "level": 1, "supports": 0, "links": 0, "total": 6 }
+    ],
+    "split": "Primary 60%, secondary 30%, tertiary 10% of total (deterministic in sim)",
+    "friendship_training": "Two token types per train; second tends toward least-owned type",
+    "light_hello_event": { "chance_pct": 45, "grant": 20, "type": "least_owned" },
+    "cap_initial": 200,
+    "cap_raise_per_concert": 50
+  },
+  "hype_and_concerts": {
+    "songs_for_great_success": 3,
+    "songs_recommended_max_per_cycle": 4,
+    "great_success_stat_bonus": 10,
+    "normal_concert_stat_bonus": 3,
+    "total_songs_for_best_unique": 18,
+    "concerts": [
+      { "n": 1, "calendar": "Junior Late December", "sim_turn": 24 },
+      { "n": 2, "calendar": "Classic Late June", "sim_turn": 36 },
+      { "n": 3, "calendar": "Classic Late December", "sim_turn": 48 },
+      { "n": 4, "calendar": "Senior Late June", "sim_turn": 60 },
+      { "n": 5, "calendar": "Senior Late December (Grand)", "sim_turn": 72 }
+    ],
+    "sp_between_concerts": { "per_technique": 5, "per_song": 25 },
+    "note_hype_gauge": "Community guides say 'Hype Level' but KUC API proves it is songs-since-last-concert count"
+  },
+  "technique_gate_sequences": {
+    "before_1st_promo": [1, 2, 3, 4, 4, 2, 3],
+    "before_2nd_through_4th": [2, 2, 2, 4, 5, 2, 2],
+    "before_grand": [2, 2, 2, 4, 3, 2, 2],
+    "resets_after_each_concert": true,
+    "source": "uma.guide Techniques Needed for a Song table"
+  },
+  "technique_tiers_by_concerts_completed": {
+    "before_first": ["SP+5", "Stat+5"],
+    "before_fourth": ["SP+8", "Stat+8", "Stat+4+SP+4", "2xStat+4"],
+    "before_grand": ["SP+12", "Stat+12", "Stat+6+SP+6", "2xStat+6"],
+    "always": ["Energy recovery", "Skill hints"]
+  },
+  "auto_grants": {
+    "make_debut": { "timing": "~4 turns after start (sim turn 5)", "mastery": "All performance types +10" },
+    "girls_legend_u": { "timing": "Senior Early December", "requires_18_songs_for_special": true }
+  },
+  "reddit_status": "No dedicated formula threads found; community converges on uma.guide + GameTora testing",
+  "jp_global_parity": {
+    "assumption": "Grand Live scenario mechanics port JP → Global unchanged",
+    "rationale": "Uma community reverse-engineers JP packets; Global Grand Live uses the same scenario_id and API fields",
+    "confidence": "high",
+    "jp_sources_to_cross_check": [
+      "https://uma.guide/guides/grand-concert",
+      "https://gametora.com/umamusume/our-grand-concert",
+      "Japanese optimizer spreadsheets (Grand Live token/song routing)",
+      "Niconico / Twitter JP run logs with packet captures"
+    ]
+  }
+}

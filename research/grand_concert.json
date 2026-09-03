@@ -1,0 +1,299 @@
+{
+  "schema_version": 2,
+  "scenario_id": "grand_concert",
+  "mdb_scenario_id": 3,
+  "bot_alias": "Grand Live",
+  "official_name": "Brighter Together! Our Grand Concert",
+  "as_of": "2026-09-01",
+  "sources": [
+    "knowledge/scenarios/grand_concert.md",
+    "grand_live_api.md (private bot docs; not shipped)",
+    "knowledge/canonical/by_kind/song.json",
+    "knowledge/canonical/by_kind/lesson.json",
+    "packet / community Grand Live notes"
+  ],
+
+  "hard_caps": { "speed": 1600, "stamina": 1300, "power": 1300, "guts": 1500, "wit": 1300 },
+  "soft_cap": 1200,
+  "soft_cap_rule": "Stat gains above soft_cap are halved; in-race stat effect above soft_cap is roughly halved (Global July 2026).",
+  "spark": { "speed": true, "guts": true },
+  "fan_target_optional_race": 4500,
+
+  "performance_types": [
+    { "packet_type": 1, "api_key": "dance", "display": "Dance", "bot_label": "Da", "sim_key": "perf_Da" },
+    { "packet_type": 2, "api_key": "passion", "display": "Passion", "bot_label": "Pa", "sim_key": "perf_Pa" },
+    { "packet_type": 3, "api_key": "vocal", "display": "Vocal", "bot_label": "Vo", "sim_key": "perf_Vo" },
+    { "packet_type": 4, "api_key": "visual", "display": "Visual", "bot_label": "Vi", "sim_key": "perf_Vi" },
+    { "packet_type": 5, "api_key": "composure", "display": "Composure", "bot_label": "Co", "sim_key": "perf_Me" }
+  ],
+  "performance_max": 200,
+
+  "training_performance_gains": {
+    "note": "Separate from character stat gains; returned in API training.performance_gains[]",
+    "sim_formula": {
+      "expression": "floor((S + F) * 1.15^C + 2*L)",
+      "S_wit": 5,
+      "S_other": 9,
+      "split_pct": [60, 30, 10],
+      "calibration_ref": "research/grand_concert_calibration.json",
+      "confidence": "community_high"
+    }
+  },
+  "facility_performance_split": {
+    "speed": [
+      { "type": "Dance", "pct": 60 },
+      { "type": "Passion", "pct": 30 },
+      { "type": "Vocal", "pct": 10 }
+    ],
+    "stamina": [
+      { "type": "Passion", "pct": 60 },
+      { "type": "Visual", "pct": 30 },
+      { "type": "Dance", "pct": 10 }
+    ],
+    "power": [
+      { "type": "Vocal", "pct": 60 },
+      { "type": "Dance", "pct": 30 },
+      { "type": "Passion", "pct": 10 }
+    ],
+    "guts": [
+      { "type": "Visual", "pct": 60 },
+      { "type": "Passion", "pct": 30 },
+      { "type": "Vocal", "pct": 10 }
+    ],
+    "wit": [
+      { "type": "Composure", "pct": 60 },
+      { "type": "Vocal", "pct": 30 },
+      { "type": "Visual", "pct": 10 }
+    ]
+  },
+
+  "hype_model": {
+    "note": "NOT a 0–100 gauge. Hype = songs in current concert cycle (next_live_id_array length).",
+    "cycle_songs_at_start": 0,
+    "cycle_songs_minimum_for_great_success": 3,
+    "cycle_songs_maximum_per_concert": 4,
+    "great_success_ready_when": "cycle_songs >= great_success_required",
+    "bot_isHypeMaxed_maps_to": "hype.great_success_ready (Great Hype icon on lesson screen)"
+  },
+  "great_success_required_by_concert": {
+    "promo_1": 3,
+    "promo_2": 3,
+    "promo_3": 3,
+    "promo_4": 3,
+    "grand_concert": 3
+  },
+
+  "concerts": [
+    {
+      "race_id": "debut",
+      "name": "Junior Make Debut",
+      "turn": 1,
+      "year": 1,
+      "month": 6,
+      "half": 2,
+        "live_type": 0,
+      "great_success_required": 0,
+      "notes": "Character debut race — not a concert; Make Debut! song stays in first-promo cycle (hype preserved)"
+    },
+    {
+      "race_id": "promo_1",
+      "name": "Promo Concert 1",
+      "turn": 24,
+      "year": 2,
+      "month": 6,
+      "half": 2,
+      "live_type": 1,
+      "great_success_required": 3
+    },
+    {
+      "race_id": "promo_2",
+      "name": "Promo Concert 2",
+      "turn": 36,
+      "year": 2,
+      "month": 12,
+      "half": 2,
+      "live_type": 2,
+      "great_success_required": 3
+    },
+    {
+      "race_id": "promo_3",
+      "name": "Promo Concert 3",
+      "turn": 48,
+      "year": 3,
+      "month": 6,
+      "half": 2,
+      "live_type": 3,
+      "great_success_required": 3
+    },
+    {
+      "race_id": "promo_4",
+      "name": "Promo Concert 4",
+      "turn": 60,
+      "year": 3,
+      "month": 12,
+      "half": 1,
+      "live_type": 4,
+      "great_success_required": 3
+    },
+    {
+      "race_id": "grand_concert",
+      "name": "Grand Concert",
+      "turn": 72,
+      "year": 3,
+      "month": 12,
+      "half": 2,
+      "live_type": 5,
+      "great_success_required": 3,
+      "total_song_requirement": 18,
+      "notes": "18 cumulative songs + Great Success → special Girls' Legend U / I Wanna Win with You"
+    }
+  ],
+  "concert_turns_promo_and_grand": [24, 36, 48, 60, 72],
+
+  "lesson_shop": {
+    "no_turn_cost": true,
+    "slots_per_refresh": 3,
+    "square_types": {
+      "1": "stat",
+      "2": "skill_hint",
+      "3": "recovery",
+      "4": "song"
+    },
+    "technique_catalog_ref": "knowledge/canonical/by_kind/lesson.json",
+    "technique_counts": { "stat": 93, "skill_hint": 140, "recovery": 15, "total": 248 },
+    "song_catalog_ref": "knowledge/canonical/by_kind/song.json",
+    "technique_gate": {
+      "min_techniques_before_songs": 2,
+      "extra_per_completed_concert": 2,
+      "note": "Technique-count gate + uma.guide per-concert sequences; board also filters technique tiers by concerts completed"
+    },
+    "reserve_square_id": {
+      "note": "Packet field — bot saves PP for preferred reserved lesson card",
+      "sim_status": "modeled"
+    }
+  },
+
+  "songs": {
+    "catalog_ref": "knowledge/canonical/by_kind/song.json",
+    "total": 24,
+    "purchasable": 21,
+    "for_best_unique": 18,
+    "availability_parts": {
+      "1": { "career_mapping": "Junior year", "song_list_ids": [3, 4, 5, 8, 9, 11, 12, 23] },
+      "2": { "career_mapping": "Classic year", "song_list_ids": [2, 13, 15] },
+      "3": { "career_mapping": "Senior year (before Dec Late)", "song_list_ids": [6, 7, 10, 19] },
+      "4": { "career_mapping": "Senior Dec Late (Y3 month 12 half 2)", "song_list_ids": [14, 16, 17, 18, 20, 21] },
+      "5": { "career_mapping": "Non-purchasable / scenario progression", "song_list_ids": [1, 22, 24] }
+    },
+    "auto_grants": [
+      { "song_list_id": 1, "live_id": 1006, "name": "Make Debut!", "trigger": "turn_5 (~4 turns after career start)" },
+      { "song_list_id": 22, "live_id": 1036, "name": "Girls' Legend U (Normal Finale)", "trigger": "year3_dec_early" }
+    ],
+    "finale_outcomes": [
+      {
+        "condition": "songs_learned >= 18 AND grand_concert great_success",
+        "song_list_id": 24,
+        "live_id": 1029,
+        "unique_skill": "I Wanna Win with You"
+      },
+      {
+        "condition": "else",
+        "song_list_id": 22,
+        "unique_skill": "On the Way to Our Dream",
+        "note": "Both uniques scale with fans — modeled as unique_skill_power = clamp(100+fans/1000, 100, 400)"
+      }
+    ],
+    "bonus_families": [
+      "Friendship Training Effectiveness",
+      "Specialty Rate Up",
+      "Support Chain Event Frequency Level"
+    ],
+    "purchase_bonus_timing": "immediate on learn (Mastery Bonus)",
+    "concert_bonus_timing": "activates after concert for songs in current cycle (effected_live_id_array)"
+  },
+
+  "api_field_map": {
+    "performance.{type}.current": "perf_{Da|Pa|Vo|Vi|Me}",
+    "performance.{type}.max": "200",
+    "song_progress.learned_total": "songs_learned + song_owned:*",
+    "song_progress.next_concert": "hype (cycle song count)",
+    "song_progress.activated": "activated_songs",
+    "hype.current": "hype",
+    "hype.great_success_required": "great_success_required",
+    "hype.great_success_ready": "isHypeMaxed()",
+    "master_live_ids": "all song_owned:*",
+    "next_live_ids": "hype + cycle_song:*",
+    "effected_live_ids": "activated_song:*",
+    "lesson_choices": "3-slot lesson board (gl_song_* / gl_tech_*)",
+    "training.performance_gains": "onTrainingComplete token gains",
+    "training_bonuses": "bonus_friendship_pct, bonus_specialty_pct, bonus_support_chain_pct",
+    "live_results": "modeled (last_live_result: fail|normal|great_success)",
+    "blocked_performance_types": "modeled (blocked_perf_{Da|Pa|Vo|Vi|Me})",
+    "member_states": "modeled (member_ready_count from deck)"
+  },
+
+  "scenario_links": {
+    "supports": ["Light Hello", "Smart Falcon", "Agnes Tachyon", "Silence Suzuka", "Mihono Bourbon"],
+    "light_hello_effect": "45% chance +20 least-owned Performance type on train when Light Hello on facility",
+    "formula_L": "Scenario-link cards on facility add +2 tokens each (L in uma.guide formula)",
+    "sim_status": "modeled"
+  },
+
+  "sim_implementation_status": {
+    "implemented": [
+      "cycle-based hype",
+      "6 mandatory concerts at correct turns",
+      "performance token gains with 60/30/10 split and 200 cap",
+      "KB song/technique catalog",
+      "3-slot lesson board (unaffordable slots + song preference when gate unlocked)",
+      "technique tiers by concerts completed (uma.guide before_1st / mid / before_grand)",
+      "cycle max 4 songs per concert",
+      "technique gate before songs",
+      "availability_part 1-4 career mapping",
+      "concert bonus activation after concerts",
+      "uma.guide performance token formula",
+      "60/30/10 token split via largest-remainder (matches calibration 8/4/1)",
+      "technique gate sequences per concert phase",
+      "concert stat/SP/perf-cap rewards",
+      "Light Hello least-owned token grant (45%)",
+      "scenario-link L count in formula",
+      "friendship training secondary → least-owned",
+      "18-song + great success unique path",
+      "soft cap 1200",
+      "bot DecisionContext wiring",
+      "concert failure (race loss / force_concert_fail)",
+      "reserve_square_id lesson board preference",
+      "blocked_performance_types",
+      "member_ready_count",
+      "fan-scaled unique_skill_power (MultiplyFanCount)",
+      "Light Hello dating-starts event + Pal Date recreation",
+      "live_type / result_state packet fields",
+      "live_bonus_type 1/2/3 family mirror on activation",
+      "training_bonuses target_type mirror + support-chain event rate boost",
+      "song mastery Extra Stat/SP training bonuses (immediate + persistent)",
+      "song-saving board freeze across concerts (uma.guide)",
+      "Make Debut! grant at turn 5 (~4 turns after start) with cycle hype + mastery tokens",
+      "Character debut race does not wipe first-promo Make Debut hype",
+      "Specialty Priority Up on daily deck placement rolls",
+      "Closer Together (Senior Early Nov, 16+ songs) scenario-link skill hints",
+      "21-song technique pivot before Grand Concert (no forced song slot)"
+    ],
+    "approximations": [
+      "lesson board square IDs vs full MDB next_square_info_array weights (tiers + song preference + freeze + 21-song pivot modeled)",
+      "dating-starts chance (12%/turn with Light Hello bond≥40) vs exact support-event table",
+      "training_bonuses.target_type / live_bonus_type numeric values pending full MDB enum confirm",
+      "Closer Together option texts resolve trainee+deck scenario links (catalog dual-text applied as awarded skill)"
+    ],
+    "not_modeled": [],
+    "parity_tests_for_not_modeled": {},
+    "race_note": "Mid-run races use uma-race-core physics (default since R8.8). SmartRaceSolver gap retired for career mid-run; see docs/SIMULATOR_RACE_PLAN.md."
+  },
+
+  "gaps_requiring_mdb_ingest": [
+    "single_mode_live_live_data full schedule table",
+    "live_bonus_type enum → effect name mapping",
+    "exact next_square_info_array board weights",
+    "exact performance_gains packet captures beyond formula+calibration rows"
+  ],
+  "calibration_ref": "research/grand_concert_calibration.json"
+}

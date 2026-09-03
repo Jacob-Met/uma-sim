@@ -1,0 +1,306 @@
+use std::collections::HashMap;
+
+const STAT_RATE_LOW: [i32; 25] = [
+    5, 8, 10, 13, 16, 18, 21, 24, 26, 28, 29, 30, 31, 33, 34, 35, 39, 41, 42, 43, 52, 55, 66, 68,
+    68,
+];
+
+const STAT_RATE_MID: [i32; 81] = [
+    79, 80, 81, 83, 84, 85, 86, 88, 89, 90, 92, 93, 94, 96, 97, 98, 100, 101, 102, 103, 105, 106,
+    107, 109, 110, 111, 113, 114, 115, 117, 118, 119, 121, 122, 123, 124, 126, 127, 128, 130, 131,
+    132, 134, 135, 136, 138, 139, 140, 141, 143, 144, 145, 147, 148, 149, 151, 152, 153, 155, 156,
+    157, 159, 160, 161, 162, 164, 165, 166, 168, 169, 170, 172, 173, 174, 176, 177, 178, 179, 181,
+    182, 182,
+];
+
+const MAX_STAT_VALUE: i32 = 2500;
+const MULT_GOOD: f64 = 1.1;
+const MULT_AVERAGE: f64 = 0.9;
+const MULT_BAD: f64 = 0.8;
+const MULT_TERRIBLE: f64 = 0.7;
+
+fn role_group(role: &str) -> String {
+    match role {
+        "turf" | "dirt" => "surface".to_string(),
+        "sprint" | "mile" | "medium" | "long" => "distance".to_string(),
+        "front" | "pace" | "late" | "end" => "style".to_string(),
+        other => other.to_string(),
+    }
+}
+
+const RANK_MINS: [i32; 298] = [
+    0, 300, 600, 900, 1300, 1800, 2300, 2900, 3500, 4900, 6500, 8200, 10000, 12100, 14500, 15900,
+    17500, 19200, 19600, 20000, 20400, 20800, 21200, 21600, 22100, 22500, 23000, 23400, 23900,
+    24300, 24800, 25300, 25800, 26300, 26800, 27300, 27800, 28300, 28800, 29400, 29900, 30400,
+    31000, 31500, 32100, 32700, 33200, 33800, 34400, 35000, 35600, 36200, 36800, 37500, 38100,
+    38700, 39400, 40000, 40700, 41300, 42000, 42700, 43400, 44000, 44700, 45400, 46200, 46900,
+    47600, 48300, 49000, 49800, 50500, 51300, 52000, 52800, 53600, 54400, 55200, 55900, 56700,
+    57500, 58400, 59200, 60000, 60800, 61700, 62500, 63400, 64200, 65100, 66400, 67700, 69000,
+    70300, 71600, 72900, 74400, 76000, 76600, 77200, 77800, 78500, 79100, 79700, 80400, 81000,
+    81700, 82300, 83000, 83600, 84300, 84900, 85600, 86200, 86700, 87300, 87900, 88500, 89100,
+    89700, 90300, 90900, 91400, 92000, 92600, 93200, 93800, 94400, 95000, 95600, 96300, 96900,
+    97500, 98000, 98500, 99000, 99600, 100100, 100600, 101100, 101700, 102200, 102700, 103200,
+    103800, 104300, 104800, 105400, 105900, 106400, 106900, 107500, 108000, 108500, 109100, 109600,
+    110100, 110700, 111200, 111800, 112300, 112800, 113400, 113900, 114400, 115000, 115500, 116100,
+    116600, 117100, 117700, 118200, 118800, 119300, 119900, 120400, 121000, 121500, 122000, 122600,
+    123100, 123700, 124200, 124800, 125300, 125900, 126400, 127000, 127500, 128100, 128700, 129200,
+    129800, 130300, 130900, 131400, 132000, 132500, 133100, 133700, 134200, 134800, 135300, 135900,
+    136500, 137000, 137600, 138100, 138700, 139300, 139800, 140400, 141000, 141500, 142100, 142700,
+    143200, 143800, 144400, 144900, 145500, 146100, 146600, 147200, 147800, 148400, 148900, 149500,
+    150100, 150700, 151200, 151800, 152400, 153000, 153500, 154100, 154700, 155300, 155900, 156400,
+    157000, 157600, 158200, 158800, 159300, 159900, 160500, 161100, 161700, 162300, 162900, 163400,
+    164000, 164600, 165200, 165800, 166400, 167000, 167600, 168200, 168700, 169300, 169900, 170500,
+    171100, 171700, 172300, 172900, 173500, 174100, 174700, 175300, 175900, 176500, 177100, 177700,
+    178300, 178900, 179500, 180100, 180700, 181300, 181900, 182500, 183100, 183700, 184300, 184900,
+    185500, 186200, 186800, 187400, 188000, 188600, 189200, 189800, 190400,
+];
+
+const RANK_LABELS: [&str; 298] = [
+    "G", "G+", "F", "F+", "E", "E+", "D", "D+", "C", "C+", "B", "B+", "A", "A+", "S", "S+", "SS",
+    "SS+", "UG", "UG1", "UG2", "UG3", "UG4", "UG5", "UG6", "UG7", "UG8", "UG9", "UF", "UF1", "UF2",
+    "UF3", "UF4", "UF5", "UF6", "UF7", "UF8", "UF9", "UE", "UE1", "UE2", "UE3", "UE4", "UE5", "UE6",
+    "UE7", "UE8", "UE9", "UD", "UD1", "UD2", "UD3", "UD4", "UD5", "UD6", "UD7", "UD8", "UD9", "UC",
+    "UC1", "UC2", "UC3", "UC4", "UC5", "UC6", "UC7", "UC8", "UC9", "UB", "UB1", "UB2", "UB3", "UB4",
+    "UB5", "UB6", "UB7", "UB8", "UB9", "UA", "UA1", "UA2", "UA3", "UA4", "UA5", "UA6", "UA7", "UA8",
+    "UA9", "US", "US1", "US2", "US3", "US4", "US5", "US6", "US7", "US8", "US9", "LG", "LG1", "LG2",
+    "LG3", "LG4", "LG5", "LG6", "LG7", "LG8", "LG9", "LG10", "LG11", "LG12", "LG13", "LG14", "LG15",
+    "LG16", "LG17", "LG18", "LG19", "LG20", "LG21", "LG22", "LG23", "LG24", "LF", "LF1", "LF2",
+    "LF3", "LF4", "LF5", "LF6", "LF7", "LF8", "LF9", "LF10", "LF11", "LF12", "LF13", "LF14", "LF15",
+    "LF16", "LF17", "LF18", "LF19", "LF20", "LF21", "LF22", "LF23", "LF24", "LE", "LE1", "LE2", "LE3",
+    "LE4", "LE5", "LE6", "LE7", "LE8", "LE9", "LE10", "LE11", "LE12", "LE13", "LE14", "LE15", "LE16",
+    "LE17", "LE18", "LE19", "LE20", "LE21", "LE22", "LE23", "LE24", "LD", "LD1", "LD2", "LD3", "LD4",
+    "LD5", "LD6", "LD7", "LD8", "LD9", "LD10", "LD11", "LD12", "LD13", "LD14", "LD15", "LD16", "LD17",
+    "LD18", "LD19", "LD20", "LD21", "LD22", "LD23", "LD24", "LC", "LC1", "LC2", "LC3", "LC4", "LC5",
+    "LC6", "LC7", "LC8", "LC9", "LC10", "LC11", "LC12", "LC13", "LC14", "LC15", "LC16", "LC17", "LC18",
+    "LC19", "LC20", "LC21", "LC22", "LC23", "LC24", "LB", "LB1", "LB2", "LB3", "LB4", "LB5", "LB6",
+    "LB7", "LB8", "LB9", "LB10", "LB11", "LB12", "LB13", "LB14", "LB15", "LB16", "LB17", "LB18",
+    "LB19", "LB20", "LB21", "LB22", "LB23", "LB24", "LA", "LA1", "LA2", "LA3", "LA4", "LA5", "LA6",
+    "LA7", "LA8", "LA9", "LA10", "LA11", "LA12", "LA13", "LA14", "LA15", "LA16", "LA17", "LA18",
+    "LA19", "LA20", "LA21", "LA22", "LA23", "LA24", "LS", "LS1", "LS2", "LS3", "LS4", "LS5", "LS6",
+    "LS7", "LS8", "LS9", "LS10", "LS11", "LS12", "LS13", "LS14", "LS15", "LS16", "LS17", "LS18",
+    "LS19", "LS20", "LS21", "LS22", "LS23", "LS24",
+];
+
+static STAT_SCORES: std::sync::OnceLock<Vec<i32>> = std::sync::OnceLock::new();
+
+fn stat_scores_table() -> &'static [i32] {
+    STAT_SCORES.get_or_init(build_stat_scores)
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct RankAptitudes {
+    pub turf: String,
+    pub dirt: String,
+    pub sprint: String,
+    pub mile: String,
+    pub medium: String,
+    pub long: String,
+    pub front: String,
+    pub pace: String,
+    pub late: String,
+    pub end: String,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct SkillScoreInput {
+    pub eval_pt: i32,
+    pub check_type: String,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct RankResult {
+    pub total_score: i32,
+    pub stat_score: i32,
+    pub skill_score: i32,
+    pub unique_bonus: i32,
+    pub rank_label: String,
+    pub rank_image_index: i32,
+}
+
+fn build_stat_scores() -> Vec<i32> {
+    let mut sc = vec![0i32; (MAX_STAT_VALUE + 1) as usize];
+    let mut raw = 0i32;
+    let mut idx = 0usize;
+    for c in 1..=1200 {
+        idx = if c <= 49 {
+            0
+        } else if c <= 99 {
+            1
+        } else if c % 50 == 0 {
+            idx + 1
+        } else {
+            idx
+        };
+        raw += STAT_RATE_LOW[idx];
+        sc[c as usize] = (raw + 5) / 10;
+    }
+    raw = 38413;
+    idx = 0;
+    for c in 1201..=2000 {
+        idx = if c <= 1209 {
+            0
+        } else if c <= 1219 {
+            1
+        } else if c % 10 == 0 {
+            idx + 1
+        } else {
+            idx
+        };
+        raw += STAT_RATE_MID[idx];
+        sc[c as usize] = (raw + 5) / 10;
+    }
+    raw = 142796;
+    idx = 0;
+    let mut rate = 183i32;
+    for c in 2001..=MAX_STAT_VALUE {
+        if idx >= 25 {
+            rate += 1;
+            idx = 0;
+        }
+        raw += rate;
+        idx += 1;
+        sc[c as usize] = (raw + 5) / 10;
+    }
+    sc
+}
+
+fn js_round(x: f64) -> i32 {
+    (x + 0.5).floor() as i32
+}
+
+fn grade_multiplier(grade: &str) -> f64 {
+    match grade.to_uppercase().as_str() {
+        "S" | "A" => MULT_GOOD,
+        "B" | "C" => MULT_AVERAGE,
+        "D" | "E" | "F" => MULT_BAD,
+        _ => MULT_TERRIBLE,
+    }
+}
+
+fn grade_for_role<'a>(role: &str, apt: &'a RankAptitudes) -> Option<&'a str> {
+    match role {
+        "turf" => Some(apt.turf.as_str()),
+        "dirt" => Some(apt.dirt.as_str()),
+        "sprint" => Some(apt.sprint.as_str()),
+        "mile" => Some(apt.mile.as_str()),
+        "medium" => Some(apt.medium.as_str()),
+        "long" => Some(apt.long.as_str()),
+        "front" => Some(apt.front.as_str()),
+        "pace" => Some(apt.pace.as_str()),
+        "late" => Some(apt.late.as_str()),
+        "end" => Some(apt.end.as_str()),
+        _ => None,
+    }
+}
+
+fn role_multiplier(role: &str, apt: &RankAptitudes) -> Option<f64> {
+    let grade = grade_for_role(role, apt)?;
+    Some(grade_multiplier(grade))
+}
+
+fn rank_index_for_score(total_score: i32) -> usize {
+    if total_score <= 0 {
+        return 0;
+    }
+    let mut idx = 0usize;
+    for (i, min) in RANK_MINS.iter().enumerate() {
+        if total_score >= *min {
+            idx = i;
+        } else {
+            break;
+        }
+    }
+    idx
+}
+
+pub fn stat_score(value: i32) -> i32 {
+    let clamped = value.clamp(0, MAX_STAT_VALUE) as usize;
+    stat_scores_table()[clamped]
+}
+
+pub fn unique_bonus(unique_level: i32) -> i32 {
+    if unique_level <= 0 {
+        0
+    } else {
+        170 * unique_level
+    }
+}
+
+pub fn score_to_rank_label(total_score: i32) -> &'static str {
+    RANK_LABELS[rank_index_for_score(total_score)]
+}
+
+pub fn rank_label_to_image_index(label: &str) -> i32 {
+    RANK_LABELS
+        .iter()
+        .position(|l| *l == label)
+        .map(|i| i as i32)
+        .unwrap_or(-1)
+}
+
+pub fn evaluate_skill_score(base_eval_pt: i32, check_type: &str, aptitudes: &RankAptitudes) -> i32 {
+    let ct = check_type.trim().to_lowercase();
+    if ct.is_empty() {
+        return base_eval_pt;
+    }
+    if ct.contains('/') {
+        let mut group_max: HashMap<String, f64> = HashMap::new();
+        for part in ct.split('/') {
+            let role = part.trim();
+            if role.is_empty() {
+                continue;
+            }
+            let Some(mult) = role_multiplier(role, aptitudes) else {
+                continue;
+            };
+            let group = role_group(role);
+            group_max
+                .entry(group)
+                .and_modify(|prev| {
+                    if mult > *prev {
+                        *prev = mult;
+                    }
+                })
+                .or_insert(mult);
+        }
+        if group_max.is_empty() {
+            return base_eval_pt;
+        }
+        let factor = group_max.values().product::<f64>();
+        return js_round(base_eval_pt as f64 * factor);
+    }
+    if let Some(mult) = role_multiplier(&ct, aptitudes) {
+        js_round(base_eval_pt as f64 * mult)
+    } else {
+        base_eval_pt
+    }
+}
+
+pub fn estimate_rank(
+    speed: i32,
+    stamina: i32,
+    power: i32,
+    guts: i32,
+    wit: i32,
+    skills: &[SkillScoreInput],
+    aptitudes: &RankAptitudes,
+    unique_level: i32,
+) -> RankResult {
+    let stat_total =
+        stat_score(speed) + stat_score(stamina) + stat_score(power) + stat_score(guts) + stat_score(wit);
+    let skill_total: i32 = skills
+        .iter()
+        .map(|s| evaluate_skill_score(s.eval_pt, &s.check_type, aptitudes))
+        .sum();
+    let bonus = unique_bonus(unique_level);
+    let total = stat_total + skill_total + bonus;
+    let idx = rank_index_for_score(total);
+    RankResult {
+        total_score: total,
+        stat_score: stat_total,
+        skill_score: skill_total,
+        unique_bonus: bonus,
+        rank_label: RANK_LABELS[idx].to_string(),
+        rank_image_index: idx as i32,
+    }
+}

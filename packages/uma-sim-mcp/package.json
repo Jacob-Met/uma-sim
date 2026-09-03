@@ -1,0 +1,12 @@
+﻿{
+    "name":  "uma-sim-mcp",
+    "version":  "0.1.0",
+    "private":  true,
+    "description":  "MCP-style wrapper over uma-sim REST API",
+    "type":  "module",
+    "scripts":  {
+                    "start":  "node server.js",
+                    "mcp":  "node mcp-stdio.js"
+                },
+    "license":  "GPL-3.0"
+}

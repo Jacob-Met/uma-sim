@@ -1,0 +1,52 @@
+{
+  "provenance": "GameTora / knowledge skill payloads; effect type numbers match master.mdb / umalator SkillType",
+  "effect_type_ids": {
+    "9": "Recovery (heal)",
+    "21": "CurrentSpeed",
+    "22": "CurrentSpeedWithNaturalDeceleration",
+    "27": "TargetSpeed",
+    "28": "LaneMovementSpeed (no forward-physics effect in solo)",
+    "31": "Accel"
+  },
+  "modeled_effect_types": [1, 2, 3, 4, 5, 9, 10, 14, 21, 22, 27, 28, 31],
+  "modeled_notes": {
+    "1": "green speed-up (gate)",
+    "2": "green stamina-up (gate; HP re-inited)",
+    "3": "green power-up (gate)",
+    "4": "green guts-up (gate)",
+    "5": "green wisdom-up (gate)",
+    "9": "HP recovery (heal); hp_per dynamic gate",
+    "10": "multiply start delay",
+    "14": "set start delay",
+    "21": "current speed modifier",
+    "22": "current-speed with natural deceleration — fork oneFrameAccel unused; applied as current-speed mod for oracle parity",
+    "27": "target speed",
+    "28": "lane-move skill → wiki MoveLaneModifier (0.0002*power)^0.5 on target while active; lateral lane model still deferred",
+    "31": "acceleration"
+  },
+  "not_modeled_effect_types": [
+    {"type": 6, "note": "multiply start delay (alt id in some tables)"},
+    {"type": 8, "note": "specialty / unmapped"},
+    {"type": 13, "note": "activate random gold"},
+    {"type": 29, "note": "pending"},
+    {"type": 32, "note": "scaling / specialty"},
+    {"type": 35, "note": "change lane (full geometry deferred)"},
+    {"type": 37, "note": "activate random gold"},
+    {"type": 38, "note": "pending"},
+    {"type": 41, "note": "pending"},
+    {"type": 42, "note": "extend evolved duration"},
+    {"type": 48, "note": "pending"},
+    {"type": 49, "note": "pending"},
+    {"type": 501, "note": "pending"},
+    {"type": 502, "note": "pending"},
+    {"type": 503, "note": "pending"}
+  ],
+  "condition_parser": {
+    "status": "parses all distinct condition/precondition strings in knowledge/canonical/by_kind/skill.json",
+    "unique_strings_tested": "see cargo test all_skill_condition_strings_parse"
+  },
+  "gates": {
+    "case3_200701": "mile late-race accel (type 31); finish within 1 frame of oracle median 76.13333333333414; also beats no-skill baseline"
+  },
+  "note_200501": "type 28 Lane Legerdemain — oracle finish identical with/without skill when laneMovement off; not a valid accel differential gate"
+}

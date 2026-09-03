@@ -1,0 +1,14 @@
+﻿{
+    "name":  "uma-sim-cli",
+    "version":  "0.1.0",
+    "private":  true,
+    "description":  "CLI wrapper for uma-sim Rust engine",
+    "scripts":  {
+                    "test":  "cargo test --manifest-path ../../uma-sim-core/Cargo.toml",
+                    "start":  "node run.js start",
+                    "fast":  "node run.js fast",
+                    "tui":  "node tui.js"
+                },
+    "type":  "module",
+    "license":  "GPL-3.0"
+}

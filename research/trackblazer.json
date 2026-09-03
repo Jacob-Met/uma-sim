@@ -1,0 +1,122 @@
+{
+  "schema_version": 2,
+  "scenario_id": "trackblazer",
+  "bot_alias": "Trackblazer",
+  "as_of": "2026-09-01",
+  "sources": ["knowledge/scenarios/trackblazer.md", "uma-android-automation TrackblazerShopList.kt"],
+  "hard_caps": { "speed": 1200, "stamina": 1900, "power": 1200, "guts": 1200, "wit": 1500 },
+  "spark": { "stamina": true, "guts": true },
+  "fan_target_optional_race": 5000,
+  "climax": {
+    "race_count": 3,
+    "victory_points": true,
+    "victory_points_per_win": 100,
+    "note": "Sim models climax_1 + climax_3 (matches Kotlin oracle); climax_2 still not_modeled. VP accrues on climax wins into tb_victory_points."
+  },
+  "shop": {
+    "resource_key": "tb_coins",
+    "interval_turns": 6,
+    "min_coins_to_open": 50,
+    "offers_per_shop": 3,
+    "coins_per_optional_race": 40,
+    "coins_per_climax_race": 80,
+    "sale_discount_pct": 0,
+    "sale_every_n_shops": 0,
+    "sale_note": "Set sale_discount_pct + sale_every_n_shops > 0 to enable purchase discounts (default off for golden parity)."
+  },
+  "mandatory_races": [
+    { "race_id": "debut", "name": "Junior Make Debut", "turn": 1, "year": 1, "month": 6, "half": 2 },
+    { "race_id": "climax_1", "name": "Twinkle Star Climax 1", "turn": 69, "year": 3, "month": 11, "half": 1 },
+    { "race_id": "climax_3", "name": "Twinkle Star Climax 3", "turn": 72, "year": 3, "month": 12, "half": 2 }
+  ],
+  "shop_items": [
+    { "id": "speed_charm", "name": "Speed Charm", "cost": 50, "effect": "Speed +20", "category": "Stats" },
+    { "id": "stamina_charm", "name": "Stamina Charm", "cost": 50, "effect": "Stamina +20", "category": "Stats" },
+    { "id": "power_charm", "name": "Power Charm", "cost": 50, "effect": "Power +20", "category": "Stats" },
+    { "id": "speed_scroll", "name": "Speed Scroll", "cost": 30, "effect": "Speed +15", "category": "Stats" },
+    { "id": "stamina_scroll", "name": "Stamina Scroll", "cost": 30, "effect": "Stamina +15", "category": "Stats" },
+    { "id": "power_scroll", "name": "Power Scroll", "cost": 30, "effect": "Power +15", "category": "Stats" },
+    { "id": "guts_scroll", "name": "Guts Scroll", "cost": 30, "effect": "Guts +15", "category": "Stats" },
+    { "id": "wit_scroll", "name": "Wit Scroll", "cost": 30, "effect": "Wit +15", "category": "Stats" },
+    { "id": "vita_20", "name": "Vita 20", "cost": 35, "effect": "Energy +20", "category": "Energy and Motivation" },
+    { "id": "vita_40", "name": "Vita 40", "cost": 55, "effect": "Energy +40", "category": "Energy and Motivation" },
+    { "id": "vita_65", "name": "Vita 65", "cost": 75, "effect": "Energy +65", "category": "Energy and Motivation" },
+    { "id": "plain_cupcake", "name": "Plain Cupcake", "cost": 30, "effect": "Motivation +1", "category": "Energy and Motivation" },
+    { "id": "berry_cupcake", "name": "Berry Sweet Cupcake", "cost": 55, "effect": "Motivation +2", "category": "Energy and Motivation" },
+    {
+      "id": "coaching_megaphone",
+      "name": "Coaching Megaphone",
+      "cost": 40,
+      "effect": "Training bonus +20% for 4 turns",
+      "category": "Training Effects",
+      "mechanics": { "training_bonus_pct": 20, "training_bonus_turns": 4 }
+    },
+    {
+      "id": "motivating_megaphone",
+      "name": "Motivating Megaphone",
+      "cost": 55,
+      "effect": "Training bonus +40% for 3 turns",
+      "category": "Training Effects",
+      "mechanics": { "training_bonus_pct": 40, "training_bonus_turns": 3 }
+    },
+    {
+      "id": "empowering_megaphone",
+      "name": "Empowering Megaphone",
+      "cost": 70,
+      "effect": "Training bonus +60% for 2 turns",
+      "category": "Training Effects",
+      "mechanics": { "training_bonus_pct": 60, "training_bonus_turns": 2 }
+    },
+    {
+      "id": "good_luck_charm",
+      "name": "Good-Luck Charm",
+      "cost": 40,
+      "effect": "Training failure rate set to 0% (One turn)",
+      "category": "Training Effects",
+      "mechanics": { "zero_fail_turns": 1 }
+    },
+    {
+      "id": "speed_training_app",
+      "name": "Speed Training Application",
+      "cost": 150,
+      "effect": "Speed Training Level +1",
+      "category": "Training Facilities",
+      "mechanics": { "facility": "speed" }
+    },
+    {
+      "id": "stamina_training_app",
+      "name": "Stamina Training Application",
+      "cost": 150,
+      "effect": "Stamina Training Level +1",
+      "category": "Training Facilities",
+      "mechanics": { "facility": "stamina" }
+    },
+    {
+      "id": "energy_drink_max_ex",
+      "name": "Energy Drink MAX EX",
+      "cost": 50,
+      "effect": "Maximum energy +8",
+      "category": "Energy and Motivation",
+      "mechanics": { "max_energy": 8 }
+    },
+    { "id": "skip", "name": "Skip", "cost": 0, "effect": "Energy +10", "category": "Skip" }
+  ],
+  "sim_implementation_status": {
+    "implemented": [
+      "coin gain on races",
+      "pro shop event every 6 turns",
+      "catalog-driven shop offers (stats, energy, megaphones, training apps)",
+      "megaphone training bonus + good-luck zero fail buffs",
+      "climax victory points (tb_victory_points)",
+      "shop sale discounts (research-configurable; default off)",
+      "shop consumable effects via EventEffectApplier (stats/energy/mood)"
+    ],
+    "not_modeled": ["rival encounters", "epithet system", "inventory quick-use", "climax_2 mandatory race"],
+    "parity_tests_for_not_modeled": {
+      "rival encounters": "tests/unity_trackblazer_mechanics.rs::trackblazer_rival_gap_documented",
+      "epithet system": "tests/unity_trackblazer_mechanics.rs::trackblazer_epithet_gap_documented",
+      "inventory quick-use": "tests/unity_trackblazer_mechanics.rs::trackblazer_inventory_gap_documented",
+      "climax_2 mandatory race": "tests/unity_trackblazer_mechanics.rs::trackblazer_climax2_gap_documented"
+    }
+  }
+}

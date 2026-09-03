@@ -1,0 +1,183 @@
+{
+  "failures": [],
+  "notes": [
+    "Sample corpus started — not full V3 checkpoint replay.",
+    "Upstream checkpoint makeBuilder uses NoopHp + asitame/staminasyoubu; fixture expected_finish uses GameHp + no those hooks to match our engine.",
+    "Failures default attribution=ours until confirmed upstream-known-issue.",
+    "Harness mapping confirmed vs oracle RaceRequest: mood on horse+builder, ground string→enum, seed>>>0 / seed_u32.",
+    "2026-09-02: empty-HP target overrides last-spurt; exhausted accel=-1.2; slope mods after target (fixes cp_0/cp_1 crawl). Skill 910391 = catalog data gap (inherited-only in GameTora).",
+    "2026-09-02b: Virtual default-pacer designates Oonige/Nige focus correctly (SpeedUp+second_pos); pos-keep −2/−3 cooldowns were ignored by timer sentinel (fixes cp_3/cp_4 and restores cp_9/cp_13/cp_14).",
+    "2026-09-02c: Evolution (rarity 6) must wisdom-roll (only Unique=5 skips) — fixes cp_6. 910391 indexed from gene_version. Remaining fails cp_7/8/10 are physics near-misses with inert skill gain vs oracle."
+  ],
+  "provenance": "R8.5 sample corpus triage (not full V3). Compare clean-room finish vs upstream-extracted expected_finish.",
+  "results": [
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 88.86666666666675,
+      "id": "cp_0_10703_no_skill",
+      "kind": "no_skill",
+      "ours_finish": 88.86666666666675,
+      "pace_effects": false,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 106.46666666666574,
+      "id": "cp_1_10204_no_skill",
+      "kind": "no_skill",
+      "ours_finish": 106.46666666666574,
+      "pace_effects": false,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 65.66666666666806,
+      "id": "cp_2_10702_no_skill",
+      "kind": "no_skill",
+      "ours_finish": 65.66666666666806,
+      "pace_effects": false,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 59.13333333333459,
+      "id": "cp_3_10202_no_skill",
+      "kind": "no_skill",
+      "ours_finish": 59.13333333333459,
+      "pace_effects": true,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 1.4210854715202004e-14,
+      "expected_finish": 122.39999999999816,
+      "id": "cp_4_11007_no_skill",
+      "kind": "no_skill",
+      "ours_finish": 122.39999999999817,
+      "pace_effects": true,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 59.73333333333462,
+      "id": "cp_5_10202_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 59.73333333333462,
+      "pace_effects": false,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 1.394503273193095,
+      "delta_s": 1.4210854715202004e-14,
+      "expected_finish": 108.39999999999895,
+      "id": "cp_6_10612_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 108.39999999999897,
+      "pace_effects": false,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 1.4210854715202004e-14,
+      "expected_finish": 105.19999999999916,
+      "id": "cp_7_10905_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 105.19999999999915,
+      "pace_effects": false,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 91.9999999999999,
+      "id": "cp_8_10814_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 91.9999999999999,
+      "pace_effects": false,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 3.3730368809747233,
+      "delta_s": 0.0,
+      "expected_finish": 176.66666666666177,
+      "id": "cp_9_10608_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 176.66666666666177,
+      "pace_effects": true,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 129.59999999999778,
+      "id": "cp_10_10506_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 129.59999999999778,
+      "pace_effects": true,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.06666666666666288,
+      "expected_finish": 66.46666666666802,
+      "id": "cp_11_10801_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 66.53333333333468,
+      "pace_effects": true,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 124.79999999999804,
+      "id": "cp_12_10809_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 124.79999999999804,
+      "pace_effects": true,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.06666666666666288,
+      "expected_finish": 89.26666666666672,
+      "id": "cp_13_10503_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 89.20000000000006,
+      "pace_effects": true,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 1.0636010080934284,
+      "delta_s": 1.4210854715202004e-14,
+      "expected_finish": 121.46666666666488,
+      "id": "cp_14_11007_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 121.46666666666489,
+      "pace_effects": true,
+      "status": "pass"
+    },
+    {
+      "checkpoint_gain0": 0.0,
+      "delta_s": 0.0,
+      "expected_finish": 66.46666666666802,
+      "id": "cp_15_10910_type_27_31_only",
+      "kind": "type_27_31_only",
+      "ours_finish": 66.46666666666802,
+      "pace_effects": true,
+      "status": "pass"
+    }
+  ],
+  "sample": "research/race_checkpoint_sample.json",
+  "summary": {
+    "fail": 0,
+    "pass": 16,
+    "skip": 0,
+    "total": 16
+  },
+  "tolerance_s": 0.06666666666666667
+}

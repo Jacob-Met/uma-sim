@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-01",
+  "energy": {
+    "max_default": 100,
+    "rest_gain": { "min": 35, "typical": 50, "max": 70 },
+    "recreation_gain": { "min": 10, "typical": 20, "max": 30 },
+    "confidence": "medium"
+  },
+  "mood": {
+    "levels": ["GREAT", "GOOD", "NORMAL", "BAD", "AWFUL"],
+    "rest_upgrade_chance": 0.4,
+    "recreation_upgrade_chance": 0.25,
+    "training_fail_downgrade": 1,
+    "confidence": "estimated"
+  }
+}

@@ -1,0 +1,2983 @@
+{
+    "vectors": [
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 5,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 10,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 20,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 40,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 100,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 5,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 10,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 20,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 40,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 100,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 5,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 10,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 20,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 40,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.25
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 100,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.1
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 5,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 10,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 20,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 40,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 100,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 5,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 10,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 20,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 40,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 100,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 5,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 10,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 20,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 40,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 100,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 5,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 10,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 20,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 40,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 100,
+                "statCap": 1200
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 5,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 10,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 20,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 40,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 100,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 5,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 10,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 20,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 40,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 100,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 5,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 10,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 20,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.75
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 40,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.625
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 100,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.55
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 5,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 10,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 20,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 40,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 100,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 5,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 10,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 20,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.25
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 40,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.125
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 100,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.05
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 5,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 10,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 20,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 40,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 100,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 5,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 10,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 20,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 40,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 100,
+                "statCap": 1400
+            },
+            "expected": {
+                "value": 0.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 5,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 10,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 20,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 40,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 800,
+                "statGain": 100,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 5,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 10,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 20,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 40,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1000,
+                "statGain": 100,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 5,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 10,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 1.0
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 20,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.75
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 40,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.625
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1190,
+                "statGain": 100,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.55
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 5,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 10,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 20,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 40,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1300,
+                "statGain": 100,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 5,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 10,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 20,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 40,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1390,
+                "statGain": 100,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.35
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 5,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 10,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 20,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 40,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1400,
+                "statGain": 100,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.3
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 5,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 10,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 20,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.5
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 40,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.25
+            }
+        },
+        {
+            "function": "softCapEffectivenessMultiplier",
+            "input": {
+                "currentStat": 1440,
+                "statGain": 100,
+                "statCap": 1460
+            },
+            "expected": {
+                "value": 0.1
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 66.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 69.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 72.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 82.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 132.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 138.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 145.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 165.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 198.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 207.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 217.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "GREAT",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 247.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 60.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 63.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 66.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 75.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 121.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 127.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 133.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 151.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 181.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 190.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 199.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "GOOD",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 226.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 55.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 57.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 60.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 68.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 110.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 115.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 121.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 137.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 165.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 173.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 181.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "NORMAL",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 206.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "BAD",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 49.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "BAD",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 51.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "BAD",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 54.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "BAD",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 61.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "BAD",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 99.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "BAD",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 103.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "BAD",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 108.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "BAD",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 123.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "BAD",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 148.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "BAD",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 155.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "BAD",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 163.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "BAD",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 185.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 44.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 46.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 48.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 50.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 55.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 88.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 92.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 96.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 100.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 110.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 0,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 132.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 1,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 138.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 2,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 145.0
+            }
+        },
+        {
+            "function": "applyTrainingMultipliers",
+            "input": {
+                "baseGain": 150.0,
+                "mood": "AWFUL",
+                "numCharactersPresent": 5,
+                "friendshipBonusPct1": 10.0,
+                "friendshipBonusPct2": 15.0
+            },
+            "expected": {
+                "value": 165.0
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 12,
+                "primary": "SPEED",
+                "statGain": 20,
+                "rainbow": 0
+            },
+            "expected": {
+                "value": 17.46153846153846
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 12,
+                "primary": "STAMINA",
+                "statGain": 20,
+                "rainbow": 0
+            },
+            "expected": {
+                "value": 17.46153846153846
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 12,
+                "primary": "POWER",
+                "statGain": 20,
+                "rainbow": 0
+            },
+            "expected": {
+                "value": 17.46153846153846
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 12,
+                "primary": "GUTS",
+                "statGain": 20,
+                "rainbow": 0
+            },
+            "expected": {
+                "value": 17.46153846153846
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 12,
+                "primary": "WIT",
+                "statGain": 20,
+                "rainbow": 0
+            },
+            "expected": {
+                "value": 17.46153846153846
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 36,
+                "primary": "SPEED",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 36,
+                "primary": "STAMINA",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 36,
+                "primary": "POWER",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 36,
+                "primary": "GUTS",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 36,
+                "primary": "WIT",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 60,
+                "primary": "SPEED",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 60,
+                "primary": "STAMINA",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 60,
+                "primary": "POWER",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 60,
+                "primary": "GUTS",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "calculateRawTrainingScore",
+            "input": {
+                "day": 60,
+                "primary": "WIT",
+                "statGain": 20,
+                "rainbow": 1
+            },
+            "expected": {
+                "value": 34.92307692307692
+            }
+        },
+        {
+            "function": "parseEventRewardText",
+            "input": {
+                "text": "Energy +10\nMood +1"
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 10,
+                    "energyIsRange": false,
+                    "moodDelta": 1,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": false
+                }
+            }
+        },
+        {
+            "function": "parseEventRewardText",
+            "input": {
+                "text": "Speed +5\nSkill points +15"
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 0,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {
+                        "SPEED": 5
+                    },
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 15,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": false
+                }
+            }
+        },
+        {
+            "function": "parseEventRewardText",
+            "input": {
+                "text": "Energy -10\nSpeed +15"
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": -10,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {
+                        "SPEED": 15
+                    },
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": false
+                }
+            }
+        },
+        {
+            "function": "parseEventRewardText",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1"
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 15,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "parseEventRewardText",
+            "input": {
+                "text": "All stats +3\nSkill points +10"
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 0,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 3,
+                    "skillPts": 10,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": false
+                }
+            }
+        },
+        {
+            "function": "parseEventRewardText",
+            "input": {
+                "text": "Dance +5\nPassion +10"
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 0,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {
+                        "dance": 5,
+                        "passion": 10
+                    },
+                    "randomBranch": false
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.0,
+                "energyRoll": 0.0
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 30,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.1,
+                "energyRoll": 0.7
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 30,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.2,
+                "energyRoll": 0.4
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 30,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.3,
+                "energyRoll": 0.1
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 30,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.4,
+                "energyRoll": 0.8
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 30,
+                    "energyIsRange": false,
+                    "moodDelta": 0,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.5,
+                "energyRoll": 0.5
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 0,
+                    "energyIsRange": false,
+                    "moodDelta": 1,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.6,
+                "energyRoll": 0.2
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 0,
+                    "energyIsRange": false,
+                    "moodDelta": 1,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.7,
+                "energyRoll": 0.9
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 0,
+                    "energyIsRange": false,
+                    "moodDelta": 1,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.8,
+                "energyRoll": 0.6
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 0,
+                    "energyIsRange": false,
+                    "moodDelta": 1,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "sampleEventReward",
+            "input": {
+                "text": "Randomly either\n----------\nEnergy +30\n----------\nMood +1",
+                "branchRoll": 0.9,
+                "energyRoll": 0.3
+            },
+            "expected": {
+                "reading": {
+                    "energyDelta": 0,
+                    "energyIsRange": false,
+                    "moodDelta": 1,
+                    "stats": {},
+                    "randomStatGain": 0,
+                    "allStatsGain": 0,
+                    "skillPts": 0,
+                    "hints": [],
+                    "bond": 0,
+                    "performanceTokens": {},
+                    "randomBranch": true
+                }
+            }
+        },
+        {
+            "function": "scoreEventOption",
+            "input": {
+                "day": 24,
+                "energy": 80,
+                "text": "Energy +10\nMood +1"
+            },
+            "expected": {
+                "value": 90.0
+            }
+        },
+        {
+            "function": "scoreEventOption",
+            "input": {
+                "day": 24,
+                "energy": 80,
+                "text": "Speed +15\nSkill points +20"
+            },
+            "expected": {
+                "value": 71.0
+            }
+        },
+        {
+            "function": "scoreEventOption",
+            "input": {
+                "day": 24,
+                "energy": 80,
+                "text": "Energy -15\nStamina +25"
+            },
+            "expected": {
+                "value": 43.5
+            }
+        },
+        {
+            "function": "scoreLessonOption",
+            "input": {
+                "index": 0
+            },
+            "expected": {
+                "value": 139.2125
+            }
+        },
+        {
+            "function": "scoreLessonOption",
+            "input": {
+                "index": 1
+            },
+            "expected": {
+                "value": 198.9
+            }
+        },
+        {
+            "function": "scoreLessonOption",
+            "input": {
+                "index": 2
+            },
+            "expected": {
+                "value": 22.1
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 0
+            },
+            "expected": {
+                "score": 0
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 25
+            },
+            "expected": {
+                "score": 13
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 50
+            },
+            "expected": {
+                "score": 25
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 75
+            },
+            "expected": {
+                "score": 45
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 100
+            },
+            "expected": {
+                "score": 66
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 125
+            },
+            "expected": {
+                "score": 91
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 150
+            },
+            "expected": {
+                "score": 116
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 175
+            },
+            "expected": {
+                "score": 148
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 200
+            },
+            "expected": {
+                "score": 181
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 225
+            },
+            "expected": {
+                "score": 221
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 250
+            },
+            "expected": {
+                "score": 261
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 275
+            },
+            "expected": {
+                "score": 306
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 300
+            },
+            "expected": {
+                "score": 352
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 325
+            },
+            "expected": {
+                "score": 404
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 350
+            },
+            "expected": {
+                "score": 457
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 375
+            },
+            "expected": {
+                "score": 517
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 400
+            },
+            "expected": {
+                "score": 577
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 425
+            },
+            "expected": {
+                "score": 642
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 450
+            },
+            "expected": {
+                "score": 707
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 475
+            },
+            "expected": {
+                "score": 777
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 500
+            },
+            "expected": {
+                "score": 847
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 525
+            },
+            "expected": {
+                "score": 920
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 550
+            },
+            "expected": {
+                "score": 993
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 575
+            },
+            "expected": {
+                "score": 1068
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 600
+            },
+            "expected": {
+                "score": 1143
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 625
+            },
+            "expected": {
+                "score": 1220
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 650
+            },
+            "expected": {
+                "score": 1298
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 675
+            },
+            "expected": {
+                "score": 1380
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 700
+            },
+            "expected": {
+                "score": 1463
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 725
+            },
+            "expected": {
+                "score": 1548
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 750
+            },
+            "expected": {
+                "score": 1633
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 775
+            },
+            "expected": {
+                "score": 1721
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 800
+            },
+            "expected": {
+                "score": 1808
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 825
+            },
+            "expected": {
+                "score": 1906
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 850
+            },
+            "expected": {
+                "score": 2004
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 875
+            },
+            "expected": {
+                "score": 2106
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 900
+            },
+            "expected": {
+                "score": 2209
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 925
+            },
+            "expected": {
+                "score": 2314
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 950
+            },
+            "expected": {
+                "score": 2419
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 975
+            },
+            "expected": {
+                "score": 2526
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1000
+            },
+            "expected": {
+                "score": 2635
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1025
+            },
+            "expected": {
+                "score": 2765
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1050
+            },
+            "expected": {
+                "score": 2895
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1075
+            },
+            "expected": {
+                "score": 3033
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1100
+            },
+            "expected": {
+                "score": 3171
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1125
+            },
+            "expected": {
+                "score": 3336
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1150
+            },
+            "expected": {
+                "score": 3501
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1175
+            },
+            "expected": {
+                "score": 3671
+            }
+        },
+        {
+            "function": "statScore",
+            "input": {
+                "value": 1200
+            },
+            "expected": {
+                "score": 3841
+            }
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+//! Port of Kotlin `LegacyApplicatorTest.kt` (+ inheritance helpers from formula calibration).
+
+mod common;
+
+use std::sync::Mutex;
+
+use common::base_state;
+use uma_sim_core::legacy::{
+    LegacyApplicator, LegacyDeckConfig, LegacyFactorContext, LegacyFactorMeta,
+};
+use uma_sim_core::state::{LegacyState, RunMeta, SimSettings, TraineeStats};
+use uma_sim_core::SimEngine;
+
+static TEST_LOCK: Mutex<()> = Mutex::new(());
+
+fn pink_race_lookup(id: &str) -> Option<LegacyFactorMeta> {
+    if id.starts_with("factor:pink:") {
+        Some(LegacyFactorMeta {
+            id: id.into(),
+            category: "pink".into(),
+            stat_key: None,
+            skill_id: None,
+            pink_tag: Some("turf".into()),
+            race_name: None,
+        })
+    } else if id.starts_with("factor:race:") {
+        Some(LegacyFactorMeta {
+            id: id.into(),
+            category: "race".into(),
+            stat_key: None,
+            skill_id: None,
+            pink_tag: None,
+            race_name: Some("February S".into()),
+        })
+    } else {
+        None
+    }
+}
+
+fn skill_lookup(id: &str) -> Option<LegacyFactorMeta> {
+    match id {
+        "factor:skill:20001" => Some(LegacyFactorMeta {
+            id: id.into(),
+            category: "skill".into(),
+            stat_key: None,
+            skill_id: Some("skill:200012".into()),
+            pink_tag: None,
+            race_name: None,
+        }),
+        "factor:blue:1" => Some(LegacyFactorMeta {
+            id: id.into(),
+            category: "blue".into(),
+            stat_key: Some("speed".into()),
+            skill_id: None,
+            pink_tag: None,
+            race_name: None,
+        }),
+        _ => None,
+    }
+}
+
+#[test]
+fn spark_caps_stack_per_star() {
+    let _g = TEST_LOCK.lock().unwrap();
+    let legacy =
+        LegacyApplicator::build_legacy(&["factor:blue:1@3".into(), "factor:blue:1@2".into()], Vec::new());
+    assert_eq!(legacy.spark_caps.get("speed").copied().unwrap_or(0), 100);
+}
+
+#[test]
+fn effective_cap_raises_above_base() {
+    let _g = TEST_LOCK.lock().unwrap();
+    let legacy = LegacyApplicator::build_legacy(&["factor:blue:1@3".into()], Vec::new());
+    assert_eq!(
+        LegacyApplicator::effective_stat_cap(1400, "speed", &legacy),
+        1460
+    );
+}
+
+#[test]
+fn spark_run_differs_from_ace_run() {
+    let _g = TEST_LOCK.lock().unwrap();
+    fn summary(factors: Vec<String>) -> i32 {
+        let mut engine = SimEngine::new(SimSettings {
+            speed_multiplier: 50,
+            ..Default::default()
+        });
+        let mut meta = RunMeta::new(42, "ura", "Test");
+        meta.legacy_factors = factors;
+        engine.start(meta);
+        engine.play_to_completion(500);
+        engine.state().stats.speed
+    }
+    let ace = summary(Vec::new());
+    let spark = summary(vec!["factor:blue:1@3".into(), "factor:blue:2@3".into()]);
+    assert!(spark >= ace);
+}
+
+#[test]
+fn pink_and_race_factors_tracked() {
+    let _g = TEST_LOCK.lock().unwrap();
+    LegacyFactorContext::set_lookup(Some(pink_race_lookup));
+    let legacy = LegacyApplicator::build_legacy(
+        &["factor:pink:11@2".into(), "factor:race:10001@3".into()],
+        Vec::new(),
+    );
+    assert_eq!(legacy.pink_factor_ids.len(), 1);
+    assert_eq!(legacy.race_factor_ids.len(), 1);
+    let stats = LegacyApplicator::apply_pink_aptitude(
+        TraineeStats {
+            speed: 0,
+            stamina: 0,
+            power: 0,
+            guts: 0,
+            wit: 0,
+        },
+        &legacy,
+    );
+    assert_eq!(stats.wit, 2);
+    assert_eq!(legacy.pink_aptitude_tags, vec!["turf".to_string()]);
+    assert_eq!(LegacyApplicator::race_win_skill_bonus(&legacy), 5);
+    LegacyFactorContext::set_lookup(None);
+}
+
+#[test]
+fn inheritance_choice_1_boosts_spark_stats() {
+    let _g = TEST_LOCK.lock().unwrap();
+    let mut state = base_state("ura", 13);
+    state.stats.speed = 200;
+    state.stats.stamina = 200;
+    let after = LegacyApplicator::apply_inheritance_choice(&state, 1);
+    assert_eq!(after.stats.speed, 220);
+    assert_eq!(after.stats.stamina, 220);
+}
+
+#[test]
+fn skill_factors_become_inherited_skills() {
+    let _g = TEST_LOCK.lock().unwrap();
+    LegacyDeckConfig::load_from_json(Some(
+        r#"{"inherited_skill_slots":2,"spark_stat_cap_bonus":{"per_star":20,"max_bonus":400}}"#,
+    ));
+    LegacyFactorContext::set_lookup(Some(skill_lookup));
+    let legacy = LegacyApplicator::build_legacy(
+        &["factor:blue:1@3".into(), "factor:skill:20001@2".into()],
+        Vec::new(),
+    );
+    assert_eq!(legacy.inherited_skill_ids, vec!["skill:200012".to_string()]);
+    assert_eq!(legacy.spark_caps.get("speed").copied().unwrap_or(0), 60);
+    LegacyFactorContext::set_lookup(None);
+}
+
+#[test]
+fn inheritance_choice_applies_skills() {
+    let _g = TEST_LOCK.lock().unwrap();
+    let mut state = base_state("ura", 13);
+    state.legacy = LegacyState {
+        inherited_skill_ids: vec!["skill:200012".into()],
+        ..Default::default()
+    };
+    let after = LegacyApplicator::apply_inheritance_choice(&state, 0);
+    assert_eq!(after.learned_skill_ids, vec!["skill:200012".to_string()]);
+}

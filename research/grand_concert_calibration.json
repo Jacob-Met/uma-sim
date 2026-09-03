@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "scenario_id": "grand_concert",
+  "as_of": "2026-09-01",
+  "confidence_tier": "community_high",
+  "source": "research/grand_concert_community.json (uma.guide formula Jul 2026)",
+  "community_ref": "https://uma.guide/guides/grand-concert",
+  "formula": {
+    "expression": "floor((S + F) * 1.15^C + 2*L)",
+    "S_wit": 5,
+    "S_other": 9,
+    "split_pct": [60, 30, 10]
+  },
+  "concert_rewards": {
+    "great_success_all_stats": 10,
+    "normal_all_stats": 3,
+    "perf_cap_raise": 50,
+    "sp_per_technique_since_last": 5,
+    "sp_per_song_since_last": 25
+  },
+  "technique_gate_sequences": {
+    "before_1st_promo": [1, 2, 3, 4, 4, 2, 3],
+    "before_2nd_through_4th": [2, 2, 2, 4, 5, 2, 2],
+    "before_grand": [2, 2, 2, 4, 3, 2, 2]
+  },
+  "cycle_songs_per_concert": { "minimum": 3, "maximum": 4 },
+  "training_token_gains": [
+    { "facility": "speed", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Da": 6, "Pa": 3, "Vo": 1 } },
+    { "facility": "speed", "level": 1, "deck_size": 2, "scenario_links": 0, "gains": { "Da": 8, "Pa": 4, "Vo": 1 } },
+    { "facility": "speed", "level": 1, "deck_size": 2, "scenario_links": 1, "gains": { "Da": 9, "Pa": 4, "Vo": 2 } },
+    { "facility": "speed", "level": 3, "deck_size": 2, "scenario_links": 0, "gains": { "Da": 9, "Pa": 4, "Vo": 2 } },
+    { "facility": "speed", "level": 5, "deck_size": 5, "scenario_links": 0, "gains": { "Da": 16, "Pa": 8, "Vo": 4 } },
+    { "facility": "wit", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Me": 3, "Vo": 1, "Vi": 2 } },
+    { "facility": "stamina", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Pa": 6, "Vi": 3, "Da": 1 } },
+    { "facility": "power", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Vo": 6, "Da": 3, "Pa": 1 } },
+    { "facility": "guts", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Vi": 6, "Pa": 3, "Vo": 1 } }
+  ]
+}

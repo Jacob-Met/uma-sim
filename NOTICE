@@ -1,0 +1,19 @@
+﻿# NOTICE / Attribution
+
+## Scoring policy (GPL-3.0 derivative)
+
+`uma-sim-core/src/scoring/` includes a Rust port of training/event scoring
+ideas from steve1316's `scoring-shared` Kotlin Multiplatform module
+(https://github.com/steve1316/uma-android-automation, GPL-3.0).
+This repository is therefore distributed under GPL-3.0.
+
+## Data sources (community / third-party)
+
+- GameTora (https://gametora.com) â€” skill/support/trainee tables used to build
+  `knowledge/canonical/`
+- uma.guide, Game8, umamusu.wiki â€” scenario formula notes in `research/`
+- umalator / uma-skill-tools â€” race geometry and checkpoint fixtures
+  (fixture data only; no GPL TypeScript source is vendored)
+
+Umamusume: Pretty Derby and related assets are trademarks of Cygames, Inc.
+This project is an unofficial fan simulator and is not affiliated with Cygames.
