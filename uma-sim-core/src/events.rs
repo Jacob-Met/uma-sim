@@ -149,6 +149,8 @@ pub trait EventCatalog: Send + Sync {
     fn pick_random(
         &self,
         trainee_name: &str,
+        scenario_id: &str,
+        deck_support_names: &[String],
         turn: i32,
         rng: &mut SimRandom,
     ) -> Option<SimEventEntry>;
@@ -160,63 +162,38 @@ impl EventCatalog for BuiltinEventCatalog {
     fn pick_random(
         &self,
         trainee_name: &str,
-        _turn: i32,
+        scenario_id: &str,
+        deck_support_names: &[String],
+        turn: i32,
         rng: &mut SimRandom,
     ) -> Option<SimEventEntry> {
-        let samples = vec![
-            SimEventEntry {
-                id: "event:trainee:Special Week:fan_letter".to_string(),
-                title: "Fan Letter".to_string(),
-                owner_kind: "trainee".to_string(),
-                owner_name: "Special Week".to_string(),
-                options: vec![
-                    "Energy +10\nMood +1".to_string(),
-                    "Speed +5\nSkill points +15".to_string(),
-                ],
-            },
-            SimEventEntry {
-                id: "event:trainee:Special Week:extra_training".to_string(),
-                title: "Extra Training".to_string(),
-                owner_kind: "trainee".to_string(),
-                owner_name: "Special Week".to_string(),
-                options: vec![
-                    "Energy -10\nSpeed +15".to_string(),
-                    "Energy -5\nStamina +10".to_string(),
-                ],
-            },
-            SimEventEntry {
-                id: "event:shared:failed_training".to_string(),
-                title: "Failed Training (Get Well Soon!)".to_string(),
-                owner_kind: "shared".to_string(),
-                owner_name: String::new(),
-                options: vec![
-                    "Energy +20".to_string(),
-                    "Randomly either\n----------\nEnergy +30\n----------\nMood +1".to_string(),
-                ],
-            },
-        ];
-        let pool: Vec<_> = samples
-            .into_iter()
-            .filter(|e| {
-                e.owner_kind == "shared"
-                    || e.owner_name.eq_ignore_ascii_case(trainee_name)
-                    || trainee_name.contains("Special Week")
-            })
-            .collect();
-        if pool.is_empty() {
-            return None;
-        }
-        let idx = rng.next_int_until(pool.len() as i32) as usize;
-        Some(pool[idx].clone())
+        use crate::catalog::event::EventCatalog as CatalogTrait;
+        CatalogTrait::pick_random(
+            &crate::catalog::event::BuiltinEventCatalog,
+            trainee_name,
+            scenario_id,
+            deck_support_names,
+            turn,
+            rng,
+        )
     }
 }
 
 impl BuiltinEventCatalog {
     pub fn pick_random(
         trainee_name: &str,
+        scenario_id: &str,
+        deck_support_names: &[String],
         turn: i32,
         rng: &mut SimRandom,
     ) -> Option<SimEventEntry> {
-        <Self as EventCatalog>::pick_random(&Self, trainee_name, turn, rng)
+        <Self as EventCatalog>::pick_random(
+            &Self,
+            trainee_name,
+            scenario_id,
+            deck_support_names,
+            turn,
+            rng,
+        )
     }
 }

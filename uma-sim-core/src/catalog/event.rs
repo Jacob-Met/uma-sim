@@ -10,10 +10,52 @@ pub trait EventCatalog: Send + Sync {
     fn pick_random(
         &self,
         trainee_name: &str,
+        scenario_id: &str,
+        deck_support_names: &[String],
         turn: i32,
         rng: &mut SimRandom,
     ) -> Option<SimEventEntry>;
     fn event_count(&self) -> usize;
+}
+
+/// Map engine scenario ids → KB `owner_name` for scenario events.
+pub fn scenario_event_owner(scenario_id: &str) -> Option<&'static str> {
+    let s = scenario_id.to_ascii_lowercase();
+    if s.contains("grand") || s == "gl" {
+        Some("Grand Live")
+    } else if s.contains("track") || s.contains("climax") {
+        Some("Trackblazer")
+    } else if s.contains("ura") {
+        Some("URA Finale")
+    } else if s.contains("unity") {
+        // No Unity Cup scenario events in event_local.json yet.
+        None
+    } else {
+        None
+    }
+}
+
+/// Whether an event may fire for this trainee / scenario / deck.
+pub fn event_eligible(
+    event: &SimEventEntry,
+    trainee_name: &str,
+    scenario_id: &str,
+    deck_support_names: &[String],
+) -> bool {
+    if event.title.to_lowercase().contains("victory") {
+        return false;
+    }
+    match event.owner_kind.to_ascii_lowercase().as_str() {
+        "trainee" => event.owner_name.eq_ignore_ascii_case(trainee_name),
+        "shared" => true,
+        "support" => deck_support_names
+            .iter()
+            .any(|n| n.eq_ignore_ascii_case(&event.owner_name)),
+        "scenario" => scenario_event_owner(scenario_id)
+            .map(|owner| event.owner_name.eq_ignore_ascii_case(owner))
+            .unwrap_or(false),
+        _ => false,
+    }
 }
 
 pub struct BuiltinEventCatalog;
@@ -22,13 +64,15 @@ impl EventCatalog for BuiltinEventCatalog {
     fn pick_random(
         &self,
         trainee_name: &str,
+        scenario_id: &str,
+        deck_support_names: &[String],
         _turn: i32,
         rng: &mut SimRandom,
     ) -> Option<SimEventEntry> {
         let samples = builtin_samples();
         let pool: Vec<_> = samples
             .into_iter()
-            .filter(|e| e.owner_kind == "shared" || e.owner_name.eq_ignore_ascii_case(trainee_name))
+            .filter(|e| event_eligible(e, trainee_name, scenario_id, deck_support_names))
             .collect();
         if pool.is_empty() {
             return None;
@@ -153,24 +197,25 @@ impl FileEventCatalog {
     pub fn default_path(repo_root: &Path) -> PathBuf {
         repo_root.join("knowledge/canonical/by_kind/event_local.json")
     }
+
+    pub fn events(&self) -> &[SimEventEntry] {
+        &self.events
+    }
 }
 
 impl EventCatalog for FileEventCatalog {
     fn pick_random(
         &self,
         trainee_name: &str,
+        scenario_id: &str,
+        deck_support_names: &[String],
         _turn: i32,
         rng: &mut SimRandom,
     ) -> Option<SimEventEntry> {
         let pool: Vec<_> = self
             .events
             .iter()
-            .filter(|e| {
-                (e.owner_kind == "trainee" && e.owner_name.eq_ignore_ascii_case(trainee_name))
-                    || e.owner_kind == "shared"
-                    || e.owner_kind == "scenario"
-            })
-            .filter(|e| !e.title.to_lowercase().contains("victory"))
+            .filter(|e| event_eligible(e, trainee_name, scenario_id, deck_support_names))
             .cloned()
             .collect();
         if pool.is_empty() {
@@ -203,8 +248,10 @@ pub fn active_event_catalog() -> Arc<dyn EventCatalog> {
 
 pub fn pick_random_event(
     trainee_name: &str,
+    scenario_id: &str,
+    deck_support_names: &[String],
     turn: i32,
     rng: &mut SimRandom,
 ) -> Option<SimEventEntry> {
-    active_event_catalog().pick_random(trainee_name, turn, rng)
+    active_event_catalog().pick_random(trainee_name, scenario_id, deck_support_names, turn, rng)
 }

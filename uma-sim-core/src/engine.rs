@@ -638,10 +638,24 @@ impl SimEngine {
             self.state = next;
             return;
         }
-        if let Some(event) =
-            self.event_catalog
-                .pick_random(&next.meta.trainee_name, next.turn, &mut self.rng)
-        {
+        if let Some(event) = {
+            let deck_names: Vec<String> = next
+                .deck
+                .slots
+                .iter()
+                .filter_map(|slot| {
+                    crate::catalog::support::SupportCatalog::lookup(&slot.support_id)
+                        .map(|m| m.name)
+                })
+                .collect();
+            self.event_catalog.pick_random(
+                &next.meta.trainee_name,
+                &next.meta.scenario_id,
+                &deck_names,
+                next.turn,
+                &mut self.rng,
+            )
+        } {
             let mut chance = self
                 .event_chance_override
                 .unwrap_or_else(|| EventProbabilityConfig::event_chance_for(&next));

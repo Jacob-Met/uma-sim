@@ -90,6 +90,8 @@ impl EventCatalog for ForceEventCatalog {
     fn pick_random(
         &self,
         trainee_name: &str,
+        _scenario_id: &str,
+        _deck_support_names: &[String],
         _turn: i32,
         _rng: &mut SimRandom,
     ) -> Option<SimEventEntry> {
