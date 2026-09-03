@@ -41,7 +41,14 @@ fn grade_quality_ue_can_roll_3star() {
 
 #[test]
 fn completed_career_emits_blue_and_green_sparks() {
-    let _ = init_from_detected_repo(true);
+    let root = init_from_detected_repo(true).expect("repo root");
+    let tm = uma_sim_core::TraineeCatalog::lookup("Special Week")
+        .expect("Special Week must load from trainee.json");
+    assert!(
+        !tm.skills_unique.is_empty(),
+        "Special Week default card needs a unique skill for green sparks"
+    );
+    let _ = root;
     let mut engine = SimEngine::new(SimSettings {
         speed_multiplier: 100,
         race_model: uma_sim_core::race::RaceModel::Stub,

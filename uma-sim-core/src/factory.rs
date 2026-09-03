@@ -174,12 +174,11 @@ pub fn load_all_research(repo_root: Option<&Path>) {
 
 /// Initialize catalogs, research configs, training tables, and event catalog from repo.
 pub fn init_engine_resources(repo_root: Option<&Path>, use_file_events: bool) {
-    {
-        let mut init = INITIALIZED.lock().unwrap();
-        if *init {
-            return;
-        }
-        *init = true;
+    // Hold the flag lock for the whole init so parallel tests cannot observe a
+    // half-loaded TraineeCatalog / event catalog (spark green unique flake).
+    let mut init = INITIALIZED.lock().unwrap();
+    if *init {
+        return;
     }
 
     FactorCatalog::init_from_repo(repo_root);
@@ -206,6 +205,8 @@ pub fn init_engine_resources(repo_root: Option<&Path>, use_file_events: bool) {
             }
         }
     }
+
+    *init = true;
 }
 
 /// Convenience: detect repo root and initialize with file-backed events when available.
