@@ -467,6 +467,15 @@ pub fn default_facility_levels() -> HashMap<String, i32> {
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct GeneratedSpark {
+    pub color: String,
+    pub factor_id: String,
+    pub stars: i32,
+    pub label: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct CareerState {
     pub meta: RunMeta,
     pub date: SimDate,
@@ -494,6 +503,9 @@ pub struct CareerState {
     pub learned_skill_ids: Vec<String>,
     pub deck: DeckState,
     pub log: Vec<String>,
+    /// End-of-career generated inheritance sparks (blue/red/white/green).
+    #[serde(default)]
+    pub generated_sparks: Vec<GeneratedSpark>,
 }
 
 impl CareerState {
@@ -548,6 +560,7 @@ impl CareerState {
             learned_skill_ids: self.learned_skill_ids.clone(),
             deck: self.deck.clone(),
             log: log.unwrap_or_else(|| self.log.clone()),
+            generated_sparks: self.generated_sparks.clone(),
         }
     }
 }

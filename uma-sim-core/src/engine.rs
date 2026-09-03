@@ -682,6 +682,19 @@ impl SimEngine {
             self.state.log.push("Career complete".to_string());
             lines.push(format!("=== Career complete (turn {CAREER_TURNS}) ==="));
             let terminal = self.evaluate_terminal();
+            crate::spark_generation::generate_end_of_career_sparks(&mut self.state, terminal.score);
+            if !self.state.generated_sparks.is_empty() {
+                let summary: Vec<String> = self
+                    .state
+                    .generated_sparks
+                    .iter()
+                    .map(|s| format!("{} {}★ ({})", s.color, s.stars, s.label))
+                    .collect();
+                lines.push(format!("Generated sparks: {}", summary.join(", ")));
+                self.state
+                    .log
+                    .push(format!("Generated sparks: {}", summary.join(", ")));
+            }
             lines.push(format!(
                 "Terminal U={:.3} grade={} score={} (shop +{}) φ={:.2} ψ={:.2} brackets={}/5@600 {}/5@1100",
                 terminal.u,
@@ -1175,6 +1188,7 @@ fn empty_state() -> CareerState {
         learned_skill_ids: Vec::new(),
         deck: Default::default(),
         log: Vec::new(),
+        generated_sparks: Vec::new(),
     }
 }
 

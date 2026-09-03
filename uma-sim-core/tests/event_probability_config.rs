@@ -41,6 +41,7 @@ fn empty_career() -> CareerState {
         learned_skill_ids: vec![],
         deck: Default::default(),
         log: vec![],
+        generated_sparks: Vec::new(),
     }
 }
 

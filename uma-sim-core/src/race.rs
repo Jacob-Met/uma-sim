@@ -568,6 +568,7 @@ mod tests {
             learned_skill_ids: Vec::new(),
             deck: DeckState::default(),
             log: Vec::new(),
+            generated_sparks: Vec::new(),
         }
     }
 

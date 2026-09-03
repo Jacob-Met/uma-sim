@@ -41,6 +41,7 @@ fn ura_state(deck: DeckState) -> CareerState {
         learned_skill_ids: vec![],
         deck,
         log: vec![],
+        generated_sparks: Vec::new(),
     }
 }
 

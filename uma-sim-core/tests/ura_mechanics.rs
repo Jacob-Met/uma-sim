@@ -49,6 +49,7 @@ fn base_state(resources: ScenarioResources) -> CareerState {
         learned_skill_ids: Vec::new(),
         deck: Default::default(),
         log: Vec::new(),
+        generated_sparks: Vec::new(),
     }
 }
 

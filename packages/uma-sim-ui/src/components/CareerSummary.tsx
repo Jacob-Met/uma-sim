@@ -51,6 +51,22 @@ export function CareerSummary({ state, onNew }: Props) {
           </span>
         ))}
       </div>
+      <div className="meta-line" style={{ marginTop: "0.55rem" }}>
+        <span>Generated sparks</span>
+        <strong>{state.generatedSparks?.length ?? 0}</strong>
+      </div>
+      <div style={{ marginTop: "0.35rem" }}>
+        {(state.generatedSparks ?? []).map((s) => (
+          <span
+            className="chip"
+            key={`${s.color}-${s.factorId}-${s.stars}`}
+            style={{ margin: "0.15rem" }}
+            title={s.factorId}
+          >
+            {s.color} {s.stars}★ · {s.label}
+          </span>
+        ))}
+      </div>
       <div className="controls" style={{ marginTop: "0.85rem" }}>
         <button className="primary" onClick={onNew}>
           New run

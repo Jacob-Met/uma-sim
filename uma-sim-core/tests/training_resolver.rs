@@ -57,6 +57,7 @@ fn tertiary_gain_is_twenty_percent_of_main() {
         learned_skill_ids: vec![],
         deck: Default::default(),
         log: vec![],
+        generated_sparks: Vec::new(),
     };
     let outcome =
         resolver.resolve_typical(TrainingFacility::Speed, 3, MoodLevel::Normal, Some(&state));

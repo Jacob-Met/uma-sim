@@ -19,6 +19,7 @@ pub mod scenario;
 pub mod scoring;
 pub mod session;
 pub mod snapshot;
+pub mod spark_generation;
 pub mod state;
 pub mod telemetry;
 pub mod training;
@@ -72,9 +73,9 @@ pub use session::{parse_sim_action, RunSession};
 pub use snapshot::{RunSnapshot, RunSnapshotCodec};
 pub use state::{
     default_facility_levels, AncestorSparks, CareerState, DeckSlot, DeckState, DialogueMode,
-    GoldenSummary, LegacyState, LegacyTree, MoodLevel, RngTraceFixture, RunMeta, ScenarioResources,
-    SimAction, SimActionKind, SimChoice, SimDate, SimSettings, SparkSlot, StatName, TraineeStats,
-    TrainingFacility, TurnPhase, TurnSnapshot, TurnTraceFixture, INJURED,
+    GeneratedSpark, GoldenSummary, LegacyState, LegacyTree, MoodLevel, RngTraceFixture, RunMeta,
+    ScenarioResources, SimAction, SimActionKind, SimChoice, SimDate, SimSettings, SparkSlot,
+    StatName, TraineeStats, TrainingFacility, TurnPhase, TurnSnapshot, TurnTraceFixture, INJURED,
 };
 pub use telemetry::{SimReplayLine, SimTelemetry, TelemetryReplayLoader};
 pub use training::{TrainingGainContext, TrainingOutcome, TrainingPreview, TrainingResolver};

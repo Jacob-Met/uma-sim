@@ -71,6 +71,7 @@ pub fn base_state(scenario: &str, turn: i32) -> CareerState {
         learned_skill_ids: Vec::new(),
         deck: DeckState::default(),
         log: Vec::new(),
+        generated_sparks: Vec::new(),
     }
 }
 

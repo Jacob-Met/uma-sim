@@ -37,6 +37,7 @@ fn base_state(speed: i32, energy: i32, skill_points: i32) -> CareerState {
         learned_skill_ids: vec![],
         deck: Default::default(),
         log: vec![],
+        generated_sparks: Vec::new(),
     }
 }
 

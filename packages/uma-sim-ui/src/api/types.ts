@@ -80,6 +80,13 @@ export interface SimSettings {
   raceModel: "stub" | "physics";
 }
 
+export interface GeneratedSpark {
+  color: string;
+  factorId: string;
+  stars: number;
+  label: string;
+}
+
 export interface CareerState {
   meta: RunMeta;
   date: SimDate;
@@ -107,6 +114,7 @@ export interface CareerState {
   learnedSkillIds: string[];
   deck: DeckState;
   log: string[];
+  generatedSparks?: GeneratedSpark[];
 }
 
 export interface RunSnapshot {

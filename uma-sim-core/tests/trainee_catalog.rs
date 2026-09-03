@@ -83,6 +83,7 @@ fn growth_pct_boosts_training_gain() {
             }]),
         },
         log: Vec::new(),
+        generated_sparks: Vec::new(),
     };
     let mut sw_state = base_state.clone();
     sw_state.meta.trainee_name = "Special Week".into();
