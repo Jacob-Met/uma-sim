@@ -7,7 +7,8 @@
                     "test":  "cargo test --manifest-path ../../uma-sim-core/Cargo.toml",
                     "start":  "node run.js start",
                     "fast":  "node run.js fast",
-                    "tui":  "node tui.js"
+                    "tui":  "node tui.js",
+                    "ui":  "node run.js serve --open"
                 },
     "type":  "module",
     "license":  "GPL-3.0"

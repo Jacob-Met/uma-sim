@@ -30,13 +30,22 @@ struct ApiState {
 
 /// Start the REST server on `port` (blocking).
 pub fn serve(port: u16) {
+    serve_opts(port, false);
+}
+
+/// Start the REST (+ embedded UI) server; optionally open the default browser.
+pub fn serve_opts(port: u16, open_browser: bool) {
     let addr = format!("127.0.0.1:{port}");
     let server = Server::http(&addr).unwrap_or_else(|e| {
         eprintln!("Failed to bind {addr}: {e}");
         std::process::exit(1);
     });
+    let url = format!("http://127.0.0.1:{port}/");
     println!("uma-sim REST API on http://127.0.0.1:{port}");
-    println!("Web UI: http://127.0.0.1:{port}/");
+    println!("Web UI: {url}");
+    if open_browser {
+        open_url(&url);
+    }
 
     // Warm catalogs once so `/v1/catalog/*` works before the first run.
     let _ = init_from_detected_repo(true);
@@ -62,6 +71,23 @@ pub fn serve(port: u16) {
     }
 }
 
+fn open_url(url: &str) {
+    #[cfg(target_os = "windows")]
+    {
+        let _ = std::process::Command::new("cmd")
+            .args(["/C", "start", "", url])
+            .spawn();
+    }
+    #[cfg(target_os = "macos")]
+    {
+        let _ = std::process::Command::new("open").arg(url).spawn();
+    }
+    #[cfg(all(unix, not(target_os = "macos")))]
+    {
+        let _ = std::process::Command::new("xdg-open").arg(url).spawn();
+    }
+}
+
 fn route(st: &mut ApiState, method: &Method, path: &str, body: &str) -> Response<Cursor<Vec<u8>>> {
     match (method, path) {
         (Method::Get, "/v1/health") => handle_health(),
@@ -80,7 +106,7 @@ fn route(st: &mut ApiState, method: &Method, path: &str, body: &str) -> Response
         (Method::Post, "/v1/run/load_content_pack") => handle_load_content_pack(st, body),
         (Method::Post, "/v1/run/deck/place") => handle_deck_place(st, body),
         _ if is_known_path(path) => method_not_allowed(),
-        // Milestone 4 inserts static-asset / SPA fallback here.
+        (Method::Get, _) => serve_static(path),
         _ => json_response(404, json!({"error":"not found"})),
     }
 }
@@ -484,6 +510,96 @@ fn handle_deck_place(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> 
         return json_response(409, json!({"error":"cannot place card"}));
     }
     json_response_str(200, &state_json(st))
+}
+
+#[cfg(feature = "embed-ui")]
+fn content_type_for(path: &str) -> &'static str {
+    match path.rsplit('.').next().unwrap_or("") {
+        "html" => "text/html; charset=utf-8",
+        "js" => "application/javascript; charset=utf-8",
+        "css" => "text/css; charset=utf-8",
+        "svg" => "image/svg+xml",
+        "json" => "application/json",
+        "png" => "image/png",
+        "jpg" | "jpeg" => "image/jpeg",
+        "webp" => "image/webp",
+        "ico" => "image/x-icon",
+        "woff" => "font/woff",
+        "woff2" => "font/woff2",
+        "map" => "application/json",
+        _ => "application/octet-stream",
+    }
+}
+
+fn html_response(code: u16, body: &str, cache_control: &str) -> Response<Cursor<Vec<u8>>> {
+    Response::from_data(body.as_bytes().to_vec())
+        .with_status_code(StatusCode(code))
+        .with_header(
+            Header::from_bytes(&b"Content-Type"[..], &b"text/html; charset=utf-8"[..]).unwrap(),
+        )
+        .with_header(
+            Header::from_bytes(&b"Cache-Control"[..], cache_control.as_bytes()).unwrap(),
+        )
+}
+
+#[cfg(feature = "embed-ui")]
+fn bytes_response(code: u16, path: &str, bytes: Vec<u8>) -> Response<Cursor<Vec<u8>>> {
+    let ct = content_type_for(path);
+    let is_index = path == "index.html" || path.is_empty() || path == "/";
+    let cache = if is_index {
+        "no-cache"
+    } else {
+        "public, max-age=86400"
+    };
+    Response::from_data(bytes)
+        .with_status_code(StatusCode(code))
+        .with_header(Header::from_bytes(&b"Content-Type"[..], ct.as_bytes()).unwrap())
+        .with_header(Header::from_bytes(&b"Cache-Control"[..], cache.as_bytes()).unwrap())
+}
+
+#[cfg(not(feature = "embed-ui"))]
+const UI_PLACEHOLDER: &str = r#"<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>uma-sim</title>
+<style>body{font-family:system-ui,sans-serif;background:#0f1218;color:#e8eef8;padding:2rem;max-width:40rem;margin:auto}
+code{background:#1e2533;padding:.15rem .35rem;border-radius:4px}</style></head>
+<body>
+<h1>uma-sim UI not embedded</h1>
+<p>This binary was built without the <code>embed-ui</code> feature.</p>
+<ul>
+<li>Dev: <code>cd packages/uma-sim-ui &amp;&amp; npm run dev</code> (proxies to this API)</li>
+<li>Release: build UI then <code>cargo build --release --features embed-ui -p uma-sim-core</code></li>
+</ul>
+<p>REST API is available under <code>/v1/*</code>.</p>
+</body></html>"#;
+
+#[cfg(feature = "embed-ui")]
+#[derive(rust_embed::Embed)]
+#[folder = "../packages/uma-sim-ui/dist/"]
+struct UiAssets;
+
+fn serve_static(path: &str) -> Response<Cursor<Vec<u8>>> {
+    let rel = path.trim_start_matches('/');
+    let rel = if rel.is_empty() { "index.html" } else { rel };
+
+    #[cfg(feature = "embed-ui")]
+    {
+        if let Some(file) = UiAssets::get(rel) {
+            return bytes_response(200, rel, file.data.into_owned());
+        }
+        // SPA fallback for client-side routes
+        if !rel.contains('.') {
+            if let Some(index) = UiAssets::get("index.html") {
+                return bytes_response(200, "index.html", index.data.into_owned());
+            }
+        }
+        return html_response(404, "<!doctype html><title>404</title><h1>Not found</h1>", "no-cache");
+    }
+
+    #[cfg(not(feature = "embed-ui"))]
+    {
+        let _ = rel;
+        html_response(200, UI_PLACEHOLDER, "no-cache")
+    }
 }
 
 #[cfg(test)]

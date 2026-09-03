@@ -41,7 +41,8 @@ fn main() {
                 .find_map(|a| a.strip_prefix("--port="))
                 .and_then(|p| p.parse().ok())
                 .unwrap_or(8765);
-            uma_sim_core::api::serve(port);
+            let open = args.iter().any(|a| a == "--open");
+            uma_sim_core::api::serve_opts(port, open);
         }
         _ => print_usage(),
     }
@@ -423,7 +424,7 @@ uma-sim CLI v0.4 (Rust)
   batch [--count=100] [--seed=N] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
   validate [--path=content_packs/example.json]
   content validate [--path=...]
-  serve [--port=8765]
+  serve [--port=8765] [--open]
   clear
 Env: UMA_RACE_MODEL=stub|physics (default stub until R8.8)
 Session persisted to .uma-sim/session.json"

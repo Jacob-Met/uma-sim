@@ -7,12 +7,17 @@ description = "Umamusume career simulator engine"
 license = "GPL-3.0"
 repository = "https://github.com/Jacob-Met/uma-sim"
 
+[features]
+default = []
+embed-ui = ["dep:rust-embed"]
+
 [dependencies]
 regex = "1"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tiny_http = "0.12"
 uma-race-core = { path = "../uma-race-core" }
+rust-embed = { version = "8", optional = true, features = ["mime-guess"] }
 
 [[bin]]
 name = "uma-sim"
@@ -48,5 +53,4 @@ path = "examples/tb_diverge.rs"
 [[example]]
 name = "tb_turns"
 path = "examples/tb_turns.rs"
-
 
