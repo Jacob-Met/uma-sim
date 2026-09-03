@@ -144,5 +144,14 @@ export interface StartRequest {
   /** Structured 2×2 inheritance tree (preferred over flat legacyFactors when populated). */
   legacyTree?: LegacyTree;
   parentNames?: string;
+  /** Lineage compatibility score (0–500+); scales mid-run Inspiration odds. */
+  compatibilityScore?: number;
   traceTelemetry?: boolean | string;
+}
+
+/** Display grade for overall compatibility (parent_farming_utility.md). */
+export function compatibilityGrade(score: number): "◎" | "〇" | "△" {
+  if (score > 150) return "◎";
+  if (score >= 51) return "〇";
+  return "△";
 }

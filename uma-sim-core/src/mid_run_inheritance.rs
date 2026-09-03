@@ -10,6 +10,17 @@ use crate::legacy::{
 use crate::rng::SimRandom;
 use crate::state::{CareerState, SimDate};
 
+/// Overall compatibility display grade (◎ / 〇 / △).
+pub fn compatibility_grade(score: i32) -> &'static str {
+    if score > 150 {
+        "◎"
+    } else if score >= 51 {
+        "〇"
+    } else {
+        "△"
+    }
+}
+
 /// Classic Early April (year 2) and Senior Early April (year 3).
 pub fn is_mid_run_inspiration_date(date: &SimDate) -> bool {
     (date.year == 2 || date.year == 3) && date.month == 4 && date.half == 1
@@ -232,5 +243,15 @@ mod tests {
         assert_eq!(blue_mid_run_stat_range(1), (1, 10));
         assert_eq!(blue_mid_run_stat_range(2), (1, 16));
         assert_eq!(blue_mid_run_stat_range(3), (1, 28));
+    }
+
+    #[test]
+    fn compatibility_grade_bands() {
+        assert_eq!(compatibility_grade(0), "△");
+        assert_eq!(compatibility_grade(50), "△");
+        assert_eq!(compatibility_grade(51), "〇");
+        assert_eq!(compatibility_grade(150), "〇");
+        assert_eq!(compatibility_grade(151), "◎");
+        assert_eq!(compatibility_grade(500), "◎");
     }
 }

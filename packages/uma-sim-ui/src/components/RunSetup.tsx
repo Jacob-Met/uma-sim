@@ -1,4 +1,8 @@
-import type { CatalogItem, StartRequest } from "../api/types";
+import {
+  compatibilityGrade,
+  type CatalogItem,
+  type StartRequest,
+} from "../api/types";
 import { useMemo, useState } from "react";
 import {
   emptyLegacyTree,
@@ -35,9 +39,15 @@ export function RunSetup({
   const [deck, setDeck] = useState<string[]>([]);
   const [legacyEnabled, setLegacyEnabled] = useState(false);
   const [legacyTree, setLegacyTree] = useState<LegacyTree>(() => emptyLegacyTree());
+  const [compatibilityScore, setCompatibilityScore] = useState(0);
   const [supportFilter, setSupportFilter] = useState("");
   const [traineeFilter, setTraineeFilter] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
+
+  const compatGrade = useMemo(
+    () => compatibilityGrade(compatibilityScore),
+    [compatibilityScore],
+  );
 
   const filteredTrainees = useMemo(() => {
     const q = traineeFilter.toLowerCase().trim();
@@ -125,6 +135,7 @@ export function RunSetup({
       legacyFactors: legacyFactors || undefined,
       legacyTree: legacyEnabled ? legacyTree : undefined,
       parentNames: parentNames || undefined,
+      compatibilityScore: legacyEnabled ? compatibilityScore : undefined,
     });
   }
 
@@ -262,6 +273,33 @@ export function RunSetup({
         onEnabled={setLegacyEnabled}
         onChange={setLegacyTree}
       />
+
+      {legacyEnabled && (
+        <div className="field" style={{ marginTop: "0.85rem" }}>
+          <label>
+            Compatibility score{" "}
+            <span className="chip" title="◎ &gt;150 · 〇 51–150 · △ ≤50">
+              {compatGrade} {compatibilityScore}
+            </span>
+          </label>
+          <input
+            type="number"
+            min={0}
+            max={500}
+            step={1}
+            value={compatibilityScore}
+            disabled={busy}
+            onChange={(e) =>
+              setCompatibilityScore(
+                Math.max(0, Math.min(500, Number(e.target.value) || 0)),
+              )
+            }
+          />
+          <div className="chip" style={{ marginTop: "0.35rem" }}>
+            Mid-run Inspiration odds × (1 + score/100). Target &gt;300, optimal ~500.
+          </div>
+        </div>
+      )}
 
       {formError && (
         <div className="banner error" style={{ marginTop: "0.75rem" }}>
