@@ -12,7 +12,7 @@ Deterministic, seedable, text-first career engine for Global scenarios.
 | 6 — Bot harness | **Done** — adapter + golden seeds (200, re-frozen R8.8) + telemetry replay (≥90%) |
 | 7 — REST/MCP | **Done** — Rust REST `:8765` + MCP/TUI + **embedded web UI** |
 | 8 — Perf | **Done** — `tests/perf.rs` x20 / x100 gates |
-| Calibration / GL fidelity | **R7.2 Grand Live complete** — evidence table below |
+| Calibration / GL fidelity | **Feature-complete, fidelity partial** — see Grand Live section |
 | R7 scenario / race / legacy fidelity | **Advanced** — TB/Unity/URA + inheritance; mid-run races use `uma-race-core` physics (R8) |
 | R8 race physics | **Default `physics` (R8.8)** — see `docs/SIMULATOR_RACE_PLAN.md`, `research/R88_REFREEZE.md` |
 | Live Android telemetry calibration | **Pass (sim proxy)** — `python scripts/calibrate_sim.py --runs-dir runs` median≤2, ≥80% within 2 |
@@ -167,15 +167,23 @@ python scripts/calibrate_grand_live.py --strict
 
 Mechanics live in `uma-sim-core/src/scenario/`. Research sources: `research/grand_concert.json`, `ura_finale.json`, `unity_cup.json`, `trackblazer.json`.
 
-### Grand Live — R7.2 complete
+### Grand Live — feature-complete, fidelity partial
+
+Core loop (concerts, hype, lessons, songs, uniques) is wired and tested. Accuracy vs GameTora/KB is improving; remaining gaps are listed below.
 
 | Checklist item | Status | Evidence |
 |----------------|--------|----------|
-| `not_modeled` emptied or parity-covered | **true** | Mid-run race physics shipped (R8); residual GL approximations listed in `research/grand_concert.json` |
-| Token gains exact types+amounts (`--strict`) | **true** | `python scripts/calibrate_grand_live.py --strict` + `tests/grand_live_token_labels.rs` |
-| Bot adapter ≥90% on GL fixtures | **true** | `tests/grand_live_bot_replay.rs` + `tests/fixtures/grand_live_replay/fixtures.json` |
+| Feature loop (concerts / hype / lessons / songs) | **true** | `grand_live_simulation.rs`, `grand_live_r7.rs` |
+| Token secondary types (GameTora/Condor) | **true** | `facility_performance_split` + `tests/grand_live_token_labels.rs` |
+| L1 training base table | **true** | `scenario_overrides.grand_concert.l1_base` + `tests/grand_live_l1_training.rs` |
+| Token gains exact types+amounts (`--strict`) | **true** | `python scripts/calibrate_grand_live.py --strict` |
+| In-race soft cap (>1200 half) | **true** | `race_effective_stat` in `race.rs` |
+| Bot adapter ≥90% on GL fixtures | **true** | `tests/grand_live_bot_replay.rs` |
 | Great Success / normal / consolation | **true** | `tests/grand_live_r7.rs` + `tests/grand_live_simulation.rs` |
-| Lesson board / blocked / failure / members / fan uniques / dating | **true** (MDB square weights still approximate; board includes unaffordable slots) | `grand_live.rs`, `grand_live_r7.rs`; status in `research/grand_concert.json` |
+| Lesson board vs MDB square weights | **partial** | Heuristic 3-slot pool; see `approximations` in `research/grand_concert.json` |
+| Dating / Closer Together / specialty weight curves | **partial** | Heuristic rates; pending packet/MDB confirm |
+
+**Live gaps:** MDB `next_square_info_array` weights; exact `performance_gains` for facility level ≥2 beyond calibration rows; dating-starts table; `live_bonus_type` enum confirm.
 
 Quick check:
 
@@ -217,7 +225,7 @@ Other scenario tests: `ura_mechanics.rs`, `unity_trackblazer_mechanics.rs`. Full
 | 5 | CLI / REST / MCP / TUI on Rust + seed-42 fixtures | **true** | `tests/fixtures/cli_rest/`, `packages/uma-sim-cli`, `packages/uma-sim-mcp` |
 | 6 | Production path is Rust-only | **true** | this doc; Kotlin oracle private / fixtures vendored |
 | 7 | `calibrate_sim.py` passes | **true** | `--runs-dir runs` → pass (median≤2, ≥80% within 2) |
-| 8 | Grand Live checklist R7.2 fully true | **true** | section above; user notified |
+| 8 | Grand Live feature-complete, fidelity partial (gaps listed) | **true** | GL section above |
 | 9 | Product-ready checklist complete with citations | **true** | this document |
 | 10 | Kotlin→Rust test map, 0 missing | **true** | [SIMULATOR_RUST_PARITY.md](SIMULATOR_RUST_PARITY.md) (133 / 0 missing) |
 
