@@ -122,7 +122,6 @@ pub fn combine_objective_score(
     let w = weights.normalized();
     let training_part = base_training_score
         * (w.stat_targets + w.career_score + w.pvp_raceability + 0.5 * w.spark_quality);
-    let scenario_part =
-        scenario_action_score * (w.scenario_completion + 0.5 * w.spark_quality);
+    let scenario_part = scenario_action_score * (w.scenario_completion + 0.5 * w.spark_quality);
     training_part + scenario_part
 }

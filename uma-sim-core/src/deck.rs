@@ -42,7 +42,11 @@ impl DeckSpec {
         };
         let facility = {
             let f = facility_part.to_lowercase();
-            if f.is_empty() { None } else { Some(f) }
+            if f.is_empty() {
+                None
+            } else {
+                Some(f)
+            }
         };
         Self {
             support_id: id,
@@ -160,7 +164,9 @@ impl DeckPlacement {
         if let Some(meta) = DeckSupportBridge::card_lookup(&slot.support_id) {
             return Self::normalize_type(&meta.card_type);
         }
-        Self::normalize_type(&DeckSupportBridge::infer_specialty_from_id(&slot.support_id))
+        Self::normalize_type(&DeckSupportBridge::infer_specialty_from_id(
+            &slot.support_id,
+        ))
     }
 
     pub fn specialty_to_facility(ty: &str) -> TrainingFacility {
@@ -264,12 +270,20 @@ impl DeckSupportBridge {
     }
 
     pub fn slices_for(state: &CareerState, facility: TrainingFacility) -> Vec<SupportEffectSlice> {
-        let on_facility: Vec<_> = state.deck.slots_on_facility(facility).into_iter().cloned().collect();
+        let on_facility: Vec<_> = state
+            .deck
+            .slots_on_facility(facility)
+            .into_iter()
+            .cloned()
+            .collect();
         if on_facility.is_empty() {
             return Vec::new();
         }
         let fac = Self::facility_to_support_type(facility);
-        let cards: Vec<_> = on_facility.iter().map(|s| Self::to_resolved_card(s)).collect();
+        let cards: Vec<_> = on_facility
+            .iter()
+            .map(|s| Self::to_resolved_card(s))
+            .collect();
         let present = on_facility.len().min(MAX_ON_FACILITY) as i32;
         let rainbow = on_facility
             .iter()
@@ -386,7 +400,9 @@ pub fn estimate_facility_slices(
         .enumerate()
         .map(|(index, card)| {
             let on_spec = index < rainbow_slots
-                && (card.card_type == fac || card.card_type == "friend" || card.card_type == "group");
+                && (card.card_type == fac
+                    || card.card_type == "friend"
+                    || card.card_type == "group");
             SupportEffectSlice {
                 friendship_bonus_pct: card.friendship_bonus_pct,
                 mood_effect_pct: card.mood_effect_pct,
@@ -416,7 +432,10 @@ pub struct BarFillResult {
 }
 
 impl DeckTrainingSignals {
-    pub fn relationship_bars(state: &CareerState, facility: TrainingFacility) -> Vec<BarFillResult> {
+    pub fn relationship_bars(
+        state: &CareerState,
+        facility: TrainingFacility,
+    ) -> Vec<BarFillResult> {
         state
             .deck
             .slots_on_facility(facility)

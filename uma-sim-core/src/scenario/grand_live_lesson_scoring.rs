@@ -1,11 +1,11 @@
 //! Grand Live lesson scoring via shared bot scoring.
 
 use crate::bot::BotDecisionAdapter;
-use crate::scoring::{score_lesson_option, DecisionContext, LessonScoreInputs};
 use crate::events::sample_event_reward;
 use crate::scenario::grand_live::GrandLiveConcertBonus;
 use crate::scenario::grand_live_catalog::GrandLiveCatalog;
 use crate::scenario::ScenarioPlugin;
+use crate::scoring::{score_lesson_option, DecisionContext, LessonScoreInputs};
 use crate::state::{CareerState, SimChoice};
 
 pub struct GrandLiveLessonScoring;
@@ -81,7 +81,11 @@ fn inputs_for_technique(tech_key: &str) -> Option<LessonScoreInputs> {
         } else {
             std::collections::HashMap::new()
         },
-        skill_hint_amount: if tech.category == "skill_hint" { 1.0 } else { 0.0 },
+        skill_hint_amount: if tech.category == "skill_hint" {
+            1.0
+        } else {
+            0.0
+        },
         energy_gain: if tech.category == "recovery" {
             reading.energy_delta.max(0)
         } else {

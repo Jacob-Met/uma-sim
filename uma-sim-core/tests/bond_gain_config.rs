@@ -69,11 +69,7 @@ fn training_increases_bond_on_facility_cards() {
 #[test]
 fn rainbow_count_requires_bond_on_specialty() {
     let deck = DeckState {
-        slots: DeckPlacement::assign_by_specialty(&[slot(
-            "support:speed:special",
-            85,
-            "speed",
-        )]),
+        slots: DeckPlacement::assign_by_specialty(&[slot("support:speed:special", 85, "speed")]),
     };
     let state = ura_state(deck);
     assert_eq!(

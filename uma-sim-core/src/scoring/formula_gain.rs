@@ -29,7 +29,11 @@ pub fn apply_training_multipliers(
     let training_eff_mult = 1.0 + training_eff_sum / 100.0;
     let presence_mult = 1.0 + 0.05 * num_characters_present as f64;
     let growth_mult = 1.0 + uma_growth_pct / 100.0;
-    (base_plus_stat_bonus * friendship_prod * mood_mult * training_eff_mult * presence_mult
+    (base_plus_stat_bonus
+        * friendship_prod
+        * mood_mult
+        * training_eff_mult
+        * presence_mult
         * growth_mult)
         .floor() as i32
 }

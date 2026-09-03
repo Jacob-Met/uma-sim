@@ -74,7 +74,8 @@ fn default_gs() -> i32 {
 fn load_fixtures() -> Vec<GlFixture> {
     let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
         .join("tests/fixtures/grand_live_replay/fixtures.json");
-    let raw = std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("read {}: {e}", path.display()));
+    let raw =
+        std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("read {}: {e}", path.display()));
     serde_json::from_str(&raw).expect("parse GL fixtures")
 }
 
@@ -95,7 +96,10 @@ fn gl_state(f: &GlFixture) -> uma_sim_core::CareerState {
             ("great_success_required".into(), f.great_success_required),
             ("songs_learned".into(), f.songs_learned),
             ("techniques_learned".into(), f.techniques_learned),
-            ("techniques_since_last_song".into(), f.techniques_learned.max(2)),
+            (
+                "techniques_since_last_song".into(),
+                f.techniques_learned.max(2),
+            ),
             ("song_slot_index".into(), 0),
             ("concert_index".into(), 1),
             ("perf_Da".into(), 80),
@@ -158,31 +162,26 @@ fn fixture_matches(f: &GlFixture) -> bool {
                     best_id = id.clone();
                 }
             }
-            best_id == f.expected_action
-                || {
-                    // Also accept BotDecisionAdapter when choices are SimChoices.
-                    let choices: Vec<SimChoice> = f
-                        .choices
-                        .iter()
-                        .map(|id| SimChoice {
-                            id: id.clone(),
-                            label: id.clone(),
-                        })
-                        .collect();
-                    let action = BotDecisionAdapter::choose_action(
-                        &choices,
-                        &state,
-                        plugin.as_ref(),
-                        &resolver,
-                    );
-                    action.payload.as_deref() == Some(f.expected_action.as_str())
-                        || (action.kind == uma_sim_core::state::SimActionKind::Rest
-                            && f.expected_action == "rest")
-                        || (action.kind == uma_sim_core::state::SimActionKind::Train
-                            && f.expected_action.starts_with("train_"))
-                        || (action.kind == uma_sim_core::state::SimActionKind::Lesson
-                            && f.expected_action.starts_with("gl_"))
-                }
+            best_id == f.expected_action || {
+                // Also accept BotDecisionAdapter when choices are SimChoices.
+                let choices: Vec<SimChoice> = f
+                    .choices
+                    .iter()
+                    .map(|id| SimChoice {
+                        id: id.clone(),
+                        label: id.clone(),
+                    })
+                    .collect();
+                let action =
+                    BotDecisionAdapter::choose_action(&choices, &state, plugin.as_ref(), &resolver);
+                action.payload.as_deref() == Some(f.expected_action.as_str())
+                    || (action.kind == uma_sim_core::state::SimActionKind::Rest
+                        && f.expected_action == "rest")
+                    || (action.kind == uma_sim_core::state::SimActionKind::Train
+                        && f.expected_action.starts_with("train_"))
+                    || (action.kind == uma_sim_core::state::SimActionKind::Lesson
+                        && f.expected_action.starts_with("gl_"))
+            }
         }
         _ => false,
     }

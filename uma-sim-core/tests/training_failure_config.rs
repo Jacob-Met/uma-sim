@@ -96,7 +96,11 @@ fn rainbow_activates_friendship_for_all_cards_on_facility() {
             ..state.clone()
         }),
     );
-    let rainbow =
-        TrainingResolver::default().resolve_typical(TrainingFacility::Speed, 3, MoodLevel::Normal, Some(&state));
+    let rainbow = TrainingResolver::default().resolve_typical(
+        TrainingFacility::Speed,
+        3,
+        MoodLevel::Normal,
+        Some(&state),
+    );
     assert!(rainbow.main_gain > empty.main_gain);
 }

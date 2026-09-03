@@ -58,27 +58,28 @@ const RANK_MINS: [i32; 298] = [
 const RANK_LABELS: [&str; 298] = [
     "G", "G+", "F", "F+", "E", "E+", "D", "D+", "C", "C+", "B", "B+", "A", "A+", "S", "S+", "SS",
     "SS+", "UG", "UG1", "UG2", "UG3", "UG4", "UG5", "UG6", "UG7", "UG8", "UG9", "UF", "UF1", "UF2",
-    "UF3", "UF4", "UF5", "UF6", "UF7", "UF8", "UF9", "UE", "UE1", "UE2", "UE3", "UE4", "UE5", "UE6",
-    "UE7", "UE8", "UE9", "UD", "UD1", "UD2", "UD3", "UD4", "UD5", "UD6", "UD7", "UD8", "UD9", "UC",
-    "UC1", "UC2", "UC3", "UC4", "UC5", "UC6", "UC7", "UC8", "UC9", "UB", "UB1", "UB2", "UB3", "UB4",
-    "UB5", "UB6", "UB7", "UB8", "UB9", "UA", "UA1", "UA2", "UA3", "UA4", "UA5", "UA6", "UA7", "UA8",
-    "UA9", "US", "US1", "US2", "US3", "US4", "US5", "US6", "US7", "US8", "US9", "LG", "LG1", "LG2",
-    "LG3", "LG4", "LG5", "LG6", "LG7", "LG8", "LG9", "LG10", "LG11", "LG12", "LG13", "LG14", "LG15",
-    "LG16", "LG17", "LG18", "LG19", "LG20", "LG21", "LG22", "LG23", "LG24", "LF", "LF1", "LF2",
-    "LF3", "LF4", "LF5", "LF6", "LF7", "LF8", "LF9", "LF10", "LF11", "LF12", "LF13", "LF14", "LF15",
-    "LF16", "LF17", "LF18", "LF19", "LF20", "LF21", "LF22", "LF23", "LF24", "LE", "LE1", "LE2", "LE3",
-    "LE4", "LE5", "LE6", "LE7", "LE8", "LE9", "LE10", "LE11", "LE12", "LE13", "LE14", "LE15", "LE16",
-    "LE17", "LE18", "LE19", "LE20", "LE21", "LE22", "LE23", "LE24", "LD", "LD1", "LD2", "LD3", "LD4",
-    "LD5", "LD6", "LD7", "LD8", "LD9", "LD10", "LD11", "LD12", "LD13", "LD14", "LD15", "LD16", "LD17",
-    "LD18", "LD19", "LD20", "LD21", "LD22", "LD23", "LD24", "LC", "LC1", "LC2", "LC3", "LC4", "LC5",
-    "LC6", "LC7", "LC8", "LC9", "LC10", "LC11", "LC12", "LC13", "LC14", "LC15", "LC16", "LC17", "LC18",
-    "LC19", "LC20", "LC21", "LC22", "LC23", "LC24", "LB", "LB1", "LB2", "LB3", "LB4", "LB5", "LB6",
-    "LB7", "LB8", "LB9", "LB10", "LB11", "LB12", "LB13", "LB14", "LB15", "LB16", "LB17", "LB18",
-    "LB19", "LB20", "LB21", "LB22", "LB23", "LB24", "LA", "LA1", "LA2", "LA3", "LA4", "LA5", "LA6",
-    "LA7", "LA8", "LA9", "LA10", "LA11", "LA12", "LA13", "LA14", "LA15", "LA16", "LA17", "LA18",
-    "LA19", "LA20", "LA21", "LA22", "LA23", "LA24", "LS", "LS1", "LS2", "LS3", "LS4", "LS5", "LS6",
-    "LS7", "LS8", "LS9", "LS10", "LS11", "LS12", "LS13", "LS14", "LS15", "LS16", "LS17", "LS18",
-    "LS19", "LS20", "LS21", "LS22", "LS23", "LS24",
+    "UF3", "UF4", "UF5", "UF6", "UF7", "UF8", "UF9", "UE", "UE1", "UE2", "UE3", "UE4", "UE5",
+    "UE6", "UE7", "UE8", "UE9", "UD", "UD1", "UD2", "UD3", "UD4", "UD5", "UD6", "UD7", "UD8",
+    "UD9", "UC", "UC1", "UC2", "UC3", "UC4", "UC5", "UC6", "UC7", "UC8", "UC9", "UB", "UB1", "UB2",
+    "UB3", "UB4", "UB5", "UB6", "UB7", "UB8", "UB9", "UA", "UA1", "UA2", "UA3", "UA4", "UA5",
+    "UA6", "UA7", "UA8", "UA9", "US", "US1", "US2", "US3", "US4", "US5", "US6", "US7", "US8",
+    "US9", "LG", "LG1", "LG2", "LG3", "LG4", "LG5", "LG6", "LG7", "LG8", "LG9", "LG10", "LG11",
+    "LG12", "LG13", "LG14", "LG15", "LG16", "LG17", "LG18", "LG19", "LG20", "LG21", "LG22", "LG23",
+    "LG24", "LF", "LF1", "LF2", "LF3", "LF4", "LF5", "LF6", "LF7", "LF8", "LF9", "LF10", "LF11",
+    "LF12", "LF13", "LF14", "LF15", "LF16", "LF17", "LF18", "LF19", "LF20", "LF21", "LF22", "LF23",
+    "LF24", "LE", "LE1", "LE2", "LE3", "LE4", "LE5", "LE6", "LE7", "LE8", "LE9", "LE10", "LE11",
+    "LE12", "LE13", "LE14", "LE15", "LE16", "LE17", "LE18", "LE19", "LE20", "LE21", "LE22", "LE23",
+    "LE24", "LD", "LD1", "LD2", "LD3", "LD4", "LD5", "LD6", "LD7", "LD8", "LD9", "LD10", "LD11",
+    "LD12", "LD13", "LD14", "LD15", "LD16", "LD17", "LD18", "LD19", "LD20", "LD21", "LD22", "LD23",
+    "LD24", "LC", "LC1", "LC2", "LC3", "LC4", "LC5", "LC6", "LC7", "LC8", "LC9", "LC10", "LC11",
+    "LC12", "LC13", "LC14", "LC15", "LC16", "LC17", "LC18", "LC19", "LC20", "LC21", "LC22", "LC23",
+    "LC24", "LB", "LB1", "LB2", "LB3", "LB4", "LB5", "LB6", "LB7", "LB8", "LB9", "LB10", "LB11",
+    "LB12", "LB13", "LB14", "LB15", "LB16", "LB17", "LB18", "LB19", "LB20", "LB21", "LB22", "LB23",
+    "LB24", "LA", "LA1", "LA2", "LA3", "LA4", "LA5", "LA6", "LA7", "LA8", "LA9", "LA10", "LA11",
+    "LA12", "LA13", "LA14", "LA15", "LA16", "LA17", "LA18", "LA19", "LA20", "LA21", "LA22", "LA23",
+    "LA24", "LS", "LS1", "LS2", "LS3", "LS4", "LS5", "LS6", "LS7", "LS8", "LS9", "LS10", "LS11",
+    "LS12", "LS13", "LS14", "LS15", "LS16", "LS17", "LS18", "LS19", "LS20", "LS21", "LS22", "LS23",
+    "LS24",
 ];
 
 static STAT_SCORES: std::sync::OnceLock<Vec<i32>> = std::sync::OnceLock::new();
@@ -286,8 +287,11 @@ pub fn estimate_rank(
     aptitudes: &RankAptitudes,
     unique_level: i32,
 ) -> RankResult {
-    let stat_total =
-        stat_score(speed) + stat_score(stamina) + stat_score(power) + stat_score(guts) + stat_score(wit);
+    let stat_total = stat_score(speed)
+        + stat_score(stamina)
+        + stat_score(power)
+        + stat_score(guts)
+        + stat_score(wit);
     let skill_total: i32 = skills
         .iter()
         .map(|s| evaluate_skill_score(s.eval_pt, &s.check_type, aptitudes))

@@ -39,7 +39,10 @@ fn probe_590_pk() {
     let mut base_pacer = PrandoRng::new(seed.wrapping_add(1));
     let mut pacer = HorseRunner::new_pacer(c, GroundCondition::Heavy, &pacer_h, base_pacer.int32());
     let (mn, mx) = focus.pk_thresholds();
-    eprintln!("min_th={mn:.3} max_th={mx:.3} pk_end={}", focus.debug_pk_end());
+    eprintln!(
+        "min_th={mn:.3} max_th={mx:.3} pk_end={}",
+        focus.debug_pk_end()
+    );
     for i in 0..300 {
         if !pacer.finished() {
             pacer.step(
@@ -88,10 +91,7 @@ fn probe_590_pk() {
             );
         }
     }
-    eprintln!(
-        "FINISH t={:.6} expected bare~92.667",
-        focus.accum_time()
-    );
+    eprintln!("FINISH t={:.6} expected bare~92.667", focus.accum_time());
 }
 
 #[test]
@@ -125,14 +125,8 @@ fn probe_590_pos() {
     let pacer_h = default_virtual_pacer_horse(&base);
     let mut base_pacer = PrandoRng::new(seed.wrapping_add(1));
     let mut pacer = HorseRunner::new_pacer(c, GroundCondition::Heavy, &pacer_h, base_pacer.int32());
-    eprintln!(
-        "FOCUS startDelay {:.15}",
-        focus.start_delay_val()
-    );
-    eprintln!(
-        "PACER startDelay {:.15}",
-        pacer.start_delay_val()
-    );
+    eprintln!("FOCUS startDelay {:.15}", focus.start_delay_val());
+    eprintln!("PACER startDelay {:.15}", pacer.start_delay_val());
     for i in 0..=120 {
         if !pacer.finished() {
             pacer.step(
@@ -158,7 +152,12 @@ fn probe_590_pos() {
                 field_size: 2,
             },
         );
-        if i < 5 || i == 30 || i == 60 || i == 68 || (110..=115).contains(&i) || [10, 15, 20, 25, 28, 29, 35].contains(&i)
+        if i < 5
+            || i == 30
+            || i == 60
+            || i == 68
+            || (110..=115).contains(&i)
+            || [10, 15, 20, 25, 28, 29, 35].contains(&i)
         {
             let (base, pk, sec, tgt) = focus.debug_target_bits();
             eprintln!(

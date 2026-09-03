@@ -25,15 +25,27 @@ pub struct GrandLiveSong {
 pub enum GrandLiveMasteryBonus {
     None,
     /// Flat one-time stat grant (e.g. Speed +22).
-    FlatStat { facility: String, value: i32 },
+    FlatStat {
+        facility: String,
+        value: i32,
+    },
     /// Flat one-time skill points.
-    FlatSkillPoints { value: i32 },
+    FlatSkillPoints {
+        value: i32,
+    },
     /// Persistent +N to that facility's training gains.
-    TrainStat { facility: String, value: i32 },
+    TrainStat {
+        facility: String,
+        value: i32,
+    },
     /// Persistent +N skill points on every successful train.
-    TrainSkillPoints { value: i32 },
+    TrainSkillPoints {
+        value: i32,
+    },
     /// All performance tokens +N (Make Debut mastery).
-    AllPerfTokens { value: i32 },
+    AllPerfTokens {
+        value: i32,
+    },
 }
 
 #[derive(Debug, Clone)]
@@ -51,11 +63,13 @@ struct CatalogState {
     loaded: bool,
 }
 
-static CATALOG: LazyLock<Mutex<CatalogState>> = LazyLock::new(|| Mutex::new(CatalogState {
-    songs: Vec::new(),
-    techniques: Vec::new(),
-    loaded: false,
-}));
+static CATALOG: LazyLock<Mutex<CatalogState>> = LazyLock::new(|| {
+    Mutex::new(CatalogState {
+        songs: Vec::new(),
+        techniques: Vec::new(),
+        loaded: false,
+    })
+});
 
 pub struct GrandLiveCatalog;
 
@@ -137,7 +151,10 @@ impl GrandLiveCatalog {
             .find(|t| t.id == id || t.id.trim_start_matches("lesson:") == id)
     }
 
-    pub fn can_afford(resources: &ScenarioResources, costs: &std::collections::HashMap<String, i32>) -> bool {
+    pub fn can_afford(
+        resources: &ScenarioResources,
+        costs: &std::collections::HashMap<String, i32>,
+    ) -> bool {
         costs.iter().all(|(perf, amt)| {
             let code = GrandLiveMechanics::perf_code(perf);
             resources.get(&GrandLiveMechanics::perf_resource_key(&code)) >= *amt
@@ -290,7 +307,8 @@ impl GrandLiveCatalogLoader {
             return;
         };
         let songs = Self::load_songs(&root.join("knowledge/canonical/by_kind/song.json"));
-        let techniques = Self::load_techniques(&root.join("knowledge/canonical/by_kind/lesson.json"));
+        let techniques =
+            Self::load_techniques(&root.join("knowledge/canonical/by_kind/lesson.json"));
         if !songs.is_empty() || !techniques.is_empty() {
             GrandLiveCatalog::install(songs, techniques);
         }
@@ -376,9 +394,7 @@ fn parse_song(obj: &serde_json::Map<String, Value>) -> Option<GrandLiveSong> {
     })
 }
 
-fn parse_mastery_bonus(
-    bonus: Option<&serde_json::Map<String, Value>>,
-) -> GrandLiveMasteryBonus {
+fn parse_mastery_bonus(bonus: Option<&serde_json::Map<String, Value>>) -> GrandLiveMasteryBonus {
     let Some(b) = bonus else {
         return GrandLiveMasteryBonus::None;
     };
@@ -395,9 +411,8 @@ fn parse_mastery_bonus(
         return GrandLiveMasteryBonus::TrainSkillPoints { value };
     }
     if effect.contains("extra stat") {
-        let facility = map_stat_name_to_facility(
-            b.get("stat").and_then(|v| v.as_str()).unwrap_or(""),
-        );
+        let facility =
+            map_stat_name_to_facility(b.get("stat").and_then(|v| v.as_str()).unwrap_or(""));
         return GrandLiveMasteryBonus::TrainStat { facility, value };
     }
     if effect.contains("skill pt") {
@@ -653,7 +668,10 @@ impl GrandLiveCalibrationLoader {
     }
 
     fn parse_technique_gate(root: &Value) {
-        let Some(gate) = root.get("technique_gate_sequences").and_then(|v| v.as_object()) else {
+        let Some(gate) = root
+            .get("technique_gate_sequences")
+            .and_then(|v| v.as_object())
+        else {
             return;
         };
         GrandLiveMechanics::load_community_calibration(
@@ -702,12 +720,23 @@ impl GrandLiveCalibrationLoader {
     }
 
     fn parse_cycle_max(root: &Value) {
-        let Some(cycle) = root.get("cycle_songs_per_concert").and_then(|v| v.as_object()) else {
+        let Some(cycle) = root
+            .get("cycle_songs_per_concert")
+            .and_then(|v| v.as_object())
+        else {
             return;
         };
         if let Some(max) = cycle.get("maximum").and_then(|v| v.as_i64()) {
             GrandLiveMechanics::load_community_calibration(
-                None, None, None, None, None, None, None, None, Some(max as i32),
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                Some(max as i32),
             );
         }
     }

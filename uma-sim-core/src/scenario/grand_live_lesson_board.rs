@@ -42,19 +42,18 @@ impl GrandLiveLessonBoard {
             }
         }
         let refresh = state.scenario_resources.get("lesson_refresh");
-        let mut rng = SimRandom::new(
-            state.meta.seed * 31 + state.turn as i64 * 17 + refresh as i64 * 13,
-        );
+        let mut rng =
+            SimRandom::new(state.meta.seed * 31 + state.turn as i64 * 17 + refresh as i64 * 13);
         let pool = build_pool(state);
         if pool.is_empty() {
             return Vec::new();
         }
 
-    let allow_songs = GrandLiveMechanics::songs_unlocked_on_board(state);
-    // 21-song technique pivot (uma.guide): before Grand Concert, do not force a song slot.
-    let technique_pivot = state.scenario_resources.get("songs_learned") >= 21
-        && state.scenario_resources.get("concert_index") >= 4;
-    let mut slots = pick_slots(state, &pool, allow_songs && !technique_pivot, &mut rng);
+        let allow_songs = GrandLiveMechanics::songs_unlocked_on_board(state);
+        // 21-song technique pivot (uma.guide): before Grand Concert, do not force a song slot.
+        let technique_pivot = state.scenario_resources.get("songs_learned") >= 21
+            && state.scenario_resources.get("concert_index") >= 4;
+        let mut slots = pick_slots(state, &pool, allow_songs && !technique_pivot, &mut rng);
 
         // Prefer reserved lesson card in slot 0 when present in the pool.
         if let Some(reserve) = GrandLiveMechanics::reserve_square_id(&state.scenario_resources) {

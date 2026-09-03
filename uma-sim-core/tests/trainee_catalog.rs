@@ -71,10 +71,20 @@ fn growth_pct_boosts_training_gain() {
     let mut sw_state = base_state.clone();
     sw_state.meta.trainee_name = "Special Week".into();
     let test_gain = resolver
-        .resolve_typical(TrainingFacility::Stamina, 3, MoodLevel::Normal, Some(&base_state))
+        .resolve_typical(
+            TrainingFacility::Stamina,
+            3,
+            MoodLevel::Normal,
+            Some(&base_state),
+        )
         .main_gain;
     let sw_gain = resolver
-        .resolve_typical(TrainingFacility::Stamina, 3, MoodLevel::Normal, Some(&sw_state))
+        .resolve_typical(
+            TrainingFacility::Stamina,
+            3,
+            MoodLevel::Normal,
+            Some(&sw_state),
+        )
         .main_gain;
     assert!(
         sw_gain > test_gain,

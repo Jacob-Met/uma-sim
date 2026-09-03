@@ -5,8 +5,8 @@
 use std::collections::HashMap;
 use std::sync::{Mutex, MutexGuard};
 use uma_sim_core::state::{
-    default_facility_levels, CareerState, DeckState, LegacyState, MoodLevel, RunMeta, ScenarioResources,
-    SimDate, TraineeStats, TurnPhase,
+    default_facility_levels, CareerState, DeckState, LegacyState, MoodLevel, RunMeta,
+    ScenarioResources, SimDate, TraineeStats, TurnPhase,
 };
 
 /// Serialize tests that mutate process-global research/config/lookup state.
@@ -17,10 +17,7 @@ pub fn config_lock() -> MutexGuard<'static, ()> {
 
 pub const SCENARIOS: [&str; 4] = ["ura", "grand_concert", "unity", "trackblazer"];
 
-pub const KT_RES: &str = concat!(
-    env!("CARGO_MANIFEST_DIR"),
-    "/tests/fixtures/kotlin"
-);
+pub const KT_RES: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/tests/fixtures/kotlin");
 
 pub fn stats(v: i32) -> TraineeStats {
     TraineeStats {

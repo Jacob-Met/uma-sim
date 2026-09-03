@@ -64,7 +64,10 @@ impl TrainingFailureConfig {
             return;
         };
         let mut cfg = TRAINING_FAILURE.lock().unwrap();
-        if let Some(arr) = root.get("base_failure_by_energy_pct").and_then(|v| v.as_array()) {
+        if let Some(arr) = root
+            .get("base_failure_by_energy_pct")
+            .and_then(|v| v.as_array())
+        {
             let parsed: Vec<(i32, i32)> = arr
                 .iter()
                 .filter_map(|el| {
@@ -175,8 +178,14 @@ impl Default for EventProbabilityState {
             support_chain_chance_per_turn: 0.35,
             energy_variance_pattern: "Energy -5/-20".into(),
             energy_variance_outcomes: vec![
-                WeightedOutcome { delta: -5, weight: 0.5 },
-                WeightedOutcome { delta: -20, weight: 0.5 },
+                WeightedOutcome {
+                    delta: -5,
+                    weight: 0.5,
+                },
+                WeightedOutcome {
+                    delta: -20,
+                    weight: 0.5,
+                },
             ],
             inspiration_chance_per_turn: 0.02,
         }
@@ -204,7 +213,10 @@ impl EventProbabilityConfig {
         {
             cfg.support_chain_chance_per_turn = v;
         }
-        if let Some(ev) = root.get("energy_variance_options").and_then(|v| v.as_object()) {
+        if let Some(ev) = root
+            .get("energy_variance_options")
+            .and_then(|v| v.as_object())
+        {
             if let Some(p) = ev.get("pattern").and_then(|v| v.as_str()) {
                 cfg.energy_variance_pattern = p.to_string();
             }
@@ -234,7 +246,10 @@ impl EventProbabilityConfig {
     }
 
     pub fn inspiration_chance_per_turn() -> f64 {
-        EVENT_PROBABILITY.lock().unwrap().inspiration_chance_per_turn
+        EVENT_PROBABILITY
+            .lock()
+            .unwrap()
+            .inspiration_chance_per_turn
     }
 
     pub fn event_chance_for(state: &CareerState) -> f64 {
@@ -254,7 +269,11 @@ impl EventProbabilityConfig {
     }
 
     pub fn pick_energy_variance(rng: &mut SimRandom) -> i32 {
-        let outcomes = EVENT_PROBABILITY.lock().unwrap().energy_variance_outcomes.clone();
+        let outcomes = EVENT_PROBABILITY
+            .lock()
+            .unwrap()
+            .energy_variance_outcomes
+            .clone();
         let total: f64 = outcomes.iter().map(|o| o.weight).sum();
         if total <= 0.0 {
             return -5;
@@ -792,7 +811,10 @@ impl ScenarioResearchConfig {
         if let Some(v) = root.get("songs_for_best_unique").and_then(|v| v.as_i64()) {
             cfg.songs_for_best_unique = v as i32;
         }
-        if let Some(v) = root.get("fan_target_optional_race").and_then(|v| v.as_i64()) {
+        if let Some(v) = root
+            .get("fan_target_optional_race")
+            .and_then(|v| v.as_i64())
+        {
             cfg.fan_targets.insert(normalized, v as i32);
         }
     }
@@ -874,7 +896,10 @@ impl MoodEnergyConfig {
             if let Some(v) = mood.get("rest_upgrade_chance").and_then(|v| v.as_f64()) {
                 cfg.rest_upgrade_chance = v;
             }
-            if let Some(v) = mood.get("recreation_upgrade_chance").and_then(|v| v.as_f64()) {
+            if let Some(v) = mood
+                .get("recreation_upgrade_chance")
+                .and_then(|v| v.as_f64())
+            {
                 cfg.recreation_upgrade_chance = v;
             }
         }

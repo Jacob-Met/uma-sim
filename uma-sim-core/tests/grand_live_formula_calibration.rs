@@ -32,12 +32,7 @@ fn split_sums_to_formula_total() {
     for facility in TrainingFacility::ALL {
         let total = GrandLiveMechanics::performance_token_total(facility, 3, 2, 1);
         let split = GrandLiveMechanics::split_token_total(total, facility);
-        assert_eq!(
-            total,
-            split.values().sum::<i32>(),
-            "{}",
-            facility.name()
-        );
+        assert_eq!(total, split.values().sum::<i32>(), "{}", facility.name());
     }
 }
 

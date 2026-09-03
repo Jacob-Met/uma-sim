@@ -37,7 +37,9 @@ fn concert_outcome_great_success_normal_and_failure() {
         GrandLiveMechanics::concert_outcome_with_race("promo_1", &gs, false),
         ConcertOutcome::Failure
     );
-    let forced = ScenarioResources::new().set("force_concert_fail", 1).set("hype", 3);
+    let forced = ScenarioResources::new()
+        .set("force_concert_fail", 1)
+        .set("hype", 3);
     assert_eq!(
         GrandLiveMechanics::concert_outcome("promo_1", &forced),
         ConcertOutcome::Failure
@@ -64,7 +66,10 @@ fn fan_scaled_unique_skill_power_multiply_fan_count() {
     assert_eq!(GrandLiveMechanics::unique_skill_power(160_000), 1200);
     // Gold unique base velocity 3500 × 0.8 at low fans
     assert_eq!(GrandLiveMechanics::unique_skill_velocity(3500, 0), 2800);
-    assert_eq!(GrandLiveMechanics::unique_skill_velocity(3500, 160_000), 4200);
+    assert_eq!(
+        GrandLiveMechanics::unique_skill_velocity(3500, 160_000),
+        4200
+    );
 }
 
 #[test]
@@ -165,7 +170,9 @@ fn concert_failure_on_race_loss() {
     );
     let plugin = uma_sim_core::scenario_plugin_for("grand_concert");
     let (after, lines) = plugin.on_race_complete(&state, "promo_1", false);
-    assert!(lines.iter().any(|l| l.contains("FAILED") || l.contains("failure")));
+    assert!(lines
+        .iter()
+        .any(|l| l.contains("FAILED") || l.contains("failure")));
     assert_eq!(
         after.scenario_resources.get("last_live_result"),
         ConcertOutcome::Failure.as_resource_value()
@@ -196,7 +203,9 @@ fn lesson_board_three_slots_documents_next_square_approximation() {
     );
     let slots = GrandLiveLessonBoard::current_slots(&state);
     assert!(slots.len() <= 3);
-    assert!(slots.iter().any(|s| s.square_type >= 1 && s.square_type <= 4));
+    assert!(slots
+        .iter()
+        .any(|s| s.square_type >= 1 && s.square_type <= 4));
 }
 
 #[test]
@@ -225,7 +234,10 @@ fn lesson_board_includes_unaffordable_and_song_when_unlocked() {
     );
     let slots = GrandLiveLessonBoard::current_slots(&state);
     assert!(!slots.is_empty());
-    assert!(slots.iter().any(|s| s.is_song), "expected a song slot when gate unlocked");
+    assert!(
+        slots.iter().any(|s| s.is_song),
+        "expected a song slot when gate unlocked"
+    );
     assert!(
         slots.iter().any(|s| !s.affordable),
         "board should surface unaffordable lessons like the live API"
@@ -282,7 +294,10 @@ fn dating_light_hello_event_can_fire_and_unlocks_pal_date() {
             break;
         }
     }
-    assert!(fired, "expected Light Hello dating-starts within seed search");
+    assert!(
+        fired,
+        "expected Light Hello dating-starts within seed search"
+    );
 }
 
 #[test]
@@ -291,8 +306,8 @@ fn song_mastery_train_bonuses_apply_on_purchase() {
         return;
     };
     uma_sim_core::GrandLiveCatalogLoader::init_from_repo(Some(&root));
-    let song = uma_sim_core::GrandLiveCatalog::find_song("2")
-        .expect("Run for Our Dream should load");
+    let song =
+        uma_sim_core::GrandLiveCatalog::find_song("2").expect("Run for Our Dream should load");
     assert!(matches!(
         song.mastery,
         uma_sim_core::GrandLiveMasteryBonus::TrainSkillPoints { value: 2 }
@@ -544,9 +559,7 @@ fn technique_pivot_skips_forced_song_slot_at_21_songs() {
     );
     // Mark many songs owned so remaining pool is thin; pivot must not force a song.
     for id in 2..=21 {
-        state.scenario_resources = state
-            .scenario_resources
-            .set(&format!("song_owned:{id}"), 1);
+        state.scenario_resources = state.scenario_resources.set(&format!("song_owned:{id}"), 1);
     }
     let board = GrandLiveLessonBoard::current_slots(&state);
     let song_count = board.iter().filter(|s| s.is_song).count();

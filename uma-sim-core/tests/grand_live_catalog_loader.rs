@@ -7,10 +7,7 @@ fn loads_songs_from_knowledge_base() {
     let Some(root) = detect_repo_root() else {
         return;
     };
-    if !root
-        .join("knowledge/canonical/by_kind/song.json")
-        .is_file()
-    {
+    if !root.join("knowledge/canonical/by_kind/song.json").is_file() {
         return;
     }
     GrandLiveCatalogLoader::init_from_repo(Some(&root));

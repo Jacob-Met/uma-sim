@@ -7,8 +7,8 @@ use std::collections::HashMap;
 use uma_sim_core::calendar::CAREER_TURNS;
 use uma_sim_core::deck::DeckPlacement;
 use uma_sim_core::scenario::grand_live::{
-    GrandLiveMechanics, CYCLE_SONGS_AT_START, DEFAULT_GREAT_SUCCESS_REQUIRED, MAKE_DEBUT_GRANT_TURN,
-    PERF_CODES, PERF_MAX_BASE,
+    GrandLiveMechanics, CYCLE_SONGS_AT_START, DEFAULT_GREAT_SUCCESS_REQUIRED,
+    MAKE_DEBUT_GRANT_TURN, PERF_CODES, PERF_MAX_BASE,
 };
 use uma_sim_core::scenario::grand_live_deck_support::GrandLiveDeckSupport;
 use uma_sim_core::scenario::grand_live_lesson_board::SLOTS;
@@ -175,7 +175,8 @@ fn is_hype_maxed_when_cycle_meets_required() {
 #[test]
 fn great_success_grand_concert_with_18_songs() {
     let plugin = GrandConcertScenarioPlugin;
-    let mut values: HashMap<String, i32> = (1..=18).map(|i| (format!("song_owned:{i}"), 1)).collect();
+    let mut values: HashMap<String, i32> =
+        (1..=18).map(|i| (format!("song_owned:{i}"), 1)).collect();
     values.insert("songs_learned".into(), 18);
     values.insert("hype".into(), 3);
     values.insert("great_success_required".into(), 3);
@@ -358,10 +359,7 @@ fn promo_concert_grants_stats_sp_and_raises_perf_cap() {
     let (after, lines) = plugin.on_race_complete(&state, "promo_1", true);
     assert_eq!(after.stats.speed, 110);
     assert_eq!(after.skill_points, 85);
-    assert_eq!(
-        GrandLiveMechanics::perf_max(&after.scenario_resources),
-        250
-    );
+    assert_eq!(GrandLiveMechanics::perf_max(&after.scenario_resources), 250);
     assert!(lines.iter().any(|l| l.contains("Great Success")));
 }
 
@@ -370,10 +368,7 @@ fn make_debut_song_grants_all_performance_tokens() {
     let (after, lines) =
         GrandLiveMechanics::grant_make_debut_song(&GrandLiveMechanics::initial_resources());
     for code in PERF_CODES {
-        assert_eq!(
-            after.get(&GrandLiveMechanics::perf_resource_key(code)),
-            10
-        );
+        assert_eq!(after.get(&GrandLiveMechanics::perf_resource_key(code)), 10);
     }
     assert!(lines.iter().any(|l| l.contains("performance tokens +10")));
 }
@@ -401,8 +396,12 @@ fn light_hello_grants_least_owned_on_proc() {
     let mut found = false;
     for seed in 0..=500 {
         let mut rng = SimRandom::new(seed);
-        let (gains, lines) =
-            GrandLiveMechanics::roll_light_hello(&state.scenario_resources, &state, TrainingFacility::Wit, &mut rng);
+        let (gains, lines) = GrandLiveMechanics::roll_light_hello(
+            &state.scenario_resources,
+            &state,
+            TrainingFacility::Wit,
+            &mut rng,
+        );
         if gains.is_empty() {
             continue;
         }

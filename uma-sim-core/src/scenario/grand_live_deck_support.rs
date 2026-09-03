@@ -6,7 +6,10 @@ pub struct GrandLiveDeckSupport;
 
 impl GrandLiveDeckSupport {
     pub fn is_scenario_link(support_id: &str) -> bool {
-        let normalized = support_id.to_lowercase().replace('_', " ").replace('-', " ");
+        let normalized = support_id
+            .to_lowercase()
+            .replace('_', " ")
+            .replace('-', " ");
         // Character-linked cards (any rarity) — IDs are examples for Light Hello SSR.
         const LINK_IDS: [&str; 2] = ["support:30052", "support:10083"];
         if LINK_IDS
@@ -23,8 +26,7 @@ impl GrandLiveDeckSupport {
             "mihono bourbon",
         ];
         CHARS.iter().any(|ch| {
-            normalized.contains(ch)
-                || normalized.replace(' ', "").contains(&ch.replace(' ', ""))
+            normalized.contains(ch) || normalized.replace(' ', "").contains(&ch.replace(' ', ""))
         })
     }
 

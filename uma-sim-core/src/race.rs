@@ -104,9 +104,7 @@ pub fn derive_race_seed(career_seed: i64, turn: i32, race_id: &str) -> u32 {
     let mut h: u64 = career_seed as u64;
     h ^= (turn as u64).wrapping_mul(0x9E37_79B9_7F4A_7C15);
     for b in race_id.as_bytes() {
-        h = h
-            .wrapping_mul(0x0100_0000_01B3)
-            .wrapping_add(u64::from(*b));
+        h = h.wrapping_mul(0x0100_0000_01B3).wrapping_add(u64::from(*b));
     }
     let s = (h ^ (h >> 32)) as u32;
     if s == 0 {
@@ -405,7 +403,11 @@ pub fn run_physics_race(state: &CareerState, race_id: &str) -> PhysicsRaceOutcom
         .find(|f| f.index == 0)
         .map(|f| f.finish_time)
         .unwrap_or(0.0);
-    let winner_t = result.finishers.first().map(|f| f.finish_time).unwrap_or(0.0);
+    let winner_t = result
+        .finishers
+        .first()
+        .map(|f| f.finish_time)
+        .unwrap_or(0.0);
     let margin_to_winner_s = (finish_time - winner_t).max(0.0);
     let margin_ahead_s = if trainee_rank < result.finishers.len() {
         (result.finishers[trainee_rank].finish_time - finish_time).max(0.0)

@@ -112,10 +112,7 @@ pub fn should_hold_for_lesson(
     if locked_is_song && locked_song_unowned && affordable_learnable_count == 0 {
         return true;
     }
-    if locked_is_song
-        && locked_song_unowned
-        && ctx.songs_learned >= TARGET_SONGS - 3
-        && concert_far
+    if locked_is_song && locked_song_unowned && ctx.songs_learned >= TARGET_SONGS - 3 && concert_far
     {
         return true;
     }

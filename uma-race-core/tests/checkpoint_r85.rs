@@ -106,7 +106,8 @@ fn classify_failure(c: &SampleCase, ours: f64, expected: f64, delta: f64) -> Str
     }
     if c.pace_effects {
         notes.push(
-            "pace_effects=true → Virtual+default pacer; pos-keep still provisional vs upstream".into(),
+            "pace_effects=true → Virtual+default pacer; pos-keep still provisional vs upstream"
+                .into(),
         );
     }
     if c.kind != "no_skill" {
@@ -136,7 +137,9 @@ fn classify_failure(c: &SampleCase, ours: f64, expected: f64, delta: f64) -> Str
             "near-miss (≤3 frames, Δ={delta:.6}); start-delay/spurt/pos-keep edge — ours until proven upstream"
         ));
     } else if delta > DT {
-        notes.push("within few seconds of upstream — investigate frame/start-delay/spurt edge".into());
+        notes.push(
+            "within few seconds of upstream — investigate frame/start-delay/spurt edge".into(),
+        );
     }
     if notes.is_empty() {
         format!(
@@ -169,7 +172,10 @@ fn r85_checkpoint_sample_triage() {
     let mut results = Vec::new();
 
     for c in &sample.cases {
-        if c.extract_err.as_ref().map(|e| !e.is_empty()).unwrap_or(false)
+        if c.extract_err
+            .as_ref()
+            .map(|e| !e.is_empty())
+            .unwrap_or(false)
             || c.expected_finish.is_none()
         {
             skip += 1;
@@ -181,7 +187,8 @@ fn r85_checkpoint_sample_triage() {
             continue;
         }
         let expected = c.expected_finish.unwrap();
-        let course = get_course(c.course_id).unwrap_or_else(|| panic!("missing course {}", c.course_id));
+        let course =
+            get_course(c.course_id).unwrap_or_else(|| panic!("missing course {}", c.course_id));
         let ground = parse_ground(&c.ground);
         let horse = to_horse(c);
         let ours = if c.pace_effects {

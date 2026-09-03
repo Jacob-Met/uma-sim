@@ -62,8 +62,10 @@ fn skill_lookup(id: &str) -> Option<LegacyFactorMeta> {
 #[test]
 fn spark_caps_stack_per_star() {
     let _g = TEST_LOCK.lock().unwrap();
-    let legacy =
-        LegacyApplicator::build_legacy(&["factor:blue:1@3".into(), "factor:blue:1@2".into()], Vec::new());
+    let legacy = LegacyApplicator::build_legacy(
+        &["factor:blue:1@3".into(), "factor:blue:1@2".into()],
+        Vec::new(),
+    );
     assert_eq!(legacy.spark_caps.get("speed").copied().unwrap_or(0), 100);
 }
 

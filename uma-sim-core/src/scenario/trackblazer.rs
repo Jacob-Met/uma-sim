@@ -49,9 +49,8 @@ impl Default for TrackblazerConfig {
     }
 }
 
-static CONFIG: LazyLock<Mutex<TrackblazerConfig>> = LazyLock::new(|| {
-    Mutex::new(TrackblazerConfig::default())
-});
+static CONFIG: LazyLock<Mutex<TrackblazerConfig>> =
+    LazyLock::new(|| Mutex::new(TrackblazerConfig::default()));
 
 pub struct TrackblazerMechanics;
 
@@ -91,7 +90,10 @@ impl TrackblazerMechanics {
             }
         }
         if let Some(climax) = root.get("climax").and_then(|v| v.as_object()) {
-            if let Some(v) = climax.get("victory_points_per_win").and_then(|v| v.as_i64()) {
+            if let Some(v) = climax
+                .get("victory_points_per_win")
+                .and_then(|v| v.as_i64())
+            {
                 cfg.climax_victory_points = v as i32;
             }
         }
@@ -231,7 +233,11 @@ impl TrackblazerMechanics {
             .collect();
         let take = cfg.offers_per_shop.min(affordable.len() as i32) as usize;
         let picked = shuffled(&affordable, &mut rng);
-        let mut options: Vec<String> = picked.into_iter().take(take).map(|i| Self::format_option(&i)).collect();
+        let mut options: Vec<String> = picked
+            .into_iter()
+            .take(take)
+            .map(|i| Self::format_option(&i))
+            .collect();
         options.push(Self::format_option(&ShopItem {
             id: "skip".to_string(),
             name: "Skip".to_string(),

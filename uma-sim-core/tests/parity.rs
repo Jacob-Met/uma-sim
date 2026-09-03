@@ -6,12 +6,15 @@ use std::path::PathBuf;
 
 use uma_sim_core::scoring::{
     apply_training_multipliers, calculate_raw_training_score, parse_event_reward_text,
-    sample_event_reward, score_event_option, score_lesson_option, soft_cap_effectiveness_multiplier,
-    stat_score, BarFillResult, DateYear, DecisionContext, GameDateSnapshot, LessonScoreInputs,
-    MoodOrdinal, StatName, SupportEffectSlice, TrainingConfig, TrainingOption,
+    sample_event_reward, score_event_option, score_lesson_option,
+    soft_cap_effectiveness_multiplier, stat_score, BarFillResult, DateYear, DecisionContext,
+    GameDateSnapshot, LessonScoreInputs, MoodOrdinal, StatName, SupportEffectSlice, TrainingConfig,
+    TrainingOption,
 };
 use uma_sim_core::state::MoodLevel;
-use uma_sim_core::{run_rng_trace_fixture, run_turn_trace_fixture, RngTraceFixture, TurnTraceFixture};
+use uma_sim_core::{
+    run_rng_trace_fixture, run_turn_trace_fixture, RngTraceFixture, TurnTraceFixture,
+};
 
 const TRACE_SEEDS: [i64; 3] = [1, 42, 7];
 const SCENARIOS: [&str; 4] = ["ura", "grand_concert", "unity", "trackblazer"];
@@ -22,7 +25,8 @@ fn fixtures_dir() -> PathBuf {
 
 fn load_json<T: serde::de::DeserializeOwned>(name: &str) -> T {
     let path = fixtures_dir().join(name);
-    let raw = std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("missing fixture {name}: {e}"));
+    let raw =
+        std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("missing fixture {name}: {e}"));
     serde_json::from_str(&raw).unwrap_or_else(|e| panic!("parse fixture {name}: {e}"))
 }
 
@@ -99,7 +103,11 @@ fn approx_eq(actual: f64, expected: f64, ctx: &str) {
     );
 }
 
-fn reading_matches(actual: &uma_sim_core::scoring::EventEffectReading, expected: &serde_json::Value, ctx: &str) {
+fn reading_matches(
+    actual: &uma_sim_core::scoring::EventEffectReading,
+    expected: &serde_json::Value,
+    ctx: &str,
+) {
     assert_eq!(
         actual.energy_delta,
         expected["energyDelta"].as_i64().unwrap_or(0) as i32,
@@ -207,11 +215,7 @@ fn lesson_score_ctx() -> DecisionContext {
     };
     ctx.stats = StatName::ALL.into_iter().map(|s| (s, 300)).collect();
     ctx.stat_caps = StatName::ALL.into_iter().map(|s| (s, 1200)).collect();
-    ctx.token_totals = HashMap::from([
-        ("Da".into(), 50),
-        ("Pa".into(), 40),
-        ("Vo".into(), 30),
-    ]);
+    ctx.token_totals = HashMap::from([("Da".into(), 50), ("Pa".into(), 40), ("Vo".into(), 30)]);
     ctx
 }
 
@@ -395,11 +399,17 @@ fn turn_traces_report_first_divergence() {
             let expected: TurnTraceFixture = load_json(&name);
             let actual = run_turn_trace_fixture(seed, scenario);
             let divergence = first_turn_divergence(&expected.snapshots, &actual.snapshots);
-            let status = if divergence.is_none() { "MATCH" } else { "DIVERGE" };
+            let status = if divergence.is_none() {
+                "MATCH"
+            } else {
+                "DIVERGE"
+            };
             let turn = divergence.as_ref().map(|(t, _)| *t);
             matrix.push((seed, scenario, status, turn));
             if let Some((turn, msg)) = divergence {
-                eprintln!("turn_trace {scenario} seed {seed}: first divergence at turn {turn}: {msg}");
+                eprintln!(
+                    "turn_trace {scenario} seed {seed}: first divergence at turn {turn}: {msg}"
+                );
             }
         }
     }
@@ -441,7 +451,10 @@ fn event_parse_vectors_fixture_loads() {
     }
     let root: serde_json::Value = load_json("event_parse_vectors.json");
     let vectors = root["vectors"].as_array().expect("vectors array");
-    assert!(!vectors.is_empty(), "event_parse_vectors.json must contain entries");
+    assert!(
+        !vectors.is_empty(),
+        "event_parse_vectors.json must contain entries"
+    );
     for (i, v) in vectors.iter().enumerate() {
         let text = v["text"].as_str().unwrap_or("");
         let actual = parse_event_reward_text(text);

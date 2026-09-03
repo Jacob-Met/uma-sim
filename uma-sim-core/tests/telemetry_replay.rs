@@ -6,9 +6,7 @@ use common::{base_state, stats5, KT_RES};
 use serde::Deserialize;
 use std::path::PathBuf;
 use uma_sim_core::state::{MoodLevel, TurnPhase};
-use uma_sim_core::{
-    scenario_plugin_for, BotDecisionAdapter, TrainingResolver,
-};
+use uma_sim_core::{scenario_plugin_for, BotDecisionAdapter, TrainingResolver};
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]

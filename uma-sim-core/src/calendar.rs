@@ -46,11 +46,7 @@ impl TurnCalendar {
             "Year {} {} ({}), turn {}",
             self.date.year,
             month_name(self.date.month),
-            if self.date.half == 1 {
-                "Early"
-            } else {
-                "Late"
-            },
+            if self.date.half == 1 { "Early" } else { "Late" },
             self.turn
         )
     }

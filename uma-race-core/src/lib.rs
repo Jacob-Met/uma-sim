@@ -30,5 +30,5 @@ pub use hp::{
 };
 pub use physics::{base_speed, phase_end, phase_start, Phase};
 pub use rng::PrandoRng;
-pub use runner::{simulate_solo_trace, entrant_seed, HorseRunner, StepCtx};
+pub use runner::{entrant_seed, simulate_solo_trace, HorseRunner, StepCtx};
 pub use solver::{simulate_solo, simulate_solo_by_id, HorseInput, RaceResult};

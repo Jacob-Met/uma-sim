@@ -60,6 +60,12 @@ fn all_kotlin_golden_summaries() {
     assert!(fixtures.len() >= 200);
     for exp in &fixtures {
         let actual = run_career_summary(exp.seed, &exp.scenario);
-        assert_eq!(actual, to_golden(exp), "seed={} scenario={}", exp.seed, exp.scenario);
+        assert_eq!(
+            actual,
+            to_golden(exp),
+            "seed={} scenario={}",
+            exp.seed,
+            exp.scenario
+        );
     }
 }

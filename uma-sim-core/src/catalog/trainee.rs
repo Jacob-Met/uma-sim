@@ -83,14 +83,15 @@ impl TraineeCatalog {
             };
             let char_id = char_id as i32;
 
-            let bonus: Option<Vec<i32>> = payload
-                .get("stat_bonus")
-                .and_then(|v| v.as_array())
-                .map(|arr| {
-                    arr.iter()
-                        .filter_map(|v| v.as_i64().map(|n| n as i32))
-                        .collect()
-                });
+            let bonus: Option<Vec<i32>> =
+                payload
+                    .get("stat_bonus")
+                    .and_then(|v| v.as_array())
+                    .map(|arr| {
+                        arr.iter()
+                            .filter_map(|v| v.as_i64().map(|n| n as i32))
+                            .collect()
+                    });
 
             if bonus.as_ref().map(|b| b.len()).unwrap_or(0) < 5 {
                 let char_name = obj
@@ -180,6 +181,25 @@ impl TraineeCatalog {
             .map(|(_, v)| v.clone())
     }
 
+    /// Unique trainee cards for the web UI / REST `/v1/catalog/trainees`.
+    pub fn list_all() -> Vec<TraineeMeta> {
+        let state = CATALOG.lock().unwrap();
+        let mut by_id: HashMap<String, TraineeMeta> = HashMap::new();
+        for cards in state.by_char_id.values() {
+            if let Some(first) = cards.first() {
+                by_id.insert(first.id.clone(), first.clone());
+            }
+        }
+        if by_id.is_empty() {
+            for meta in state.by_name.values() {
+                by_id.entry(meta.id.clone()).or_insert_with(|| meta.clone());
+            }
+        }
+        let mut rows: Vec<_> = by_id.into_values().collect();
+        rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+        rows
+    }
+
     pub fn growth_pct(trainee_name: &str, facility: TrainingFacility) -> f64 {
         let Some(meta) = Self::lookup(trainee_name) else {
             return 0.0;
@@ -194,7 +214,10 @@ impl TraineeCatalog {
         meta.growth_bonus_pct[idx] as f64
     }
 
-    fn default_card_for_char_locked(state: &TraineeCatalogState, char_id: i32) -> Option<TraineeMeta> {
+    fn default_card_for_char_locked(
+        state: &TraineeCatalogState,
+        char_id: i32,
+    ) -> Option<TraineeMeta> {
         state.by_char_id.get(&char_id)?.first().cloned()
     }
 }

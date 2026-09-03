@@ -19,8 +19,8 @@ use crate::scenario::{
 use crate::scoring::soft_cap_effectiveness_multiplier;
 use crate::snapshot::RunSnapshot;
 use crate::state::{
-    default_facility_levels, CareerState, DeckState, RunMeta, SimAction, SimActionKind, SimChoice,
-    SimDate, SimSettings, TrainingFacility, TurnPhase, downgrade_mood, upgrade_mood,
+    default_facility_levels, downgrade_mood, upgrade_mood, CareerState, DeckState, RunMeta,
+    SimAction, SimActionKind, SimChoice, SimDate, SimSettings, TrainingFacility, TurnPhase,
 };
 use crate::telemetry::SimTelemetry;
 use crate::training::TrainingResolver;
@@ -183,7 +183,8 @@ impl SimEngine {
     }
 
     pub fn assign_deck_slot(&mut self, support_id: &str, facility: TrainingFacility) -> bool {
-        let Some(updated) = DeckPlacement::reassign(&self.state.deck.slots, support_id, facility) else {
+        let Some(updated) = DeckPlacement::reassign(&self.state.deck.slots, support_id, facility)
+        else {
             return false;
         };
         self.state.deck.slots = updated;
@@ -215,14 +216,22 @@ impl SimEngine {
                 ),
             }];
         }
-        if self.state.phase == TurnPhase::Event.as_str() && !self.state.pending_event_options.is_empty() {
+        if self.state.phase == TurnPhase::Event.as_str()
+            && !self.state.pending_event_options.is_empty()
+        {
             return self
                 .state
                 .pending_event_options
                 .iter()
                 .enumerate()
                 .map(|(idx, opt)| {
-                    let preview = opt.lines().next().unwrap_or("Option").chars().take(40).collect::<String>();
+                    let preview = opt
+                        .lines()
+                        .next()
+                        .unwrap_or("Option")
+                        .chars()
+                        .take(40)
+                        .collect::<String>();
                     SimChoice {
                         id: format!("event_{idx}"),
                         label: preview,
@@ -231,12 +240,30 @@ impl SimEngine {
                 .collect();
         }
         let mut choices = vec![
-            SimChoice { id: "train_speed".into(), label: "Train Speed".into() },
-            SimChoice { id: "train_stamina".into(), label: "Train Stamina".into() },
-            SimChoice { id: "train_power".into(), label: "Train Power".into() },
-            SimChoice { id: "train_guts".into(), label: "Train Guts".into() },
-            SimChoice { id: "train_wit".into(), label: "Train Wits".into() },
-            SimChoice { id: "rest".into(), label: "Rest".into() },
+            SimChoice {
+                id: "train_speed".into(),
+                label: "Train Speed".into(),
+            },
+            SimChoice {
+                id: "train_stamina".into(),
+                label: "Train Stamina".into(),
+            },
+            SimChoice {
+                id: "train_power".into(),
+                label: "Train Power".into(),
+            },
+            SimChoice {
+                id: "train_guts".into(),
+                label: "Train Guts".into(),
+            },
+            SimChoice {
+                id: "train_wit".into(),
+                label: "Train Wits".into(),
+            },
+            SimChoice {
+                id: "rest".into(),
+                label: "Rest".into(),
+            },
             SimChoice {
                 id: "recreation".into(),
                 label: if self.dating_available() {
@@ -245,7 +272,10 @@ impl SimEngine {
                     "Recreation".into()
                 },
             },
-            SimChoice { id: "race".into(), label: "Race (optional)".into() },
+            SimChoice {
+                id: "race".into(),
+                label: "Race (optional)".into(),
+            },
         ];
         choices.extend(self.plugin.extra_choices(&self.state));
         choices
@@ -255,11 +285,17 @@ impl SimEngine {
         if self.state.career_complete {
             return self.snapshot(vec!["Career already complete.".to_string()]);
         }
-        if self.state.phase == TurnPhase::MandatoryRace.as_str() && action.kind != SimActionKind::Race {
-            return self.snapshot(vec!["Mandatory race pending — you must race this turn.".to_string()]);
+        if self.state.phase == TurnPhase::MandatoryRace.as_str()
+            && action.kind != SimActionKind::Race
+        {
+            return self.snapshot(vec![
+                "Mandatory race pending — you must race this turn.".to_string()
+            ]);
         }
         if self.state.phase == TurnPhase::Event.as_str() && action.kind != SimActionKind::Choose {
-            return self.snapshot(vec!["Event pending — choose an option (event_0, event_1, ...).".to_string()]);
+            return self.snapshot(vec![
+                "Event pending — choose an option (event_0, event_1, ...).".to_string(),
+            ]);
         }
 
         let pre_state = self.state.clone();
@@ -283,7 +319,9 @@ impl SimEngine {
             }
             SimActionKind::Lesson => {
                 if let Some(payload) = &action.payload {
-                    if let Some((s, plugin_lines)) = self.plugin.apply_side_action(&self.state, payload) {
+                    if let Some((s, plugin_lines)) =
+                        self.plugin.apply_side_action(&self.state, payload)
+                    {
                         self.state = s;
                         lines.extend(plugin_lines);
                     } else {
@@ -302,7 +340,8 @@ impl SimEngine {
         }
 
         if self.settings.trace_telemetry {
-            self.telemetry.record(&self.state, &self.choices(), Some(&action));
+            self.telemetry
+                .record(&self.state, &self.choices(), Some(&action));
             self.telemetry.record_transition(
                 &pre_state,
                 &self.state,
@@ -519,11 +558,16 @@ impl SimEngine {
 
     fn begin_turn(&mut self) {
         let (mut next, _lines) = self.plugin.on_turn_start(&self.state);
-        if next.phase == TurnPhase::MandatoryRace.as_str() || next.phase == TurnPhase::Event.as_str() {
+        if next.phase == TurnPhase::MandatoryRace.as_str()
+            || next.phase == TurnPhase::Event.as_str()
+        {
             self.state = next;
             return;
         }
-        if self.rng.next_boolean(EventProbabilityConfig::inspiration_chance_per_turn()) {
+        if self
+            .rng
+            .next_boolean(EventProbabilityConfig::inspiration_chance_per_turn())
+        {
             let bonus = InspirationConfig::roll_bonus(&mut self.rng);
             next.phase = TurnPhase::Event.as_str().to_string();
             next.awaiting_choice = true;
@@ -533,9 +577,9 @@ impl SimEngine {
             self.state = next;
             return;
         }
-        if let Some(event) = self
-            .event_catalog
-            .pick_random(&next.meta.trainee_name, next.turn, &mut self.rng)
+        if let Some(event) =
+            self.event_catalog
+                .pick_random(&next.meta.trainee_name, next.turn, &mut self.rng)
         {
             let mut chance = self
                 .event_chance_override
@@ -710,16 +754,27 @@ impl SimEngine {
                 self.state.mood = downgrade_mood(self.state.mood);
             }
             self.state.statuses = new_statuses;
-            self.state.log.push(format!("Training failed at {}.", facility.name()));
-            let (after, fail_lines) = self.plugin.on_training_complete(&self.state, facility, false);
+            self.state
+                .log
+                .push(format!("Training failed at {}.", facility.name()));
+            let (after, fail_lines) =
+                self.plugin
+                    .on_training_complete(&self.state, facility, false);
             self.state = after;
-            let injury_note = if fail.injured { " Injury sustained!" } else { "" };
+            let injury_note = if fail.injured {
+                " Injury sustained!"
+            } else {
+                ""
+            };
             let extra = if fail_lines.is_empty() {
                 String::new()
             } else {
                 format!(" {}", fail_lines.join(" "))
             };
-            return format!("Training FAILED at {}.{injury_note}{extra}", facility.name());
+            return format!(
+                "Training FAILED at {}.{injury_note}{extra}",
+                facility.name()
+            );
         }
         let scaled_gain =
             (outcome.main_gain as f64 * self.plugin.training_stat_multiplier(&self.state)) as i32;
@@ -738,13 +793,18 @@ impl SimEngine {
         let ter_fac = self.training_resolver.tertiary_facility(facility);
         let capped_secondary = self.apply_stat_cap(
             sec_fac,
-            (outcome.secondary_gain as f64 * self.plugin.training_stat_multiplier(&self.state)) as i32,
+            (outcome.secondary_gain as f64 * self.plugin.training_stat_multiplier(&self.state))
+                as i32,
         );
         let capped_tertiary = self.apply_stat_cap(
             ter_fac,
-            (outcome.tertiary_gain as f64 * self.plugin.training_stat_multiplier(&self.state)) as i32,
+            (outcome.tertiary_gain as f64 * self.plugin.training_stat_multiplier(&self.state))
+                as i32,
         );
-        let hint_gain = if self.rng.next_boolean(HintProgressionConfig::training_hint_chance()) {
+        let hint_gain = if self
+            .rng
+            .next_boolean(HintProgressionConfig::training_hint_chance())
+        {
             1
         } else {
             0
@@ -760,19 +820,25 @@ impl SimEngine {
             0
         };
         let new_hint_level = if hint_gain > 0 {
-            HintProgressionConfig::apply_training_hint(self.state.hint_levels.get(key).copied().unwrap_or(0))
+            HintProgressionConfig::apply_training_hint(
+                self.state.hint_levels.get(key).copied().unwrap_or(0),
+            )
         } else {
             self.state.hint_levels.get(key).copied().unwrap_or(0)
         };
-        let (new_levels, new_counts) = if FacilityLevelConfig::uses_train_count_leveling(&self.state.meta.scenario_id) {
-            FacilityLevelConfig::apply_successful_train(
-                facility,
-                &self.state.facility_levels,
-                &self.state.facility_train_counts,
-            )
-        } else {
-            (self.state.facility_levels.clone(), self.state.facility_train_counts.clone())
-        };
+        let (new_levels, new_counts) =
+            if FacilityLevelConfig::uses_train_count_leveling(&self.state.meta.scenario_id) {
+                FacilityLevelConfig::apply_successful_train(
+                    facility,
+                    &self.state.facility_levels,
+                    &self.state.facility_train_counts,
+                )
+            } else {
+                (
+                    self.state.facility_levels.clone(),
+                    self.state.facility_train_counts.clone(),
+                )
+            };
         let old_level = level;
         let new_level = new_levels.get(key).copied().unwrap_or(level);
         self.state.stats = self
@@ -783,18 +849,21 @@ impl SimEngine {
             .with_delta(ter_fac, capped_tertiary);
         self.state.skill_points += hint_gain + mastery_sp;
         if hint_gain > 0 {
-            self.state.hint_levels.insert(key.to_string(), new_hint_level);
+            self.state
+                .hint_levels
+                .insert(key.to_string(), new_hint_level);
         }
         self.state.deck = BondGainConfig::apply_training_bond(&self.state.deck, facility);
         self.state.facility_levels = new_levels;
         self.state.facility_train_counts = new_counts;
-        self.state.energy = apply_energy_after_training(
-            energy_before,
-            outcome.energy_cost,
-            self.state.max_energy,
-        );
-        self.state.log.push(format!("Trained {} +{capped_gain}", facility.name()));
-        let (after, plugin_lines) = self.plugin.on_training_complete(&self.state, facility, true);
+        self.state.energy =
+            apply_energy_after_training(energy_before, outcome.energy_cost, self.state.max_energy);
+        self.state
+            .log
+            .push(format!("Trained {} +{capped_gain}", facility.name()));
+        let (after, plugin_lines) = self
+            .plugin
+            .on_training_complete(&self.state, facility, true);
         self.state = after;
         let energy_line = if outcome.energy_cost < 0 {
             format!("energy +{}", -outcome.energy_cost)
@@ -821,7 +890,10 @@ impl SimEngine {
         let healed = self.state.is_injured();
         let gain = MoodEnergyConfig::rest_energy_gain();
         self.state.energy = (self.state.energy + gain).min(self.state.max_energy);
-        if self.rng.next_boolean(MoodEnergyConfig::rest_mood_upgrade_chance()) {
+        if self
+            .rng
+            .next_boolean(MoodEnergyConfig::rest_mood_upgrade_chance())
+        {
             self.state.mood = upgrade_mood(self.state.mood);
         }
         self.state.statuses = CareerState::without_injury(&self.state.statuses);
@@ -838,7 +910,10 @@ impl SimEngine {
     }
 
     fn dating_available(&self) -> bool {
-        self.state.meta.scenario_id.eq_ignore_ascii_case("grand_concert")
+        self.state
+            .meta
+            .scenario_id
+            .eq_ignore_ascii_case("grand_concert")
             && GrandLiveMechanics::dating_unlocked(&self.state.scenario_resources)
             && GrandLiveDeckSupport::any_scenario_link_in_deck(&self.state)
     }
@@ -859,7 +934,10 @@ impl SimEngine {
         }
         let gain = MoodEnergyConfig::recreation_energy_gain();
         self.state.energy = (self.state.energy + gain).min(self.state.max_energy);
-        if self.rng.next_boolean(MoodEnergyConfig::recreation_mood_upgrade_chance()) {
+        if self
+            .rng
+            .next_boolean(MoodEnergyConfig::recreation_mood_upgrade_chance())
+        {
             self.state.mood = upgrade_mood(self.state.mood);
         }
         self.state.log.push("Recreation".to_string());
@@ -910,7 +988,11 @@ impl SimEngine {
         }
         self.state.fans += fan_gain;
         self.state.skill_points += sp_gain;
-        self.state.completed_races = completed.into_iter().collect::<std::collections::HashSet<_>>().into_iter().collect();
+        self.state.completed_races = completed
+            .into_iter()
+            .collect::<std::collections::HashSet<_>>()
+            .into_iter()
+            .collect();
         self.state.phase = TurnPhase::Free.as_str().to_string();
         self.state.pending_race_id = None;
         let mut epithet_note = String::new();
@@ -1003,7 +1085,11 @@ fn parse_facility(payload: Option<&str>) -> Option<TrainingFacility> {
 fn empty_state() -> CareerState {
     CareerState {
         meta: RunMeta::new(0, "ura", ""),
-        date: SimDate { year: 1, month: 6, half: 2 },
+        date: SimDate {
+            year: 1,
+            month: 6,
+            half: 2,
+        },
         turn: 0,
         stats: Default::default(),
         energy: 0,

@@ -16,9 +16,6 @@ fn canonical_knowledge_base_passes_validate_script() {
     let stdout = String::from_utf8_lossy(&output.stdout);
     let stderr = String::from_utf8_lossy(&output.stderr);
     let combined = format!("{stdout}{stderr}");
-    assert!(
-        output.status.success(),
-        "KB validate failed:\n{combined}"
-    );
+    assert!(output.status.success(), "KB validate failed:\n{combined}");
     assert!(combined.contains("OK"), "{combined}");
 }

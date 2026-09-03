@@ -11,7 +11,7 @@ use crate::config::{
 };
 use crate::content::{ContentPackLoader, ContentPackRegistry};
 use crate::deck::DeckSupportBridge;
-use crate::legacy::{LegacyFactorContext, LegacyFactorMeta, LegacyDeckConfig};
+use crate::legacy::{LegacyDeckConfig, LegacyFactorContext, LegacyFactorMeta};
 use crate::scenario::grand_live_catalog::{
     GrandLiveCalibrationLoader, GrandLiveCatalogLoader, GrandLiveCommunityLoader,
 };

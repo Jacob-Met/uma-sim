@@ -168,9 +168,8 @@ fn unity_extreme_burst_consumes_ready_flag() {
 #[test]
 fn grand_concert_perfect_when_18_songs_and_great_success() {
     let plugin = GrandConcertScenarioPlugin;
-    let mut values: HashMap<String, i32> = (1..=18)
-        .map(|i| (format!("song_owned:{i}"), 1))
-        .collect();
+    let mut values: HashMap<String, i32> =
+        (1..=18).map(|i| (format!("song_owned:{i}"), 1)).collect();
     values.insert("songs_learned".into(), 18);
     values.insert("hype".into(), 3);
     values.insert("great_success_required".into(), 3);

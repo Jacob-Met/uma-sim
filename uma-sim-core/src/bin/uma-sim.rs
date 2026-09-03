@@ -6,8 +6,8 @@ use uma_sim_core::deck::DeckPlacement;
 use uma_sim_core::factory::detect_repo_root;
 use uma_sim_core::render::TextRenderer;
 use uma_sim_core::session::{parse_sim_action, RunSession};
-use uma_sim_core::{ContentPackLoader, RunMeta, SimEngine, SimSettings};
 use uma_sim_core::state::DialogueMode;
+use uma_sim_core::{ContentPackLoader, RunMeta, SimEngine, SimSettings};
 
 fn main() {
     let args: Vec<String> = std::env::args().skip(1).collect();
@@ -247,7 +247,10 @@ fn cmd_export_telemetry(args: &[String]) {
         return;
     }
     let line_count = jsonl.lines().filter(|l| !l.trim().is_empty()).count();
-    println!("Wrote {line_count} telemetry lines to {}", out_path.display());
+    println!(
+        "Wrote {line_count} telemetry lines to {}",
+        out_path.display()
+    );
     println!(
         "Calibrate: python scripts/calibrate_sim.py --telemetry {}",
         out_path.display()

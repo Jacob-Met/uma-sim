@@ -81,10 +81,7 @@ pub fn skill_score_per_point(score: f64, price: i32) -> f64 {
 }
 
 pub fn is_eval_heavy_skill_profile(objective_profile: &str) -> bool {
-    let p = objective_profile
-        .trim()
-        .to_lowercase()
-        .replace(' ', "_");
+    let p = objective_profile.trim().to_lowercase().replace(' ', "_");
     matches!(
         p.as_str(),
         "spark_farming" | "spark" | "sparks" | "career_score" | "rank" | "score"
@@ -245,9 +242,7 @@ pub fn score_skill_for_uma(
 
     score *= aptitude_soft_multiplier(inputs, aptitudes);
 
-    if inputs.is_recovery
-        && inputs.stamina_heavy_distance
-        && inputs.prioritize_recovery_for_stamina
+    if inputs.is_recovery && inputs.stamina_heavy_distance && inputs.prioritize_recovery_for_stamina
     {
         score *= 1.5;
     }
@@ -321,11 +316,9 @@ pub fn calculate_profile_aware_drain_purchases(
             let rem = remaining as usize;
             let prev = remaining - skill.price;
             let spend = best_spend[prev as usize] + skill.price;
-            let uma_val = best_uma[prev as usize]
-                + skill.uma_score.max(skill.evaluation_points as f64);
-            if spend > best_spend[rem]
-                || (spend == best_spend[rem] && uma_val > best_uma[rem])
-            {
+            let uma_val =
+                best_uma[prev as usize] + skill.uma_score.max(skill.evaluation_points as f64);
+            if spend > best_spend[rem] || (spend == best_spend[rem] && uma_val > best_uma[rem]) {
                 best_spend[rem] = spend;
                 best_uma[rem] = uma_val;
                 keep[index][rem] = true;

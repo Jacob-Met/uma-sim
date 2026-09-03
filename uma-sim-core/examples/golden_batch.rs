@@ -14,7 +14,13 @@ fn main() {
     for (i, f) in fixtures.iter().enumerate() {
         let seed = f["seed"].as_i64().unwrap();
         let scenario = f["scenario"].as_str().unwrap();
-        eprint!("[{}/{}] seed={} {} ... ", i + 1, fixtures.len(), seed, scenario);
+        eprint!(
+            "[{}/{}] seed={} {} ... ",
+            i + 1,
+            fixtures.len(),
+            seed,
+            scenario
+        );
         let t = Instant::now();
         let actual = run_career_summary(seed, scenario);
         let ok = actual.turn == f["turn"].as_i64().unwrap() as i32
@@ -39,9 +45,5 @@ fn main() {
             );
         }
     }
-    println!(
-        "DONE mismatches={} elapsed={:?}",
-        mismatches,
-        t0.elapsed()
-    );
+    println!("DONE mismatches={} elapsed={:?}", mismatches, t0.elapsed());
 }

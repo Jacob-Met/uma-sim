@@ -171,9 +171,9 @@ pub fn skill_activation_chance(wisdom: f64) -> f64 {
 /// umalator `make_skill_data.pl` `patch_modifier`: scenario skills ×1.2.
 fn scenario_skill_modifier_scale(skill_id: &str) -> f64 {
     const SCENARIO: &[&str] = &[
-        "210011", "210012", "210021", "210022", "210031", "210032", "210041", "210042",
-        "210051", "210052", "210061", "210062", "210071", "210072", "210081", "210082",
-        "210261", "210262", "210271", "210272", "210281", "210282", "210291",
+        "210011", "210012", "210021", "210022", "210031", "210032", "210041", "210042", "210051",
+        "210052", "210061", "210062", "210071", "210072", "210081", "210082", "210261", "210262",
+        "210271", "210272", "210281", "210282", "210291",
     ];
     if SCENARIO.iter().any(|s| *s == skill_id) {
         1.2
@@ -232,7 +232,10 @@ pub fn compile_skills(
                 reduced.regions =
                     reduced
                         .regions
-                        .map_intersect(crate::condition::region::Region::new(start, course.distance));
+                        .map_intersect(crate::condition::region::Region::new(
+                            start,
+                            course.distance,
+                        ));
             }
             if reduced.regions.is_empty() {
                 continue;
@@ -278,8 +281,7 @@ pub fn compile_skills(
                     | EffectType::GutsUp
                     | EffectType::WisdomUp
             );
-            let skip_wisdom =
-                green_skip || matches!(payload.rarity.unwrap_or(1), 3 | 4 | 5);
+            let skip_wisdom = green_skip || matches!(payload.rarity.unwrap_or(1), 3 | 4 | 5);
             out.push(PendingSkill {
                 skill_id: id.clone(),
                 trigger,
@@ -298,8 +300,8 @@ pub fn compile_skills(
 mod tests {
     use super::*;
     use crate::course::get_course;
-    use crate::hp::Strategy;
     use crate::hp::Aptitude;
+    use crate::hp::Strategy;
 
     #[test]
     fn compiles_200701_phase_random_accel() {
@@ -313,16 +315,16 @@ mod tests {
                 distance_apt: Aptitude::A,
                 surface_apt: Aptitude::A,
                 ground: crate::hp::GroundCondition::Good,
-            mood: 0,
-            speed: 1000.0,
-            stamina: 1000.0,
-            power: 1000.0,
-            guts: 1000.0,
-            wisdom: 1000.0,
-            weather: 1,
-                        season: 1,
-                        time: 2,
-                        grade: 100,
+                mood: 0,
+                speed: 1000.0,
+                stamina: 1000.0,
+                power: 1000.0,
+                guts: 1000.0,
+                wisdom: 1000.0,
+                weather: 1,
+                season: 1,
+                time: 2,
+                grade: 100,
             },
             &mut rng,
         );
@@ -346,16 +348,16 @@ mod tests {
                 distance_apt: Aptitude::A,
                 surface_apt: Aptitude::A,
                 ground: crate::hp::GroundCondition::Good,
-            mood: 0,
-            speed: 1000.0,
-            stamina: 1000.0,
-            power: 1000.0,
-            guts: 1000.0,
-            wisdom: 1000.0,
-            weather: 1,
-                        season: 1,
-                        time: 2,
-                        grade: 100,
+                mood: 0,
+                speed: 1000.0,
+                stamina: 1000.0,
+                power: 1000.0,
+                guts: 1000.0,
+                wisdom: 1000.0,
+                weather: 1,
+                season: 1,
+                time: 2,
+                grade: 100,
             },
             &mut rng,
         );
@@ -372,16 +374,16 @@ mod tests {
                 distance_apt: Aptitude::A,
                 surface_apt: Aptitude::A,
                 ground: crate::hp::GroundCondition::Good,
-            mood: 0,
-            speed: 1000.0,
-            stamina: 1000.0,
-            power: 1000.0,
-            guts: 1000.0,
-            wisdom: 1000.0,
-            weather: 1,
-                        season: 1,
-                        time: 2,
-                        grade: 100,
+                mood: 0,
+                speed: 1000.0,
+                stamina: 1000.0,
+                power: 1000.0,
+                guts: 1000.0,
+                wisdom: 1000.0,
+                weather: 1,
+                season: 1,
+                time: 2,
+                grade: 100,
             },
             &mut rng,
         );
@@ -401,16 +403,16 @@ mod tests {
                 distance_apt: Aptitude::C,
                 surface_apt: Aptitude::G,
                 ground: crate::hp::GroundCondition::Good,
-            mood: 0,
-            speed: 1000.0,
-            stamina: 1000.0,
-            power: 1000.0,
-            guts: 1000.0,
-            wisdom: 1000.0,
-            weather: 1,
-                        season: 1,
-                        time: 2,
-                        grade: 100,
+                mood: 0,
+                speed: 1000.0,
+                stamina: 1000.0,
+                power: 1000.0,
+                guts: 1000.0,
+                wisdom: 1000.0,
+                weather: 1,
+                season: 1,
+                time: 2,
+                grade: 100,
             },
             &mut rng,
         );

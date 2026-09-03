@@ -4,8 +4,9 @@ use std::collections::HashMap;
 use std::sync::Mutex;
 
 use uma_sim_core::{
-    CareerState, DuelContest, DuelPrediction, MoodLevel, RunMeta, ScenarioPlugin, ScenarioResources,
-    SimDate, SimRandom, StatName, TraineeStats, TrainingFacility, UraMechanics, UraScenarioPlugin,
+    CareerState, DuelContest, DuelPrediction, MoodLevel, RunMeta, ScenarioPlugin,
+    ScenarioResources, SimDate, SimRandom, StatName, TraineeStats, TrainingFacility, UraMechanics,
+    UraScenarioPlugin,
 };
 
 static TEST_LOCK: Mutex<()> = Mutex::new(());
@@ -196,7 +197,12 @@ fn duel_win_grants_racing_spirit_hint() {
     let mut rng = SimRandom::new(0);
     let (after, lines) = UraMechanics::resolve_duel(&state, &option, &mut rng);
     assert!(
-        after.hint_levels.get("racing_spirit_speed").copied().unwrap_or(0) >= 1
+        after
+            .hint_levels
+            .get("racing_spirit_speed")
+            .copied()
+            .unwrap_or(0)
+            >= 1
             || lines.iter().any(|l| l.contains("hint")),
         "expected racing spirit hint; lines={lines:?} hints={:?}",
         after.hint_levels
@@ -210,8 +216,12 @@ fn duel_accepts_bad_odds_when_failure_within_pct() {
     UraMechanics::load_research(Some(
         r#"{"happy_meek":{"duel_failure_acceptable_pct":60,"win_chance_by_prediction":{"great":0.92,"good":0.72,"bad":0.45,"worst":0.22}}}"#,
     ));
-    assert!(UraMechanics::prediction_failure_acceptable(DuelPrediction::Bad));
-    assert!(!UraMechanics::prediction_failure_acceptable(DuelPrediction::Worst));
+    assert!(UraMechanics::prediction_failure_acceptable(
+        DuelPrediction::Bad
+    ));
+    assert!(!UraMechanics::prediction_failure_acceptable(
+        DuelPrediction::Worst
+    ));
     let options = vec![
         UraMechanics::format_contest_option(
             &DuelContest {
@@ -229,7 +239,10 @@ fn duel_accepts_bad_odds_when_failure_within_pct() {
         ),
     ];
     let idx = UraMechanics::choose_duel_contest_index(&options, &[StatName::Speed, StatName::Guts]);
-    assert_eq!(idx, 1, "prefer Bad Speed over Worst Guts when within acceptable fail %");
+    assert_eq!(
+        idx, 1,
+        "prefer Bad Speed over Worst Guts when within acceptable fail %"
+    );
 }
 
 #[test]

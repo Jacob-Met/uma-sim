@@ -14,11 +14,16 @@ fn place_and_show_fans_are_lower_than_win() {
     let mut rng_a = SimRandom::new(7);
     let mut rng_b = SimRandom::new(7);
     let mut rng_c = SimRandom::new(7);
-    let win = RaceOutcomeConfig::fan_gain_placed(true, "optional", RacePlacement::First, &mut rng_a);
+    let win =
+        RaceOutcomeConfig::fan_gain_placed(true, "optional", RacePlacement::First, &mut rng_a);
     let place =
         RaceOutcomeConfig::fan_gain_placed(true, "optional", RacePlacement::Place25, &mut rng_b);
-    let show = RaceOutcomeConfig::fan_gain_placed(true, "optional", RacePlacement::Show, &mut rng_c);
-    assert!(win > place && place > show, "win={win} place={place} show={show}");
+    let show =
+        RaceOutcomeConfig::fan_gain_placed(true, "optional", RacePlacement::Show, &mut rng_c);
+    assert!(
+        win > place && place > show,
+        "win={win} place={place} show={show}"
+    );
     assert_eq!(
         RaceOutcomeConfig::skill_points_for(true, RacePlacement::Place25),
         35

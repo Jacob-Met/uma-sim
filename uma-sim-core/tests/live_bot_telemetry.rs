@@ -22,8 +22,5 @@ fn live_bot_sample_match_rate() {
     } else {
         matches as f64 / total as f64
     };
-    assert!(
-        rate >= 0.90,
-        "Live sample replay {matches}/{total}"
-    );
+    assert!(rate >= 0.90, "Live sample replay {matches}/{total}");
 }

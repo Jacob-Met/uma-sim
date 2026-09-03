@@ -15,10 +15,7 @@ fn main() {
         env!("CARGO_MANIFEST_DIR"),
         "/tests/fixtures/kotlin/golden/summaries.json"
     );
-    let note_path = concat!(
-        env!("CARGO_MANIFEST_DIR"),
-        "/../research/R88_REFREEZE.md"
-    );
+    let note_path = concat!(env!("CARGO_MANIFEST_DIR"), "/../research/R88_REFREEZE.md");
 
     let seeds: Vec<i64> = (1..=50).collect();
     let scenarios = ["ura", "grand_concert", "unity", "trackblazer"];

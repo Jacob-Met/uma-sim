@@ -52,7 +52,10 @@ impl UnityCupMechanics {
         };
         let mut cfg = CONFIG.lock().unwrap();
         if let Some(gauge) = root.get("spirit_gauge").and_then(|v| v.as_object()) {
-            if let Some(gain) = gauge.get("gain_per_training_success").and_then(|v| v.as_object()) {
+            if let Some(gain) = gauge
+                .get("gain_per_training_success")
+                .and_then(|v| v.as_object())
+            {
                 if let Some(v) = gain.get("base").and_then(|v| v.as_i64()) {
                     cfg.spirit_gain_base = v as i32;
                 }
@@ -63,14 +66,20 @@ impl UnityCupMechanics {
             if let Some(v) = gauge.get("burst_threshold").and_then(|v| v.as_i64()) {
                 cfg.burst_threshold = v as i32;
             }
-            if let Some(v) = gauge.get("extreme_burst_threshold").and_then(|v| v.as_i64()) {
+            if let Some(v) = gauge
+                .get("extreme_burst_threshold")
+                .and_then(|v| v.as_i64())
+            {
                 cfg.extreme_threshold = v as i32;
             }
             if let Some(v) = gauge.get("extreme_stat_bonus").and_then(|v| v.as_i64()) {
                 cfg.extreme_stat_bonus = v as i32;
             }
         }
-        if let Some(cfg_obj) = root.get("team_rank_facility_levels").and_then(|v| v.as_object()) {
+        if let Some(cfg_obj) = root
+            .get("team_rank_facility_levels")
+            .and_then(|v| v.as_object())
+        {
             if let Some(v) = cfg_obj.get("max_rank").and_then(|v| v.as_i64()) {
                 cfg.max_team_rank = (v as i32).clamp(1, 5);
             }
@@ -165,7 +174,9 @@ impl UnityCupMechanics {
     ) -> (ScenarioResources, Option<String>) {
         let cfg = CONFIG.lock().unwrap();
         let key = Self::rank_resource_key(facility);
-        let current = resources.get(&key).clamp(cfg.min_team_rank, cfg.max_team_rank);
+        let current = resources
+            .get(&key)
+            .clamp(cfg.min_team_rank, cfg.max_team_rank);
         if current >= cfg.max_team_rank {
             return (resources.clone(), None);
         }
@@ -179,9 +190,7 @@ impl UnityCupMechanics {
         (resources.set(&key, next), Some(line))
     }
 
-    pub fn bump_all_team_ranks(
-        resources: &ScenarioResources,
-    ) -> (ScenarioResources, Vec<String>) {
+    pub fn bump_all_team_ranks(resources: &ScenarioResources) -> (ScenarioResources, Vec<String>) {
         let mut res = resources.clone();
         let mut lines = Vec::new();
         for facility in TrainingFacility::ALL {

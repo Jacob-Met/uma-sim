@@ -131,7 +131,9 @@ impl LegacyApplicator {
                 }
                 Some("skill") => {
                     if let Some(skill) = meta.as_ref().and_then(|m| m.skill_id.clone()) {
-                        if inherited_skills.len() < LegacyDeckConfig::inherited_skill_slots() as usize {
+                        if inherited_skills.len()
+                            < LegacyDeckConfig::inherited_skill_slots() as usize
+                        {
                             inherited_skills.push(skill);
                         }
                     }

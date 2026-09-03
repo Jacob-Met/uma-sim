@@ -7,24 +7,25 @@
 use crate::calendar::CAREER_TURNS;
 use crate::config::TrainingFailureConfig;
 use crate::policy::default_auto_policy;
+use crate::scenario::ura::UraMechanics;
 use crate::scenario::{
     grand_live::GrandLiveMechanics, grand_live_lesson_scoring::GrandLiveLessonScoring,
     ScenarioPlugin,
 };
-use crate::scenario::ura::UraMechanics;
 use crate::scoring::{
     calculate_raw_training_score, choose_best_event_option, mood_to_ordinal, DateYear,
     DecisionContext,
 };
-use crate::state::{
-    CareerState, SimAction, SimActionKind, SimChoice, StatName, TrainingFacility,
-};
+use crate::state::{CareerState, SimAction, SimActionKind, SimChoice, StatName, TrainingFacility};
 use crate::training::{TrainingPreview, TrainingResolver};
 
 pub struct BotDecisionAdapter;
 
 impl BotDecisionAdapter {
-    pub fn to_decision_context(state: &CareerState, plugin: &dyn ScenarioPlugin) -> DecisionContext {
+    pub fn to_decision_context(
+        state: &CareerState,
+        plugin: &dyn ScenarioPlugin,
+    ) -> DecisionContext {
         let is_grand = state.meta.scenario_id.to_lowercase().contains("grand");
         let year = match state.date.year {
             1 => DateYear::Junior,
@@ -173,7 +174,8 @@ impl BotDecisionAdapter {
             .iter()
             .any(|c| c.id.starts_with("gl_song_") || c.id.starts_with("gl_tech_"))
         {
-            if let Some(lesson) = GrandLiveLessonScoring::choose_best_lesson(state, plugin, choices) {
+            if let Some(lesson) = GrandLiveLessonScoring::choose_best_lesson(state, plugin, choices)
+            {
                 return SimAction {
                     kind: SimActionKind::Lesson,
                     payload: Some(lesson.id),
@@ -189,9 +191,7 @@ impl BotDecisionAdapter {
                 payload: None,
             };
         }
-        if choices.iter().any(|c| c.id == "rest")
-            && (state.energy < 40 || state.is_injured())
-        {
+        if choices.iter().any(|c| c.id == "rest") && (state.energy < 40 || state.is_injured()) {
             return SimAction {
                 kind: SimActionKind::Rest,
                 payload: None,

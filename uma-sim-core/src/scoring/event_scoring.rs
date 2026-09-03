@@ -28,8 +28,7 @@ pub struct EventEffectReading {
 
 static ENERGY_LINE: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"(?i)energy\s*([+-]?\d+)(?:\s*/\s*([+-]?\d+))?").unwrap());
-static MOOD_LINE: LazyLock<Regex> =
-    LazyLock::new(|| Regex::new(r"(?i)mood\s*([+-]?\d+)").unwrap());
+static MOOD_LINE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"(?i)mood\s*([+-]?\d+)").unwrap());
 static STAT_LINE: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?i)(speed|stamina|power|guts|wit|wisdom)\s*([+-]?\d+)").unwrap()
 });
@@ -39,11 +38,9 @@ static ALL_STATS: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"(?i)all\s*stats?\s*\+?\s*(\d+)").unwrap());
 static SKILL_PTS: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"(?i)skill\s*points?\s*([+-]?\d+)").unwrap());
-static BOND_LINE: LazyLock<Regex> =
-    LazyLock::new(|| Regex::new(r"(?i)bond\s*([+-]?\d+)").unwrap());
-static HINT_NAMED: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)([A-Za-z][A-Za-z0-9' \-☆★]+?)\s+hint\s*\+?\s*\d+").unwrap()
-});
+static BOND_LINE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"(?i)bond\s*([+-]?\d+)").unwrap());
+static HINT_NAMED: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"(?i)([A-Za-z][A-Za-z0-9' \-☆★]+?)\s+hint\s*\+?\s*\d+").unwrap());
 static PERF_TOKEN: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?i)(dance|passion|vocal|visual|composure|mental)\s*\+?\s*(\d+)").unwrap()
 });
@@ -105,8 +102,7 @@ pub fn sample_event_reward(
     energy_roll: f64,
 ) -> EventEffectReading {
     let branches = event_reward_branches(reward_text);
-    let branch_idx = (branch_roll * branches.len() as f64)
-        .floor() as i32;
+    let branch_idx = (branch_roll * branches.len() as f64).floor() as i32;
     let branch_idx = branch_idx.clamp(0, branches.len() as i32 - 1) as usize;
     let branch_text = &branches[branch_idx];
     let leaf = parse_event_reward_text_leaf(branch_text);
@@ -124,9 +120,7 @@ fn sample_energy_delta(text: &str, leaf: &EventEffectReading, roll: f64) -> i32 
     }
     if let Some(m) = ENERGY_LINE.captures(text) {
         let a = m.get(1).and_then(|g| g.as_str().parse().ok()).unwrap_or(0);
-        let b = m
-            .get(2)
-            .and_then(|g| g.as_str().parse::<i32>().ok());
+        let b = m.get(2).and_then(|g| g.as_str().parse::<i32>().ok());
         if let Some(b_val) = b {
             return if roll < 0.5 { a } else { b_val };
         }
@@ -210,8 +204,7 @@ fn average_readings(readings: &[EventEffectReading]) -> EventEffectReading {
         stats,
         random_stat_gain: (readings.iter().map(|r| r.random_stat_gain).sum::<i32>() as f64 / n)
             as i32,
-        all_stats_gain: (readings.iter().map(|r| r.all_stats_gain).sum::<i32>() as f64 / n)
-            as i32,
+        all_stats_gain: (readings.iter().map(|r| r.all_stats_gain).sum::<i32>() as f64 / n) as i32,
         skill_pts: (readings.iter().map(|r| r.skill_pts).sum::<i32>() as f64 / n) as i32,
         hints,
         bond: (readings.iter().map(|r| r.bond).sum::<i32>() as f64 / n) as i32,
@@ -275,8 +268,15 @@ fn parse_event_reward_text_leaf(reward_text: &str) -> EventEffectReading {
         }
 
         for m in STAT_LINE.captures_iter(line) {
-            let name_raw = m.get(1).map(|g| g.as_str().to_lowercase()).unwrap_or_default();
-            let name = if name_raw == "wisdom" { "wit" } else { name_raw.as_str() };
+            let name_raw = m
+                .get(1)
+                .map(|g| g.as_str().to_lowercase())
+                .unwrap_or_default();
+            let name = if name_raw == "wisdom" {
+                "wit"
+            } else {
+                name_raw.as_str()
+            };
             if let Some(stat) = StatName::from_name(name) {
                 let amt: i32 = m.get(2).and_then(|g| g.as_str().parse().ok()).unwrap_or(0);
                 *stats.entry(stat).or_insert(0) += amt;
@@ -450,7 +450,11 @@ pub fn score_event_reading(ctx: &DecisionContext, reading: &EventEffectReading) 
     };
     for (stat, amt) in &reading.stats {
         let discounted = ctx.soft_cap_discount(*stat, *amt);
-        let idx = priority.iter().position(|s| s == stat).map(|i| i as i32).unwrap_or(-1);
+        let idx = priority
+            .iter()
+            .position(|s| s == stat)
+            .map(|i| i as i32)
+            .unwrap_or(-1);
         let bonus = match idx {
             0 => 50.0,
             1 => 40.0,

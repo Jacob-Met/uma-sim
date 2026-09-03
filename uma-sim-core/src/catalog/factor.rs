@@ -9,6 +9,7 @@ use std::sync::{LazyLock, Mutex};
 #[derive(Debug, Clone)]
 pub struct FactorMeta {
     pub id: String,
+    pub name: String,
     pub category: String,
     pub stat_key: Option<String>,
     pub skill_id: Option<String>,
@@ -84,6 +85,7 @@ impl FactorCatalog {
                         id.clone(),
                         FactorMeta {
                             id: id.clone(),
+                            name: stat.clone(),
                             category: "blue".into(),
                             stat_key: Some(stat.clone()),
                             skill_id: None,
@@ -128,6 +130,13 @@ impl FactorCatalog {
         }));
     }
 
+    /// Compact catalog rows for the web UI / REST `/v1/catalog/factors`.
+    pub fn list_all() -> Vec<FactorMeta> {
+        let mut rows: Vec<_> = CATALOG.lock().unwrap().by_id.values().cloned().collect();
+        rows.sort_by(|a, b| a.id.cmp(&b.id));
+        rows
+    }
+
     pub fn load_json(json_text: &str) {
         let mut state = CATALOG.lock().unwrap();
         Self::load_json_inner(json_text, &mut state);
@@ -167,6 +176,7 @@ impl FactorCatalog {
                     };
                     FactorMeta {
                         id: id.clone(),
+                        name: name.clone(),
                         category,
                         stat_key: Some(stat),
                         skill_id: None,
@@ -187,6 +197,7 @@ impl FactorCatalog {
                     let skill_id = skill_numeric.map(|n| format!("skill:{n}"));
                     FactorMeta {
                         id: id.clone(),
+                        name: name.clone(),
                         category,
                         stat_key: None,
                         skill_id,
@@ -196,6 +207,7 @@ impl FactorCatalog {
                 }
                 "pink" => FactorMeta {
                     id: id.clone(),
+                    name: name.clone(),
                     category,
                     stat_key: None,
                     skill_id: None,
@@ -204,6 +216,7 @@ impl FactorCatalog {
                 },
                 "race" => FactorMeta {
                     id: id.clone(),
+                    name: name.clone(),
                     category,
                     stat_key: None,
                     skill_id: None,
@@ -212,6 +225,7 @@ impl FactorCatalog {
                 },
                 _ => FactorMeta {
                     id: id.clone(),
+                    name: name.clone(),
                     category,
                     stat_key: None,
                     skill_id: None,

@@ -29,6 +29,7 @@ pub struct SupportCardMeta {
     pub id: String,
     pub name: String,
     pub card_type: String,
+    pub rarity: i32,
     pub friendship_bonus_pct: f64,
     pub mood_effect_pct: f64,
     pub training_effectiveness_pct: f64,
@@ -111,6 +112,13 @@ impl SupportCatalog {
             .or_else(|| state.by_name.get(&id_or_name.to_lowercase()).cloned())
     }
 
+    /// Compact catalog rows for the web UI / REST `/v1/catalog/supports`.
+    pub fn list_all() -> Vec<SupportCardMeta> {
+        let mut rows: Vec<_> = CATALOG.lock().unwrap().by_id.values().cloned().collect();
+        rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+        rows
+    }
+
     fn parse_card(obj: &serde_json::Map<String, Value>) -> Option<SupportCardMeta> {
         let id = obj.get("id")?.as_str()?.to_string();
         let payload = obj.get("payload")?.as_object()?;
@@ -119,6 +127,7 @@ impl SupportCatalog {
             .and_then(|v| v.as_str())
             .unwrap_or("speed")
             .to_string();
+        let rarity = payload.get("rarity").and_then(|v| v.as_i64()).unwrap_or(1) as i32;
         let name = obj
             .get("name_en_fan")
             .and_then(|v| v.as_str())
@@ -132,6 +141,7 @@ impl SupportCatalog {
                     id,
                     name,
                     card_type,
+                    rarity,
                     friendship_bonus_pct: 10.0,
                     mood_effect_pct: 0.0,
                     training_effectiveness_pct: 0.0,
@@ -149,7 +159,10 @@ impl SupportCatalog {
             let Some(e) = eff.as_object() else {
                 continue;
             };
-            let effect_type = e.get("effect_type_id").and_then(|v| v.as_i64()).unwrap_or(0) as i32;
+            let effect_type = e
+                .get("effect_type_id")
+                .and_then(|v| v.as_i64())
+                .unwrap_or(0) as i32;
             match effect_type {
                 1 => friendship = Self::resolve_breakpoints_obj(e),
                 2 => mood = Self::resolve_breakpoints_obj(e),
@@ -177,6 +190,7 @@ impl SupportCatalog {
             id,
             name,
             card_type,
+            rarity,
             friendship_bonus_pct: friendship,
             mood_effect_pct: mood,
             training_effectiveness_pct: training,
@@ -188,11 +202,7 @@ impl SupportCatalog {
         let bps: Vec<f64> = effect
             .get("breakpoints")
             .and_then(|v| v.as_array())
-            .map(|arr| {
-                arr.iter()
-                    .filter_map(|v| v.as_f64())
-                    .collect()
-            })
+            .map(|arr| arr.iter().filter_map(|v| v.as_f64()).collect())
             .unwrap_or_default();
         resolve_breakpoints(&bps, 30)
     }

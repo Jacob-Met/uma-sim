@@ -85,12 +85,10 @@ fn export_jsonl_matches_android_turn_shape() {
         train_line["decision"]["trainingStat"].as_str(),
         Some("speed")
     );
-    assert!(
-        train_line["pre"]
-            .as_object()
-            .map(|o| o.contains_key("facilityLevels"))
-            .unwrap_or(false)
-    );
+    assert!(train_line["pre"]
+        .as_object()
+        .map(|o| o.contains_key("facilityLevels"))
+        .unwrap_or(false));
     let main_gain = train_line["post"]["main_gain"].as_i64();
     assert!(
         main_gain.map(|g| g > 0).unwrap_or(false),

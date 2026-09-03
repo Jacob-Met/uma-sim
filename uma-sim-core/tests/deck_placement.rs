@@ -70,8 +70,14 @@ fn grand_live_scenario_links_only_on_trained_facility() {
         GrandLiveDeckSupport::scenario_link_count(&state, TrainingFacility::Speed),
         0
     );
-    assert!(GrandLiveDeckSupport::has_light_hello(&state, TrainingFacility::Wit));
-    assert!(!GrandLiveDeckSupport::has_light_hello(&state, TrainingFacility::Speed));
+    assert!(GrandLiveDeckSupport::has_light_hello(
+        &state,
+        TrainingFacility::Wit
+    ));
+    assert!(!GrandLiveDeckSupport::has_light_hello(
+        &state,
+        TrainingFacility::Speed
+    ));
 }
 
 #[test]
@@ -107,7 +113,10 @@ fn runtime_reassign_moves_card() {
     engine.start(meta);
     assert!(engine.assign_deck_slot("support:stamina:1", TrainingFacility::Speed));
     assert_eq!(
-        engine.state().deck.count_on_facility(TrainingFacility::Speed),
+        engine
+            .state()
+            .deck
+            .count_on_facility(TrainingFacility::Speed),
         2
     );
 }

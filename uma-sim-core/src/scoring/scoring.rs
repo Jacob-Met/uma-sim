@@ -44,11 +44,7 @@ pub fn get_current_stat_cap(stat_name: StatName, config: &TrainingConfig) -> i32
         .unwrap_or_else(|| get_scenario_stat_cap(&config.scenario, stat_name))
 }
 
-pub fn soft_cap_effectiveness_multiplier(
-    current_stat: i32,
-    stat_gain: i32,
-    stat_cap: i32,
-) -> f64 {
+pub fn soft_cap_effectiveness_multiplier(current_stat: i32, stat_gain: i32, stat_cap: i32) -> f64 {
     if stat_gain <= 0 {
         return 1.0;
     }
@@ -58,8 +54,7 @@ pub fn soft_cap_effectiveness_multiplier(
     }
     let full_portion = (end.min(SOFT_CAP_THRESHOLD) - current_stat).max(0);
     let soft_portion = (end - current_stat.max(SOFT_CAP_THRESHOLD)).max(0);
-    let effective_gain =
-        full_portion as f64 + soft_portion as f64 * BEYOND_SOFT_CAP_EFFECTIVENESS;
+    let effective_gain = full_portion as f64 + soft_portion as f64 * BEYOND_SOFT_CAP_EFFECTIVENESS;
     effective_gain / stat_gain as f64
 }
 
@@ -275,16 +270,16 @@ pub fn raw_training_score_components(
     }
 
     if config.disable_training_on_maxed_stat && current_stat >= effective_stat_cap {
-        let can_use_allowance = training.num_rainbow > 0
-            && !config.stats_trained_over_buffer.contains(&training.name);
+        let can_use_allowance =
+            training.num_rainbow > 0 && !config.stats_trained_over_buffer.contains(&training.name);
         if !can_use_allowance {
             return zero;
         }
     }
 
     if potential_stat >= effective_stat_cap {
-        let can_use_allowance = training.num_rainbow > 0
-            && !config.stats_trained_over_buffer.contains(&training.name);
+        let can_use_allowance =
+            training.num_rainbow > 0 && !config.stats_trained_over_buffer.contains(&training.name);
         if !can_use_allowance {
             return zero;
         }
@@ -309,19 +304,18 @@ pub fn raw_training_score_components(
     let stat_score_weighted = stat_score * stat_weight;
     let relationship_score_weighted = relationship_score * relationship_weight;
     let misc_score_weighted = misc_score * misc_weight;
-    let mut total_score =
-        stat_score_weighted + relationship_score_weighted + misc_score_weighted;
+    let mut total_score = stat_score_weighted + relationship_score_weighted + misc_score_weighted;
 
-    let rainbow_multiplier = if training.num_rainbow > 0 && config.current_date.year > DateYear::Junior
-    {
-        if config.enable_rainbow_training_bonus {
-            config.scoring.rainbow_multiplier_enabled
+    let rainbow_multiplier =
+        if training.num_rainbow > 0 && config.current_date.year > DateYear::Junior {
+            if config.enable_rainbow_training_bonus {
+                config.scoring.rainbow_multiplier_enabled
+            } else {
+                config.scoring.rainbow_multiplier_disabled
+            }
         } else {
-            config.scoring.rainbow_multiplier_disabled
-        }
-    } else {
-        1.0
-    };
+            1.0
+        };
     total_score *= rainbow_multiplier;
 
     let mut anticipatory_multiplier = 1.0;
@@ -360,7 +354,10 @@ pub fn raw_training_score_components(
     }
 }
 
-pub fn estimate_failure_chance_from_energy(current_energy: i32, stat_name: Option<StatName>) -> i32 {
+pub fn estimate_failure_chance_from_energy(
+    current_energy: i32,
+    stat_name: Option<StatName>,
+) -> i32 {
     let energy = current_energy.clamp(0, 100);
     let estimated = if stat_name == Some(StatName::Wit) {
         let raw = 161.4 * 0.9793_f64.powi(energy) - 81.4;
@@ -404,7 +401,11 @@ pub fn scoring_constants_from_map(
             d(settings, "ratioMultiplier6", defaults.ratio_multipliers[5]),
             d(settings, "ratioMultiplier7", defaults.ratio_multipliers[6]),
         ],
-        priority_coefficient: d(settings, "priorityCoefficient", defaults.priority_coefficient),
+        priority_coefficient: d(
+            settings,
+            "priorityCoefficient",
+            defaults.priority_coefficient,
+        ),
         level_boost_rank1_factor: d(
             settings,
             "levelBoostRank1Factor",
@@ -507,7 +508,11 @@ pub fn scoring_constants_from_map(
             "skillHintOverrideScore",
             defaults.skill_hint_override_score,
         ),
-        stat_weight_with_bars: d(settings, "statWeightWithBars", defaults.stat_weight_with_bars),
+        stat_weight_with_bars: d(
+            settings,
+            "statWeightWithBars",
+            defaults.stat_weight_with_bars,
+        ),
         stat_weight_without_bars: d(
             settings,
             "statWeightWithoutBars",
@@ -556,13 +561,21 @@ pub fn scoring_constants_from_map(
             defaults.anticipatory_coefficient,
         ),
         anticipatory_cap: d(settings, "anticipatoryCap", defaults.anticipatory_cap),
-        unity_fill_base_bonus: d(settings, "unityFillBaseBonus", defaults.unity_fill_base_bonus),
+        unity_fill_base_bonus: d(
+            settings,
+            "unityFillBaseBonus",
+            defaults.unity_fill_base_bonus,
+        ),
         unity_fill_per_gauge_bonus: d(
             settings,
             "unityFillPerGaugeBonus",
             defaults.unity_fill_per_gauge_bonus,
         ),
-        unity_burst_base_bonus: d(settings, "unityBurstBaseBonus", defaults.unity_burst_base_bonus),
+        unity_burst_base_bonus: d(
+            settings,
+            "unityBurstBaseBonus",
+            defaults.unity_burst_base_bonus,
+        ),
         unity_burst_per_gauge_bonus: d(
             settings,
             "unityBurstPerGaugeBonus",

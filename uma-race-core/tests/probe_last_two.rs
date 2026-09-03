@@ -116,7 +116,11 @@ fn probe_last_two_procs() {
                 prev = used;
             }
         }
-        eprintln!("  finish={:.6} used={:?}", focus.accum_time(), focus.debug_used_skills());
+        eprintln!(
+            "  finish={:.6} used={:?}",
+            focus.accum_time(),
+            focus.debug_used_skills()
+        );
         let _ = simulate_solo; // silence if unused
     }
 }

@@ -109,9 +109,7 @@ fn tokenize(input: &str) -> Result<Vec<Tok>, ParseError> {
             b'a'..=b'z' | b'A'..=b'Z' | b'_' => {
                 let start = i;
                 i += 1;
-                while i < bytes.len()
-                    && (bytes[i].is_ascii_alphanumeric() || bytes[i] == b'_')
-                {
+                while i < bytes.len() && (bytes[i].is_ascii_alphanumeric() || bytes[i] == b'_') {
                     i += 1;
                 }
                 out.push(Tok::Ident(
@@ -224,7 +222,9 @@ mod tests {
 
     #[test]
     fn parses_basic_and_or() {
-        let e = parse_condition("phase>=2&order<=5@is_finalcorner").unwrap().unwrap();
+        let e = parse_condition("phase>=2&order<=5@is_finalcorner")
+            .unwrap()
+            .unwrap();
         match e {
             Expr::Or(a, b) => {
                 assert!(matches!(*a, Expr::And(_, _)));
@@ -262,7 +262,11 @@ mod tests {
         let mut uniq = HashSet::new();
         let mut failed = Vec::new();
         for s in &skills {
-            for g in s["payload"]["condition_groups"].as_array().into_iter().flatten() {
+            for g in s["payload"]["condition_groups"]
+                .as_array()
+                .into_iter()
+                .flatten()
+            {
                 for key in ["condition", "precondition"] {
                     if let Some(c) = g[key].as_str() {
                         if uniq.insert(c.to_string()) {
@@ -281,6 +285,10 @@ mod tests {
             uniq.len(),
             failed.first().unwrap_or(&String::new())
         );
-        assert!(uniq.len() > 100, "expected many unique conditions, got {}", uniq.len());
+        assert!(
+            uniq.len() > 100,
+            "expected many unique conditions, got {}",
+            uniq.len()
+        );
     }
 }

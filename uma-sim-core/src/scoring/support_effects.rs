@@ -1,6 +1,6 @@
 use super::formula_gain::SupportEffectSlice;
-use crate::state::MoodLevel;
 use super::types::StatName;
+use crate::state::MoodLevel;
 
 pub struct SupportLevelBreakpoints;
 
@@ -86,7 +86,9 @@ pub fn estimate_facility_slices(
         let match_b = card_type_match(&b.r#type, &fac);
         let score_a = match_a * 1000.0 + a.friendship_bonus_pct + a.specialty_priority;
         let score_b = match_b * 1000.0 + b.friendship_bonus_pct + b.specialty_priority;
-        score_b.partial_cmp(&score_a).unwrap_or(std::cmp::Ordering::Equal)
+        score_b
+            .partial_cmp(&score_a)
+            .unwrap_or(std::cmp::Ordering::Equal)
     });
     let present_count = present_support_count.min(deck.len() as i32) as usize;
     let present = &specialty_first[..present_count];
@@ -117,7 +119,11 @@ fn card_type_match(card_type: &str, fac: &str) -> f64 {
     }
 }
 
-pub fn mood_adjust_with_deck(raw_score: f64, mood: MoodLevel, slices: &[SupportEffectSlice]) -> f64 {
+pub fn mood_adjust_with_deck(
+    raw_score: f64,
+    mood: MoodLevel,
+    slices: &[SupportEffectSlice],
+) -> f64 {
     let mut mood_effect_sum = 0.0;
     for s in slices {
         mood_effect_sum += s.mood_effect_pct;

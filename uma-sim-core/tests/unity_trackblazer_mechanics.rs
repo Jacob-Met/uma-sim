@@ -4,9 +4,9 @@ use std::collections::HashMap;
 use std::sync::Mutex;
 
 use uma_sim_core::{
-    CareerState, MoodLevel, RunMeta, ScenarioPlugin, ScenarioResources, SimDate, TraineeStats,
-    TrainingFacility, TrackblazerMechanics, TrackblazerScenarioPlugin, UnityCupMechanics,
-    UnityCupScenarioPlugin,
+    CareerState, MoodLevel, RunMeta, ScenarioPlugin, ScenarioResources, SimDate,
+    TrackblazerMechanics, TrackblazerScenarioPlugin, TraineeStats, TrainingFacility,
+    UnityCupMechanics, UnityCupScenarioPlugin,
 };
 
 static TEST_LOCK: Mutex<()> = Mutex::new(());
@@ -302,8 +302,7 @@ fn trackblazer_speed_charm_effects_raise_speed() {
     );
     let (after_buy, _) = TrackblazerMechanics::apply_purchase(&state, &option);
     let mut rng = uma_sim_core::SimRandom::new(1);
-    let (after_fx, _) =
-        TrackblazerMechanics::apply_item_effects(&after_buy, &option, &mut rng);
+    let (after_fx, _) = TrackblazerMechanics::apply_item_effects(&after_buy, &option, &mut rng);
     assert_eq!(after_fx.stats.speed, 120);
 }
 
@@ -318,7 +317,12 @@ fn unity_team_race_win_counts_five_legs_and_zenith() {
         UnityCupMechanics::initial_resources(),
         TraineeStats::default(),
     );
-    for race in ["unity_preseason", "unity_team_2", "unity_team_3", "unity_team_4"] {
+    for race in [
+        "unity_preseason",
+        "unity_team_2",
+        "unity_team_3",
+        "unity_team_4",
+    ] {
         let (after, lines) = plugin.on_race_complete(&state, race, true);
         state = after;
         assert!(lines.iter().any(|l| l.contains("legs")));
@@ -374,7 +378,11 @@ fn trackblazer_inventory_gap_documented() {
 #[test]
 fn trackblazer_climax2_gap_documented() {
     let plugin = TrackblazerScenarioPlugin::default();
-    let ids: Vec<_> = plugin.mandatory_races().iter().map(|r| r.id.as_str()).collect();
+    let ids: Vec<_> = plugin
+        .mandatory_races()
+        .iter()
+        .map(|r| r.id.as_str())
+        .collect();
     assert!(ids.contains(&"climax_1"));
     assert!(ids.contains(&"climax_3"));
     assert!(!ids.contains(&"climax_2"));
@@ -399,8 +407,7 @@ fn unity_extreme_burst_grants_ignited_spirit_hint() {
             wit: 100,
         },
     );
-    let (after, lines) =
-        UnityCupMechanics::consume_extreme_burst(&state, TrainingFacility::Speed);
+    let (after, lines) = UnityCupMechanics::consume_extreme_burst(&state, TrainingFacility::Speed);
     assert!(lines.iter().any(|l| l.contains("Ignited Spirit")));
     assert_eq!(
         after.hint_levels.get("ignited_spirit_speed").copied(),

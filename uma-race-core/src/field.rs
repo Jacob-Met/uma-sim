@@ -234,12 +234,7 @@ mod tests {
     use crate::rng::PrandoRng;
     use crate::solver::{Aptitude, HorseInput};
 
-    fn horse(
-        speed: f64,
-        stamina: f64,
-        strategy: Strategy,
-        wisdom: f64,
-    ) -> HorseInput {
+    fn horse(speed: f64, stamina: f64, strategy: Strategy, wisdom: f64) -> HorseInput {
         HorseInput {
             speed,
             stamina,

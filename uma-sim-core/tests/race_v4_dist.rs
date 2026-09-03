@@ -275,7 +275,10 @@ fn r86_v4_career_physics_logs_emit_place_and_margins() {
         path.display()
     );
 
-    assert!(total >= 10, "expected ≥10 physics races across seeds, got {total}");
+    assert!(
+        total >= 10,
+        "expected ≥10 physics races across seeds, got {total}"
+    );
     assert_eq!(
         with_margins, total,
         "every physics race log should include margin_win and margin_ahead"

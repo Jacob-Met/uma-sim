@@ -128,7 +128,10 @@ impl GrandLiveMechanics {
             return;
         };
         let mut cfg = CONFIG.lock().unwrap();
-        if let Some(split) = root.get("facility_performance_split").and_then(|v| v.as_object()) {
+        if let Some(split) = root
+            .get("facility_performance_split")
+            .and_then(|v| v.as_object())
+        {
             let mut parsed = HashMap::new();
             for fac in TrainingFacility::ALL {
                 let key = fac.key();
@@ -152,7 +155,9 @@ impl GrandLiveMechanics {
                 cfg.facility_split_override = Some(parsed);
             }
         }
-        if let Some(obj) = root.get("great_success_required_by_concert").and_then(|v| v.as_object())
+        if let Some(obj) = root
+            .get("great_success_required_by_concert")
+            .and_then(|v| v.as_object())
         {
             for (race_id, el) in obj {
                 if let Some(n) = el.as_i64() {
@@ -174,7 +179,10 @@ impl GrandLiveMechanics {
             }
         }
         if let Some(hype) = root.get("hype_model").and_then(|v| v.as_object()) {
-            if let Some(v) = hype.get("cycle_songs_maximum_per_concert").and_then(|v| v.as_i64()) {
+            if let Some(v) = hype
+                .get("cycle_songs_maximum_per_concert")
+                .and_then(|v| v.as_i64())
+            {
                 cfg.cycle_max = v as i32;
             }
         }
@@ -248,7 +256,12 @@ impl GrandLiveMechanics {
     pub fn token_totals_for_bot(resources: &ScenarioResources) -> HashMap<String, i32> {
         PERF_CODES
             .iter()
-            .map(|code| (code.to_string(), resources.get(&Self::perf_resource_key(code))))
+            .map(|code| {
+                (
+                    code.to_string(),
+                    resources.get(&Self::perf_resource_key(code)),
+                )
+            })
             .collect()
     }
 
@@ -260,7 +273,10 @@ impl GrandLiveMechanics {
         CONFIG.lock().unwrap().cycle_max
     }
 
-    pub fn great_success_required(resources: &ScenarioResources, upcoming_race_id: Option<&str>) -> i32 {
+    pub fn great_success_required(
+        resources: &ScenarioResources,
+        upcoming_race_id: Option<&str>,
+    ) -> i32 {
         let stored = resources.get("great_success_required");
         if stored > 0 {
             return stored;
@@ -317,7 +333,9 @@ impl GrandLiveMechanics {
 
     pub fn techniques_required_for_next_song(resources: &ScenarioResources) -> i32 {
         let seq = Self::technique_gate_sequence(resources.get("concert_index"));
-        let slot = resources.get("song_slot_index").clamp(0, seq.len() as i32 - 1) as usize;
+        let slot = resources
+            .get("song_slot_index")
+            .clamp(0, seq.len() as i32 - 1) as usize;
         seq[slot]
     }
 
@@ -354,7 +372,9 @@ impl GrandLiveMechanics {
     }
 
     /// Grant Make Debut! song + mastery tokens into the first concert cycle.
-    pub fn grant_make_debut_song(resources: &ScenarioResources) -> (ScenarioResources, Vec<String>) {
+    pub fn grant_make_debut_song(
+        resources: &ScenarioResources,
+    ) -> (ScenarioResources, Vec<String>) {
         if Self::owns_song(resources, 1) {
             return (resources.clone(), Vec::new());
         }
@@ -519,7 +539,11 @@ impl GrandLiveMechanics {
         deck_size: i32,
         scenario_links: i32,
     ) -> i32 {
-        let s = if facility == TrainingFacility::Wit { 5 } else { 9 };
+        let s = if facility == TrainingFacility::Wit {
+            5
+        } else {
+            9
+        };
         let f = facility_level.clamp(1, 5);
         let c = deck_size.clamp(0, 5);
         let l = scenario_links.max(0);
@@ -674,16 +698,10 @@ impl GrandLiveMechanics {
         let deck_size = state.deck.count_on_facility(facility);
         let scenario_links = GrandLiveDeckSupport::scenario_link_count(state, facility);
         let res_before = &state.scenario_resources;
-        let mut gains = Self::training_token_gain(
-            facility,
-            level,
-            deck_size,
-            scenario_links,
-            Some(res_before),
-        );
+        let mut gains =
+            Self::training_token_gain(facility, level, deck_size, scenario_links, Some(res_before));
         let mut lines = Vec::new();
-        let (light_gains, light_lines) =
-            Self::roll_light_hello(res_before, state, facility, rng);
+        let (light_gains, light_lines) = Self::roll_light_hello(res_before, state, facility, rng);
         for (code, amt) in light_gains {
             *gains.entry(code).or_insert(0) += amt;
         }
@@ -698,7 +716,10 @@ impl GrandLiveMechanics {
     }
 
     /// Flat +N added to training main/secondary gains for a facility from song mastery.
-    pub fn mastery_train_stat_bonus(resources: &ScenarioResources, facility: TrainingFacility) -> i32 {
+    pub fn mastery_train_stat_bonus(
+        resources: &ScenarioResources,
+        facility: TrainingFacility,
+    ) -> i32 {
         resources.get(&format!("mastery_train_{}", facility.key()))
     }
 
@@ -741,10 +762,8 @@ impl GrandLiveMechanics {
                 lines.push(format!("Mastery: training SP +{value}"));
             }
             GrandLiveMasteryBonus::AllPerfTokens { value } => {
-                let grant: HashMap<String, i32> = PERF_CODES
-                    .iter()
-                    .map(|c| (c.to_string(), *value))
-                    .collect();
+                let grant: HashMap<String, i32> =
+                    PERF_CODES.iter().map(|c| (c.to_string(), *value)).collect();
                 res = Self::add_perf_tokens(&res, &grant);
                 lines.push(format!("Mastery: all performance +{value}"));
             }
@@ -828,7 +847,11 @@ impl GrandLiveMechanics {
 
     pub fn reset_cycle_after_concert(resources: &ScenarioResources) -> ScenarioResources {
         let mut res = resources.set("hype", 0);
-        for key in resources.values.keys().filter(|k| k.starts_with("cycle_song:")) {
+        for key in resources
+            .values
+            .keys()
+            .filter(|k| k.starts_with("cycle_song:"))
+        {
             res = res.set(key, 0);
         }
         let completed = res.get("concert_index") + 1;
@@ -847,15 +870,15 @@ impl GrandLiveMechanics {
     }
 
     pub fn raise_perf_cap_after_concert(resources: &ScenarioResources) -> ScenarioResources {
-        resources.add("perf_cap_bonus", CONFIG.lock().unwrap().perf_cap_raise_per_concert)
+        resources.add(
+            "perf_cap_bonus",
+            CONFIG.lock().unwrap().perf_cap_raise_per_concert,
+        )
     }
 
     pub fn make_debut_perf_grant() -> HashMap<String, i32> {
         let grant = CONFIG.lock().unwrap().make_debut_token_grant;
-        PERF_CODES
-            .iter()
-            .map(|c| (c.to_string(), grant))
-            .collect()
+        PERF_CODES.iter().map(|c| (c.to_string(), grant)).collect()
     }
 
     pub fn activate_cycle_song_bonuses(
@@ -952,7 +975,11 @@ impl GrandLiveMechanics {
             .collect()
     }
 
-    pub fn set_blocked_performance(resources: &ScenarioResources, code: &str, blocked: bool) -> ScenarioResources {
+    pub fn set_blocked_performance(
+        resources: &ScenarioResources,
+        code: &str,
+        blocked: bool,
+    ) -> ScenarioResources {
         resources.set(
             &format!("blocked_perf_{}", Self::perf_code(code)),
             if blocked { 1 } else { 0 },
@@ -1039,7 +1066,10 @@ impl GrandLiveMechanics {
         }
     }
 
-    pub fn set_reserve_square_id(resources: &ScenarioResources, lesson_key: i32) -> ScenarioResources {
+    pub fn set_reserve_square_id(
+        resources: &ScenarioResources,
+        lesson_key: i32,
+    ) -> ScenarioResources {
         resources.set("reserve_square_id", lesson_key)
     }
 }

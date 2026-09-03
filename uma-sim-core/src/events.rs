@@ -1,7 +1,9 @@
 use crate::config::{EventProbabilityConfig, HintProgressionConfig};
 use crate::rng::SimRandom;
-use crate::scoring::{sample_event_reward as scoring_sample_event_reward, EventEffectReading as ScoringReading};
-use crate::state::{CareerState, StatName, TrainingFacility, shift_mood};
+use crate::scoring::{
+    sample_event_reward as scoring_sample_event_reward, EventEffectReading as ScoringReading,
+};
+use crate::state::{shift_mood, CareerState, StatName, TrainingFacility};
 
 pub use crate::scoring::EventEffectReading;
 
@@ -9,8 +11,16 @@ fn to_sim_reading(r: ScoringReading) -> EventEffectReading {
     r
 }
 
-pub fn sample_event_reward(reward_text: &str, branch_roll: f64, energy_roll: f64) -> EventEffectReading {
-    to_sim_reading(scoring_sample_event_reward(reward_text, branch_roll, energy_roll))
+pub fn sample_event_reward(
+    reward_text: &str,
+    branch_roll: f64,
+    energy_roll: f64,
+) -> EventEffectReading {
+    to_sim_reading(scoring_sample_event_reward(
+        reward_text,
+        branch_roll,
+        energy_roll,
+    ))
 }
 
 pub struct EventEffectApplier;
@@ -24,7 +34,8 @@ impl EventEffectApplier {
         let branch_roll = rng.next_double();
         let energy_roll = rng.next_double();
         let mut reading = sample_event_reward(reward_text, branch_roll, energy_roll);
-        if EventProbabilityConfig::matches_energy_variance(reward_text) && reading.energy_delta != 0 {
+        if EventProbabilityConfig::matches_energy_variance(reward_text) && reading.energy_delta != 0
+        {
             reading.energy_delta = EventProbabilityConfig::pick_energy_variance(rng);
         }
         Self::apply_reading(state, &reading, Some(rng))
@@ -65,7 +76,9 @@ impl EventEffectApplier {
             } else {
                 StatName::Speed
             };
-            s.stats = s.stats.with_delta(pick.to_facility(), reading.random_stat_gain);
+            s.stats = s
+                .stats
+                .with_delta(pick.to_facility(), reading.random_stat_gain);
             lines.push(format!("Random stat +{}", reading.random_stat_gain));
         }
         if reading.all_stats_gain > 0 {
@@ -81,9 +94,16 @@ impl EventEffectApplier {
         if !reading.hints.is_empty() {
             let mut hints = s.hint_levels.clone();
             for hint in &reading.hints {
-                let key = if hint.is_empty() { "generic" } else { hint.as_str() };
+                let key = if hint.is_empty() {
+                    "generic"
+                } else {
+                    hint.as_str()
+                };
                 let cur = hints.get(key).copied().unwrap_or(0);
-                hints.insert(key.to_string(), HintProgressionConfig::apply_event_hint(cur));
+                hints.insert(
+                    key.to_string(),
+                    HintProgressionConfig::apply_event_hint(cur),
+                );
             }
             s.hint_levels = hints;
             lines.push(format!("Hints: {}", reading.hints.len()));
@@ -125,13 +145,23 @@ pub struct SimEventEntry {
 }
 
 pub trait EventCatalog: Send + Sync {
-    fn pick_random(&self, trainee_name: &str, turn: i32, rng: &mut SimRandom) -> Option<SimEventEntry>;
+    fn pick_random(
+        &self,
+        trainee_name: &str,
+        turn: i32,
+        rng: &mut SimRandom,
+    ) -> Option<SimEventEntry>;
 }
 
 pub struct BuiltinEventCatalog;
 
 impl EventCatalog for BuiltinEventCatalog {
-    fn pick_random(&self, trainee_name: &str, _turn: i32, rng: &mut SimRandom) -> Option<SimEventEntry> {
+    fn pick_random(
+        &self,
+        trainee_name: &str,
+        _turn: i32,
+        rng: &mut SimRandom,
+    ) -> Option<SimEventEntry> {
         let samples = vec![
             SimEventEntry {
                 id: "event:trainee:Special Week:fan_letter".to_string(),
@@ -181,7 +211,11 @@ impl EventCatalog for BuiltinEventCatalog {
 }
 
 impl BuiltinEventCatalog {
-    pub fn pick_random(trainee_name: &str, turn: i32, rng: &mut SimRandom) -> Option<SimEventEntry> {
+    pub fn pick_random(
+        trainee_name: &str,
+        turn: i32,
+        rng: &mut SimRandom,
+    ) -> Option<SimEventEntry> {
         <Self as EventCatalog>::pick_random(&Self, trainee_name, turn, rng)
     }
 }

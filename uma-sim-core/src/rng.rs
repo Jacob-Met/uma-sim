@@ -200,7 +200,10 @@ mod tests {
 
     #[test]
     fn raw_ints_match_kotlin() {
-        let path = concat!(env!("CARGO_MANIFEST_DIR"), "/tests/fixtures/rng_seed_42.json");
+        let path = concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/tests/fixtures/rng_seed_42.json"
+        );
         let f: RngFixture = serde_json::from_str(&fs::read_to_string(path).unwrap()).unwrap();
         let mut r = SimRandom::new(f.seed);
         for (i, expected) in f.raw_ints.iter().enumerate() {
@@ -210,7 +213,10 @@ mod tests {
 
     #[test]
     fn matches_kotlin_seed_42_fixture() {
-        let path = concat!(env!("CARGO_MANIFEST_DIR"), "/tests/fixtures/rng_seed_42.json");
+        let path = concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/tests/fixtures/rng_seed_42.json"
+        );
         let f: RngFixture = serde_json::from_str(&fs::read_to_string(path).unwrap()).unwrap();
         let mut r = SimRandom::new(f.seed);
         for (i, expected) in f.doubles.iter().enumerate() {

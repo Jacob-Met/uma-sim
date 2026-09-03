@@ -120,7 +120,10 @@ fn r85_v3_expanded_sample_soft_gate() {
     let mut results = Vec::new();
 
     for c in &sample.cases {
-        if c.extract_err.as_ref().map(|e| !e.is_empty()).unwrap_or(false)
+        if c.extract_err
+            .as_ref()
+            .map(|e| !e.is_empty())
+            .unwrap_or(false)
             || c.expected_finish.is_none()
         {
             skip += 1;
@@ -132,7 +135,8 @@ fn r85_v3_expanded_sample_soft_gate() {
             continue;
         }
         let expected = c.expected_finish.unwrap();
-        let course = get_course(c.course_id).unwrap_or_else(|| panic!("missing course {}", c.course_id));
+        let course =
+            get_course(c.course_id).unwrap_or_else(|| panic!("missing course {}", c.course_id));
         let ground = parse_ground(&c.ground);
         let horse = to_horse(c);
         let ours = if c.pace_effects {

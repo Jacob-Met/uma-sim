@@ -1,4 +1,4 @@
-﻿use uma_race_core::runner::{default_virtual_pacer_horse, HorseRunner, StepCtx};
+use uma_race_core::runner::{default_virtual_pacer_horse, HorseRunner, StepCtx};
 use uma_race_core::{
     get_course, Aptitude, GroundCondition, HorseInput, PosKeepMode, PrandoRng, Strategy,
 };
@@ -41,7 +41,8 @@ fn probe_534_procs() {
     let mut focus = HorseRunner::new(course, GroundCondition::Good, &horse, seed);
     let pacer_h = default_virtual_pacer_horse(&horse);
     let mut base_pacer = PrandoRng::new(seed.wrapping_add(1));
-    let mut pacer = HorseRunner::new_pacer(course, GroundCondition::Good, &pacer_h, base_pacer.int32());
+    let mut pacer =
+        HorseRunner::new_pacer(course, GroundCondition::Good, &pacer_h, base_pacer.int32());
     let mut prev: Vec<String> = focus.debug_used_skills();
     while !focus.finished() {
         if !pacer.finished() {
@@ -71,7 +72,11 @@ fn probe_534_procs() {
         let used = focus.debug_used_skills();
         if used != prev {
             for id in used.iter().filter(|id| !prev.contains(id)) {
-                eprintln!("PROC {id} @ pos={:.3} t={:.3}", focus.pos(), focus.accum_time());
+                eprintln!(
+                    "PROC {id} @ pos={:.3} t={:.3}",
+                    focus.pos(),
+                    focus.accum_time()
+                );
             }
             prev = used;
         }

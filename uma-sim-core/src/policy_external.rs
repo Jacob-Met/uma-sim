@@ -31,7 +31,9 @@ impl ExternalPolicy {
                 .map_err(|e| format!("spawn policy server ({command}): {e}"))?
         } else {
             let mut parts = command.split_whitespace();
-            let prog = parts.next().ok_or_else(|| "empty UMA_POLICY_CMD".to_string())?;
+            let prog = parts
+                .next()
+                .ok_or_else(|| "empty UMA_POLICY_CMD".to_string())?;
             let args: Vec<&str> = parts.collect();
             Command::new(prog)
                 .args(&args)
@@ -111,9 +113,7 @@ pub fn external_auto_policy(
     if let Err(e) = ensure_external() {
         panic!("[external-policy] failed to start: {e}");
     }
-    let mut guard = EXTERNAL
-        .lock()
-        .unwrap_or_else(|e| e.into_inner());
+    let mut guard = EXTERNAL.lock().unwrap_or_else(|e| e.into_inner());
     let policy = guard
         .as_mut()
         .expect("external policy missing after ensure");
@@ -204,7 +204,8 @@ fn build_request(
 }
 
 fn parse_action(resp: &str) -> Result<SimAction, String> {
-    let v: Value = serde_json::from_str(resp).map_err(|e| format!("bad policy JSON {e}: {resp}"))?;
+    let v: Value =
+        serde_json::from_str(resp).map_err(|e| format!("bad policy JSON {e}: {resp}"))?;
     if let Some(err) = v.get("error").and_then(|e| e.as_str()) {
         return Err(format!("policy error: {err}"));
     }

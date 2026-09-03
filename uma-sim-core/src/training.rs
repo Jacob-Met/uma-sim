@@ -1,10 +1,10 @@
-use crate::scoring::{
-    scenario_display_name, to_game_date_snapshot, BarFillResult, TrainingConfig, TrainingOption,
-};
 use crate::config::TrainingFailureConfig;
 use crate::deck::DeckTrainingSignals;
 use crate::rng::SimRandom;
 use crate::scoring::apply_training_multipliers;
+use crate::scoring::{
+    scenario_display_name, to_game_date_snapshot, BarFillResult, TrainingConfig, TrainingOption,
+};
 use crate::state::{CareerState, MoodLevel, StatName, TrainingFacility};
 use std::collections::HashMap;
 use std::sync::{LazyLock, Mutex};
@@ -144,9 +144,7 @@ impl TrainingResolver {
     ) -> TrainingOutcome {
         let slices = support_slices
             .map(|s| s.to_vec())
-            .or_else(|| {
-                state.map(|s| crate::deck::DeckSupportBridge::slices_for(s, facility))
-            })
+            .or_else(|| state.map(|s| crate::deck::DeckSupportBridge::slices_for(s, facility)))
             .unwrap_or_default();
         let level = facility_level.clamp(1, 5);
         let tables = self.parse_tables();
@@ -269,7 +267,13 @@ impl TrainingResolver {
                     .and_then(|v| v.as_str())
                     .and_then(parse_facility_key);
                 if let (Some(s), Some(t)) = (sec, ter) {
-                    self.sub_stat_facilities.insert(fac, SubStatPair { secondary: s, tertiary: t });
+                    self.sub_stat_facilities.insert(
+                        fac,
+                        SubStatPair {
+                            secondary: s,
+                            tertiary: t,
+                        },
+                    );
                 }
             }
         }
@@ -328,14 +332,15 @@ impl TrainingPreview {
                 if outcome.tertiary_gain > 0 {
                     stat_gains.insert(tertiary, outcome.tertiary_gain);
                 }
-                let bars: Vec<BarFillResult> = DeckTrainingSignals::relationship_bars(state, facility)
-                    .into_iter()
-                    .map(|b| BarFillResult {
-                        dominant_color: b.dominant_color,
-                        fill_percent: b.fill_percent,
-                        is_trainer_support: b.is_trainer_support,
-                    })
-                    .collect();
+                let bars: Vec<BarFillResult> =
+                    DeckTrainingSignals::relationship_bars(state, facility)
+                        .into_iter()
+                        .map(|b| BarFillResult {
+                            dominant_color: b.dominant_color,
+                            fill_percent: b.fill_percent,
+                            is_trainer_support: b.is_trainer_support,
+                        })
+                        .collect();
                 let option = TrainingOption {
                     name: stat,
                     stat_gains,

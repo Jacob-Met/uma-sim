@@ -1,11 +1,11 @@
 //! Telemetry recording and replay loading.
 
 use crate::bot::BotDecisionAdapter;
-use crate::scoring::scenario_display_name;
 use crate::scenario::scenario_plugin_for;
+use crate::scoring::scenario_display_name;
 use crate::state::{
-    CareerState, MoodLevel, RunMeta, SimAction, SimActionKind, SimChoice,
-    TraineeStats, TrainingFacility, TurnPhase, default_facility_levels,
+    default_facility_levels, CareerState, MoodLevel, RunMeta, SimAction, SimActionKind, SimChoice,
+    TraineeStats, TrainingFacility, TurnPhase,
 };
 use crate::training::TrainingResolver;
 use serde::{Deserialize, Serialize};
@@ -132,7 +132,12 @@ impl SimTelemetry {
         self.android_lines.clear();
     }
 
-    pub fn record(&mut self, state: &CareerState, choices: &[SimChoice], action: Option<&SimAction>) {
+    pub fn record(
+        &mut self,
+        state: &CareerState,
+        choices: &[SimChoice],
+        action: Option<&SimAction>,
+    ) {
         self.records.push(TurnTelemetryRecord {
             turn: state.turn,
             phase: state.phase.clone(),
@@ -467,7 +472,11 @@ impl TelemetryReplayLoader {
     pub fn sim_training_facility(line: &SimReplayLine) -> TrainingFacility {
         let plugin = scenario_plugin_for(&line.scenario);
         let resolver = TrainingResolver::default();
-        BotDecisionAdapter::choose_training_facility(&replay_state(line), plugin.as_ref(), &resolver)
+        BotDecisionAdapter::choose_training_facility(
+            &replay_state(line),
+            plugin.as_ref(),
+            &resolver,
+        )
     }
 
     pub fn match_rate(lines: &[SimReplayLine]) -> (i32, i32) {
@@ -555,14 +564,26 @@ fn parse_turn_record(root: &serde_json::Value) -> Option<SimReplayLine> {
             kind: "training".to_string(),
             energy,
             mood,
-            speed: stats.and_then(|s| s.get("speed")).and_then(|v| v.as_i64()).unwrap_or(200) as i32,
+            speed: stats
+                .and_then(|s| s.get("speed"))
+                .and_then(|v| v.as_i64())
+                .unwrap_or(200) as i32,
             stamina: stats
                 .and_then(|s| s.get("stamina"))
                 .and_then(|v| v.as_i64())
                 .unwrap_or(200) as i32,
-            power: stats.and_then(|s| s.get("power")).and_then(|v| v.as_i64()).unwrap_or(200) as i32,
-            guts: stats.and_then(|s| s.get("guts")).and_then(|v| v.as_i64()).unwrap_or(200) as i32,
-            wit: stats.and_then(|s| s.get("wit")).and_then(|v| v.as_i64()).unwrap_or(200) as i32,
+            power: stats
+                .and_then(|s| s.get("power"))
+                .and_then(|v| v.as_i64())
+                .unwrap_or(200) as i32,
+            guts: stats
+                .and_then(|s| s.get("guts"))
+                .and_then(|v| v.as_i64())
+                .unwrap_or(200) as i32,
+            wit: stats
+                .and_then(|s| s.get("wit"))
+                .and_then(|v| v.as_i64())
+                .unwrap_or(200) as i32,
             expected_facility: stat.clone(),
             bot_training_stat: Some(stat),
             scenario,

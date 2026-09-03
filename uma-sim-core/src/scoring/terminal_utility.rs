@@ -215,18 +215,7 @@ mod tests {
 
     #[test]
     fn evaluate_produces_nonzero_u() {
-        let rec = evaluate_career_terminal(
-            1,
-            "ura",
-            "Test",
-            1100,
-            1100,
-            600,
-            600,
-            722,
-            2000,
-            &[],
-        );
+        let rec = evaluate_career_terminal(1, "ura", "Test", 1100, 1100, 600, 600, 722, 2000, &[]);
         assert!(rec.u > 0.0, "u={}", rec.u);
         assert!(rec.sp_spent > 0);
         assert!(rec.score > rec.score_before_shop);

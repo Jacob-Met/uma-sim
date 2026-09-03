@@ -241,9 +241,7 @@ impl DeckState {
     }
 
     pub fn count_on_facility(&self, facility: TrainingFacility) -> i32 {
-        self.slots_on_facility(facility)
-            .len()
-            .min(MAX_ON_FACILITY) as i32
+        self.slots_on_facility(facility).len().min(MAX_ON_FACILITY) as i32
     }
 }
 
@@ -399,13 +397,15 @@ impl CareerState {
             skill_points: skill_points.unwrap_or(self.skill_points),
             career_complete: self.career_complete,
             awaiting_choice: awaiting_choice.unwrap_or(self.awaiting_choice),
-            pending_event_title: pending_event_title.unwrap_or_else(|| self.pending_event_title.clone()),
+            pending_event_title: pending_event_title
+                .unwrap_or_else(|| self.pending_event_title.clone()),
             pending_race_id: pending_race_id.unwrap_or_else(|| self.pending_race_id.clone()),
             phase: phase.unwrap_or_else(|| self.phase.clone()),
             completed_races: self.completed_races.clone(),
             facility_levels: facility_levels.unwrap_or_else(|| self.facility_levels.clone()),
             facility_train_counts: self.facility_train_counts.clone(),
-            pending_event_options: pending_event_options.unwrap_or_else(|| self.pending_event_options.clone()),
+            pending_event_options: pending_event_options
+                .unwrap_or_else(|| self.pending_event_options.clone()),
             hint_levels: self.hint_levels.clone(),
             statuses: self.statuses.clone(),
             performance_tokens: self.performance_tokens.clone(),
@@ -508,9 +508,9 @@ pub const INJURED: &str = "injured";
 
 impl CareerState {
     pub fn is_injured(&self) -> bool {
-        self.statuses.iter().any(|s| {
-            s.eq_ignore_ascii_case(INJURED) || s.to_lowercase().contains("injury")
-        })
+        self.statuses
+            .iter()
+            .any(|s| s.eq_ignore_ascii_case(INJURED) || s.to_lowercase().contains("injury"))
     }
 
     pub fn without_injury(statuses: &[String]) -> Vec<String> {

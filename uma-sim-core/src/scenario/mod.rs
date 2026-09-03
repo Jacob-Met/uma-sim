@@ -53,7 +53,11 @@ pub trait ScenarioPlugin: Send + Sync {
     fn extra_choices(&self, _state: &CareerState) -> Vec<SimChoice> {
         Vec::new()
     }
-    fn apply_side_action(&self, _state: &CareerState, _action_id: &str) -> Option<(CareerState, Vec<String>)> {
+    fn apply_side_action(
+        &self,
+        _state: &CareerState,
+        _action_id: &str,
+    ) -> Option<(CareerState, Vec<String>)> {
         None
     }
     fn apply_soft_cap(&self, _facility: TrainingFacility, _current: i32, raw_gain: i32) -> i32 {
@@ -62,7 +66,11 @@ pub trait ScenarioPlugin: Send + Sync {
     fn training_stat_multiplier(&self, _state: &CareerState) -> f64 {
         1.0
     }
-    fn effective_facility_level(&self, _state: &CareerState, _facility: TrainingFacility) -> Option<i32> {
+    fn effective_facility_level(
+        &self,
+        _state: &CareerState,
+        _facility: TrainingFacility,
+    ) -> Option<i32> {
         None
     }
     fn songs_learned(&self, _state: &CareerState) -> i32 {
@@ -78,12 +86,15 @@ pub trait ScenarioPlugin: Send + Sync {
 }
 
 fn pending_mandatory_race(state: &CareerState, races: &[MandatoryRace]) -> Option<MandatoryRace> {
-    races.iter().find(|r| {
-        !state.completed_races.contains(&r.id)
-            && state.date.year == r.year
-            && state.date.month == r.month
-            && state.date.half == r.half
-    }).cloned()
+    races
+        .iter()
+        .find(|r| {
+            !state.completed_races.contains(&r.id)
+                && state.date.year == r.year
+                && state.date.month == r.month
+                && state.date.half == r.half
+        })
+        .cloned()
 }
 
 struct BaseScenario {
@@ -125,10 +136,34 @@ impl UraScenarioPlugin {
                     ("wit".into(), 1400),
                 ]),
                 races: vec![
-                    MandatoryRace { id: "debut".into(), name: "Junior Make Debut".into(), year: 1, month: 6, half: 2 },
-                    MandatoryRace { id: "finale_qualifier".into(), name: "URA Finale Qualifier".into(), year: 3, month: 11, half: 1 },
-                    MandatoryRace { id: "finale_semifinal".into(), name: "URA Finale Semifinal".into(), year: 3, month: 11, half: 2 },
-                    MandatoryRace { id: "finale_finals".into(), name: "URA Finale Finals".into(), year: 3, month: 12, half: 1 },
+                    MandatoryRace {
+                        id: "debut".into(),
+                        name: "Junior Make Debut".into(),
+                        year: 1,
+                        month: 6,
+                        half: 2,
+                    },
+                    MandatoryRace {
+                        id: "finale_qualifier".into(),
+                        name: "URA Finale Qualifier".into(),
+                        year: 3,
+                        month: 11,
+                        half: 1,
+                    },
+                    MandatoryRace {
+                        id: "finale_semifinal".into(),
+                        name: "URA Finale Semifinal".into(),
+                        year: 3,
+                        month: 11,
+                        half: 2,
+                    },
+                    MandatoryRace {
+                        id: "finale_finals".into(),
+                        name: "URA Finale Finals".into(),
+                        year: 3,
+                        month: 12,
+                        half: 1,
+                    },
                 ],
             },
         }
@@ -166,7 +201,10 @@ impl ScenarioPlugin for UraScenarioPlugin {
                 "Accept inherited skills\nSkill points +30".into(),
                 "Focus on spark stats\nSpeed +20\nStamina +20".into(),
             ];
-            return (s, vec!["Inheritance event — choose succession bonus".into()]);
+            return (
+                s,
+                vec!["Inheritance event — choose succession bonus".into()],
+            );
         }
         let with_badge = {
             let mut s = state.clone();
@@ -204,7 +242,10 @@ impl ScenarioPlugin for UraScenarioPlugin {
         s.pending_event_title = Some("Happy Meek's Challenge!".to_string());
         s.pending_event_options = options;
         s.scenario_resources = state.scenario_resources.set("happy_meek_pending", 1);
-        (s, vec!["Happy Meek's Challenge! — pick a contest".to_string()])
+        (
+            s,
+            vec!["Happy Meek's Challenge! — pick a contest".to_string()],
+        )
     }
 }
 
@@ -233,12 +274,48 @@ impl ScenarioPlugin for GrandConcertScenarioPlugin {
         static RACES: std::sync::OnceLock<Vec<MandatoryRace>> = std::sync::OnceLock::new();
         RACES.get_or_init(|| {
             vec![
-                MandatoryRace { id: "debut".into(), name: "Junior Make Debut".into(), year: 1, month: 6, half: 2 },
-                MandatoryRace { id: "promo_1".into(), name: "Promo Concert 1".into(), year: 2, month: 6, half: 2 },
-                MandatoryRace { id: "promo_2".into(), name: "Promo Concert 2".into(), year: 2, month: 12, half: 2 },
-                MandatoryRace { id: "promo_3".into(), name: "Promo Concert 3".into(), year: 3, month: 6, half: 2 },
-                MandatoryRace { id: "promo_4".into(), name: "Promo Concert 4".into(), year: 3, month: 12, half: 1 },
-                MandatoryRace { id: "grand_concert".into(), name: "Grand Concert".into(), year: 3, month: 12, half: 2 },
+                MandatoryRace {
+                    id: "debut".into(),
+                    name: "Junior Make Debut".into(),
+                    year: 1,
+                    month: 6,
+                    half: 2,
+                },
+                MandatoryRace {
+                    id: "promo_1".into(),
+                    name: "Promo Concert 1".into(),
+                    year: 2,
+                    month: 6,
+                    half: 2,
+                },
+                MandatoryRace {
+                    id: "promo_2".into(),
+                    name: "Promo Concert 2".into(),
+                    year: 2,
+                    month: 12,
+                    half: 2,
+                },
+                MandatoryRace {
+                    id: "promo_3".into(),
+                    name: "Promo Concert 3".into(),
+                    year: 3,
+                    month: 6,
+                    half: 2,
+                },
+                MandatoryRace {
+                    id: "promo_4".into(),
+                    name: "Promo Concert 4".into(),
+                    year: 3,
+                    month: 12,
+                    half: 1,
+                },
+                MandatoryRace {
+                    id: "grand_concert".into(),
+                    name: "Grand Concert".into(),
+                    year: 3,
+                    month: 12,
+                    half: 2,
+                },
             ]
         })
     }
@@ -284,7 +361,9 @@ impl ScenarioPlugin for GrandConcertScenarioPlugin {
                 );
             }
         }
-        if s.date.year >= 3 && s.date.month == 12 && s.date.half == 1
+        if s.date.year >= 3
+            && s.date.month == 12
+            && s.date.half == 1
             && !GrandLiveMechanics::owns_song(&s.scenario_resources, 22)
         {
             s.scenario_resources =
@@ -293,14 +372,10 @@ impl ScenarioPlugin for GrandConcertScenarioPlugin {
             lines.push("Girls' Legend U added to setlist".to_string());
         }
         // Daily specialty-weighted deck placement (Specialty Priority Up from concert bonuses).
-        if !s.deck.slots.is_empty()
-            && s.phase == TurnPhase::Free.as_str()
-            && !s.awaiting_choice
-        {
+        if !s.deck.slots.is_empty() && s.phase == TurnPhase::Free.as_str() && !s.awaiting_choice {
             let specialty_bonus = s.scenario_resources.get("bonus_specialty_pct");
             let mut rng = SimRandom::new(s.meta.seed * 53 + s.turn as i64 * 29);
-            s.deck.slots =
-                DeckPlacement::roll_for_turn(&s.deck.slots, &mut rng, specialty_bonus);
+            s.deck.slots = DeckPlacement::roll_for_turn(&s.deck.slots, &mut rng, specialty_bonus);
         }
         // Senior Early November: Closer Together (16+ songs → scenario-link skill hint).
         if !s.awaiting_choice
@@ -361,7 +436,8 @@ impl ScenarioPlugin for GrandConcertScenarioPlugin {
         let mut rng = SimRandom::new(
             state.meta.seed * 37 + state.turn as i64 * 19 + facility.ordinal() as i64,
         );
-        let (gains, extra) = GrandLiveMechanics::resolve_training_perf_gains(state, facility, &mut rng);
+        let (gains, extra) =
+            GrandLiveMechanics::resolve_training_perf_gains(state, facility, &mut rng);
         let res = GrandLiveMechanics::add_perf_tokens(&state.scenario_resources, &gains);
         let parts: Vec<String> = gains.iter().map(|(k, v)| format!("{k} +{v}")).collect();
         (
@@ -393,8 +469,14 @@ impl ScenarioPlugin for GrandConcertScenarioPlugin {
         // Character debut is not a concert — skip live packet fields.
         if race_id != "debut" {
             res = res
-                .set("last_live_result", GrandLiveMechanics::result_state_for_outcome(outcome))
-                .set("last_live_type", GrandLiveMechanics::live_type_for_race(race_id))
+                .set(
+                    "last_live_result",
+                    GrandLiveMechanics::result_state_for_outcome(outcome),
+                )
+                .set(
+                    "last_live_type",
+                    GrandLiveMechanics::live_type_for_race(race_id),
+                )
                 .set(
                     "member_ready_count",
                     GrandLiveMechanics::member_ready_count(state),
@@ -420,11 +502,15 @@ impl ScenarioPlugin for GrandConcertScenarioPlugin {
             }
             _ if great_success => {
                 let required = GrandLiveMechanics::great_success_required_for_race(race_id);
-                lines.push(format!("Great Success! ({cycle_songs}/{required} cycle songs)"))
+                lines.push(format!(
+                    "Great Success! ({cycle_songs}/{required} cycle songs)"
+                ))
             }
             _ => {
                 let required = GrandLiveMechanics::great_success_required_for_race(race_id);
-                lines.push(format!("Concert complete ({cycle_songs}/{required} cycle songs)"))
+                lines.push(format!(
+                    "Concert complete ({cycle_songs}/{required} cycle songs)"
+                ))
             }
         }
 
@@ -454,7 +540,10 @@ impl ScenarioPlugin for GrandConcertScenarioPlugin {
                 res = activate_cycle_bonuses(&res, great_success, &mut lines);
             }
             for (target_type, effect_value) in GrandLiveMechanics::training_bonuses_packet(&res) {
-                res = res.set(&format!("training_bonus_target:{target_type}"), effect_value);
+                res = res.set(
+                    &format!("training_bonus_target:{target_type}"),
+                    effect_value,
+                );
             }
             if !failed {
                 res = GrandLiveMechanics::raise_perf_cap_after_concert(&res);
@@ -551,9 +640,27 @@ impl Default for UnityCupScenarioPlugin {
                     ("wit".into(), 1800),
                 ]),
                 races: vec![
-                    MandatoryRace { id: "debut".into(), name: "Junior Make Debut".into(), year: 1, month: 6, half: 2 },
-                    MandatoryRace { id: "unity_preseason".into(), name: "Unity Preseason".into(), year: 2, month: 6, half: 2 },
-                    MandatoryRace { id: "unity_finals".into(), name: "Unity Finals".into(), year: 3, month: 12, half: 2 },
+                    MandatoryRace {
+                        id: "debut".into(),
+                        name: "Junior Make Debut".into(),
+                        year: 1,
+                        month: 6,
+                        half: 2,
+                    },
+                    MandatoryRace {
+                        id: "unity_preseason".into(),
+                        name: "Unity Preseason".into(),
+                        year: 2,
+                        month: 6,
+                        half: 2,
+                    },
+                    MandatoryRace {
+                        id: "unity_finals".into(),
+                        name: "Unity Finals".into(),
+                        year: 3,
+                        month: 12,
+                        half: 2,
+                    },
                 ],
             },
         }
@@ -573,12 +680,20 @@ impl ScenarioPlugin for UnityCupScenarioPlugin {
     fn initial_scenario_resources(&self, _meta: &RunMeta) -> ScenarioResources {
         UnityCupMechanics::initial_resources()
     }
-    fn effective_facility_level(&self, state: &CareerState, facility: TrainingFacility) -> Option<i32> {
-        Some(UnityCupMechanics::facility_level_for(&state.scenario_resources, facility))
+    fn effective_facility_level(
+        &self,
+        state: &CareerState,
+        facility: TrainingFacility,
+    ) -> Option<i32> {
+        Some(UnityCupMechanics::facility_level_for(
+            &state.scenario_resources,
+            facility,
+        ))
     }
     fn on_turn_start(&self, state: &CareerState) -> (CareerState, Vec<String>) {
         let (mut base, lines) = self.base.turn_start_base(state);
-        base.facility_levels = UnityCupMechanics::facility_levels_from_resources(&base.scenario_resources);
+        base.facility_levels =
+            UnityCupMechanics::facility_levels_from_resources(&base.scenario_resources);
         (base, lines)
     }
     fn on_training_complete(
@@ -602,7 +717,8 @@ impl ScenarioPlugin for UnityCupScenarioPlugin {
         s.facility_levels = UnityCupMechanics::facility_levels_from_resources(&res);
         let (after, extreme_lines) = UnityCupMechanics::consume_extreme_burst(&s, facility);
         s = after;
-        s.facility_levels = UnityCupMechanics::facility_levels_from_resources(&s.scenario_resources);
+        s.facility_levels =
+            UnityCupMechanics::facility_levels_from_resources(&s.scenario_resources);
         (s, [lines, extreme_lines].concat())
     }
     fn on_race_complete(
@@ -614,11 +730,14 @@ impl ScenarioPlugin for UnityCupScenarioPlugin {
         if !won || race_id == "debut" {
             return (state.clone(), Vec::new());
         }
-        let (mut res, mut lines) = UnityCupMechanics::bump_all_team_ranks(&state.scenario_resources);
+        let (mut res, mut lines) =
+            UnityCupMechanics::bump_all_team_ranks(&state.scenario_resources);
         // Abstract 5-leg team race: a win counts as sweeping all five legs.
         if race_id.contains("unity") || race_id.contains("team") {
             let legs = if won { 5 } else { 0 };
-            res = res.add("unity_legs_won", legs).add("unity_team_races_done", 1);
+            res = res
+                .add("unity_legs_won", legs)
+                .add("unity_team_races_done", 1);
             lines.push(format!("Team race legs +{legs}"));
             // 4th team-race win upgrades Zenith finals (research / unity.md).
             if res.get("unity_team_races_done") >= 4 {
@@ -653,9 +772,27 @@ impl Default for TrackblazerScenarioPlugin {
                     ("wit".into(), 1500),
                 ]),
                 races: vec![
-                    MandatoryRace { id: "debut".into(), name: "Junior Make Debut".into(), year: 1, month: 6, half: 2 },
-                    MandatoryRace { id: "climax_1".into(), name: "Twinkle Star Climax 1".into(), year: 3, month: 11, half: 1 },
-                    MandatoryRace { id: "climax_3".into(), name: "Twinkle Star Climax 3".into(), year: 3, month: 12, half: 2 },
+                    MandatoryRace {
+                        id: "debut".into(),
+                        name: "Junior Make Debut".into(),
+                        year: 1,
+                        month: 6,
+                        half: 2,
+                    },
+                    MandatoryRace {
+                        id: "climax_1".into(),
+                        name: "Twinkle Star Climax 1".into(),
+                        year: 3,
+                        month: 11,
+                        half: 1,
+                    },
+                    MandatoryRace {
+                        id: "climax_3".into(),
+                        name: "Twinkle Star Climax 3".into(),
+                        year: 3,
+                        month: 12,
+                        half: 2,
+                    },
                 ],
             },
         }
@@ -681,7 +818,10 @@ impl ScenarioPlugin for TrackblazerScenarioPlugin {
         if base.phase == TurnPhase::MandatoryRace.as_str() {
             return (base, lines);
         }
-        if TrackblazerMechanics::should_open_shop(base.turn, base.scenario_resources.get("tb_coins")) {
+        if TrackblazerMechanics::should_open_shop(
+            base.turn,
+            base.scenario_resources.get("tb_coins"),
+        ) {
             let options = TrackblazerMechanics::roll_shop_options(&base);
             base.phase = TurnPhase::Event.as_str().to_string();
             base.awaiting_choice = true;
@@ -732,7 +872,11 @@ pub fn scenario_plugin_for(id: &str) -> Box<dyn ScenarioPlugin> {
 
 fn closer_together_options(state: &CareerState) -> Vec<String> {
     let has = |needle: &str| {
-        let trainee = state.meta.trainee_name.to_lowercase().replace(['_', '-'], " ");
+        let trainee = state
+            .meta
+            .trainee_name
+            .to_lowercase()
+            .replace(['_', '-'], " ");
         if trainee.contains(needle) {
             return true;
         }
@@ -798,10 +942,10 @@ fn purchase_song(state: &CareerState, song_key: &str) -> Option<(CareerState, Ve
     if !GrandLiveMechanics::can_add_cycle_song(&state.scenario_resources) {
         return None;
     }
-    let frozen_ok = GrandLiveLessonBoard::frozen_contains(&state.scenario_resources, &format!(
-        "gl_song_{}",
-        song.song_list_id
-    ));
+    let frozen_ok = GrandLiveLessonBoard::frozen_contains(
+        &state.scenario_resources,
+        &format!("gl_song_{}", song.song_list_id),
+    );
     if !GrandLiveMechanics::songs_unlocked_on_board(state) && !frozen_ok {
         return None;
     }

@@ -1,7 +1,10 @@
 use crate::state::{SimAction, SimActionKind, SimChoice};
 
 pub fn default_auto_policy(choices: &[SimChoice]) -> SimAction {
-    if choices.iter().any(|c| c.id == "race" && c.label.to_lowercase().contains("mandatory")) {
+    if choices
+        .iter()
+        .any(|c| c.id == "race" && c.label.to_lowercase().contains("mandatory"))
+    {
         return SimAction {
             kind: SimActionKind::Race,
             payload: None,

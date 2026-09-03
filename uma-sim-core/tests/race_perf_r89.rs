@@ -59,7 +59,10 @@ fn eighteen_horse_2000m_under_10ms_p50() {
     if cfg!(debug_assertions) {
         // Debug builds are ~10–30× slower; plan §9 budget is release.
         eprintln!("debug build: soft-check only (release gate is ≤10ms)");
-        assert!(p50 < 150.0, "debug sanity: p50={p50:.3}ms unexpectedly high");
+        assert!(
+            p50 < 150.0,
+            "debug sanity: p50={p50:.3}ms unexpectedly high"
+        );
         return;
     }
     assert!(

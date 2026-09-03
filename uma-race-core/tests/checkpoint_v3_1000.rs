@@ -118,7 +118,10 @@ fn r85_v3_expanded_1000_soft_gate() {
     let mut failures = Vec::new();
 
     for c in &sample.cases {
-        if c.extract_err.as_ref().map(|e| !e.is_empty()).unwrap_or(false)
+        if c.extract_err
+            .as_ref()
+            .map(|e| !e.is_empty())
+            .unwrap_or(false)
             || c.expected_finish.is_none()
         {
             skip += 1;

@@ -149,10 +149,19 @@ mod tests {
     fn strategy_coefs_match_constants_file() {
         let c = &constants()["max_hp"]["strategy_coef"];
         assert_eq!(strategy_coef(Strategy::Nige), c["nige"].as_f64().unwrap());
-        assert_eq!(strategy_coef(Strategy::Senkou), c["senkou"].as_f64().unwrap());
+        assert_eq!(
+            strategy_coef(Strategy::Senkou),
+            c["senkou"].as_f64().unwrap()
+        );
         assert_eq!(strategy_coef(Strategy::Sasi), c["sasi"].as_f64().unwrap());
-        assert_eq!(strategy_coef(Strategy::Oikomi), c["oikomi"].as_f64().unwrap());
-        assert_eq!(strategy_coef(Strategy::Oonige), c["oonige"].as_f64().unwrap());
+        assert_eq!(
+            strategy_coef(Strategy::Oikomi),
+            c["oikomi"].as_f64().unwrap()
+        );
+        assert_eq!(
+            strategy_coef(Strategy::Oonige),
+            c["oonige"].as_f64().unwrap()
+        );
     }
 
     #[test]

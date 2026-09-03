@@ -16,7 +16,10 @@ pub enum SamplePolicy {
     /// Uniform offset into total length; trigger lasts until that piece's end.
     DistUniform,
     /// Erlang(k, λ) offset into the region, trigger lasting until region end.
-    Erlang { k: u8, lambda: u8 },
+    Erlang {
+        k: u8,
+        lambda: u8,
+    },
 }
 
 impl SamplePolicy {

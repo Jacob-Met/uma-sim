@@ -61,7 +61,10 @@ fn tertiary_gain_is_twenty_percent_of_main() {
     let outcome =
         resolver.resolve_typical(TrainingFacility::Speed, 3, MoodLevel::Normal, Some(&state));
     assert!(outcome.tertiary_gain > 0);
-    assert_eq!((outcome.main_gain as f64 * 0.2) as i32, outcome.tertiary_gain);
+    assert_eq!(
+        (outcome.main_gain as f64 * 0.2) as i32,
+        outcome.tertiary_gain
+    );
     assert_eq!(
         resolver.tertiary_facility(TrainingFacility::Speed),
         TrainingFacility::Guts

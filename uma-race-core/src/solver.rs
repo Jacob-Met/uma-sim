@@ -5,9 +5,9 @@
 //! consumption so differential tests share the same start delay and section rolls
 //! (behavioural interface contract; not a transcription of race logic).
 
-use crate::condition::skill::EffectType;
-use crate::condition::regions::DynamicPred;
 use crate::condition::parser::Op;
+use crate::condition::regions::DynamicPred;
+use crate::condition::skill::EffectType;
 use crate::course::{get_course, Course};
 use crate::hp::{
     guts_modifier, spurt_accept_threshold, GroundCondition, StatusModifiers, Strategy, Surface,
@@ -79,7 +79,14 @@ pub struct HorseInput {
     pub skills: Vec<String>,
 }
 
-fn course_speed_modifier(course: &Course, speed: f64, stamina: f64, power: f64, guts: f64, wisdom: f64) -> f64 {
+fn course_speed_modifier(
+    course: &Course,
+    speed: f64,
+    stamina: f64,
+    power: f64,
+    guts: f64,
+    wisdom: f64,
+) -> f64 {
     if course.course_set_status.is_empty() {
         return 1.0;
     }
@@ -347,7 +354,12 @@ pub(crate) struct Boot {
     pub rushed_section: i32,
 }
 
-pub(crate) fn boot_solver_rng(solver_rng: &mut PrandoRng, wisdom: f64, base_spd: f64, n_slopes: usize) -> Boot {
+pub(crate) fn boot_solver_rng(
+    solver_rng: &mut PrandoRng,
+    wisdom: f64,
+    base_spd: f64,
+    n_slopes: usize,
+) -> Boot {
     let _ = base_spd; // section mods rolled after gate skills (post-green wisdom)
     let _sync = PrandoRng::new(solver_rng.int32());
     let _gorosi = PrandoRng::new(solver_rng.int32());
@@ -661,7 +673,8 @@ mod tests {
         let mut no = case3_horse();
         no.skills.clear();
         let a = simulate_solo_by_id(10611, GroundCondition::Good, &no, 2615953739).unwrap();
-        let b = simulate_solo_by_id(10611, GroundCondition::Good, &case3_horse(), 2615953739).unwrap();
+        let b =
+            simulate_solo_by_id(10611, GroundCondition::Good, &case3_horse(), 2615953739).unwrap();
         assert!(
             b.finish_time + 1e-9 < a.finish_time,
             "accel skill should finish sooner: with={:.6} without={:.6}",
@@ -694,12 +707,92 @@ mod tests {
             value: 50,
         }];
         // Solo / pacer compare: noop (matches umalator without orderRange).
-        assert!(dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 1, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
-        assert!(dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 2, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
+        assert!(dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            1,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
+        assert!(dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            2,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
         // 9-horse field: order_rate>50 → place > round(4.5)=5.
-        assert!(!dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 9, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
-        assert!(!dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 5, 9, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
-        assert!(dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 6, 9, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
+        assert!(!dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            9,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
+        assert!(!dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            5,
+            9,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
+        assert!(dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            6,
+            9,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
     }
 
     #[test]
@@ -710,11 +803,91 @@ mod tests {
             op: Op::Ge,
             value: 3,
         }];
-        assert!(dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 1, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
-        assert!(dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 2, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
-        assert!(!dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 9, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
-        assert!(!dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 2, 9, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
-        assert!(dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 3, 9, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
+        assert!(dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            1,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
+        assert!(dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            2,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
+        assert!(!dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            9,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
+        assert!(!dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            2,
+            9,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
+        assert!(dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            3,
+            9,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
     }
 
     #[test]
@@ -725,8 +898,40 @@ mod tests {
             op: Op::Ge,
             value: 1,
         }];
-        assert!(!dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 1, &[0, 0, 0], 0, false, 0, 9, &std::collections::HashSet::new()));
-        assert!(dynamics_ok(&dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 1, &[0, 0, 0], 1, false, 0, 9, &std::collections::HashSet::new()));
+        assert!(!dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            1,
+            &[0, 0, 0],
+            0,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
+        assert!(dynamics_ok(
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            1,
+            &[0, 0, 0],
+            1,
+            false,
+            0,
+            9,
+            &std::collections::HashSet::new()
+        ));
     }
 
     #[test]
@@ -740,10 +945,38 @@ mod tests {
         // gate_roll % 9 == 7 → ok
         let empty = std::collections::HashSet::new();
         assert!(dynamics_ok(
-            &dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 1, &[0, 0, 0], 0, false, 7, 9, &empty
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            1,
+            &[0, 0, 0],
+            0,
+            false,
+            7,
+            9,
+            &empty
         ));
         assert!(!dynamics_ok(
-            &dyns, 0.0, false, -1.0, 0.0, 0, 1.0, 1, 1, &[0, 0, 0], 0, false, 6, 9, &empty
+            &dyns,
+            0.0,
+            false,
+            -1.0,
+            0.0,
+            0,
+            1.0,
+            1,
+            1,
+            &[0, 0, 0],
+            0,
+            false,
+            6,
+            9,
+            &empty
         ));
         assert_eq!(gate_block(7, 9), 7);
         assert_eq!(gate_block(16, 18), 1 + (24 - 16) % 8);

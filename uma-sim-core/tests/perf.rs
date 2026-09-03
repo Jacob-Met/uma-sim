@@ -14,10 +14,7 @@ fn full_career_under_3s_at_x100() {
     engine.start(RunMeta::new(4242, "ura", "Perf"));
     engine.play_to_completion(500);
     let elapsed = start.elapsed().as_millis();
-    assert!(
-        elapsed < 3000,
-        "Expected <3s at x100, got {elapsed}ms"
-    );
+    assert!(elapsed < 3000, "Expected <3s at x100, got {elapsed}ms");
 }
 
 #[test]
@@ -30,8 +27,5 @@ fn full_career_under_10s_at_x20() {
     engine.start(RunMeta::new(4242, "ura", "Perf"));
     engine.play_to_completion(500);
     let elapsed = start.elapsed().as_millis();
-    assert!(
-        elapsed < 10_000,
-        "Expected <10s at x20, got {elapsed}ms"
-    );
+    assert!(elapsed < 10_000, "Expected <10s at x20, got {elapsed}ms");
 }

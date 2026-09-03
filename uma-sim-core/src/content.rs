@@ -89,21 +89,16 @@ impl ContentPackLoader {
                             .collect()
                     })
                     .or_else(|| {
-                        obj.get("options")
-                            .and_then(|v| v.as_array())
-                            .map(|a| {
-                                a.iter()
-                                    .filter_map(|v| v.as_str().map(String::from))
-                                    .collect()
-                            })
+                        obj.get("options").and_then(|v| v.as_array()).map(|a| {
+                            a.iter()
+                                .filter_map(|v| v.as_str().map(String::from))
+                                .collect()
+                        })
                     })?;
                 if options.is_empty() {
                     return None;
                 }
-                let file_name = path
-                    .file_name()
-                    .and_then(|s| s.to_str())
-                    .unwrap_or("pack");
+                let file_name = path.file_name().and_then(|s| s.to_str()).unwrap_or("pack");
                 Some(SimEventEntry {
                     id: obj
                         .get("id")

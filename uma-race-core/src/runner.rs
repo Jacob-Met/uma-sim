@@ -1,34 +1,34 @@
 //! Frame-steppable horse runner extracted from the solo integrator.
 //! Supports optional Virtual position-keep via [`StepCtx`].
 
-use crate::condition::skill::{
-    compile_skills, skill_activation_chance, EffectType, PendingSkill, SkillEffect,
-};
-use crate::condition::regions::HorseCtx;
-use crate::course::Course;
-use crate::course::Slope;
-use crate::hp::{max_hp, GroundCondition, StatusModifiers, Strategy, Surface};
-use crate::physics::{base_speed, phase_at, phase_start, Phase};
-use crate::special_conditions::SpecialConditions;
 use crate::compete_fight::{
     compete_accel_bonus, compete_speed_bonus, is_top_half, on_final_straight, END_MIN_HP_FRAC,
     START_MIN_HP_FRAC, TARGET_DISTANCE_GAP_M, TARGET_HOLD_S, TRIGGER_SPEED_GAP_MS,
 };
+use crate::condition::regions::HorseCtx;
+use crate::condition::skill::{
+    compile_skills, skill_activation_chance, EffectType, PendingSkill, SkillEffect,
+};
+use crate::course::Course;
+use crate::course::Slope;
+use crate::hp::{max_hp, GroundCondition, StatusModifiers, Strategy, Surface};
 use crate::lead_comp::{
     distance_gap_limit, in_entry_window, lead_comp_duration_s, lead_comp_hp_factor,
     lead_comp_speed_bonus, past_hard_end, same_lead_group,
 };
+use crate::physics::{base_speed, phase_at, phase_start, Phase};
 use crate::pos_keep::{
     max_threshold, min_threshold, pos_keep_speed_coef, tick_nige_pos_keep, tick_pack_pos_keep,
     PosKeepMode, PosKeepState,
 };
 use crate::rng::PrandoRng;
 use crate::solver::{
-    accel_rate, base_target_speed, boot_solver_rng, choose_spurt, downhill_speed_bonus, dynamics_ok,
-    hp_consume, last_spurt_speed, min_speed, roll_section_modifiers, start_dash_cap, uphill_penalty,
-    ActiveEffect, EXHAUSTED_DECEL, HorseInput, RaceResult, DT, PACE_DOWN_DECEL, PHASE_DECEL,
-    START_DASH_ACCEL, START_SPEED,
+    accel_rate, base_target_speed, boot_solver_rng, choose_spurt, downhill_speed_bonus,
+    dynamics_ok, hp_consume, last_spurt_speed, min_speed, roll_section_modifiers, start_dash_cap,
+    uphill_penalty, ActiveEffect, HorseInput, RaceResult, DT, EXHAUSTED_DECEL, PACE_DOWN_DECEL,
+    PHASE_DECEL, START_DASH_ACCEL, START_SPEED,
 };
+use crate::special_conditions::SpecialConditions;
 use std::collections::HashSet;
 
 /// Per-frame context for multi-horse / Virtual position-keep.
@@ -655,8 +655,8 @@ impl HorseRunner {
 
     pub fn debug_target_bits(&self) -> (f64, f64, f64, f64) {
         use crate::physics::phase_at;
-        use crate::solver::base_target_speed;
         use crate::pos_keep::pos_keep_speed_coef;
+        use crate::solver::base_target_speed;
         let phase = phase_at(self.course_dist, self.pos);
         let section = ((self.pos / self.section_len).floor() as usize).min(23);
         let base = base_target_speed(&self.h, self.course_dist, phase);
@@ -929,8 +929,7 @@ impl HorseRunner {
                 let roll = self.downhill_rngs[i].random();
                 if self.downhill_mode && roll > 0.8 {
                     self.downhill_mode = false;
-                } else if !self.downhill_mode && slope_per < 0.0 && roll < self.h.wisdom * 0.0004
-                {
+                } else if !self.downhill_mode && slope_per < 0.0 && roll < self.h.wisdom * 0.0004 {
                     self.downhill_mode = true;
                 }
             }
@@ -1003,7 +1002,11 @@ impl HorseRunner {
                     self.last_spurt_transition,
                     self.start_delay,
                     self.random_lot,
-                    if self.infinite_hp { 1.0 } else { (self.hp / self.max_hp).max(0.0) },
+                    if self.infinite_hp {
+                        1.0
+                    } else {
+                        (self.hp / self.max_hp).max(0.0)
+                    },
                     ctx.place,
                     ctx.field_size,
                     &self.activate_count,
@@ -1337,10 +1340,8 @@ impl HorseRunner {
             .sum();
 
         if self.extra_move_lane < 0.0 && self.pos >= self.last_straight_start {
-            self.extra_move_lane = (current / 0.1)
-                .min(self.max_lane_distance)
-                * 0.5
-                + self.lane_rng.random() * 0.1;
+            self.extra_move_lane =
+                (current / 0.1).min(self.max_lane_distance) * 0.5 + self.lane_rng.random() * 0.1;
         }
 
         if overtake {
@@ -1361,8 +1362,7 @@ impl HorseRunner {
             self.target_lane = current;
         }
 
-        if (side_blocked && self.target_lane < current)
-            || (self.target_lane - current).abs() < 1e-5
+        if (side_blocked && self.target_lane < current) || (self.target_lane - current).abs() < 1e-5
         {
             self.lane_change_speed = 0.0;
             return;
@@ -1372,8 +1372,7 @@ impl HorseRunner {
         if self.pos < self.move_lane_point && self.max_lane_distance > 0.0 {
             tgt_spd *= 1.0 + current / self.max_lane_distance * 0.05;
         }
-        self.lane_change_speed =
-            (self.lane_change_speed + self.lane_change_accel_pf).min(tgt_spd);
+        self.lane_change_speed = (self.lane_change_speed + self.lane_change_accel_pf).min(tgt_spd);
         let actual = (self.lane_change_speed + lane_skill_mod).min(0.6);
 
         if self.target_lane > current {

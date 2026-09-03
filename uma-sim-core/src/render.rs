@@ -42,11 +42,7 @@ impl TextRenderer {
         ));
         out.push(format!(
             "Energy: {}/{}  Mood: {:?}  Fans: {}  SP: {}",
-            state.energy,
-            state.max_energy,
-            state.mood,
-            state.fans,
-            state.skill_points
+            state.energy, state.max_energy, state.mood, state.fans, state.skill_points
         ));
         if !state.scenario_resources.values.is_empty() {
             let parts: Vec<String> = state
@@ -83,5 +79,9 @@ impl TextRenderer {
 }
 
 fn half_label(half: i32) -> &'static str {
-    if half == 1 { "Early" } else { "Late" }
+    if half == 1 {
+        "Early"
+    } else {
+        "Late"
+    }
 }

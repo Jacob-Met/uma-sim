@@ -20,31 +20,68 @@ pub struct ReducedCondition {
 pub enum DynamicPred {
     Always,
     /// Enforced only when `field_size ≥ 3` (umalator orderRange unset → no-op).
-    Order { op: Op, value: i64 },
-    OrderRate { op: Op, value: i64 },
-    IsLastSpurt { eq: bool },
+    Order {
+        op: Op,
+        value: i64,
+    },
+    OrderRate {
+        op: Op,
+        value: i64,
+    },
+    IsLastSpurt {
+        eq: bool,
+    },
     /// `lastspurt==1|2|3` (umalator): 1=spurt with planned transition, 2=spurt
     /// without transition, 3=not spurting.
-    LastSpurtCase { case: i64 },
-    AccumulateTime { op: Op, value: i64 },
+    LastSpurtCase {
+        case: i64,
+    },
+    AccumulateTime {
+        op: Op,
+        value: i64,
+    },
     /// Heal skill activations so far (`activate_count_heal`).
-    ActivateCountHeal { op: Op, value: i64 },
+    ActivateCountHeal {
+        op: Op,
+        value: i64,
+    },
     /// Phase-bucketed activations: 0=start, 1=middle, 2=end_after.
-    ActivateCountPhase { phase: u8, op: Op, value: i64 },
+    ActivateCountPhase {
+        phase: u8,
+        op: Op,
+        value: i64,
+    },
     /// Sum of all phase activation counts.
-    ActivateCountAll { op: Op, value: i64 },
+    ActivateCountAll {
+        op: Op,
+        value: i64,
+    },
     /// Second trigger of dual-effect skills (`is_activate_other_skill_detail==1`).
-    IsActivateOtherSkillDetail { eq: bool },
+    IsActivateOtherSkillDetail {
+        eq: bool,
+    },
     /// `is_badstart==0|1`: initial start delay ≷ 0.08s (umalator).
-    IsBadStart { want_bad: bool },
+    IsBadStart {
+        want_bad: bool,
+    },
     /// `random_lot==N`: once-per-race roll `random_lot < N`.
-    RandomLot { max_exclusive: i64 },
+    RandomLot {
+        max_exclusive: i64,
+    },
     /// `hp_per` ratio gate (0–100 scale in conditions → fraction).
-    HpPer { op: Op, value: i64 },
+    HpPer {
+        op: Op,
+        value: i64,
+    },
     /// `post_number` vs umalator `gateBlock(gateRoll, numUmas)` (default numUmas=9).
-    PostNumber { op: Op, value: i64 },
+    PostNumber {
+        op: Op,
+        value: i64,
+    },
     /// `is_used_skill_id==N`: true once skill N has activated this race.
-    UsedSkillId { skill_id: String },
+    UsedSkillId {
+        skill_id: String,
+    },
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -125,9 +162,7 @@ fn slope_regions(course: &Course, slope_type: i64) -> Result<Vec<Region>, String
     let slopes: Vec<&crate::course::Slope> = course
         .slopes
         .iter()
-        .filter(|s| {
-            (slope_type != 2 && s.slope > 0.0) || (slope_type != 1 && s.slope < 0.0)
-        })
+        .filter(|s| (slope_type != 2 && s.slope > 0.0) || (slope_type != 1 && s.slope < 0.0))
         .collect();
     if slope_type == 0 {
         let mut last_end = 0.0;
@@ -176,7 +211,11 @@ fn filter_atom(
 ) -> Result<(RegionList, SamplePolicy, Vec<DynamicPred>), String> {
     let d = course.distance;
     match atom.name.as_str() {
-        "always" => Ok((regions.clone(), SamplePolicy::Immediate, vec![DynamicPred::Always])),
+        "always" => Ok((
+            regions.clone(),
+            SamplePolicy::Immediate,
+            vec![DynamicPred::Always],
+        )),
         "phase" => {
             let ph = phase_from_i(atom.value).ok_or_else(|| format!("bad phase {}", atom.value))?;
             let bounds = match atom.op {
@@ -193,21 +232,24 @@ fn filter_atom(
                     return Ok((out, SamplePolicy::Immediate, vec![]));
                 }
             };
-            Ok((regions.map_intersect(bounds), SamplePolicy::Immediate, vec![]))
+            Ok((
+                regions.map_intersect(bounds),
+                SamplePolicy::Immediate,
+                vec![],
+            ))
         }
         "phase_random" => {
-            let ph = phase_from_i(atom.value).ok_or_else(|| format!("bad phase_random {}", atom.value))?;
+            let ph = phase_from_i(atom.value)
+                .ok_or_else(|| format!("bad phase_random {}", atom.value))?;
             if !matches!(atom.op, Op::Eq) {
                 return Err("phase_random only supports ==".into());
             }
             let bounds = Region::new(phase_start(d, ph), phase_end(d, ph));
-            Ok((
-                regions.map_intersect(bounds),
-                SamplePolicy::Random,
-                vec![],
-            ))
+            Ok((regions.map_intersect(bounds), SamplePolicy::Random, vec![]))
         }
-        "phase_firsthalf" | "phase_firsthalf_random" | "phase_firstquarter"
+        "phase_firsthalf"
+        | "phase_firsthalf_random"
+        | "phase_firstquarter"
         | "phase_firstquarter_random" => {
             if !matches!(atom.op, Op::Eq) {
                 return Err(format!("{} only supports ==", atom.name));
@@ -215,7 +257,11 @@ fn filter_atom(
             let ph = phase_from_i(atom.value).ok_or("bad phase")?;
             let start = phase_start(d, ph);
             let end = phase_end(d, ph);
-            let frac = if atom.name.contains("quarter") { 0.25 } else { 0.5 };
+            let frac = if atom.name.contains("quarter") {
+                0.25
+            } else {
+                0.5
+            };
             let bounds = Region::new(start, start + (end - start) * frac);
             let pol = if atom.name.contains("random") {
                 SamplePolicy::Random
@@ -246,11 +292,7 @@ fn filter_atom(
             }
             let start = d * atom.value as f64 / 100.0;
             let bounds = Region::new(start.min(d), d);
-            Ok((
-                regions.map_intersect(bounds),
-                SamplePolicy::Random,
-                vec![],
-            ))
+            Ok((regions.map_intersect(bounds), SamplePolicy::Random, vec![]))
         }
         "distance_type" => {
             let ok = match atom.op {
@@ -354,7 +396,11 @@ fn filter_atom(
                 }
                 Op::Ne => Region::new(0.0, d), // weak
             };
-            Ok((regions.map_intersect(bounds), SamplePolicy::Immediate, vec![]))
+            Ok((
+                regions.map_intersect(bounds),
+                SamplePolicy::Immediate,
+                vec![],
+            ))
         }
         "remain_distance" => {
             // remain = distance - pos
@@ -369,7 +415,11 @@ fn filter_atom(
                 }
                 Op::Ne => Region::new(0.0, d),
             };
-            Ok((regions.map_intersect(bounds), SamplePolicy::Immediate, vec![]))
+            Ok((
+                regions.map_intersect(bounds),
+                SamplePolicy::Immediate,
+                vec![],
+            ))
         }
         "accumulatetime" => {
             // Static clip: ~0.85 * baseSpeed * t so Immediate triggers aren't stuck
@@ -560,9 +610,7 @@ fn filter_atom(
                         vec![],
                     ))
                 }
-                Op::Ne => {
-                    Ok((regions.clone(), SamplePolicy::Immediate, vec![]))
-                }
+                Op::Ne => Ok((regions.clone(), SamplePolicy::Immediate, vec![])),
                 _ => Err("corner: unsupported op".into()),
             }
         }
@@ -634,9 +682,7 @@ fn filter_atom(
             let pieces: Vec<Region> = course
                 .corners
                 .iter()
-                .map(|c| {
-                    Region::new(c.start, c.start + c.length).intersect(phase_bounds)
-                })
+                .map(|c| Region::new(c.start, c.start + c.length).intersect(phase_bounds))
                 .filter(|r| !r.is_empty())
                 .collect();
             Ok((
@@ -645,7 +691,9 @@ fn filter_atom(
                 vec![],
             ))
         }
-        "is_finalcorner" | "is_last_straight" | "is_finalcorner_random"
+        "is_finalcorner"
+        | "is_last_straight"
+        | "is_finalcorner_random"
         | "is_finalcorner_laterhalf" => {
             if atom.name == "is_finalcorner"
                 || atom.name == "is_finalcorner_random"
@@ -696,7 +744,11 @@ fn filter_atom(
                     ));
                 }
             }
-            Ok((regions.clone(), SamplePolicy::Immediate, vec![DynamicPred::Always]))
+            Ok((
+                regions.clone(),
+                SamplePolicy::Immediate,
+                vec![DynamicPred::Always],
+            ))
         }
         "is_last_straight_onetime" => {
             // 10m trigger window at the start of the final straight (umalator).
@@ -715,10 +767,18 @@ fn filter_atom(
             }
         }
         // Other-uma / order-change conditions: Erlang-timed activation (umalator noopErlang).
-        "change_order_onetime" | "overtake_target_time" | "overtake_target_no_order_up_time"
-        | "blocked_side" | "blocked_front" | "blocked_front_continuetime" | "blocked_side_continuetime"
-        | "bashin_diff_behind" | "bashin_diff_infront"
-        | "behind_near_lane_time" | "infront_near_lane_time" | "is_surrounded" => Ok((
+        "change_order_onetime"
+        | "overtake_target_time"
+        | "overtake_target_no_order_up_time"
+        | "blocked_side"
+        | "blocked_front"
+        | "blocked_front_continuetime"
+        | "blocked_side_continuetime"
+        | "bashin_diff_behind"
+        | "bashin_diff_infront"
+        | "behind_near_lane_time"
+        | "infront_near_lane_time"
+        | "is_surrounded" => Ok((
             regions.clone(),
             SamplePolicy::Erlang { k: 3, lambda: 2 },
             vec![DynamicPred::Always],
@@ -866,11 +926,7 @@ fn filter_atom(
                 if idx < corners.len() {
                     let c = &corners[idx];
                     let bounds = Region::new(c.start, c.start + c.length);
-                    return Ok((
-                        regions.map_intersect(bounds),
-                        SamplePolicy::Random,
-                        vec![],
-                    ));
+                    return Ok((regions.map_intersect(bounds), SamplePolicy::Random, vec![]));
                 }
             }
             Ok((RegionList::default(), SamplePolicy::Random, vec![]))
@@ -925,18 +981,30 @@ fn filter_atom(
             }],
         )),
         // Solo-safe defaults: assume true for niche flags so skills still place.
-        "temptation_count" | "is_hp_empty_onetime"
+        "temptation_count"
+        | "is_hp_empty_onetime"
         | "popularity"
-        | "lane_type" | "is_used_skill"
-        | "distance_diff_top" | "distance_diff_top_float" | "distance_diff_rate"
+        | "lane_type"
+        | "is_used_skill"
+        | "distance_diff_top"
+        | "distance_diff_top_float"
+        | "distance_diff_rate"
         | "order_rate_in20_continue"
-        | "order_rate_in40_continue" | "order_rate_in80_continue"
-        | "order_rate_out20_continue" | "order_rate_out40_continue"
-        | "order_rate_out50_continue" | "order_rate_out70_continue"
-        | "running_style_equal_popularity_one" | "visiblehorse"
-        | "same_skill_horse_count" | "is_own_course" | "running_style_count_same"
+        | "order_rate_in40_continue"
+        | "order_rate_in80_continue"
+        | "order_rate_out20_continue"
+        | "order_rate_out40_continue"
+        | "order_rate_out50_continue"
+        | "order_rate_out70_continue"
+        | "running_style_equal_popularity_one"
+        | "visiblehorse"
+        | "same_skill_horse_count"
+        | "is_own_course"
+        | "running_style_count_same"
         | "running_style_count_same_rate"
-        | "is_downslope" | "is_up_slope" | "is_behind_in" => Ok((
+        | "is_downslope"
+        | "is_up_slope"
+        | "is_behind_in" => Ok((
             regions.clone(),
             SamplePolicy::Immediate,
             vec![DynamicPred::Always],
@@ -961,10 +1029,27 @@ fn filter_atom(
                 value: atom.value,
             }],
         )),
-        "weather" => Ok(value_filter_regions(regions, &atom.op, horse.weather, atom.value)),
-        "season" => Ok(value_filter_regions(regions, &atom.op, horse.season, atom.value)),
-        "time" => Ok(value_filter_regions(regions, &atom.op, horse.time, atom.value)),
-        "grade" => Ok(value_filter_regions(regions, &atom.op, horse.grade, atom.value)),
+        "weather" => Ok(value_filter_regions(
+            regions,
+            &atom.op,
+            horse.weather,
+            atom.value,
+        )),
+        "season" => Ok(value_filter_regions(
+            regions,
+            &atom.op,
+            horse.season,
+            atom.value,
+        )),
+        "time" => Ok(value_filter_regions(
+            regions, &atom.op, horse.time, atom.value,
+        )),
+        "grade" => Ok(value_filter_regions(
+            regions,
+            &atom.op,
+            horse.grade,
+            atom.value,
+        )),
         "is_badstart" => {
             if !matches!(atom.op, Op::Eq) || !(0..=1).contains(&atom.value) {
                 return Err("is_badstart only supports ==0|1".into());
@@ -1077,8 +1162,8 @@ pub fn reduce_condition_str(
 mod tests {
     use super::*;
     use crate::course::get_course;
-    use crate::hp::Strategy;
     use crate::hp::Aptitude;
+    use crate::hp::Strategy;
 
     fn ctx() -> HorseCtx {
         HorseCtx {
@@ -1093,9 +1178,9 @@ mod tests {
             guts: 1000.0,
             wisdom: 1000.0,
             weather: 1,
-                        season: 1,
-                        time: 2,
-                        grade: 100,
+            season: 1,
+            time: 2,
+            grade: 100,
         }
     }
 
@@ -1130,7 +1215,10 @@ mod tests {
         weak.power = 9.0;
         weak.mood = 2;
         let miss = reduce_condition_str("base_power>=1000", c, weak).unwrap();
-        assert!(miss.regions.is_empty(), "power 9 should fail base_power>=1000");
+        assert!(
+            miss.regions.is_empty(),
+            "power 9 should fail base_power>=1000"
+        );
         let mut strong = ctx();
         strong.power = 1200.0;
         let hit = reduce_condition_str("base_power>=1000", c, strong).unwrap();
@@ -1142,7 +1230,10 @@ mod tests {
         let c = get_course(10301).unwrap();
         assert!(c.corners.is_empty());
         let r = reduce_condition_str("is_finalcorner==1", c, ctx()).unwrap();
-        assert!(r.regions.is_empty(), "empty corners must reject is_finalcorner");
+        assert!(
+            r.regions.is_empty(),
+            "empty corners must reject is_finalcorner"
+        );
     }
 
     #[test]

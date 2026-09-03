@@ -55,8 +55,22 @@ fn fixture_file_matches_engine() {
     for exp in &expected {
         let actual = run_career_summary(exp.seed, &exp.scenario);
         assert_eq!(
-            (actual.seed, actual.scenario.as_str(), actual.turn, actual.fans, actual.speed, actual.sp),
-            (exp.seed, exp.scenario.as_str(), exp.turn, exp.fans, exp.speed, exp.sp),
+            (
+                actual.seed,
+                actual.scenario.as_str(),
+                actual.turn,
+                actual.fans,
+                actual.speed,
+                actual.sp
+            ),
+            (
+                exp.seed,
+                exp.scenario.as_str(),
+                exp.turn,
+                exp.fans,
+                exp.speed,
+                exp.sp
+            ),
             "seed={} scenario={}",
             exp.seed,
             exp.scenario

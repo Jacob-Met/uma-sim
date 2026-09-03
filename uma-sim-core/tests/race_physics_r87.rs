@@ -55,10 +55,7 @@ fn stub_default_debut_still_places_first() {
         payload: None,
     });
     let log = engine.state().log.join("\n");
-    assert!(
-        log.contains("Race debut +"),
-        "stub log format: {log}"
-    );
+    assert!(log.contains("Race debut +"), "stub log format: {log}");
     assert!(!log.contains("physics t="));
     assert_eq!(
         engine.state().skill_points,

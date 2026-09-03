@@ -28,10 +28,7 @@ impl EventCatalog for BuiltinEventCatalog {
         let samples = builtin_samples();
         let pool: Vec<_> = samples
             .into_iter()
-            .filter(|e| {
-                e.owner_kind == "shared"
-                    || e.owner_name.eq_ignore_ascii_case(trainee_name)
-            })
+            .filter(|e| e.owner_kind == "shared" || e.owner_name.eq_ignore_ascii_case(trainee_name))
             .collect();
         if pool.is_empty() {
             return None;
@@ -169,8 +166,7 @@ impl EventCatalog for FileEventCatalog {
             .events
             .iter()
             .filter(|e| {
-                (e.owner_kind == "trainee"
-                    && e.owner_name.eq_ignore_ascii_case(trainee_name))
+                (e.owner_kind == "trainee" && e.owner_name.eq_ignore_ascii_case(trainee_name))
                     || e.owner_kind == "shared"
                     || e.owner_kind == "scenario"
             })

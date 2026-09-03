@@ -1,7 +1,7 @@
 use uma_sim_core::{
-    detect_repo_root, load_training_tables, MoodLevel, RunMeta, SimAction, SimActionKind, SimEngine,
-    SimRandom, SimSettings, TrainingFacility, TrainingFailureConfig, TrainingResolver, INJURED,
-    TurnPhase,
+    detect_repo_root, load_training_tables, MoodLevel, RunMeta, SimAction, SimActionKind,
+    SimEngine, SimRandom, SimSettings, TrainingFacility, TrainingFailureConfig, TrainingResolver,
+    TurnPhase, INJURED,
 };
 
 #[test]
@@ -57,8 +57,7 @@ fn rest_clears_injury() {
 fn wit_training_restores_energy() {
     let root = detect_repo_root().expect("repo root");
     let resolver = TrainingResolver::new(load_training_tables(Some(&root)));
-    let outcome =
-        resolver.resolve_typical(TrainingFacility::Wit, 1, MoodLevel::Normal, None);
+    let outcome = resolver.resolve_typical(TrainingFacility::Wit, 1, MoodLevel::Normal, None);
     assert!(
         outcome.energy_cost < 0,
         "Wit should restore energy (negative cost)"

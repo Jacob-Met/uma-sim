@@ -1,14 +1,29 @@
-﻿//! Compare bare vs full finish for remaining fails.
+//! Compare bare vs full finish for remaining fails.
 
 use uma_race_core::{
     get_course, simulate_solo, simulate_with_default_pacer, Aptitude, GroundCondition, HorseInput,
     PosKeepMode, Strategy,
 };
 
-fn case(id: &str) -> (HorseInput, u32, u32, GroundCondition, bool, Vec<String>, f64) {
+fn case(
+    id: &str,
+) -> (
+    HorseInput,
+    u32,
+    u32,
+    GroundCondition,
+    bool,
+    Vec<String>,
+    f64,
+) {
     let raw = std::fs::read_to_string("../research/race_checkpoint_v3_sample_1000.json").unwrap();
     let v: serde_json::Value = serde_json::from_str(&raw).unwrap();
-    let c = v["cases"].as_array().unwrap().iter().find(|x| x["id"] == id).unwrap();
+    let c = v["cases"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|x| x["id"] == id)
+        .unwrap();
     let h = &c["horse"];
     let apt = |k: &str| Aptitude::from_str_letter(h[k].as_str().unwrap()).unwrap();
     let strat = match h["strategy"].as_str().unwrap() {
@@ -26,7 +41,12 @@ fn case(id: &str) -> (HorseInput, u32, u32, GroundCondition, bool, Vec<String>, 
         "Heavy" => GroundCondition::Heavy,
         _ => panic!(),
     };
-    let skills: Vec<String> = c["skills"].as_array().unwrap().iter().map(|s| s.as_str().unwrap().to_string()).collect();
+    let skills: Vec<String> = c["skills"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .map(|s| s.as_str().unwrap().to_string())
+        .collect();
     let horse = HorseInput {
         speed: h["speed"].as_f64().unwrap(),
         stamina: h["stamina"].as_f64().unwrap(),

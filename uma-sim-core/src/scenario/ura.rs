@@ -1,9 +1,7 @@
 //! URA Finale Happy Meek duel — badge spawn, contest predictions, win/loss RNG.
 
 use crate::rng::SimRandom;
-use crate::state::{
-    CareerState, ScenarioResources, StatName, TrainingFacility, shift_mood,
-};
+use crate::state::{shift_mood, CareerState, ScenarioResources, StatName, TrainingFacility};
 use serde_json::Value;
 use std::sync::{LazyLock, Mutex};
 
@@ -265,12 +263,7 @@ impl UraMechanics {
     pub fn format_contest_option(contest: &DuelContest, meek_level: i32) -> String {
         let label = contest
             .facility
-            .map(|f| {
-                format!(
-                    "Contest of {}!",
-                    capitalize(&f.key().to_string())
-                )
-            })
+            .map(|f| format!("Contest of {}!", capitalize(&f.key().to_string())))
             .unwrap_or_else(|| "Contest of energy!".to_string());
         let odds = match contest.prediction {
             DuelPrediction::Great => "Great odds",
@@ -290,10 +283,7 @@ impl UraMechanics {
 
     pub fn parse_contest(option: &str) -> DuelContest {
         let lower = option.to_lowercase();
-        let facility = FACILITIES
-            .iter()
-            .find(|f| lower.contains(f.key()))
-            .copied();
+        let facility = FACILITIES.iter().find(|f| lower.contains(f.key())).copied();
         let prediction = if lower.contains("great odds") {
             DuelPrediction::Great
         } else if lower.contains("good odds") {
@@ -356,26 +346,24 @@ impl UraMechanics {
                 a.1.prediction
                     .cmp(&b.1.prediction)
                     .then_with(|| {
-                        let rank_a = a
-                            .1
-                            .facility
-                            .map(|f| {
-                                priorities
-                                    .iter()
-                                    .position(|s| *s == f.to_stat_name())
-                                    .unwrap_or(usize::MAX)
-                            })
-                            .unwrap_or(usize::MAX);
-                        let rank_b = b
-                            .1
-                            .facility
-                            .map(|f| {
-                                priorities
-                                    .iter()
-                                    .position(|s| *s == f.to_stat_name())
-                                    .unwrap_or(usize::MAX)
-                            })
-                            .unwrap_or(usize::MAX);
+                        let rank_a =
+                            a.1.facility
+                                .map(|f| {
+                                    priorities
+                                        .iter()
+                                        .position(|s| *s == f.to_stat_name())
+                                        .unwrap_or(usize::MAX)
+                                })
+                                .unwrap_or(usize::MAX);
+                        let rank_b =
+                            b.1.facility
+                                .map(|f| {
+                                    priorities
+                                        .iter()
+                                        .position(|s| *s == f.to_stat_name())
+                                        .unwrap_or(usize::MAX)
+                                })
+                                .unwrap_or(usize::MAX);
                         rank_a.cmp(&rank_b)
                     })
                     .then(a.0.cmp(&b.0))

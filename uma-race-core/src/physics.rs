@@ -67,8 +67,21 @@ mod tests {
     fn phase_fractions_match_constants_file() {
         let c = constants();
         let d = 2400.0;
-        assert!((phase_start(d, Phase::Middle) / d - c["phases"]["phase0_end_frac"].as_f64().unwrap()).abs() < 1e-12);
-        assert!((phase_start(d, Phase::End) / d - c["phases"]["phase1_end_frac"].as_f64().unwrap()).abs() < 1e-12);
-        assert!((phase_start(d, Phase::LastSpurt) / d - c["phases"]["phase2_end_frac"].as_f64().unwrap()).abs() < 1e-12);
+        assert!(
+            (phase_start(d, Phase::Middle) / d - c["phases"]["phase0_end_frac"].as_f64().unwrap())
+                .abs()
+                < 1e-12
+        );
+        assert!(
+            (phase_start(d, Phase::End) / d - c["phases"]["phase1_end_frac"].as_f64().unwrap())
+                .abs()
+                < 1e-12
+        );
+        assert!(
+            (phase_start(d, Phase::LastSpurt) / d
+                - c["phases"]["phase2_end_frac"].as_f64().unwrap())
+            .abs()
+                < 1e-12
+        );
     }
 }
