@@ -297,7 +297,10 @@ impl TrainingResolver {
             secondary: row.get("secondary").and_then(|v| v.as_i64()).unwrap_or(0) as i32,
             tertiary: row.get("tertiary").and_then(|v| v.as_i64()).unwrap_or(0) as i32,
             energy: row.get("energy")?.as_i64()? as i32,
-            skill_points: row.get("skill_points").and_then(|v| v.as_i64()).unwrap_or(0) as i32,
+            skill_points: row
+                .get("skill_points")
+                .and_then(|v| v.as_i64())
+                .unwrap_or(0) as i32,
         })
     }
 
