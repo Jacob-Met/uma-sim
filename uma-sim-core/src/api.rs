@@ -256,9 +256,16 @@ fn handle_catalog_trainees() -> Response<Cursor<Vec<u8>>> {
     let items: Vec<Value> = TraineeCatalog::list_all()
         .into_iter()
         .map(|t| {
+            let char_id = t.char_id;
+            let icon = char_id.map(|id| {
+                format!("https://gametora.com/images/umamusume/characters/icons/chr_icon_{id}.png")
+            });
             json!({
                 "id": t.id,
                 "name": t.name,
+                "nameJa": t.name_ja,
+                "charId": char_id,
+                "iconUrl": icon,
             })
         })
         .collect();
@@ -360,6 +367,13 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     let mut meta = RunMeta::new(seed, scenario, trainee);
     meta.legacy_factors = legacy_factors;
     meta.deck_supports = deck_supports;
+    if let Some(parents) = body_string(&body, "parentNames") {
+        meta.parent_names = parents
+            .split(',')
+            .map(|x| x.trim().to_string())
+            .filter(|x| !x.is_empty())
+            .collect();
+    }
     engine.start(meta);
     st.engine = Some(engine);
     json_response_str(200, &state_json(st))

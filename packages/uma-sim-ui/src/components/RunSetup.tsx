@@ -1,5 +1,12 @@
 import type { CatalogItem, StartRequest } from "../api/types";
 import { useMemo, useState } from "react";
+import {
+  emptyLegacyTree,
+  flattenLegacyFactors,
+  legacyParentNames,
+  LegacyPanel,
+  type LegacyTree,
+} from "./LegacyPanel";
 
 interface Props {
   scenarios: CatalogItem[];
@@ -26,28 +33,98 @@ export function RunSetup({
   const [raceModel, setRaceModel] = useState("physics");
   const [policy, setPolicy] = useState("bot");
   const [deck, setDeck] = useState<string[]>([]);
-  const [legacy, setLegacy] = useState<string[]>([]);
+  const [legacyEnabled, setLegacyEnabled] = useState(false);
+  const [legacyTree, setLegacyTree] = useState<LegacyTree>(() => emptyLegacyTree());
   const [supportFilter, setSupportFilter] = useState("");
-  const [factorFilter, setFactorFilter] = useState("");
+  const [traineeFilter, setTraineeFilter] = useState("");
+  const [formError, setFormError] = useState<string | null>(null);
 
+  const filteredTrainees = useMemo(() => {
+    const q = traineeFilter.toLowerCase().trim();
+    return trainees.filter((t) => {
+      if (!q) return true;
+      return (
+        t.name.toLowerCase().includes(q) ||
+        (t.nameJa ?? "").toLowerCase().includes(q) ||
+        t.id.toLowerCase().includes(q) ||
+        String(t.charId ?? "").includes(q)
+      );
+    });
+  }, [trainees, traineeFilter]);
+
+  /** Career trainee cannot also be a support card (by character name). */
   const filteredSupports = useMemo(() => {
     const q = supportFilter.toLowerCase();
+    const traineeKey = trainee.toLowerCase();
     return supports
+      .filter((s) => s.name.toLowerCase() !== traineeKey)
       .filter((s) => !q || s.name.toLowerCase().includes(q) || s.id.includes(q))
       .slice(0, 200);
-  }, [supports, supportFilter]);
-
-  const filteredFactors = useMemo(() => {
-    const q = factorFilter.toLowerCase();
-    return factors
-      .filter((f) => !q || f.name.toLowerCase().includes(q) || f.id.includes(q))
-      .slice(0, 200);
-  }, [factors, factorFilter]);
+  }, [supports, supportFilter, trainee]);
 
   function toggle(list: string[], id: string, max: number): string[] {
     if (list.includes(id)) return list.filter((x) => x !== id);
     if (list.length >= max) return list;
     return [...list, id];
+  }
+
+  function selectTrainee(name: string) {
+    setTrainee(name);
+    setFormError(null);
+    // Drop illegal supports matching the new trainee.
+    const key = name.toLowerCase();
+    setDeck((prev) =>
+      prev.filter((id) => {
+        const s = supports.find((x) => x.id === id);
+        return !s || s.name.toLowerCase() !== key;
+      }),
+    );
+    // Clear direct parents if they collide with the trainee.
+    setLegacyTree((tree) => {
+      const next = { ...tree };
+      if (next.parentA.uma.toLowerCase() === key) {
+        next.parentA = { ...next.parentA, uma: "" };
+      }
+      if (next.parentB.uma.toLowerCase() === key) {
+        next.parentB = { ...next.parentB, uma: "" };
+      }
+      return next;
+    });
+  }
+
+  function start() {
+    const traineeKey = trainee.toLowerCase();
+    const supportChars = deck
+      .map((id) => supports.find((s) => s.id === id)?.name ?? "")
+      .filter(Boolean);
+    if (supportChars.some((n) => n.toLowerCase() === traineeKey)) {
+      setFormError("Trainee cannot also be a support card in the deck.");
+      return;
+    }
+    if (legacyEnabled) {
+      const parents = [legacyTree.parentA.uma, legacyTree.parentB.uma].filter(Boolean);
+      if (parents.some((n) => n.toLowerCase() === traineeKey)) {
+        setFormError("Trainee cannot be a direct parent.");
+        return;
+      }
+    }
+    setFormError(null);
+    const legacyFactors =
+      legacyEnabled ? flattenLegacyFactors(legacyTree).join(",") : "";
+    const parentNames =
+      legacyEnabled ? legacyParentNames(legacyTree).join(",") : "";
+    onStart({
+      seed,
+      scenario,
+      trainee,
+      speed,
+      dialogue,
+      raceModel,
+      policy,
+      deckSupports: deck.join(","),
+      legacyFactors: legacyFactors || undefined,
+      parentNames: parentNames || undefined,
+    });
   }
 
   return (
@@ -64,15 +141,44 @@ export function RunSetup({
             ))}
           </select>
         </div>
-        <div className="field">
+        <div className="field" style={{ gridColumn: "1 / -1" }}>
           <label>Trainee</label>
-          <select value={trainee} onChange={(e) => setTrainee(e.target.value)}>
-            {trainees.map((t) => (
-              <option key={t.id} value={t.name}>
-                {t.name}
-              </option>
-            ))}
-          </select>
+          <input
+            placeholder="Search name or 日本語…"
+            value={traineeFilter}
+            onChange={(e) => setTraineeFilter(e.target.value)}
+          />
+          <div className="trainee-grid">
+            {filteredTrainees.map((t) => {
+              const selected = trainee === t.name;
+              return (
+                <button
+                  type="button"
+                  key={t.id}
+                  className={`trainee-card${selected ? " selected" : ""}`}
+                  disabled={busy}
+                  onClick={() => selectTrainee(t.name)}
+                  title={`${t.name}${t.nameJa ? ` / ${t.nameJa}` : ""}`}
+                >
+                  {t.iconUrl ? (
+                    <img src={t.iconUrl} alt="" loading="lazy" width={56} height={56} />
+                  ) : (
+                    <div className="trainee-fallback">{t.name.slice(0, 2)}</div>
+                  )}
+                  <div className="trainee-meta">
+                    <div className="trainee-en">{t.name}</div>
+                    {t.nameJa ? <div className="trainee-ja">{t.nameJa}</div> : null}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+          <div className="chip" style={{ marginTop: "0.35rem" }}>
+            Selected: {trainee}
+            {trainees.find((t) => t.name === trainee)?.nameJa
+              ? ` · ${trainees.find((t) => t.name === trainee)?.nameJa}`
+              : ""}
+          </div>
         </div>
         <div className="field">
           <label>Seed</label>
@@ -116,74 +222,54 @@ export function RunSetup({
         </div>
       </div>
 
-      <div className="grid-setup" style={{ marginTop: "0.85rem" }}>
-        <div className="field">
-          <label>Deck supports ({deck.length}/6)</label>
-          <input
-            placeholder="Filter…"
-            value={supportFilter}
-            onChange={(e) => setSupportFilter(e.target.value)}
-          />
-          <div className="multi">
-            {filteredSupports.map((s) => (
-              <label key={s.id}>
-                <input
-                  type="checkbox"
-                  checked={deck.includes(s.id)}
-                  onChange={() => setDeck(toggle(deck, s.id, 6))}
-                />
-                <span>
-                  {s.name}{" "}
-                  <span className="chip">
-                    {s.type} R{s.rarity}
-                  </span>
+      <div className="field" style={{ marginTop: "0.85rem" }}>
+        <label>
+          Deck supports ({deck.length}/6){" "}
+          <span className="chip">trainee excluded</span>
+        </label>
+        <input
+          placeholder="Filter…"
+          value={supportFilter}
+          onChange={(e) => setSupportFilter(e.target.value)}
+        />
+        <div className="multi">
+          {filteredSupports.map((s) => (
+            <label key={s.id}>
+              <input
+                type="checkbox"
+                checked={deck.includes(s.id)}
+                onChange={() => setDeck(toggle(deck, s.id, 6))}
+              />
+              <span>
+                {s.name}{" "}
+                <span className="chip">
+                  {s.type} R{s.rarity}
                 </span>
-              </label>
-            ))}
-          </div>
-        </div>
-        <div className="field">
-          <label>Legacy factors ({legacy.length}/6)</label>
-          <input
-            placeholder="Filter…"
-            value={factorFilter}
-            onChange={(e) => setFactorFilter(e.target.value)}
-          />
-          <div className="multi">
-            {filteredFactors.map((f) => (
-              <label key={f.id}>
-                <input
-                  type="checkbox"
-                  checked={legacy.includes(f.id)}
-                  onChange={() => setLegacy(toggle(legacy, f.id, 6))}
-                />
-                <span>
-                  {f.name} <span className="chip">{f.kind}</span>
-                </span>
-              </label>
-            ))}
-          </div>
+              </span>
+            </label>
+          ))}
         </div>
       </div>
 
+      <LegacyPanel
+        enabled={legacyEnabled}
+        tree={legacyTree}
+        trainees={trainees}
+        factors={factors}
+        traineeName={trainee}
+        busy={busy}
+        onEnabled={setLegacyEnabled}
+        onChange={setLegacyTree}
+      />
+
+      {formError && (
+        <div className="banner error" style={{ marginTop: "0.75rem" }}>
+          {formError}
+        </div>
+      )}
+
       <div className="controls" style={{ marginTop: "0.9rem" }}>
-        <button
-          className="primary"
-          disabled={busy}
-          onClick={() =>
-            onStart({
-              seed,
-              scenario,
-              trainee,
-              speed,
-              dialogue,
-              raceModel,
-              policy,
-              deckSupports: deck.join(","),
-              legacyFactors: legacy.join(","),
-            })
-          }
-        >
+        <button className="primary" disabled={busy} onClick={start}>
           Start run
         </button>
       </div>

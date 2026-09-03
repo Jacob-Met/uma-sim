@@ -5,6 +5,9 @@ export type MoodLevel = "AWFUL" | "BAD" | "NORMAL" | "GOOD" | "GREAT";
 export interface CatalogItem {
   id: string;
   name: string;
+  nameJa?: string;
+  charId?: number;
+  iconUrl?: string;
   type?: string;
   rarity?: number;
   kind?: string;
@@ -135,5 +138,6 @@ export interface StartRequest {
   policy?: string;
   deckSupports?: string;
   legacyFactors?: string;
+  parentNames?: string;
   traceTelemetry?: boolean | string;
 }

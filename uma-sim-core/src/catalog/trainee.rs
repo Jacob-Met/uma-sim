@@ -10,16 +10,26 @@ use std::sync::{LazyLock, Mutex};
 pub struct TraineeMeta {
     pub id: String,
     pub name: String,
+    pub name_ja: String,
     pub card_id: Option<i32>,
     pub char_id: Option<i32>,
     /// Growth bonus percent per stat: speed, stamina, power, guts, wit.
     pub growth_bonus_pct: [i32; 5],
 }
 
+#[derive(Debug, Clone)]
+struct CharProfile {
+    name_en: String,
+    name_ja: String,
+    #[allow(dead_code)]
+    url_name: Option<String>,
+}
+
 struct TraineeCatalogState {
     by_name: HashMap<String, TraineeMeta>,
     char_name_to_id: HashMap<String, i32>,
     by_char_id: HashMap<i32, Vec<TraineeMeta>>,
+    char_profiles: HashMap<i32, CharProfile>,
     loaded: bool,
 }
 
@@ -29,6 +39,7 @@ impl Default for TraineeCatalogState {
             by_name: HashMap::new(),
             char_name_to_id: HashMap::new(),
             by_char_id: HashMap::new(),
+            char_profiles: HashMap::new(),
             loaded: false,
         }
     }
@@ -70,6 +81,7 @@ impl TraineeCatalog {
         let mut index: HashMap<String, TraineeMeta> = HashMap::new();
         let mut char_names: HashMap<String, i32> = HashMap::new();
         let mut cards_by_char: HashMap<i32, Vec<TraineeMeta>> = HashMap::new();
+        let mut profiles: HashMap<i32, CharProfile> = HashMap::new();
 
         for el in arr {
             let Some(obj) = el.as_object() else {
@@ -82,6 +94,21 @@ impl TraineeCatalog {
                 continue;
             };
             let char_id = char_id as i32;
+            let name_ja = obj
+                .get("name_ja")
+                .and_then(|v| v.as_str())
+                .unwrap_or("")
+                .to_string();
+            let name_en = obj
+                .get("name_en_official")
+                .or_else(|| obj.get("name_en_fan"))
+                .and_then(|v| v.as_str())
+                .unwrap_or("")
+                .to_string();
+            let url_name = payload
+                .get("url_name")
+                .and_then(|v| v.as_str())
+                .map(|s| s.to_string());
 
             let bonus: Option<Vec<i32>> =
                 payload
@@ -94,13 +121,17 @@ impl TraineeCatalog {
                     });
 
             if bonus.as_ref().map(|b| b.len()).unwrap_or(0) < 5 {
-                let char_name = obj
-                    .get("name_en_official")
-                    .or_else(|| obj.get("name_en_fan"))
-                    .and_then(|v| v.as_str())
-                    .unwrap_or("");
-                if !char_name.is_empty() {
-                    char_names.insert(char_name.to_lowercase(), char_id);
+                // Character base row (no card growth) — identity for the picker.
+                if !name_en.is_empty() {
+                    char_names.insert(name_en.to_lowercase(), char_id);
+                    profiles.insert(
+                        char_id,
+                        CharProfile {
+                            name_en: name_en.clone(),
+                            name_ja: name_ja.clone(),
+                            url_name: url_name.clone(),
+                        },
+                    );
                 }
                 if let Some(aliases) = obj.get("aliases").and_then(|v| v.as_array()) {
                     for alias in aliases {
@@ -134,9 +165,16 @@ impl TraineeCatalog {
             for (i, v) in bonus.iter().take(5).enumerate() {
                 growth[i] = *v;
             }
+            // Prefer character-level JA if we already saw the profile.
+            let ja = profiles
+                .get(&char_id)
+                .map(|p| p.name_ja.clone())
+                .filter(|s| !s.is_empty())
+                .unwrap_or_else(|| name_ja.clone());
             let meta = TraineeMeta {
                 id: id.clone(),
                 name: name.clone(),
+                name_ja: ja.clone(),
                 card_id,
                 char_id: Some(char_id),
                 growth_bonus_pct: growth,
@@ -153,16 +191,34 @@ impl TraineeCatalog {
                 }
             }
             cards_by_char.entry(char_id).or_default().push(meta);
+            profiles.entry(char_id).or_insert(CharProfile {
+                name_en: name,
+                name_ja: ja,
+                url_name,
+            });
         }
 
-        for cards in cards_by_char.values_mut() {
+        // Second pass: attach profile JA onto cards that loaded before the character row.
+        for (cid, cards) in cards_by_char.iter_mut() {
+            if let Some(profile) = profiles.get(cid) {
+                for card in cards.iter_mut() {
+                    if card.name_ja.is_empty() {
+                        card.name_ja = profile.name_ja.clone();
+                    }
+                    // Prefer canonical character English name for picker identity.
+                    if !profile.name_en.is_empty() {
+                        card.name = profile.name_en.clone();
+                    }
+                }
+            }
             cards.sort_by_key(|c| c.card_id.unwrap_or(i32::MAX));
         }
 
-        state.loaded = !index.is_empty();
+        state.loaded = !index.is_empty() || !profiles.is_empty();
         state.by_name = index;
         state.char_name_to_id = char_names;
         state.by_char_id = cards_by_char;
+        state.char_profiles = profiles;
     }
 
     pub fn lookup(name_or_id: &str) -> Option<TraineeMeta> {
@@ -181,21 +237,61 @@ impl TraineeCatalog {
             .map(|(_, v)| v.clone())
     }
 
-    /// Unique trainee cards for the web UI / REST `/v1/catalog/trainees`.
+    /// Unique characters for the web UI / REST `/v1/catalog/trainees`.
     pub fn list_all() -> Vec<TraineeMeta> {
         let state = CATALOG.lock().unwrap();
-        let mut by_id: HashMap<String, TraineeMeta> = HashMap::new();
-        for cards in state.by_char_id.values() {
-            if let Some(first) = cards.first() {
-                by_id.insert(first.id.clone(), first.clone());
+        let mut rows: Vec<TraineeMeta> = Vec::new();
+
+        // Prefer one entry per character (profile + default card growth when available).
+        let mut char_ids: Vec<i32> = state.char_profiles.keys().copied().collect();
+        for cid in state.by_char_id.keys() {
+            if !char_ids.contains(cid) {
+                char_ids.push(*cid);
             }
         }
-        if by_id.is_empty() {
-            for meta in state.by_name.values() {
-                by_id.entry(meta.id.clone()).or_insert_with(|| meta.clone());
+        char_ids.sort_unstable();
+
+        for cid in char_ids {
+            let profile = state.char_profiles.get(&cid);
+            let card = state.by_char_id.get(&cid).and_then(|v| v.first());
+            let (name, name_ja, id, growth, card_id) = if let Some(c) = card {
+                (
+                    profile
+                        .map(|p| p.name_en.clone())
+                        .filter(|s| !s.is_empty())
+                        .unwrap_or_else(|| c.name.clone()),
+                    profile
+                        .map(|p| p.name_ja.clone())
+                        .filter(|s| !s.is_empty())
+                        .unwrap_or_else(|| c.name_ja.clone()),
+                    format!("trainee:{cid}"),
+                    c.growth_bonus_pct,
+                    c.card_id,
+                )
+            } else if let Some(p) = profile {
+                (
+                    p.name_en.clone(),
+                    p.name_ja.clone(),
+                    format!("trainee:{cid}"),
+                    [0; 5],
+                    None,
+                )
+            } else {
+                continue;
+            };
+            if name.is_empty() {
+                continue;
             }
+            rows.push(TraineeMeta {
+                id,
+                name,
+                name_ja,
+                card_id,
+                char_id: Some(cid),
+                growth_bonus_pct: growth,
+            });
         }
-        let mut rows: Vec<_> = by_id.into_values().collect();
+
         rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
         rows
     }
