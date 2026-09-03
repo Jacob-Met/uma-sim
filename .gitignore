@@ -10,3 +10,6 @@ Thumbs.db
 out-api.log
 out-api.err
 *.log
+
+# Built web UI (embedded at release time via rust-embed)
+packages/uma-sim-ui/dist/
