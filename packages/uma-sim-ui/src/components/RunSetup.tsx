@@ -2,6 +2,7 @@ import {
   compatibilityGrade,
   type CatalogItem,
   type StartRequest,
+  type TraineeStats,
 } from "../api/types";
 import { useMemo, useState } from "react";
 import {
@@ -11,6 +12,7 @@ import {
   LegacyPanel,
   type LegacyTree,
 } from "./LegacyPanel";
+import { previewLegacy } from "./legacyPreview";
 
 interface Props {
   scenarios: CatalogItem[];
@@ -48,6 +50,20 @@ export function RunSetup({
     () => compatibilityGrade(compatibilityScore),
     [compatibilityScore],
   );
+
+  const legacyPreview = useMemo(() => {
+    if (!legacyEnabled) return null;
+    const t = trainees.find((x) => x.name === trainee);
+    const base: TraineeStats = {
+      speed: t?.baseStats?.[0] || 100,
+      stamina: t?.baseStats?.[1] || 100,
+      power: t?.baseStats?.[2] || 100,
+      guts: t?.baseStats?.[3] || 100,
+      wit: t?.baseStats?.[4] || 100,
+    };
+    const apts = t?.aptitudes ?? {};
+    return previewLegacy(legacyTree, base, apts, factors);
+  }, [legacyEnabled, legacyTree, trainees, trainee, factors]);
 
   const filteredTrainees = useMemo(() => {
     const q = traineeFilter.toLowerCase().trim();
@@ -273,6 +289,34 @@ export function RunSetup({
         onEnabled={setLegacyEnabled}
         onChange={setLegacyTree}
       />
+
+      {legacyEnabled && legacyPreview && (
+        <div className="field" style={{ marginTop: "0.85rem" }}>
+          <label>
+            Legacy preview{" "}
+            <span className="chip">starting stats + aptitudes</span>
+          </label>
+          <div className="chip" style={{ display: "block", marginTop: "0.35rem" }}>
+            Sp {legacyPreview.startingStats.speed} / St{" "}
+            {legacyPreview.startingStats.stamina} / Po{" "}
+            {legacyPreview.startingStats.power} / Gu{" "}
+            {legacyPreview.startingStats.guts} / Wi{" "}
+            {legacyPreview.startingStats.wit}
+          </div>
+          <div style={{ marginTop: "0.35rem" }}>
+            {Object.entries(legacyPreview.aptitudes)
+              .filter(([, letter]) => letter && letter !== "G")
+              .map(([tag, letter]) => (
+                <span className="chip" key={tag} style={{ margin: "0.15rem" }}>
+                  {tag} {letter}
+                </span>
+              ))}
+            {Object.keys(legacyPreview.aptitudes).length === 0 ? (
+              <span className="chip">no aptitude data for trainee</span>
+            ) : null}
+          </div>
+        </div>
+      )}
 
       {legacyEnabled && (
         <div className="field" style={{ marginTop: "0.85rem" }}>

@@ -178,6 +178,20 @@ fn inheritance_choice_applies_skills() {
 }
 
 #[test]
+fn blue_starting_bonuses_match_gametora_table() {
+    assert_eq!(uma_sim_core::blue_starting_stat_bonus(1), 5);
+    assert_eq!(uma_sim_core::blue_starting_stat_bonus(2), 12);
+    assert_eq!(uma_sim_core::blue_starting_stat_bonus(3), 21);
+}
+
+#[test]
+fn pink_preview_caps_at_a() {
+    use uma_sim_core::raise_aptitude_letter;
+    assert_eq!(raise_aptitude_letter("B", 4), "A");
+    assert_eq!(raise_aptitude_letter("A", 2), "A");
+}
+
+#[test]
 fn legacy_tree_preferred_over_flat_factors() {
     let _g = TEST_LOCK.lock().unwrap();
     use uma_sim_core::state::{LegacyTree, SparkSlot};

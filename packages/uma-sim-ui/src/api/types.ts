@@ -14,6 +14,14 @@ export interface CatalogItem {
   type?: string;
   rarity?: number;
   kind?: string;
+  /** Trainee card base stats [speed…wit]. */
+  baseStats?: number[];
+  /** Trainee aptitude letters keyed by turf/dirt/… */
+  aptitudes?: Record<string, string>;
+  /** Pink factor aptitude tag. */
+  pinkTag?: string;
+  /** Blue factor stat key. */
+  statKey?: string;
 }
 
 export interface Choice {

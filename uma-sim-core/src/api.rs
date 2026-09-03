@@ -267,6 +267,8 @@ fn handle_catalog_trainees() -> Response<Cursor<Vec<u8>>> {
                 "charId": char_id,
                 "iconUrl": icon,
                 "playableEn": t.playable_en,
+                "baseStats": t.base_stats,
+                "aptitudes": crate::catalog::trainee::TraineeCatalog::aptitude_map(&t),
             })
         })
         .collect();
@@ -298,6 +300,8 @@ fn handle_catalog_factors() -> Response<Cursor<Vec<u8>>> {
                 "id": f.id,
                 "name": f.name,
                 "kind": f.category,
+                "pinkTag": f.pink_tag,
+                "statKey": f.stat_key,
             })
         })
         .collect();

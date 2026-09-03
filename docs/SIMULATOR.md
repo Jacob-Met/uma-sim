@@ -212,6 +212,7 @@ cargo test --manifest-path uma-sim-core/Cargo.toml --test grand_live_r7 --test g
 | Mid-run Inspiration (Classic/Senior Early April; compat×base odds; blue 1–10/16/28) | **true** | `mid_run_inheritance.rs` + `research/inspiration.json` |
 | Compatibility score input (0–500, ◎/〇/△) on run start + UI | **true** | `RunSetup` + `StartRequest.compatibilityScore` |
 | End-of-career spark generation (blue 600/1100, red A+, white skills, green unique) | **true** | `spark_generation.rs` + `CareerSummary` |
+| Legacy preview in RunSetup (blue 5/12/21 start + pink aptitude letters, cap A) | **true** | `legacyPreview.ts` + trainee/factor catalog fields |
 | Race place/show multipliers (Outcomes v1) | **true** | `tests/race_outcomes.rs`; physics placements feed same multipliers |
 | Epithet stubs on G1 / climax / finale wins | **true** | `race_outcomes.rs`; granted into `CareerState.statuses` |
 | Mid-run race physics (`uma-race-core`) | **true** (default) | R8 plan; SmartRaceSolver gap retired for career mid-run |
