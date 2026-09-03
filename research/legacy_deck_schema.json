@@ -1,16 +1,35 @@
 {
-  "schema_version": 1,
-  "as_of": "2026-09-01",
+  "schema_version": 2,
+  "as_of": "2026-09-03",
   "parent_slots": 2,
-  "factor_slots_per_parent": 3,
+  "grandparents_per_parent": 2,
   "inherited_skill_slots": 2,
-  "spark_stat_cap_bonus": {
-    "per_star": 20,
-    "max_bonus": 400,
-    "confidence": "medium"
+  "blue_starting_stats": {
+    "1": 5,
+    "2": 12,
+    "3": 21,
+    "note": "GameTora / Game8 initial inspiration — stacked across 2 parents + 4 grandparents"
+  },
+  "blue_cap_bonus": {
+    "1": 4,
+    "2": 9,
+    "3": 16,
+    "note": "parent_farming_utility.md gene-value / soft-cap magnitudes"
+  },
+  "pink_aptitude_rank_ups": {
+    "1-3": 1,
+    "4-6": 2,
+    "7-9": 3,
+    "10+": 4,
+    "cap": "A",
+    "note": "inheritance_planners.md / design.u-ma.org — matching ★ sum per aptitude line"
   },
   "factor_categories": ["blue", "pink", "skill", "race", "scenario", "other"],
-  "pink_aptitude": { "wit_per_factor": 2, "note": "Distance/surface aptitude proxy at career start" },
   "race_factor_bonus": { "skill_points_per_win": 5, "note": "Flat SP bonus per inherited race factor on any win" },
-  "sources": ["GameTora factors", "knowledge/canonical/by_kind/factor.json"]
+  "sources": [
+    "GameTora legacies",
+    "knowledge/mechanics/inheritance_planners.md",
+    "knowledge/mechanics/parent_farming_utility.md",
+    "knowledge/canonical/by_kind/factor.json"
+  ]
 }

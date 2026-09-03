@@ -46,7 +46,8 @@ pub use factory::{
 pub use legacy::{LegacyApplicator, LegacyDeckConfig, LegacyFactorContext, LegacyFactorMeta};
 pub use policy::default_auto_policy;
 pub use race::{
-    derive_race_seed, horse_input_from_career, run_physics_race, RaceModel, RaceScheduler,
+    derive_race_seed, horse_input_from_career, horse_input_from_career_on_course, run_physics_race,
+    RaceModel, RaceScheduler,
 };
 pub use render::TextRenderer;
 pub use rng::SimRandom;

@@ -1,10 +1,15 @@
-//! KB-backed trainee growth bonuses from `trainee.json` stat_bonus arrays.
+//! KB-backed trainee identity, growth, aptitudes, and starting skills from `trainee.json`.
 
 use crate::state::TrainingFacility;
 use serde_json::Value;
 use std::collections::HashMap;
 use std::path::Path;
 use std::sync::{LazyLock, Mutex};
+
+/// Aptitude keys in GameTora / card `aptitude[]` order.
+pub const APTITUDE_KEYS: [&str; 10] = [
+    "turf", "dirt", "sprint", "mile", "medium", "long", "front", "pace", "late", "end",
+];
 
 #[derive(Debug, Clone)]
 pub struct TraineeMeta {
@@ -15,6 +20,16 @@ pub struct TraineeMeta {
     pub char_id: Option<i32>,
     /// Growth bonus percent per stat: speed, stamina, power, guts, wit.
     pub growth_bonus_pct: [i32; 5],
+    /// Card base stats (speed…wit); empty → engine default.
+    pub base_stats: [i32; 5],
+    /// Letters for [`APTITUDE_KEYS`] (length 0 or 10).
+    pub aptitudes: Vec<String>,
+    /// Innate skill numeric ids (start as hint level 1).
+    pub skills_innate: Vec<i32>,
+    /// Unique skill numeric ids (granted at career start).
+    pub skills_unique: Vec<i32>,
+    pub playable: bool,
+    pub playable_en: bool,
 }
 
 #[derive(Debug, Clone)]
@@ -23,6 +38,8 @@ struct CharProfile {
     name_ja: String,
     #[allow(dead_code)]
     url_name: Option<String>,
+    playable: bool,
+    playable_en: bool,
 }
 
 struct TraineeCatalogState {
@@ -47,6 +64,38 @@ impl Default for TraineeCatalogState {
 
 static CATALOG: LazyLock<Mutex<TraineeCatalogState>> =
     LazyLock::new(|| Mutex::new(TraineeCatalogState::default()));
+
+fn parse_i32_list(v: Option<&Value>) -> Vec<i32> {
+    v.and_then(|x| x.as_array())
+        .map(|arr| {
+            arr.iter()
+                .filter_map(|n| n.as_i64().map(|i| i as i32))
+                .collect()
+        })
+        .unwrap_or_default()
+}
+
+fn parse_aptitudes(v: Option<&Value>) -> Vec<String> {
+    v.and_then(|x| x.as_array())
+        .map(|arr| {
+            arr.iter()
+                .filter_map(|n| n.as_str().map(|s| s.to_uppercase()))
+                .collect()
+        })
+        .unwrap_or_default()
+}
+
+fn parse_base_stats(v: Option<&Value>) -> [i32; 5] {
+    let mut out = [0i32; 5];
+    if let Some(arr) = v.and_then(|x| x.as_array()) {
+        for (i, n) in arr.iter().take(5).enumerate() {
+            if let Some(v) = n.as_i64() {
+                out[i] = v as i32;
+            }
+        }
+    }
+    out
+}
 
 pub struct TraineeCatalog;
 
@@ -109,6 +158,14 @@ impl TraineeCatalog {
                 .get("url_name")
                 .and_then(|v| v.as_str())
                 .map(|s| s.to_string());
+            let playable = payload
+                .get("playable")
+                .and_then(|v| v.as_bool())
+                .unwrap_or(false);
+            let playable_en = payload
+                .get("playable_en")
+                .and_then(|v| v.as_bool())
+                .unwrap_or(false);
 
             let bonus: Option<Vec<i32>> =
                 payload
@@ -121,7 +178,7 @@ impl TraineeCatalog {
                     });
 
             if bonus.as_ref().map(|b| b.len()).unwrap_or(0) < 5 {
-                // Character base row (no card growth) — identity for the picker.
+                // Character base row (no card growth) — identity only.
                 if !name_en.is_empty() {
                     char_names.insert(name_en.to_lowercase(), char_id);
                     profiles.insert(
@@ -130,6 +187,8 @@ impl TraineeCatalog {
                             name_en: name_en.clone(),
                             name_ja: name_ja.clone(),
                             url_name: url_name.clone(),
+                            playable,
+                            playable_en,
                         },
                     );
                 }
@@ -165,12 +224,16 @@ impl TraineeCatalog {
             for (i, v) in bonus.iter().take(5).enumerate() {
                 growth[i] = *v;
             }
-            // Prefer character-level JA if we already saw the profile.
             let ja = profiles
                 .get(&char_id)
                 .map(|p| p.name_ja.clone())
                 .filter(|s| !s.is_empty())
                 .unwrap_or_else(|| name_ja.clone());
+            let profile_playable = profiles.get(&char_id).map(|p| p.playable).unwrap_or(true);
+            let profile_playable_en = profiles
+                .get(&char_id)
+                .map(|p| p.playable_en)
+                .unwrap_or(false);
             let meta = TraineeMeta {
                 id: id.clone(),
                 name: name.clone(),
@@ -178,6 +241,12 @@ impl TraineeCatalog {
                 card_id,
                 char_id: Some(char_id),
                 growth_bonus_pct: growth,
+                base_stats: parse_base_stats(payload.get("base_stats")),
+                aptitudes: parse_aptitudes(payload.get("aptitude")),
+                skills_innate: parse_i32_list(payload.get("skills_innate")),
+                skills_unique: parse_i32_list(payload.get("skills_unique")),
+                playable: profile_playable,
+                playable_en: profile_playable_en,
             };
             index.insert(name.to_lowercase(), meta.clone());
             if let Some(cn) = payload.get("char_name").and_then(|v| v.as_str()) {
@@ -195,23 +264,34 @@ impl TraineeCatalog {
                 name_en: name,
                 name_ja: ja,
                 url_name,
+                playable: profile_playable,
+                playable_en: profile_playable_en,
             });
         }
 
-        // Second pass: attach profile JA onto cards that loaded before the character row.
         for (cid, cards) in cards_by_char.iter_mut() {
             if let Some(profile) = profiles.get(cid) {
                 for card in cards.iter_mut() {
                     if card.name_ja.is_empty() {
                         card.name_ja = profile.name_ja.clone();
                     }
-                    // Prefer canonical character English name for picker identity.
                     if !profile.name_en.is_empty() {
                         card.name = profile.name_en.clone();
                     }
+                    card.playable = profile.playable;
+                    card.playable_en = profile.playable_en;
                 }
             }
             cards.sort_by_key(|c| c.card_id.unwrap_or(i32::MAX));
+            // Character English name resolves to the default (lowest card_id) variant.
+            if let Some(default_card) = cards.first() {
+                index.insert(default_card.name.to_lowercase(), default_card.clone());
+                if let Some(profile) = profiles.get(cid) {
+                    if !profile.name_en.is_empty() {
+                        index.insert(profile.name_en.to_lowercase(), default_card.clone());
+                    }
+                }
+            }
         }
 
         state.loaded = !index.is_empty() || !profiles.is_empty();
@@ -237,58 +317,50 @@ impl TraineeCatalog {
             .map(|(_, v)| v.clone())
     }
 
-    /// Unique characters for the web UI / REST `/v1/catalog/trainees`.
+    /// Playable trainees only (must have a trainee card). Excludes staff/NPCs.
     pub fn list_all() -> Vec<TraineeMeta> {
         let state = CATALOG.lock().unwrap();
         let mut rows: Vec<TraineeMeta> = Vec::new();
 
-        // Prefer one entry per character (profile + default card growth when available).
-        let mut char_ids: Vec<i32> = state.char_profiles.keys().copied().collect();
-        for cid in state.by_char_id.keys() {
-            if !char_ids.contains(cid) {
-                char_ids.push(*cid);
-            }
-        }
+        let mut char_ids: Vec<i32> = state.by_char_id.keys().copied().collect();
         char_ids.sort_unstable();
 
         for cid in char_ids {
             let profile = state.char_profiles.get(&cid);
-            let card = state.by_char_id.get(&cid).and_then(|v| v.first());
-            let (name, name_ja, id, growth, card_id) = if let Some(c) = card {
-                (
-                    profile
-                        .map(|p| p.name_en.clone())
-                        .filter(|s| !s.is_empty())
-                        .unwrap_or_else(|| c.name.clone()),
-                    profile
-                        .map(|p| p.name_ja.clone())
-                        .filter(|s| !s.is_empty())
-                        .unwrap_or_else(|| c.name_ja.clone()),
-                    format!("trainee:{cid}"),
-                    c.growth_bonus_pct,
-                    c.card_id,
-                )
-            } else if let Some(p) = profile {
-                (
-                    p.name_en.clone(),
-                    p.name_ja.clone(),
-                    format!("trainee:{cid}"),
-                    [0; 5],
-                    None,
-                )
-            } else {
+            // Require an actual trainee card — no Tazuna / Happy Meek / staff, etc.
+            let Some(card) = state.by_char_id.get(&cid).and_then(|v| v.first()) else {
                 continue;
             };
+            // Prefer explicit playable flag when present on the character row.
+            if let Some(p) = profile {
+                if !p.playable {
+                    continue;
+                }
+            }
+            let name = profile
+                .map(|p| p.name_en.clone())
+                .filter(|s| !s.is_empty())
+                .unwrap_or_else(|| card.name.clone());
+            let name_ja = profile
+                .map(|p| p.name_ja.clone())
+                .filter(|s| !s.is_empty())
+                .unwrap_or_else(|| card.name_ja.clone());
             if name.is_empty() {
                 continue;
             }
             rows.push(TraineeMeta {
-                id,
+                id: format!("trainee:{cid}"),
                 name,
                 name_ja,
-                card_id,
+                card_id: card.card_id,
                 char_id: Some(cid),
-                growth_bonus_pct: growth,
+                growth_bonus_pct: card.growth_bonus_pct,
+                base_stats: card.base_stats,
+                aptitudes: card.aptitudes.clone(),
+                skills_innate: card.skills_innate.clone(),
+                skills_unique: card.skills_unique.clone(),
+                playable: profile.map(|p| p.playable).unwrap_or(true),
+                playable_en: profile.map(|p| p.playable_en).unwrap_or(false),
             });
         }
 
@@ -310,10 +382,34 @@ impl TraineeCatalog {
         meta.growth_bonus_pct[idx] as f64
     }
 
+    pub fn aptitude_map(meta: &TraineeMeta) -> HashMap<String, String> {
+        let mut map = HashMap::new();
+        for (i, key) in APTITUDE_KEYS.iter().enumerate() {
+            let letter = meta
+                .aptitudes
+                .get(i)
+                .cloned()
+                .unwrap_or_else(|| "G".into());
+            map.insert((*key).to_string(), letter);
+        }
+        map
+    }
+
     fn default_card_for_char_locked(
         state: &TraineeCatalogState,
         char_id: i32,
     ) -> Option<TraineeMeta> {
-        state.by_char_id.get(&char_id)?.first().cloned()
+        let mut card = state.by_char_id.get(&char_id)?.first()?.clone();
+        if let Some(profile) = state.char_profiles.get(&char_id) {
+            if !profile.name_en.is_empty() {
+                card.name = profile.name_en.clone();
+            }
+            if !profile.name_ja.is_empty() {
+                card.name_ja = profile.name_ja.clone();
+            }
+            card.playable = profile.playable;
+            card.playable_en = profile.playable_en;
+        }
+        Some(card)
     }
 }

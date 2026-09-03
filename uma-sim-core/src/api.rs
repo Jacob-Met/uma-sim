@@ -266,6 +266,7 @@ fn handle_catalog_trainees() -> Response<Cursor<Vec<u8>>> {
                 "nameJa": t.name_ja,
                 "charId": char_id,
                 "iconUrl": icon,
+                "playableEn": t.playable_en,
             })
         })
         .collect();

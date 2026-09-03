@@ -8,6 +8,7 @@ export interface CatalogItem {
   nameJa?: string;
   charId?: number;
   iconUrl?: string;
+  playableEn?: boolean;
   type?: string;
   rarity?: number;
   kind?: string;

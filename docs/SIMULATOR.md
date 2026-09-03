@@ -199,7 +199,7 @@ cargo test --manifest-path uma-sim-core/Cargo.toml --test grand_live_r7 --test g
 | Item | Status | Evidence |
 |------|--------|----------|
 | Inheritance choice 0 (skills) + choice 1 (spark stats +20/+20) | **true** | `tests/legacy_applicator.rs::inheritance_choice_1_boosts_spark_stats` |
-| Pink aptitude tags from `pink_tag` | **true** | `legacy_applicator.rs::pink_and_race_factors_tracked` |
+| Pink aptitude ★-sum rank-ups (cap A) + blue start 5/12/21 | **true** | `legacy.rs` + `inheritance_planners.md` / GameTora |
 | Race place/show multipliers (Outcomes v1) | **true** | `tests/race_outcomes.rs`; physics placements feed same multipliers |
 | Epithet stubs on G1 / climax / finale wins | **true** | `race_outcomes.rs`; granted into `CareerState.statuses` |
 | Mid-run race physics (`uma-race-core`) | **true** (default) | R8 plan; SmartRaceSolver gap retired for career mid-run |

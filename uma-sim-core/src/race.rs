@@ -23,7 +23,7 @@ use crate::config::RacePlacement;
 use crate::state::{CareerState, MoodLevel};
 
 use uma_race_core::{
-    get_course, simulate_field_synced, Aptitude, GroundCondition, HorseInput, PosKeepMode,
+    get_course, simulate_field_synced, Aptitude, Course, GroundCondition, HorseInput, PosKeepMode,
     PrandoRng, Strategy,
 };
 
@@ -124,38 +124,79 @@ fn mood_to_race(mood: MoodLevel) -> i8 {
     }
 }
 
-fn apt_from_tags(tags: &[String], keys: &[&str], default: Aptitude) -> Aptitude {
-    for t in tags {
-        let lower = t.to_ascii_lowercase();
-        for k in keys {
-            if lower.contains(k) {
-                // Pink factor presence → bump toward A; letter grades deferred.
-                return Aptitude::A;
-            }
+fn apt_letter(state: &CareerState, key: &str, default: Aptitude) -> Aptitude {
+    state
+        .legacy
+        .aptitudes
+        .get(key)
+        .and_then(|s| Aptitude::from_str_letter(s))
+        .unwrap_or(default)
+}
+
+fn distance_key_for_type(distance_type: u8) -> &'static str {
+    match distance_type {
+        1 => "sprint",
+        2 => "mile",
+        3 => "medium",
+        4 => "long",
+        _ => "mile",
+    }
+}
+
+fn preferred_strategy(state: &CareerState) -> (Strategy, Aptitude) {
+    let styles = [
+        ("front", Strategy::Nige),
+        ("pace", Strategy::Senkou),
+        ("late", Strategy::Sasi),
+        ("end", Strategy::Oikomi),
+    ];
+    let mut best = (Strategy::Senkou, Aptitude::A, i32::MAX);
+    for (key, strat) in styles {
+        let apt = apt_letter(state, key, Aptitude::G);
+        let rank = apt as i32;
+        if rank < best.2 {
+            best = (strat, apt, rank);
         }
     }
-    default
+    (best.0, best.1)
 }
 
-fn strategy_from_state(state: &CareerState) -> Strategy {
-    // Career does not yet store running style; default Pace Chaser (Senkou).
-    let _ = state;
-    Strategy::Senkou
-}
-
-/// Map career trainee into [`HorseInput`].
-pub fn horse_input_from_career(state: &CareerState) -> HorseInput {
-    let tags = &state.legacy.pink_aptitude_tags;
+/// Map career trainee into [`HorseInput`] for a specific course.
+pub fn horse_input_from_career_on_course(state: &CareerState, course: &Course) -> HorseInput {
+    let surface_key = match course.surface_enum() {
+        uma_race_core::hp::Surface::Dirt => "dirt",
+        _ => "turf",
+    };
+    let dist_key = distance_key_for_type(course.distance_type);
+    let (strategy, strategy_apt) = preferred_strategy(state);
     HorseInput {
         speed: state.stats.speed as f64,
         stamina: state.stats.stamina as f64,
         power: state.stats.power as f64,
         guts: state.stats.guts as f64,
         wisdom: state.stats.wit as f64,
-        strategy: strategy_from_state(state),
-        distance_apt: apt_from_tags(tags, &["short", "mile", "medium", "long"], Aptitude::A),
-        surface_apt: apt_from_tags(tags, &["turf", "dirt"], Aptitude::A),
-        strategy_apt: Aptitude::A,
+        strategy,
+        distance_apt: apt_letter(state, dist_key, Aptitude::A),
+        surface_apt: apt_letter(state, surface_key, Aptitude::A),
+        strategy_apt,
+        mood: mood_to_race(state.mood),
+        skills: state.learned_skill_ids.clone(),
+    }
+}
+
+/// Map career trainee into [`HorseInput`] (defaults to mile/turf when no course).
+pub fn horse_input_from_career(state: &CareerState) -> HorseInput {
+    let (strategy, strategy_apt) = preferred_strategy(state);
+    HorseInput {
+        speed: state.stats.speed as f64,
+        stamina: state.stats.stamina as f64,
+        power: state.stats.power as f64,
+        guts: state.stats.guts as f64,
+        wisdom: state.stats.wit as f64,
+        strategy,
+        distance_apt: apt_letter(state, "mile", Aptitude::A),
+        surface_apt: apt_letter(state, "turf", Aptitude::A),
+        strategy_apt,
         mood: mood_to_race(state.mood),
         skills: state.learned_skill_ids.clone(),
     }
@@ -377,7 +418,7 @@ pub fn run_physics_race(state: &CareerState, race_id: &str) -> PhysicsRaceOutcom
         }
     };
     let grade = grade_key_for_race(race_id);
-    let trainee = horse_input_from_career(state);
+    let trainee = horse_input_from_career_on_course(state, course);
     let mut field = vec![trainee];
     field.extend(placeholder_npc_field(
         grade,

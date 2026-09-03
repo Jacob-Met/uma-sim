@@ -102,21 +102,62 @@ impl SimEngine {
         self.plugin = scenario_plugin_for(&meta.scenario_id);
         let cal = TurnCalendar::career_start();
         let cal_label = cal.label();
-        let legacy = if meta.legacy_factors.is_empty() {
+        let mut legacy = if meta.legacy_factors.is_empty() {
             Default::default()
         } else {
             LegacyApplicator::build_legacy(&meta.legacy_factors, meta.parent_names.clone())
         };
-        let base_stats = LegacyApplicator::apply_pink_aptitude(
+
+        let trainee_meta = crate::catalog::trainee::TraineeCatalog::lookup(&meta.trainee_name);
+        let mut base_stats = if let Some(ref tm) = trainee_meta {
+            if tm.base_stats.iter().any(|&v| v > 0) {
+                crate::state::TraineeStats {
+                    speed: tm.base_stats[0],
+                    stamina: tm.base_stats[1],
+                    power: tm.base_stats[2],
+                    guts: tm.base_stats[3],
+                    wit: tm.base_stats[4],
+                }
+            } else {
+                crate::state::TraineeStats {
+                    speed: 100,
+                    stamina: 100,
+                    power: 100,
+                    guts: 100,
+                    wit: 100,
+                }
+            }
+        } else {
             crate::state::TraineeStats {
                 speed: 100,
                 stamina: 100,
                 power: 100,
                 guts: 100,
                 wit: 100,
-            },
-            &legacy,
-        );
+            }
+        };
+        base_stats = LegacyApplicator::apply_blue_starting_stats(base_stats, &legacy);
+
+        let base_apts = trainee_meta
+            .as_ref()
+            .map(crate::catalog::trainee::TraineeCatalog::aptitude_map)
+            .unwrap_or_default();
+        legacy.aptitudes = LegacyApplicator::apply_pink_aptitudes(base_apts, &legacy);
+
+        let mut hint_levels = std::collections::HashMap::new();
+        let mut learned_skill_ids = Vec::new();
+        if let Some(ref tm) = trainee_meta {
+            for sid in &tm.skills_innate {
+                hint_levels.insert(format!("skill:{sid}"), 1);
+            }
+            for sid in &tm.skills_unique {
+                let id = format!("skill:{sid}");
+                if !learned_skill_ids.contains(&id) {
+                    learned_skill_ids.push(id);
+                }
+            }
+        }
+
         let scenario_resources = self.plugin.initial_scenario_resources(&meta);
         let deck = if meta.deck_supports.is_empty() {
             DeckState::default()
@@ -140,6 +181,8 @@ impl SimEngine {
             scenario_resources,
             legacy,
             deck,
+            hint_levels,
+            learned_skill_ids,
             log: vec![format!(
                 "Career started: {} / {} / seed={}",
                 meta.trainee_name, meta.scenario_id, meta.seed

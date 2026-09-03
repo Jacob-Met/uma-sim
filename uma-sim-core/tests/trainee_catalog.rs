@@ -14,6 +14,22 @@ fn loads_special_week_growth_from_kb() {
         .or_else(|| TraineeCatalog::lookup("Special Dreamer"))
         .expect("Expected Special Week trainee card with stat_bonus");
     assert_eq!(meta.growth_bonus_pct[1], 20);
+    assert!(!meta.skills_innate.is_empty());
+    assert!(!meta.skills_unique.is_empty());
+    assert_eq!(meta.aptitudes.len(), 10);
+}
+
+#[test]
+fn list_all_excludes_staff_and_non_card_chars() {
+    let root = detect_repo_root().expect("repo root");
+    TraineeCatalog::init_from_repo(Some(&root));
+    let all = TraineeCatalog::list_all();
+    assert!(all.iter().any(|t| t.name == "Special Week"));
+    assert!(!all.iter().any(|t| t.name == "Tazuna Hayakawa"));
+    assert!(!all.iter().any(|t| t.name == "Yayoi Akikawa"));
+    assert!(!all.iter().any(|t| t.name == "Happy Meek"));
+    assert!(all.len() >= 100);
+    assert!(all.len() <= 140);
 }
 
 #[test]

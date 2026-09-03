@@ -11,9 +11,10 @@ export interface AncestorSparks {
   /** Character English name (optional). */
   uma: string;
   blue: SparkSlot;
-  pink: SparkSlot;
+  pink: SparkSlot; // red/pink aptitude
   white: SparkSlot; // skill
   green: SparkSlot; // scenario
+  race: SparkSlot; // white race factor
 }
 
 export interface LegacyTree {
@@ -29,9 +30,10 @@ export function emptyAncestor(): AncestorSparks {
   return {
     uma: "",
     blue: { factorId: "", stars: 3 },
-    pink: { factorId: "", stars: 1 },
+    pink: { factorId: "", stars: 3 },
     white: { factorId: "", stars: 1 },
     green: { factorId: "", stars: 1 },
+    race: { factorId: "", stars: 1 },
   };
 }
 
@@ -50,7 +52,7 @@ export function emptyLegacyTree(): LegacyTree {
 export function flattenLegacyFactors(tree: LegacyTree): string[] {
   const out: string[] = [];
   for (const node of Object.values(tree)) {
-    for (const slot of [node.blue, node.pink, node.white, node.green]) {
+    for (const slot of [node.blue, node.pink, node.white, node.green, node.race]) {
       if (!slot.factorId) continue;
       const stars = Math.max(1, Math.min(3, slot.stars || 1));
       out.push(`${slot.factorId}@${stars}`);
@@ -80,6 +82,7 @@ interface AncestorEditorProps {
   pinks: CatalogItem[];
   whites: CatalogItem[];
   greens: CatalogItem[];
+  races: CatalogItem[];
   busy: boolean;
   onChange: (next: AncestorSparks) => void;
 }
@@ -93,6 +96,7 @@ function AncestorEditor({
   pinks,
   whites,
   greens,
+  races,
   busy,
   onChange,
 }: AncestorEditorProps) {
@@ -100,7 +104,7 @@ function AncestorEditor({
   const umaOptions = trainees.filter((t) => !blocked.has(t.name.toLowerCase()));
 
   function setSpark(
-    key: "blue" | "pink" | "white" | "green",
+    key: "blue" | "pink" | "white" | "green" | "race",
     patch: Partial<SparkSlot>,
   ) {
     onChange({ ...value, [key]: { ...value[key], ...patch } });
@@ -136,11 +140,12 @@ function AncestorEditor({
           onChange={(s) => setSpark("blue", s)}
         />
         <SparkPick
-          label="Pink (aptitude)"
+          label="Pink/Red (aptitude)"
           kindClass="spark-pink"
           options={pinks}
           slot={value.pink}
           busy={busy}
+          showStars
           onChange={(s) => setSpark("pink", s)}
         />
         <SparkPick
@@ -149,6 +154,7 @@ function AncestorEditor({
           options={whites}
           slot={value.white}
           busy={busy}
+          showStars
           onChange={(s) => setSpark("white", s)}
         />
         <SparkPick
@@ -157,7 +163,17 @@ function AncestorEditor({
           options={greens}
           slot={value.green}
           busy={busy}
+          showStars
           onChange={(s) => setSpark("green", s)}
+        />
+        <SparkPick
+          label="Race (white)"
+          kindClass="spark-race"
+          options={races}
+          slot={value.race}
+          busy={busy}
+          showStars
+          onChange={(s) => setSpark("race", s)}
         />
       </div>
     </div>
@@ -238,6 +254,7 @@ export function LegacyPanel({
   const pinks = useMemo(() => factorsOf(factors, "pink"), [factors]);
   const whites = useMemo(() => factorsOf(factors, "skill"), [factors]);
   const greens = useMemo(() => factorsOf(factors, "scenario"), [factors]);
+  const races = useMemo(() => factorsOf(factors, "race"), [factors]);
   const blockedParents = traineeName ? [traineeName] : [];
 
   function patch(key: keyof LegacyTree, next: AncestorSparks) {
@@ -259,10 +276,9 @@ export function LegacyPanel({
         </span>
       </label>
       <p className="legacy-help">
-        Off by default — leave unchecked to run with no sparks. When enabled,
-        fill only what you care about (parents, grandparents, blue★ / pink /
-        white / green). Direct parents cannot be the same Uma as your trainee;
-        parents <em>may</em> match support cards.
+        Off by default. Blue ★ add starting stats (5/12/21); pink/red ★ sum
+        raises matching aptitudes (capped at A). Direct parents cannot match
+        your trainee; parents <em>may</em> match support cards.
       </p>
       {enabled && (
         <div className="legacy-tree">
@@ -277,6 +293,7 @@ export function LegacyPanel({
               pinks={pinks}
               whites={whites}
               greens={greens}
+              races={races}
               busy={busy}
               onChange={(n) => patch("parentA", n)}
             />
@@ -289,6 +306,7 @@ export function LegacyPanel({
               pinks={pinks}
               whites={whites}
               greens={greens}
+              races={races}
               busy={busy}
               onChange={(n) => patch("gpA1", n)}
             />
@@ -301,6 +319,7 @@ export function LegacyPanel({
               pinks={pinks}
               whites={whites}
               greens={greens}
+              races={races}
               busy={busy}
               onChange={(n) => patch("gpA2", n)}
             />
@@ -316,6 +335,7 @@ export function LegacyPanel({
               pinks={pinks}
               whites={whites}
               greens={greens}
+              races={races}
               busy={busy}
               onChange={(n) => patch("parentB", n)}
             />
@@ -328,6 +348,7 @@ export function LegacyPanel({
               pinks={pinks}
               whites={whites}
               greens={greens}
+              races={races}
               busy={busy}
               onChange={(n) => patch("gpB1", n)}
             />
@@ -340,6 +361,7 @@ export function LegacyPanel({
               pinks={pinks}
               whites={whites}
               greens={greens}
+              races={races}
               busy={busy}
               onChange={(n) => patch("gpB2", n)}
             />

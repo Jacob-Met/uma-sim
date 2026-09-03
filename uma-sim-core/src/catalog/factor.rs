@@ -211,7 +211,7 @@ impl FactorCatalog {
                     category,
                     stat_key: None,
                     skill_id: None,
-                    pink_tag: Some(name.to_lowercase().replace(' ', "_")),
+                    pink_tag: Some(normalize_pink_tag(&name)),
                     race_name: None,
                 },
                 "race" => FactorMeta {
@@ -247,5 +247,22 @@ impl FactorCatalog {
             "wits" | "wit" => Some("wit".into()),
             _ => None,
         }
+    }
+}
+
+/// Map factor display names → aptitude keys used by inheritance + race.
+fn normalize_pink_tag(name: &str) -> String {
+    match name.trim().to_ascii_lowercase().as_str() {
+        "turf" => "turf".into(),
+        "dirt" => "dirt".into(),
+        "sprint" | "short" => "sprint".into(),
+        "mile" => "mile".into(),
+        "medium" => "medium".into(),
+        "long" => "long".into(),
+        "front runner" | "front" | "nige" => "front".into(),
+        "pace chaser" | "pace" | "senkou" => "pace".into(),
+        "late surger" | "late" | "sashi" => "late".into(),
+        "end closer" | "end" | "oikomi" => "end".into(),
+        other => other.replace(' ', "_"),
     }
 }

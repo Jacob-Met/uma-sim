@@ -18,6 +18,6 @@ fn shared_multiplier_matches_scoring_shared() {
 fn spark_cap_raises_hard_cap_before_soft_cap_blend() {
     let legacy = LegacyApplicator::build_legacy(&["factor:blue:1@3".into()], Vec::new());
     let hard_cap = LegacyApplicator::effective_stat_cap(1400, "speed", &legacy);
-    assert_eq!(hard_cap, 1460);
-    assert!((soft_cap_effectiveness_multiplier(1440, 40, hard_cap) - 0.25).abs() < 1e-9);
+    assert_eq!(hard_cap, 1416);
+    assert!((soft_cap_effectiveness_multiplier(1408, 16, hard_cap) - 0.25).abs() < 1e-9);
 }

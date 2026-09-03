@@ -61,16 +61,14 @@ fn factor_lookup(id: &str) -> Option<LegacyFactorMeta> {
 #[test]
 fn skill_factors_become_inherited_skills() {
     let _g = TEST_LOCK.lock().unwrap();
-    LegacyDeckConfig::load_from_json(Some(
-        r#"{"inherited_skill_slots":2,"spark_stat_cap_bonus":{"per_star":20,"max_bonus":400}}"#,
-    ));
+    LegacyDeckConfig::load_from_json(Some(r#"{"inherited_skill_slots":2}"#));
     LegacyFactorContext::set_lookup(Some(factor_lookup));
     let legacy = LegacyApplicator::build_legacy(
         &["factor:blue:1@3".into(), "factor:skill:20001@2".into()],
         Vec::new(),
     );
     assert_eq!(legacy.inherited_skill_ids, vec!["skill:200012".to_string()]);
-    assert_eq!(legacy.spark_caps.get("speed").copied(), Some(60));
+    assert_eq!(legacy.spark_caps.get("speed").copied(), Some(16));
     LegacyFactorContext::set_lookup(None);
 }
 

@@ -206,11 +206,21 @@ pub struct LegacyState {
     pub parent_names: Vec<String>,
     pub factor_ids: Vec<String>,
     pub inherited_skill_ids: Vec<String>,
+    /// Soft-cap raise from blue ★ (`parent_farming_utility.md`: 4/9/16).
     pub spark_caps: HashMap<String, i32>,
+    /// Starting-stat bonuses from blue ★ (GameTora: 5/12/21).
+    #[serde(default)]
+    pub blue_start_bonuses: HashMap<String, i32>,
     pub pink_factor_ids: Vec<String>,
-    /// Distance/surface aptitude tags from pink factors (turf, dirt, mile, …).
+    /// Distance/surface/style aptitude tags from pink factors (turf, dirt, mile, …).
     #[serde(default)]
     pub pink_aptitude_tags: Vec<String>,
+    /// Sum of pink ★ per aptitude tag (for rank-up table).
+    #[serde(default)]
+    pub pink_star_totals: HashMap<String, i32>,
+    /// Effective aptitudes after pink inheritance (letter grades).
+    #[serde(default)]
+    pub aptitudes: HashMap<String, String>,
     pub race_factor_ids: Vec<String>,
     pub inheritance_complete: bool,
 }
