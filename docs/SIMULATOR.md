@@ -172,7 +172,7 @@ Mechanics live in `uma-sim-core/src/scenario/`. Research sources: `research/gran
 | Checklist item | Status | Evidence |
 |----------------|--------|----------|
 | `not_modeled` emptied or parity-covered | **true** | Mid-run race physics shipped (R8); residual GL approximations listed in `research/grand_concert.json` |
-| Token gains ≤2 pts median on ≥80% | **true** | `python scripts/calibrate_grand_live.py` (gate_pass) + `tests/grand_live_formula_calibration.rs` |
+| Token gains exact types+amounts (`--strict`) | **true** | `python scripts/calibrate_grand_live.py --strict` + `tests/grand_live_token_labels.rs` |
 | Bot adapter ≥90% on GL fixtures | **true** | `tests/grand_live_bot_replay.rs` + `tests/fixtures/grand_live_replay/fixtures.json` |
 | Great Success / normal / consolation | **true** | `tests/grand_live_r7.rs` + `tests/grand_live_simulation.rs` |
 | Lesson board / blocked / failure / members / fan uniques / dating | **true** (MDB square weights still approximate; board includes unaffordable slots) | `grand_live.rs`, `grand_live_r7.rs`; status in `research/grand_concert.json` |

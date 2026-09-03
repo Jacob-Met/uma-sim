@@ -2,12 +2,12 @@
 """
 Verify Grand Live performance token formula vs research/grand_concert_calibration.json.
 
-Acceptance (R7.2): median abs error ≤2 pts on ≥80% of calibration rows
-(per-type gain vs formula split).
+Default gate (R7.2 legacy): median abs error ≤2 pts on ≥80% of rows.
+Strict mode (--strict): every row must match exact gains dict (types + amounts).
 
 Usage (repo root):
   python scripts/calibrate_grand_live.py
-  python scripts/calibrate_grand_live.py --strict   # exit 1 on gate fail
+  python scripts/calibrate_grand_live.py --strict
 """
 from __future__ import annotations
 
@@ -20,6 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CALIBRATION = ROOT / "research" / "grand_concert_calibration.json"
+RESEARCH = ROOT / "research" / "grand_concert.json"
 
 FACILITY_SPLIT = {
     "speed": [("Da", 60), ("Vi", 30), ("Pa", 10)],
@@ -60,20 +61,59 @@ def split_token_total(total: int, facility: str) -> dict[str, int]:
     return {code: amt for code, amt, _ in parts if amt > 0}
 
 
+def load_research_split_labels() -> dict[str, list[str]]:
+    if not RESEARCH.exists():
+        return {}
+    data = json.loads(RESEARCH.read_text(encoding="utf-8"))
+    raw = data.get("facility_performance_split") or {}
+    name_to_code = {
+        "Dance": "Da",
+        "Passion": "Pa",
+        "Vocal": "Vo",
+        "Vocals": "Vo",
+        "Visual": "Vi",
+        "Visuals": "Vi",
+        "Composure": "Me",
+        "Mental": "Me",
+    }
+    out: dict[str, list[str]] = {}
+    for fac, arr in raw.items():
+        if fac == "note" or not isinstance(arr, list):
+            continue
+        codes: list[str] = []
+        for el in arr:
+            ty = el.get("type")
+            code = name_to_code.get(ty, ty)
+            if code:
+                codes.append(code)
+        if codes:
+            out[fac.lower()] = codes
+    return out
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--strict", action="store_true")
+    parser.add_argument("--strict", action="store_true", help="Require exact type+amount match")
     args = parser.parse_args()
 
     if not CALIBRATION.exists():
         print(f"Missing {CALIBRATION}", file=sys.stderr)
         return 1
 
+    research_labels = load_research_split_labels()
+    label_mismatches: list[str] = []
+    for fac, codes in FACILITY_SPLIT.items():
+        expected = [c for c, _ in codes]
+        actual = research_labels.get(fac)
+        if actual is not None and actual != expected:
+            label_mismatches.append(f"{fac}: research={actual} script={expected}")
+
     data = json.loads(CALIBRATION.read_text(encoding="utf-8"))
     rows = data.get("training_token_gains") or []
     mismatches: list[str] = []
     abs_errors: list[float] = []
     within_2 = 0
+    exact_matches = 0
 
     for row in rows:
         facility = row["facility"]
@@ -83,14 +123,15 @@ def main() -> int:
         gains = {k: int(v) for k, v in (row.get("gains") or {}).items()}
         predicted_total = token_total(facility, level, deck, links)
         predicted = split_token_total(predicted_total, facility)
-        actual_total = sum(gains.values())
         # Per-type max abs error across codes present in either map
         codes = set(gains) | set(predicted)
         row_err = max(abs(gains.get(c, 0) - predicted.get(c, 0)) for c in codes) if codes else 0
         abs_errors.append(float(row_err))
         if row_err <= 2:
             within_2 += 1
-        if actual_total != predicted_total or gains != predicted:
+        if gains == predicted:
+            exact_matches += 1
+        else:
             mismatches.append(
                 f"{facility} L{level} deck={deck} links={links}: "
                 f"calibration={gains} formula={predicted} (err={row_err})"
@@ -100,21 +141,27 @@ def main() -> int:
     pct_within_2 = within_2 / n
     median_err = statistics.median(abs_errors) if abs_errors else 0.0
     gate_pass = pct_within_2 >= 0.80 and median_err <= 2.0
+    exact_pass = exact_matches == len(rows) and not label_mismatches
+    pass_flag = exact_pass if args.strict else gate_pass
 
     result = {
         "rows_checked": len(rows),
+        "exact_matches": exact_matches,
         "mismatches": len(mismatches),
+        "label_mismatches": label_mismatches,
         "within_2_pts": within_2,
         "pct_within_2": round(pct_within_2, 4),
         "median_abs_error": median_err,
         "gate_pass": gate_pass,
-        # R7.2 acceptance is the ≤2 / ≥80% gate (exact split may differ on remainder rows).
-        "pass": gate_pass,
+        "exact_pass": exact_pass,
+        "pass": pass_flag,
         "details": mismatches[:20],
     }
     print(json.dumps(result, indent=2))
-    if args.strict and not gate_pass:
+    if args.strict and not pass_flag:
         return 1
+    if (not args.strict) and not gate_pass:
+        return 1 if False else 0  # non-strict keeps exit 0 unless --strict historically
     return 0
 
 
