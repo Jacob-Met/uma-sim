@@ -161,6 +161,39 @@ fn preferred_strategy(state: &CareerState) -> (Strategy, Aptitude) {
     (best.0, best.1)
 }
 
+/// Soft-cap stats for in-race effect (Global July 2026 GL): above 1200 halves contribution.
+pub fn race_effective_stat(raw: i32, soft_cap: i32) -> f64 {
+    let raw = raw.max(0);
+    if raw <= soft_cap {
+        raw as f64
+    } else {
+        soft_cap as f64 + (raw - soft_cap) as f64 * 0.5
+    }
+}
+
+fn stats_for_race(state: &CareerState) -> (f64, f64, f64, f64, f64) {
+    let soft = state.meta.scenario_id.eq_ignore_ascii_case("grand_concert")
+        || state.meta.scenario_id.eq_ignore_ascii_case("grand_live")
+        || state.meta.scenario_id.eq_ignore_ascii_case("gl");
+    if soft {
+        (
+            race_effective_stat(state.stats.speed, 1200),
+            race_effective_stat(state.stats.stamina, 1200),
+            race_effective_stat(state.stats.power, 1200),
+            race_effective_stat(state.stats.guts, 1200),
+            race_effective_stat(state.stats.wit, 1200),
+        )
+    } else {
+        (
+            state.stats.speed as f64,
+            state.stats.stamina as f64,
+            state.stats.power as f64,
+            state.stats.guts as f64,
+            state.stats.wit as f64,
+        )
+    }
+}
+
 /// Map career trainee into [`HorseInput`] for a specific course.
 pub fn horse_input_from_career_on_course(state: &CareerState, course: &Course) -> HorseInput {
     let surface_key = match course.surface_enum() {
@@ -169,12 +202,13 @@ pub fn horse_input_from_career_on_course(state: &CareerState, course: &Course) -
     };
     let dist_key = distance_key_for_type(course.distance_type);
     let (strategy, strategy_apt) = preferred_strategy(state);
+    let (speed, stamina, power, guts, wisdom) = stats_for_race(state);
     HorseInput {
-        speed: state.stats.speed as f64,
-        stamina: state.stats.stamina as f64,
-        power: state.stats.power as f64,
-        guts: state.stats.guts as f64,
-        wisdom: state.stats.wit as f64,
+        speed,
+        stamina,
+        power,
+        guts,
+        wisdom,
         strategy,
         distance_apt: apt_letter(state, dist_key, Aptitude::A),
         surface_apt: apt_letter(state, surface_key, Aptitude::A),
@@ -187,12 +221,13 @@ pub fn horse_input_from_career_on_course(state: &CareerState, course: &Course) -
 /// Map career trainee into [`HorseInput`] (defaults to mile/turf when no course).
 pub fn horse_input_from_career(state: &CareerState) -> HorseInput {
     let (strategy, strategy_apt) = preferred_strategy(state);
+    let (speed, stamina, power, guts, wisdom) = stats_for_race(state);
     HorseInput {
-        speed: state.stats.speed as f64,
-        stamina: state.stats.stamina as f64,
-        power: state.stats.power as f64,
-        guts: state.stats.guts as f64,
-        wisdom: state.stats.wit as f64,
+        speed,
+        stamina,
+        power,
+        guts,
+        wisdom,
         strategy,
         distance_apt: apt_letter(state, "mile", Aptitude::A),
         surface_apt: apt_letter(state, "turf", Aptitude::A),
@@ -534,6 +569,13 @@ mod tests {
             deck: DeckState::default(),
             log: Vec::new(),
         }
+    }
+
+    #[test]
+    fn race_effective_stat_halves_above_soft_cap() {
+        assert_eq!(race_effective_stat(1000, 1200), 1000.0);
+        assert_eq!(race_effective_stat(1200, 1200), 1200.0);
+        assert_eq!(race_effective_stat(1400, 1200), 1300.0);
     }
 
     #[test]

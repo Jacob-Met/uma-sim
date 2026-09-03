@@ -146,7 +146,9 @@ Techniques: `knowledge/canonical/by_kind/lesson.json` — 93 stat, 140 skill_hin
 | 18 songs + Grand Great Success | **I Wanna Win with You** |
 | Otherwise | **On the Way to Our Dream** |
 
-Both scale with fans at career end (not modeled in sim yet).
+Both scale with fans at career end via GameTora `MultiplyFanCount` tiers
+(`[0,20k)→0.8`, `[20k,50k)→0.9`, `[50k,100k)→1.0`, `[100k,160k)→1.1`, `[160k,∞)→1.2`)
+in `GrandLiveMechanics::unique_skill_power`.
 
 ---
 

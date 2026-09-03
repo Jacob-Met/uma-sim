@@ -15,7 +15,7 @@
 
   "hard_caps": { "speed": 1600, "stamina": 1300, "power": 1300, "guts": 1500, "wit": 1300 },
   "soft_cap": 1200,
-  "soft_cap_rule": "Stat gains above soft_cap are halved; in-race stat effect above soft_cap is roughly halved (Global July 2026).",
+  "soft_cap_rule": "Stat gains above soft_cap are halved; in-race HorseInput stats above soft_cap contribute at 50% (race_effective_stat).",
   "spark": { "speed": true, "guts": true },
   "fan_target_optional_race": 4500,
 
@@ -201,7 +201,7 @@
         "condition": "else",
         "song_list_id": 22,
         "unique_skill": "On the Way to Our Dream",
-        "note": "Both uniques scale with fans — modeled as unique_skill_power = clamp(100+fans/1000, 100, 400)"
+        "note": "Both uniques scale with fans via GameTora MultiplyFanCount tiers (unique_skill_power basis points 800–1200)"
       }
     ],
     "bonus_families": [
