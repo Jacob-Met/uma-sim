@@ -609,6 +609,22 @@ impl SimEngine {
             self.state = next;
             return;
         }
+        if crate::mid_run_inheritance::is_mid_run_inspiration_date(&next.date)
+            && next.legacy.inspiration_events_done < 2
+            && !next.meta.effective_legacy_factors().is_empty()
+        {
+            let (mut after, lines) =
+                crate::mid_run_inheritance::apply_mid_run_inspiration(&next, &mut self.rng);
+            after.phase = TurnPhase::Free.as_str().to_string();
+            after.awaiting_choice = false;
+            after.pending_event_title = None;
+            after.pending_event_options.clear();
+            for line in &lines {
+                after.log.push(line.clone());
+            }
+            self.state = after;
+            return;
+        }
         if self
             .rng
             .next_boolean(EventProbabilityConfig::inspiration_chance_per_turn())

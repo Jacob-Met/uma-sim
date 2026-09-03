@@ -374,6 +374,11 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     meta.legacy_factors = legacy_factors;
     meta.legacy_tree = legacy_tree;
     meta.deck_supports = deck_supports;
+    if let Some(c) = body_string(&body, "compatibilityScore").and_then(|s| s.parse().ok()) {
+        meta.compatibility_score = c;
+    } else if let Some(n) = body.get("compatibilityScore").and_then(|v| v.as_i64()) {
+        meta.compatibility_score = n as i32;
+    }
     if let Some(parents) = body_string(&body, "parentNames") {
         meta.parent_names = parents
             .split(',')

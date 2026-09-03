@@ -1,7 +1,24 @@
 {
-  "schema_version": 1,
-  "as_of": "2026-09-01",
+  "schema_version": 2,
+  "as_of": "2026-09-03",
   "confidence": "estimated",
-  "triggers": ["scenario_link", "high_mood_chain", "special_training"],
-  "stat_bonus_range": { "min": 10, "max": 30 }
+  "mid_run_turns": ["classic_early_april", "senior_early_april"],
+  "odds_formula": "base_odds_per_star * (1 + compatibility_score / 100)",
+  "base_proc_rates_at_compat_0": {
+    "blue": [0.70, 0.80, 0.90],
+    "green": [0.05, 0.10, 0.15],
+    "white_skill_scenario": [0.03, 0.06, 0.09],
+    "race": [0.01, 0.02, 0.03],
+    "pink_red": [0.01, 0.03, 0.05],
+    "note": "1★ / 2★ / 3★ — parent_farming_utility.md / Polaris"
+  },
+  "blue_mid_run_stat_roll": { "1": [1, 10], "2": [1, 16], "3": [1, 28] },
+  "pink_hidden_value": [1, 5],
+  "white_hint_levels": [1, 5],
+  "triggers_legacy": ["scenario_link", "high_mood_chain", "special_training"],
+  "stat_bonus_range": { "min": 10, "max": 30 },
+  "sources": [
+    "knowledge/mechanics/parent_farming_utility.md",
+    "knowledge/raw/references/parenting_genes_crazyfellow.md"
+  ]
 }

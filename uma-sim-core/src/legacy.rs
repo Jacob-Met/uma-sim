@@ -116,6 +116,17 @@ pub fn raise_aptitude_letter(letter: &str, ups: i32) -> String {
     APT_ORDER[next].to_string()
 }
 
+/// Mid-run pink/red may reach S (initial inheritance cannot).
+pub fn raise_aptitude_letter_uncapped(letter: &str, ups: i32) -> String {
+    if ups <= 0 {
+        return letter.to_uppercase();
+    }
+    let cur = letter.to_uppercase();
+    let idx = APT_ORDER.iter().position(|x| *x == cur).unwrap_or(0);
+    let next = (idx + ups as usize).min(APT_ORDER.len() - 1);
+    APT_ORDER[next].to_string()
+}
+
 pub struct LegacyApplicator;
 
 impl LegacyApplicator {
@@ -125,6 +136,10 @@ impl LegacyApplicator {
 
     fn blue_stat(key: &str) -> Option<String> {
         BLUE_STAT_MAP.lock().unwrap().get(key).cloned()
+    }
+
+    pub fn blue_stat_public(key: &str) -> Option<String> {
+        Self::blue_stat(key)
     }
 
     pub const RACE_SP_BONUS_PER_FACTOR: i32 = 5;
@@ -281,6 +296,10 @@ fn parse_entry(entry: &str) -> (String, i32) {
         .map(|s| s.clamp(1, 3))
         .unwrap_or(3);
     (id, stars)
+}
+
+pub fn parse_entry_public(entry: &str) -> (String, i32) {
+    parse_entry(entry)
 }
 
 #[cfg(test)]

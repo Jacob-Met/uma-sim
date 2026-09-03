@@ -9,6 +9,7 @@ pub mod engine;
 pub mod events;
 pub mod factory;
 pub mod legacy;
+pub mod mid_run_inheritance;
 pub mod policy;
 pub mod policy_external;
 pub mod race;
@@ -43,7 +44,11 @@ pub use factory::{
     detect_repo_root, init_engine_resources, init_from_detected_repo, load_training_tables,
     RESEARCH_FILES,
 };
-pub use legacy::{LegacyApplicator, LegacyDeckConfig, LegacyFactorContext, LegacyFactorMeta};
+pub use legacy::{
+    blue_cap_bonus, blue_starting_stat_bonus, pink_aptitude_rank_ups, raise_aptitude_letter,
+    raise_aptitude_letter_uncapped, LegacyApplicator, LegacyDeckConfig, LegacyFactorContext,
+    LegacyFactorMeta,
+};
 pub use policy::default_auto_policy;
 pub use race::{
     derive_race_seed, horse_input_from_career, horse_input_from_career_on_course,

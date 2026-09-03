@@ -223,6 +223,9 @@ pub struct LegacyState {
     pub aptitudes: HashMap<String, String>,
     pub race_factor_ids: Vec<String>,
     pub inheritance_complete: bool,
+    /// Classic + Senior April mid-run inspiration events completed (0–2).
+    #[serde(default)]
+    pub inspiration_events_done: i32,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -409,6 +412,9 @@ pub struct RunMeta {
     pub legacy_tree: Option<LegacyTree>,
     pub parent_names: Vec<String>,
     pub deck_supports: Vec<String>,
+    /// Overall lineage compatibility score (◎/〇/△ input). Scales mid-run proc odds.
+    #[serde(default)]
+    pub compatibility_score: i32,
 }
 
 impl RunMeta {
@@ -422,6 +428,7 @@ impl RunMeta {
             legacy_tree: None,
             parent_names: Vec::new(),
             deck_supports: Vec::new(),
+            compatibility_score: 0,
         }
     }
 
