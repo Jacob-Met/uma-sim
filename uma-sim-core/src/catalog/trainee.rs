@@ -385,11 +385,7 @@ impl TraineeCatalog {
     pub fn aptitude_map(meta: &TraineeMeta) -> HashMap<String, String> {
         let mut map = HashMap::new();
         for (i, key) in APTITUDE_KEYS.iter().enumerate() {
-            let letter = meta
-                .aptitudes
-                .get(i)
-                .cloned()
-                .unwrap_or_else(|| "G".into());
+            let letter = meta.aptitudes.get(i).cloned().unwrap_or_else(|| "G".into());
             map.insert((*key).to_string(), letter);
         }
         map
