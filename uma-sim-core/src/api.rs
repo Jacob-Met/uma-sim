@@ -537,9 +537,7 @@ fn html_response(code: u16, body: &str, cache_control: &str) -> Response<Cursor<
         .with_header(
             Header::from_bytes(&b"Content-Type"[..], &b"text/html; charset=utf-8"[..]).unwrap(),
         )
-        .with_header(
-            Header::from_bytes(&b"Cache-Control"[..], cache_control.as_bytes()).unwrap(),
-        )
+        .with_header(Header::from_bytes(&b"Cache-Control"[..], cache_control.as_bytes()).unwrap())
 }
 
 #[cfg(feature = "embed-ui")]
@@ -592,7 +590,11 @@ fn serve_static(path: &str) -> Response<Cursor<Vec<u8>>> {
                 return bytes_response(200, "index.html", index.data.into_owned());
             }
         }
-        return html_response(404, "<!doctype html><title>404</title><h1>Not found</h1>", "no-cache");
+        return html_response(
+            404,
+            "<!doctype html><title>404</title><h1>Not found</h1>",
+            "no-cache",
+        );
     }
 
     #[cfg(not(feature = "embed-ui"))]

@@ -1,5 +1,5 @@
-use std::path::Path;
 use std::fs;
+use std::path::Path;
 
 fn main() {
     println!("cargo:rerun-if-changed=../packages/uma-sim-ui/dist");
