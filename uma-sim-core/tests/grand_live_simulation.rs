@@ -91,8 +91,8 @@ fn training_applies_603010_token_split() {
     );
     let (after, lines) = plugin.on_training_complete(&state, TrainingFacility::Speed, true);
     assert!(after.scenario_resources.get("perf_Da") > 0);
+    assert!(after.scenario_resources.get("perf_Vi") > 0);
     assert!(after.scenario_resources.get("perf_Pa") > 0);
-    assert!(after.scenario_resources.get("perf_Vo") > 0);
     assert!(lines.iter().any(|l| l.contains("Da")));
 }
 
@@ -302,13 +302,13 @@ fn uma_guide_performance_formula() {
     );
     let split = GrandLiveMechanics::split_token_total(10, TrainingFacility::Speed);
     assert_eq!(split.get("Da").copied().unwrap_or(0), 6);
-    assert_eq!(split.get("Pa").copied().unwrap_or(0), 3);
-    assert_eq!(split.get("Vo").copied().unwrap_or(0), 1);
-    // Largest remainder: 13 × 60/30/10 → 8/4/1 (calibration row), not 7/3/3.
+    assert_eq!(split.get("Vi").copied().unwrap_or(0), 3);
+    assert_eq!(split.get("Pa").copied().unwrap_or(0), 1);
+    // Largest remainder: 13 × 60/30/10 → 8/4/1 (Da/Vi/Pa).
     let split13 = GrandLiveMechanics::split_token_total(13, TrainingFacility::Speed);
     assert_eq!(split13.get("Da").copied().unwrap_or(0), 8);
-    assert_eq!(split13.get("Pa").copied().unwrap_or(0), 4);
-    assert_eq!(split13.get("Vo").copied().unwrap_or(0), 1);
+    assert_eq!(split13.get("Vi").copied().unwrap_or(0), 4);
+    assert_eq!(split13.get("Pa").copied().unwrap_or(0), 1);
 }
 
 #[test]
@@ -426,12 +426,14 @@ fn friendship_training_biases_secondary_to_least_owned() {
         ("perf_Vi".into(), 10),
         ("perf_Me".into(), 10),
     ]));
-    let raw = HashMap::from([("Da".into(), 6), ("Pa".into(), 3), ("Vo".into(), 1)]);
+    let raw = HashMap::from([("Da".into(), 6), ("Vi".into(), 3), ("Pa".into(), 1)]);
     let biased =
         GrandLiveMechanics::apply_friendship_training_bias(&raw, &res, TrainingFacility::Speed);
     assert_eq!(biased.get("Da").copied().unwrap_or(0), 6);
-    assert_eq!(biased.get("Vo").copied().unwrap_or(0), 4);
-    assert!(!biased.contains_key("Pa"));
+    // Secondary Visual redirects to least-owned (Vo tied at 10, first in PERF_CODES).
+    assert_eq!(biased.get("Vo").copied().unwrap_or(0), 3);
+    assert!(!biased.contains_key("Vi"));
+    assert_eq!(biased.get("Pa").copied().unwrap_or(0), 1);
 }
 
 #[test]

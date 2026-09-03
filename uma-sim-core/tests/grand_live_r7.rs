@@ -53,7 +53,7 @@ fn blocked_performance_types_zero_token_gains() {
     let gains =
         GrandLiveMechanics::training_token_gain(TrainingFacility::Speed, 3, 0, 0, Some(&res));
     assert!(!gains.contains_key("Da") || gains.get("Da") == Some(&0));
-    assert!(gains.get("Pa").copied().unwrap_or(0) > 0 || gains.get("Vo").copied().unwrap_or(0) > 0);
+    assert!(gains.get("Vi").copied().unwrap_or(0) > 0 || gains.get("Pa").copied().unwrap_or(0) > 0);
 }
 
 #[test]

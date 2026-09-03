@@ -57,13 +57,15 @@ Each training facility yields tokens in a **60 / 30 / 10** split (primary / seco
 
 Source: [GameTora Our Grand Concert](https://gametora.com/umamusume/our-grand-concert) (2026-07-22). Confirmed against Condor run logs (Stamina → Vo, Guts → Da).
 
-| Facility | 60% (primary) | 30% (secondary) | 10% |
-|----------|---------------|-----------------|-----|
-| Speed | Dance | **Visual** | other |
-| Stamina | Passion | **Vocal** | other |
-| Power | Vocal | **Composure** | other |
-| Guts | Visual | **Dance** | other |
-| Wit | Composure | **Passion** | other |
+| Facility | 60% (primary) | 30% (secondary) | 10% (fixed tertiary stand-in) |
+|----------|---------------|-----------------|--------------------------------|
+| Speed | Dance | **Visual** | Passion |
+| Stamina | Passion | **Vocal** | Visual |
+| Power | Vocal | **Composure** | Dance |
+| Guts | Visual | **Dance** | Passion |
+| Wit | Composure | **Passion** | Vocal |
+
+GameTora models the 10% bucket as a random other type; the sim uses the fixed tertiary above for deterministic runs.
 
 ### Level-1 base training (no supports, no growth)
 

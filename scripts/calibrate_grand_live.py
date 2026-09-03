@@ -22,11 +22,11 @@ ROOT = Path(__file__).resolve().parents[1]
 CALIBRATION = ROOT / "research" / "grand_concert_calibration.json"
 
 FACILITY_SPLIT = {
-    "speed": [("Da", 60), ("Pa", 30), ("Vo", 10)],
-    "stamina": [("Pa", 60), ("Vi", 30), ("Da", 10)],
-    "power": [("Vo", 60), ("Da", 30), ("Pa", 10)],
-    "guts": [("Vi", 60), ("Pa", 30), ("Vo", 10)],
-    "wit": [("Me", 60), ("Vo", 30), ("Vi", 10)],
+    "speed": [("Da", 60), ("Vi", 30), ("Pa", 10)],
+    "stamina": [("Pa", 60), ("Vo", 30), ("Vi", 10)],
+    "power": [("Vo", 60), ("Me", 30), ("Da", 10)],
+    "guts": [("Vi", 60), ("Da", 30), ("Pa", 10)],
+    "wit": [("Me", 60), ("Pa", 30), ("Vo", 10)],
 }
 
 

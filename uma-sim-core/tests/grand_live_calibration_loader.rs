@@ -16,8 +16,8 @@ fn loads_calibration_from_repo() {
     assert!(GrandLiveCalibrationLoader::loaded());
     let gains = GrandLiveMechanics::training_token_gain(TrainingFacility::Speed, 1, 0, 0, None);
     assert_eq!(gains.get("Da").copied(), Some(6));
-    assert_eq!(gains.get("Pa").copied(), Some(3));
-    assert_eq!(gains.get("Vo").copied(), Some(1));
+    assert_eq!(gains.get("Vi").copied(), Some(3));
+    assert_eq!(gains.get("Pa").copied(), Some(1));
 }
 
 #[test]

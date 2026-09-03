@@ -33,28 +33,30 @@ static PERF_NAME_TO_CODE: LazyLock<HashMap<&'static str, &'static str>> = LazyLo
     ])
 });
 
+/// Primary / secondary / tertiary Performance types (GameTora + Condor).
+/// Tertiary is a fixed stand-in for GameTora's "any other type" 10% bucket.
 static FACILITY_TOKEN_SPLIT: LazyLock<HashMap<TrainingFacility, Vec<(String, i32)>>> =
     LazyLock::new(|| {
         HashMap::from([
             (
                 TrainingFacility::Speed,
-                vec![("Da".into(), 60), ("Pa".into(), 30), ("Vo".into(), 10)],
+                vec![("Da".into(), 60), ("Vi".into(), 30), ("Pa".into(), 10)],
             ),
             (
                 TrainingFacility::Stamina,
-                vec![("Pa".into(), 60), ("Vi".into(), 30), ("Da".into(), 10)],
+                vec![("Pa".into(), 60), ("Vo".into(), 30), ("Vi".into(), 10)],
             ),
             (
                 TrainingFacility::Power,
-                vec![("Vo".into(), 60), ("Da".into(), 30), ("Pa".into(), 10)],
+                vec![("Vo".into(), 60), ("Me".into(), 30), ("Da".into(), 10)],
             ),
             (
                 TrainingFacility::Guts,
-                vec![("Vi".into(), 60), ("Pa".into(), 30), ("Vo".into(), 10)],
+                vec![("Vi".into(), 60), ("Da".into(), 30), ("Pa".into(), 10)],
             ),
             (
                 TrainingFacility::Wit,
-                vec![("Me".into(), 60), ("Vo".into(), 30), ("Vi".into(), 10)],
+                vec![("Me".into(), 60), ("Pa".into(), 30), ("Vo".into(), 10)],
             ),
         ])
     });

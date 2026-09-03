@@ -1,15 +1,22 @@
 {
   "schema_version": 2,
   "scenario_id": "grand_concert",
-  "as_of": "2026-09-01",
+  "as_of": "2026-09-03",
   "confidence_tier": "community_high",
-  "source": "research/grand_concert_community.json (uma.guide formula Jul 2026)",
+  "source": "research/grand_concert_community.json (uma.guide formula Jul 2026) + GameTora/Condor facility secondaries",
   "community_ref": "https://uma.guide/guides/grand-concert",
   "formula": {
     "expression": "floor((S + F) * 1.15^C + 2*L)",
     "S_wit": 5,
     "S_other": 9,
     "split_pct": [60, 30, 10]
+  },
+  "facility_performance_split": {
+    "speed": [["Da", 60], ["Vi", 30], ["Pa", 10]],
+    "stamina": [["Pa", 60], ["Vo", 30], ["Vi", 10]],
+    "power": [["Vo", 60], ["Me", 30], ["Da", 10]],
+    "guts": [["Vi", 60], ["Da", 30], ["Pa", 10]],
+    "wit": [["Me", 60], ["Pa", 30], ["Vo", 10]]
   },
   "concert_rewards": {
     "great_success_all_stats": 10,
@@ -25,14 +32,14 @@
   },
   "cycle_songs_per_concert": { "minimum": 3, "maximum": 4 },
   "training_token_gains": [
-    { "facility": "speed", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Da": 6, "Pa": 3, "Vo": 1 } },
-    { "facility": "speed", "level": 1, "deck_size": 2, "scenario_links": 0, "gains": { "Da": 8, "Pa": 4, "Vo": 1 } },
-    { "facility": "speed", "level": 1, "deck_size": 2, "scenario_links": 1, "gains": { "Da": 9, "Pa": 4, "Vo": 2 } },
-    { "facility": "speed", "level": 3, "deck_size": 2, "scenario_links": 0, "gains": { "Da": 9, "Pa": 4, "Vo": 2 } },
-    { "facility": "speed", "level": 5, "deck_size": 5, "scenario_links": 0, "gains": { "Da": 16, "Pa": 8, "Vo": 4 } },
-    { "facility": "wit", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Me": 3, "Vo": 1, "Vi": 2 } },
-    { "facility": "stamina", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Pa": 6, "Vi": 3, "Da": 1 } },
-    { "facility": "power", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Vo": 6, "Da": 3, "Pa": 1 } },
-    { "facility": "guts", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Vi": 6, "Pa": 3, "Vo": 1 } }
+    { "facility": "speed", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Da": 6, "Vi": 3, "Pa": 1 } },
+    { "facility": "speed", "level": 1, "deck_size": 2, "scenario_links": 0, "gains": { "Da": 8, "Vi": 4, "Pa": 1 } },
+    { "facility": "speed", "level": 1, "deck_size": 2, "scenario_links": 1, "gains": { "Da": 9, "Vi": 5, "Pa": 1 } },
+    { "facility": "speed", "level": 3, "deck_size": 2, "scenario_links": 0, "gains": { "Da": 9, "Vi": 5, "Pa": 1 } },
+    { "facility": "speed", "level": 5, "deck_size": 5, "scenario_links": 0, "gains": { "Da": 17, "Vi": 8, "Pa": 3 } },
+    { "facility": "wit", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Me": 3, "Pa": 2, "Vo": 1 } },
+    { "facility": "stamina", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Pa": 6, "Vo": 3, "Vi": 1 } },
+    { "facility": "power", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Vo": 6, "Me": 3, "Da": 1 } },
+    { "facility": "guts", "level": 1, "deck_size": 0, "scenario_links": 0, "gains": { "Vi": 6, "Da": 3, "Pa": 1 } }
   ]
 }

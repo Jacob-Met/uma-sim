@@ -40,30 +40,31 @@
     }
   },
   "facility_performance_split": {
+    "note": "Primary/secondary from GameTora + Condor (Stamina→Vo, Guts→Da). Tertiary is a fixed stand-in for the 10% 'other' bucket.",
     "speed": [
       { "type": "Dance", "pct": 60 },
-      { "type": "Passion", "pct": 30 },
-      { "type": "Vocal", "pct": 10 }
+      { "type": "Visual", "pct": 30 },
+      { "type": "Passion", "pct": 10 }
     ],
     "stamina": [
       { "type": "Passion", "pct": 60 },
-      { "type": "Visual", "pct": 30 },
-      { "type": "Dance", "pct": 10 }
+      { "type": "Vocal", "pct": 30 },
+      { "type": "Visual", "pct": 10 }
     ],
     "power": [
       { "type": "Vocal", "pct": 60 },
-      { "type": "Dance", "pct": 30 },
-      { "type": "Passion", "pct": 10 }
+      { "type": "Composure", "pct": 30 },
+      { "type": "Dance", "pct": 10 }
     ],
     "guts": [
       { "type": "Visual", "pct": 60 },
-      { "type": "Passion", "pct": 30 },
-      { "type": "Vocal", "pct": 10 }
+      { "type": "Dance", "pct": 30 },
+      { "type": "Passion", "pct": 10 }
     ],
     "wit": [
       { "type": "Composure", "pct": 60 },
-      { "type": "Vocal", "pct": 30 },
-      { "type": "Visual", "pct": 10 }
+      { "type": "Passion", "pct": 30 },
+      { "type": "Vocal", "pct": 10 }
     ]
   },
 
