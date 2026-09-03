@@ -323,6 +323,11 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
                 .collect::<Vec<_>>()
         })
         .unwrap_or_default();
+    let legacy_tree = body
+        .get("legacyTree")
+        .cloned()
+        .and_then(|v| serde_json::from_value::<crate::state::LegacyTree>(v).ok())
+        .filter(|t| t.is_populated());
     let deck_supports = body_string(&body, "deckSupports")
         .map(|s| {
             s.split(',')
@@ -367,6 +372,7 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     let mut engine = SimEngine::create(st.settings.clone());
     let mut meta = RunMeta::new(seed, scenario, trainee);
     meta.legacy_factors = legacy_factors;
+    meta.legacy_tree = legacy_tree;
     meta.deck_supports = deck_supports;
     if let Some(parents) = body_string(&body, "parentNames") {
         meta.parent_names = parents

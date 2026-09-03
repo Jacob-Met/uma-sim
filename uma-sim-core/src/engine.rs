@@ -102,10 +102,12 @@ impl SimEngine {
         self.plugin = scenario_plugin_for(&meta.scenario_id);
         let cal = TurnCalendar::career_start();
         let cal_label = cal.label();
-        let mut legacy = if meta.legacy_factors.is_empty() {
+        let factors = meta.effective_legacy_factors();
+        let parents = meta.effective_parent_names();
+        let mut legacy = if factors.is_empty() {
             Default::default()
         } else {
-            LegacyApplicator::build_legacy(&meta.legacy_factors, meta.parent_names.clone())
+            LegacyApplicator::build_legacy(&factors, parents)
         };
 
         let trainee_meta = crate::catalog::trainee::TraineeCatalog::lookup(&meta.trainee_name);

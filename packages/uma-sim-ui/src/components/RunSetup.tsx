@@ -123,6 +123,7 @@ export function RunSetup({
       policy,
       deckSupports: deck.join(","),
       legacyFactors: legacyFactors || undefined,
+      legacyTree: legacyEnabled ? legacyTree : undefined,
       parentNames: parentNames || undefined,
     });
   }

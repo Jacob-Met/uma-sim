@@ -66,10 +66,10 @@ pub use scoring::{
 pub use session::{parse_sim_action, RunSession};
 pub use snapshot::{RunSnapshot, RunSnapshotCodec};
 pub use state::{
-    default_facility_levels, CareerState, DeckSlot, DeckState, DialogueMode, GoldenSummary,
-    LegacyState, MoodLevel, RngTraceFixture, RunMeta, ScenarioResources, SimAction, SimActionKind,
-    SimChoice, SimDate, SimSettings, StatName, TraineeStats, TrainingFacility, TurnPhase,
-    TurnSnapshot, TurnTraceFixture, INJURED,
+    default_facility_levels, AncestorSparks, CareerState, DeckSlot, DeckState, DialogueMode,
+    GoldenSummary, LegacyState, LegacyTree, MoodLevel, RngTraceFixture, RunMeta, ScenarioResources,
+    SimAction, SimActionKind, SimChoice, SimDate, SimSettings, SparkSlot, StatName, TraineeStats,
+    TrainingFacility, TurnPhase, TurnSnapshot, TurnTraceFixture, INJURED,
 };
 pub use telemetry::{SimReplayLine, SimTelemetry, TelemetryReplayLoader};
 pub use training::{TrainingGainContext, TrainingOutcome, TrainingPreview, TrainingResolver};

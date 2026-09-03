@@ -2,6 +2,8 @@
 
 export type MoodLevel = "AWFUL" | "BAD" | "NORMAL" | "GOOD" | "GREAT";
 
+import type { LegacyTree } from "../components/LegacyPanel";
+
 export interface CatalogItem {
   id: string;
   name: string;
@@ -139,6 +141,8 @@ export interface StartRequest {
   policy?: string;
   deckSupports?: string;
   legacyFactors?: string;
+  /** Structured 2×2 inheritance tree (preferred over flat legacyFactors when populated). */
+  legacyTree?: LegacyTree;
   parentNames?: string;
   traceTelemetry?: boolean | string;
 }

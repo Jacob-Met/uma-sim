@@ -305,6 +305,96 @@ pub struct SimDate {
     pub half: i32,
 }
 
+/// One spark slot on a parent or grandparent (matches UI `SparkSlot`).
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SparkSlot {
+    #[serde(default)]
+    pub factor_id: String,
+    #[serde(default = "default_spark_stars")]
+    pub stars: i32,
+}
+
+fn default_spark_stars() -> i32 {
+    1
+}
+
+/// Per-ancestor sparks: blue / pink / white / green / race.
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AncestorSparks {
+    #[serde(default)]
+    pub uma: String,
+    #[serde(default)]
+    pub blue: SparkSlot,
+    #[serde(default)]
+    pub pink: SparkSlot,
+    #[serde(default)]
+    pub white: SparkSlot,
+    #[serde(default)]
+    pub green: SparkSlot,
+    #[serde(default)]
+    pub race: SparkSlot,
+}
+
+/// Structured 2 parents × 2 grandparents inheritance tree.
+/// When present and non-empty, preferred over flat [`RunMeta::legacy_factors`].
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LegacyTree {
+    #[serde(default)]
+    pub parent_a: AncestorSparks,
+    #[serde(default)]
+    pub gp_a1: AncestorSparks,
+    #[serde(default)]
+    pub gp_a2: AncestorSparks,
+    #[serde(default)]
+    pub parent_b: AncestorSparks,
+    #[serde(default)]
+    pub gp_b1: AncestorSparks,
+    #[serde(default)]
+    pub gp_b2: AncestorSparks,
+}
+
+impl LegacyTree {
+    pub fn ancestors(&self) -> [&AncestorSparks; 6] {
+        [
+            &self.parent_a,
+            &self.gp_a1,
+            &self.gp_a2,
+            &self.parent_b,
+            &self.gp_b1,
+            &self.gp_b2,
+        ]
+    }
+
+    pub fn flatten_factors(&self) -> Vec<String> {
+        let mut out = Vec::new();
+        for node in self.ancestors() {
+            for slot in [&node.blue, &node.pink, &node.white, &node.green, &node.race] {
+                if slot.factor_id.is_empty() {
+                    continue;
+                }
+                let stars = slot.stars.clamp(1, 3);
+                out.push(format!("{}@{}", slot.factor_id, stars));
+            }
+        }
+        out
+    }
+
+    pub fn parent_names(&self) -> Vec<String> {
+        [&self.parent_a.uma, &self.parent_b.uma]
+            .into_iter()
+            .filter(|n| !n.is_empty())
+            .map(|s| s.to_string())
+            .collect()
+    }
+
+    pub fn is_populated(&self) -> bool {
+        !self.flatten_factors().is_empty() || !self.parent_names().is_empty()
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct RunMeta {
@@ -312,7 +402,11 @@ pub struct RunMeta {
     pub scenario_id: String,
     pub trainee_name: String,
     pub objective_profile: String,
+    /// Flat `factor:id@stars` list — used when [`Self::legacy_tree`] is absent/empty.
     pub legacy_factors: Vec<String>,
+    /// Structured 2×2 ancestor tree (preferred when populated).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub legacy_tree: Option<LegacyTree>,
     pub parent_names: Vec<String>,
     pub deck_supports: Vec<String>,
 }
@@ -325,9 +419,32 @@ impl RunMeta {
             trainee_name: trainee_name.into(),
             objective_profile: "general".to_string(),
             legacy_factors: Vec::new(),
+            legacy_tree: None,
             parent_names: Vec::new(),
             deck_supports: Vec::new(),
         }
+    }
+
+    /// Resolve factors: structured tree wins when it has sparks; else flat list.
+    pub fn effective_legacy_factors(&self) -> Vec<String> {
+        if let Some(tree) = &self.legacy_tree {
+            let flat = tree.flatten_factors();
+            if !flat.is_empty() {
+                return flat;
+            }
+        }
+        self.legacy_factors.clone()
+    }
+
+    /// Resolve parent names: tree parents when set; else flat `parent_names`.
+    pub fn effective_parent_names(&self) -> Vec<String> {
+        if let Some(tree) = &self.legacy_tree {
+            let names = tree.parent_names();
+            if !names.is_empty() {
+                return names;
+            }
+        }
+        self.parent_names.clone()
     }
 }
 

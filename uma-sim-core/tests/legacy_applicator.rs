@@ -176,3 +176,50 @@ fn inheritance_choice_applies_skills() {
     let after = LegacyApplicator::apply_inheritance_choice(&state, 0);
     assert_eq!(after.learned_skill_ids, vec!["skill:200012".to_string()]);
 }
+
+#[test]
+fn legacy_tree_preferred_over_flat_factors() {
+    let _g = TEST_LOCK.lock().unwrap();
+    use uma_sim_core::state::{LegacyTree, SparkSlot};
+
+    let mut tree = LegacyTree::default();
+    tree.parent_a.uma = "Oguri Cap".into();
+    tree.parent_a.blue = SparkSlot {
+        factor_id: "factor:blue:1".into(),
+        stars: 3,
+    };
+    tree.parent_b.uma = "Special Week".into();
+
+    let mut meta = RunMeta::new(1, "ura", "Silence Suzuka");
+    meta.legacy_factors = vec!["factor:blue:2@1".into()]; // flat fallback — must be ignored
+    meta.legacy_tree = Some(tree);
+
+    assert_eq!(
+        meta.effective_legacy_factors(),
+        vec!["factor:blue:1@3".to_string()]
+    );
+    assert_eq!(
+        meta.effective_parent_names(),
+        vec!["Oguri Cap".to_string(), "Special Week".to_string()]
+    );
+
+    let mut engine = SimEngine::new(SimSettings {
+        race_model: uma_sim_core::race::RaceModel::Stub,
+        ..Default::default()
+    });
+    engine.start(meta);
+    assert_eq!(
+        engine
+            .state()
+            .legacy
+            .blue_start_bonuses
+            .get("speed")
+            .copied()
+            .unwrap_or(0),
+        21
+    );
+    assert_eq!(
+        engine.state().legacy.parent_names,
+        vec!["Oguri Cap".to_string(), "Special Week".to_string()]
+    );
+}
