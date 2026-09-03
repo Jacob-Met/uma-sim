@@ -151,15 +151,6 @@ export function useRunStore() {
     async (actionId: string) => {
       await withBusy(async () => {
         const step = await api.action(actionId);
-        dispatch({
-          type: "applySnapshot",
-          snapshot: step.state,
-          choices: step.choices,
-          text: [...state.textLines, ...step.text.split("\n").filter(Boolean)]
-            .slice(-400)
-            .join("\n"),
-        });
-        // Prefer full server text + step text: re-fetch text for consistent render
         const text = await api.text();
         dispatch({
           type: "applySnapshot",
@@ -169,7 +160,7 @@ export function useRunStore() {
         });
       });
     },
-    [state.textLines, withBusy],
+    [withBusy],
   );
 
   const autoStep = useCallback(
