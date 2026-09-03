@@ -2,6 +2,7 @@
 
 use crate::catalog::event::{self, EventCatalog, FileEventCatalog};
 use crate::catalog::factor::FactorCatalog;
+use crate::catalog::skill::SkillCatalog;
 use crate::catalog::support::SupportCatalog;
 use crate::catalog::trainee::TraineeCatalog;
 use crate::config::{
@@ -186,6 +187,9 @@ pub fn init_engine_resources(repo_root: Option<&Path>, use_file_events: bool) {
     SupportCatalog::init_from_repo(repo_root);
     init_support_bridge();
     TraineeCatalog::init_from_repo(repo_root);
+    if let Some(root) = repo_root {
+        SkillCatalog::init_from_repo(root);
+    }
     TrainingGainContext::set_trainee_growth_lookup(Some(trainee_growth_lookup));
 
     load_all_research(repo_root);

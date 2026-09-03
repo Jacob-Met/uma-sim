@@ -53,10 +53,16 @@ fn applies_stat_and_energy() {
 
 #[test]
 fn applies_skill_points_and_hints() {
+    use uma_sim_core::catalog::skill::SkillCatalog;
+    SkillCatalog::insert_for_test("Hydrate", 200512);
     let state = base_state(0, 50, 10);
     let mut rng = SimRandom::new(1);
     let (next, _) =
         EventEffectApplier::apply(&state, "Skill points +45\nHydrate hint +1", &mut rng);
     assert_eq!(next.skill_points, 55);
-    assert!(next.hint_levels.contains_key("Hydrate"));
+    assert!(
+        next.hint_levels.contains_key("skill:200512"),
+        "got {:?}",
+        next.hint_levels
+    );
 }

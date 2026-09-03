@@ -28,6 +28,8 @@ pub struct TraineeMeta {
     pub skills_innate: Vec<i32>,
     /// Unique skill numeric ids (granted at career start).
     pub skills_unique: Vec<i32>,
+    /// Event-pool skill ids (fallback when hint text cannot be resolved).
+    pub skills_event: Vec<i32>,
     pub playable: bool,
     pub playable_en: bool,
 }
@@ -245,6 +247,7 @@ impl TraineeCatalog {
                 aptitudes: parse_aptitudes(payload.get("aptitude")),
                 skills_innate: parse_i32_list(payload.get("skills_innate")),
                 skills_unique: parse_i32_list(payload.get("skills_unique")),
+                skills_event: parse_i32_list(payload.get("skills_event")),
                 playable: profile_playable,
                 playable_en: profile_playable_en,
             };
@@ -359,6 +362,7 @@ impl TraineeCatalog {
                 aptitudes: card.aptitudes.clone(),
                 skills_innate: card.skills_innate.clone(),
                 skills_unique: card.skills_unique.clone(),
+                skills_event: card.skills_event.clone(),
                 playable: profile.map(|p| p.playable).unwrap_or(true),
                 playable_en: profile.map(|p| p.playable_en).unwrap_or(false),
             });

@@ -44,7 +44,7 @@ impl EventEffectApplier {
     pub fn apply_reading(
         state: &CareerState,
         reading: &EventEffectReading,
-        rng: Option<&mut SimRandom>,
+        mut rng: Option<&mut SimRandom>,
     ) -> (CareerState, Vec<String>) {
         let mut lines = Vec::new();
         let mut s = state.clone();
@@ -70,7 +70,7 @@ impl EventEffectApplier {
             lines.push(format!("{stat:?} +{amt}"));
         }
         if reading.random_stat_gain > 0 {
-            let pick = if let Some(rng) = rng {
+            let pick = if let Some(ref mut rng) = rng {
                 let idx = rng.next_int_until(5);
                 StatName::ALL[idx as usize]
             } else {
@@ -93,17 +93,18 @@ impl EventEffectApplier {
         }
         if !reading.hints.is_empty() {
             let mut hints = s.hint_levels.clone();
+            let skills_event =
+                crate::catalog::trainee::TraineeCatalog::lookup(&s.meta.trainee_name)
+                    .map(|t| t.skills_event.clone())
+                    .unwrap_or_default();
             for hint in &reading.hints {
-                let key = if hint.is_empty() {
-                    "generic"
-                } else {
-                    hint.as_str()
-                };
-                let cur = hints.get(key).copied().unwrap_or(0);
-                hints.insert(
-                    key.to_string(),
-                    HintProgressionConfig::apply_event_hint(cur),
+                let key = crate::catalog::skill::resolve_hint_key(
+                    hint,
+                    &skills_event,
+                    rng.as_deref_mut(),
                 );
+                let cur = hints.get(&key).copied().unwrap_or(0);
+                hints.insert(key, HintProgressionConfig::apply_event_hint(cur));
             }
             s.hint_levels = hints;
             lines.push(format!("Hints: {}", reading.hints.len()));
