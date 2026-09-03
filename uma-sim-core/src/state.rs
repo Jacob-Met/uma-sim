@@ -506,6 +506,12 @@ pub struct CareerState {
     /// End-of-career generated inheritance sparks (blue/red/white/green).
     #[serde(default)]
     pub generated_sparks: Vec<GeneratedSpark>,
+    /// Trainee base aptitudes before pink inheritance (for UI).
+    #[serde(default)]
+    pub base_aptitudes: HashMap<String, String>,
+    /// Optional race strategy override: front / pace / late / end.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub preferred_running_style: Option<String>,
 }
 
 impl CareerState {
@@ -561,6 +567,8 @@ impl CareerState {
             deck: self.deck.clone(),
             log: log.unwrap_or_else(|| self.log.clone()),
             generated_sparks: self.generated_sparks.clone(),
+            base_aptitudes: self.base_aptitudes.clone(),
+            preferred_running_style: self.preferred_running_style.clone(),
         }
     }
 }

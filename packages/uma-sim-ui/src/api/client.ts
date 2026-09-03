@@ -58,4 +58,6 @@ export const api = {
   telemetry: () => req<unknown>("GET", "/v1/run/telemetry"),
   deckPlace: (supportId: string, facility: string) =>
     req<RunSnapshot>("POST", "/v1/run/deck/place", { supportId, facility }),
+  setStyle: (style: string) =>
+    req<RunSnapshot>("POST", "/v1/run/style", { style }),
 };

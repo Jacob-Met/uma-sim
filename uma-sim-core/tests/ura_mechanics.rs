@@ -50,6 +50,8 @@ fn base_state(resources: ScenarioResources) -> CareerState {
         deck: Default::default(),
         log: Vec::new(),
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     }
 }
 

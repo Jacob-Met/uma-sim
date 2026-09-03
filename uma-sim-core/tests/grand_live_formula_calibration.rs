@@ -115,6 +115,8 @@ fn inheritance_choice_applies_skills() {
         deck: Default::default(),
         log: Vec::new(),
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     };
     let after = LegacyApplicator::apply_inheritance_choice(&state, 0);
     assert_eq!(after.learned_skill_ids, vec!["skill:200012".to_string()]);

@@ -144,7 +144,7 @@ impl SimEngine {
             .as_ref()
             .map(crate::catalog::trainee::TraineeCatalog::aptitude_map)
             .unwrap_or_default();
-        legacy.aptitudes = LegacyApplicator::apply_pink_aptitudes(base_apts, &legacy);
+        legacy.aptitudes = LegacyApplicator::apply_pink_aptitudes(base_apts.clone(), &legacy);
 
         let mut hint_levels = std::collections::HashMap::new();
         let mut learned_skill_ids = Vec::new();
@@ -189,6 +189,7 @@ impl SimEngine {
                 "Career started: {} / {} / seed={}",
                 meta.trainee_name, meta.scenario_id, meta.seed
             )],
+            base_aptitudes: base_apts,
             ..empty_state()
         };
         self.begin_turn();
@@ -234,6 +235,11 @@ impl SimEngine {
         };
         self.state.deck.slots = updated;
         true
+    }
+
+    /// Set preferred race strategy (`front` / `pace` / `late` / `end`), or `None` for auto.
+    pub fn set_preferred_running_style(&mut self, style: Option<String>) {
+        self.state.preferred_running_style = style;
     }
 
     pub fn telemetry_log(&self) -> &[crate::telemetry::TurnTelemetryRecord] {
@@ -1203,6 +1209,8 @@ fn empty_state() -> CareerState {
         deck: Default::default(),
         log: Vec::new(),
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     }
 }
 

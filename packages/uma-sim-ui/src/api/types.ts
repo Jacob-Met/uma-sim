@@ -65,6 +65,8 @@ export interface LegacyState {
   sparkCaps: Record<string, number>;
   pinkFactorIds: string[];
   pinkAptitudeTags: string[];
+  /** Effective aptitudes after pink inheritance. */
+  aptitudes?: Record<string, string>;
   raceFactorIds: string[];
   inheritanceComplete: boolean;
 }
@@ -123,6 +125,10 @@ export interface CareerState {
   deck: DeckState;
   log: string[];
   generatedSparks?: GeneratedSpark[];
+  /** Trainee base aptitudes before pink inheritance. */
+  baseAptitudes?: Record<string, string>;
+  /** Race strategy override: front | pace | late | end. */
+  preferredRunningStyle?: string | null;
 }
 
 export interface RunSnapshot {

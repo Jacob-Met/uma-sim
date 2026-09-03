@@ -215,6 +215,7 @@ cargo test --manifest-path uma-sim-core/Cargo.toml --test grand_live_r7 --test g
 | Legacy preview in RunSetup (blue 5/12/21 start + pink aptitude letters, cap A) | **true** | `legacyPreview.ts` + trainee/factor catalog fields |
 | Event hint text → `skill:{id}` (+ trainee `skills_event` fallback) | **true** | `catalog/skill.rs` + `EventEffectApplier` |
 | Support events gated by deck; scenario events by active scenario | **true** | `catalog/event.rs::event_eligible` |
+| Aptitude panel (base→inherited) + preferred running style → race | **true** | `AptitudePanel` + `POST /v1/run/style` + `race::preferred_strategy` |
 | Race place/show multipliers (Outcomes v1) | **true** | `tests/race_outcomes.rs`; physics placements feed same multipliers |
 | Epithet stubs on G1 / climax / finale wins | **true** | `race_outcomes.rs`; granted into `CareerState.statuses` |
 | Mid-run race physics (`uma-race-core`) | **true** (default) | R8 plan; SmartRaceSolver gap retired for career mid-run |

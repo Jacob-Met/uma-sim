@@ -46,6 +46,8 @@ fn gl_state(turn: i32, date: SimDate, resources: ScenarioResources) -> CareerSta
         deck: Default::default(),
         log: Vec::new(),
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     }
 }
 
@@ -111,6 +113,8 @@ fn happy_meek_badge_rolls_on_turn_start() {
         deck: Default::default(),
         log: Vec::new(),
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     };
     let (next, lines) = plugin.on_turn_start(&state);
     let badge = next.scenario_resources.get("happy_meek_badge");
@@ -162,6 +166,8 @@ fn unity_extreme_burst_consumes_ready_flag() {
         deck: Default::default(),
         log: Vec::new(),
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     };
     let (after, lines) = plugin.on_training_complete(&state, TrainingFacility::Speed, true);
     assert!(lines.iter().any(|l| l.contains("Extreme")));

@@ -42,6 +42,8 @@ fn empty_career() -> CareerState {
         deck: Default::default(),
         log: vec![],
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     }
 }
 

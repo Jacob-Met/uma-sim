@@ -42,6 +42,8 @@ fn ura_state(deck: DeckState) -> CareerState {
         deck,
         log: vec![],
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     }
 }
 

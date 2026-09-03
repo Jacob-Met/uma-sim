@@ -150,6 +150,15 @@ fn preferred_strategy(state: &CareerState) -> (Strategy, Aptitude) {
         ("late", Strategy::Sasi),
         ("end", Strategy::Oikomi),
     ];
+    if let Some(pref) = state
+        .preferred_running_style
+        .as_deref()
+        .map(|s| s.trim().to_ascii_lowercase())
+    {
+        if let Some((key, strat)) = styles.iter().find(|(k, _)| *k == pref) {
+            return (*strat, apt_letter(state, key, Aptitude::G));
+        }
+    }
     let mut best = (Strategy::Senkou, Aptitude::A, i32::MAX);
     for (key, strat) in styles {
         let apt = apt_letter(state, key, Aptitude::G);
@@ -569,7 +578,26 @@ mod tests {
             deck: DeckState::default(),
             log: Vec::new(),
             generated_sparks: Vec::new(),
+            base_aptitudes: Default::default(),
+            preferred_running_style: None,
         }
+    }
+
+    #[test]
+    fn preferred_running_style_overrides_best_aptitude() {
+        let mut state = weak_trainee_state(1);
+        state.legacy.aptitudes.insert("front".into(), "G".into());
+        state.legacy.aptitudes.insert("pace".into(), "A".into());
+        state.legacy.aptitudes.insert("late".into(), "B".into());
+        state.legacy.aptitudes.insert("end".into(), "C".into());
+
+        let (auto_strat, _) = preferred_strategy(&state);
+        assert_eq!(auto_strat, Strategy::Senkou);
+
+        state.preferred_running_style = Some("end".into());
+        let (forced, apt) = preferred_strategy(&state);
+        assert_eq!(forced, Strategy::Oikomi);
+        assert_eq!(apt, Aptitude::C);
     }
 
     #[test]

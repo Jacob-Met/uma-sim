@@ -653,6 +653,8 @@ fn replay_state(line: &SimReplayLine) -> CareerState {
         pending_race_id: None,
         completed_races: Vec::new(),
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     }
 }
 

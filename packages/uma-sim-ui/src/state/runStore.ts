@@ -206,6 +206,22 @@ export function useRunStore() {
     [withBusy],
   );
 
+  const setStyle = useCallback(
+    async (style: string) => {
+      await withBusy(async () => {
+        const snapshot = await api.setStyle(style);
+        dispatch({ type: "applySnapshot", snapshot });
+        dispatch({
+          type: "setToast",
+          toast: style
+            ? `Preferred style: ${style}`
+            : "Preferred style: auto",
+        });
+      });
+    },
+    [withBusy],
+  );
+
   const newRun = useCallback(() => {
     dispatch({ type: "reset" });
   }, []);
@@ -226,6 +242,7 @@ export function useRunStore() {
     autoStep,
     fastForward,
     placeDeck,
+    setStyle,
     newRun,
     clearError,
     clearToast,

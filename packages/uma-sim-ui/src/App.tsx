@@ -7,6 +7,7 @@ import { EventDialog } from "./components/EventDialog";
 import { RacePanel } from "./components/RacePanel";
 import { GrandLivePanel } from "./components/GrandLivePanel";
 import { DeckPanel } from "./components/DeckPanel";
+import { AptitudePanel } from "./components/AptitudePanel";
 import { CareerSummary } from "./components/CareerSummary";
 import { ControlsBar } from "./components/ControlsBar";
 import { api } from "./api/client";
@@ -21,6 +22,7 @@ export default function App() {
     autoStep,
     fastForward,
     placeDeck,
+    setStyle,
     newRun,
     clearError,
     clearToast,
@@ -140,6 +142,11 @@ export default function App() {
                 supports={state.catalogs.supports}
                 busy={state.busy}
                 onPlace={(id, fac) => void placeDeck(id, fac)}
+              />
+              <AptitudePanel
+                state={cs}
+                busy={state.busy}
+                onStyle={(style) => void setStyle(style)}
               />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>

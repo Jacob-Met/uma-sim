@@ -72,6 +72,8 @@ pub fn base_state(scenario: &str, turn: i32) -> CareerState {
         deck: DeckState::default(),
         log: Vec::new(),
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     }
 }
 

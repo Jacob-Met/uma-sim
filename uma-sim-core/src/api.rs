@@ -105,6 +105,7 @@ fn route(st: &mut ApiState, method: &Method, path: &str, body: &str) -> Response
         (Method::Get, "/v1/run/telemetry") => handle_telemetry(st),
         (Method::Post, "/v1/run/load_content_pack") => handle_load_content_pack(st, body),
         (Method::Post, "/v1/run/deck/place") => handle_deck_place(st, body),
+        (Method::Post, "/v1/run/style") => handle_set_style(st, body),
         _ if is_known_path(path) => method_not_allowed(),
         (Method::Get, _) => serve_static(path),
         _ => json_response(404, json!({"error":"not found"})),
@@ -129,6 +130,7 @@ fn is_known_path(path: &str) -> bool {
             | "/v1/run/telemetry"
             | "/v1/run/load_content_pack"
             | "/v1/run/deck/place"
+            | "/v1/run/style"
     )
 }
 
@@ -539,6 +541,22 @@ fn handle_deck_place(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> 
     if !eng.assign_deck_slot(&support_id, facility) {
         return json_response(409, json!({"error":"cannot place card"}));
     }
+    json_response_str(200, &state_json(st))
+}
+
+fn handle_set_style(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let Some(eng) = st.engine.as_mut() else {
+        return json_response(404, json!({"error":"no active run"}));
+    };
+    let body = parse_body(raw);
+    let Some(style) = body_string(&body, "style") else {
+        return json_response(400, json!({"error":"style required (front|pace|late|end)"}));
+    };
+    let key = style.trim().to_ascii_lowercase();
+    if !matches!(key.as_str(), "front" | "pace" | "late" | "end" | "") {
+        return json_response(400, json!({"error":"style must be front|pace|late|end"}));
+    }
+    eng.set_preferred_running_style(if key.is_empty() { None } else { Some(key) });
     json_response_str(200, &state_json(st))
 }
 

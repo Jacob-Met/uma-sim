@@ -58,6 +58,8 @@ fn tertiary_gain_is_twenty_percent_of_main() {
         deck: Default::default(),
         log: vec![],
         generated_sparks: Vec::new(),
+        base_aptitudes: Default::default(),
+        preferred_running_style: None,
     };
     let outcome =
         resolver.resolve_typical(TrainingFacility::Speed, 3, MoodLevel::Normal, Some(&state));
