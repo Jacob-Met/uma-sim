@@ -1,0 +1,80 @@
+name: release
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/uma-sim-ui
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: packages/uma-sim-ui/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: uma-sim-ui-dist
+          path: packages/uma-sim-ui/dist
+
+  build:
+    needs: ui
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            artifact: uma-sim-windows-x64
+            bin: uma-sim.exe
+          - os: ubuntu-latest
+            artifact: uma-sim-linux-x64
+            bin: uma-sim
+          - os: macos-latest
+            artifact: uma-sim-macos-x64
+            bin: uma-sim
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: uma-sim-ui-dist
+          path: packages/uma-sim-ui/dist
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build release binary (embedded UI)
+        run: cargo build --release --features embed-ui -p uma-sim-core
+      - name: Stage package
+        shell: bash
+        run: |
+          set -euo pipefail
+          STAGE="dist/${{ matrix.artifact }}"
+          mkdir -p "$STAGE"
+          BIN="target/release/${{ matrix.bin }}"
+          cp "$BIN" "$STAGE/"
+          cp -r research "$STAGE/research"
+          mkdir -p "$STAGE/knowledge/canonical/by_kind"
+          cp knowledge/canonical/by_kind/*.json "$STAGE/knowledge/canonical/by_kind/"
+          cp -r content_packs "$STAGE/content_packs"
+          cp LICENSE NOTICE README.md "$STAGE/"
+          (
+            cd dist
+            if command -v zip >/dev/null 2>&1; then
+              zip -r "${{ matrix.artifact }}.zip" "${{ matrix.artifact }}"
+            else
+              7z a -tzip "${{ matrix.artifact }}.zip" "${{ matrix.artifact }}"
+            fi
+          )
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/${{ matrix.artifact }}.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

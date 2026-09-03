@@ -10,7 +10,7 @@ Deterministic, seedable, text-first career engine for Global scenarios.
 | 0 — KB + research | **Done** — canonical ingest + `research/*.json` |
 | 1–5 — Engine | **Done in Rust** — 72-turn loop, training/events, scenarios, legacies; **R8 race physics default** |
 | 6 — Bot harness | **Done** — adapter + golden seeds (200, re-frozen R8.8) + telemetry replay (≥90%) |
-| 7 — REST/MCP | **Done** — Rust REST `:8765` + MCP/TUI packages |
+| 7 — REST/MCP | **Done** — Rust REST `:8765` + MCP/TUI + **embedded web UI** |
 | 8 — Perf | **Done** — `tests/perf.rs` x20 / x100 gates |
 | Calibration / GL fidelity | **R7.2 Grand Live complete** — evidence table below |
 | R7 scenario / race / legacy fidelity | **Advanced** — TB/Unity/URA + inheritance; mid-run races use `uma-race-core` physics (R8) |
@@ -41,10 +41,11 @@ Deterministic, seedable, text-first career engine for Global scenarios.
 
 ```powershell
 cargo run --manifest-path uma-sim-core/Cargo.toml --bin uma-sim -- start --seed=42 --policy=bot
-cargo run --manifest-path uma-sim-core/Cargo.toml --bin uma-sim -- serve --port=8765
+cargo run --manifest-path uma-sim-core/Cargo.toml --bin uma-sim -- serve --port=8765 --open
 cargo run --manifest-path uma-sim-core/Cargo.toml --bin uma-sim-api -- 8765
 ```
 
+Web UI (dev): build with `--features embed-ui` after `packages/uma-sim-ui` `npm run build`, or run Vite (`npm run dev`) against `serve`.
 ## Quick start
 
 ```powershell
@@ -83,7 +84,7 @@ Integer **1–100**. Presets: 1, 2, 5, 10, 20, 50, 100.
 | `export-telemetry` | Write Android-shaped JSONL under `runs/sim-telemetry/` |
 | `validate` | Validate a content pack JSON file |
 | `deck place` | Reposition a support onto a facility |
-| `serve` | Start REST API on `--port=` (default 8765) |
+| `serve` | Start REST API (+ embedded UI when built with `embed-ui`) on `--port=` (default 8765); `--open` launches the browser |
 | `clear` | Clear saved session |
 
 Flags: `--seed`, `--scenario`, `--trainee`, `--speed=1-100`, `--dialogue=off|choices|full`, `--deck=id1,id2`, `--legacy=factor:...`, `--policy=default|bot|external`, `--race-model=stub|physics` (default **physics**), `--trace-rng`, `--trace-telemetry`, `--output=`. Env: `UMA_RACE_MODEL`.
@@ -126,16 +127,22 @@ Rust `src/scoring/` remains the world-model / fixture math (including `terminal_
 
 | Method | Path | Purpose |
 |--------|------|---------|
-| POST | `/v1/run/start` | `{ seed, scenario, trainee, speed, deckSupports, legacyFactors, traceTelemetry }` |
+| GET | `/v1/health` | `{ ok, version, repoRoot }` |
+| GET | `/v1/catalog/scenarios` | Compact scenario list |
+| GET | `/v1/catalog/trainees` | Compact trainee list |
+| GET | `/v1/catalog/supports` | Compact support list (`id`, `name`, `type`, `rarity`) |
+| GET | `/v1/catalog/factors` | Compact factor list (`id`, `name`, `kind`) |
+| POST | `/v1/run/start` | `{ seed, scenario, trainee, speed, deckSupports, legacyFactors, dialogue, raceModel, policy, traceTelemetry }` |
 | GET | `/v1/run/state` | Full run snapshot JSON |
 | GET | `/v1/run/text` | Rendered text |
 | GET | `/v1/run/choices` | Available actions |
-| POST | `/v1/run/action` | `{ action: "train_speed" }` |
-| POST | `/v1/run/auto` | `{ policy: "bot" }` |
-| POST | `/v1/run/fast` | `{ multiplier: 100 }` |
+| POST | `/v1/run/action` | `{ action }` → `{ text, careerEnded, state, choices }` |
+| POST | `/v1/run/auto` | `{ policy }` → `{ text, careerEnded, state, choices }` |
+| POST | `/v1/run/fast` | `{ multiplier, policy }` |
 | GET | `/v1/run/telemetry` | Turn telemetry JSON |
 | POST | `/v1/run/deck/place` | `{ supportId, facility }` |
 | POST | `/v1/run/load_content_pack` | `{ path: "content_packs/example.json" }` |
+| GET | `/` (+ SPA assets) | Embedded web UI when built with `--features embed-ui` |
 
 ## MCP bridge
 
