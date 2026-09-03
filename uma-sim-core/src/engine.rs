@@ -890,7 +890,7 @@ impl SimEngine {
             .with_delta(facility, capped_gain)
             .with_delta(sec_fac, capped_secondary)
             .with_delta(ter_fac, capped_tertiary);
-        self.state.skill_points += hint_gain + mastery_sp;
+        self.state.skill_points += hint_gain + mastery_sp + outcome.skill_points.max(0);
         if hint_gain > 0 {
             self.state
                 .hint_levels

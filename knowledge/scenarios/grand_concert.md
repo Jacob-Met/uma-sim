@@ -69,6 +69,8 @@ GameTora models the 10% bucket as a random other type; the sim uses the fixed te
 
 ### Level-1 base training (no supports, no growth)
 
+Sim applies this table for `grand_concert` L1 via `research/training_gain_tables.json` → `scenario_overrides.grand_concert.l1_base` (mood/support/growth multipliers still apply on top).
+
 | Facility | Stat gains | Tokens | Energy |
 |----------|------------|--------|--------|
 | Speed | +8 Spd, +4 Pwr, +4 SP | 10 | −19 |

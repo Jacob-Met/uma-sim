@@ -103,5 +103,18 @@
     "5": 8,
     "confidence": "medium",
     "source": "GameTora URA — Wit training restores energy instead of costing"
+  },
+  "scenario_overrides": {
+    "grand_concert": {
+      "note": "GameTora Our Grand Concert L1 base (no supports, no growth). Energy for Wit is negative = recovery.",
+      "source": "knowledge/scenarios/grand_concert.md",
+      "l1_base": {
+        "speed": { "main": 8, "secondary": 4, "tertiary": 0, "energy": 19, "skill_points": 4 },
+        "stamina": { "main": 8, "secondary": 6, "tertiary": 0, "energy": 20, "skill_points": 4 },
+        "power": { "main": 9, "secondary": 4, "tertiary": 0, "energy": 20, "skill_points": 4 },
+        "guts": { "main": 7, "secondary": 2, "tertiary": 2, "energy": 20, "skill_points": 4 },
+        "wit": { "main": 6, "secondary": 2, "tertiary": 0, "energy": -5, "skill_points": 5 }
+      }
+    }
   }
 }

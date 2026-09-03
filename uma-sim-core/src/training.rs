@@ -16,7 +16,18 @@ pub const DEFAULT_TABLES: &str = r#"{
   },
   "energy_cost_by_level": {"1":20,"2":21,"3":23,"4":25,"5":30},
   "wit_energy_recovery_by_level": {"1":5,"2":6,"3":7,"4":8,"5":10},
-  "sub_stat_gain_ratio": {"secondary":0.5,"tertiary":0.2}
+  "sub_stat_gain_ratio": {"secondary":0.5,"tertiary":0.2},
+  "scenario_overrides": {
+    "grand_concert": {
+      "l1_base": {
+        "speed": {"main":8,"secondary":4,"tertiary":0,"energy":19,"skill_points":4},
+        "stamina": {"main":8,"secondary":6,"tertiary":0,"energy":20,"skill_points":4},
+        "power": {"main":9,"secondary":4,"tertiary":0,"energy":20,"skill_points":4},
+        "guts": {"main":7,"secondary":2,"tertiary":2,"energy":20,"skill_points":4},
+        "wit": {"main":6,"secondary":2,"tertiary":0,"energy":-5,"skill_points":5}
+      }
+    }
+  }
 }"#;
 
 #[derive(Debug, Clone)]
@@ -27,6 +38,16 @@ pub struct TrainingOutcome {
     pub energy_cost: i32,
     pub failure_chance_pct: i32,
     pub facility_level: i32,
+    /// Flat skill points granted on successful train (scenario base tables).
+    pub skill_points: i32,
+}
+
+struct GlL1Row {
+    main: i32,
+    secondary: i32,
+    tertiary: i32,
+    energy: i32,
+    skill_points: i32,
 }
 
 struct SubStatPair {
@@ -148,18 +169,42 @@ impl TrainingResolver {
             .unwrap_or_default();
         let level = facility_level.clamp(1, 5);
         let tables = self.parse_tables();
-        let typical = tables
-            .get("base_main_gain_by_level")
-            .and_then(|v| v.get(&level.to_string()))
-            .and_then(|v| v.get("typical"))
-            .and_then(|v| v.as_i64())
-            .unwrap_or(12) as i32;
-        let level_mult = tables
-            .get("facility_level_multipliers")
-            .and_then(|v| v.get(&level.to_string()))
-            .and_then(|v| v.as_f64())
-            .unwrap_or(1.0);
-        let jitter = rng.next_int_range(0, 3);
+        let scenario_id = state.map(|s| s.meta.scenario_id.as_str()).unwrap_or("");
+        let gl_l1 = Self::grand_concert_l1_base(&tables, scenario_id, facility, level);
+
+        let (typical, fixed_secondary, fixed_tertiary, fixed_energy, base_sp) =
+            if let Some(ref row) = gl_l1 {
+                (
+                    row.main,
+                    Some(row.secondary),
+                    Some(row.tertiary),
+                    Some(row.energy),
+                    row.skill_points,
+                )
+            } else {
+                let typical = tables
+                    .get("base_main_gain_by_level")
+                    .and_then(|v| v.get(&level.to_string()))
+                    .and_then(|v| v.get("typical"))
+                    .and_then(|v| v.as_i64())
+                    .unwrap_or(12) as i32;
+                (typical, None, None, None, 0)
+            };
+
+        let level_mult = if gl_l1.is_some() {
+            1.0
+        } else {
+            tables
+                .get("facility_level_multipliers")
+                .and_then(|v| v.get(&level.to_string()))
+                .and_then(|v| v.as_f64())
+                .unwrap_or(1.0)
+        };
+        let jitter = if gl_l1.is_some() {
+            0
+        } else {
+            rng.next_int_range(0, 3)
+        };
         let growth_pct = state
             .map(|s| TrainingGainContext::growth_pct(&s.meta.trainee_name, facility))
             .unwrap_or(0.0);
@@ -176,7 +221,9 @@ impl TrainingResolver {
             growth_pct,
         );
 
-        let energy_cost = if facility == TrainingFacility::Wit {
+        let energy_cost = if let Some(e) = fixed_energy {
+            e
+        } else if facility == TrainingFacility::Wit {
             let recovery = tables
                 .get("wit_energy_recovery_by_level")
                 .and_then(|v| v.get(&level.to_string()))
@@ -193,14 +240,65 @@ impl TrainingResolver {
 
         let failure_pct = TrainingFailureConfig::failure_chance_pct(100, 100, mood, level);
 
+        let secondary_gain = if let Some(sec) = fixed_secondary {
+            let scale = if typical > 0 {
+                gain as f64 / typical as f64
+            } else {
+                1.0
+            };
+            (sec as f64 * scale).round() as i32
+        } else {
+            ((gain as f64 * self.secondary_ratio) as i32).max(0)
+        };
+        let tertiary_gain = if let Some(ter) = fixed_tertiary {
+            let scale = if typical > 0 {
+                gain as f64 / typical as f64
+            } else {
+                1.0
+            };
+            (ter as f64 * scale).round() as i32
+        } else {
+            ((gain as f64 * self.tertiary_ratio) as i32).max(0)
+        };
+
         TrainingOutcome {
             main_gain: gain,
-            secondary_gain: ((gain as f64 * self.secondary_ratio) as i32).max(0),
-            tertiary_gain: ((gain as f64 * self.tertiary_ratio) as i32).max(0),
+            secondary_gain: secondary_gain.max(0),
+            tertiary_gain: tertiary_gain.max(0),
             energy_cost,
             failure_chance_pct: failure_pct,
             facility_level: level,
+            skill_points: base_sp,
         }
+    }
+
+    /// GameTora Grand Live L1 base table (`grand_concert.md`) when no scenario-specific row.
+    fn grand_concert_l1_base(
+        tables: &serde_json::Value,
+        scenario_id: &str,
+        facility: TrainingFacility,
+        level: i32,
+    ) -> Option<GlL1Row> {
+        if level != 1 {
+            return None;
+        }
+        let sid = scenario_id.to_ascii_lowercase();
+        if !(sid == "grand_concert" || sid == "grand_live" || sid == "gl") {
+            return None;
+        }
+        let row = tables
+            .get("scenario_overrides")
+            .and_then(|v| v.get("grand_concert"))
+            .and_then(|v| v.get("l1_base"))
+            .and_then(|v| v.get(facility.key()))
+            .and_then(|v| v.as_object())?;
+        Some(GlL1Row {
+            main: row.get("main")?.as_i64()? as i32,
+            secondary: row.get("secondary").and_then(|v| v.as_i64()).unwrap_or(0) as i32,
+            tertiary: row.get("tertiary").and_then(|v| v.as_i64()).unwrap_or(0) as i32,
+            energy: row.get("energy")?.as_i64()? as i32,
+            skill_points: row.get("skill_points").and_then(|v| v.as_i64()).unwrap_or(0) as i32,
+        })
     }
 
     pub fn secondary_facility(&self, facility: TrainingFacility) -> TrainingFacility {
