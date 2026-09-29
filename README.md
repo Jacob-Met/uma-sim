@@ -71,13 +71,11 @@ platform: the binary (web UI embedded) plus the `research/`, `knowledge/` and
 Keep the three data folders next to the binary. It finds them there whatever
 directory you start it from; set `UMA_REPO_ROOT` if you keep them elsewhere.
 
-> **Known issue in v0.1.0 and v0.2.0:** those binaries look for race data at
-> the path of the CI machine that built them, so any career that reaches a race
-> stops with `read /home/runner/work/uma-sim/…/race_course_data.json: No such
-> file or directory`. This is fixed on `main`; build from source until the next
-> release. Also note that the v0.2.0 Linux zip needs glibc 2.39 or newer
-> (Ubuntu 24.04+), and the zip named `macos-x64` holds an Apple Silicon (arm64)
-> binary. Future releases name it `macos-arm64`.
+Use v0.2.1 or later. The v0.1.0 and v0.2.0 binaries looked for race data at
+the path of the CI machine that built them and stop on the first race with
+`read /home/runner/work/uma-sim/…/race_course_data.json: No such file or
+directory`. The Linux zip needs glibc 2.39 or newer (Ubuntu 24.04+); the macOS
+zip is for Apple Silicon.
 
 ## CLI
 
