@@ -109,10 +109,7 @@ struct FileRoot {
 fn catalog() -> &'static HashMap<String, Course> {
     static CAT: OnceLock<HashMap<String, Course>> = OnceLock::new();
     CAT.get_or_init(|| {
-        let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../research/race_course_data.json");
-        let raw = std::fs::read_to_string(&path)
-            .unwrap_or_else(|e| panic!("read {}: {e}", path.display()));
+        let raw = crate::data::read_data_file("research/race_course_data.json");
         let root: FileRoot = serde_json::from_str(&raw).expect("parse race_course_data.json");
         root.courses
     })

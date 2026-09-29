@@ -7,6 +7,7 @@
 pub mod compete_fight;
 pub mod condition;
 pub mod course;
+pub mod data;
 pub mod field;
 pub mod hp;
 pub mod lead_comp;

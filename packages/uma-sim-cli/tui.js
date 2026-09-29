@@ -37,23 +37,23 @@ function sidebar(state) {
 
 async function ensureApi() {
   const fs = await import("fs");
+  const exe = process.platform === "win32" ? "uma-sim-api.exe" : "uma-sim-api";
+  // Cargo workspace builds land in <repo>/target; per-crate builds in uma-sim-core/target.
   const rustCandidates = [
-    path.join(repoRoot, "uma-sim-core", "target", "release", process.platform === "win32" ? "uma-sim-api.exe" : "uma-sim-api"),
-    path.join(repoRoot, "uma-sim-core", "target", "debug", process.platform === "win32" ? "uma-sim-api.exe" : "uma-sim-api"),
+    path.join(repoRoot, "target", "release", exe),
+    path.join(repoRoot, "target", "debug", exe),
+    path.join(repoRoot, "uma-sim-core", "target", "release", exe),
+    path.join(repoRoot, "uma-sim-core", "target", "debug", exe),
   ];
   const rustBin = rustCandidates.find((p) => fs.existsSync(p));
-  if (rustBin) {
-    spawn(rustBin, [], { cwd: repoRoot, detached: true, stdio: "ignore" }).unref();
-  } else {
-    const legacy = path.join(repoRoot, "legacy", "uma-sim-kotlin");
-    const gradlew = path.join(legacy, process.platform === "win32" ? "gradlew.bat" : "gradlew");
-    spawn(gradlew, [":sim-engine:runSimApi"], {
-      cwd: legacy,
-      shell: true,
-      detached: true,
-      stdio: "ignore",
-    }).unref();
+  if (!rustBin) {
+    throw new Error(
+      "uma-sim-api binary not found; run `cargo build --release -p uma-sim-core` from the repo root, " +
+        `or start \`uma-sim serve\` yourself (API: ${API}).`,
+    );
   }
+  const port = new URL(API).port || "8765";
+  spawn(rustBin, [port], { cwd: repoRoot, detached: true, stdio: "ignore" }).unref();
   for (let i = 0; i < 30; i++) {
     await new Promise((r) => setTimeout(r, 1000));
     try {
