@@ -48,27 +48,14 @@ fn looks_like_repo_root(dir: &Path) -> bool {
         .exists()
 }
 
+/// Folder holding `research/` and `knowledge/`: `UMA_REPO_ROOT`, then the
+/// working directory (and `./sim`, then ancestors), then the folder of the
+/// running binary (release zip layout, `target/release`), then the source
+/// checkout it was built from. See `uma_race_core::data::candidate_roots`.
 pub fn detect_repo_root() -> Option<PathBuf> {
-    if let Ok(p) = std::env::var("UMA_REPO_ROOT") {
-        let pb = PathBuf::from(p);
-        if looks_like_repo_root(&pb) {
-            return Some(pb);
-        }
-    }
-    let cwd = std::env::current_dir().ok()?;
-    // Private GrokWiring layout: public sim lives under ./sim
-    let nested = cwd.join("sim");
-    if looks_like_repo_root(&nested) {
-        return Some(nested);
-    }
-    let mut dir = cwd;
-    for _ in 0..8 {
-        if looks_like_repo_root(&dir) {
-            return Some(dir);
-        }
-        dir = dir.parent()?.to_path_buf();
-    }
-    None
+    uma_race_core::data::candidate_roots()
+        .into_iter()
+        .find(|dir| looks_like_repo_root(dir))
 }
 
 fn read_research_file(repo_root: Option<&Path>, name: &str) -> Option<String> {

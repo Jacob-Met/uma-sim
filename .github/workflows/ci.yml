@@ -40,6 +40,14 @@ jobs:
       - run: cargo clippy --workspace --all-targets
       - run: cargo test --workspace
       - run: cargo build --release --features embed-ui -p uma-sim-core
+      - name: Smoke-test release layout (binary run away from the source tree)
+        run: |
+          STAGE=dist/uma-sim-linux-x64
+          mkdir -p "$STAGE/knowledge/canonical/by_kind"
+          cp target/release/uma-sim "$STAGE/"
+          cp -r research content_packs "$STAGE/"
+          cp knowledge/canonical/by_kind/*.json "$STAGE/knowledge/canonical/by_kind/"
+          scripts/smoke_release_layout.sh "$STAGE" uma-sim
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

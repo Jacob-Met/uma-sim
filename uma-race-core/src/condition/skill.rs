@@ -123,9 +123,7 @@ struct RawEffect {
 fn skill_catalog() -> &'static HashMap<String, SkillPayload> {
     static CAT: OnceLock<HashMap<String, SkillPayload>> = OnceLock::new();
     CAT.get_or_init(|| {
-        let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../knowledge/canonical/by_kind/skill.json");
-        let raw = std::fs::read_to_string(&path).expect("skill.json");
+        let raw = crate::data::read_data_file("knowledge/canonical/by_kind/skill.json");
         let rows: Vec<SkillRow> = serde_json::from_str(&raw).expect("parse skill.json");
         let mut map = HashMap::new();
         for row in rows {

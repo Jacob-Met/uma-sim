@@ -39,7 +39,7 @@ jobs:
             artifact: uma-sim-linux-x64
             bin: uma-sim
           - os: macos-latest
-            artifact: uma-sim-macos-x64
+            artifact: uma-sim-macos-arm64
             bin: uma-sim
     runs-on: ${{ matrix.os }}
     steps:
@@ -64,6 +64,7 @@ jobs:
           cp knowledge/canonical/by_kind/*.json "$STAGE/knowledge/canonical/by_kind/"
           cp -r content_packs "$STAGE/content_packs"
           cp LICENSE NOTICE README.md "$STAGE/"
+          scripts/smoke_release_layout.sh "$STAGE" "${{ matrix.bin }}"
           (
             cd dist
             if command -v zip >/dev/null 2>&1; then

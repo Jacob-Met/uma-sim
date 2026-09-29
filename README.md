@@ -1,95 +1,188 @@
 ﻿# uma-sim
 
-Unofficial Umamusume career simulator (Rust) with optional race physics,
-embedded **web UI**, CLI, REST API, and MCP wrappers.
+Unofficial, deterministic career simulator for *Umamusume: Pretty Derby* (Global),
+written in Rust. It plays the 72-turn career loop (training, events, races,
+scenario mechanics, legacy inheritance) from community-researched data, with
+frame-stepped race physics for mid-career races.
 
-## Web UI
+The same seed always gives the same career, so you can compare decks, policies
+or rule changes run against run. You can drive it from:
 
-Interactive career play in the browser (run setup, turn view, events, races,
-Grand Live panel, deck placement, auto/fast-forward).
+- a **browser UI** (`uma-sim serve --open`)
+- a **CLI** (`uma-sim start / step / fast / batch`)
+- a **REST API** on `localhost:8765` (`/v1/*`)
+- an **MCP stdio server** for AI agents (`packages/uma-sim-mcp`)
 
-### From a release zip
+Scenarios: URA Finale (`ura`), Grand Live (`grand_concert`), Unity Cup
+(`unity`), Trackblazer (`trackblazer`).
 
-Download a platform zip from [Releases](https://github.com/Jacob-Met/uma-sim/releases),
-extract, then:
+Fan project, not affiliated with Cygames. See [NOTICE](NOTICE) for data sources
+and attribution.
+
+## Quick start from source
+
+Needs a stable Rust toolchain, 1.80 or newer (install with [rustup](https://rustup.rs)).
+Node 20 is only needed for the browser UI and the Node wrappers.
 
 ```bash
-./uma-sim serve --open
-# Windows: uma-sim.exe serve --open
+git clone https://github.com/Jacob-Met/uma-sim.git
+cd uma-sim
+cargo build --release -p uma-sim-core
+
+# Play one career to the end with the default policy (seed 42)
+./target/release/uma-sim fast --seed=42
 ```
 
-Keep `research/`, `knowledge/`, and `content_packs/` next to the binary so the
-engine can load catalogs.
+The last two lines should read:
 
-### From source (embedded UI)
+```text
+Ended: career=true turn=72 fans=1217 elapsed=… speed=x20 policy=default
+Terminal: U=9.000 grade=F score=770 sp_spent=121 φ=4.50 ψ=4.50
+```
+
+`--policy=bot` plays the same seed with the built-in scoring bot and finishes
+with a much stronger career (grade C, score 3734 at the time of writing).
+
+### Browser UI
+
+Build the UI once, then embed it into the binary:
 
 ```bash
 cd packages/uma-sim-ui && npm ci && npm run build && cd ../..
 cargo build --release --features embed-ui -p uma-sim-core
-./target/release/uma-sim serve --open
+./target/release/uma-sim serve --open        # http://127.0.0.1:8765/
 ```
 
-### Dev (hot reload)
+For UI work with hot reload, run `cargo run -p uma-sim-core --bin uma-sim -- serve`
+in one terminal and `npm run dev` in `packages/uma-sim-ui` in another, then
+open the Vite URL (it proxies `/v1` to port 8765).
 
-Terminal A:
+## Release zips
+
+[Releases](https://github.com/Jacob-Met/uma-sim/releases) carry one zip per
+platform: the binary (web UI embedded) plus the `research/`, `knowledge/` and
+`content_packs/` folders it reads at run time. Extract it and run:
 
 ```bash
-cargo run -p uma-sim-core --bin uma-sim -- serve --port=8765
+./uma-sim serve --open         # Windows: uma-sim.exe serve --open
+./uma-sim fast --seed=42
 ```
 
-Terminal B:
+Keep the three data folders next to the binary. It finds them there whatever
+directory you start it from; set `UMA_REPO_ROOT` if you keep them elsewhere.
+
+> **Known issue in v0.1.0 and v0.2.0:** those binaries look for race data at
+> the path of the CI machine that built them, so any career that reaches a race
+> stops with `read /home/runner/work/uma-sim/…/race_course_data.json: No such
+> file or directory`. This is fixed on `main`; build from source until the next
+> release. Also note that the v0.2.0 Linux zip needs glibc 2.39 or newer
+> (Ubuntu 24.04+), and the zip named `macos-x64` holds an Apple Silicon (arm64)
+> binary. Future releases name it `macos-arm64`.
+
+## CLI
+
+Between commands, the current career is saved in `.uma-sim/session.json` in
+the working directory.
 
 ```bash
-cd packages/uma-sim-ui && npm run dev
+# Step through a career yourself
+uma-sim start --seed=7 --scenario=unity --trainee="Special Week"
+uma-sim state                  # stats, phase, available choices
+uma-sim step race              # or train_speed, rest, recreation, event_0, …
+uma-sim clear
+
+# Let a policy play whole careers
+uma-sim fast --seed=7 --scenario=unity --policy=bot           # one new career, start to finish
+uma-sim batch --count=100 --seed=1 --output=out/batch.jsonl   # one JSON line per career
 ```
 
-Open the Vite URL (proxies `/v1` to the API).
+`fast` always starts a new career and replaces the saved one.
 
-## Crates
+| Flag | Values |
+|------|--------|
+| `--scenario` | `ura` (default), `grand_concert`, `unity`, `trackblazer` |
+| `--policy` | `default`, `bot` (built-in scoring bot), `external` (see below) |
+| `--race-model` | `physics` (default), `stub` (legacy parity traces) |
+| `--speed` | 1–100; 1–10 prints full dialogue, above 50 runs headless |
+| `--dialogue` | `off`, `choices`, `full` |
+| `--deck` | support ids, e.g. `support:10001@speed:85,support:10002` |
+| `--legacy` | inherited factors, e.g. `factor:blue:1@3` |
 
-| Crate | Role |
-|-------|------|
-| `uma-sim-core` | Career engine, scenarios, scoring, REST/CLI bins + optional embedded UI |
-| `uma-race-core` | Clean-room mid-run race physics |
+`uma-sim validate --path=content_packs/example.json` checks a content pack
+(extra events merged in at run time without engine changes). The full command
+reference is in [docs/SIMULATOR.md](docs/SIMULATOR.md).
 
-## Quick start (CLI / API)
+## REST API and MCP
+
+`uma-sim serve [--port=8765]` (or the bare `uma-sim-api [port]` binary) serves:
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| GET | `/v1/health` | status and the data folder in use |
+| GET | `/v1/catalog/{scenarios,trainees,supports,factors}` | catalogs |
+| POST | `/v1/run/start` | `{"seed":"42","scenario":"ura","trainee":"Special Week"}` |
+| GET | `/v1/run/{state,text,choices,telemetry}` | current career |
+| POST | `/v1/run/action` | `{"action":"train_speed"}` |
+| POST | `/v1/run/auto`, `/v1/run/fast` | one bot step / play to the end |
+| POST | `/v1/run/deck/place`, `/v1/run/style`, `/v1/run/load_content_pack` | setup |
 
 ```bash
-cargo build --release -p uma-sim-core
-./target/release/uma-sim serve --port 8765
-# or interactive CLI:
-./target/release/uma-sim
+curl -X POST localhost:8765/v1/run/start -d '{"seed":"42","scenario":"ura"}'
+curl localhost:8765/v1/run/choices
+curl -X POST localhost:8765/v1/run/fast -d '{}'
 ```
 
-Node packages (optional):
+The Node wrappers use only Node built-ins, so no `npm install` is needed:
 
 ```bash
-cd packages/uma-sim-cli && npm install && npm run tui
-cd packages/uma-sim-mcp && npm install && node server.js
+node packages/uma-sim-mcp/mcp-stdio.js           # MCP stdio server: sim_start, sim_act, sim_fast_forward, …
+node packages/uma-sim-cli/tui.js 42 ura          # text UI; starts target/release/uma-sim-api if no API is up
+node packages/uma-sim-cli/run.js fast --seed=42  # runs the built CLI from the repo root
 ```
 
-## Data layout
+The MCP server talks to `UMA_SIM_API` (default `http://127.0.0.1:8765`), so
+start `uma-sim serve` first.
 
-- `research/*.json` — formula / calibration constants loaded at runtime
-- `knowledge/canonical/by_kind/` — catalogs the engine reads (events, cards, songs, …)
-- `content_packs/` — optional event packs
+## Repository layout
 
-Regenerate catalogs offline (private ingest tooling is not shipped here).
-Ship-ready subset is the eight `by_kind` files listed in `docs/SIMULATOR.md`.
+| Path | What it is |
+|------|------------|
+| `uma-sim-core/` | Career engine, scenarios, scoring bot, CLI (`uma-sim`) and REST (`uma-sim-api`) binaries |
+| `uma-race-core/` | Clean-room frame-stepped race physics |
+| `research/` | Formula and calibration tables loaded at run time, plus research notes |
+| `knowledge/canonical/by_kind/` | Game catalogs (events, skills, supports, trainees, races, …) |
+| `content_packs/` | Optional event packs |
+| `packages/` | Web UI (Vite + React), TUI/CLI wrapper, MCP server |
+| `docs/` | Design, parity and race-model notes |
 
-## External bot policy (optional)
+The catalogs are generated offline from community sources; the ingest tooling
+is not part of this repository. `python knowledge/validate/validate.py` checks
+the shipped catalogs.
 
-Set `UMA_POLICY_CMD` to a policy-server binary if you want JVM scoring-shared
-parity (`--policy=external`). Without it, the Rust scoring path is used.
+## Environment variables
+
+| Variable | Effect |
+|----------|--------|
+| `UMA_REPO_ROOT` | Folder containing `research/` and `knowledge/`. Default search: working directory and its parents, then the binary's folder |
+| `UMA_RACE_MODEL` | `physics` or `stub`, same as `--race-model` |
+| `UMA_POLICY_CMD` | Command for an external policy server, used by `--policy=external` |
+| `UMA_SIM_API` | API base URL for the Node wrappers |
 
 ## Tests
 
 ```bash
-cargo test --workspace
+cargo test --workspace                          # about 300 tests, including 200 golden seeds
 python scripts/calibrate_grand_live.py --strict
 cd packages/uma-sim-ui && npm run typecheck && npm run build
 ```
 
+CI also stages a release-layout folder and runs
+`scripts/smoke_release_layout.sh` on it. The script hides the source tree's
+data folders and starts the binary from an unrelated directory, so a data path
+baked in at compile time fails the build instead of shipping.
+
 ## License
 
-GPL-3.0 — see `LICENSE` and `NOTICE`.
+GPL-3.0: the scoring bot ports GPL-3.0 code from
+[uma-android-automation](https://github.com/steve1316/uma-android-automation).
+See [LICENSE](LICENSE) and [NOTICE](NOTICE).

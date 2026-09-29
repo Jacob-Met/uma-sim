@@ -426,7 +426,7 @@ uma-sim CLI v0.4 (Rust)
   content validate [--path=...]
   serve [--port=8765] [--open]
   clear
-Env: UMA_RACE_MODEL=stub|physics (default stub until R8.8)
+Env: UMA_RACE_MODEL=stub|physics (default physics), UMA_REPO_ROOT=<folder with research/ and knowledge/>
 Session persisted to .uma-sim/session.json"
     );
 }

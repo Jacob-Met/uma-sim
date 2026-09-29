@@ -288,9 +288,9 @@ fn lookup_race_meta(race_id: &str) -> Option<(u32, usize)> {
     use std::sync::OnceLock;
     static MAP: OnceLock<HashMap<String, (u32, usize)>> = OnceLock::new();
     let map = MAP.get_or_init(|| {
-        let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../knowledge/canonical/by_kind/race.json");
-        let raw = std::fs::read_to_string(&path).unwrap_or_default();
+        let raw = uma_race_core::data::find_data_file("knowledge/canonical/by_kind/race.json")
+            .and_then(|p| std::fs::read_to_string(p).ok())
+            .unwrap_or_default();
         let rows: Vec<serde_json::Value> = serde_json::from_str(&raw).unwrap_or_default();
         let mut m = HashMap::new();
         for row in rows {
