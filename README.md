@@ -57,16 +57,29 @@ For UI work with hot reload, run `cargo run -p uma-sim-core --bin uma-sim -- ser
 in one terminal and `npm run dev` in `packages/uma-sim-ui` in another, then
 open the Vite URL (it proxies `/v1` to port 8765).
 
-## Release zips
+## Install from a release zip
 
 [Releases](https://github.com/Jacob-Met/uma-sim/releases) carry one zip per
 platform: the binary (web UI embedded) plus the `research/`, `knowledge/` and
-`content_packs/` folders it reads at run time. Extract it and run:
+`content_packs/` folders it reads at run time. Download the zip for your
+platform, extract it and run:
 
 ```bash
 ./uma-sim serve --open         # Windows: uma-sim.exe serve --open
 ./uma-sim fast --seed=42
 ```
+
+| Zip | Platform | Requirement |
+|-----|----------|-------------|
+| `uma-sim-windows-x64.zip` | Windows 10+ on x86-64 | none |
+| `uma-sim-linux-x64.zip` | Linux on x86-64 | glibc 2.28 or newer (Ubuntu 20.04+, Debian 10+, RHEL/Alma/Rocky 8+) |
+| `uma-sim-macos-arm64.zip` | macOS on Apple Silicon (M1 or newer) | none. Intel Macs are not supported |
+
+The Linux zip is built inside a `manylinux_2_28` (glibc 2.28) container, and CI
+fails the build if the binary needs a newer glibc symbol. Older releases
+(v0.2.1 and earlier) were built on Ubuntu 24.04 and need glibc 2.39. Every
+zip is unzipped fresh in CI and run through the layout smoke test before it
+is published.
 
 Keep the three data folders next to the binary. It finds them there whatever
 directory you start it from; set `UMA_REPO_ROOT` if you keep them elsewhere.
@@ -74,8 +87,7 @@ directory you start it from; set `UMA_REPO_ROOT` if you keep them elsewhere.
 Use v0.2.1 or later. The v0.1.0 and v0.2.0 binaries looked for race data at
 the path of the CI machine that built them and stop on the first race with
 `read /home/runner/work/uma-sim/…/race_course_data.json: No such file or
-directory`. The Linux zip needs glibc 2.39 or newer (Ubuntu 24.04+); the macOS
-zip is for Apple Silicon.
+directory`.
 
 ## CLI
 
