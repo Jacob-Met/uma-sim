@@ -2,6 +2,9 @@ name: release
 on:
   push:
     tags: ["v*"]
+  workflow_dispatch:
+  pull_request:
+    paths: [".github/workflows/release.yml", "scripts/smoke_release_layout.sh"]
 
 permissions:
   contents: write
@@ -38,6 +41,9 @@ jobs:
           - os: ubuntu-latest
             artifact: uma-sim-linux-x64
             bin: uma-sim
+            # Built and smoke-tested inside AlmaLinux 8 (glibc 2.28) so the
+            # binary runs on Ubuntu 20.04+, Debian 10+, RHEL/Alma/Rocky 8+.
+            container: quay.io/pypa/manylinux_2_28_x86_64
           - os: macos-latest
             artifact: uma-sim-macos-arm64
             bin: uma-sim
@@ -49,8 +55,20 @@ jobs:
           name: uma-sim-ui-dist
           path: packages/uma-sim-ui/dist
       - uses: dtolnay/rust-toolchain@stable
+        if: matrix.container == ''
       - name: Build release binary (embedded UI)
+        if: matrix.container == ''
         run: cargo build --release --features embed-ui -p uma-sim-core
+      - name: Build release binary in old-glibc container
+        if: matrix.container != ''
+        run: |
+          docker run --rm -v "$PWD:/w" -w /w ${{ matrix.container }} bash -euxc '
+            curl -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable
+            . "$HOME/.cargo/env"
+            ldd --version | head -1
+            cargo build --release --features embed-ui -p uma-sim-core
+          '
+          sudo chown -R "$(id -u):$(id -g)" target
       - name: Stage package
         shell: bash
         run: |
@@ -64,18 +82,76 @@ jobs:
           cp knowledge/canonical/by_kind/*.json "$STAGE/knowledge/canonical/by_kind/"
           cp -r content_packs "$STAGE/content_packs"
           cp LICENSE NOTICE README.md "$STAGE/"
-          scripts/smoke_release_layout.sh "$STAGE" "${{ matrix.bin }}"
-          (
-            cd dist
-            if command -v zip >/dev/null 2>&1; then
-              zip -r "${{ matrix.artifact }}.zip" "${{ matrix.artifact }}"
-            else
-              7z a -tzip "${{ matrix.artifact }}.zip" "${{ matrix.artifact }}"
-            fi
-          )
+      - name: Check binary platform
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN="dist/${{ matrix.artifact }}/${{ matrix.bin }}"
+          case "${{ matrix.artifact }}" in
+            uma-sim-linux-x64)
+              file "$BIN"
+              # Highest glibc symbol version the binary needs must be <= 2.28.
+              MAX=$(objdump -T "$BIN" | grep -o 'GLIBC_[0-9.]*' | sed 's/GLIBC_//' | sort -V | tail -1)
+              echo "max GLIBC symbol version: $MAX"
+              [ "$(printf '%s\n2.28\n' "$MAX" | sort -V | tail -1)" = "2.28" ] || { echo "glibc floor exceeded"; exit 1; }
+              ;;
+            uma-sim-macos-arm64)
+              file "$BIN"
+              lipo -archs "$BIN" | tee /dev/stderr | grep -qx arm64
+              uname -m
+              ;;
+            *) file "$BIN" || true ;;
+          esac
+      - name: Zip package
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd dist
+          if command -v zip >/dev/null 2>&1; then
+            zip -r "${{ matrix.artifact }}.zip" "${{ matrix.artifact }}"
+          else
+            7z a -tzip "${{ matrix.artifact }}.zip" "${{ matrix.artifact }}"
+          fi
+      - name: Verify the zip itself (unzip fresh, smoke-test layout)
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf verify && mkdir verify
+          if command -v unzip >/dev/null 2>&1; then
+            unzip -q "dist/${{ matrix.artifact }}.zip" -d verify
+          else
+            7z x -y -overify "dist/${{ matrix.artifact }}.zip" >/dev/null
+          fi
+          chmod +x "verify/${{ matrix.artifact }}/${{ matrix.bin }}" || true
+          if [ -n "${{ matrix.container }}" ]; then
+            # run the smoke test inside the old-glibc image too
+            docker run --rm -v "$PWD:/w" -w /w ${{ matrix.container }} \
+              scripts/smoke_release_layout.sh "verify/${{ matrix.artifact }}" "${{ matrix.bin }}"
+          else
+            scripts/smoke_release_layout.sh "verify/${{ matrix.artifact }}" "${{ matrix.bin }}"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: dist/${{ matrix.artifact }}.zip
+
+  release:
+    # Publishes only on a tag, and only when all three platform builds passed.
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: uma-sim-{windows-x64,linux-x64,macos-arm64}
+          path: dist
+          merge-multiple: true
+      - run: |
+          ls -l dist
+          test "$(ls dist/*.zip | wc -l)" = 3
       - uses: softprops/action-gh-release@v2
         with:
-          files: dist/${{ matrix.artifact }}.zip
+          files: dist/*.zip
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
