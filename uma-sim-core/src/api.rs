@@ -156,6 +156,46 @@ fn body_string(body: &Value, key: &str) -> Option<String> {
     }
 }
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+enum RestPolicy {
+    Default,
+    Bot,
+}
+
+impl RestPolicy {
+    fn as_str(self) -> &'static str {
+        match self {
+            Self::Default => "default",
+            Self::Bot => "bot",
+        }
+    }
+}
+
+fn parse_rest_policy_name(name: &str) -> Result<RestPolicy, &'static str> {
+    match name.trim().to_ascii_lowercase().as_str() {
+        "default" => Ok(RestPolicy::Default),
+        "bot" => Ok(RestPolicy::Bot),
+        "external" => Err("external policy is not exposed by the REST API; REST supports only 'default' and 'bot'"),
+        _ => Err("unknown policy; REST supports only 'default' and 'bot'"),
+    }
+}
+
+fn rest_policy_from_body(
+    body: &Value,
+    fallback: Option<&str>,
+) -> Result<Option<RestPolicy>, &'static str> {
+    let name = match body.get("policy") {
+        Some(Value::String(name)) => Some(name.as_str()),
+        Some(_) => return Err("policy must be a string; REST supports only 'default' and 'bot'"),
+        None => fallback,
+    };
+    name.map(parse_rest_policy_name).transpose()
+}
+
+fn rest_policy_error(message: &str) -> Response<Cursor<Vec<u8>>> {
+    json_response(400, json!({"error": message}))
+}
+
 fn cors_header() -> Header {
     Header::from_bytes(&b"Access-Control-Allow-Origin"[..], &b"*"[..]).unwrap()
 }
@@ -312,6 +352,10 @@ fn handle_catalog_factors() -> Response<Cursor<Vec<u8>>> {
 
 fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     let body = parse_body(raw);
+    let requested_policy = match rest_policy_from_body(&body, None) {
+        Ok(policy) => policy,
+        Err(message) => return rest_policy_error(message),
+    };
     let seed = body_string(&body, "seed")
         .and_then(|s| s.parse().ok())
         .unwrap_or(42_i64);
@@ -360,11 +404,8 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     let race_model = body_string(&body, "raceModel")
         .map(|s| RaceModel::parse(&s))
         .unwrap_or_default();
-    if let Some(policy) = body_string(&body, "policy") {
-        let p = policy.to_lowercase();
-        if p == "bot" || p == "default" || p == "external" {
-            st.default_policy = p;
-        }
+    if let Some(policy) = requested_policy {
+        st.default_policy = policy.as_str().to_string();
     }
 
     st.settings = SimSettings {
@@ -430,40 +471,46 @@ fn handle_action(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
 }
 
 fn handle_auto(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
-    let policy_fallback = st.default_policy.clone();
+    let body = parse_body(raw);
+    let policy = match rest_policy_from_body(&body, Some(&st.default_policy)) {
+        Ok(Some(policy)) => policy,
+        Ok(None) => unreachable!("a default REST policy is always available"),
+        Err(message) => return rest_policy_error(message),
+    };
     let Some(eng) = st.engine.as_mut() else {
         return json_response(404, json!({"error":"no active run"}));
     };
-    let body = parse_body(raw);
-    let policy_name = body_string(&body, "policy").unwrap_or(policy_fallback);
-    let result = if policy_name == "bot" {
-        eng.auto_step_scoring()
-    } else {
-        eng.auto_step_with_policy(default_auto_policy)
+    let result = match policy {
+        RestPolicy::Bot => eng.auto_step_scoring(),
+        RestPolicy::Default => eng.auto_step_with_policy(default_auto_policy),
     };
     step_response(eng, result.text_lines.join("\n"), result.career_ended)
 }
 
 fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     let body = parse_body(raw);
+    let policy = match rest_policy_from_body(&body, Some(&st.default_policy)) {
+        Ok(Some(policy)) => policy,
+        Ok(None) => unreachable!("a default REST policy is always available"),
+        Err(message) => return rest_policy_error(message),
+    };
     let mult = body_string(&body, "multiplier")
         .and_then(|s| s.parse::<i32>().ok())
         .unwrap_or(st.settings.speed_multiplier)
         .clamp(1, 100);
-    let policy_name = body_string(&body, "policy").unwrap_or_else(|| st.default_policy.clone());
-    st.settings.speed_multiplier = mult;
 
-    let Some(eng) = st.engine.as_mut() else {
+    if st.engine.is_none() {
         return json_response(404, json!({"error":"no active run"}));
-    };
+    }
+    st.settings.speed_multiplier = mult;
+    let eng = st.engine.as_mut().expect("active run checked above");
     let mut snap = eng.export();
     snap.settings.speed_multiplier = mult;
     eng.restore(snap);
 
-    if policy_name == "bot" {
-        eng.play_to_completion_scoring(500);
-    } else {
-        eng.play_to_completion(500);
+    match policy {
+        RestPolicy::Bot => eng.play_to_completion_scoring(500),
+        RestPolicy::Default => eng.play_to_completion(500),
     }
     let s = eng.state();
     json_response(
@@ -816,5 +863,72 @@ mod tests {
         );
         assert!(step.get("text").is_some());
         assert!(step.get("careerEnded").is_some());
+    }
+
+    fn assert_policy_rejected_without_mutation(port: u16, path: &str, body: &str, before: &str) {
+        let (status, response) = http_post(port, path, body);
+        assert_eq!(status, 400, "{path} {body}: {response}");
+        let response: Value = serde_json::from_str(&response).unwrap();
+        assert!(response["error"].as_str().is_some(), "{response}");
+        let (state_status, after) = http_get(port, "/v1/run/state");
+        assert_eq!(state_status, 200);
+        assert_eq!(after, before, "{path} mutated the active run for {body}");
+    }
+
+    #[test]
+    fn rest_rejects_unsupported_policies_without_mutating_runs() {
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+
+        for policy in [r#""external""#, r#""unknown""#, "42", "null"] {
+            let body = format!(r#"{{"seed":7,"scenario":"ura","policy":{policy}}}"#);
+            let (status, response) = http_post(port, "/v1/run/start", &body);
+            assert_eq!(status, 400, "{body}: {response}");
+            let (state_status, _) = http_get(port, "/v1/run/state");
+            assert_eq!(state_status, 404, "rejected start must not create a run");
+        }
+
+        let (status, response) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","policy":"default"}"#,
+        );
+        assert_eq!(status, 200, "{response}");
+        let (state_status, before) = http_get(port, "/v1/run/state");
+        assert_eq!(state_status, 200);
+
+        for policy in [r#""external""#, r#""unknown""#, "42", "null"] {
+            let auto = format!(r#"{{"policy":{policy}}}"#);
+            assert_policy_rejected_without_mutation(port, "/v1/run/auto", &auto, &before);
+            let fast = format!(r#"{{"multiplier":99,"policy":{policy}}}"#);
+            assert_policy_rejected_without_mutation(port, "/v1/run/fast", &fast, &before);
+            let start = format!(r#"{{"seed":99,"scenario":"unity","policy":{policy}}}"#);
+            assert_policy_rejected_without_mutation(port, "/v1/run/start", &start, &before);
+        }
+
+        let (status, response) = http_post(port, "/v1/run/auto", "{}");
+        assert_eq!(
+            status, 200,
+            "invalid start must preserve the configured default policy: {response}"
+        );
+
+        for body in [r#"{"policy":"default"}"#, r#"{"policy":"bot"}"#] {
+            let (status, response) = http_post(port, "/v1/run/auto", body);
+            assert_eq!(status, 200, "{body}: {response}");
+        }
+        let (status, response) = http_post(port, "/v1/run/fast", r#"{"policy":"default"}"#);
+        assert_eq!(status, 200, "{response}");
+
+        let (status, response) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":8,"scenario":"ura","raceModel":"stub","policy":"bot"}"#,
+        );
+        assert_eq!(status, 200, "{response}");
+        for path in ["/v1/run/auto", "/v1/run/fast"] {
+            let (status, response) = http_post(port, path, "{}");
+            assert_eq!(status, 200, "{path}: {response}");
+        }
     }
 }

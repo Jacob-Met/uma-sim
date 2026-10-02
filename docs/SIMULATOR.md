@@ -144,6 +144,8 @@ Rust `src/scoring/` remains the world-model / fixture math (including `terminal_
 | POST | `/v1/run/load_content_pack` | `{ path: "content_packs/example.json" }` |
 | GET | `/` (+ SPA assets) | Embedded web UI when built with `--features embed-ui` |
 
+REST `policy` accepts only `default` and `bot`. `/v1/run/start` sets the default used by later `/auto` and `/fast` calls; those routes may also override it per request. REST rejects `external`, unknown, and non-string policy values with HTTP 400 before changing run state or settings. External policy remains available through the CLI with `UMA_POLICY_CMD`; it is not wired into the REST API.
+
 ## MCP bridge
 
 ```powershell
