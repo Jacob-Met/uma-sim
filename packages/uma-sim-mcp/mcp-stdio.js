@@ -85,33 +85,37 @@ async function callTool(name, args) {
 }
 
 function send(msg) {
-  const body = JSON.stringify(msg);
-  process.stdout.write(`Content-Length: ${Buffer.byteLength(body, "utf8")}\r\n\r\n${body}`);
+  // MCP stdio transport: newline-delimited JSON-RPC messages (no Content-Length headers)
+  process.stdout.write(JSON.stringify(msg) + "\n");
 }
 
-let buffer = Buffer.alloc(0);
+let buffer = "";
 
+process.stdin.setEncoding("utf8");
 process.stdin.on("data", (chunk) => {
-  buffer = Buffer.concat([buffer, chunk]);
-  while (true) {
-    const headerEnd = buffer.indexOf("\r\n\r\n");
-    if (headerEnd === -1) break;
-    const header = buffer.slice(0, headerEnd).toString("utf8");
-    const match = header.match(/Content-Length:\s*(\d+)/i);
-    if (!match) break;
-    const len = parseInt(match[1], 10);
-    const start = headerEnd + 4;
-    if (buffer.length < start + len) break;
-    const body = buffer.slice(start, start + len).toString("utf8");
-    buffer = buffer.slice(start + len);
-    handle(JSON.parse(body)).catch((e) => {
-      send({ jsonrpc: "2.0", id: null, error: { code: -32603, message: e.message } });
+  buffer += chunk;
+  let idx;
+  while ((idx = buffer.indexOf("\n")) !== -1) {
+    const line = buffer.slice(0, idx).replace(/\r$/, "");
+    buffer = buffer.slice(idx + 1);
+    if (!line) continue;
+    let req;
+    try {
+      req = JSON.parse(line);
+    } catch (e) {
+      send({ jsonrpc: "2.0", id: null, error: { code: -32700, message: "Parse error" } });
+      continue;
+    }
+    handle(req).catch((e) => {
+      send({ jsonrpc: "2.0", id: req && req.id !== undefined ? req.id : null, error: { code: -32603, message: e.message } });
     });
   }
 });
 
 async function handle(req) {
   const { id, method, params } = req;
+  // Notifications carry no id: accept them silently (MCP stdio spec).
+  if (id === undefined || id === null) return;
   if (method === "initialize") {
     send({
       jsonrpc: "2.0",
