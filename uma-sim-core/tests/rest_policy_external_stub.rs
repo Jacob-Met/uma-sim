@@ -31,8 +31,7 @@ fn parse_http(buf: &str) -> (u16, String) {
 }
 
 fn http_post(port: u16, path: &str, json_body: &str) -> (u16, String) {
-    let mut stream =
-        TcpStream::connect(("127.0.0.1", port)).expect("connect to test server");
+    let mut stream = TcpStream::connect(("127.0.0.1", port)).expect("connect to test server");
     let req = format!(
         "POST {path} HTTP/1.1\r\nHost: localhost\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{json_body}",
         json_body.len()
