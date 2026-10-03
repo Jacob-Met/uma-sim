@@ -117,7 +117,7 @@ cargo run -p uma-sim-core --bin uma-sim -- fast --seed=42 --policy=external
 
 **Throughput (measured 2026-09-02, warm JVM, URA seed 42):** ~130 turns/sec engine-reported (~72 turns in ~0.55s); wall-clock for a single `fast` CLI career after warm start ≈ 1.1–1.8s including process overhead. Cold start pays an extra ~8–12s for JVM boot on first `ping`.
 
-**Batch terminal eval (Phase 5):** `uma-sim batch --count=100 --policy=default` → **~2780 careers/min** with non-zero `U` on every record; `--policy=external` sample → **~460 careers/min** (above the ~100/min fitting floor). Output JSONL fields: `u`, `phi_blue`, `psi_grade`, `grade`, `score`, `sp_spent`, `brackets`.
+**Batch terminal eval (Phase 5):** `uma-sim batch --count=100 --policy=default` → **~2780 careers/min** with non-zero `U` on every record; `--policy=external` sample → **~460 careers/min** (above the ~100/min fitting floor). Output JSONL fields: `u`, `phi_blue`, `psi_grade`, `grade`, `score`, `sp_spent`, `brackets`. `uma-sim analyze --input=<batch.jsonl> [--compare=<baseline.jsonl>] [--format=text|json] [--top=N]` summarizes a batch (score mean/median/stddev, grade histogram, terminal-stat means, skill-shop gain, top careers by score) and reports deltas of the input versus a baseline batch, so a policy/deck change can be evaluated without a hand-rolled script.
 
 **Fitted value function (Phase 7):** optional weights via `UMA_VALUE_WEIGHTS` / CEM (`python scripts/fit_value_function.py`). A/B over 200 matched seeds (`--policy=external`): baseline mean U **11.10** 95%CI [10.87, 11.32]; fitted **12.71** [12.63, 12.79]; delta **+1.61** [1.37, 1.86].
 
