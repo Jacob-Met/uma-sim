@@ -347,8 +347,8 @@ mod tests {
 
     impl Stubs {
         fn write() -> Self {
-            let dir = std::env::temp_dir()
-                .join(format!("umasim-policy-stubs-{}", std::process::id()));
+            let dir =
+                std::env::temp_dir().join(format!("umasim-policy-stubs-{}", std::process::id()));
             let _ = std::fs::remove_dir_all(&dir);
             std::fs::create_dir_all(&dir).unwrap();
             let scripts: &[(&str, &str)] = &[
@@ -387,7 +387,12 @@ mod tests {
     }
 
     /// Build real fixtures via the engine, the same way the REST layer does.
-    fn fixtures() -> (Vec<SimChoice>, CareerState, TrainingResolver, Box<dyn ScenarioPlugin>) {
+    fn fixtures() -> (
+        Vec<SimChoice>,
+        CareerState,
+        TrainingResolver,
+        Box<dyn ScenarioPlugin>,
+    ) {
         let mut engine = SimEngine::new(SimSettings::default());
         engine.start(RunMeta::new(7, "ura", "Special Week"));
         let choices = engine.choices();
@@ -414,9 +419,7 @@ mod tests {
     /// respawned on the next request rather than 503ing until restart.
     #[test]
     fn wedged_policy_server_times_out_loudly_and_respawns() {
-        let _lock = EXTERNAL_TEST_LOCK
-            .lock()
-            .unwrap_or_else(|e| e.into_inner());
+        let _lock = EXTERNAL_TEST_LOCK.lock().unwrap_or_else(|e| e.into_inner());
         let old_cmd = std::env::var("UMA_POLICY_CMD").ok();
         let old_timeout = std::env::var("UMA_POLICY_TIMEOUT_MS").ok();
         reset_external_for_tests();
@@ -442,9 +445,8 @@ mod tests {
         // The wedged child was killed: pointing at a healthy server must
         // respawn and succeed instead of failing forever.
         set_env(Some(&stubs.cmd("ok.sh")), None);
-        let action =
-            try_external_auto_policy(&choices, &state, &resolver, plugin.as_ref())
-                .expect("healthy server after a wedged one must respawn and succeed");
+        let action = try_external_auto_policy(&choices, &state, &resolver, plugin.as_ref())
+            .expect("healthy server after a wedged one must respawn and succeed");
         assert_eq!(action.kind, SimActionKind::Rest);
 
         // Restore environment and global slot.
@@ -457,9 +459,7 @@ mod tests {
     /// healthy server configured) succeeds.
     #[test]
     fn dead_policy_child_is_reaped_and_respawned() {
-        let _lock = EXTERNAL_TEST_LOCK
-            .lock()
-            .unwrap_or_else(|e| e.into_inner());
+        let _lock = EXTERNAL_TEST_LOCK.lock().unwrap_or_else(|e| e.into_inner());
         let old_cmd = std::env::var("UMA_POLICY_CMD").ok();
         let old_timeout = std::env::var("UMA_POLICY_TIMEOUT_MS").ok();
         reset_external_for_tests();
@@ -479,9 +479,8 @@ mod tests {
 
         // Next request with a healthy server must respawn, not reuse the corpse.
         set_env(Some(&stubs.cmd("ok.sh")), None);
-        let action =
-            try_external_auto_policy(&choices, &state, &resolver, plugin.as_ref())
-                .expect("healthy server after a dead child must respawn and succeed");
+        let action = try_external_auto_policy(&choices, &state, &resolver, plugin.as_ref())
+            .expect("healthy server after a dead child must respawn and succeed");
         assert_eq!(action.kind, SimActionKind::Rest);
 
         set_env(old_cmd.as_deref(), old_timeout.as_deref());
