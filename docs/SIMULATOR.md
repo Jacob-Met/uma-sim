@@ -81,7 +81,10 @@ Integer **1–100**. Presets: 1, 2, 5, 10, 20, 50, 100.
 | `state` | Print stats, phase, deck, legacy |
 | `step [action]` | Single action (`train_speed`, `rest`, `race`, `event_0`) |
 | `fast` | Auto-play to completion (default speed 20 if unset) |
+| `batch` | Run many careers to JSONL (`--count`, `--seed`, `--scenario`, `--policy`, `--output`) |
 | `export-telemetry` | Write Android-shaped JSONL under `runs/sim-telemetry/` |
+| `validate` | Validate a content pack JSON file |
+| `content validate` | Alias of `validate` (same content-pack check) |
 | `validate` | Validate a content pack JSON file |
 | `deck place` | Reposition a support onto a facility |
 | `serve` | Start REST API (+ embedded UI when built with `embed-ui`) on `--port=` (default 8765); `--open` launches the browser |
@@ -141,6 +144,7 @@ Rust `src/scoring/` remains the world-model / fixture math (including `terminal_
 | POST | `/v1/run/fast` | `{ multiplier, policy }` |
 | GET | `/v1/run/telemetry` | Turn telemetry JSON |
 | POST | `/v1/run/deck/place` | `{ supportId, facility }` |
+| POST | `/v1/run/style` | `{ strategy }` — set preferred running style (feeds race placement) |
 | POST | `/v1/run/load_content_pack` | `{ path: "content_packs/example.json" }` |
 | GET | `/` (+ SPA assets) | Embedded web UI when built with `--features embed-ui` |
 
