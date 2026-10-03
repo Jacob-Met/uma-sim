@@ -58,11 +58,12 @@ pub use race::{
 pub use render::TextRenderer;
 pub use rng::SimRandom;
 pub use scenario::{
-    scenario_plugin_for, ConcertOutcome, DuelContest, DuelPrediction, GrandConcertScenarioPlugin,
-    GrandLiveCalibrationLoader, GrandLiveCatalog, GrandLiveCatalogLoader, GrandLiveDeckSupport,
-    GrandLiveLessonBoard, GrandLiveLessonScoring, GrandLiveMasteryBonus, GrandLiveMechanics,
-    ScenarioPlugin, TrackblazerMechanics, TrackblazerScenarioPlugin, UnityCupMechanics,
-    UnityCupScenarioPlugin, UraMechanics, UraScenarioPlugin, PERF_CODES,
+    is_known_scenario, scenario_plugin_for, ConcertOutcome, DuelContest, DuelPrediction,
+    GrandConcertScenarioPlugin, GrandLiveCalibrationLoader, GrandLiveCatalog,
+    GrandLiveCatalogLoader, GrandLiveDeckSupport, GrandLiveLessonBoard, GrandLiveLessonScoring,
+    GrandLiveMasteryBonus, GrandLiveMechanics, ScenarioPlugin, TrackblazerMechanics,
+    TrackblazerScenarioPlugin, UnityCupMechanics, UnityCupScenarioPlugin, UraMechanics,
+    UraScenarioPlugin, KNOWN_SCENARIO_IDS, PERF_CODES,
 };
 pub use scoring::soft_cap_effectiveness_multiplier;
 pub use scoring::{

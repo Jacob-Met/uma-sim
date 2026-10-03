@@ -91,6 +91,16 @@ fn parse_flags(args: &[String]) -> CliFlags {
                 f.seed = n;
             }
         } else if let Some(v) = arg.strip_prefix("--scenario=") {
+            // Reject unknown scenarios loudly: the engine silently falls back
+            // to the URA plugin while keeping the raw id, which produces
+            // divergent, silently-wrong runs (see issue #6 secondary item).
+            if !uma_sim_core::is_known_scenario(v) {
+                eprintln!(
+                    "Error: unknown scenario '{v}'; expected one of: {}",
+                    uma_sim_core::KNOWN_SCENARIO_IDS.join(", ")
+                );
+                std::process::exit(2);
+            }
             f.scenario = v.to_string();
         } else if let Some(v) = arg.strip_prefix("--trainee=") {
             f.trainee = v.to_string();
@@ -119,13 +129,37 @@ fn parse_flags(args: &[String]) -> CliFlags {
         } else if let Some(v) = arg.strip_prefix("--policy=") {
             f.policy = v.to_string();
         } else if let Some(v) = arg.strip_prefix("--race-model=") {
-            f.race_model = Some(uma_sim_core::RaceModel::parse(v));
+            // Reject unknown race models loudly instead of silently flipping
+            // to the legacy stub when the documented default is physics.
+            match uma_sim_core::RaceModel::parse(v) {
+                Some(m) => f.race_model = Some(m),
+                None => {
+                    eprintln!(
+                        "Error: unknown race-model '{v}'; expected one of: {}",
+                        uma_sim_core::RaceModel::KNOWN_RACE_MODELS.join(", ")
+                    );
+                    std::process::exit(2);
+                }
+            }
         } else if arg == "--trace-rng" {
             f.trace_rng = true;
         } else if arg == "--trace-telemetry" {
             f.trace_telemetry = true;
         } else if let Some(v) = arg.strip_prefix("--output=") {
             f.output = Some(v.to_string());
+        }
+    }
+    // A mistyped UMA_RACE_MODEL must fail loudly too, but only when it would
+    // actually be used (--race-model= wins over the env var).
+    if f.race_model.is_none() {
+        if let Ok(raw) = std::env::var("UMA_RACE_MODEL") {
+            if !raw.trim().is_empty() && uma_sim_core::RaceModel::parse(&raw).is_none() {
+                eprintln!(
+                    "Error: unknown race-model '{raw}' in UMA_RACE_MODEL; expected one of: {}",
+                    uma_sim_core::RaceModel::KNOWN_RACE_MODELS.join(", ")
+                );
+                std::process::exit(2);
+            }
         }
     }
     f

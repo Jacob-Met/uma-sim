@@ -46,19 +46,26 @@ impl RaceModel {
         }
     }
 
-    pub fn parse(raw: &str) -> Self {
+    /// Parse a race-model name. Returns `None` for unknown values instead of
+    /// silently substituting the legacy stub — an unknown value must never
+    /// flip the simulation to `Stub` when the documented default is `Physics`.
+    pub fn parse(raw: &str) -> Option<Self> {
         match raw.trim().to_ascii_lowercase().as_str() {
-            "physics" | "sim" | "full" => RaceModel::Physics,
-            _ => RaceModel::Stub,
+            "physics" | "sim" | "full" => Some(RaceModel::Physics),
+            "stub" | "legacy" => Some(RaceModel::Stub),
+            _ => None,
         }
     }
 
-    /// `UMA_RACE_MODEL=stub|physics` when set.
+    /// Canonical race-model names, as documented in the CLI usage text.
+    pub const KNOWN_RACE_MODELS: &[&str] = &["stub", "physics"];
+
+    /// `UMA_RACE_MODEL=stub|physics` when set to a known value.
     pub fn from_env() -> Option<Self> {
         std::env::var("UMA_RACE_MODEL")
             .ok()
             .filter(|s| !s.trim().is_empty())
-            .map(|s| Self::parse(&s))
+            .and_then(|s| Self::parse(&s))
     }
 }
 
