@@ -2,6 +2,11 @@ name: ci
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE*'
+      - 'NOTICE'
+      - 'docs/**'
   pull_request:
 
 # uma-sim #4 M2: explicit minimal GITHUB_TOKEN permissions (defense-in-depth;
