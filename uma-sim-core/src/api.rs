@@ -364,6 +364,10 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         let p = policy.to_lowercase();
         if p == "bot" || p == "default" || p == "external" {
             st.default_policy = p;
+        } else {
+            // Fail loudly on unknown policies at session creation instead of
+            // silently keeping the previous default (issue #6, brief §3.3).
+            return unknown_policy_response(&policy);
         }
     }
 
@@ -429,6 +433,31 @@ fn handle_action(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     step_response(eng, result.text_lines.join("\n"), result.career_ended)
 }
 
+/// Resolve a REST `policy` value to its canonical arm.
+///
+/// Matching is case-insensitive (`"BOT"` behaves exactly like `"bot"` —
+/// consistent with `handle_start`, which lowercases before storing).
+/// Returns `None` for unknown values; callers reject those with 400 instead
+/// of silently substituting the default heuristic (issue #6, brief §3.3).
+fn resolve_policy(name: &str) -> Option<&'static str> {
+    match name.to_lowercase().as_str() {
+        "bot" => Some("bot"),
+        "default" => Some("default"),
+        "external" => Some("external"),
+        _ => None,
+    }
+}
+
+/// 400 response for an unknown policy value. Same JSON error shape as the
+/// other loud policy failures (`{"error": ...}`), so clients can surface it
+/// as an error state instead of guessing.
+fn unknown_policy_response(raw: &str) -> Response<Cursor<Vec<u8>>> {
+    json_response(
+        400,
+        json!({"error": format!("unknown policy \"{raw}\"; expected one of: bot, default, external")}),
+    )
+}
+
 fn handle_auto(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     let policy_fallback = st.default_policy.clone();
     let Some(eng) = st.engine.as_mut() else {
@@ -436,23 +465,27 @@ fn handle_auto(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     };
     let body = parse_body(raw);
     let policy_name = body_string(&body, "policy").unwrap_or(policy_fallback);
-    let result = if policy_name == "bot" {
-        eng.auto_step_scoring()
-    } else if policy_name.eq_ignore_ascii_case("external") {
-        // The API advertises "external" in /v1/run/start, so honor it; when the
-        // external policy server is unreachable this fails loudly (503) instead
-        // of silently substituting the default heuristic.
-        match eng.auto_step_external_checked() {
-            Ok(r) => r,
-            Err(e) => {
-                return json_response(
-                    503,
-                    json!({"error": format!("external policy unavailable: {e}")}),
-                )
+    let Some(policy_kind) = resolve_policy(&policy_name) else {
+        return unknown_policy_response(&policy_name);
+    };
+    let result = match policy_kind {
+        "bot" => eng.auto_step_scoring(),
+        "external" => {
+            // The API advertises "external" in /v1/run/start, so honor it; when the
+            // external policy server is unreachable this fails loudly (503) instead
+            // of silently substituting the default heuristic.
+            match eng.auto_step_external_checked() {
+                Ok(r) => r,
+                Err(e) => {
+                    return json_response(
+                        503,
+                        json!({"error": format!("external policy unavailable: {e}")}),
+                    )
+                }
             }
         }
-    } else {
-        eng.auto_step_with_policy(default_auto_policy)
+        // "default"
+        _ => eng.auto_step_with_policy(default_auto_policy),
     };
     step_response(eng, result.text_lines.join("\n"), result.career_ended)
 }
@@ -464,6 +497,9 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         .unwrap_or(st.settings.speed_multiplier)
         .clamp(1, 100);
     let policy_name = body_string(&body, "policy").unwrap_or_else(|| st.default_policy.clone());
+    let Some(policy_kind) = resolve_policy(&policy_name) else {
+        return unknown_policy_response(&policy_name);
+    };
     st.settings.speed_multiplier = mult;
 
     let Some(eng) = st.engine.as_mut() else {
@@ -473,20 +509,21 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     snap.settings.speed_multiplier = mult;
     eng.restore(snap);
 
-    if policy_name == "bot" {
-        eng.play_to_completion_scoring(500);
-    } else if policy_name.eq_ignore_ascii_case("external") {
-        // Honor the requested external policy; when the external policy
-        // server is unreachable this fails loudly (503) instead of silently
-        // substituting the default heuristic.
-        if let Err(e) = eng.play_to_completion_external_checked(500) {
-            return json_response(
-                503,
-                json!({"error": format!("external policy unavailable: {e}")}),
-            );
+    match policy_kind {
+        "bot" => eng.play_to_completion_scoring(500),
+        "external" => {
+            // Honor the requested external policy; when the external policy
+            // server is unreachable this fails loudly (503) instead of silently
+            // substituting the default heuristic.
+            if let Err(e) = eng.play_to_completion_external_checked(500) {
+                return json_response(
+                    503,
+                    json!({"error": format!("external policy unavailable: {e}")}),
+                );
+            }
         }
-    } else {
-        eng.play_to_completion(500);
+        // "default"
+        _ => eng.play_to_completion(500),
     }
     let s = eng.state();
     json_response(
@@ -683,6 +720,48 @@ mod tests {
     use std::thread;
     use std::time::Duration;
 
+    /// Serializes the tests that depend on the process-global `UMA_POLICY_CMD`.
+    /// Rust runs a test binary's tests in threads of one process, and the REST
+    /// server reads this variable per request, so tests that need it absent
+    /// must not interleave with any test that sets it. Any test that sets or
+    /// unsets `UMA_POLICY_CMD` must hold this lock for the whole server
+    /// interaction. (The stub positive-path test lives in its own integration
+    /// test binary precisely so it cannot interleave with these.)
+    static POLICY_CMD_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
+    /// Start a run on the test server; `policy_field` is `""` or e.g.
+    /// `",\"policy\":\"external\""`.
+    fn start_run(port: u16, policy_field: &str) -> (u16, String) {
+        let body = format!(
+            "{{\"seed\":7,\"scenario\":\"ura\",\"trainee\":\"Special Week\",\"raceModel\":\"stub\"{policy_field}}}"
+        );
+        http_post(port, "/v1/run/start", &body)
+    }
+
+    /// Assert a response body is a JSON object with a string "error" field
+    /// naming `needle`.
+    fn assert_json_error(body: &str, needle: &str) {
+        let v: serde_json::Value = serde_json::from_str(body).expect("error body must be JSON");
+        let msg = v
+            .get("error")
+            .and_then(|e| e.as_str())
+            .expect("error body must have a string \"error\" field");
+        assert!(
+            msg.contains(needle),
+            "error message should name '{needle}'; got: {msg}"
+        );
+    }
+
+    /// Raw HTTP round-trip returning the full response (status line + headers
+    /// + body), for tests that need to inspect headers.
+    fn http_raw(port: u16, request: &str) -> String {
+        let mut stream = TcpStream::connect(("127.0.0.1", port)).expect("connect to test server");
+        stream.write_all(request.as_bytes()).unwrap();
+        let mut buf = String::new();
+        stream.read_to_string(&mut buf).unwrap();
+        buf
+    }
+
     fn free_port() -> u16 {
         let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
         listener.local_addr().unwrap().port()
@@ -848,8 +927,17 @@ mod tests {
     /// naming the missing env var.
     #[test]
     fn policy_external_without_policy_cmd_fails_loudly_not_silently() {
-        // Precondition: no external policy server is configured. No other
-        // test in this binary depends on UMA_POLICY_CMD.
+        // Serialize with the policy_external stub tests: they set
+        // UMA_POLICY_CMD and populate the global EXTERNAL slot.
+        let _lock = crate::policy_external::EXTERNAL_TEST_LOCK
+            .lock()
+            .unwrap_or_else(|e| e.into_inner());
+        crate::policy_external::reset_external_for_tests();
+        // Precondition: no external policy server is configured. Hold the env
+        // lock for the whole interaction: the stub positive-path test (in its
+        // own test binary) sets UMA_POLICY_CMD, and the per-request reads must
+        // not see a value set by another test.
+        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
         std::env::remove_var("UMA_POLICY_CMD");
 
         let port = free_port();
@@ -892,5 +980,220 @@ mod tests {
             "REST /v1/run/auto with policy=external must not 200; got {status}: {body}"
         );
         assert!(body.contains("UMA_POLICY_CMD"), "got: {body}");
+    }
+
+    /// T1 — unknown policy values on /v1/run/auto and /v1/run/fast.
+    ///
+    /// DECIDED (Jacob, 2026-10-03): `"foo"` is rejected with 400 and a JSON
+    /// error naming the value — the same loud-failure philosophy as issue #6.
+    /// The residual `else` arms in `handle_auto`/`handle_fast` no longer
+    /// silently fall through to the default heuristic.
+    #[test]
+    fn policy_unknown_on_auto_and_fast() {
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+
+        let (status, _) = start_run(port, "");
+        assert_eq!(status, 200);
+
+        // /v1/run/auto with an unknown policy: 400, not a silent 200.
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"foo"}"#);
+        assert_eq!(status, 400, "unknown policy must 400; got {status}: {body}");
+        assert_json_error(&body, "foo");
+
+        // /v1/run/fast with an unknown policy: 400 as well.
+        let (status, body) = http_post(port, "/v1/run/fast", r#"{"policy":"foo"}"#);
+        assert_eq!(status, 400, "unknown policy must 400; got {status}: {body}");
+        assert_json_error(&body, "foo");
+
+        // The session is uncorrupted: a valid policy still works afterwards.
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"default"}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains("\"careerEnded\""), "got: {body}");
+    }
+
+    /// T2 — case variants of policy names on /v1/run/auto.
+    ///
+    /// DECIDED (Jacob, 2026-10-03): policy names are normalized
+    /// case-insensitively, consistent with `handle_start` (which lowercases
+    /// before storing). `"External"`/`"EXTERNAL"` take the external arm (loud
+    /// 503 with no server); `"BOT"` behaves exactly like `"bot"` (scoring
+    /// arm); `"Default"` takes the default arm.
+    #[test]
+    fn policy_case_variants() {
+        // "External"/"EXTERNAL" hit the external arm (case-insensitive).
+        for variant in ["External", "EXTERNAL"] {
+            let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+            std::env::remove_var("UMA_POLICY_CMD");
+
+            let port = free_port();
+            thread::spawn(move || serve(port));
+            wait_ready(port);
+            let (status, _) = start_run(port, "");
+            assert_eq!(status, 200);
+
+            let (status, body) = http_post(
+                port,
+                "/v1/run/auto",
+                &format!(r#"{{"policy":"{variant}"}}"#),
+            );
+            assert_eq!(
+                status, 503,
+                "policy={variant}: expected loud 503; got {status}: {body}"
+            );
+            assert!(body.contains("UMA_POLICY_CMD"), "got: {body}");
+        }
+
+        // "BOT" normalizes to "bot": takes the scoring arm, exactly like "bot".
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, _) = start_run(port, "");
+        assert_eq!(status, 200);
+
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"BOT"}"#);
+        assert_eq!(
+            status, 200,
+            "\"BOT\" must behave like \"bot\"; got {status}: {body}"
+        );
+        assert!(body.contains("\"careerEnded\""), "got: {body}");
+
+        // And "bot" itself still takes the scoring arm (no regression).
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"bot"}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains("\"careerEnded\""), "got: {body}");
+
+        // "Default" likewise falls to the default arm (which is the default).
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"Default"}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains("\"careerEnded\""), "got: {body}");
+    }
+
+    /// T3 — /v1/run/start with an unknown policy.
+    ///
+    /// DECIDED (Jacob, 2026-10-03): unknown policies are rejected at session
+    /// creation with 400 — no more silent keep-previous-default.
+    #[test]
+    fn start_rejects_unknown_policy() {
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+
+        let (status, body) = start_run(port, r#","policy":"foo""#);
+        assert_eq!(
+            status, 400,
+            "unknown start policy must 400; got {status}: {body}"
+        );
+
+        // A clean session afterwards works normally on the default path.
+        let (status, _) = start_run(port, "");
+        assert_eq!(status, 200);
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains("\"careerEnded\""), "got: {body}");
+    }
+
+    /// T4 — error-shape contract for loud policy failures.
+    ///
+    /// Clients (e.g. packages/uma-sim-ui) need a stable shape to surface
+    /// loud failures as error states: a JSON body with a string "error" field
+    /// and a JSON Content-Type. (The 400 half of this contract arrives with
+    /// the unknown→400 amendment; this test pins the 503 half now.)
+    #[test]
+    fn policy_error_shape_contract() {
+        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, _) = start_run(port, "");
+        assert_eq!(status, 200);
+
+        // Raw request so the response headers (not just the body) can be
+        // inspected.
+        let req_body = r#"{"policy":"external"}"#;
+        let raw = http_raw(
+            port,
+            &format!(
+                "POST /v1/run/auto HTTP/1.1\r\nHost: localhost\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{req_body}",
+                req_body.len()
+            ),
+        );
+        assert!(
+            raw.starts_with("HTTP/1.1 503"),
+            "expected a 503 status line; got: {}",
+            raw.lines().next().unwrap_or("")
+        );
+        let (headers, body) = raw
+            .split_once("\r\n\r\n")
+            .expect("response must have a header/body split");
+        assert!(
+            headers
+                .to_ascii_lowercase()
+                .contains("content-type: application/json"),
+            "loud policy errors must be JSON; headers were: {headers}"
+        );
+        assert_json_error(body, "UMA_POLICY_CMD");
+    }
+
+    /// T5 — the session stays usable after a loud policy failure.
+    ///
+    /// Guards the validation-before-mutation ordering: a 503 from the
+    /// external arm must not poison the engine, so a subsequent default-policy
+    /// step returns a normal 200 with a valid step body.
+    #[test]
+    fn session_usable_after_policy_503() {
+        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, _) = start_run(port, "");
+        assert_eq!(status, 200);
+
+        // Loud failure on /v1/run/fast with policy=external and no server.
+        // (Fails immediately inside ensure_external; no 500-iteration run.)
+        let (status, body) = http_post(port, "/v1/run/fast", r#"{"policy":"external"}"#);
+        assert_eq!(status, 503, "got {status}: {body}");
+        assert!(body.contains("UMA_POLICY_CMD"), "got: {body}");
+
+        // The session is uncorrupted: a default-policy step works normally.
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"default"}"#);
+        assert_eq!(
+            status, 200,
+            "session was poisoned by the 503 path; got {status}: {body}"
+        );
+        assert!(body.contains("\"text\""), "got: {body}");
+        assert!(body.contains("\"careerEnded\""), "got: {body}");
+    }
+
+    /// T9 — unrelated endpoints are unaffected by policy errors.
+    ///
+    /// Regression net: after a loud policy failure, /v1/run/choices and
+    /// /v1/health still answer 200 with valid shapes.
+    #[test]
+    fn run_endpoints_unaffected_by_policy_errors() {
+        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, _) = start_run(port, "");
+        assert_eq!(status, 200);
+
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"external"}"#);
+        assert_eq!(status, 503, "got {status}: {body}");
+
+        let (status, body) = http_get(port, "/v1/run/choices");
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains("\"choices\""), "got: {body}");
+
+        let (status, body) = http_get(port, "/v1/health");
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains("\"ok\":true"), "got: {body}");
     }
 }
