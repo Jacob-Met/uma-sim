@@ -15,10 +15,7 @@ fn bin() -> PathBuf {
 /// Fresh temp working directory per test, so `.uma-sim/session.json` written
 /// by the CLI stays out of the repo tree.
 fn temp_cwd(name: &str) -> PathBuf {
-    let dir = std::env::temp_dir().join(format!(
-        "umasim-cli-policy-{}-{name}",
-        std::process::id()
-    ));
+    let dir = std::env::temp_dir().join(format!("umasim-cli-policy-{}-{name}", std::process::id()));
     std::fs::create_dir_all(&dir).expect("create temp cwd");
     dir
 }
