@@ -16,15 +16,15 @@ jobs:
       run:
         working-directory: packages/uma-sim-ui
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20"
           cache: npm
           cache-dependency-path: packages/uma-sim-ui/package-lock.json
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: uma-sim-ui-dist
           path: packages/uma-sim-ui/dist
@@ -49,12 +49,12 @@ jobs:
             bin: uma-sim
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: uma-sim-ui-dist
           path: packages/uma-sim-ui/dist
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@89b12181fb390509a0842a86cc55eeb8eb928c1d # stable
         if: matrix.container == ''
       - name: Build release binary (embedded UI)
         if: matrix.container == ''
@@ -130,7 +130,7 @@ jobs:
           else
             scripts/smoke_release_layout.sh "verify/${{ matrix.artifact }}" "${{ matrix.bin }}"
           fi
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ matrix.artifact }}
           path: dist/${{ matrix.artifact }}.zip
@@ -141,7 +141,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           pattern: uma-sim-{windows-x64,linux-x64,macos-arm64}
           path: dist
@@ -149,7 +149,7 @@ jobs:
       - run: |
           ls -l dist
           test "$(ls dist/*.zip | wc -l)" = 3
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           files: dist/*.zip
           generate_release_notes: true
