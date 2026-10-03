@@ -3,9 +3,17 @@ on:
   push:
     branches: [main]
   pull_request:
+
+# One run per ref: a new push to a PR branch cancels its stale run. Pushes to
+# main are not cancelled, so every main commit keeps a complete result.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   ui:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: packages/uma-sim-ui
@@ -27,6 +35,9 @@ jobs:
   rust:
     runs-on: ubuntu-latest
     needs: ui
+    # Typical warm run is ~3 min; a cold cache rebuilds the workspace twice
+    # (debug + release), so leave headroom without the 360 min default.
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -36,6 +47,11 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
+      # Caches ~/.cargo registry/git and target/, keyed on toolchain + Cargo.lock.
+      # Only main saves the cache, so PR runs restore it without evicting it.
+      - uses: Swatinem/rust-cache@v2
+        with:
+          save-if: ${{ github.ref == 'refs/heads/main' }}
       - run: cargo fmt --all -- --check
       - run: cargo clippy --workspace --all-targets
       - run: cargo test --workspace
