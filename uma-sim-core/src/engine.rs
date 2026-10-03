@@ -428,6 +428,25 @@ impl SimEngine {
         self.step(action)
     }
 
+    /// Single auto-step driven by the external JVM policy server
+    /// (`--policy=external` / `UMA_POLICY_CMD`). Returns the failure as an
+    /// error instead of panicking, so the REST API can turn an unavailable
+    /// policy server into an HTTP error rather than silently downgrading.
+    pub fn auto_step_external_checked(&mut self) -> Result<SimStepResult, String> {
+        let choices = self.choices();
+        if choices.is_empty() {
+            return Ok(self.snapshot(Vec::new()));
+        }
+        let state = self.state.clone();
+        let action = crate::policy_external::try_external_auto_policy(
+            &choices,
+            &state,
+            &self.training_resolver,
+            self.plugin.as_ref(),
+        )?;
+        Ok(self.step(action))
+    }
+
     pub fn play_to_completion(&mut self, max_actions: i32) {
         self.play_to_completion_with_policy(max_actions, |choices| default_auto_policy(choices));
     }
@@ -481,6 +500,35 @@ impl SimEngine {
                 actions += 1;
             }
         }
+    }
+
+    /// Drive the career with the JVM policy server, returning the failure as
+    /// an error instead of panicking, so the REST API can turn an unavailable
+    /// policy server into an HTTP error rather than silently downgrading.
+    pub fn play_to_completion_external_checked(&mut self, max_actions: i32) -> Result<(), String> {
+        let mut actions = 0;
+        while !self.state.career_complete && actions < max_actions {
+            let mult = self.settings.clamped_speed().max(1);
+            for _ in 0..mult {
+                if self.state.career_complete {
+                    return Ok(());
+                }
+                let choices = self.choices();
+                if choices.is_empty() {
+                    return Ok(());
+                }
+                let state = self.state.clone();
+                let action = crate::policy_external::try_external_auto_policy(
+                    &choices,
+                    &state,
+                    &self.training_resolver,
+                    self.plugin.as_ref(),
+                )?;
+                self.step(action);
+                actions += 1;
+            }
+        }
+        Ok(())
     }
 
     pub fn play_to_completion_with_policy(

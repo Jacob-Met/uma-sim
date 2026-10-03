@@ -24,7 +24,7 @@ const API_VERSION: &str = env!("CARGO_PKG_VERSION");
 struct ApiState {
     engine: Option<SimEngine>,
     settings: SimSettings,
-    /// Default policy name for `/auto` / `/fast` when the client omits it (`bot`|`default`).
+    /// Default policy name for `/auto` / `/fast` when the client omits it (`bot`|`default`|`external`).
     default_policy: String,
 }
 
@@ -438,6 +438,16 @@ fn handle_auto(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     let policy_name = body_string(&body, "policy").unwrap_or(policy_fallback);
     let result = if policy_name == "bot" {
         eng.auto_step_scoring()
+    } else if policy_name.eq_ignore_ascii_case("external") {
+        // The API advertises "external" in /v1/run/start, so honor it; when the
+        // external policy server is unreachable this fails loudly (503) instead
+        // of silently substituting the default heuristic.
+        match eng.auto_step_external_checked() {
+            Ok(r) => r,
+            Err(e) => {
+                return json_response(503, json!({"error": format!("external policy unavailable: {e}")}))
+            }
+        }
     } else {
         eng.auto_step_with_policy(default_auto_policy)
     };
@@ -462,6 +472,13 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
 
     if policy_name == "bot" {
         eng.play_to_completion_scoring(500);
+    } else if policy_name.eq_ignore_ascii_case("external") {
+        // Honor the requested external policy; when the external policy
+        // server is unreachable this fails loudly (503) instead of silently
+        // substituting the default heuristic.
+        if let Err(e) = eng.play_to_completion_external_checked(500) {
+            return json_response(503, json!({"error": format!("external policy unavailable: {e}")}));
+        }
     } else {
         eng.play_to_completion(500);
     }
@@ -816,5 +833,58 @@ mod tests {
         );
         assert!(step.get("text").is_some());
         assert!(step.get("careerEnded").is_some());
+    }
+
+    /// Regression test for uma-sim issue #6: with no external policy server
+    /// configured (`UMA_POLICY_CMD` unset), requesting `policy=external`
+    /// through REST must fail loudly instead of silently downgrading to the
+    /// default heuristic with 200 OK. This matches the CLI, which panics
+    /// naming the missing env var.
+    #[test]
+    fn policy_external_without_policy_cmd_fails_loudly_not_silently() {
+        // Precondition: no external policy server is configured. No other
+        // test in this binary depends on UMA_POLICY_CMD.
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+
+        // Session accepts "external" as the stored default policy.
+        let (status, _) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","policy":"external"}"#,
+        );
+        assert_eq!(status, 200);
+
+        // /v1/run/fast with policy=external: must NOT be 200 with the default
+        // heuristic's output; it must be a loud 503 naming the misconfiguration.
+        let (status, body) = http_post(port, "/v1/run/fast", r#"{"policy":"external"}"#);
+        assert_eq!(
+            status, 503,
+            "REST /v1/run/fast with policy=external and no policy server must not 200; got {status}: {body}"
+        );
+        assert!(
+            body.contains("UMA_POLICY_CMD"),
+            "error should name the missing config; got: {body}"
+        );
+
+        // The session default ("external") is inherited by /v1/run/auto when
+        // the request omits "policy": also loud, not a silent downgrade.
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{}"#);
+        assert_eq!(
+            status, 503,
+            "REST /v1/run/auto inheriting policy=external must not 200; got {status}: {body}"
+        );
+        assert!(body.contains("UMA_POLICY_CMD"), "got: {body}");
+
+        // Explicit policy=external on /v1/run/auto as well.
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"external"}"#);
+        assert_eq!(
+            status, 503,
+            "REST /v1/run/auto with policy=external must not 200; got {status}: {body}"
+        );
+        assert!(body.contains("UMA_POLICY_CMD"), "got: {body}");
     }
 }

@@ -104,22 +104,38 @@ pub fn ensure_external() -> Result<(), String> {
     Ok(())
 }
 
+/// Non-panicking external-policy step: spawns the policy server on first use
+/// (via `UMA_POLICY_CMD`) and asks it to choose an action. Used by the REST
+/// API so a request for `policy=external` can fail loudly with an HTTP error
+/// instead of panicking the server or silently falling back to the default
+/// heuristic.
+pub fn try_external_auto_policy(
+    choices: &[SimChoice],
+    state: &CareerState,
+    resolver: &TrainingResolver,
+    plugin: &dyn ScenarioPlugin,
+) -> Result<SimAction, String> {
+    if let Err(e) = ensure_external() {
+        return Err(format!("[external-policy] failed to start: {e}"));
+    }
+    let mut guard = EXTERNAL.lock().unwrap_or_else(|e| e.into_inner());
+    let policy = guard
+        .as_mut()
+        .expect("external policy missing after ensure");
+    policy
+        .choose(choices, state, plugin, resolver)
+        .map_err(|e| format!("[external-policy] choose failed: {e}"))
+}
+
 pub fn external_auto_policy(
     choices: &[SimChoice],
     state: &CareerState,
     resolver: &TrainingResolver,
     plugin: &dyn ScenarioPlugin,
 ) -> SimAction {
-    if let Err(e) = ensure_external() {
-        panic!("[external-policy] failed to start: {e}");
-    }
-    let mut guard = EXTERNAL.lock().unwrap_or_else(|e| e.into_inner());
-    let policy = guard
-        .as_mut()
-        .expect("external policy missing after ensure");
-    match policy.choose(choices, state, plugin, resolver) {
+    match try_external_auto_policy(choices, state, resolver, plugin) {
         Ok(action) => action,
-        Err(e) => panic!("[external-policy] choose failed: {e}"),
+        Err(e) => panic!("{e}"),
     }
 }
 
