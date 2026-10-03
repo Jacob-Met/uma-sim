@@ -364,10 +364,6 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         let p = policy.to_lowercase();
         if p == "bot" || p == "default" || p == "external" {
             st.default_policy = p;
-        } else {
-            // Fail loudly on unknown policies at session creation instead of
-            // silently keeping the previous default (issue #6, brief §3.3).
-            return unknown_policy_response(&policy);
         }
     }
 
@@ -433,31 +429,6 @@ fn handle_action(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     step_response(eng, result.text_lines.join("\n"), result.career_ended)
 }
 
-/// Resolve a REST `policy` value to its canonical arm.
-///
-/// Matching is case-insensitive (`"BOT"` behaves exactly like `"bot"` —
-/// consistent with `handle_start`, which lowercases before storing).
-/// Returns `None` for unknown values; callers reject those with 400 instead
-/// of silently substituting the default heuristic (issue #6, brief §3.3).
-fn resolve_policy(name: &str) -> Option<&'static str> {
-    match name.to_lowercase().as_str() {
-        "bot" => Some("bot"),
-        "default" => Some("default"),
-        "external" => Some("external"),
-        _ => None,
-    }
-}
-
-/// 400 response for an unknown policy value. Same JSON error shape as the
-/// other loud policy failures (`{"error": ...}`), so clients can surface it
-/// as an error state instead of guessing.
-fn unknown_policy_response(raw: &str) -> Response<Cursor<Vec<u8>>> {
-    json_response(
-        400,
-        json!({"error": format!("unknown policy \"{raw}\"; expected one of: bot, default, external")}),
-    )
-}
-
 fn handle_auto(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     let policy_fallback = st.default_policy.clone();
     let Some(eng) = st.engine.as_mut() else {
@@ -465,27 +436,23 @@ fn handle_auto(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     };
     let body = parse_body(raw);
     let policy_name = body_string(&body, "policy").unwrap_or(policy_fallback);
-    let Some(policy_kind) = resolve_policy(&policy_name) else {
-        return unknown_policy_response(&policy_name);
-    };
-    let result = match policy_kind {
-        "bot" => eng.auto_step_scoring(),
-        "external" => {
-            // The API advertises "external" in /v1/run/start, so honor it; when the
-            // external policy server is unreachable this fails loudly (503) instead
-            // of silently substituting the default heuristic.
-            match eng.auto_step_external_checked() {
-                Ok(r) => r,
-                Err(e) => {
-                    return json_response(
-                        503,
-                        json!({"error": format!("external policy unavailable: {e}")}),
-                    )
-                }
+    let result = if policy_name == "bot" {
+        eng.auto_step_scoring()
+    } else if policy_name.eq_ignore_ascii_case("external") {
+        // The API advertises "external" in /v1/run/start, so honor it; when the
+        // external policy server is unreachable this fails loudly (503) instead
+        // of silently substituting the default heuristic.
+        match eng.auto_step_external_checked() {
+            Ok(r) => r,
+            Err(e) => {
+                return json_response(
+                    503,
+                    json!({"error": format!("external policy unavailable: {e}")}),
+                )
             }
         }
-        // "default"
-        _ => eng.auto_step_with_policy(default_auto_policy),
+    } else {
+        eng.auto_step_with_policy(default_auto_policy)
     };
     step_response(eng, result.text_lines.join("\n"), result.career_ended)
 }
@@ -497,9 +464,6 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         .unwrap_or(st.settings.speed_multiplier)
         .clamp(1, 100);
     let policy_name = body_string(&body, "policy").unwrap_or_else(|| st.default_policy.clone());
-    let Some(policy_kind) = resolve_policy(&policy_name) else {
-        return unknown_policy_response(&policy_name);
-    };
     st.settings.speed_multiplier = mult;
 
     let Some(eng) = st.engine.as_mut() else {
@@ -509,21 +473,20 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     snap.settings.speed_multiplier = mult;
     eng.restore(snap);
 
-    match policy_kind {
-        "bot" => eng.play_to_completion_scoring(500),
-        "external" => {
-            // Honor the requested external policy; when the external policy
-            // server is unreachable this fails loudly (503) instead of silently
-            // substituting the default heuristic.
-            if let Err(e) = eng.play_to_completion_external_checked(500) {
-                return json_response(
-                    503,
-                    json!({"error": format!("external policy unavailable: {e}")}),
-                );
-            }
+    if policy_name == "bot" {
+        eng.play_to_completion_scoring(500);
+    } else if policy_name.eq_ignore_ascii_case("external") {
+        // Honor the requested external policy; when the external policy
+        // server is unreachable this fails loudly (503) instead of silently
+        // substituting the default heuristic.
+        if let Err(e) = eng.play_to_completion_external_checked(500) {
+            return json_response(
+                503,
+                json!({"error": format!("external policy unavailable: {e}")}),
+            );
         }
-        // "default"
-        _ => eng.play_to_completion(500),
+    } else {
+        eng.play_to_completion(500);
     }
     let s = eng.state();
     json_response(
@@ -984,10 +947,12 @@ mod tests {
 
     /// T1 — unknown policy values on /v1/run/auto and /v1/run/fast.
     ///
-    /// DECIDED (Jacob, 2026-10-03): `"foo"` is rejected with 400 and a JSON
-    /// error naming the value — the same loud-failure philosophy as issue #6.
-    /// The residual `else` arms in `handle_auto`/`handle_fast` no longer
-    /// silently fall through to the default heuristic.
+    /// CURRENT BEHAVIOR (pinned, not blessed): `"foo"` silently falls through
+    /// to the default heuristic with 200 OK — the same silent-downgrade class
+    /// as issue #6, one match arm over.
+    /// TODO (needs Jacob's decision (a)): amend the residual `else` arms in
+    /// `handle_auto`/`handle_fast` to 400 on unknown policies; when that
+    /// lands, flip these assertions to 400 + a JSON error naming the value.
     #[test]
     fn policy_unknown_on_auto_and_fast() {
         let port = free_port();
@@ -997,29 +962,40 @@ mod tests {
         let (status, _) = start_run(port, "");
         assert_eq!(status, 200);
 
-        // /v1/run/auto with an unknown policy: 400, not a silent 200.
+        // /v1/run/auto with an unknown policy: currently 200 + default heuristic.
         let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"foo"}"#);
-        assert_eq!(status, 400, "unknown policy must 400; got {status}: {body}");
-        assert_json_error(&body, "foo");
+        assert_eq!(
+            status, 200,
+            "current behavior: unknown policy 200s; got {status}: {body}"
+        );
+        assert!(
+            body.contains("\"careerEnded\""),
+            "expected a normal step body, not an error; got: {body}"
+        );
 
-        // /v1/run/fast with an unknown policy: 400 as well.
+        // /v1/run/fast with an unknown policy: currently 200 after a full
+        // default-heuristic career.
         let (status, body) = http_post(port, "/v1/run/fast", r#"{"policy":"foo"}"#);
-        assert_eq!(status, 400, "unknown policy must 400; got {status}: {body}");
-        assert_json_error(&body, "foo");
-
-        // The session is uncorrupted: a valid policy still works afterwards.
-        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"default"}"#);
-        assert_eq!(status, 200, "got {status}: {body}");
-        assert!(body.contains("\"careerEnded\""), "got: {body}");
+        assert_eq!(
+            status, 200,
+            "current behavior: unknown policy 200s; got {status}: {body}"
+        );
+        assert!(
+            body.contains("\"turn\""),
+            "expected a fast-run body, not an error; got: {body}"
+        );
     }
 
     /// T2 — case variants of policy names on /v1/run/auto.
     ///
-    /// DECIDED (Jacob, 2026-10-03): policy names are normalized
-    /// case-insensitively, consistent with `handle_start` (which lowercases
-    /// before storing). `"External"`/`"EXTERNAL"` take the external arm (loud
-    /// 503 with no server); `"BOT"` behaves exactly like `"bot"` (scoring
-    /// arm); `"Default"` takes the default arm.
+    /// `"external"` matching is case-insensitive (decided behavior on
+    /// b3cd202): `"External"`/`"EXTERNAL"` take the external arm, so with no
+    /// policy server configured they 503 loudly. `"bot"`/`"default"` matching
+    /// is exact-case, so `"BOT"` silently falls through to the default
+    /// heuristic.
+    /// TODO (needs Jacob's decision (b)): normalize `bot`/`default` matching
+    /// to case-insensitive for consistency; when that lands, `"BOT"` should
+    /// behave exactly like `"bot"`.
     #[test]
     fn policy_case_variants() {
         // "External"/"EXTERNAL" hit the external arm (case-insensitive).
@@ -1045,7 +1021,8 @@ mod tests {
             assert!(body.contains("UMA_POLICY_CMD"), "got: {body}");
         }
 
-        // "BOT" normalizes to "bot": takes the scoring arm, exactly like "bot".
+        // "BOT" does not match the exact-case "bot" arm: currently 200 with
+        // the default heuristic. Pinned with a flag (see TODO above).
         let port = free_port();
         thread::spawn(move || serve(port));
         wait_ready(port);
@@ -1055,13 +1032,8 @@ mod tests {
         let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"BOT"}"#);
         assert_eq!(
             status, 200,
-            "\"BOT\" must behave like \"bot\"; got {status}: {body}"
+            "current behavior: \"BOT\" 200s via default heuristic; got {status}: {body}"
         );
-        assert!(body.contains("\"careerEnded\""), "got: {body}");
-
-        // And "bot" itself still takes the scoring arm (no regression).
-        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"bot"}"#);
-        assert_eq!(status, 200, "got {status}: {body}");
         assert!(body.contains("\"careerEnded\""), "got: {body}");
 
         // "Default" likewise falls to the default arm (which is the default).
@@ -1072,23 +1044,24 @@ mod tests {
 
     /// T3 — /v1/run/start with an unknown policy.
     ///
-    /// DECIDED (Jacob, 2026-10-03): unknown policies are rejected at session
-    /// creation with 400 — no more silent keep-previous-default.
+    /// CURRENT BEHAVIOR (pinned, not blessed): 200, and the junk value is
+    /// silently ignored — the previous default is kept (forward-compat by
+    /// accident, not by contract).
+    /// TODO (needs Jacob's decision (a)): reject unknown policies at session
+    /// creation with 400; when that lands, flip this assertion to 400.
     #[test]
     fn start_rejects_unknown_policy() {
         let port = free_port();
         thread::spawn(move || serve(port));
         wait_ready(port);
 
-        let (status, body) = start_run(port, r#","policy":"foo""#);
+        let (status, _) = start_run(port, r#","policy":"foo""#);
         assert_eq!(
-            status, 400,
-            "unknown start policy must 400; got {status}: {body}"
+            status, 200,
+            "current behavior: unknown start policy 200s; got {status}"
         );
 
-        // A clean session afterwards works normally on the default path.
-        let (status, _) = start_run(port, "");
-        assert_eq!(status, 200);
+        // The session is still usable on the default path afterwards.
         let (status, body) = http_post(port, "/v1/run/auto", r#"{}"#);
         assert_eq!(status, 200, "got {status}: {body}");
         assert!(body.contains("\"careerEnded\""), "got: {body}");
