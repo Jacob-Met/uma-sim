@@ -870,6 +870,31 @@ pub fn scenario_plugin_for(id: &str) -> Box<dyn ScenarioPlugin> {
     }
 }
 
+/// Canonical scenario ids, as listed by `/v1/catalog/scenarios` and the CLI
+/// usage text.
+pub const KNOWN_SCENARIO_IDS: &[&str] = &["ura", "grand_concert", "unity", "trackblazer"];
+
+/// True when `id` names a real scenario. Uses the same normalization as
+/// [`scenario_plugin_for`], but without the silent URA fallback: unknown ids
+/// must be rejected at the entry point (CLI / REST) instead of running a
+/// partially-wrong URA simulation (URA plugin + raw id driving event
+/// eligibility, which silently diverges from a real URA run).
+pub fn is_known_scenario(id: &str) -> bool {
+    let normalized = id.to_lowercase().replace(' ', "_");
+    matches!(
+        normalized.as_str(),
+        "ura"
+            | "ura_finale"
+            | "grand_concert"
+            | "grand_live"
+            | "gl"
+            | "unity"
+            | "unity_cup"
+            | "trackblazer"
+            | "tb"
+    )
+}
+
 fn closer_together_options(state: &CareerState) -> Vec<String> {
     let has = |needle: &str| {
         let trainee = state

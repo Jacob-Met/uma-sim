@@ -316,6 +316,15 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         .and_then(|s| s.parse().ok())
         .unwrap_or(42_i64);
     let scenario = body_string(&body, "scenario").unwrap_or_else(|| "ura".into());
+    // Reject unknown scenarios with 400: the engine silently falls back to the
+    // URA plugin while keeping the raw id, producing divergent, silently-wrong
+    // runs (see issue #6 secondary item).
+    if !crate::is_known_scenario(&scenario) {
+        return json_response(
+            400,
+            json!({"error": format!("unknown scenario '{scenario}'; expected one of: {}", crate::KNOWN_SCENARIO_IDS.join(", "))}),
+        );
+    }
     let trainee = body_string(&body, "trainee").unwrap_or_else(|| "Special Week".into());
     let speed = body_string(&body, "speed")
         .and_then(|s| s.parse::<i32>().ok())
@@ -357,9 +366,20 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         "full" => DialogueMode::Full,
         _ => DialogueMode::ChoicesOnly,
     };
-    let race_model = body_string(&body, "raceModel")
-        .map(|s| RaceModel::parse(&s))
-        .unwrap_or_default();
+    // Unknown raceModel values fail with 400 instead of silently flipping to
+    // the legacy stub when the documented default is physics.
+    let race_model = match body_string(&body, "raceModel") {
+        Some(s) => match RaceModel::parse(&s) {
+            Some(m) => m,
+            None => {
+                return json_response(
+                    400,
+                    json!({"error": format!("unknown raceModel '{s}'; expected one of: {}", RaceModel::KNOWN_RACE_MODELS.join(", "))}),
+                )
+            }
+        },
+        None => RaceModel::default(),
+    };
     if let Some(policy) = body_string(&body, "policy") {
         let p = policy.to_lowercase();
         if p == "bot" || p == "default" || p == "external" {
@@ -816,5 +836,62 @@ mod tests {
         );
         assert!(step.get("text").is_some());
         assert!(step.get("careerEnded").is_some());
+    }
+
+    #[test]
+    fn start_rejects_unknown_scenario_and_race_model() {
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+
+        // Unknown scenario: 400 naming the problem, never a silent URA fallback.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":42,"scenario":"foo","trainee":"Special Week"}"#,
+        );
+        assert_eq!(
+            status, 400,
+            "unknown scenario must be rejected, got: {body}"
+        );
+        let v: Value = serde_json::from_str(&body).unwrap();
+        assert!(
+            v["error"]
+                .as_str()
+                .unwrap_or("")
+                .contains("unknown scenario"),
+            "error names the problem, got: {body}"
+        );
+
+        // Unknown raceModel: 400, never a silent flip to the legacy stub.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":42,"scenario":"ura","trainee":"Special Week","raceModel":"foo"}"#,
+        );
+        assert_eq!(
+            status, 400,
+            "unknown raceModel must be rejected, got: {body}"
+        );
+        let v: Value = serde_json::from_str(&body).unwrap();
+        assert!(
+            v["error"]
+                .as_str()
+                .unwrap_or("")
+                .contains("unknown raceModel"),
+            "error names the problem, got: {body}"
+        );
+
+        // Valid aliases and canonical values keep working.
+        for payload in [
+            r#"{"seed":42,"scenario":"tb"}"#,
+            r#"{"seed":42,"scenario":"Grand Concert"}"#,
+            r#"{"seed":42,"scenario":"ura","raceModel":"stub"}"#,
+            r#"{"seed":42,"scenario":"ura","raceModel":"physics"}"#,
+            r#"{"seed":42}"#,
+        ] {
+            let (status, body) = http_post(port, "/v1/run/start", payload);
+            assert_eq!(status, 200, "valid payload rejected: {payload} -> {body}");
+        }
     }
 }
