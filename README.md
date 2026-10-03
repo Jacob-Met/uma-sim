@@ -104,6 +104,7 @@ uma-sim clear
 # Let a policy play whole careers
 uma-sim fast --seed=7 --scenario=unity --policy=bot           # one new career, start to finish
 uma-sim batch --count=100 --seed=1 --output=out/batch.jsonl   # one JSON line per career
+uma-sim batch --seeds=10,5,7 --policy=bot --output=out/rematch.jsonl  # re-run exact seeds (e.g. from analyze --top)
 uma-sim analyze --input=out/batch.jsonl                      # aggregate stats: score distribution, grade histogram, top careers
 uma-sim analyze --input=new.jsonl --compare=old.jsonl        # delta of new batch vs baseline batch
 ```

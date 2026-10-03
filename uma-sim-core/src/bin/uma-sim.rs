@@ -295,17 +295,40 @@ fn cmd_batch(args: &[String]) {
     if f.speed == 1 {
         f.speed = 100;
     }
-    let count: i64 = args
-        .iter()
-        .find_map(|a| a.strip_prefix("--count="))
-        .and_then(|v| v.parse().ok())
-        .unwrap_or(100);
     let seed_start = f.seed;
+    // Explicit seed list overrides --count/--seed: re-run exactly these
+    // seeds (e.g. the interesting ones `analyze --top` surfaced).
+    let seeds: Vec<i64> = match args.iter().find_map(|a| a.strip_prefix("--seeds=")) {
+        Some(v) => {
+            let list: Result<Vec<i64>, _> = v
+                .split(',')
+                .filter(|s| !s.trim().is_empty())
+                .map(|s| s.trim().parse::<i64>())
+                .collect();
+            match list {
+                Ok(l) if !l.is_empty() => l,
+                _ => {
+                    eprintln!("--seeds needs a comma-separated list of integer seeds, got: {v}");
+                    std::process::exit(1);
+                }
+            }
+        }
+        None => {
+            let count: i64 = args
+                .iter()
+                .find_map(|a| a.strip_prefix("--count="))
+                .and_then(|v| v.parse().ok())
+                .unwrap_or(100);
+            (0..count).map(|i| seed_start + i).collect()
+        }
+    };
+    let count = seeds.len() as i64;
     let root = detect_repo_root().unwrap_or_else(|| PathBuf::from("."));
+    let name_seed = seeds.first().copied().unwrap_or(seed_start);
     let out_rel = f
         .output
         .clone()
-        .unwrap_or_else(|| format!("out/sim-batch/batch-{}-{}.jsonl", f.scenario, seed_start));
+        .unwrap_or_else(|| format!("out/sim-batch/batch-{}-{}.jsonl", f.scenario, name_seed));
     let out_path = root.join(&out_rel);
     if let Some(parent) = out_path.parent() {
         let _ = std::fs::create_dir_all(parent);
@@ -321,8 +344,8 @@ fn cmd_batch(args: &[String]) {
     let start = Instant::now();
     let mut written = 0i64;
     let mut nonzero_u = 0i64;
-    for i in 0..count {
-        f.seed = seed_start + i;
+    for seed in seeds {
+        f.seed = seed;
         let mut engine = SimEngine::create(build_settings(&f));
         engine.start(build_meta(&f));
         play_with_policy(&mut engine, &f.policy);
@@ -507,7 +530,7 @@ uma-sim CLI v0.4 (Rust)
   state
   step [train_speed|rest|race|event_0|...]
   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
-  batch [--count=100] [--seed=N] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
+  batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
   analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]
   validate [--path=content_packs/example.json]
   content validate [--path=...]
