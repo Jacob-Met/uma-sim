@@ -2,6 +2,7 @@ pub mod api;
 pub mod batch_analysis;
 pub mod bot;
 pub mod calendar;
+pub mod career_lab;
 pub mod catalog;
 pub mod config;
 pub mod content;
