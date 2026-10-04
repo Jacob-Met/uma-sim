@@ -2,6 +2,11 @@
 /**
  * Minimal MCP stdio server wrapping uma-sim REST API.
  * Requires: cargo run --bin uma-sim-api (or uma-sim serve) on UMA_SIM_API (default :8765)
+ *
+ * Framing: newline-delimited JSON-RPC per the MCP stdio transport spec — one
+ * JSON-RPC message per line, LF-terminated, no Content-Length headers. (An
+ * earlier revision used LSP-style Content-Length framing, which no conformant
+ * MCP client sends or parses; clients hang with no response.)
  */
 const API = process.env.UMA_SIM_API ?? "http://127.0.0.1:8765";
 
@@ -85,8 +90,67 @@ async function callTool(name, args) {
 }
 
 function send(msg) {
-  // MCP stdio transport: newline-delimited JSON-RPC messages (no Content-Length headers)
-  process.stdout.write(JSON.stringify(msg) + "\n");
+  process.stdout.write(`${JSON.stringify(msg)}\n`);
+}
+
+async function handle(req) {
+  const { id, method, params } = req;
+  // Per JSON-RPC 2.0, a request without an id is a notification: process it
+  // for side effects but send no response (e.g. notifications/initialized).
+  const respond = (payload) => {
+    if (id !== undefined) send({ jsonrpc: "2.0", id, ...payload });
+  };
+  try {
+    if (method === "initialize") {
+      respond({
+        result: {
+          protocolVersion: "2024-11-05",
+          capabilities: { tools: {}, resources: {} },
+          serverInfo: { name: "uma-sim-mcp", version: "0.3.0" },
+        },
+      });
+      return;
+    }
+    if (method === "resources/list") {
+      respond({ result: { resources: RESOURCES } });
+      return;
+    }
+    if (method === "resources/read") {
+      const data = await readResource(params.uri);
+      respond({
+        result: {
+          contents: [{
+            uri: params.uri,
+            mimeType: params.uri.endsWith("/text") ? "text/plain" : "application/json",
+            text: typeof data === "string" ? data : JSON.stringify(data, null, 2),
+          }],
+        },
+      });
+      return;
+    }
+    if (method === "tools/list") {
+      respond({ result: { tools: TOOLS } });
+      return;
+    }
+    if (method === "tools/call") {
+      const result = await callTool(params.name, params.arguments ?? {});
+      respond({
+        result: { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] },
+      });
+      return;
+    }
+    if (method === "ping") {
+      respond({ result: {} });
+      return;
+    }
+    if (!method) {
+      respond({ error: { code: -32600, message: "Invalid Request: missing method" } });
+      return;
+    }
+    respond({ error: { code: -32601, message: `Method not found: ${method}` } });
+  } catch (e) {
+    respond({ error: { code: -32603, message: e.message } });
+  }
 }
 
 let buffer = "";
@@ -96,69 +160,20 @@ process.stdin.on("data", (chunk) => {
   buffer += chunk;
   let idx;
   while ((idx = buffer.indexOf("\n")) !== -1) {
-    const line = buffer.slice(0, idx).replace(/\r$/, "");
+    const line = buffer.slice(0, idx).trim();
     buffer = buffer.slice(idx + 1);
     if (!line) continue;
     let req;
     try {
       req = JSON.parse(line);
     } catch (e) {
-      send({ jsonrpc: "2.0", id: null, error: { code: -32700, message: "Parse error" } });
+      send({ jsonrpc: "2.0", id: null, error: { code: -32700, message: `Parse error: ${e.message}` } });
       continue;
     }
     handle(req).catch((e) => {
-      send({ jsonrpc: "2.0", id: req && req.id !== undefined ? req.id : null, error: { code: -32603, message: e.message } });
+      if (req.id !== undefined) {
+        send({ jsonrpc: "2.0", id: req.id, error: { code: -32603, message: e.message } });
+      }
     });
   }
 });
-
-async function handle(req) {
-  const { id, method, params } = req;
-  // Notifications carry no id: accept them silently (MCP stdio spec).
-  if (id === undefined || id === null) return;
-  if (method === "initialize") {
-    send({
-      jsonrpc: "2.0",
-      id,
-      result: {
-        protocolVersion: "2024-11-05",
-        capabilities: { tools: {}, resources: {} },
-        serverInfo: { name: "uma-sim-mcp", version: "0.3.0" },
-      },
-    });
-    return;
-  }
-  if (method === "resources/list") {
-    send({ jsonrpc: "2.0", id, result: { resources: RESOURCES } });
-    return;
-  }
-  if (method === "resources/read") {
-    const data = await readResource(params.uri);
-    send({
-      jsonrpc: "2.0",
-      id,
-      result: {
-        contents: [{
-          uri: params.uri,
-          mimeType: params.uri.endsWith("/text") ? "text/plain" : "application/json",
-          text: typeof data === "string" ? data : JSON.stringify(data, null, 2),
-        }],
-      },
-    });
-    return;
-  }
-  if (method === "tools/list") {
-    send({ jsonrpc: "2.0", id, result: { tools: TOOLS } });
-    return;
-  }
-  if (method === "tools/call") {
-    const result = await callTool(params.name, params.arguments ?? {});
-    send({
-      jsonrpc: "2.0",
-      id,
-      result: { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] },
-    });
-    return;
-  }
-  send({ jsonrpc: "2.0", id, error: { code: -32601, message: `Method not found: ${method}` } });
-}
