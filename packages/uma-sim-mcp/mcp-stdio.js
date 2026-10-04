@@ -160,5 +160,9 @@ async function handle(req) {
     });
     return;
   }
+  if (method === "ping") {
+    send({ jsonrpc: "2.0", id, result: {} });
+    return;
+  }
   send({ jsonrpc: "2.0", id, error: { code: -32601, message: `Method not found: ${method}` } });
 }
