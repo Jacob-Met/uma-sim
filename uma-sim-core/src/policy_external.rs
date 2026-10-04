@@ -19,6 +19,8 @@ static EXTERNAL: Mutex<Option<ExternalPolicy>> = Mutex::new(None);
 /// Test-only serialization: every test in this binary that touches
 /// `UMA_POLICY_CMD` or the global `EXTERNAL` slot must hold this lock, and
 /// reset the slot before/after, so tests cannot observe each other's stubs.
+/// `api.rs`'s REST-server tests hold it too (same process, one lock), since
+/// server threads read the variable per request.
 #[cfg(test)]
 pub(crate) static EXTERNAL_TEST_LOCK: Mutex<()> = Mutex::new(());
 
