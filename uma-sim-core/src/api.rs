@@ -714,39 +714,50 @@ fn handle_fast(
         .unwrap_or(st.settings.speed_multiplier)
         .clamp(1, 100);
     let policy_name = body_string(&body, "policy").unwrap_or_else(|| st.default_policy.clone());
-    st.settings.speed_multiplier = mult;
 
-    let slot = match resolve_session(st, &body, query) {
-        Ok(s) => s,
-        Err(r) => return r,
-    };
-    let eng = &mut slot.engine;
-    let mut snap = eng.export();
-    snap.settings.speed_multiplier = mult;
-    eng.restore(snap);
+    // Nothing is committed until the run succeeds: neither the API-level
+    // speed setting nor the engine. A 404 or 503 leaves both unchanged.
+    // The session borrow covers all of `st`, so the response fields are
+    // copied out of the block before the API-level setting is committed.
+    let (career_ended, turn, fans) = {
+        let slot = match resolve_session(st, &body, query) {
+            Ok(s) => s,
+            Err(r) => return r,
+        };
+        let eng = &mut slot.engine;
+        let before = eng.export();
+        let mut snap = before.clone();
+        snap.settings.speed_multiplier = mult;
+        eng.restore(snap);
 
-    if policy_name == "bot" {
-        eng.play_to_completion_scoring(500);
-    } else if policy_name.eq_ignore_ascii_case("external") {
-        // Honor the requested external policy; when the external policy
-        // server is unreachable this fails loudly (503) instead of silently
-        // substituting the default heuristic.
-        if let Err(e) = eng.play_to_completion_external_checked(500) {
-            return json_response(
-                503,
-                json!({"error": format!("external policy unavailable: {e}")}),
-            );
+        if policy_name == "bot" {
+            eng.play_to_completion_scoring(500);
+        } else if policy_name.eq_ignore_ascii_case("external") {
+            // Honor the requested external policy; when the external policy
+            // server is unreachable this fails loudly (503) instead of silently
+            // substituting the default heuristic.
+            if let Err(e) = eng.play_to_completion_external_checked(500) {
+                // Roll the engine back to its pre-request snapshot: the speed
+                // multiplier and any steps taken before the policy failed.
+                eng.restore(before);
+                return json_response(
+                    503,
+                    json!({"error": format!("external policy unavailable: {e}")}),
+                );
+            }
+        } else {
+            eng.play_to_completion(500);
         }
-    } else {
-        eng.play_to_completion(500);
-    }
-    let s = eng.state();
+        let s = eng.state();
+        (s.career_complete, s.turn, s.fans)
+    };
+    st.settings.speed_multiplier = mult;
     json_response(
         200,
         json!({
-            "careerEnded": s.career_complete,
-            "turn": s.turn,
-            "fans": s.fans,
+            "careerEnded": career_ended,
+            "turn": turn,
+            "fans": fans,
         }),
     )
 }
@@ -2158,5 +2169,72 @@ mod tests {
             .collect();
         assert_eq!(names, vec!["keep"]);
         scrub_checkpoints(&["keep"]);
+    }
+
+    /// Read `settings.speedMultiplier` and `state.turn` from /v1/run/state.
+    fn speed_and_turn(port: u16) -> (i64, i64) {
+        let (status, body) = http_get(port, "/v1/run/state");
+        assert_eq!(status, 200, "got {status}: {body}");
+        let v: serde_json::Value = serde_json::from_str(&body).expect("state must be JSON");
+        let speed = v["settings"]["speedMultiplier"]
+            .as_i64()
+            .unwrap_or_else(|| panic!("no settings.speedMultiplier in: {body}"));
+        let turn = v["state"]["turn"]
+            .as_i64()
+            .unwrap_or_else(|| panic!("no state.turn in: {body}"));
+        (speed, turn)
+    }
+
+    /// A 503 from /v1/run/fast must not change the speed setting (neither the
+    /// engine's nor the server default used when `multiplier` is omitted),
+    /// while the success path still applies the requested multiplier.
+    /// Regression test for the PR #42 merge silently reverting the PR #38
+    /// 503 speed-rollback fix (restored here with #45 session plumbing).
+    #[test]
+    fn fast_503_leaves_speed_unchanged_success_sets_it() {
+        // Server threads read UMA_POLICY_CMD per request: hold the shared
+        // lock for the whole server interaction (see EXTERNAL_TEST_LOCK).
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, body) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","speed":"3"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        let (speed0, turn0) = speed_and_turn(port);
+        assert_eq!(speed0, 3);
+
+        // Failure: external policy with no server configured -> 503.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"policy":"external","multiplier":"50"}"#,
+        );
+        assert_eq!(status, 503, "got {status}: {body}");
+        assert_eq!(
+            speed_and_turn(port),
+            (speed0, turn0),
+            "503 from /v1/run/fast must leave speed and turn unchanged"
+        );
+
+        // Server-level default is also unchanged: omitting `multiplier`
+        // falls back to it, so a successful run keeps speed 3, not 50.
+        let (status, body) = http_post(port, "/v1/run/fast", r#"{"policy":"default"}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert_eq!(speed_and_turn(port).0, 3);
+
+        // Success path still sets the requested multiplier.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"policy":"default","multiplier":"7"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert_eq!(speed_and_turn(port).0, 7);
     }
 }
