@@ -21,6 +21,7 @@ fn main() {
         "step" => cmd_step(&args[1..]),
         "fast" => cmd_fast(&args[1..]),
         "batch" => cmd_batch(&args[1..]),
+        "analyze" => cmd_analyze(&args[1..]),
         "export-telemetry" => cmd_export_telemetry(&args[1..]),
         "validate" => cmd_validate(&args[1..]),
         "content" => match args.get(1).map(|s| s.as_str()) {
@@ -328,17 +329,40 @@ fn cmd_batch(args: &[String]) {
     if f.speed == 1 {
         f.speed = 100;
     }
-    let count: i64 = args
-        .iter()
-        .find_map(|a| a.strip_prefix("--count="))
-        .and_then(|v| v.parse().ok())
-        .unwrap_or(100);
     let seed_start = f.seed;
+    // Explicit seed list overrides --count/--seed: re-run exactly these
+    // seeds (e.g. the interesting ones `analyze --top` surfaced).
+    let seeds: Vec<i64> = match args.iter().find_map(|a| a.strip_prefix("--seeds=")) {
+        Some(v) => {
+            let list: Result<Vec<i64>, _> = v
+                .split(',')
+                .filter(|s| !s.trim().is_empty())
+                .map(|s| s.trim().parse::<i64>())
+                .collect();
+            match list {
+                Ok(l) if !l.is_empty() => l,
+                _ => {
+                    eprintln!("--seeds needs a comma-separated list of integer seeds, got: {v}");
+                    std::process::exit(1);
+                }
+            }
+        }
+        None => {
+            let count: i64 = args
+                .iter()
+                .find_map(|a| a.strip_prefix("--count="))
+                .and_then(|v| v.parse().ok())
+                .unwrap_or(100);
+            (0..count).map(|i| seed_start + i).collect()
+        }
+    };
+    let count = seeds.len() as i64;
     let root = detect_repo_root().unwrap_or_else(|| PathBuf::from("."));
+    let name_seed = seeds.first().copied().unwrap_or(seed_start);
     let out_rel = f
         .output
         .clone()
-        .unwrap_or_else(|| format!("out/sim-batch/batch-{}-{}.jsonl", f.scenario, seed_start));
+        .unwrap_or_else(|| format!("out/sim-batch/batch-{}-{}.jsonl", f.scenario, name_seed));
     let out_path = root.join(&out_rel);
     if let Some(parent) = out_path.parent() {
         let _ = std::fs::create_dir_all(parent);
@@ -354,8 +378,8 @@ fn cmd_batch(args: &[String]) {
     let start = Instant::now();
     let mut written = 0i64;
     let mut nonzero_u = 0i64;
-    for i in 0..count {
-        f.seed = seed_start + i;
+    for seed in seeds {
+        f.seed = seed;
         let mut engine = SimEngine::create(build_settings(&f));
         engine.start(build_meta(&f));
         play_with_policy(&mut engine, &f.policy);
@@ -384,6 +408,91 @@ fn cmd_batch(args: &[String]) {
         out_path.display(),
         f.policy
     );
+}
+
+fn cmd_analyze(args: &[String]) {
+    use uma_sim_core::batch_analysis;
+    let input_arg = args.iter().find_map(|a| a.strip_prefix("--input="));
+    let compare_arg = args.iter().find_map(|a| a.strip_prefix("--compare="));
+    let format = args
+        .iter()
+        .find_map(|a| a.strip_prefix("--format="))
+        .unwrap_or("text");
+    let top: usize = args
+        .iter()
+        .find_map(|a| a.strip_prefix("--top="))
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(5);
+    let Some(input_arg) = input_arg else {
+        eprintln!(
+            "Usage: uma-sim analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]"
+        );
+        std::process::exit(1);
+    };
+    if format != "text" && format != "json" {
+        eprintln!("--format must be text or json, got: {format}");
+        std::process::exit(1);
+    }
+    let root = detect_repo_root().unwrap_or_else(|| PathBuf::from("."));
+    let resolve = |p: &str| -> PathBuf {
+        let pb = PathBuf::from(p);
+        if pb.is_absolute() || pb.exists() {
+            pb
+        } else {
+            root.join(p)
+        }
+    };
+    let read = |p: &str| -> String {
+        let path = resolve(p);
+        std::fs::read_to_string(&path).unwrap_or_else(|e| {
+            eprintln!("Failed to read {}: {e}", path.display());
+            std::process::exit(1);
+        })
+    };
+    let summary = match batch_analysis::analyze_text(&read(input_arg), top) {
+        Ok(s) => s,
+        Err(e) => {
+            eprintln!("analyze {input_arg}: {e}");
+            std::process::exit(1);
+        }
+    };
+    let comparison = compare_arg.map(|c| {
+        let baseline = match batch_analysis::analyze_text(&read(c), 0) {
+            Ok(s) => s,
+            Err(e) => {
+                eprintln!("analyze {c}: {e}");
+                std::process::exit(1);
+            }
+        };
+        (batch_analysis::compare(&baseline, &summary), c)
+    });
+    if format == "json" {
+        #[derive(serde::Serialize)]
+        struct Output<'a> {
+            file: &'a str,
+            summary: &'a batch_analysis::Summary,
+            #[serde(skip_serializing_if = "Option::is_none")]
+            baseline_file: Option<&'a str>,
+            #[serde(skip_serializing_if = "Option::is_none")]
+            comparison: Option<&'a batch_analysis::Comparison>,
+        }
+        let out = Output {
+            file: input_arg,
+            summary: &summary,
+            baseline_file: compare_arg,
+            comparison: comparison.as_ref().map(|(c, _)| c),
+        };
+        println!("{}", serde_json::to_string_pretty(&out).unwrap());
+    } else {
+        print!(
+            "{}",
+            batch_analysis::render_text(
+                &summary,
+                comparison.as_ref().map(|(c, b)| (c, *b)),
+                input_arg
+            )
+        );
+    }
 }
 
 fn cmd_validate(args: &[String]) {
@@ -455,7 +564,8 @@ uma-sim CLI v0.4 (Rust)
   state
   step [train_speed|rest|race|event_0|...]
   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
-  batch [--count=100] [--seed=N] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
+  batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
+  analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]
   validate [--path=content_packs/example.json]
   content validate [--path=...]
   serve [--port=8765] [--open]
