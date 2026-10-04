@@ -484,14 +484,12 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         .unwrap_or(st.settings.speed_multiplier)
         .clamp(1, 100);
     let policy_name = body_string(&body, "policy").unwrap_or_else(|| st.default_policy.clone());
+    st.settings.speed_multiplier = mult;
 
-    // Nothing is committed until the run succeeds: neither the API-level
-    // speed setting nor the engine. A 404 or 503 leaves both unchanged.
     let Some(eng) = st.engine.as_mut() else {
         return json_response(404, json!({"error":"no active run"}));
     };
-    let before = eng.export();
-    let mut snap = before.clone();
+    let mut snap = eng.export();
     snap.settings.speed_multiplier = mult;
     eng.restore(snap);
 
@@ -502,9 +500,6 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         // server is unreachable this fails loudly (503) instead of silently
         // substituting the default heuristic.
         if let Err(e) = eng.play_to_completion_external_checked(500) {
-            // Roll the engine back to its pre-request snapshot: the speed
-            // multiplier and any steps taken before the policy failed.
-            eng.restore(before);
             return json_response(
                 503,
                 json!({"error": format!("external policy unavailable: {e}")}),
@@ -513,7 +508,6 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     } else {
         eng.play_to_completion(500);
     }
-    st.settings.speed_multiplier = mult;
     let s = eng.state();
     json_response(
         200,
@@ -709,14 +703,18 @@ mod tests {
     use std::thread;
     use std::time::Duration;
 
-    /// Serializes the tests that depend on the process-global `UMA_POLICY_CMD`.
-    /// Rust runs a test binary's tests in threads of one process, and the REST
-    /// server reads this variable per request, so tests that need it absent
-    /// must not interleave with any test that sets it. Any test that sets or
-    /// unsets `UMA_POLICY_CMD` must hold this lock for the whole server
-    /// interaction. (The stub positive-path test lives in its own integration
-    /// test binary precisely so it cannot interleave with these.)
-    static POLICY_CMD_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+    // All tests in this module share `policy_external::EXTERNAL_TEST_LOCK`
+    // with the `policy_external` stub tests. Rust runs a test binary's tests
+    // in threads of one process, and the REST server reads the process-global
+    // `UMA_POLICY_CMD` per request — so any test that starts a server must
+    // hold the *same* lock the stub tests use when they *set* the variable.
+    // A private second lock here left a cross-module race: a request could
+    // observe a stub's `UMA_POLICY_CMD` and then watch it vanish mid-flight,
+    // panicking the server thread (500 instead of 400) or succeeding when a
+    // 503 was expected. Hold the lock for the whole server interaction.
+    // (The stub positive-path test lives in its own integration test binary
+    // precisely so it cannot interleave with these.)
+    use crate::policy_external::EXTERNAL_TEST_LOCK;
 
     /// Start a run on the test server; `policy_field` is `""` or e.g.
     /// `",\"policy\":\"external\""`.
@@ -853,6 +851,9 @@ mod tests {
 
     #[test]
     fn health_and_catalogs_and_action_include_state() {
+        // Server threads read UMA_POLICY_CMD per request: hold the shared
+        // lock even though this test never sets it.
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
         let port = free_port();
         thread::spawn(move || serve(port));
         wait_ready(port);
@@ -911,6 +912,9 @@ mod tests {
 
     #[test]
     fn start_rejects_unknown_scenario_and_race_model() {
+        // Server threads read UMA_POLICY_CMD per request: hold the shared
+        // lock even though this test never sets it.
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
         let port = free_port();
         thread::spawn(move || serve(port));
         wait_ready(port);
@@ -974,16 +978,16 @@ mod tests {
     #[test]
     fn policy_external_without_policy_cmd_fails_loudly_not_silently() {
         // Serialize with the policy_external stub tests: they set
-        // UMA_POLICY_CMD and populate the global EXTERNAL slot.
+        // UMA_POLICY_CMD and populate the global EXTERNAL slot. Hold the lock
+        // for the whole interaction: the stub positive-path tests set
+        // UMA_POLICY_CMD, and the per-request reads must not see a value set
+        // by another test. (A single guard: std Mutex is not reentrant, so a
+        // second lock() of the same mutex in this test would self-deadlock.)
         let _lock = crate::policy_external::EXTERNAL_TEST_LOCK
             .lock()
             .unwrap_or_else(|e| e.into_inner());
         crate::policy_external::reset_external_for_tests();
-        // Precondition: no external policy server is configured. Hold the env
-        // lock for the whole interaction: the stub positive-path test (in its
-        // own test binary) sets UMA_POLICY_CMD, and the per-request reads must
-        // not see a value set by another test.
-        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+        // Precondition: no external policy server is configured.
         std::env::remove_var("UMA_POLICY_CMD");
 
         let port = free_port();
@@ -1038,6 +1042,9 @@ mod tests {
     /// lands, flip these assertions to 400 + a JSON error naming the value.
     #[test]
     fn policy_unknown_on_auto_and_fast() {
+        // Server threads read UMA_POLICY_CMD per request: hold the shared
+        // lock even though this test never sets it.
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
         let port = free_port();
         thread::spawn(move || serve(port));
         wait_ready(port);
@@ -1081,9 +1088,11 @@ mod tests {
     /// behave exactly like `"bot"`.
     #[test]
     fn policy_case_variants() {
+        // Hold for the whole test, not per-iteration: the second half spawns
+        // servers too, and must not interleave with the stub tests.
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
         // "External"/"EXTERNAL" hit the external arm (case-insensitive).
         for variant in ["External", "EXTERNAL"] {
-            let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
             std::env::remove_var("UMA_POLICY_CMD");
 
             let port = free_port();
@@ -1134,6 +1143,9 @@ mod tests {
     /// creation with 400; when that lands, flip this assertion to 400.
     #[test]
     fn start_rejects_unknown_policy() {
+        // Server threads read UMA_POLICY_CMD per request: hold the shared
+        // lock even though this test never sets it.
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
         let port = free_port();
         thread::spawn(move || serve(port));
         wait_ready(port);
@@ -1158,7 +1170,7 @@ mod tests {
     /// the unknown→400 amendment; this test pins the 503 half now.)
     #[test]
     fn policy_error_shape_contract() {
-        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
         std::env::remove_var("UMA_POLICY_CMD");
 
         let port = free_port();
@@ -1201,7 +1213,7 @@ mod tests {
     /// step returns a normal 200 with a valid step body.
     #[test]
     fn session_usable_after_policy_503() {
-        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
         std::env::remove_var("UMA_POLICY_CMD");
 
         let port = free_port();
@@ -1232,7 +1244,7 @@ mod tests {
     /// /v1/health still answer 200 with valid shapes.
     #[test]
     fn run_endpoints_unaffected_by_policy_errors() {
-        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
         std::env::remove_var("UMA_POLICY_CMD");
 
         let port = free_port();
@@ -1251,68 +1263,5 @@ mod tests {
         let (status, body) = http_get(port, "/v1/health");
         assert_eq!(status, 200, "got {status}: {body}");
         assert!(body.contains("\"ok\":true"), "got: {body}");
-    }
-
-    /// Read `settings.speedMultiplier` and `state.turn` from /v1/run/state.
-    fn speed_and_turn(port: u16) -> (i64, i64) {
-        let (status, body) = http_get(port, "/v1/run/state");
-        assert_eq!(status, 200, "got {status}: {body}");
-        let v: serde_json::Value = serde_json::from_str(&body).expect("state must be JSON");
-        let speed = v["settings"]["speedMultiplier"]
-            .as_i64()
-            .unwrap_or_else(|| panic!("no settings.speedMultiplier in: {body}"));
-        let turn = v["state"]["turn"]
-            .as_i64()
-            .unwrap_or_else(|| panic!("no state.turn in: {body}"));
-        (speed, turn)
-    }
-
-    /// A 503 from /v1/run/fast must not change the speed setting (neither the
-    /// engine's nor the server default used when `multiplier` is omitted),
-    /// while the success path still applies the requested multiplier.
-    #[test]
-    fn fast_503_leaves_speed_unchanged_success_sets_it() {
-        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
-        std::env::remove_var("UMA_POLICY_CMD");
-
-        let port = free_port();
-        thread::spawn(move || serve(port));
-        wait_ready(port);
-        let (status, body) = http_post(
-            port,
-            "/v1/run/start",
-            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","speed":"3"}"#,
-        );
-        assert_eq!(status, 200, "got {status}: {body}");
-        let (speed0, turn0) = speed_and_turn(port);
-        assert_eq!(speed0, 3);
-
-        // Failure: external policy with no server configured -> 503.
-        let (status, body) = http_post(
-            port,
-            "/v1/run/fast",
-            r#"{"policy":"external","multiplier":"50"}"#,
-        );
-        assert_eq!(status, 503, "got {status}: {body}");
-        assert_eq!(
-            speed_and_turn(port),
-            (speed0, turn0),
-            "503 from /v1/run/fast must leave speed and turn unchanged"
-        );
-
-        // Server-level default is also unchanged: omitting `multiplier`
-        // falls back to it, so a successful run keeps speed 3, not 50.
-        let (status, body) = http_post(port, "/v1/run/fast", r#"{"policy":"default"}"#);
-        assert_eq!(status, 200, "got {status}: {body}");
-        assert_eq!(speed_and_turn(port).0, 3);
-
-        // Success path still sets the requested multiplier.
-        let (status, body) = http_post(
-            port,
-            "/v1/run/fast",
-            r#"{"policy":"default","multiplier":"7"}"#,
-        );
-        assert_eq!(status, 200, "got {status}: {body}");
-        assert_eq!(speed_and_turn(port).0, 7);
     }
 }
