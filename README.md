@@ -1,4 +1,4 @@
-﻿# uma-sim
+# uma-sim
 
 Unofficial, deterministic career simulator for *Umamusume: Pretty Derby* (Global),
 written in Rust. It plays the 72-turn career loop (training, events, races,
