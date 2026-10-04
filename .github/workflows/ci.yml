@@ -75,3 +75,15 @@ jobs:
         with:
           python-version: "3.12"
       - run: python scripts/calibrate_grand_live.py --strict
+
+  mcp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "20"
+      # Conformant-client handshake test: newline-delimited JSON-RPC framing.
+      # Needs no REST backend (test points UMA_SIM_API at a closed port).
+      - run: node --test packages/uma-sim-mcp/tests/mcp-handshake.test.mjs
