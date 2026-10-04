@@ -179,18 +179,17 @@ async function main() {
     // GitHub's list endpoint can briefly lag the opened/reopened webhook.
     openPulls.push(current);
   }
-  const candidates = findDuplicateCandidates(openPulls, repository);
-  if (candidates.length === 0) {
-    console.log(`No duplicate issue targets among ${openPulls.length} open PR(s) in ${repository}.`);
+  const candidate = findDuplicateCandidates(openPulls, repository)
+    .find((item) => Number(item.pull.number) === Number(current.number));
+  if (!candidate) {
+    console.log(`No earlier open duplicate for current PR #${current.number} in ${repository}.`);
     return;
   }
 
   await ensureLabel(token, repository);
-  for (const candidate of candidates) {
-    await markCandidate(token, repository, candidate);
-    const issues = [...candidate.issues.keys()].sort((a, b) => a - b).map((n) => `#${n}`).join(', ');
-    console.log(`Flagged PR #${candidate.pull.number} for ${issues}.`);
-  }
+  await markCandidate(token, repository, candidate);
+  const issues = [...candidate.issues.keys()].sort((a, b) => a - b).map((n) => `#${n}`).join(', ');
+  console.log(`Flagged PR #${candidate.pull.number} for ${issues}.`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
