@@ -1,4 +1,5 @@
 pub mod api;
+pub mod batch_analysis;
 pub mod bot;
 pub mod calendar;
 pub mod catalog;
