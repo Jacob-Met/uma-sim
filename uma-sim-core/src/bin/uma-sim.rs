@@ -30,8 +30,11 @@ fn main() {
         },
         "clear" => {
             RunSession::clear();
+            uma_sim_core::career_lab::CareerLab::clear_session_parent();
+            uma_sim_core::career_lab::CareerLab::clear_session_telemetry();
             println!("Session cleared.");
         }
+        "lab" => cmd_lab(&args[1..]),
         "deck" => match args.get(1).map(|s| s.as_str()) {
             Some("place") => cmd_deck_place(&args[2..]),
             _ => print_usage(),
@@ -202,6 +205,9 @@ fn cmd_start(args: &[String]) {
     if let Err(e) = RunSession::save(&engine) {
         eprintln!("Failed to save session: {e}");
     }
+    // A fresh run is not a lab branch: drop any stale lab branch state.
+    uma_sim_core::career_lab::CareerLab::clear_session_parent();
+    uma_sim_core::career_lab::CareerLab::clear_session_telemetry();
     let choice_ids: Vec<String> = result.choices.into_iter().map(|c| c.id).collect();
     print_result(&result.text_lines, &choice_ids);
 }
@@ -249,6 +255,10 @@ fn cmd_step(args: &[String]) {
     let result = engine.step(parse_sim_action(action_id));
     if let Err(e) = RunSession::save(&engine) {
         eprintln!("Failed to save session: {e}");
+    }
+    // Keep the lab's action history current for manual continuations too.
+    if uma_sim_core::career_lab::CareerLab::session_parent().is_some() {
+        let _ = uma_sim_core::career_lab::CareerLab::write_session_telemetry(&engine);
     }
     let choice_ids: Vec<String> = result.choices.into_iter().map(|c| c.id).collect();
     print_result(&result.text_lines, &choice_ids);
@@ -306,6 +316,9 @@ fn cmd_fast(args: &[String]) {
     if let Err(e) = RunSession::save(&engine) {
         eprintln!("Failed to save session: {e}");
     }
+    // `fast` replaces the session with a fresh completed run: not a lab branch.
+    uma_sim_core::career_lab::CareerLab::clear_session_parent();
+    uma_sim_core::career_lab::CareerLab::clear_session_telemetry();
     let lines = TextRenderer::new(build_settings(&f)).render(engine.state(), &[]);
     let tail: Vec<String> = lines.iter().rev().take(5).cloned().collect::<Vec<_>>();
     let tail: Vec<String> = tail.into_iter().rev().collect();
@@ -542,6 +555,293 @@ fn cmd_deck_place(args: &[String]) {
     println!("Placed {support_id} on {}", facility.key());
 }
 
+fn print_lab_usage() {
+    println!(
+        "\
+lab — saved-career branch-and-compare laboratory (T100)
+  lab save <name> [--policy=label] [--note=...] [--parent=<entry>]
+        Save the active session as a named library entry.
+  lab branch --from=<entry>
+        Load a library entry into the active session as a new branch
+        (telemetry tracing is enabled so the continuation is captured).
+  lab play [--policy=default|bot] [--speed=N]
+        Play the active session to completion with a built-in policy.
+        `--policy=external` is rejected: the lab has no process launcher.
+  lab list
+  lab info <name>
+  lab compare <a> <b>
+        Compare two entries: origin, turns, terminal outcomes and the
+        first point where their action sequences diverge.
+  lab delete <name>
+Library lives in .uma-sim/library/ next to the active session."
+    );
+}
+
+fn cmd_lab(args: &[String]) {
+    let sub = args.first().map(|s| s.as_str()).unwrap_or("");
+    match sub {
+        "save" => cmd_lab_save(&args[1..]),
+        "branch" => cmd_lab_branch(&args[1..]),
+        "play" => cmd_lab_play(&args[1..]),
+        "list" => cmd_lab_list(),
+        "info" => cmd_lab_info(&args[1..]),
+        "compare" => cmd_lab_compare(&args[1..]),
+        "delete" => cmd_lab_delete(&args[1..]),
+        _ => print_lab_usage(),
+    }
+}
+
+fn cmd_lab_save(args: &[String]) {
+    use uma_sim_core::career_lab::CareerLab;
+    let name = args.first().map(|s| s.as_str()).unwrap_or("");
+    if name.is_empty() {
+        eprintln!("Usage: lab save <name> [--policy=label] [--note=...] [--parent=<entry>]");
+        std::process::exit(2);
+    }
+    let policy = args
+        .iter()
+        .find_map(|a| a.strip_prefix("--policy="))
+        .unwrap_or("manual");
+    if policy == "external" {
+        eprintln!("Error: the lab records built-in policies only; --policy=external needs a process launcher (out of scope, see T100).");
+        std::process::exit(2);
+    }
+    let note = args
+        .iter()
+        .find_map(|a| a.strip_prefix("--note="))
+        .unwrap_or("");
+    let parent = args
+        .iter()
+        .find_map(|a| a.strip_prefix("--parent="))
+        .map(|s| s.to_string())
+        .or_else(CareerLab::session_parent);
+    match uma_sim_core::career_lab::save_active_session(name, policy, parent, note) {
+        Ok(meta) => println!(
+            "Saved '{name}' (turn {}, {} telemetry lines, complete={}).",
+            meta.turn, meta.telemetry_lines, meta.career_complete
+        ),
+        Err(e) => {
+            eprintln!("lab save failed: {e}");
+            std::process::exit(1);
+        }
+    }
+}
+
+fn cmd_lab_branch(args: &[String]) {
+    use uma_sim_core::career_lab::CareerLab;
+    let from = args
+        .iter()
+        .find_map(|a| a.strip_prefix("--from="))
+        .unwrap_or("");
+    if from.is_empty() {
+        eprintln!("Usage: lab branch --from=<entry>");
+        std::process::exit(2);
+    }
+    let lab = CareerLab::cwd();
+    match lab.load(from) {
+        Ok((engine, meta)) => {
+            if let Err(e) = RunSession::save(&engine) {
+                eprintln!("Failed to write session: {e}");
+                std::process::exit(1);
+            }
+            if let Err(e) = CareerLab::set_session_parent(from) {
+                eprintln!("Warning: could not record branch parent: {e}");
+            }
+            // A new continuation starts with a fresh action history.
+            CareerLab::clear_session_telemetry();
+            let s = engine.state();
+            println!(
+                "Branched from '{from}' (turn {}, seed {}). Continue with `step` or `lab play`, then `lab save <name>`.",
+                meta.turn, s.meta.seed
+            );
+        }
+        Err(e) => {
+            eprintln!("lab branch failed: {e}");
+            std::process::exit(1);
+        }
+    }
+}
+
+fn cmd_lab_play(args: &[String]) {
+    use uma_sim_core::career_lab::CareerLab;
+    let mut f = parse_flags(args);
+    if f.speed == 1 {
+        f.speed = 20;
+    }
+    if f.policy == "external" {
+        eprintln!("Error: lab play supports built-in policies only (default|bot); --policy=external needs a process launcher (out of scope, see T100).");
+        std::process::exit(2);
+    }
+    let Some((mut engine, _)) = RunSession::load() else {
+        eprintln!("No session. Run: start --seed=42  (or: lab branch --from=<entry>)");
+        std::process::exit(1);
+    };
+    play_with_policy(&mut engine, &f.policy);
+    if let Err(e) = RunSession::save(&engine) {
+        eprintln!("Failed to save session: {e}");
+        std::process::exit(1);
+    }
+    // Persist the continuation's action history: the snapshot format carries
+    // no telemetry, so without this the next `lab save` would see an empty log.
+    if let Err(e) = CareerLab::write_session_telemetry(&engine) {
+        eprintln!("Warning: could not persist lab telemetry: {e}");
+    }
+    let s = engine.state();
+    match engine.last_terminal() {
+        Some(t) => println!(
+            "Played to completion: turn={} fans={} U={:.3} grade={} score={} policy={}",
+            s.turn, s.fans, t.u, t.grade, t.score, f.policy
+        ),
+        None => println!(
+            "Stopped: turn={} fans={} complete={} policy={} (max actions reached)",
+            s.turn, s.fans, s.career_complete, f.policy
+        ),
+    }
+}
+
+fn cmd_lab_list() {
+    use uma_sim_core::career_lab::CareerLab;
+    let lab = CareerLab::cwd();
+    let entries = lab.list();
+    if entries.is_empty() {
+        println!("Library empty. Save one with: lab save <name>");
+        return;
+    }
+    for m in entries {
+        let parent = m.parent.as_deref().unwrap_or("-");
+        let term = m
+            .terminal
+            .as_ref()
+            .map(|t| format!(" U={:.2} {}", t.u, t.grade))
+            .unwrap_or_default();
+        println!(
+            "{:<24} turn={:<4} seed={:<8} {:<12} policy={:<7} parent={:<16} complete={}{}",
+            m.name, m.turn, m.seed, m.scenario_id, m.policy_label, parent, m.career_complete, term
+        );
+    }
+}
+
+fn cmd_lab_info(args: &[String]) {
+    use uma_sim_core::career_lab::CareerLab;
+    let name = args.first().map(|s| s.as_str()).unwrap_or("");
+    if name.is_empty() {
+        eprintln!("Usage: lab info <name>");
+        std::process::exit(2);
+    }
+    let lab = CareerLab::cwd();
+    match lab.info(name) {
+        Ok(Some(m)) => {
+            println!("name:      {}", m.name);
+            println!("saved_at:  {}", m.saved_at_unix);
+            println!("turn:      {}", m.turn);
+            println!("seed:      {} ({})", m.seed, m.scenario_id);
+            println!("trainee:   {}", m.trainee_name);
+            println!("policy:    {}", m.policy_label);
+            println!("parent:    {}", m.parent.as_deref().unwrap_or("-"));
+            println!("note:      {}", m.note);
+            println!("complete:  {} (fans {})", m.career_complete, m.fans);
+            println!("telemetry: {} lines", m.telemetry_lines);
+            if let Some(t) = &m.terminal {
+                println!(
+                    "terminal:  U={:.3} grade={} score={} sp_spent={}",
+                    t.u, t.grade, t.score, t.sp_spent
+                );
+            }
+        }
+        Ok(None) => {
+            eprintln!("No library entry named '{name}'.");
+            std::process::exit(1);
+        }
+        Err(e) => {
+            eprintln!("lab info failed: {e}");
+            std::process::exit(1);
+        }
+    }
+}
+
+fn cmd_lab_compare(args: &[String]) {
+    use uma_sim_core::career_lab::CareerLab;
+    let (Some(a), Some(b)) = (args.first(), args.get(1)) else {
+        eprintln!("Usage: lab compare <a> <b>");
+        std::process::exit(2);
+    };
+    let lab = CareerLab::cwd();
+    match lab.compare(a, b) {
+        Ok(c) => print_comparison(&c),
+        Err(e) => {
+            eprintln!("lab compare failed: {e}");
+            std::process::exit(1);
+        }
+    }
+}
+
+fn cmd_lab_delete(args: &[String]) {
+    use uma_sim_core::career_lab::CareerLab;
+    let name = args.first().map(|s| s.as_str()).unwrap_or("");
+    if name.is_empty() {
+        eprintln!("Usage: lab delete <name>");
+        std::process::exit(2);
+    }
+    let lab = CareerLab::cwd();
+    match lab.delete(name) {
+        Ok(()) => println!("Deleted '{name}'."),
+        Err(e) => {
+            eprintln!("lab delete failed: {e}");
+            std::process::exit(1);
+        }
+    }
+}
+
+fn print_comparison(c: &uma_sim_core::career_lab::CareerComparison) {
+    println!("Compare '{}' vs '{}'", c.entry_a, c.entry_b);
+    println!(
+        "  origin: {}",
+        if c.same_origin { "shared" } else { "DIFFERENT" }
+    );
+    println!("  related branches: {}", c.related);
+    println!(
+        "  turns: {} vs {} | complete: {} vs {} | fans: {} vs {}",
+        c.turn_a, c.turn_b, c.complete_a, c.complete_b, c.fans_a, c.fans_b
+    );
+    match (&c.terminal_a, &c.terminal_b) {
+        (Some(a), Some(b)) => {
+            println!(
+                "  terminal A: U={:.3} grade={} score={} sp_spent={}",
+                a.u, a.grade, a.score, a.sp_spent
+            );
+            println!(
+                "  terminal B: U={:.3} grade={} score={} sp_spent={}",
+                b.u, b.grade, b.score, b.sp_spent
+            );
+            println!(
+                "  delta: U={:+.3} score={:+} sp_spent={:+}",
+                b.u - a.u,
+                b.score - a.score,
+                b.sp_spent - a.sp_spent
+            );
+        }
+        _ => println!("  terminal: not complete on both sides — no outcome delta"),
+    }
+    println!("  shared action prefix: {} steps", c.shared_action_prefix);
+    match &c.divergence {
+        Some(d) => println!(
+            "  first divergence at step {} (turn {} vs {}): '{}' vs '{}'",
+            d.index,
+            d.turn_a,
+            d.turn_b,
+            d.action_a.as_deref().unwrap_or("∅"),
+            d.action_b.as_deref().unwrap_or("∅")
+        ),
+        None => println!("  action sequences identical for the compared span"),
+    }
+    if !c.telemetry_missing.is_empty() {
+        println!(
+            "  warning: telemetry recorded but unparseable for: {}",
+            c.telemetry_missing.join(", ")
+        );
+    }
+}
+
 fn print_result(lines: &[String], choice_ids: &[String]) {
     for line in lines {
         println!("{line}");
@@ -568,6 +868,7 @@ uma-sim CLI v0.4 (Rust)
   analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]
   validate [--path=content_packs/example.json]
   content validate [--path=...]
+  lab save|branch|play|list|info|compare|delete   (T100 branch-and-compare laboratory)
   serve [--port=8765] [--open]
   clear
 Env: UMA_RACE_MODEL=stub|physics (default physics), UMA_REPO_ROOT=<folder with research/ and knowledge/>
