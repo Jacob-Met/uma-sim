@@ -226,6 +226,18 @@ export function useRunStore() {
     dispatch({ type: "reset" });
   }, []);
 
+  /** Re-read the server's active session (after fork/activate/load). */
+  const refreshActive = useCallback(async () => {
+    await withBusy(async () => {
+      const [snapshot, choices, text] = await Promise.all([
+        api.state(),
+        api.choices(),
+        api.text(),
+      ]);
+      dispatch({ type: "applySnapshot", snapshot, choices, text });
+    });
+  }, [withBusy]);
+
   const clearError = useCallback(() => {
     dispatch({ type: "setError", error: null });
   }, []);
@@ -244,6 +256,7 @@ export function useRunStore() {
     placeDeck,
     setStyle,
     newRun,
+    refreshActive,
     clearError,
     clearToast,
   };

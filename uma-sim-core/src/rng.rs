@@ -1,5 +1,7 @@
 //! Deterministic RNG matching Kotlin 2.0.21 `kotlin.random.Random(seed)` / `SimRandom`.
 
+use serde::{Deserialize, Serialize};
+
 /// Kotlin 2.0+ XorWowRandom — see `libraries/stdlib/src/kotlin/random/XorWowRandom.kt`.
 struct XorWowRandom {
     x: i32,
@@ -101,6 +103,20 @@ pub struct SimRandom {
     trace_log: Option<Vec<String>>,
 }
 
+/// The full internal XorWow state. Snapshots persist this (not just the
+/// seed + public-call count) because each public call consumes a *variable*
+/// number of raw draws, so replaying `calls × next_long()` does not restore
+/// the stream. Restoring the words reproduces the stream exactly.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct RngStateWords {
+    pub x: i32,
+    pub y: i32,
+    pub z: i32,
+    pub w: i32,
+    pub v: i32,
+    pub addend: i32,
+}
+
 impl SimRandom {
     pub fn new(seed: i64) -> Self {
         Self::with_trace(seed, false)
@@ -165,6 +181,9 @@ impl SimRandom {
         Self::restore_with_trace(seed, prior_calls, false)
     }
 
+    /// Best-effort legacy restore: replays `prior_calls × next_long()`.
+    /// Only exact when every consumed call was `next_long()`; prefer
+    /// [`SimRandom::restore_words`] for snapshots that carry the state words.
     pub fn restore_with_trace(seed: i64, prior_calls: u32, trace: bool) -> Self {
         let mut r = Self::with_trace(seed, trace);
         for _ in 0..prior_calls {
@@ -172,6 +191,36 @@ impl SimRandom {
         }
         r.calls = prior_calls;
         r
+    }
+
+    /// Exact restore from persisted internal state words.
+    pub fn restore_words(seed: i64, prior_calls: u32, words: RngStateWords, trace: bool) -> Self {
+        Self {
+            seed,
+            inner: XorWowRandom {
+                x: words.x,
+                y: words.y,
+                z: words.z,
+                w: words.w,
+                v: words.v,
+                addend: words.addend,
+            },
+            calls: prior_calls,
+            trace,
+            trace_log: if trace { Some(Vec::new()) } else { None },
+        }
+    }
+
+    /// Capture the internal state words for exact later restore.
+    pub fn state_words(&self) -> RngStateWords {
+        RngStateWords {
+            x: self.inner.x,
+            y: self.inner.y,
+            z: self.inner.z,
+            w: self.inner.w,
+            v: self.inner.v,
+            addend: self.inner.addend,
+        }
     }
 
     #[cfg(test)]
@@ -183,7 +232,6 @@ impl SimRandom {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use serde::Deserialize;
     use std::fs;
 
     #[derive(Deserialize)]

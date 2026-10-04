@@ -95,6 +95,112 @@ button.primary {
   color: var(--good);
 }
 
+/* Tabs in the header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.tabs button {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: inherit;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background: var(--bg-elev);
+  border-color: var(--accent);
+}
+
+/* Lab tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6rem 0;
+  font-size: 0.9rem;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table th {
+  background: var(--bg-elev);
+}
+
+.data-table tr.diverged {
+  background: rgba(240, 180, 60, 0.08);
+}
+
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin: 0.6rem 0;
+}
+
+.field-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 12rem;
+}
+
+.field-row label.checkbox {
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+  min-width: auto;
+  gap: 0.4rem;
+}
+
+.field-row input[type="text"],
+.field-row input[type="number"],
+.field-row input[type="file"],
+.field-row select {
+  padding: 0.4rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: inherit;
+}
+
+.field-row textarea {
+  padding: 0.4rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: inherit;
+  font-family: monospace;
+  width: 100%;
+}
+
+.link-button {
+  display: inline-block;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+}
+
 .card {
   background: var(--bg-elev);
   border: 1px solid var(--border);

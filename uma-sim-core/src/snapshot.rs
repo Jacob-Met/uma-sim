@@ -1,5 +1,6 @@
 //! Run snapshot encode/decode for save/resume.
 
+use crate::rng::RngStateWords;
 use crate::state::{CareerState, RunMeta, SimSettings};
 use serde::{Deserialize, Serialize};
 
@@ -13,6 +14,10 @@ pub struct RunSnapshot {
     pub rng_seed: i64,
     #[serde(rename = "rngCalls")]
     pub rng_calls: u32,
+    /// Exact internal RNG state words. Written by current builds; absent on
+    /// older snapshots, which fall back to the best-effort seed+calls replay.
+    #[serde(rename = "rngState", default, skip_serializing_if = "Option::is_none")]
+    pub rng_state: Option<RngStateWords>,
 }
 
 pub struct RunSnapshotCodec;
