@@ -5,19 +5,6 @@
  */
 const API = process.env.UMA_SIM_API ?? "http://127.0.0.1:8765";
 
-// Single source of truth for the version: package.json. serverInfo must not
-// hardcode a version that drifts from the package (it claimed 0.3.0 while
-// package.json said 0.1.0).
-import { readFileSync } from "node:fs";
-let PKG_VERSION = "0.0.0";
-try {
-  const rawPkg = readFileSync(new URL("./package.json", import.meta.url), "utf8").replace(/^\uFEFF/, "");
-  const pkg = JSON.parse(rawPkg);
-  if (pkg && typeof pkg.version === "string" && pkg.version) PKG_VERSION = pkg.version;
-} catch {
-  /* keep default; server still starts without package.json */
-}
-
 const RESOURCES = [
   { uri: "uma-sim://run/state", name: "Current run state", description: "Full career snapshot JSON", mimeType: "application/json" },
   { uri: "uma-sim://run/text", name: "Event log text", description: "Rendered career text", mimeType: "text/plain" },
@@ -136,7 +123,7 @@ async function handle(req) {
       result: {
         protocolVersion: "2024-11-05",
         capabilities: { tools: {}, resources: {} },
-        serverInfo: { name: "uma-sim-mcp", version: PKG_VERSION },
+        serverInfo: { name: "uma-sim-mcp", version: "0.3.0" },
       },
     });
     return;
@@ -171,10 +158,6 @@ async function handle(req) {
       id,
       result: { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] },
     });
-    return;
-  }
-  if (method === "ping") {
-    send({ jsonrpc: "2.0", id, result: {} });
     return;
   }
   send({ jsonrpc: "2.0", id, error: { code: -32601, message: `Method not found: ${method}` } });
