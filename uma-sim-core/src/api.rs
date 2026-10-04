@@ -484,12 +484,14 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         .unwrap_or(st.settings.speed_multiplier)
         .clamp(1, 100);
     let policy_name = body_string(&body, "policy").unwrap_or_else(|| st.default_policy.clone());
-    st.settings.speed_multiplier = mult;
 
+    // Nothing is committed until the run succeeds: neither the API-level
+    // speed setting nor the engine. A 404 or 503 leaves both unchanged.
     let Some(eng) = st.engine.as_mut() else {
         return json_response(404, json!({"error":"no active run"}));
     };
-    let mut snap = eng.export();
+    let before = eng.export();
+    let mut snap = before.clone();
     snap.settings.speed_multiplier = mult;
     eng.restore(snap);
 
@@ -500,6 +502,9 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         // server is unreachable this fails loudly (503) instead of silently
         // substituting the default heuristic.
         if let Err(e) = eng.play_to_completion_external_checked(500) {
+            // Roll the engine back to its pre-request snapshot: the speed
+            // multiplier and any steps taken before the policy failed.
+            eng.restore(before);
             return json_response(
                 503,
                 json!({"error": format!("external policy unavailable: {e}")}),
@@ -508,6 +513,7 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     } else {
         eng.play_to_completion(500);
     }
+    st.settings.speed_multiplier = mult;
     let s = eng.state();
     json_response(
         200,
@@ -1245,5 +1251,68 @@ mod tests {
         let (status, body) = http_get(port, "/v1/health");
         assert_eq!(status, 200, "got {status}: {body}");
         assert!(body.contains("\"ok\":true"), "got: {body}");
+    }
+
+    /// Read `settings.speedMultiplier` and `state.turn` from /v1/run/state.
+    fn speed_and_turn(port: u16) -> (i64, i64) {
+        let (status, body) = http_get(port, "/v1/run/state");
+        assert_eq!(status, 200, "got {status}: {body}");
+        let v: serde_json::Value = serde_json::from_str(&body).expect("state must be JSON");
+        let speed = v["settings"]["speedMultiplier"]
+            .as_i64()
+            .unwrap_or_else(|| panic!("no settings.speedMultiplier in: {body}"));
+        let turn = v["state"]["turn"]
+            .as_i64()
+            .unwrap_or_else(|| panic!("no state.turn in: {body}"));
+        (speed, turn)
+    }
+
+    /// A 503 from /v1/run/fast must not change the speed setting (neither the
+    /// engine's nor the server default used when `multiplier` is omitted),
+    /// while the success path still applies the requested multiplier.
+    #[test]
+    fn fast_503_leaves_speed_unchanged_success_sets_it() {
+        let _env_guard = POLICY_CMD_LOCK.lock().unwrap();
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, body) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","speed":"3"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        let (speed0, turn0) = speed_and_turn(port);
+        assert_eq!(speed0, 3);
+
+        // Failure: external policy with no server configured -> 503.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"policy":"external","multiplier":"50"}"#,
+        );
+        assert_eq!(status, 503, "got {status}: {body}");
+        assert_eq!(
+            speed_and_turn(port),
+            (speed0, turn0),
+            "503 from /v1/run/fast must leave speed and turn unchanged"
+        );
+
+        // Server-level default is also unchanged: omitting `multiplier`
+        // falls back to it, so a successful run keeps speed 3, not 50.
+        let (status, body) = http_post(port, "/v1/run/fast", r#"{"policy":"default"}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert_eq!(speed_and_turn(port).0, 3);
+
+        // Success path still sets the requested multiplier.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"policy":"default","multiplier":"7"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert_eq!(speed_and_turn(port).0, 7);
     }
 }
