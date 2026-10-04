@@ -42,10 +42,18 @@ fn usage() -> ! {
     std::process::exit(2);
 }
 
+/// Accepts both `--key=value` and `--key value` forms.
 fn flag(args: &[String], key: &str) -> Option<String> {
     let prefix = format!("--{key}=");
-    args.iter()
-        .find_map(|a| a.strip_prefix(&prefix).map(|v| v.to_string()))
+    for (i, a) in args.iter().enumerate() {
+        if let Some(v) = a.strip_prefix(&prefix) {
+            return Some(v.to_string());
+        }
+        if a == &format!("--{key}") {
+            return args.get(i + 1).cloned();
+        }
+    }
+    None
 }
 
 fn flag_u32(args: &[String], key: &str, default: u32) -> u32 {
