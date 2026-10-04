@@ -60,9 +60,9 @@ jobs:
       # the full workspace from scratch (release build is the expensive step).
       - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
       - run: cargo fmt --all -- --check
-      - run: cargo clippy --workspace --all-targets
-      - run: cargo test --workspace
-      - run: cargo build --release --features embed-ui -p uma-sim-core
+      - run: cargo clippy --workspace --all-targets --locked
+      - run: cargo test --workspace --locked
+      - run: cargo build --locked --release --features embed-ui -p uma-sim-core
       - name: Smoke-test release layout (binary run away from the source tree)
         run: |
           STAGE=dist/uma-sim-linux-x64
