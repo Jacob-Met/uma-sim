@@ -139,6 +139,10 @@ async function handle(req) {
       });
       return;
     }
+    if (method === "ping") {
+      respond({ result: {} });
+      return;
+    }
     if (!method) {
       respond({ error: { code: -32600, message: "Invalid Request: missing method" } });
       return;
