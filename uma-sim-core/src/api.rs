@@ -1,5 +1,10 @@
 //! Minimal REST API matching Kotlin `SimApiServer` (Phase 7), extended for the web UI.
 
+use crate::career_lab::{
+    auto_name, compare_branches, new_session_id, render_json as render_compare_json,
+    render_markdown, run_branch, validate_entry_name, ActionOverride, BranchConfig, BranchStore,
+    CareerLibrary, LabError, LabResultSummary, SessionInfo,
+};
 use crate::catalog::event::{install_event_catalog, EventCatalog, FileEventCatalog};
 use crate::catalog::factor::FactorCatalog;
 use crate::catalog::support::SupportCatalog;
@@ -12,20 +17,35 @@ use crate::policy::default_auto_policy;
 use crate::race::RaceModel;
 use crate::render::TextRenderer;
 use crate::session::parse_sim_action;
-use crate::snapshot::RunSnapshotCodec;
+use crate::snapshot::{RunSnapshot, RunSnapshotCodec};
 use crate::state::{DialogueMode, RunMeta, SimSettings};
 use serde_json::{json, Value};
+use std::collections::HashMap;
 use std::io::Cursor;
 use std::sync::{Arc, Mutex};
 use tiny_http::{Header, Method, Request, Response, Server, StatusCode};
 
 const API_VERSION: &str = env!("CARGO_PKG_VERSION");
 
+/// One live career session. The server can hold several (the legacy
+/// single-run behavior is the default session `""`, labeled "main"), so two
+/// forked continuations can be played and resumed independently.
+struct SessionSlot {
+    id: String,
+    label: String,
+    engine: SimEngine,
+}
+
 struct ApiState {
-    engine: Option<SimEngine>,
+    /// Defaults for newly started sessions.
     settings: SimSettings,
     /// Default policy name for `/auto` / `/fast` when the client omits it (`bot`|`default`|`external`).
     default_policy: String,
+    sessions: HashMap<String, SessionSlot>,
+    /// Id of the active session (`""` = the legacy default run).
+    active: String,
+    library: CareerLibrary,
+    branches: BranchStore,
 }
 
 /// Start the REST server on `port` (blocking).
@@ -51,13 +71,16 @@ pub fn serve_opts(port: u16, open_browser: bool) {
     let _ = init_from_detected_repo(true);
 
     let state = Arc::new(Mutex::new(ApiState {
-        engine: None,
         settings: SimSettings::default(),
         default_policy: "bot".into(),
+        sessions: HashMap::new(),
+        active: String::new(),
+        library: CareerLibrary::new(),
+        branches: BranchStore::new(),
     }));
 
     for mut request in server.incoming_requests() {
-        let path = request.url().split('?').next().unwrap_or("/").to_string();
+        let (path, query) = parse_query(request.url());
         let method = request.method().clone();
         if method == Method::Options {
             let _ = request.respond(cors_preflight());
@@ -65,7 +88,7 @@ pub fn serve_opts(port: u16, open_browser: bool) {
         }
         let body = read_body(&mut request);
         let mut st = state.lock().unwrap();
-        let response = with_cors(route(&mut st, &method, &path, &body));
+        let response = with_cors(route(&mut st, &method, &path, &query, &body));
         drop(st);
         let _ = request.respond(response);
     }
@@ -88,7 +111,13 @@ fn open_url(url: &str) {
     }
 }
 
-fn route(st: &mut ApiState, method: &Method, path: &str, body: &str) -> Response<Cursor<Vec<u8>>> {
+fn route(
+    st: &mut ApiState,
+    method: &Method,
+    path: &str,
+    query: &HashMap<String, String>,
+    body: &str,
+) -> Response<Cursor<Vec<u8>>> {
     match (method, path) {
         (Method::Get, "/v1/health") => handle_health(),
         (Method::Get, "/v1/catalog/scenarios") => handle_catalog_scenarios(),
@@ -96,16 +125,33 @@ fn route(st: &mut ApiState, method: &Method, path: &str, body: &str) -> Response
         (Method::Get, "/v1/catalog/supports") => handle_catalog_supports(),
         (Method::Get, "/v1/catalog/factors") => handle_catalog_factors(),
         (Method::Post, "/v1/run/start") => handle_start(st, body),
-        (Method::Get, "/v1/run/state") => handle_state(st),
-        (Method::Get, "/v1/run/text") => handle_text(st),
-        (Method::Get, "/v1/run/choices") => handle_choices(st),
-        (Method::Post, "/v1/run/action") => handle_action(st, body),
-        (Method::Post, "/v1/run/auto") => handle_auto(st, body),
-        (Method::Post, "/v1/run/fast") => handle_fast(st, body),
-        (Method::Get, "/v1/run/telemetry") => handle_telemetry(st),
+        (Method::Get, "/v1/run/state") => handle_state(st, query),
+        (Method::Get, "/v1/run/text") => handle_text(st, query),
+        (Method::Get, "/v1/run/choices") => handle_choices(st, query),
+        (Method::Post, "/v1/run/action") => handle_action(st, body, query),
+        (Method::Post, "/v1/run/auto") => handle_auto(st, body, query),
+        (Method::Post, "/v1/run/fast") => handle_fast(st, body, query),
+        (Method::Get, "/v1/run/telemetry") => handle_telemetry(st, query),
         (Method::Post, "/v1/run/load_content_pack") => handle_load_content_pack(st, body),
-        (Method::Post, "/v1/run/deck/place") => handle_deck_place(st, body),
-        (Method::Post, "/v1/run/style") => handle_set_style(st, body),
+        (Method::Post, "/v1/run/deck/place") => handle_deck_place(st, body, query),
+        (Method::Post, "/v1/run/style") => handle_set_style(st, body, query),
+        // Career-lab: sessions (fork/resume), named checkpoint library, branch & compare.
+        (Method::Get, "/v1/sessions") => handle_sessions(st),
+        (Method::Post, "/v1/session/fork") => handle_session_fork(st, body),
+        (Method::Post, "/v1/session/close") => handle_session_close(st, body),
+        (Method::Post, "/v1/session/activate") => handle_session_activate(st, body),
+        (Method::Get, "/v1/library") => handle_library_list(st),
+        (Method::Post, "/v1/library/save") => handle_library_save(st, body),
+        (Method::Post, "/v1/library/load") => handle_library_load(st, body),
+        (Method::Post, "/v1/library/delete") => handle_library_delete(st, body),
+        (Method::Post, "/v1/library/import") => handle_library_import(st, body),
+        (Method::Get, "/v1/library/export") => handle_library_export(st, query),
+        (Method::Post, "/v1/lab/branch") => handle_lab_branch(st, body),
+        (Method::Get, "/v1/lab/branches") => handle_lab_branches(st),
+        (Method::Get, "/v1/lab/branch") => handle_lab_branch_get(st, query),
+        (Method::Post, "/v1/lab/branch/delete") => handle_lab_branch_delete(st, body),
+        (Method::Post, "/v1/lab/compare") => handle_lab_compare(st, body),
+        (Method::Get, "/v1/lab/report") => handle_lab_report(st, query),
         _ if is_known_path(path) => method_not_allowed(),
         (Method::Get, _) => serve_static(path),
         _ => json_response(404, json!({"error":"not found"})),
@@ -131,7 +177,66 @@ fn is_known_path(path: &str) -> bool {
             | "/v1/run/load_content_pack"
             | "/v1/run/deck/place"
             | "/v1/run/style"
+            | "/v1/sessions"
+            | "/v1/session/fork"
+            | "/v1/session/close"
+            | "/v1/session/activate"
+            | "/v1/library"
+            | "/v1/library/save"
+            | "/v1/library/load"
+            | "/v1/library/delete"
+            | "/v1/library/import"
+            | "/v1/library/export"
+            | "/v1/lab/branch"
+            | "/v1/lab/branches"
+            | "/v1/lab/branch/delete"
+            | "/v1/lab/compare"
+            | "/v1/lab/report"
     )
+}
+
+/// Split a request URL into its path and a decoded query map.
+fn parse_query(url: &str) -> (String, HashMap<String, String>) {
+    let mut parts = url.splitn(2, '?');
+    let path = parts.next().unwrap_or("/").to_string();
+    let mut query = HashMap::new();
+    if let Some(qs) = parts.next() {
+        for pair in qs.split('&') {
+            let mut kv = pair.splitn(2, '=');
+            if let (Some(k), Some(v)) = (kv.next(), kv.next()) {
+                query.insert(percent_decode(k), percent_decode(v));
+            }
+        }
+    }
+    (path, query)
+}
+
+fn percent_decode(s: &str) -> String {
+    let mut out = String::with_capacity(s.len());
+    let mut chars = s.chars();
+    while let Some(c) = chars.next() {
+        if c == '%' {
+            let hi = chars.next().and_then(|c| c.to_digit(16));
+            let lo = chars.next().and_then(|c| c.to_digit(16));
+            match (hi, lo) {
+                (Some(h), Some(l)) => out.push((h * 16 + l) as u8 as char),
+                _ => {
+                    out.push('%');
+                    if let Some(h) = hi {
+                        out.push(char::from_digit(h, 16).unwrap_or('?'));
+                    }
+                    if let Some(l) = lo {
+                        out.push(char::from_digit(l, 16).unwrap_or('?'));
+                    }
+                }
+            }
+        } else if c == '+' {
+            out.push(' ');
+        } else {
+            out.push(c);
+        }
+    }
+    out
 }
 
 fn read_body(request: &mut Request) -> String {
@@ -198,10 +303,90 @@ fn method_not_allowed() -> Response<Cursor<Vec<u8>>> {
 }
 
 fn state_json(st: &ApiState) -> String {
-    st.engine
-        .as_ref()
-        .map(|e| RunSnapshotCodec::encode(&e.export()))
+    let id = st.active.clone();
+    st.sessions
+        .get(&id)
+        .map(|s| RunSnapshotCodec::encode(&s.engine.export()))
         .unwrap_or_else(|| "{}".to_string())
+}
+
+/// Session id targeted by a request: explicit `session` field (POST body) or
+/// `?session=` (GET), defaulting to the active session.
+fn session_param(body: &Value, query: &HashMap<String, String>) -> String {
+    body.get("session")
+        .and_then(|v| v.as_str())
+        .or_else(|| query.get("session").map(|s| s.as_str()))
+        .unwrap_or("")
+        .to_string()
+}
+
+/// Resolve the target session for a mutating run endpoint. Missing sessions
+/// are a 404; a missing default session keeps the legacy "no active run".
+fn resolve_session<'a>(
+    st: &'a mut ApiState,
+    body: &Value,
+    query: &HashMap<String, String>,
+) -> Result<&'a mut SessionSlot, Response<Cursor<Vec<u8>>>> {
+    let explicit = session_param(body, query);
+    let id = if explicit.is_empty() {
+        st.active.clone()
+    } else {
+        explicit
+    };
+    let missing_default = id.is_empty() && !st.sessions.contains_key(&id);
+    st.sessions.get_mut(&id).ok_or_else(|| {
+        if missing_default {
+            json_response(404, json!({"error":"no active run"}))
+        } else {
+            json_response(404, json!({"error": format!("no such session '{id}'")}))
+        }
+    })
+}
+
+/// Read-only session resolution.
+fn resolve_session_ref<'a>(
+    st: &'a ApiState,
+    query: &HashMap<String, String>,
+) -> Result<&'a SessionSlot, Response<Cursor<Vec<u8>>>> {
+    let explicit = query.get("session").map(|s| s.as_str()).unwrap_or("");
+    let id = if explicit.is_empty() {
+        st.active.as_str()
+    } else {
+        explicit
+    };
+    let missing_default = id.is_empty() && !st.sessions.contains_key(id);
+    st.sessions.get(id).ok_or_else(|| {
+        if missing_default {
+            json_response(404, json!({"error":"no active run"}))
+        } else {
+            json_response(404, json!({"error": format!("no such session '{id}'")}))
+        }
+    })
+}
+
+fn session_info(slot: &SessionSlot) -> SessionInfo {
+    let s = slot.engine.state();
+    SessionInfo {
+        id: slot.id.clone(),
+        label: slot.label.clone(),
+        turn: s.turn,
+        phase: s.phase.clone(),
+        career_complete: s.career_complete,
+        seed: s.meta.seed,
+        scenario_id: s.meta.scenario_id.clone(),
+        trainee_name: s.meta.trainee_name.clone(),
+    }
+}
+
+fn lab_error_response(e: &LabError) -> Response<Cursor<Vec<u8>>> {
+    let code = match e {
+        LabError::NotFound(_) => 404,
+        LabError::AlreadyExists(_) => 409,
+        LabError::IncompatibleSnapshot(_) => 422,
+        LabError::InvalidName(_) | LabError::InvalidSnapshot(_) => 400,
+        LabError::Io(_) => 500,
+    };
+    json_response(code, json!({"error": e.to_string()}))
 }
 
 fn choices_json(eng: &SimEngine) -> Vec<Value> {
@@ -413,48 +598,89 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
             .collect();
     }
     engine.start(meta);
-    st.engine = Some(engine);
-    json_response_str(200, &state_json(st))
-}
-
-fn handle_state(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
-    if st.engine.is_none() {
-        return json_response(404, json!({"error":"no active run"}));
+    // (Re)start the target session. An explicit `session` id starts an
+    // independent career; the default session keeps the legacy behavior.
+    let session_id = body_string(&body, "session").unwrap_or_default();
+    if !session_id.is_empty() {
+        if let Err(e) = validate_entry_name(&session_id) {
+            return lab_error_response(&e);
+        }
     }
+    let label = body_string(&body, "label")
+        .filter(|s| !s.trim().is_empty())
+        .unwrap_or_else(|| {
+            if session_id.is_empty() {
+                "main".to_string()
+            } else {
+                session_id.clone()
+            }
+        });
+    st.sessions.insert(
+        session_id.clone(),
+        SessionSlot {
+            id: session_id.clone(),
+            label,
+            engine,
+        },
+    );
+    st.active = session_id;
     json_response_str(200, &state_json(st))
 }
 
-fn handle_text(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
-    let Some(eng) = st.engine.as_ref() else {
-        return json_response(404, json!({"error":"no active run"}));
+fn handle_state(st: &ApiState, query: &HashMap<String, String>) -> Response<Cursor<Vec<u8>>> {
+    let slot = match resolve_session_ref(st, query) {
+        Ok(s) => s,
+        Err(r) => return r,
     };
+    json_response_str(200, &RunSnapshotCodec::encode(&slot.engine.export()))
+}
+
+fn handle_text(st: &ApiState, query: &HashMap<String, String>) -> Response<Cursor<Vec<u8>>> {
+    let slot = match resolve_session_ref(st, query) {
+        Ok(s) => s,
+        Err(r) => return r,
+    };
+    let eng = &slot.engine;
     let lines = TextRenderer::new(st.settings.clone()).render(eng.state(), &[]);
     json_response(200, json!({"text": lines.join("\n")}))
 }
 
-fn handle_choices(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
-    let Some(eng) = st.engine.as_ref() else {
-        return json_response(404, json!({"error":"no active run"}));
+fn handle_choices(st: &ApiState, query: &HashMap<String, String>) -> Response<Cursor<Vec<u8>>> {
+    let slot = match resolve_session_ref(st, query) {
+        Ok(s) => s,
+        Err(r) => return r,
     };
-    json_response(200, json!({"choices": choices_json(eng)}))
+    json_response(200, json!({"choices": choices_json(&slot.engine)}))
 }
 
-fn handle_action(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
-    let Some(eng) = st.engine.as_mut() else {
-        return json_response(404, json!({"error":"no active run"}));
-    };
+fn handle_action(
+    st: &mut ApiState,
+    raw: &str,
+    query: &HashMap<String, String>,
+) -> Response<Cursor<Vec<u8>>> {
     let body = parse_body(raw);
+    let slot = match resolve_session(st, &body, query) {
+        Ok(s) => s,
+        Err(r) => return r,
+    };
+    let eng = &mut slot.engine;
     let action = body_string(&body, "action").unwrap_or_else(|| "rest".into());
     let result = eng.step(parse_sim_action(&action));
     step_response(eng, result.text_lines.join("\n"), result.career_ended)
 }
 
-fn handle_auto(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+fn handle_auto(
+    st: &mut ApiState,
+    raw: &str,
+    query: &HashMap<String, String>,
+) -> Response<Cursor<Vec<u8>>> {
     let policy_fallback = st.default_policy.clone();
-    let Some(eng) = st.engine.as_mut() else {
-        return json_response(404, json!({"error":"no active run"}));
-    };
     let body = parse_body(raw);
+    let slot = match resolve_session(st, &body, query) {
+        Ok(s) => s,
+        Err(r) => return r,
+    };
+    let eng = &mut slot.engine;
     let policy_name = body_string(&body, "policy").unwrap_or(policy_fallback);
     let result = if policy_name == "bot" {
         eng.auto_step_scoring()
@@ -477,7 +703,11 @@ fn handle_auto(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
     step_response(eng, result.text_lines.join("\n"), result.career_ended)
 }
 
-fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+fn handle_fast(
+    st: &mut ApiState,
+    raw: &str,
+    query: &HashMap<String, String>,
+) -> Response<Cursor<Vec<u8>>> {
     let body = parse_body(raw);
     let mult = body_string(&body, "multiplier")
         .and_then(|s| s.parse::<i32>().ok())
@@ -487,49 +717,55 @@ fn handle_fast(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
 
     // Nothing is committed until the run succeeds: neither the API-level
     // speed setting nor the engine. A 404 or 503 leaves both unchanged.
-    let Some(eng) = st.engine.as_mut() else {
-        return json_response(404, json!({"error":"no active run"}));
-    };
-    let before = eng.export();
-    let mut snap = before.clone();
-    snap.settings.speed_multiplier = mult;
-    eng.restore(snap);
+    let (career_ended, turn, fans) = {
+        let slot = match resolve_session(st, &body, query) {
+            Ok(s) => s,
+            Err(r) => return r,
+        };
+        let eng = &mut slot.engine;
+        let before = eng.export();
+        let mut snap = before.clone();
+        snap.settings.speed_multiplier = mult;
+        eng.restore(snap);
 
-    if policy_name == "bot" {
-        eng.play_to_completion_scoring(500);
-    } else if policy_name.eq_ignore_ascii_case("external") {
-        // Honor the requested external policy; when the external policy
-        // server is unreachable this fails loudly (503) instead of silently
-        // substituting the default heuristic.
-        if let Err(e) = eng.play_to_completion_external_checked(500) {
-            // Roll the engine back to its pre-request snapshot: the speed
-            // multiplier and any steps taken before the policy failed.
-            eng.restore(before);
-            return json_response(
-                503,
-                json!({"error": format!("external policy unavailable: {e}")}),
-            );
+        if policy_name == "bot" {
+            eng.play_to_completion_scoring(500);
+        } else if policy_name.eq_ignore_ascii_case("external") {
+            // Honor the requested external policy; when the external policy
+            // server is unreachable this fails loudly (503) instead of silently
+            // substituting the default heuristic.
+            if let Err(e) = eng.play_to_completion_external_checked(500) {
+                // Roll the engine back to its pre-request snapshot: the speed
+                // multiplier and any steps taken before the policy failed.
+                eng.restore(before);
+                return json_response(
+                    503,
+                    json!({"error": format!("external policy unavailable: {e}")}),
+                );
+            }
+        } else {
+            eng.play_to_completion(500);
         }
-    } else {
-        eng.play_to_completion(500);
-    }
+        let s = eng.state();
+        (s.career_complete, s.turn, s.fans)
+    };
     st.settings.speed_multiplier = mult;
-    let s = eng.state();
     json_response(
         200,
         json!({
-            "careerEnded": s.career_complete,
-            "turn": s.turn,
-            "fans": s.fans,
+            "careerEnded": career_ended,
+            "turn": turn,
+            "fans": fans,
         }),
     )
 }
 
-fn handle_telemetry(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
-    let Some(eng) = st.engine.as_ref() else {
-        return json_response(404, json!({"error":"no active run"}));
+fn handle_telemetry(st: &ApiState, query: &HashMap<String, String>) -> Response<Cursor<Vec<u8>>> {
+    let slot = match resolve_session_ref(st, query) {
+        Ok(s) => s,
+        Err(r) => return r,
     };
-    json_response_str(200, &eng.export_telemetry_json())
+    json_response_str(200, &slot.engine.export_telemetry_json())
 }
 
 fn handle_load_content_pack(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
@@ -547,10 +783,13 @@ fn handle_load_content_pack(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec
     ContentPackRegistry::register(events);
     reinstall_event_catalog(&root);
 
-    if let Some(snap) = st.engine.as_ref().map(|e| e.export()) {
+    // Rebuild every live session against the new catalogs so continued
+    // careers and restored checkpoints see the same content.
+    for slot in st.sessions.values_mut() {
+        let snap = slot.engine.export();
         let mut engine = SimEngine::create(st.settings.clone());
         engine.restore(snap);
-        st.engine = Some(engine);
+        slot.engine = engine;
     }
 
     json_response(
@@ -573,11 +812,17 @@ fn reinstall_event_catalog(root: &std::path::Path) {
     }
 }
 
-fn handle_deck_place(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
-    let Some(eng) = st.engine.as_mut() else {
-        return json_response(404, json!({"error":"no active run"}));
-    };
+fn handle_deck_place(
+    st: &mut ApiState,
+    raw: &str,
+    query: &HashMap<String, String>,
+) -> Response<Cursor<Vec<u8>>> {
     let body = parse_body(raw);
+    let slot = match resolve_session(st, &body, query) {
+        Ok(s) => s,
+        Err(r) => return r,
+    };
+    let eng = &mut slot.engine;
     let Some(support_id) = body_string(&body, "supportId") else {
         return json_response(400, json!({"error":"supportId required"}));
     };
@@ -590,14 +835,21 @@ fn handle_deck_place(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> 
     if !eng.assign_deck_slot(&support_id, facility) {
         return json_response(409, json!({"error":"cannot place card"}));
     }
-    json_response_str(200, &state_json(st))
+    let snapshot = RunSnapshotCodec::encode(&eng.export());
+    json_response_str(200, &snapshot)
 }
 
-fn handle_set_style(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
-    let Some(eng) = st.engine.as_mut() else {
-        return json_response(404, json!({"error":"no active run"}));
-    };
+fn handle_set_style(
+    st: &mut ApiState,
+    raw: &str,
+    query: &HashMap<String, String>,
+) -> Response<Cursor<Vec<u8>>> {
     let body = parse_body(raw);
+    let slot = match resolve_session(st, &body, query) {
+        Ok(s) => s,
+        Err(r) => return r,
+    };
+    let eng = &mut slot.engine;
     let Some(style) = body_string(&body, "style") else {
         return json_response(400, json!({"error":"style required (front|pace|late|end)"}));
     };
@@ -606,7 +858,424 @@ fn handle_set_style(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
         return json_response(400, json!({"error":"style must be front|pace|late|end"}));
     }
     eng.set_preferred_running_style(if key.is_empty() { None } else { Some(key) });
-    json_response_str(200, &state_json(st))
+    let snapshot = RunSnapshotCodec::encode(&eng.export());
+    json_response_str(200, &snapshot)
+}
+
+// ---------------------------------------------------------------------------
+// Career lab: sessions, library, branch & compare
+// ---------------------------------------------------------------------------
+
+fn handle_sessions(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
+    let mut sessions: Vec<SessionInfo> = st.sessions.values().map(session_info).collect();
+    sessions.sort_by(|a, b| a.id.cmp(&b.id));
+    json_response(200, json!({"sessions": sessions, "active": st.active}))
+}
+
+/// Fork a new session from a library checkpoint (or from another live
+/// session). The new session is an independent engine: playing it can never
+/// mutate the checkpoint or a sibling session.
+fn handle_session_fork(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let mut advisories: Vec<String> = Vec::new();
+    let source_label: String;
+    let snapshot: RunSnapshot = if let Some(cp) = body_string(&body, "checkpoint") {
+        match st.library.load(&cp) {
+            Ok((snap, _, adv)) => {
+                advisories = adv;
+                source_label = format!("checkpoint '{cp}'");
+                snap
+            }
+            Err(e) => return lab_error_response(&e),
+        }
+    } else {
+        let src_id = body_string(&body, "session").unwrap_or_else(|| st.active.clone());
+        match st.sessions.get(&src_id) {
+            Some(slot) => {
+                source_label = format!("session '{}'", slot.label);
+                slot.engine.export()
+            }
+            None => {
+                return json_response(404, json!({"error": format!("no such session '{src_id}'")}))
+            }
+        }
+    };
+
+    let new_id = body_string(&body, "id")
+        .filter(|s| !s.trim().is_empty())
+        .map(|s| s.trim().to_string())
+        .unwrap_or_else(|| new_session_id(&source_label));
+    if let Err(e) = validate_entry_name(&new_id) {
+        return lab_error_response(&e);
+    }
+    if st.sessions.contains_key(&new_id) {
+        return json_response(
+            409,
+            json!({"error": format!("session '{new_id}' already exists")}),
+        );
+    }
+    let label = body_string(&body, "label")
+        .filter(|s| !s.trim().is_empty())
+        .unwrap_or_else(|| new_id.clone());
+    let mut engine = SimEngine::create(snapshot.settings.clone());
+    engine.restore(snapshot);
+    st.sessions.insert(
+        new_id.clone(),
+        SessionSlot {
+            id: new_id.clone(),
+            label,
+            engine,
+        },
+    );
+    st.active = new_id.clone();
+    let info = session_info(&st.sessions[&new_id]);
+    json_response(
+        200,
+        json!({"session": info, "compatAdvisories": advisories}),
+    )
+}
+
+fn handle_session_close(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let Some(id) = body_string(&body, "session").filter(|s| !s.is_empty()) else {
+        return json_response(400, json!({"error":"session required"}));
+    };
+    if id == st.active {
+        // Never strand the client without an active session: fall back to the
+        // default session id (which may simply have no run yet).
+        st.active = String::new();
+    }
+    if st.sessions.remove(&id).is_none() {
+        return json_response(404, json!({"error": format!("no such session '{id}'")}));
+    }
+    json_response(200, json!({"closed": id, "active": st.active}))
+}
+
+fn handle_session_activate(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let Some(id) = body_string(&body, "session") else {
+        return json_response(400, json!({"error":"session required"}));
+    };
+    if !st.sessions.contains_key(&id) {
+        return json_response(404, json!({"error": format!("no such session '{id}'")}));
+    }
+    st.active = id.clone();
+    let info = session_info(&st.sessions[&id]);
+    json_response(200, json!({"session": info}))
+}
+
+fn handle_library_list(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
+    match st.library.list() {
+        Ok(entries) => json_response(200, json!({"entries": entries})),
+        Err(e) => lab_error_response(&e),
+    }
+}
+
+/// Save the target session's current run as a named checkpoint. Atomic:
+/// a crash mid-write leaves the previous library state intact.
+fn handle_library_save(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let empty_query = HashMap::new();
+    let snapshot = {
+        let slot = match resolve_session(st, &body, &empty_query) {
+            Ok(s) => s,
+            Err(r) => return r,
+        };
+        slot.engine.export()
+    };
+    let name = body_string(&body, "name")
+        .filter(|s| !s.trim().is_empty())
+        .map(|s| s.trim().to_string())
+        .unwrap_or_else(|| auto_name(&snapshot));
+    let label = body_string(&body, "label").filter(|s| !s.trim().is_empty());
+    let note = body_string(&body, "note").filter(|s| !s.trim().is_empty());
+    let overwrite = body
+        .get("overwrite")
+        .and_then(|v| v.as_bool())
+        .unwrap_or(false);
+    match st.library.save(
+        &name,
+        label.as_deref(),
+        note.as_deref(),
+        &snapshot,
+        overwrite,
+    ) {
+        Ok(entry) => json_response(200, json!({"entry": entry})),
+        Err(e) => lab_error_response(&e),
+    }
+}
+
+/// Load a checkpoint into the target session (default: active). The library
+/// entry is never modified; incompatible snapshots fail loudly (422) without
+/// touching the live session.
+fn handle_library_load(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let Some(name) = body_string(&body, "name").filter(|s| !s.trim().is_empty()) else {
+        return json_response(400, json!({"error":"name required"}));
+    };
+    let (snapshot, entry, advisories) = match st.library.load(name.trim()) {
+        Ok(t) => t,
+        Err(e) => return lab_error_response(&e),
+    };
+    let target = body_string(&body, "session")
+        .filter(|s| !s.is_empty())
+        .unwrap_or_else(|| st.active.clone());
+    if !target.is_empty() {
+        if let Err(e) = validate_entry_name(&target) {
+            return lab_error_response(&e);
+        }
+    }
+    let label = body_string(&body, "label")
+        .filter(|s| !s.trim().is_empty())
+        .unwrap_or_else(|| format!("from '{}'", entry.name));
+    let mut engine = SimEngine::create(snapshot.settings.clone());
+    engine.restore(snapshot.clone());
+    st.sessions.insert(
+        target.clone(),
+        SessionSlot {
+            id: target.clone(),
+            label,
+            engine,
+        },
+    );
+    st.active = target;
+    let state: Value = serde_json::to_value(&snapshot).unwrap_or_else(|_| json!({}));
+    json_response(
+        200,
+        json!({"state": state, "entry": entry, "compatAdvisories": advisories}),
+    )
+}
+
+fn handle_library_delete(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let Some(name) = body_string(&body, "name").filter(|s| !s.trim().is_empty()) else {
+        return json_response(400, json!({"error":"name required"}));
+    };
+    match st.library.delete(name.trim()) {
+        Ok(()) => json_response(200, json!({"deleted": name.trim()})),
+        Err(e) => lab_error_response(&e),
+    }
+}
+
+/// Import an externally supplied snapshot as a new checkpoint. Validation
+/// happens before any write, so a bad import preserves the last good
+/// library state.
+fn handle_library_import(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let Some(snapshot_value) = body.get("snapshot") else {
+        return json_response(400, json!({"error":"snapshot required"}));
+    };
+    let snapshot_raw = snapshot_value.to_string();
+    let name = body_string(&body, "name").filter(|s| !s.trim().is_empty());
+    let overwrite = body
+        .get("overwrite")
+        .and_then(|v| v.as_bool())
+        .unwrap_or(false);
+    match st.library.import(&snapshot_raw, name.as_deref(), overwrite) {
+        Ok(entry) => json_response(200, json!({"entry": entry})),
+        Err(e) => lab_error_response(&e),
+    }
+}
+
+/// Download a checkpoint's raw snapshot JSON.
+fn handle_library_export(
+    st: &ApiState,
+    query: &HashMap<String, String>,
+) -> Response<Cursor<Vec<u8>>> {
+    let Some(name) = query.get("name").filter(|s| !s.trim().is_empty()) else {
+        return json_response(400, json!({"error":"name required"}));
+    };
+    match st.library.export_raw(name.trim()) {
+        Ok(raw) => json_response_str(200, &raw),
+        Err(e) => lab_error_response(&e),
+    }
+}
+
+/// Resolve a branch source: a library checkpoint name, `session:<id>`, or
+/// the default (active) session.
+fn resolve_branch_source(
+    st: &mut ApiState,
+    checkpoint_ref: &str,
+) -> Result<(RunSnapshot, String), Response<Cursor<Vec<u8>>>> {
+    if let Some(sid) = checkpoint_ref.strip_prefix("session:") {
+        let sid = if sid == "active" {
+            st.active.clone()
+        } else {
+            sid.to_string()
+        };
+        match st.sessions.get(&sid) {
+            Some(slot) => Ok((slot.engine.export(), format!("session:{sid}"))),
+            None => Err(json_response(
+                404,
+                json!({"error": format!("no such session '{sid}'")}),
+            )),
+        }
+    } else {
+        match st.library.load(checkpoint_ref) {
+            Ok((snap, _, _)) => Ok((snap, checkpoint_ref.to_string())),
+            Err(e) => Err(lab_error_response(&e)),
+        }
+    }
+}
+
+/// Run one branch to completion from a checkpoint with a built-in policy.
+/// Synchronous: the server is busy until the run finishes (a full career is
+/// typically seconds with the stub race model).
+fn handle_lab_branch(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let checkpoint_ref = body_string(&body, "checkpoint")
+        .filter(|s| !s.trim().is_empty())
+        .unwrap_or_else(|| "session:active".to_string());
+    let (snapshot, checkpoint_name) = match resolve_branch_source(st, checkpoint_ref.trim()) {
+        Ok(t) => t,
+        Err(r) => return r,
+    };
+    let policy = body_string(&body, "policy").unwrap_or_else(|| "bot".into());
+    if policy != "bot" && policy != "default" {
+        return json_response(
+            400,
+            json!({"error": format!("unknown policy '{policy}'; expected bot|default")}),
+        );
+    }
+    let max_actions = body
+        .get("maxActions")
+        .and_then(|v| v.as_i64())
+        .unwrap_or(500)
+        .clamp(1, 500) as i32;
+    let overrides: Vec<ActionOverride> = body
+        .get("overrides")
+        .and_then(|v| v.as_array())
+        .map(|arr| {
+            arr.iter()
+                .filter_map(|o| {
+                    let turn = o.get("turn").and_then(|t| t.as_i64())? as i32;
+                    let action_id = o.get("actionId").and_then(|a| a.as_str())?.to_string();
+                    Some(ActionOverride { turn, action_id })
+                })
+                .collect()
+        })
+        .unwrap_or_default();
+    let config = BranchConfig {
+        policy: policy.clone(),
+        max_actions,
+        overrides,
+    };
+    let name = body_string(&body, "name")
+        .filter(|s| !s.trim().is_empty())
+        .map(|s| s.trim().to_string())
+        .unwrap_or_else(|| format!("{checkpoint_name}-{policy}"));
+    let result = run_branch(&snapshot, &name, &checkpoint_name, &config);
+    if let Err(e) = st.branches.save(&result) {
+        return lab_error_response(&e);
+    }
+    let summary = LabResultSummary::from(&result);
+    json_response(200, json!({"branch": summary, "outcome": result.outcome}))
+}
+
+fn handle_lab_branches(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
+    match st.branches.list() {
+        Ok(results) => {
+            let summaries: Vec<LabResultSummary> =
+                results.iter().map(LabResultSummary::from).collect();
+            json_response(200, json!({"branches": summaries}))
+        }
+        Err(e) => lab_error_response(&e),
+    }
+}
+
+fn handle_lab_branch_get(
+    st: &ApiState,
+    query: &HashMap<String, String>,
+) -> Response<Cursor<Vec<u8>>> {
+    let Some(id) = query.get("id").filter(|s| !s.trim().is_empty()) else {
+        return json_response(400, json!({"error":"id required"}));
+    };
+    match st.branches.load(id.trim()) {
+        Ok(result) => json_response(200, json!({"branch": result})),
+        Err(e) => lab_error_response(&e),
+    }
+}
+
+fn handle_lab_branch_delete(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let Some(id) = body_string(&body, "id").filter(|s| !s.trim().is_empty()) else {
+        return json_response(400, json!({"error":"id required"}));
+    };
+    match st.branches.delete(id.trim()) {
+        Ok(()) => json_response(200, json!({"deleted": id.trim()})),
+        Err(e) => lab_error_response(&e),
+    }
+}
+
+fn handle_lab_compare(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+    let body = parse_body(raw);
+    let (Some(a_id), Some(b_id)) = (
+        body_string(&body, "a").filter(|s| !s.trim().is_empty()),
+        body_string(&body, "b").filter(|s| !s.trim().is_empty()),
+    ) else {
+        return json_response(400, json!({"error":"a and b branch ids required"}));
+    };
+    let (a, b) = match (st.branches.load(a_id.trim()), st.branches.load(b_id.trim())) {
+        (Ok(a), Ok(b)) => (a, b),
+        (Err(e), _) | (_, Err(e)) => return lab_error_response(&e),
+    };
+    let comparison = compare_branches(&a, &b);
+    let payload = render_compare_json(&comparison);
+    json_response_str(200, &payload)
+}
+
+/// Downloadable comparison report (`?format=markdown` or `?format=json`).
+fn handle_lab_report(st: &ApiState, query: &HashMap<String, String>) -> Response<Cursor<Vec<u8>>> {
+    let (Some(a_id), Some(b_id)) = (
+        query.get("a").filter(|s| !s.trim().is_empty()),
+        query.get("b").filter(|s| !s.trim().is_empty()),
+    ) else {
+        return json_response(400, json!({"error":"a and b branch ids required"}));
+    };
+    let (a, b) = match (st.branches.load(a_id.trim()), st.branches.load(b_id.trim())) {
+        (Ok(a), Ok(b)) => (a, b),
+        (Err(e), _) | (_, Err(e)) => return lab_error_response(&e),
+    };
+    let comparison = compare_branches(&a, &b);
+    let format = query
+        .get("format")
+        .map(|s| s.as_str())
+        .unwrap_or("markdown");
+    if format == "json" {
+        let payload = render_compare_json(&comparison);
+        attachment_response(
+            200,
+            "application/json",
+            &format!("branch-compare-{}-vs-{}.json", a.id, b.id),
+            payload.as_bytes(),
+        )
+    } else {
+        let payload = render_markdown(&comparison);
+        attachment_response(
+            200,
+            "text/markdown; charset=utf-8",
+            &format!("branch-compare-{}-vs-{}.md", a.id, b.id),
+            payload.as_bytes(),
+        )
+    }
+}
+
+fn attachment_response(
+    code: u16,
+    content_type: &str,
+    filename: &str,
+    bytes: &[u8],
+) -> Response<Cursor<Vec<u8>>> {
+    Response::from_data(bytes.to_vec())
+        .with_status_code(StatusCode(code))
+        .with_header(Header::from_bytes(&b"Content-Type"[..], content_type.as_bytes()).unwrap())
+        .with_header(
+            Header::from_bytes(
+                &b"Content-Disposition"[..],
+                format!("attachment; filename=\"{filename}\"").as_bytes(),
+            )
+            .unwrap(),
+        )
 }
 
 #[cfg(feature = "embed-ui")]
@@ -718,6 +1387,11 @@ mod tests {
     /// test binary precisely so it cannot interleave with these.)
     static POLICY_CMD_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
 
+    /// Serializes the career-lab REST tests. Both spin up a server that stores
+    /// checkpoints in the cwd-relative `.uma-sim/library/`, so they must not
+    /// interleave with each other (file names are fixed per test).
+    static LAB_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
     /// Start a run on the test server; `policy_field` is `""` or e.g.
     /// `",\"policy\":\"external\""`.
     fn start_run(port: u16, policy_field: &str) -> (u16, String) {
@@ -807,6 +1481,21 @@ mod tests {
             }
         }
         out
+    }
+
+    /// Remove this test's checkpoint files from the cwd-relative library dir so
+    /// repeated runs are idempotent (the REST server stores checkpoints
+    /// cwd-relative, and the file names these tests use are fixed).
+    fn scrub_checkpoints(names: &[&str]) {
+        let dir = std::env::current_dir()
+            .unwrap_or_else(|_| std::path::PathBuf::from("."))
+            .join(".uma-sim")
+            .join("library");
+        for name in names {
+            for ext in ["snapshot.json", "meta.json"] {
+                let _ = std::fs::remove_file(dir.join(format!("{name}.{ext}")));
+            }
+        }
     }
 
     fn http_get(port: u16, path: &str) -> (u16, String) {
@@ -1314,5 +2003,208 @@ mod tests {
         );
         assert_eq!(status, 200, "got {status}: {body}");
         assert_eq!(speed_and_turn(port).0, 7);
+    }
+
+    /// T100 — career library + session fork + branch & compare over HTTP.
+    ///
+    /// Exercises the full laboratory flow against a live test server: start a
+    /// run, save a named checkpoint, fork two independent sessions, verify
+    /// they evolve independently, run two lab branches with different
+    /// overrides, and compare them. Also pins the error shapes for duplicate
+    /// saves, bad names, and missing checkpoints.
+    #[test]
+    fn lab_library_fork_branch_compare_flow() {
+        let _guard = LAB_LOCK.lock().unwrap();
+        scrub_checkpoints(&["lab-e2e"]);
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+
+        let (status, _) = start_run(port, "");
+        assert_eq!(status, 200);
+
+        // Play a few scoring steps so the checkpoint is mid-career.
+        for _ in 0..4 {
+            let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"bot"}"#);
+            assert_eq!(status, 200, "got {status}: {body}");
+        }
+
+        // Save a named checkpoint; the entry shows seed/scenario/turn.
+        let (status, body) = http_post(
+            port,
+            "/v1/library/save",
+            r#"{"name":"lab-e2e","label":"E2E checkpoint"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        let v: Value = serde_json::from_str(&body).unwrap();
+        assert_eq!(v["entry"]["name"], "lab-e2e");
+        assert_eq!(v["entry"]["seed"], 7);
+        assert_eq!(v["entry"]["scenarioId"], "ura");
+        let cp_turn = v["entry"]["turn"].as_i64().unwrap();
+
+        // Duplicate save without overwrite: 409. Bad name: 400.
+        let (status, body) = http_post(port, "/v1/library/save", r#"{"name":"lab-e2e"}"#);
+        assert_eq!(status, 409, "got {status}: {body}");
+        assert_json_error(&body, "already exists");
+        let (status, body) = http_post(port, "/v1/library/save", r#"{"name":"bad name"}"#);
+        assert_eq!(status, 400, "got {status}: {body}");
+
+        // Library lists the checkpoint.
+        let (status, body) = http_get(port, "/v1/library");
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains("\"lab-e2e\""), "got: {body}");
+
+        // Fork two sessions from the checkpoint; both start at the checkpoint turn.
+        for sid in ["s1", "s2"] {
+            let (status, body) = http_post(
+                port,
+                "/v1/session/fork",
+                &format!(r#"{{"checkpoint":"lab-e2e","id":"{sid}","label":"{sid}"}}"#),
+            );
+            assert_eq!(status, 200, "fork {sid}: got {status}: {body}");
+            let v: Value = serde_json::from_str(&body).unwrap();
+            assert_eq!(v["session"]["turn"], cp_turn);
+        }
+
+        // Play the sessions differently: rest on s1, auto on s2. They must
+        // evolve independently of each other and of the checkpoint.
+        let (status, _) = http_post(
+            port,
+            "/v1/run/action",
+            r#"{"session":"s1","action":"rest"}"#,
+        );
+        assert_eq!(status, 200);
+        let (status, _) = http_post(port, "/v1/run/auto", r#"{"session":"s2","policy":"bot"}"#);
+        assert_eq!(status, 200);
+        let (status, a_body) = http_get(port, "/v1/run/state?session=s1");
+        assert_eq!(status, 200);
+        let (status, b_body) = http_get(port, "/v1/run/state?session=s2");
+        assert_eq!(status, 200);
+        let (a_v, b_v): (Value, Value) = (
+            serde_json::from_str(&a_body).unwrap(),
+            serde_json::from_str(&b_body).unwrap(),
+        );
+        assert_ne!(
+            a_v["state"]["energy"], b_v["state"]["energy"],
+            "forked sessions must evolve independently"
+        );
+
+        // The checkpoint still loads at its original turn: sessions never
+        // mutated it.
+        let (status, body) = http_post(
+            port,
+            "/v1/library/load",
+            r#"{"name":"lab-e2e","session":"s3"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        let v: Value = serde_json::from_str(&body).unwrap();
+        assert_eq!(v["state"]["state"]["turn"], cp_turn);
+
+        // Unknown session / checkpoint: 404 with a JSON error.
+        let (status, body) = http_get(port, "/v1/run/state?session=nope");
+        assert_eq!(status, 404, "got {status}: {body}");
+        assert_json_error(&body, "no such session");
+        let (status, body) = http_post(
+            port,
+            "/v1/lab/branch",
+            r#"{"checkpoint":"nope","policy":"bot"}"#,
+        );
+        assert_eq!(status, 404, "got {status}: {body}");
+
+        // Two lab branches with different overrides on the checkpoint turn.
+        let branch = |name: &str, action: &str| {
+            http_post(
+                port,
+                "/v1/lab/branch",
+                &format!(
+                    r#"{{"checkpoint":"lab-e2e","name":"{name}","policy":"bot","overrides":[{{"turn":{cp_turn},"actionId":"{action}"}}]}}"#,
+                ),
+            )
+        };
+        let (status, body) = branch("e2e-rest", "rest");
+        assert_eq!(status, 200, "got {status}: {body}");
+        let a_id = serde_json::from_str::<Value>(&body).unwrap()["branch"]["id"]
+            .as_str()
+            .unwrap()
+            .to_string();
+        let (status, body) = branch("e2e-train", "train_speed");
+        assert_eq!(status, 200, "got {status}: {body}");
+        let b_id = serde_json::from_str::<Value>(&body).unwrap()["branch"]["id"]
+            .as_str()
+            .unwrap()
+            .to_string();
+
+        // Branches are listed, and the comparison finds the decision
+        // divergence on the checkpoint turn.
+        let (status, body) = http_get(port, "/v1/lab/branches");
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains(&a_id) && body.contains(&b_id), "got: {body}");
+
+        let (status, body) = http_post(
+            port,
+            "/v1/lab/compare",
+            &format!(r#"{{"a":"{a_id}","b":"{b_id}"}}"#),
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        let v: Value = serde_json::from_str(&body).unwrap();
+        assert_eq!(v["firstDivergence"]["kind"], "decision");
+        assert_eq!(v["firstDivergence"]["turn"], cp_turn);
+        assert_eq!(v["sameCheckpoint"], true);
+        assert!(v["caveats"].as_array().unwrap().len() >= 3);
+
+        // The downloadable report renders with the checkpoint turn fixed.
+        let raw = http_raw(
+            port,
+            &format!("GET /v1/lab/report?a={a_id}&b={b_id}&format=markdown HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n"),
+        );
+        assert!(
+            raw.starts_with("HTTP/1.1 200"),
+            "got: {}",
+            raw.lines().next().unwrap_or("")
+        );
+        assert!(
+            raw.to_ascii_lowercase()
+                .contains("content-type: text/markdown"),
+            "report must be markdown"
+        );
+        assert!(raw.contains("# Branch comparison: e2e-rest vs e2e-train"));
+        assert!(raw.contains(&format!("turn {cp_turn}")));
+        scrub_checkpoints(&["lab-e2e"]);
+    }
+
+    /// T100 — import validation happens before any write (M6).
+    #[test]
+    fn lab_library_import_failure_is_nondestructive() {
+        let _guard = LAB_LOCK.lock().unwrap();
+        scrub_checkpoints(&["keep"]);
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+
+        let (status, _) = start_run(port, "");
+        assert_eq!(status, 200);
+        let (status, body) = http_post(port, "/v1/library/save", r#"{"name":"keep"}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+
+        // Wrong-shape snapshot: 400, and the good entry survives.
+        let (status, body) = http_post(
+            port,
+            "/v1/library/import",
+            r#"{"name":"bad","snapshot":{"nope":true}}"#,
+        );
+        assert_eq!(status, 400, "got {status}: {body}");
+        assert_json_error(&body, "not imported");
+
+        let (status, body) = http_get(port, "/v1/library");
+        assert_eq!(status, 200, "got {status}: {body}");
+        let v: Value = serde_json::from_str(&body).unwrap();
+        let names: Vec<&str> = v["entries"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|e| e["name"].as_str().unwrap())
+            .collect();
+        assert_eq!(names, vec!["keep"]);
+        scrub_checkpoints(&["keep"]);
     }
 }

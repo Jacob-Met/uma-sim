@@ -2,6 +2,7 @@ pub mod api;
 pub mod batch_analysis;
 pub mod bot;
 pub mod calendar;
+pub mod career_lab;
 pub mod catalog;
 pub mod config;
 pub mod content;
@@ -57,7 +58,7 @@ pub use race::{
     race_effective_stat, run_physics_race, RaceModel, RaceScheduler,
 };
 pub use render::TextRenderer;
-pub use rng::SimRandom;
+pub use rng::{RngStateWords, SimRandom};
 pub use scenario::{
     is_known_scenario, scenario_plugin_for, ConcertOutcome, DuelContest, DuelPrediction,
     GrandConcertScenarioPlugin, GrandLiveCalibrationLoader, GrandLiveCatalog,

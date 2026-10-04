@@ -201,11 +201,22 @@ impl SimEngine {
 
     pub fn restore(&mut self, snapshot: RunSnapshot) -> SimStepResult {
         self.settings = snapshot.settings;
-        self.rng = SimRandom::restore_with_trace(
-            snapshot.rng_seed,
-            snapshot.rng_calls,
-            self.settings.trace_rng,
-        );
+        // Exact RNG restore when the snapshot carries the internal state
+        // words; older snapshots fall back to the best-effort seed+calls
+        // replay (exact only if every call was next_long).
+        self.rng = match snapshot.rng_state {
+            Some(words) => SimRandom::restore_words(
+                snapshot.rng_seed,
+                snapshot.rng_calls,
+                words,
+                self.settings.trace_rng,
+            ),
+            None => SimRandom::restore_with_trace(
+                snapshot.rng_seed,
+                snapshot.rng_calls,
+                self.settings.trace_rng,
+            ),
+        };
         self.plugin = scenario_plugin_for(&snapshot.meta.scenario_id);
         self.state = snapshot.state;
         if self.settings.trace_telemetry {
@@ -221,6 +232,7 @@ impl SimEngine {
             state: self.state.clone(),
             rng_seed: self.rng.seed(),
             rng_calls: self.rng.call_count(),
+            rng_state: Some(self.rng.state_words()),
         }
     }
 
@@ -244,6 +256,38 @@ impl SimEngine {
 
     pub fn telemetry_log(&self) -> &[crate::telemetry::TurnTelemetryRecord] {
         self.telemetry.records()
+    }
+
+    /// Current RNG stream position (calls consumed). Used by the career lab to
+    /// bind RNG evolution to each branch.
+    pub fn rng_calls(&self) -> u32 {
+        self.rng.call_count()
+    }
+
+    /// Choose the scoring-policy ("bot") action for the current state without
+    /// stepping. Used by the career lab to record branch decisions.
+    pub fn scoring_action(&self) -> Option<SimAction> {
+        let choices = self.choices();
+        if choices.is_empty() {
+            return None;
+        }
+        let state = self.state.clone();
+        Some(crate::scoring_auto_policy(
+            &choices,
+            &state,
+            &self.training_resolver,
+            self.plugin.as_ref(),
+        ))
+    }
+
+    /// Choose the default-heuristic-policy action for the current state
+    /// without stepping. Used by the career lab to record branch decisions.
+    pub fn default_action(&self) -> Option<SimAction> {
+        let choices = self.choices();
+        if choices.is_empty() {
+            return None;
+        }
+        Some(crate::policy::default_auto_policy(&choices))
     }
 
     pub fn export_telemetry_json(&self) -> String {
@@ -1130,11 +1174,12 @@ impl SimEngine {
         }
         self.state.fans += fan_gain;
         self.state.skill_points += sp_gain;
-        self.state.completed_races = completed
-            .into_iter()
-            .collect::<std::collections::HashSet<_>>()
-            .into_iter()
-            .collect();
+        // Deduplicate while preserving completion order. (The previous
+        // HashSet round-trip made the order nondeterministic across runs,
+        // which broke save/restore reproducibility of the race list.)
+        let mut seen = std::collections::HashSet::new();
+        completed.retain(|r| seen.insert(r.clone()));
+        self.state.completed_races = completed;
         self.state.phase = TurnPhase::Free.as_str().to_string();
         self.state.pending_race_id = None;
         let mut epithet_note = String::new();

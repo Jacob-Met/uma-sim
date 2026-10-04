@@ -137,6 +137,15 @@ export interface RunSnapshot {
   state: CareerState;
   rngSeed: number;
   rngCalls: number;
+  /** Exact internal RNG state words (present on snapshots from current builds). */
+  rngState?: {
+    x: number;
+    y: number;
+    z: number;
+    w: number;
+    v: number;
+    addend: number;
+  } | null;
 }
 
 export interface HealthResponse {
@@ -176,4 +185,180 @@ export function compatibilityGrade(score: number): "◎" | "〇" | "△" {
   if (score > 150) return "◎";
   if (score >= 51) return "〇";
   return "△";
+}
+
+/* ------------------------------------------------------------------ */
+/* Career lab (T100): named checkpoint library + branch & compare.     */
+/* ------------------------------------------------------------------ */
+
+export interface ContentFingerprint {
+  coreVersion: string;
+  snapshotSchema: number;
+  eventCatalogCount: number;
+  contentPackEvents: number;
+  repoRootDetected: boolean;
+}
+
+export interface LibraryEntry {
+  name: string;
+  label: string;
+  note: string;
+  savedAt: string;
+  savedAtUnix: number;
+  seed: number;
+  scenarioId: string;
+  traineeName: string;
+  turn: number;
+  dateLabel: string;
+  phase: string;
+  rngCalls: number;
+  fingerprint: ContentFingerprint;
+}
+
+export interface SessionInfo {
+  id: string;
+  label: string;
+  turn: number;
+  phase: string;
+  careerComplete: boolean;
+  seed: number;
+  scenarioId: string;
+  traineeName: string;
+}
+
+export interface ActionOverride {
+  turn: number;
+  actionId: string;
+}
+
+export interface BranchConfig {
+  policy: string;
+  maxActions: number;
+  overrides: ActionOverride[];
+}
+
+export interface LabBranchSummary {
+  id: string;
+  name: string;
+  checkpointName: string;
+  seed: number;
+  scenarioId: string;
+  traineeName: string;
+  policy: string;
+  steps: number;
+  careerComplete: boolean;
+  finalTurn: number;
+  fans: number;
+  startedAt: string;
+}
+
+export interface BranchStep {
+  stepIndex: number;
+  turn: number;
+  dateLabel: string;
+  phase: string;
+  actionId: string;
+  actionLabel: string;
+  overrideApplied: boolean;
+  overrideRejected: boolean;
+  rngCallsBefore: number;
+  rngCallsAfter: number;
+  energy: number;
+  mood: string;
+  fans: number;
+  skillPoints: number;
+  stats: TraineeStats;
+  newRaces: string[];
+  totalRaces: number;
+  totalSkills: number;
+}
+
+export interface SparkSummary {
+  color: string;
+  factorId: string;
+  stars: number;
+  label: string;
+}
+
+export interface BranchOutcome {
+  steps: number;
+  finalTurn: number;
+  careerComplete: boolean;
+  completedRaces: string[];
+  stats: TraineeStats;
+  energy: number;
+  mood: string;
+  fans: number;
+  skillPoints: number;
+  learnedSkills: string[];
+  sparks: SparkSummary[];
+  scenarioResources: Record<string, number>;
+  totalRngCalls: number;
+  telemetryRecords: number;
+}
+
+export interface LabBranchResult {
+  id: string;
+  name: string;
+  checkpointName: string;
+  checkpointTurn: number;
+  seed: number;
+  scenarioId: string;
+  traineeName: string;
+  config: BranchConfig;
+  startedAt: string;
+  timeline: BranchStep[];
+  outcome: BranchOutcome;
+}
+
+export interface Divergence {
+  stepIndex: number;
+  turn: number;
+  dateLabel: string;
+  phase: string;
+  kind: "decision" | "outcome" | string;
+  actionA: string;
+  actionB: string;
+  labelA: string;
+  labelB: string;
+  rngCallsAAfter: number;
+  rngCallsBAfter: number;
+  note: string;
+}
+
+export interface TurnCompare {
+  stepIndex: number;
+  turnA: number | null;
+  turnB: number | null;
+  actionA: string | null;
+  actionB: string | null;
+  labelA: string | null;
+  labelB: string | null;
+  sameAction: boolean;
+  energyA: number | null;
+  energyB: number | null;
+  moodA: string | null;
+  moodB: string | null;
+  fansA: number | null;
+  fansB: number | null;
+  skillPointsA: number | null;
+  skillPointsB: number | null;
+  sameOutcome: boolean;
+}
+
+export interface BranchComparison {
+  aId: string;
+  aName: string;
+  bId: string;
+  bName: string;
+  checkpointName: string;
+  checkpointTurn: number;
+  seed: number;
+  sameCheckpoint: boolean;
+  comparedAt: string;
+  firstDivergence: Divergence | null;
+  aligned: TurnCompare[];
+  outcomeA: BranchOutcome;
+  outcomeB: BranchOutcome;
+  caveats: string[];
 }

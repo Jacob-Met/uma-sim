@@ -12,6 +12,7 @@ import { CareerSummary } from "./components/CareerSummary";
 import { ControlsBar } from "./components/ControlsBar";
 import { api } from "./api/client";
 import { useRunStore } from "./state/runStore";
+import { LabTab } from "./components/LabTab";
 
 export default function App() {
   const {
@@ -24,10 +25,12 @@ export default function App() {
     placeDeck,
     setStyle,
     newRun,
+    refreshActive,
     clearError,
     clearToast,
   } = useRunStore();
   const [policy, setPolicy] = useState("bot");
+  const [tab, setTab] = useState<"run" | "lab">("run");
 
   useEffect(() => {
     void bootstrap();
@@ -86,6 +89,20 @@ export default function App() {
             {state.health?.version ? ` · v${state.health.version}` : ""}
           </div>
         </div>
+        <nav className="tabs">
+          <button
+            className={tab === "run" ? "active" : ""}
+            onClick={() => setTab("run")}
+          >
+            Run
+          </button>
+          <button
+            className={tab === "lab" ? "active" : ""}
+            onClick={() => setTab("lab")}
+          >
+            Library &amp; lab
+          </button>
+        </nav>
       </header>
 
       {state.health && !state.health.repoRoot && (
@@ -111,7 +128,11 @@ export default function App() {
         </div>
       )}
 
-      {!cs && (
+      {tab === "lab" && <LabTab refreshRun={refreshActive} />}
+
+      {tab === "run" && (
+        <>
+          {!cs && (
         <RunSetup
           scenarios={state.catalogs.scenarios}
           trainees={state.catalogs.trainees}
@@ -182,8 +203,10 @@ export default function App() {
           />
         </>
       )}
+        </>
+      )}
 
-      {state.busy && (
+      {state.busy && tab === "run" && (
         <div className="busy-overlay">
           <div className="card">Working…</div>
         </div>
