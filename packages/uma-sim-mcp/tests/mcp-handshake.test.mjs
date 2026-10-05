@@ -130,3 +130,51 @@ test("conformant handshake with newline-delimited framing", async () => {
     srv.stop();
   }
 });
+
+test("protocol negotiation, -32602 error mapping, and argument validation", async () => {
+  const srv = startServer();
+  try {
+    // 1. Client requests a version we speak -> echo it.
+    srv.send({ jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2025-11-25", capabilities: {}, clientInfo: { name: "t", version: "0" } } });
+    const v1 = await srv.recv();
+    assert.equal(v1.result.protocolVersion, "2025-11-25");
+
+    // 2. Client requests an ancient version we still speak -> echo it (backward compat).
+    srv.send({ jsonrpc: "2.0", id: 2, method: "initialize", params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "t", version: "0" } } });
+    const v2 = await srv.recv();
+    assert.equal(v2.result.protocolVersion, "2024-11-05");
+
+    // 3. Client requests a version we do not speak -> newest supported, not the stale default.
+    srv.send({ jsonrpc: "2.0", id: 3, method: "initialize", params: { protocolVersion: "1999-01-01", capabilities: {}, clientInfo: { name: "t", version: "0" } } });
+    const v3 = await srv.recv();
+    assert.equal(v3.result.protocolVersion, "2025-11-25");
+
+    // 4. Unknown tool -> -32602 (not -32603).
+    srv.send({ jsonrpc: "2.0", id: 4, method: "tools/call", params: { name: "nope", arguments: {} } });
+    const t = await srv.recv();
+    assert.equal(t.error.code, -32602);
+
+    // 5. Unknown resource -> -32602 (not -32603).
+    srv.send({ jsonrpc: "2.0", id: 5, method: "resources/read", params: { uri: "uma-sim://bogus" } });
+    const r = await srv.recv();
+    assert.equal(r.error.code, -32602);
+
+    // 6. Missing required argument -> -32602 before any backend fetch.
+    srv.send({ jsonrpc: "2.0", id: 6, method: "tools/call", params: { name: "sim_act", arguments: {} } });
+    const a = await srv.recv();
+    assert.equal(a.error.code, -32602);
+    assert.match(a.error.message, /action/);
+
+    // 7. Missing params object entirely -> -32602, not a crash.
+    srv.send({ jsonrpc: "2.0", id: 7, method: "resources/read" });
+    const p = await srv.recv();
+    assert.equal(p.error.code, -32602);
+
+    // 8. Backend-unreachable tool error still maps to -32603 (genuine internal failure).
+    srv.send({ jsonrpc: "2.0", id: 8, method: "tools/call", params: { name: "sim_state", arguments: {} } });
+    const b = await srv.recv();
+    assert.equal(b.error.code, -32603);
+  } finally {
+    srv.stop();
+  }
+});
