@@ -18,6 +18,23 @@ try {
   /* keep default; server still starts without package.json */
 }
 
+// MCP protocol versions this server speaks over the legacy `initialize`
+// handshake. (2026-07-28 moved to a stateless server/discover handshake and
+// is intentionally out of scope for this stdio server.)
+const SUPPORTED_PROTOCOL_VERSIONS = ["2024-11-05", "2025-03-26", "2025-06-18", "2025-11-25"];
+const LATEST_PROTOCOL_VERSION = SUPPORTED_PROTOCOL_VERSIONS[SUPPORTED_PROTOCOL_VERSIONS.length - 1];
+
+function negotiateProtocolVersion(requested) {
+  // Echo the client's version when we speak it; otherwise answer the newest
+  // version we support and let the client decide whether to proceed.
+  if (SUPPORTED_PROTOCOL_VERSIONS.includes(requested)) return requested;
+  return LATEST_PROTOCOL_VERSION;
+}
+
+// JSON-RPC -32602 is for client mistakes (unknown tool/resource, bad args);
+// -32603 stays reserved for genuine internal/backend failures.
+class InvalidParamsError extends Error {}
+
 const RESOURCES = [
   { uri: "uma-sim://run/state", name: "Current run state", description: "Full career snapshot JSON", mimeType: "application/json" },
   { uri: "uma-sim://run/text", name: "Event log text", description: "Rendered career text", mimeType: "text/plain" },
@@ -55,7 +72,7 @@ async function readResource(uri) {
     case "uma-sim://run/telemetry":
       return api("GET", "/v1/run/telemetry");
     default:
-      throw new Error(`Unknown resource: ${uri}`);
+      throw new InvalidParamsError(`Unknown resource: ${uri}`);
   }
 }
 
@@ -93,7 +110,7 @@ async function callTool(name, args) {
         facility: args.facility,
       });
     default:
-      throw new Error(`Unknown tool: ${name}`);
+      throw new InvalidParamsError(`Unknown tool: ${name}`);
   }
 }
 
@@ -120,7 +137,9 @@ process.stdin.on("data", (chunk) => {
       continue;
     }
     handle(req).catch((e) => {
-      send({ jsonrpc: "2.0", id: req && req.id !== undefined ? req.id : null, error: { code: -32603, message: e.message } });
+      // -32602 for client mistakes, -32603 for genuine internal/backend failures.
+      const code = e instanceof InvalidParamsError ? -32602 : -32603;
+      send({ jsonrpc: "2.0", id: req && req.id !== undefined ? req.id : null, error: { code, message: e.message } });
     });
   }
 });
@@ -134,7 +153,7 @@ async function handle(req) {
       jsonrpc: "2.0",
       id,
       result: {
-        protocolVersion: "2024-11-05",
+        protocolVersion: negotiateProtocolVersion(params?.protocolVersion),
         capabilities: { tools: {}, resources: {} },
         serverInfo: { name: "uma-sim-mcp", version: PKG_VERSION },
       },
@@ -146,6 +165,9 @@ async function handle(req) {
     return;
   }
   if (method === "resources/read") {
+    if (typeof params?.uri !== "string") {
+      throw new InvalidParamsError("resources/read requires params.uri");
+    }
     const data = await readResource(params.uri);
     send({
       jsonrpc: "2.0",
@@ -165,6 +187,12 @@ async function handle(req) {
     return;
   }
   if (method === "tools/call") {
+    const tool = TOOLS.find((t) => t.name === params?.name);
+    if (!tool) throw new InvalidParamsError(`Unknown tool: ${params?.name}`);
+    const missing = (tool.inputSchema.required ?? []).filter((k) => params.arguments?.[k] === undefined);
+    if (missing.length) {
+      throw new InvalidParamsError(`Missing required argument(s): ${missing.join(", ")}`);
+    }
     const result = await callTool(params.name, params.arguments ?? {});
     send({
       jsonrpc: "2.0",
