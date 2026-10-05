@@ -138,12 +138,60 @@ reference is in [docs/SIMULATOR.md](docs/SIMULATOR.md).
 | POST | `/v1/run/action` | `{"action":"train_speed"}` |
 | POST | `/v1/run/auto`, `/v1/run/fast` | one bot step / play to the end |
 | POST | `/v1/run/deck/place`, `/v1/run/style`, `/v1/run/load_content_pack` | setup |
+| GET | `/v1/sessions` | list career sessions and the active one |
+| POST | `/v1/session/fork` | fork a session from a library checkpoint or another session |
+| POST | `/v1/session/close` | close a session |
+| POST | `/v1/session/activate` | make a session the active one |
 
 ```bash
 curl -X POST localhost:8765/v1/run/start -d '{"seed":"42","scenario":"ura"}'
 curl localhost:8765/v1/run/choices
 curl -X POST localhost:8765/v1/run/fast -d '{}'
 ```
+
+### Sessions
+
+The server can hold several live careers at once. The legacy single-run
+behavior is the default session `""` (labeled `main`). Every `/v1/run/*`
+endpoint accepts an explicit `"session"` field in its POST body (or
+`?session=` on GET); when omitted, requests target the active session. A
+missing session is a 404 (`no such session '<id>'`); with no active run at
+all it is a 404 `no active run`.
+
+```bash
+# Start a run, then fork an independent continuation to try another policy
+curl -X POST localhost:8765/v1/run/start -d '{"seed":"7","scenario":"ura"}'
+curl -X POST localhost:8765/v1/session/fork -d '{"id":"try-bot","label":"bot run"}'
+curl -X POST localhost:8765/v1/run/fast -d '{"session":"try-bot","policy":"bot","multiplier":"20"}'
+curl -X POST localhost:8765/v1/session/activate -d '{"session":""}'
+curl localhost:8765/v1/sessions
+curl -X POST localhost:8765/v1/session/close -d '{"session":"try-bot"}'
+```
+
+- `POST /v1/session/fork` starts a new session from a named library
+  checkpoint (`{"checkpoint":"<name>"}`) or from another live session
+  (`{"session":"<id>"}`; defaults to the active session). The new session is
+  an independent engine: playing it can never mutate the checkpoint or a
+  sibling session. Omit `"id"` and the server generates one; `"label"`
+  defaults to the id. Duplicate ids are a 409, unknown sources a 404.
+- `POST /v1/session/close` takes `{"session":"<id>"}` (400 if missing).
+  Closing the active session falls back to the default session id, so the
+  client is never left without an active session.
+- `GET /v1/sessions` returns
+  `{"sessions":[{id,label,turn,phase,career_complete,seed,scenario_id,trainee_name},...],"active":"<id>"}`.
+
+### `/v1/run/fast` failure semantics
+
+`/v1/run/fast` takes an optional `"multiplier"` (string, parsed as an integer
+and clamped to 1–100; defaults to the server's speed setting) and `"policy"`
+(`default`, `bot`, or `external`; defaults to the server default policy).
+
+Nothing is committed until the run succeeds. If the request fails — an
+unknown session (404) or an unreachable external policy server (503) — the
+engine is rolled back to its pre-request snapshot and the API-level speed
+setting is left unchanged: a failed fast run never changes the speed. A
+successful run applies the requested multiplier, so a later `/v1/run/fast`
+without `"multiplier"` keeps it.
 
 The Node wrappers use only Node built-ins, so no `npm install` is needed:
 
