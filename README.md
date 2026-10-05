@@ -178,7 +178,7 @@ curl -X POST localhost:8765/v1/session/close -d '{"session":"try-bot"}'
   Closing the active session falls back to the default session id, so the
   client is never left without an active session.
 - `GET /v1/sessions` returns
-  `{"sessions":[{id,label,turn,phase,career_complete,seed,scenario_id,trainee_name},...],"active":"<id>"}`.
+  `{"sessions":[{id,label,turn,phase,careerComplete,seed,scenarioId,traineeName},...],"active":"<id>"}`.
 
 ### `/v1/run/fast` failure semantics
 
