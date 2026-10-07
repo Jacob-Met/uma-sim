@@ -1,8 +1,9 @@
 //! Clean-room race physics for mid-run career simulation.
 //!
 //! Constants are sourced from `research/race_model_constants.json` and
-//! `knowledge/mechanics/race_model.md`. The quarantined umalator oracle verifies
-//! behaviour; it does not supply implementation.
+//! `knowledge/mechanics/race_model.md` (paths relative to the repository root).
+//! The quarantined umalator oracle verifies behaviour; it does not supply
+//! implementation.
 
 pub mod compete_fight;
 pub mod condition;
