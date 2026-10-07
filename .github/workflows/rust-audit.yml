@@ -1,0 +1,53 @@
+# rust-audit.yml — weekly cargo-audit workflow for uma-sim
+#
+# Implements audit §5.1 recommendation ("add cargo audit or cargo deny to CI").
+# Context: 2026-10-05 RustSec audit of the uma-sim lockfile scanned 42
+# registry crates against 1,245 advisories → ZERO vulnerabilities; crates.io
+# corroborated all 7 direct deps at their max versions. This workflow keeps
+# that clean bill continuous: a newly *published* RUSTSEC advisory fails CI
+# even when nothing changed in the repo.
+#
+# Design choices:
+# - Standalone workflow (not a job in ci.yml): keeps the main CI critical
+#   path untouched and permits a weekly schedule trigger — advisory checks
+#   must run against an UNCHANGED lockfile too.
+# - Uses `cargo install cargo-audit --locked` under the pinned dtolnay
+#   rust-toolchain instead of a third-party audit action: zero new action
+#   dependencies, same SHA pins as ci.yml at landing.
+# - Advisory scope only. `cargo deny` (license/policy checks) is a separate
+#   optional hardening follow-up.
+
+name: rust-audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Cargo.lock'
+      - '**/Cargo.toml'
+  pull_request:
+    paths:
+      - 'Cargo.lock'
+      - '**/Cargo.toml'
+  schedule:
+    # Weekly: catches newly published advisories against an unchanged lockfile.
+    - cron: '17 6 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rust-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10 # typical run ~2-4 min (cargo-audit build from crates.io)
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: dtolnay/rust-toolchain@89b12181fb390509a0842a86cc55eeb8eb928c1d # stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo install cargo-audit --locked
+      - run: cargo audit
