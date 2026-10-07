@@ -1,0 +1,114 @@
+name: pr-test-gate
+
+# T162 — bugfix PRs must touch tests.
+#
+# A PR is treated as a bugfix when it carries the `bug` label or its title
+# matches a fix pattern (fix, bugfix, hotfix, patch, repair, regression).
+# Such a PR must change at least one test file whenever it also changes
+# source files, or this check fails at review time.
+#
+# Documented bypass: apply the `no-test-needed` label (reviewer sign-off).
+# Docs-only / infra-only bugfix PRs (README, docs/, .github/) are not
+# counted as source changes and pass without tests.
+#
+# Reusable: copy this file into any repo. No external action dependencies
+# beyond a SHA-pinned actions/checkout.
+#
+# Rust note: #[cfg(test)] inline test modules live inside the touched source
+# file, so this filename-based check cannot see them — a bugfix whose tests
+# are inline-only will fail unless the PR also touches a tests/ file.
+# Prefer adding an integration test under <crate>/tests/; otherwise use
+# the `no-test-needed` bypass with reviewer sign-off.
+
+on:
+  pull_request:
+    branches: [main]
+
+# Least-privilege: checkout + git diff only; no GitHub API writes.
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  bugfix-requires-test:
+    name: bugfix-requires-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+
+      - name: Check bugfix PR touches tests
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          set -euo pipefail
+
+          title_lc="$(printf '%s' "$PR_TITLE" | tr '[:upper:]' '[:lower:]')"
+          labels_lc="$(printf '%s' "$PR_LABELS" | tr '[:upper:]' '[:lower:]')"
+
+          has_label() { printf '%s' "$labels_lc" | grep -qE "(^|,)$1(,|$)"; }
+
+          if has_label "no-test-needed"; then
+            echo "::notice::Bypass: 'no-test-needed' label present — gate passes by reviewer sign-off."
+            exit 0
+          fi
+
+          is_bugfix=0
+          if has_label "bug"; then is_bugfix=1; fi
+          if printf '%s' "$title_lc" | grep -qE '\b(fix(es|ed)?|bug[ -]?fix|hotfix|patch|repair(ed)?|regression)\b'; then
+            is_bugfix=1
+          fi
+          if [ "$is_bugfix" -eq 0 ]; then
+            echo "Not a bugfix PR (no 'bug' label, no fix-pattern title) — gate passes."
+            exit 0
+          fi
+
+          is_test_file() {
+            case "$1" in
+              tests/*|test/*|*/tests/*|*/test/*|__tests__/*|*/__tests__/*|\
+              spec/*|*/spec/*|e2e/*|*/e2e/*) return 0 ;;
+            esac
+            case "$1" in
+              test_*.py|*_test.py|conftest.py|\
+              *.test.ts|*.test.js|*.test.tsx|*.test.jsx|*.spec.ts|*.spec.js|\
+              *_test.go|*Test.java) return 0 ;;
+            esac
+            return 1
+          }
+          is_doc_file() {
+            case "$1" in
+              *.md|*.rst|*.txt|docs/*|*/docs/*|LICENSE*|CHANGELOG*) return 0 ;;
+            esac
+            return 1
+          }
+
+          changed="$(git diff --name-only "$BASE_SHA...$HEAD_SHA")"
+          n_test=0; n_src=0; src_list=""
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            if is_test_file "$f"; then n_test=$((n_test + 1)); continue; fi
+            case "$f" in .github/*) continue ;; esac
+            if is_doc_file "$f"; then continue; fi
+            n_src=$((n_src + 1)); src_list="${src_list}  - ${f}"$'\n'
+          done <<< "$changed"
+
+          echo "Bugfix PR detected (label 'bug' or fix-pattern title)."
+          echo "Changed: $n_src source file(s), $n_test test file(s)."
+
+          if [ "$n_src" -gt 0 ] && [ "$n_test" -eq 0 ]; then
+            echo "::error::This bugfix PR changes $n_src source file(s) but no test files."
+            echo "Changed source files:"
+            printf '%s' "$src_list"
+            echo "Add a regression test, or apply the 'no-test-needed' label with reviewer sign-off."
+            exit 1
+          fi
+          echo "Gate passes."
+
