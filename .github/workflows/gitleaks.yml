@@ -1,0 +1,32 @@
+# gitleaks-secret-scan — free open-source substitute for GitHub-native secret
+# scanning + push protection on user-owned private repos, where GitHub Secret
+# Protection cannot be purchased on a personal account (Enterprise Cloud+EMU only).
+# All third-party Actions refs are SHA-pinned per the estate pin policy:
+#   actions/checkout  @ 11d5960a326750d5838078e36cf38b85af677262 (v4)
+#   gitleaks/gitleaks-action @ ff98106e4c7b2bc287b24eaf42907196329070c7 (v2.3.9)
+# Pins verified live against the tags on 2026-10-06. T158 (estate queue).
+
+name: gitleaks-secret-scan
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gitleaks:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: detect --redact --verbose --no-git -v
