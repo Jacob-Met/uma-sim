@@ -1,0 +1,62 @@
+name: workflow-yaml-lint
+
+# Guards against the 2026-10-07 pr-test-gate incident: a workflow file with a
+# YAML syntax error is treated by GitHub as invalid — it fails one empty
+# zero-job run per push (named by file path) and never dispatches real runs.
+# This check parses every workflow file with a strict YAML parser at PR time,
+# so a broken workflow can never land via pull request.
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/**'
+
+# Least-privilege: checkout + local parse only; no GitHub API writes.
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  yaml-valid:
+    name: yaml-valid
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 1
+
+      - name: Validate workflow YAML files parse
+        run: |
+          python3 - <<'PYEOF'
+          import sys
+          try:
+              import yaml
+          except ImportError:
+              import subprocess
+              subprocess.check_call(
+                  [sys.executable, "-m", "pip", "install", "--quiet", "pyyaml"]
+              )
+              import yaml
+          from pathlib import Path
+
+          bad = []
+          files = sorted(Path(".github/workflows").glob("*.yml"))
+          files += sorted(Path(".github/workflows").glob("*.yaml"))
+          for f in files:
+              try:
+                  doc = yaml.safe_load(f.read_text())
+                  assert isinstance(doc, dict) and doc, "empty or non-mapping document"
+              except Exception as e:  # noqa: BLE001 - report any parse failure
+                  bad.append(f"{f}: {e}")
+          if bad:
+              print("Invalid workflow YAML files:")
+              for b in bad:
+                  print("::error::" + b)
+              sys.exit(1)
+          print(f"All {len(files)} workflow files parse as valid YAML.")
+          PYEOF
