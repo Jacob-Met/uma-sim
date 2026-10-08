@@ -1,0 +1,59 @@
+{
+  "archive_bytes": 2096650,
+  "archive_git_blob": "38efc984b36eb61202e953f2844a2f2d094fca41",
+  "archive_members": 1264,
+  "archive_path": "/Users/me/uma-paired-066deeadcc8b-root-review.tar.gz",
+  "archive_sha256": "db973f6ff28cb10d99b276c67e33dca113727bcad5f0e01f0c2d89773ecd8c83",
+  "candidate_binary_excluded": true,
+  "candidate_binary_sha256": "ab563811709ef2788bd0bc563c14da6c842c7d1bc664218ba7c6a2e2f10b61ab",
+  "created_at": "2026-10-08T14:48:10.905166+00:00",
+  "directories": 292,
+  "extracted_verification_path": "/Users/me/uma-peer-packet-portable-066deeadcc8b-rkh6yzb6",
+  "manifest_artifacts": 971,
+  "manifest_sha256": "80e0e0aa8854b2011e2d6600e81e51d8ab6a4ed5a5be7c96267823df420a4691",
+  "ordinary_files": 972,
+  "raw_fixture_files_preserved": true,
+  "receiving_receipt_sha256": "809ca6dd680470893e36bbdb372c3f223cb74ac2db598662f6b16253bedef2a7",
+  "schema": "hamon.receiving_packet.v1",
+  "verification": {
+    "normal": {
+      "argv": [
+        "/usr/local/bin/python3",
+        "-S",
+        "/Users/me/uma-paired-066deeadcc8b-root-review/verify_packet.py"
+      ],
+      "exit": 0,
+      "result": {
+        "actual_native_career_pairs": 3,
+        "baseline_processes": 2,
+        "candidate_cases": 92,
+        "declared_examples": 9,
+        "source_overlay": 9,
+        "unchanged_physical_source_leaves": 271,
+        "verified_artifacts": 971
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2b0a6ed3ce04eb6ff984fbf188ed9a318f21b7733d00b9358e44131c1f487bdc"
+    },
+    "optimized_extracted": {
+      "argv": [
+        "/usr/local/bin/python3",
+        "-O",
+        "-S",
+        "/Users/me/uma-peer-packet-portable-066deeadcc8b-rkh6yzb6/verify_packet.py"
+      ],
+      "exit": 0,
+      "result": {
+        "actual_native_career_pairs": 3,
+        "baseline_processes": 2,
+        "candidate_cases": 92,
+        "declared_examples": 9,
+        "source_overlay": 9,
+        "unchanged_physical_source_leaves": 271,
+        "verified_artifacts": 971
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2b0a6ed3ce04eb6ff984fbf188ed9a318f21b7733d00b9358e44131c1f487bdc"
+    }
+  }
+}
