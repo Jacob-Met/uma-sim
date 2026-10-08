@@ -36,9 +36,9 @@ async function req<T>(method: string, path: string, body?: unknown): Promise<T> 
   return data as T;
 }
 
-/** Append ?session= for run endpoints when a non-default session is targeted. */
+/** Omitted means active; an explicit empty string targets the main session. */
 function withSession(path: string, session?: string): string {
-  if (!session) return path;
+  if (session === undefined) return path;
   const sep = path.includes("?") ? "&" : "?";
   return `${path}${sep}session=${encodeURIComponent(session)}`;
 }

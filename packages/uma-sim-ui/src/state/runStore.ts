@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useEffect, useReducer, useRef } from "react";
 import { api } from "../api/client";
 import type {
   CatalogItem,
@@ -10,6 +10,8 @@ import type {
 
 export interface RunUiState {
   health: HealthResponse | null;
+  /** null means no displayed run; the empty string is the main session. */
+  sessionId: string | null;
   snapshot: RunSnapshot | null;
   choices: Choice[];
   textLines: string[];
@@ -32,15 +34,18 @@ type Action =
   | { type: "setToast"; toast: string | null }
   | {
       type: "applySnapshot";
+      sessionId: string;
       snapshot: RunSnapshot;
       choices?: Choice[];
       text?: string;
     }
   | { type: "appendText"; text: string }
+  | { type: "clearRun" }
   | { type: "reset" };
 
 const initial: RunUiState = {
   health: null,
+  sessionId: null,
   snapshot: null,
   choices: [],
   textLines: [],
@@ -68,6 +73,7 @@ function reducer(state: RunUiState, action: Action): RunUiState {
         : state.textLines;
       return {
         ...state,
+        sessionId: action.sessionId,
         snapshot: action.snapshot,
         choices: action.choices ?? state.choices,
         textLines: lines,
@@ -81,6 +87,8 @@ function reducer(state: RunUiState, action: Action): RunUiState {
         textLines: [...state.textLines, ...extra].slice(-400),
       };
     }
+    case "clearRun":
+      return { ...state, sessionId: null, snapshot: null, choices: [], textLines: [], toast: null };
     case "reset":
       return {
         ...initial,
@@ -94,25 +102,54 @@ function reducer(state: RunUiState, action: Action): RunUiState {
 
 export function useRunStore() {
   const [state, dispatch] = useReducer(reducer, initial);
+  const session = useRef<string | null>(null);
+  const requestId = useRef(0);
+  const pending = useRef(false);
+  const mounted = useRef(true);
 
-  const withBusy = useCallback(async <T,>(fn: () => Promise<T>): Promise<T | null> => {
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+      requestId.current++;
+      pending.current = false;
+      session.current = null;
+    };
+  }, []);
+
+  // An operation owns its success, failure and busy cleanup. Selection/reset
+  // invalidates that ownership; it does not cancel an already submitted action.
+  // The ref also closes the interval before React paints disabled controls.
+  const withBusy = useCallback(async <T,>(
+    fn: (isCurrent: () => boolean) => Promise<T>,
+    replace = false,
+  ): Promise<T | null> => {
+    if (!mounted.current || (pending.current && !replace)) return null;
+    const id = ++requestId.current;
+    pending.current = true;
+    const isCurrent = () => mounted.current && id === requestId.current;
     dispatch({ type: "setBusy", busy: true });
     dispatch({ type: "setError", error: null });
     try {
-      return await fn();
+      return await fn(isCurrent);
     } catch (e) {
-      dispatch({
-        type: "setError",
-        error: e instanceof Error ? e.message : String(e),
-      });
+      if (isCurrent()) {
+        dispatch({
+          type: "setError",
+          error: e instanceof Error ? e.message : String(e),
+        });
+      }
       return null;
     } finally {
-      dispatch({ type: "setBusy", busy: false });
+      if (isCurrent()) {
+        pending.current = false;
+        dispatch({ type: "setBusy", busy: false });
+      }
     }
   }, []);
 
   const bootstrap = useCallback(async () => {
-    await withBusy(async () => {
+    await withBusy(async (isCurrent) => {
       const [health, scenarios, trainees, supports, factors] = await Promise.all([
         api.health(),
         api.catalogScenarios(),
@@ -120,6 +157,7 @@ export function useRunStore() {
         api.catalogSupports(),
         api.catalogFactors(),
       ]);
+      if (!isCurrent()) return;
       dispatch({ type: "setHealth", health });
       dispatch({
         type: "setCatalogs",
@@ -130,14 +168,23 @@ export function useRunStore() {
 
   const startRun = useCallback(
     async (req: StartRequest) => {
-      await withBusy(async () => {
+      await withBusy(async (isCurrent) => {
+        // The setup form starts the default session, as it always has. Read
+        // that same session even if another client activates a fork meanwhile.
+        const sessionId = "";
+        session.current = null;
+        dispatch({ type: "clearRun" });
         const snapshot = await api.start({
           ...req,
           traceTelemetry: true,
         });
-        const [choices, text] = await Promise.all([api.choices(), api.text()]);
+        if (!isCurrent()) return;
+        const [choices, text] = await Promise.all([api.choices(sessionId), api.text(sessionId)]);
+        if (!isCurrent()) return;
+        session.current = sessionId;
         dispatch({
           type: "applySnapshot",
+          sessionId,
           snapshot,
           choices,
           text,
@@ -149,11 +196,16 @@ export function useRunStore() {
 
   const act = useCallback(
     async (actionId: string) => {
-      await withBusy(async () => {
-        const step = await api.action(actionId);
-        const text = await api.text();
+      const sessionId = session.current;
+      if (sessionId === null) return;
+      await withBusy(async (isCurrent) => {
+        const step = await api.action(actionId, sessionId);
+        if (!isCurrent()) return;
+        const text = await api.text(sessionId);
+        if (!isCurrent()) return;
         dispatch({
           type: "applySnapshot",
+          sessionId,
           snapshot: step.state,
           choices: step.choices,
           text,
@@ -165,11 +217,16 @@ export function useRunStore() {
 
   const autoStep = useCallback(
     async (policy = "bot") => {
-      await withBusy(async () => {
-        const step = await api.auto(policy);
-        const text = await api.text();
+      const sessionId = session.current;
+      if (sessionId === null) return;
+      await withBusy(async (isCurrent) => {
+        const step = await api.auto(policy, sessionId);
+        if (!isCurrent()) return;
+        const text = await api.text(sessionId);
+        if (!isCurrent()) return;
         dispatch({
           type: "applySnapshot",
+          sessionId,
           snapshot: step.state,
           choices: step.choices,
           text,
@@ -181,14 +238,18 @@ export function useRunStore() {
 
   const fastForward = useCallback(
     async (multiplier: number, policy = "bot") => {
-      await withBusy(async () => {
-        await api.fast(multiplier, policy);
+      const sessionId = session.current;
+      if (sessionId === null) return;
+      await withBusy(async (isCurrent) => {
+        await api.fast(multiplier, policy, sessionId);
+        if (!isCurrent()) return;
         const [snapshot, choices, text] = await Promise.all([
-          api.state(),
-          api.choices(),
-          api.text(),
+          api.state(sessionId),
+          api.choices(sessionId),
+          api.text(sessionId),
         ]);
-        dispatch({ type: "applySnapshot", snapshot, choices, text });
+        if (!isCurrent()) return;
+        dispatch({ type: "applySnapshot", sessionId, snapshot, choices, text });
       });
     },
     [withBusy],
@@ -196,10 +257,14 @@ export function useRunStore() {
 
   const placeDeck = useCallback(
     async (supportId: string, facility: string) => {
-      await withBusy(async () => {
-        const snapshot = await api.deckPlace(supportId, facility);
-        const choices = await api.choices();
-        dispatch({ type: "applySnapshot", snapshot, choices });
+      const sessionId = session.current;
+      if (sessionId === null) return;
+      await withBusy(async (isCurrent) => {
+        const snapshot = await api.deckPlace(supportId, facility, sessionId);
+        if (!isCurrent()) return;
+        const choices = await api.choices(sessionId);
+        if (!isCurrent()) return;
+        dispatch({ type: "applySnapshot", sessionId, snapshot, choices });
         dispatch({ type: "setToast", toast: `Placed ${supportId} on ${facility}` });
       });
     },
@@ -208,9 +273,12 @@ export function useRunStore() {
 
   const setStyle = useCallback(
     async (style: string) => {
-      await withBusy(async () => {
-        const snapshot = await api.setStyle(style);
-        dispatch({ type: "applySnapshot", snapshot });
+      const sessionId = session.current;
+      if (sessionId === null) return;
+      await withBusy(async (isCurrent) => {
+        const snapshot = await api.setStyle(style, sessionId);
+        if (!isCurrent()) return;
+        dispatch({ type: "applySnapshot", sessionId, snapshot });
         dispatch({
           type: "setToast",
           toast: style
@@ -223,19 +291,28 @@ export function useRunStore() {
   );
 
   const newRun = useCallback(() => {
+    requestId.current++;
+    pending.current = false;
+    session.current = null;
     dispatch({ type: "reset" });
   }, []);
 
   /** Re-read the server's active session (after fork/activate/load). */
   const refreshActive = useCallback(async () => {
-    await withBusy(async () => {
+    await withBusy(async (isCurrent) => {
+      session.current = null;
+      dispatch({ type: "clearRun" });
+      const { active: sessionId } = await api.sessions();
+      if (!isCurrent()) return;
       const [snapshot, choices, text] = await Promise.all([
-        api.state(),
-        api.choices(),
-        api.text(),
+        api.state(sessionId),
+        api.choices(sessionId),
+        api.text(sessionId),
       ]);
-      dispatch({ type: "applySnapshot", snapshot, choices, text });
-    });
+      if (!isCurrent()) return;
+      session.current = sessionId;
+      dispatch({ type: "applySnapshot", sessionId, snapshot, choices, text });
+    }, true);
   }, [withBusy]);
 
   const clearError = useCallback(() => {

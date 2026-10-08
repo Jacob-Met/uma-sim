@@ -311,29 +311,25 @@ fn state_json(st: &ApiState) -> String {
 }
 
 /// Session id targeted by a request: explicit `session` field (POST body) or
-/// `?session=` (GET), defaulting to the active session.
-fn session_param(body: &Value, query: &HashMap<String, String>) -> String {
+/// `?session=`. An empty string targets main; only omission follows active.
+fn session_param(body: &Value, query: &HashMap<String, String>) -> Option<String> {
     body.get("session")
         .and_then(|v| v.as_str())
         .or_else(|| query.get("session").map(|s| s.as_str()))
-        .unwrap_or("")
-        .to_string()
+        .map(str::to_string)
 }
 
 /// Resolve the target session for a mutating run endpoint. Missing sessions
-/// are a 404; a missing default session keeps the legacy "no active run".
+/// are a 404; an omitted target with no active run keeps the legacy error.
 fn resolve_session<'a>(
     st: &'a mut ApiState,
     body: &Value,
     query: &HashMap<String, String>,
 ) -> Result<&'a mut SessionSlot, Response<Cursor<Vec<u8>>>> {
     let explicit = session_param(body, query);
-    let id = if explicit.is_empty() {
-        st.active.clone()
-    } else {
-        explicit
-    };
-    let missing_default = id.is_empty() && !st.sessions.contains_key(&id);
+    let implicit = explicit.is_none();
+    let id = explicit.unwrap_or_else(|| st.active.clone());
+    let missing_default = implicit && id.is_empty() && !st.sessions.contains_key(&id);
     st.sessions.get_mut(&id).ok_or_else(|| {
         if missing_default {
             json_response(404, json!({"error":"no active run"}))
@@ -348,13 +344,9 @@ fn resolve_session_ref<'a>(
     st: &'a ApiState,
     query: &HashMap<String, String>,
 ) -> Result<&'a SessionSlot, Response<Cursor<Vec<u8>>>> {
-    let explicit = query.get("session").map(|s| s.as_str()).unwrap_or("");
-    let id = if explicit.is_empty() {
-        st.active.as_str()
-    } else {
-        explicit
-    };
-    let missing_default = id.is_empty() && !st.sessions.contains_key(id);
+    let explicit = query.get("session").map(|s| s.as_str());
+    let id = explicit.unwrap_or(st.active.as_str());
+    let missing_default = explicit.is_none() && id.is_empty() && !st.sessions.contains_key(id);
     st.sessions.get(id).ok_or_else(|| {
         if missing_default {
             json_response(404, json!({"error":"no active run"}))
