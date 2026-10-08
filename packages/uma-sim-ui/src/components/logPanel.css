@@ -101,3 +101,36 @@
   overflow-wrap: anywhere;
   font-size: 0.8rem;
 }
+
+.career-log-download {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.career-log-download label span {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.career-log-download select {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: inherit;
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+}
+
+.career-log-download select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.career-log-download p {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--warn);
+  font-size: 0.8rem;
+}

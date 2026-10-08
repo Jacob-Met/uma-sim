@@ -106,3 +106,30 @@ career/checkpoint state, then removes its state after finishing. Set
 temporary career state parent or evidence folder. It never connects to
 an existing uma-sim server. See [the receiving record](../../verification/career-log/README.md)
 for the exact source baseline, comparison and browser results.
+
+### Download retained career events
+
+The Career event log includes **Download all N entries**. Choose **Plain text**
+for a numbered, readable transcript or **JSON** for the exact retained string
+array. Download always includes all entries currently retained by the displayed
+career, even while search shows only matching entries. It captures those entries
+at the click; later career changes do not change that prepared file.
+
+The file represents retained history and can omit events already discarded by the
+engine. Entry numbers are positions in the exported sequence. It contains no
+restorable career state or inferred run/session metadata. The JSON format is
+`uma-sim-retained-log/1`, with `scope: "displayed-retained-history"`, `entryCount`
+and `entries`; duplicates, empty strings, order and original string contents
+survive JSON parsing. Plain text keeps readable numbered blocks; JSON is the
+lossless choice for embedded control characters or exact entry boundaries.
+
+Downloads use the displayed data locally and issue no API request. The browser
+handles file saving; the app does not claim that a requested download was saved.
+An empty retained log disables the action. A preparation failure leaves an inline
+error and can be retried explicitly.
+
+Run the focused format, download-boundary and native React rendering tests with:
+
+```sh
+node --test test/log-export.test.mjs
+```

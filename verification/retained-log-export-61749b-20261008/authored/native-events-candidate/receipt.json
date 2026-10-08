@@ -1,0 +1,124 @@
+{
+  "mode": "candidate",
+  "result": "pass",
+  "fixture": [
+    "Started — ウマ娘 🏇",
+    "Rested",
+    "",
+    "Race authored result +10 fans",
+    "Rested",
+    "line 1\r\nline 2",
+    "<script>literal</script> \ud83d"
+  ],
+  "cases": [
+    {
+      "name": "one-match search exports all seven retained entries",
+      "passed": true
+    },
+    {
+      "name": "zero-match search keeps the full-history download enabled",
+      "passed": true
+    },
+    {
+      "name": "append changes only the next click's snapshot",
+      "passed": true
+    },
+    {
+      "name": "replacement history exports only the currently displayed career",
+      "passed": true
+    },
+    {
+      "name": "format selection requests a readable ordered text Blob",
+      "passed": true
+    },
+    {
+      "name": "preparation refusal stays visible until an explicit successful retry",
+      "passed": true
+    },
+    {
+      "name": "empty-history control, unchanged inputs, no fetch, all URLs released",
+      "passed": true
+    }
+  ],
+  "local_download_requests": 6,
+  "boundary": "actual native React hooks/callbacks and Node Blob/URL lifecycle; simulated document/anchor dispatch; no browser or real save dialog",
+  "ui_root": "/dev/shm/hamon-61749b-log-export/candidate/packages/uma-sim-ui",
+  "source_files": [
+    {
+      "path": "src/components/LogPanel.tsx",
+      "sha256": "2d23c9ad7932da56d434e08c8f20af490cd9f628d71dfaa92858f0269fa557a2"
+    },
+    {
+      "path": "src/components/logView.ts",
+      "sha256": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2"
+    },
+    {
+      "path": "src/components/LogDownload.tsx",
+      "sha256": "cf92740a422128141f242c449f120d6e0cae02b627792b8ff388ac270f12b1d6"
+    },
+    {
+      "path": "src/components/logExport.ts",
+      "sha256": "7ea3a0b6066e926af6825397feb5115cebd82bbbba2923dbd900d41c09e7937c"
+    }
+  ],
+  "harness_sha256": "6dbd6f6141a84ef986fbef909060aff8cf3ce4715042d19860c73b5c17bf745e",
+  "runtime": {
+    "node": "v24.19.0",
+    "typescript": "5.9.3",
+    "react": "18.3.1",
+    "renderer": "18.3.1",
+    "renderer_root": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/react-test-renderer",
+    "react_entry_sha256": "a216c390bf956cbb906c66d29fdb2e2ad6999464a5ca83e476533a6f25ad0ef3",
+    "renderer_entry_sha256": "c304f3d98e7a938dc4341c377bfbd2d14328db58359345dffd35f1bd5439703a"
+  },
+  "fetch_requests": 0,
+  "remaining_anchors": 0,
+  "object_urls_created": 6,
+  "object_urls_revoked": 6,
+  "files": [
+    {
+      "file": "native-blob-1.json",
+      "requested_filename": "uma-sim-retained-log.json",
+      "content_type": "application/json;charset=utf-8",
+      "bytes": 290,
+      "sha256": "33b4f01152ee64ca797d32f88a95f3f91c8b93bce3dafd0ac24cad9281d26e51"
+    },
+    {
+      "file": "native-blob-2.json",
+      "requested_filename": "uma-sim-retained-log.json",
+      "content_type": "application/json;charset=utf-8",
+      "bytes": 290,
+      "sha256": "33b4f01152ee64ca797d32f88a95f3f91c8b93bce3dafd0ac24cad9281d26e51"
+    },
+    {
+      "file": "native-blob-3.json",
+      "requested_filename": "uma-sim-retained-log.json",
+      "content_type": "application/json;charset=utf-8",
+      "bytes": 318,
+      "sha256": "4dd85cb43363825ad9a9257154aa46041261fee1a2387bfe4ecd351b8c41878a"
+    },
+    {
+      "file": "native-blob-4.json",
+      "requested_filename": "uma-sim-retained-log.json",
+      "content_type": "application/json;charset=utf-8",
+      "bytes": 180,
+      "sha256": "eefa2b011d6841c7f8b86e8dce10a066a8611d8c45e6fb97ecfd5bfef33384bf"
+    },
+    {
+      "file": "native-blob-5.txt",
+      "requested_filename": "uma-sim-retained-log.txt",
+      "content_type": "text/plain;charset=utf-8",
+      "bytes": 278,
+      "sha256": "a0c06efb931e252460eafd66c207615c8a9634218eb96f84f32e3d64fe9f9635"
+    },
+    {
+      "file": "native-blob-6.json",
+      "requested_filename": "uma-sim-retained-log.json",
+      "content_type": "application/json;charset=utf-8",
+      "bytes": 180,
+      "sha256": "eefa2b011d6841c7f8b86e8dce10a066a8611d8c45e6fb97ecfd5bfef33384bf"
+    }
+  ],
+  "source_unchanged": true,
+  "browser_acceptance": "unestablished"
+}
