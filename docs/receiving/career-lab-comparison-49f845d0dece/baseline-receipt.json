@@ -1,0 +1,499 @@
+{
+  "stage": "baseline",
+  "source": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "apiBase": "http://127.0.0.1:56828",
+  "uiBase": "http://127.0.0.1:56833",
+  "checkpoint": "receiving-muz9qefn",
+  "names": {
+    "a": "bot-muz9qefn",
+    "b": "default-muz9qefn",
+    "c": "control-muz9qefn",
+    "d": "later-muz9qefn"
+  },
+  "cases": [
+    {
+      "name": "save checkpoint through actual React UI",
+      "pass": true,
+      "turn": 11
+    },
+    {
+      "name": "fork open preserves checkpoint and main session",
+      "pass": true
+    },
+    {
+      "name": "close fork and resume saved checkpoint through UI",
+      "pass": true
+    },
+    {
+      "name": "run branches, compare and download match visible pair",
+      "pass": true
+    },
+    {
+      "name": "download remains bound to displayed comparison after draft selection",
+      "pass": false,
+      "headingStillAB": true,
+      "reportLink": "/v1/lab/report?a=br-1791447747-0000&b=br-1791447747-0002&format=json",
+      "displayedIds": [
+        "br-1791447747-0000",
+        "br-1791447747-0001"
+      ],
+      "downloadedIds": [
+        "br-1791447747-0000",
+        "br-1791447747-0002"
+      ]
+    },
+    {
+      "name": "delayed comparison preserves newer draft selection",
+      "pass": false
+    },
+    {
+      "name": "deleting draft-only branch preserves displayed comparison",
+      "pass": false
+    },
+    {
+      "name": "deleting displayed-only branch clears result and downloads",
+      "pass": false
+    }
+  ],
+  "pageErrors": [],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/v1/health",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/start",
+      "body": "{\"seed\":42,\"scenario\":\"ura\",\"trainee\":\"Special Week\",\"speed\":1,\"dialogue\":\"choices\",\"raceModel\":\"stub\",\"policy\":\"bot\",\"deckSupports\":\"\",\"traceTelemetry\":true}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/save",
+      "body": "{\"name\":\"receiving-muz9qefn\",\"overwrite\":false}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/session/fork",
+      "body": "{\"checkpoint\":\"receiving-muz9qefn\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/session/close",
+      "body": "{\"session\":\"checkpointreceiving-muz9-1791447746-0000\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/load",
+      "body": "{\"name\":\"receiving-muz9qefn\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/branch",
+      "body": "{\"checkpoint\":\"receiving-muz9qefn\",\"name\":\"bot-muz9qefn\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[]}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/branch",
+      "body": "{\"checkpoint\":\"receiving-muz9qefn\",\"name\":\"default-muz9qefn\",\"policy\":\"default\",\"maxActions\":120,\"overrides\":[]}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/branch",
+      "body": "{\"checkpoint\":\"receiving-muz9qefn\",\"name\":\"control-muz9qefn\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[]}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/compare",
+      "body": "{\"a\":\"br-1791447747-0000\",\"b\":\"br-1791447747-0001\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/compare",
+      "body": "{\"a\":\"br-1791447747-0000\",\"b\":\"br-1791447747-0001\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/branch/delete",
+      "body": "{\"id\":\"br-1791447747-0002\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/compare",
+      "body": "{\"a\":\"br-1791447747-0000\",\"b\":\"br-1791447747-0001\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/branch",
+      "body": "{\"checkpoint\":\"receiving-muz9qefn\",\"name\":\"later-muz9qefn\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[]}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/v1/lab/branch/delete",
+      "body": "{\"id\":\"br-1791447747-0001\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    }
+  ],
+  "browser": "153.0.8010.12",
+  "entry": {
+    "dateLabel": "Y1 Nov · 2nd half",
+    "fingerprint": {
+      "contentPackEvents": 0,
+      "coreVersion": "0.1.0",
+      "eventCatalogCount": 3458,
+      "repoRootDetected": true,
+      "snapshotSchema": 1
+    },
+    "label": "receiving-muz9qefn",
+    "name": "receiving-muz9qefn",
+    "note": "",
+    "phase": "FREE",
+    "rngCalls": 53,
+    "savedAt": "2026-10-08T08:22:26Z",
+    "savedAtUnix": 1791447746,
+    "scenarioId": "ura",
+    "seed": 42,
+    "traineeName": "Special Week",
+    "turn": 11
+  },
+  "sessionsAfterFork": {
+    "active": "checkpointreceiving-muz9-1791447746-0000",
+    "sessions": [
+      {
+        "careerComplete": false,
+        "id": "",
+        "label": "main",
+        "phase": "FREE",
+        "scenarioId": "ura",
+        "seed": 42,
+        "traineeName": "Special Week",
+        "turn": 11
+      },
+      {
+        "careerComplete": false,
+        "id": "checkpointreceiving-muz9-1791447746-0000",
+        "label": "checkpointreceiving-muz9-1791447746-0000",
+        "phase": "FREE",
+        "scenarioId": "ura",
+        "seed": 42,
+        "traineeName": "Special Week",
+        "turn": 11
+      }
+    ]
+  },
+  "branches": [
+    {
+      "careerComplete": true,
+      "checkpointName": "receiving-muz9qefn",
+      "fans": 6900,
+      "finalTurn": 72,
+      "id": "br-1791447747-0000",
+      "name": "bot-muz9qefn",
+      "policy": "bot",
+      "scenarioId": "ura",
+      "seed": 42,
+      "startedAt": "2026-10-08T08:22:27Z",
+      "steps": 64,
+      "traineeName": "Special Week"
+    },
+    {
+      "careerComplete": true,
+      "checkpointName": "receiving-muz9qefn",
+      "fans": 5435,
+      "finalTurn": 72,
+      "id": "br-1791447747-0001",
+      "name": "default-muz9qefn",
+      "policy": "default",
+      "scenarioId": "ura",
+      "seed": 42,
+      "startedAt": "2026-10-08T08:22:27Z",
+      "steps": 61,
+      "traineeName": "Special Week"
+    },
+    {
+      "careerComplete": true,
+      "checkpointName": "receiving-muz9qefn",
+      "fans": 6900,
+      "finalTurn": 72,
+      "id": "br-1791447747-0002",
+      "name": "control-muz9qefn",
+      "policy": "bot",
+      "scenarioId": "ura",
+      "seed": 42,
+      "startedAt": "2026-10-08T08:22:27Z",
+      "steps": 64,
+      "traineeName": "Special Week"
+    }
+  ],
+  "counterexampleReproduced": true,
+  "completed": true
+}

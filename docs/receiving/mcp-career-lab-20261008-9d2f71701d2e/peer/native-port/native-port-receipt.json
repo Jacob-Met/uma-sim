@@ -1,0 +1,52 @@
+{
+  "started": "2026-10-08T09:08:43.473627+00:00",
+  "finished": "2026-10-08T09:08:45.421637+00:00",
+  "node": "v26.3.0",
+  "composition": {
+    "commit": "dd1b6d6e396d940e8b2eb17d1a5268b7aa5b488f",
+    "tree": "d703e1d405ef7db885cf069f7e039cb986b61aac",
+    "parents": [
+      "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+      "d77898c5e8848662df668ff48b3becccc95019ab"
+    ],
+    "bridge_blob": "723f9501129f113985dd3964b072f7e5666c3fd5",
+    "files": {
+      "mcp-stdio.js": "372c1992cb366f9ca5d06be4f069a4431f4fcdde70f3dea2a0d857fab39f1460",
+      "package.json": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    "helpers": {
+      "mcp-client.mjs": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+      "native-api.mjs": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44"
+    },
+    "binary": "/Users/me/uma-session-9d2f71701d2e/target/debug/uma-sim-api",
+    "binary_sha256": "4c1d2dfa193640af2ddc3877bac802afbb4caa375136f591544b509f56571dba",
+    "repo_root": "/Users/me/uma-session-9d2f71701d2e/career-lab-receiving",
+    "test_sha256": "1dff31c95ba28319e4bf651a125f6f1c3c373a233381b1d1b84fcea21170b286"
+  },
+  "portable_test_sha256": "1dff31c95ba28319e4bf651a125f6f1c3c373a233381b1d1b84fcea21170b286",
+  "id_test_sha256": "5e313326a434487c7e4ac792fee7e657e1c499de2b0a8b9378efe38dd4c87837",
+  "results": [
+    {
+      "log": "native-port.tap",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "--test",
+        "--test-reporter=tap",
+        "tests/sessions-receiving-native.test.mjs"
+      ],
+      "exit_code": 0,
+      "sha256": "a0dca08c6a71bfa11b5f0a0b8dacab23caa3dc7fb3714e8f01a1e559820a0a1e"
+    },
+    {
+      "log": "safe-id-receiving.tap",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "--test",
+        "--test-reporter=tap",
+        "/Users/me/uma-independent-9d2f71701d2e/id-guard/id-guard.test.mjs"
+      ],
+      "exit_code": 0,
+      "sha256": "1d97b97dfa2160a5fce528a3f8311a05e670893a54bbbccdb0c5e48a807fd8ea"
+    }
+  ]
+}

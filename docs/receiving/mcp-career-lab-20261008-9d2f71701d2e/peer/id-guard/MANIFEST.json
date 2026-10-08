@@ -1,0 +1,121 @@
+{
+  "schema": "hamon-independent-receiving-v1",
+  "reviewer": "engine_execution / 9d2f71701d2e",
+  "verdict": "guard_delta_received_with_open_inherited_integer_wire_identity_defect",
+  "candidate_commit": "0d08f5d27655eb741fcbef10c0d813cd2f84a22d",
+  "candidate_tree": "15b6d382dc0ce433d78c92a6076c7a9db6833604",
+  "candidate_blob": "176d09a049ad83a15578fab308d4c28648be0f6f",
+  "candidate_sha256": "203eee45b6e57ca79db5f3284095c1a90b63118f5f7199bfb790553f1b774c5c",
+  "previous_commit": "889f2f8d2a59bdf0a85c09472c4526daa5c357ef",
+  "previous_sha256": "b4591af36221aa0a97f9efefb9f9a17243ff2c7fd5e9010b35d2b118bab9d1be",
+  "live_owner_dependency": "d77898c5e8848662df668ff48b3becccc95019ab",
+  "previous_peer_commit": "455f7665f0305f1e5c2d7d1c220b78a18348217d",
+  "only_bridge_delta_exact_owner_guard": true,
+  "results": {
+    "linux": {
+      "node": "24.19.0",
+      "candidate_pass": 1,
+      "candidate_fail": 1,
+      "candidate_exit_code": 1,
+      "predecessor_precision_pass": 0,
+      "predecessor_precision_fail": 1,
+      "predecessor_exit_code": 1
+    },
+    "native_mac": {
+      "node": "26.3.0",
+      "candidate_pass": 1,
+      "candidate_fail": 1,
+      "candidate_exit_code": 1,
+      "predecessor_precision_pass": 0,
+      "predecessor_precision_fail": 1,
+      "predecessor_exit_code": 1
+    }
+  },
+  "finding": {
+    "request_id_token": "9007199254740993",
+    "response_id_token": "9007199254740992",
+    "backend_requests": 1,
+    "reproduced_in_predecessor": true,
+    "owner_handoff": true,
+    "product_repair_by_reviewer": false
+  },
+  "scope": "Actual stdio bridge and owned HTTP fixture only; no full Rust backend repeat or live career mutation",
+  "protocol_reference": "https://modelcontextprotocol.io/specification/2025-11-25/basic#requests",
+  "files": [
+    {
+      "path": "candidate/mcp-stdio.js",
+      "bytes": 13837,
+      "sha256": "203eee45b6e57ca79db5f3284095c1a90b63118f5f7199bfb790553f1b774c5c"
+    },
+    {
+      "path": "candidate/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    {
+      "path": "previous/mcp-stdio.js",
+      "bytes": 13870,
+      "sha256": "b4591af36221aa0a97f9efefb9f9a17243ff2c7fd5e9010b35d2b118bab9d1be"
+    },
+    {
+      "path": "previous/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    {
+      "path": "id-guard.test.mjs",
+      "bytes": 7597,
+      "sha256": "5e313326a434487c7e4ac792fee7e657e1c499de2b0a8b9378efe38dd4c87837"
+    },
+    {
+      "path": "owner-preservation.json",
+      "bytes": 934,
+      "sha256": "9ba0e7e59eb72dd484463ea898c93019b2dedbfa5bff6e438237cde1cfaa3dc3"
+    },
+    {
+      "path": "owner-guard.diff",
+      "bytes": 1152,
+      "sha256": "8583827f30a9f217e95e5cd6d30196e95db854f02aaeb1cb90dfda4574b606ff"
+    },
+    {
+      "path": "owner_previous-guard.txt",
+      "bytes": 525,
+      "sha256": "988ee17bf3b353ffcfd7275faacf9f738f226f58c844b898889e845e46ecacb8"
+    },
+    {
+      "path": "owner_current-guard.txt",
+      "bytes": 492,
+      "sha256": "6b871b386347764d204600888670423324e6f929f3e4a3441beeeb73bbc66a6b"
+    },
+    {
+      "path": "linux-id-guard.tap",
+      "bytes": 1886,
+      "sha256": "38e73101a682f7a7f066169d7b69e26a7dc60d219867aa0157f559fb3212f9e2"
+    },
+    {
+      "path": "linux-predecessor-precision.tap",
+      "bytes": 1515,
+      "sha256": "761836b16e951a815e5f6b4b6e7ce50650da955f7eb65de0143fc28a13a8d673"
+    },
+    {
+      "path": "native-id-guard.tap",
+      "bytes": 2061,
+      "sha256": "78f7f2098e1f922831193abefb2e6b9b5686c9b035686c139193f790a13ae77e"
+    },
+    {
+      "path": "native-predecessor-precision.tap",
+      "bytes": 1537,
+      "sha256": "8109c8a33901f3dea0603922c57f3af07d4563060b507da8adb2949072e9c225"
+    },
+    {
+      "path": "native-id-receipt.json",
+      "bytes": 1614,
+      "sha256": "2720c69ed0f71fc71606dd984ef67137490df33d145cc0d1c2b5c1c0f4da887a"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 7458,
+      "sha256": "93899894725e391f5e0420da594fd549548ca399eb7b56a1fa9c60fb5bb7a6db"
+    }
+  ]
+}
