@@ -1,0 +1,60 @@
+.branch-trace {
+  min-width: 0;
+}
+
+.branch-trace .trace-actions,
+.branch-trace .trace-counts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1.1rem;
+}
+
+.branch-trace .trace-actions h2 {
+  flex: 1 1 12rem;
+  overflow-wrap: anywhere;
+}
+
+.branch-trace .trace-metadata {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.35rem 1rem;
+}
+
+.branch-trace .trace-metadata dt {
+  color: var(--muted);
+}
+
+.branch-trace .trace-metadata dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.branch-trace .trace-table-wrap {
+  max-width: 100%;
+  max-height: 32rem;
+  overflow: auto;
+  margin: 0.6rem 0;
+}
+
+.branch-trace .trace-table-wrap:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.branch-trace .trace-table-wrap table {
+  min-width: 34rem;
+}
+
+.branch-trace code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.branch-trace .trace-applied {
+  color: var(--good);
+}
+
+.branch-trace .trace-rejected {
+  color: var(--warn);
+}

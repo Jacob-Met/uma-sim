@@ -36,8 +36,12 @@ jobs:
           cache: npm
           cache-dependency-path: packages/uma-sim-ui/package-lock.json
       - run: npm ci
+      - run: npm test
       - run: npm run typecheck
       - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: npm run test:trace
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: uma-sim-ui-dist
@@ -63,6 +67,21 @@ jobs:
       - run: cargo clippy --workspace --all-targets --locked
       - run: cargo test --workspace --locked
       - run: cargo build --locked --release --features embed-ui -p uma-sim-core
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "20"
+      - name: Exercise the career laboratory through MCP and the native API
+        env:
+          UMA_SIM_TEST_API_BIN: ${{ github.workspace }}/target/release/uma-sim-api
+          UMA_SIM_TEST_OUTPUT_DIR: ${{ runner.temp }}/uma-sim-mcp-native
+          UMA_SIM_TEST_RECEIVING_COMMIT: ${{ github.sha }}
+        run: node --test packages/uma-sim-mcp/tests/*native.test.mjs
+      - name: Retain MCP native comparison and receiving evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: uma-sim-mcp-native
+          path: ${{ runner.temp }}/uma-sim-mcp-native
       - name: Smoke-test release layout (binary run away from the source tree)
         run: |
           STAGE=dist/uma-sim-linux-x64
@@ -84,7 +103,7 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "20"
-      # Conformant-client handshake test: newline-delimited JSON-RPC framing.
-      # Needs no REST backend (test points UMA_SIM_API at a closed port).
-      - run: node --test packages/uma-sim-mcp/tests/mcp-handshake.test.mjs
+      # Dependency-free protocol and HTTP contract tests. Native API receiving
+      # runs separately against the release binary in the Rust job above.
+      - run: node --test packages/uma-sim-mcp/tests/*.test.mjs
       - run: node --test packages/uma-sim-cli/tests/*.test.mjs

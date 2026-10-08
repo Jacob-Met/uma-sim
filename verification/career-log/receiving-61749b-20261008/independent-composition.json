@@ -1,0 +1,56 @@
+{
+  "review": "Independent bounded Uma log-reader current-main composition inspection",
+  "scope": [
+    "packages/uma-sim-ui/package.json",
+    "packages/uma-sim-ui/README.md"
+  ],
+  "all_passed": true,
+  "checks": {
+    "only_existing_test_script_appended": true,
+    "all_other_current_package_fields_exact": true,
+    "entire_current_readme_prefix_exact": true,
+    "authored_career_log_sections_exact_except_updated_shared_test_instruction": true,
+    "added_test_target_exists": true
+  },
+  "files": {
+    "current": {
+      "package.json": {
+        "sha256": "fa15b4222ca6f3edec34a113ca93ffe1401dbd32e2dedb9a28a520a54e12eeed",
+        "git_blob": "db6b16c96113566f0b9e9ac1b415c57a38c705af",
+        "bytes": 875
+      },
+      "README.md": {
+        "sha256": "f54f8454529f5f5e597caa90df09c02266bf1c5e8a88d5d01c6c47c2cf8d0bfe",
+        "git_blob": "494117b32e3370f75a608c89878c406e4942d074",
+        "bytes": 3562
+      }
+    },
+    "candidate": {
+      "package.json": {
+        "sha256": "4147977fa0409eb31c3315078897e01253975f974ce0b691127297241835ac6e",
+        "git_blob": "40ef7f1cc2f78d1ade7ae1a59f30f15e16dfaa9a",
+        "bytes": 898
+      },
+      "README.md": {
+        "sha256": "3f9dd68d6cbaf57c2d55f9b568391a23306a0f1593495b7599a7ec41b77c7213",
+        "git_blob": "c78ec409bb362ffc701a8e6f4117c44492f14a0a",
+        "bytes": 5722
+      }
+    },
+    "authored": {
+      "package.json": {
+        "sha256": "1654c82c8d6e6cc5444eb3b41adb1af9e05b3f41da2d8062085e044117733efb",
+        "git_blob": "68c5740070f1a7badc8f0a6901e2fc9aefe90db6",
+        "bytes": 575
+      },
+      "README.md": {
+        "sha256": "8f7362d885344be45af974dcccac25273da746c667bbff43a7d6cddadef1fc68",
+        "git_blob": "3ade427d9dd07525867ea1b128da39cccd3e0910",
+        "bytes": 2475
+      }
+    }
+  },
+  "test_execution_performed": false,
+  "browser_execution_performed": false,
+  "source_mutation_performed": false
+}

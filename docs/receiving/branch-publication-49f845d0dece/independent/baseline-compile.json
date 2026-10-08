@@ -1,0 +1,25 @@
+{
+  "baseline_domain_sha256": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7",
+  "binary": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/branch-publication-independent/branch-publication-baseline",
+  "binary_sha256": "1b26cc2fc5ed3cd2cea13cc98f4c85a443289bba879bc2c195de6eb524cd5007",
+  "command": [
+    "rustc",
+    "--edition=2021",
+    "--test",
+    "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/uma-sim-core/tests/career_lab_branch_publication.rs",
+    "--extern",
+    "uma_sim_core=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libuma_sim_core-8744fe8d52c199c4.rlib",
+    "--extern",
+    "serde_json=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde_json-70c5caf873f5c0c3.rlib",
+    "-L",
+    "dependency=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps",
+    "-o",
+    "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/branch-publication-independent/branch-publication-baseline"
+  ],
+  "core_rlib_sha256": "a51e7bf3889b6060ba2931d288e0776cefe93661bef251c723c48f509495c1ce",
+  "exit_code": 0,
+  "seconds": 0.8070459365844727,
+  "serde_json_rlib_sha256": "56d60d07ddec1732e8baf2eb79c2d95b8d8b0b7dc901928dc241b3df21952674",
+  "source_sha256": "e925eb000d256ce4545b4054d5740a1c46f1dae3a46cca85dc8a33f20777a7e2",
+  "stderr": ""
+}

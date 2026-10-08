@@ -1,0 +1,113 @@
+{
+  "schema": "hamon-independent-receiving-v1",
+  "reviewer": "engine_execution / 9d2f71701d2e",
+  "verdict": "bounded_success_payload_amendment_qualified",
+  "source": {
+    "commit": "d8cc21e219b43376e75b0365c3c86b7a5866f1ec",
+    "tree": "5545dd228ea38c04a2ae609051655007b9e681fb",
+    "parents": [
+      "539ce3f05f936b2857629706429242efb037323b"
+    ],
+    "bridge_blob": "24d5384c0a14fbdd07c4dd838b6a0d56b6d92ceb",
+    "files": {
+      "mcp-stdio.js": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+      "package.json": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    "previous_commit": "dd1b6d6e396d940e8b2eb17d1a5268b7aa5b488f",
+    "previous_sha256": "372c1992cb366f9ca5d06be4f069a4431f4fcdde70f3dea2a0d857fab39f1460",
+    "helper_sha256": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+    "previous_peer_commit": "13d79b8a558ebdc16aa63ed2eec7c83e3fabb11c"
+  },
+  "prior_peer_commit": "13d79b8a558ebdc16aa63ed2eec7c83e3fabb11c",
+  "source_delta": "exactly one success-text formatter expression; every other bridge byte preserved",
+  "results": {
+    "amended_report_and_payload": {
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "predecessor_new_payload_control": {
+      "passed": 0,
+      "failed": 1,
+      "exit_code": 1
+    },
+    "native_and_id_repetition": false
+  },
+  "new_ci_file": {
+    "packet_path": "tests/tool-string-payload-receiving.test.mjs",
+    "repository_path": "packages/uma-sim-mcp/tests/tool-string-payload-receiving.test.mjs",
+    "sha256": "6465bccd919fe017a38934c7f8da4b75f913319c307916ceca83927bedc495d4"
+  },
+  "prior_receiving_index": {
+    "path": "../RECEIVING_INDEX.md",
+    "sha256": "fe7fcba8e00fc3c881faf8c02f44d290cdac7d745c01444f3df590735553a9d1"
+  },
+  "files": [
+    {
+      "path": "source/mcp-stdio.js",
+      "bytes": 17575,
+      "sha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584"
+    },
+    {
+      "path": "source/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    {
+      "path": "previous-source/mcp-stdio.js",
+      "bytes": 17543,
+      "sha256": "372c1992cb366f9ca5d06be4f069a4431f4fcdde70f3dea2a0d857fab39f1460"
+    },
+    {
+      "path": "previous-source/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    {
+      "path": "tests/tool-string-payload-receiving.test.mjs",
+      "bytes": 2274,
+      "sha256": "6465bccd919fe017a38934c7f8da4b75f913319c307916ceca83927bedc495d4"
+    },
+    {
+      "path": "tests/report-format-receiving.test.mjs",
+      "bytes": 2841,
+      "sha256": "e1e1b8c1a850f2584315173a26f85ef61caed614f2c25a490bd4893ef0bc2f54"
+    },
+    {
+      "path": "tests/helpers/mcp-client.mjs",
+      "bytes": 6354,
+      "sha256": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d"
+    },
+    {
+      "path": "source-provenance.json",
+      "bytes": 745,
+      "sha256": "78f2410f11b0b5ea7fc150440f7a1571217aa5e24247bca7a61bdf18abcf10be"
+    },
+    {
+      "path": "payload-only.diff",
+      "bytes": 597,
+      "sha256": "c7fa15814146380e05a28aaf371e2fb33eeed450e8de191fc72b49f5f062b457"
+    },
+    {
+      "path": "payload-receipt.json",
+      "bytes": 2655,
+      "sha256": "f94f242b10110dd8ff93b81b22ebbe7b75f87eeaf920e56491257ab900a53136"
+    },
+    {
+      "path": "payload-amendment.tap",
+      "bytes": 990,
+      "sha256": "d8dbd66ad41ab0fa1788820e6d551f7158ac45ba279ef8c880bdefdef72ba814"
+    },
+    {
+      "path": "previous-payload-control.tap",
+      "bytes": 1305,
+      "sha256": "bfa6fa58574e43d6845b44ac4c4ca454b39185822f6ff6f87306af6ed73aa697"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 4847,
+      "sha256": "ead24e8b5100a79bd91f2f4e8008ef4f6e337ec79a8c3ef815e8512ea1fe914a"
+    }
+  ]
+}
