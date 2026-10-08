@@ -1,0 +1,104 @@
+{
+  "nativeBase": "0bc58cb83e89f07c6af3056dd7c37436906d994f",
+  "artifacts": [
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "kind": "native library source",
+      "digests": [
+        {
+          "algorithm": "sha256",
+          "value": "937f9663b85a5809160b92071f7065760872756346d3f4919054586855c29dd3"
+        }
+      ]
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "kind": "native receiving source",
+      "digests": [
+        {
+          "algorithm": "git-blob-sha1",
+          "value": "eab9ccf7082ffc96c446f434bd76f313aff14bc9"
+        },
+        {
+          "algorithm": "sha256",
+          "value": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55"
+        }
+      ]
+    },
+    {
+      "path": "uma-sim-api",
+      "kind": "built native receiving executable",
+      "digests": [
+        {
+          "algorithm": "sha256",
+          "value": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6"
+        }
+      ]
+    },
+    {
+      "path": "packages/uma-sim-mcp/mcp-stdio.js",
+      "kind": "MCP source",
+      "digests": [
+        {
+          "algorithm": "sha256",
+          "value": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584"
+        }
+      ]
+    }
+  ],
+  "qualificationAttribution": "Author replay of unchanged independently authored tests on later received native source; earlier independent artifacts retain their original source pins.",
+  "results": {
+    "independentFilesystemDriver": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    "currentMainBodyAdmission": {
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0
+    },
+    "acceptedMcpNativeCareerSuite": {
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "buildConfiguration": {
+    "rust": "1.99.0",
+    "locked": true,
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0"
+  },
+  "mcpNativeArtifacts": [
+    {
+      "path": "authored/current-mcp/native-runs/review-R42khk/.uma-sim/lab/br-1791456643-020440164-22-0000000000000002.json",
+      "sha256": "3ea9c48ebbd6e3ecc3c9e2cc2875a4f06710b8cf558ba4014f8fd70198e377d9"
+    },
+    {
+      "path": "authored/current-mcp/native-runs/review-R42khk/.uma-sim/library/review-mid.meta.json",
+      "sha256": "c8c29f2bd5ef0af53d4c1f20ef5678c446da873128b27396a1a01249cf99e3c3"
+    },
+    {
+      "path": "authored/current-mcp/native-runs/review-R42khk/.uma-sim/library/review-mid.snapshot.json",
+      "sha256": "001957a09035302f017585e050fe9865cad240e6760346473182bb2dd298c2eb"
+    },
+    {
+      "path": "authored/current-mcp/native-runs/review-R42khk/comparison.json",
+      "sha256": "d7a578b95143f3cc32dc8075114c52c45f8b2c859838ed14a294a4a51f6e9939"
+    },
+    {
+      "path": "authored/current-mcp/native-runs/review-R42khk/comparison.md",
+      "sha256": "d29e51df1114aa0a267c66b1d2da7f7854284b4f3f3e48b896d54a2b3cff516e"
+    },
+    {
+      "path": "authored/current-mcp/native-runs/review-R42khk/provenance.json",
+      "sha256": "3b65ced8736d5224ac3dace165b0d3973fe9c17d7c57748381c0debac1561c62"
+    },
+    {
+      "path": "authored/current-mcp/native-runs/review-R42khk/server.log",
+      "sha256": "c9b5ff13c04ff04ef74377a53b796b145ab763b3450dc7834fcee67aeda82852"
+    }
+  ]
+}
