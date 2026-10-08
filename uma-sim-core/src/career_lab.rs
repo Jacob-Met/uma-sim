@@ -32,7 +32,8 @@ use crate::state::{
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 use std::fmt;
-use std::fs;
+use std::fs::{self, OpenOptions};
+use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::{SystemTime, UNIX_EPOCH};
@@ -55,7 +56,7 @@ const CORE_VERSION: &str = env!("CARGO_PKG_VERSION");
 pub enum LabError {
     /// Entry name violates the naming rules.
     InvalidName(String),
-    /// A library entry with this name already exists (and `overwrite=false`).
+    /// A durable entry or branch result with this name or ID already exists.
     AlreadyExists(String),
     /// No library entry with this name.
     NotFound(String),
@@ -71,10 +72,9 @@ impl fmt::Display for LabError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             LabError::InvalidName(m) => write!(f, "invalid checkpoint name: {m}"),
-            LabError::AlreadyExists(n) => write!(
-                f,
-                "checkpoint '{n}' already exists (pass overwrite=true to replace it)"
-            ),
+            LabError::AlreadyExists(n) => {
+                write!(f, "entry '{n}' already exists and was not replaced")
+            }
             LabError::NotFound(n) => write!(f, "no checkpoint named '{n}'"),
             LabError::InvalidSnapshot(m) => {
                 write!(f, "snapshot failed validation and was not imported: {m}")
@@ -643,8 +643,18 @@ pub struct LabResult {
 static BRANCH_COUNTER: AtomicU64 = AtomicU64::new(0);
 
 fn branch_id() -> String {
-    let n = BRANCH_COUNTER.fetch_add(1, Ordering::SeqCst);
-    format!("br-{}-{:04}", now_unix(), n % 10_000)
+    let now = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .unwrap_or_default();
+    let n = BRANCH_COUNTER.fetch_add(1, Ordering::Relaxed);
+    // Process identity and subsecond time distinguish independent invocations.
+    // Publication still refuses collisions; generated IDs are not a lock.
+    format!(
+        "br-{}-{:09}-{}-{n:016x}",
+        now.as_secs(),
+        now.subsec_nanos(),
+        std::process::id()
+    )
 }
 
 fn choose_action(
@@ -844,12 +854,35 @@ impl BranchStore {
         Ok(self.dir.join(format!("{id}.json")))
     }
 
-    /// Persist a branch result (atomic).
+    /// Create an immutable branch result; an existing ID is never replaced.
+    /// The complete temporary file is published atomically with a hard link,
+    /// which refuses an existing destination even across competing processes.
     pub fn save(&self, result: &LabResult) -> Result<PathBuf, LabError> {
         let path = self.path_for(&result.id)?;
         let bytes =
             serde_json::to_string_pretty(result).map_err(|e| LabError::Io(e.to_string()))?;
-        atomic_write(&path, bytes.as_bytes())?;
+        fs::create_dir_all(&self.dir).map_err(|e| LabError::Io(e.to_string()))?;
+        let tmp = self.dir.join(format!(".tmp-{}-{}", branch_id(), result.id));
+        let mut file = OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(&tmp)
+            .map_err(|e| LabError::Io(format!("create temporary branch file: {e}")))?;
+        let ready = file
+            .write_all(bytes.as_bytes())
+            .and_then(|_| file.sync_all());
+        drop(file);
+        // Do not use a replacing rename here: two processes can independently
+        // generate or receive the same ID before either result is published.
+        let published = ready.and_then(|_| fs::hard_link(&tmp, &path));
+        let _ = fs::remove_file(&tmp);
+        published.map_err(|e| {
+            if e.kind() == std::io::ErrorKind::AlreadyExists {
+                LabError::AlreadyExists(result.id.clone())
+            } else {
+                LabError::Io(format!("publish branch result '{}': {e}", result.id))
+            }
+        })?;
         Ok(path)
     }
 

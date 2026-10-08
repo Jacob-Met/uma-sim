@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/opt/homebrew/bin/cargo",
+    "test",
+    "--offline",
+    "--locked",
+    "-p",
+    "uma-sim-core",
+    "--test",
+    "career_lab",
+    "--",
+    "--test-threads=1"
+  ],
+  "exitCode": 0,
+  "elapsedSeconds": 2.011302947998047,
+  "domain": {
+    "sha256": "f12208e5796ac6ab42ba515d6d8e6734388810894b600420e4badfdeab250f08"
+  },
+  "stdout": "\nrunning 14 tests\ntest branch_run_is_deterministic ... ok\ntest branch_store_round_trip ... ok\ntest checkpoint_restore_reproduces_state_and_rng ... ok\ntest comparison_report_renders ... ok\ntest divergence_detected_on_first_decision_difference ... ok\ntest event_and_mandatory_race_checkpoints_all_scenarios ... ok\ntest identical_branches_have_no_divergence ... ok\ntest import_failure_preserves_last_good ... ok\ntest library_name_rules_and_overwrite_protection ... ok\ntest library_round_trip ... ok\ntest rng_state_words_restore_is_exact ... ok\ntest sibling_branch_cannot_mutate_checkpoint_or_sibling ... ok\ntest snapshot_carries_rng_state_words ... ok\ntest stale_tmp_files_are_swept ... ok\n\ntest result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.41s\n\n",
+  "stderr": "   Compiling uma-sim-core v0.1.0 (/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/uma-sim-core)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.58s\n     Running tests/career_lab.rs (target/debug/deps/career_lab-a291c2f64aeda582)\n"
+}

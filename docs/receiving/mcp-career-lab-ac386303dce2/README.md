@@ -51,7 +51,13 @@ PR #72 at `5d32d0b06de88141ecd4c84922e77553a45a522f`. The final feature refresh
 preserves every current-main file and both ancestry lines. Its only shared
 workflow composition appends the terminal's existing test command to the
 already qualified MCP workflow; native receiving and artifact retention stay
-intact. No MCP or Rust source changes accompany this ancestry refresh.
+intact. During the final freshness check, main also received the separately
+qualified immutable branch-publication repair (#78) at
+`b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c`. That native change and its tests and
+receipts are carried unchanged. The bridge still has the exact reviewed hash;
+final-head CI must build and exercise the newly composed native receiver.
+The original local native replay above remains evidence for its original
+receiver, not a claim that the later native source was already exercised.
 
 Current main ancestry, independent review and actual proposed-head CI remain
 required at the final main-branch merge. This packet records executed receiving

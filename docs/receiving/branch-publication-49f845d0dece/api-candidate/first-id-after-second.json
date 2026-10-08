@@ -1,0 +1,71 @@
+{
+  "id": "br-1791453065-029806000-23217-0000000000000000",
+  "name": "first-acknowledged-result",
+  "checkpointName": "process-fixture",
+  "checkpointTurn": 11,
+  "seed": 42,
+  "scenarioId": "ura",
+  "traineeName": "Special Week",
+  "config": {
+    "policy": "default",
+    "maxActions": 1,
+    "overrides": []
+  },
+  "startedAt": "2026-10-08T09:51:05Z",
+  "timeline": [
+    {
+      "stepIndex": 0,
+      "turn": 11,
+      "dateLabel": "Y1 Nov · 2nd half",
+      "phase": "FREE",
+      "actionId": "train_speed",
+      "actionLabel": "Train Speed",
+      "overrideApplied": false,
+      "overrideRejected": false,
+      "rngCallsBefore": 53,
+      "rngCallsAfter": 57,
+      "energy": 5,
+      "mood": "BAD",
+      "fans": 2573,
+      "skillPoints": 136,
+      "stats": {
+        "speed": 103,
+        "stamina": 88,
+        "power": 107,
+        "guts": 93,
+        "wit": 91
+      },
+      "newRaces": [],
+      "totalRaces": 1,
+      "totalSkills": 1
+    }
+  ],
+  "outcome": {
+    "steps": 1,
+    "finalTurn": 12,
+    "careerComplete": false,
+    "completedRaces": [
+      "debut"
+    ],
+    "stats": {
+      "speed": 103,
+      "stamina": 88,
+      "power": 107,
+      "guts": 93,
+      "wit": 91
+    },
+    "energy": 5,
+    "mood": "BAD",
+    "fans": 2573,
+    "skillPoints": 136,
+    "learnedSkills": [
+      "skill:100011"
+    ],
+    "sparks": [],
+    "scenarioResources": {
+      "happy_meek_badge": 0
+    },
+    "totalRngCalls": 57,
+    "telemetryRecords": 1
+  }
+}
