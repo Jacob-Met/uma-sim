@@ -1,0 +1,7 @@
+{
+  "chunk_id": "84e3e2",
+  "wall_time_seconds": 0.000019439,
+  "exit_code": 0,
+  "original_token_count": 272,
+  "output": "{\"schema\": \"uma.browser-checkpoint.independent-source-reconstruction.v1\", \"files\": [{\"path\": \"src/api/checkpointJson.ts\", \"bytes\": 751, \"sha256\": \"8a204b07413c0d2b41401f4aac54f884baf4bd55c548c0f2fd519de50e50df5d\", \"expected_exact\": true}, {\"path\": \"src/api/client.ts\", \"bytes\": 5821, \"sha256\": \"542fb7fb53f19d0cbf9e4f96d6e3b1b191bb86a1aba99e45739b208a03ca2a55\", \"expected_exact\": true}, {\"path\": \"src/state/labStore.ts\", \"bytes\": 7823, \"sha256\": \"42de971e46a746ae4b2aa051749e6e15b417de3c059c153e8aeb56ead8e3ffde\", \"expected_exact\": true}], \"owner_source\": {\"path\": \"/workspace/scratch/69570d292200/agents/production/uma-sim/packages/uma-sim-ui/src/api/client.ts\", \"head\": \"f5d65944dc327087b235b6917c5ce9f94947e24e\", \"sha256\": \"db4deabeb0a61592c1e9c9f07ba4185cce1e13cd4c6bc51aff58c8c69f8b362f\", \"withSession\": \"function withSession(path: string, session?: string): string {\\n  if (session === undefined) return path;\\n  const sep = path.includes(\\\"?\\\") ? \\\"&\\\" : \\\"?\\\";\\n  return `${path}${sep}session=${encodeURIComponent(session)}`;\\n}\"}, \"filesystem_writes\": false, \"network\": false}\n"
+}

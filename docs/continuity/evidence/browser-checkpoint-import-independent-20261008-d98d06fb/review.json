@@ -1,0 +1,119 @@
+{
+  "schema": "uma.browser-checkpoint.independent-review.v1",
+  "at": "2026-10-08T17:49:31.236Z",
+  "reviewer": "chatgpt:d98d06fbfc35:mac_execution",
+  "scope": "Exact frozen three-file source review and one independent inert lexical transport witness",
+  "disposition": "accepted_source_scope_native_receiving_pending",
+  "source": [
+    {
+      "path": "packages/uma-sim-ui/src/api/checkpointJson.ts",
+      "sha256": "8a204b07413c0d2b41401f4aac54f884baf4bd55c548c0f2fd519de50e50df5d"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "sha256": "542fb7fb53f19d0cbf9e4f96d6e3b1b191bb86a1aba99e45739b208a03ca2a55"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "sha256": "42de971e46a746ae4b2aa051749e6e15b417de3c059c153e8aeb56ead8e3ffde"
+    }
+  ],
+  "baseline": {
+    "client_git_blob": "bed38774d5dcd48af5b964d97472a76db92f78e7",
+    "labstore_git_blob": "6cc39e49150ab6774cb78aac1b89676b704418f8",
+    "ref": "205178f1"
+  },
+  "findings": [
+    {
+      "topic": "Raw JSON preservation",
+      "result": "The parsed object is used only for shape validation. The original complete JSON text is spliced as a JSON value into the import envelope; name is independently JSON-stringified. The whole input must parse as one non-null non-array object before fetch."
+    },
+    {
+      "topic": "Shared transport and defaults",
+      "result": "The optional raw body changes only the existing req request-body selection and JSON header condition. All original response parsing, non-OK server error extraction, invalid-JSON errors, network propagation, paths and ordinary object serialization remain byte-identical after reversal of the scoped edits. The old libraryImport method is retained."
+    },
+    {
+      "topic": "UI effect boundary",
+      "result": "Only importCheckpoint changes inside the existing withBusy path. The same name trimming, one import call, post-success library refresh and shared caught error/finally behavior remain; no simulation/session/RNG method is edited."
+    },
+    {
+      "topic": "Issue63 explicit-empty session",
+      "result": "The frozen public candidate leaves withSession unchanged. Its existing falsey-empty behavior is not claimed fixed by this contribution. Substituting the exact owner f5d65944 function and its changed comment independently reproduces composed SHA e3868537ded0ce8c675a6270d053b8e82a1ddeeb939c77c3ece54219c1eaca8e; the owner method distinguishes undefined from empty. No competing session edit was made."
+    },
+    {
+      "topic": "Independent receiver",
+      "result": "One exact-source inert fetch control preserves exponent-form integer, long fraction, negative zero, large exponent and string-lookalike tokens plus surrounding whitespace. The unchanged baseline path rewrites the numeric values. Both make one POST to the existing import route. No actual fetch/network/native API was used."
+    }
+  ],
+  "preservation": {
+    "schema": "uma.browser-checkpoint.independent-preservation.v1",
+    "client_full_baseline_reconstruction": true,
+    "labstore_full_baseline_reconstruction": true,
+    "unchanged_original_withSession": true,
+    "owner_head": "f5d65944dc327087b235b6917c5ce9f94947e24e",
+    "owner_withSession_composed_sha256": "e3868537ded0ce8c675a6270d053b8e82a1ddeeb939c77c3ece54219c1eaca8e",
+    "original_default_behavior_is_not_claimed_to_fix_explicit_empty": true,
+    "production_bytes_executed": false,
+    "test_suites_rerun": false,
+    "filesystem_writes": false,
+    "network": false
+  },
+  "control_result": {
+    "schema": "uma.browser-checkpoint.independent-lexical-transport.v1",
+    "result": "pass",
+    "cases": 1,
+    "node": "v24.19.0",
+    "platform": "linux",
+    "arch": "x64",
+    "typescript": "5.9.3",
+    "fixture": "\n \t{\n  \"seed\":9007199254740993e0,\n  \"ratio\":0.10000000000000001,\n  \"negative_zero\":-0,\n  \"large_exponent\":1e400,\n  \"string\":\"9007199254740993e0 0.10000000000000001 -0 1e400\"\n}\r\n",
+    "fixture_sha256": "361d334c039e21a1d14ade82ad1d3c4f0a0b1d5e92308950ad40dc2c02e1134f",
+    "before": {
+      "calls": 1,
+      "body": "{\"snapshot\":{\"seed\":9007199254740992,\"ratio\":0.1,\"negative_zero\":0,\"large_exponent\":null,\"string\":\"9007199254740993e0 0.10000000000000001 -0 1e400\"}}",
+      "body_sha256": "55409d6d7d24637ae457a9534c23f9ed6a026e3806bf9f4299b6b067768d502e",
+      "lexical_numbers_rewritten": true,
+      "string_lookalikes_unchanged": true
+    },
+    "after": {
+      "calls": 1,
+      "body": "{\"snapshot\":\n \t{\n  \"seed\":9007199254740993e0,\n  \"ratio\":0.10000000000000001,\n  \"negative_zero\":-0,\n  \"large_exponent\":1e400,\n  \"string\":\"9007199254740993e0 0.10000000000000001 -0 1e400\"\n}\r\n}",
+      "body_sha256": "f839fb05d3f08a102a5aa7e00e70cdd73860c55874c47a5b3d639b7ff85becef",
+      "raw_snapshot_span_exact": true,
+      "route": "/v1/library/import",
+      "method": "POST",
+      "content_type": "application/json"
+    },
+    "source": [
+      {
+        "path": "src/api/checkpointJson.ts",
+        "sha256": "8a204b07413c0d2b41401f4aac54f884baf4bd55c548c0f2fd519de50e50df5d"
+      },
+      {
+        "path": "src/api/client.ts",
+        "sha256": "542fb7fb53f19d0cbf9e4f96d6e3b1b191bb86a1aba99e45739b208a03ca2a55"
+      },
+      {
+        "path": "src/state/labStore.ts",
+        "sha256": "42de971e46a746ae4b2aa051749e6e15b417de3c059c153e8aeb56ead8e3ffde"
+      }
+    ],
+    "filesystem_writes": false,
+    "network": false,
+    "native_api": false,
+    "valid_native_checkpoint_claim": false,
+    "limits": "One authored lexical transport witness with an inert fetch receiver. It does not establish that exponent/fraction forms are valid native checkpoint fields or that the pending browser run completed."
+  },
+  "preparation_history": [
+    {
+      "event": "Owner composition pin comparison refused",
+      "detail": "The first read-only reconstruction replaced the owner's function but omitted its changed method comment, so the full composed hash assertion failed before any production-code execution. A direct immutable-to-owner diff established exactly those two lines; the corrected reconstruction includes the exact comment and matches the author's composed hash. Both scripts/results are preserved."
+    }
+  ],
+  "limits": [
+    "Author npm/test/build and seven owner-composition controls were not rerun.",
+    "The new lexical fixture is an authored object; its exponent/fraction values are not asserted to be valid native checkpoint fields.",
+    "The author's actual Mac exported-checkpoint/browser continuation run remains UNKNOWN after transport timeouts; this review cannot certify its completion.",
+    "No Mac probe, source edit, provider request, service, goal, room, message, installed app or simulation state action occurred during this independent review."
+  ]
+}

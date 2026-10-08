@@ -1,0 +1,7 @@
+{
+  "chunk_id": "4b6538",
+  "wall_time_seconds": 0.000017947,
+  "exit_code": 0,
+  "original_token_count": 163,
+  "output": "{\"baseline_to_owner_diff\": \"--- immutable-public-client\\n+++ owner-f5d65944-client\\n@@ -36,9 +36,9 @@\\n   return data as T;\\n }\\n \\n-/** Append ?session= for run endpoints when a non-default session is targeted. */\\n+/** Omitted means active; an explicit empty string targets the main session. */\\n function withSession(path: string, session?: string): string {\\n-  if (!session) return path;\\n+  if (session === undefined) return path;\\n   const sep = path.includes(\\\"?\\\") ? \\\"&\\\" : \\\"?\\\";\\n   return `${path}${sep}session=${encodeURIComponent(session)}`;\\n }\\n\", \"owner_sha256\": \"db4deabeb0a61592c1e9c9f07ba4185cce1e13cd4c6bc51aff58c8c69f8b362f\"}\n"
+}
