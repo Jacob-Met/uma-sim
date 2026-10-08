@@ -1,0 +1,22 @@
+diff --git a/packages/uma-sim-ui/src/components/RunSetupFiles.tsx b/packages/uma-sim-ui/src/components/RunSetupFiles.tsx
+index 36cf30d..584873c 100644
+--- a/packages/uma-sim-ui/src/components/RunSetupFiles.tsx
++++ b/packages/uma-sim-ui/src/components/RunSetupFiles.tsx
+@@ -124,7 +124,7 @@ export function RunSetupFiles({ setup, catalogs, revision, busy, onApply }: Prop
+   }
+ 
+   async function openFile(file: File | undefined) {
+-    const context = opening.current ?? current.current;
++    const context = opening.current;
+     opening.current = null;
+     const ticket = ++epoch.current;
+     setPreview(null);
+@@ -135,7 +135,7 @@ export function RunSetupFiles({ setup, catalogs, revision, busy, onApply }: Prop
+       setStatus("Opening cancelled. Your setup is unchanged.");
+       return;
+     }
+-    if (!isCurrent(ticket, context)) {
++    if (!context || !isCurrent(ticket, context)) {
+       setReading(false);
+       setStatus("The form or available choices changed. Open the file again to review it against this setup.");
+       return;

@@ -1,0 +1,71 @@
+{
+  "schema": "uma-sim.independent-setup-receiving/1",
+  "checkedAt": "2026-10-08T16:55:13.345Z",
+  "worker": "hamon-ultra-20261008-c77045b4-production",
+  "scope": "PR104 source-pinned asynchronous file admission with subordinate two-line repair proposal",
+  "original": {
+    "head": "3c9c58dde2c42227c3b0f07f28f96a94ba2b0244",
+    "tree": "3f9587f7814ec781835ff39351af43328f637dd3",
+    "passed": 10,
+    "failed": 2,
+    "disposition": "revise chooser-context boundary"
+  },
+  "parameterizedOriginal": {
+    "head": "3c9c58dde2c42227c3b0f07f28f96a94ba2b0244",
+    "passed": 10,
+    "failed": 2,
+    "behaviorBodiesUnchanged": true
+  },
+  "proposal": {
+    "head": "596a6a26f45a57774a77585ef6dbb7d14dea341e",
+    "tree": "2159d2ceac4b17f870105b6bd6f2f3286a204a52",
+    "changedPath": "packages/uma-sim-ui/src/components/RunSetupFiles.tsx",
+    "changedBlob": "584873c9ff0b422042e4abd68f60d3cf69a744c5",
+    "sha256": "5419c9497f6d7b103af690e5260d57601f2eee1f42464d6d5cf51480c00856f4",
+    "passed": 12,
+    "failed": 0,
+    "disposition": "receiving passes; original owner acceptance and normal exact-head gates remain"
+  },
+  "typecheck": {
+    "exitCode": 0,
+    "startedAt": "2026-10-08T16:53:00.226Z",
+    "finishedAt": "2026-10-08T16:53:01.531Z",
+    "sourceHead": "596a6a26f45a57774a77585ef6dbb7d14dea341e",
+    "sourceTree": "2159d2ceac4b17f870105b6bd6f2f3286a204a52",
+    "typescript": "5.9.3",
+    "unchangedInputs": 56,
+    "command": [
+      "/opt/homebrew/Cellar/node/26.3.0/bin/node",
+      "/Users/me/workspace/estate/contributions-b0e250296538-20261008/uma-setup-author/candidate/packages/uma-sim-ui/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--incremental",
+      "--tsBuildInfoFile",
+      "/Users/me/hamon-ultra-c77045b4-uma-setup-independent/evidence/typecheck-proposal.tsbuildinfo"
+    ]
+  },
+  "browser": "154.0.8037.98",
+  "fixtureContractCommit": "851c4dcadf712c9d3ba078e095228373ffba77ce",
+  "originalMethodCommit": "71a6d1f81ae8ac163dda14966a7b92544acf915c",
+  "boundMethodCommit": "cd89d6d3eeacc62a787e16264a014b4ed94bdf73",
+  "sourceInputsUnchanged": 56,
+  "unchangedOtherInputs": 55,
+  "externalRequests": 0,
+  "pageErrors": 0,
+  "nativeApiOrSimulatorInvoked": false,
+  "ownedProcessesClosed": true,
+  "ownedProfilesRemoved": true,
+  "limits": [
+    "Authored catalogs and prop changes in actual React component",
+    "Physical file reads are held only for explicitly named slow input",
+    "No claim that OS modal choosers allow pointer edits",
+    "Start is actual component callback only",
+    "Original full-App and native API evidence belongs to original owner",
+    "Supplement authored by receiver and requires separate source review"
+  ],
+  "receipts": [
+    "evidence/browser-v1/receipt.json",
+    "evidence/browser-v1-bound/receipt.json",
+    "evidence/browser-proposal/receipt.json",
+    "evidence/typecheck-proposal.json"
+  ]
+}
