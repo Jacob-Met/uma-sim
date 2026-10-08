@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "scenario_id": "ura",
-  "as_of": "2026-09-01",
+  "as_of": "2026-10-08",
   "source": "knowledge/scenarios/ura.md, uma-android-automation UraFinale.kt",
   "hard_caps": { "speed": 1400, "stamina": 1400, "power": 1400, "guts": 1400, "wit": 1400 },
   "spark": { "speed": true, "stamina": true },
@@ -33,13 +33,41 @@
       "Past My Limits skill on max-level Meek win",
       "duel training bias",
       "inheritance event at turn 13",
-      "finale mandatory races (qualifier/semifinal/finals)"
+      "finale mandatory races (qualifier/semifinal/finals)",
+      "retained URA participation class for new careers (bounded community-grounded simulator policy)"
     ],
     "not_modeled": [
-      "finale distance/surface from race history"
+      "official game finale course/venue/calendar parity",
+      "legacy save race-history reconstruction"
     ],
-    "parity_tests_for_not_modeled": {
-      "finale distance/surface from race history": "tests/ura_mechanics.rs::ura_finale_distance_gap_documented"
-    }
+    "parity_tests_for_not_modeled": {}
+  },
+  "finale_history_model": {
+    "version": 1,
+    "documentation": "docs/URA_FINALE_HISTORY.md",
+    "tests": "uma-sim-core/tests/ura_finale_history.rs",
+    "source_quality": "community-grounded policy; not official game parity",
+    "count": "known actual race-completion occurrences, regardless of wins",
+    "tie_priority": [
+      "turf sprint",
+      "turf mile",
+      "turf medium",
+      "turf long",
+      "dirt sprint",
+      "dirt mile",
+      "dirt medium"
+    ],
+    "representative_course_ids": [
+      10601,
+      10602,
+      10604,
+      10607,
+      10609,
+      10611,
+      10612
+    ],
+    "retain_matching_legacy_stage_course": true,
+    "freeze": "before existing qualifier physics; no later callback changes history",
+    "unavailable_history": "retain legacy stage courses; never reconstruct from completed_races or logs"
   }
 }

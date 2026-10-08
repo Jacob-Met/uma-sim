@@ -272,13 +272,13 @@ pub fn grade_key_for_race(race_id: &str) -> &'static str {
 }
 
 /// Resolve `course_id` from canonical race data when `race_id` is numeric / `race:N`.
-/// Symbolic career ids (`debut`, finales) use fixed interim courses until R8.6 maps them.
+/// Symbolic ids use legacy interim courses; URA physics can apply a retained finale class.
 pub fn course_id_for_race(race_id: &str) -> u32 {
     match race_id {
         "debut" => return 10601,            // Tokyo 1400 turf
         "finale_qualifier" => return 10602, // Tokyo 1600
-        "finale_semifinal" => return 10606, // Tokyo 2000
-        "finale_finals" => return 10608,    // Tokyo 2400 (if missing, fall through)
+        "finale_semifinal" => return 10606, // Tokyo 2400
+        "finale_finals" => return 10608,    // Tokyo 3400 (if missing, fall through)
         "optional" => return 10601,
         _ => {}
     }
@@ -286,6 +286,18 @@ pub fn course_id_for_race(race_id: &str) -> u32 {
         return id;
     }
     10601
+}
+
+/// Strict admission for occurrence history; unknown ids must not count as fallback sprint.
+pub(crate) fn known_course_id_for_history(race_id: &str) -> Option<u32> {
+    if matches!(race_id, "debut" | "optional") {
+        return Some(10601);
+    }
+    let numeric = race_id.strip_prefix("race:").unwrap_or(race_id);
+    if numeric.is_empty() || !numeric.bytes().all(|b| b.is_ascii_digit()) {
+        return None;
+    }
+    lookup_course_id(race_id)
 }
 
 const INTERIM_NPC_COUNT: usize = 8;
@@ -460,7 +472,8 @@ pub fn placement_from_finish_place(place: usize) -> RacePlacement {
 /// Run a physics race for the trainee without touching the career RNG.
 pub fn run_physics_race(state: &CareerState, race_id: &str) -> PhysicsRaceOutcome {
     let seed = derive_race_seed(state.meta.seed, state.turn, race_id);
-    let mut course_id = course_id_for_race(race_id);
+    let mut course_id = crate::scenario::ura_finale::course_id(state, race_id)
+        .unwrap_or_else(|| course_id_for_race(race_id));
     let course = match get_course(course_id) {
         Some(c) => c,
         None => {
