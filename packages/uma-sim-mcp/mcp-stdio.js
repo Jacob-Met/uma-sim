@@ -35,6 +35,34 @@ function negotiateProtocolVersion(requested) {
 // -32603 stays reserved for genuine internal/backend failures.
 class InvalidParamsError extends Error {}
 
+// HTTP failures are tool execution failures. Keep them separate from invalid
+// MCP parameters and transport/decoding failures in the bridge itself.
+class BackendHttpError extends Error {
+  constructor(status, body) {
+    super(`uma-sim API returned HTTP ${status}${body ? `: ${body}` : ""}`);
+  }
+}
+
+function isObject(value) {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+function validateArguments(tool, args) {
+  if (!isObject(args)) throw new InvalidParamsError("Tool arguments must be an object");
+  const missing = (tool.inputSchema.required ?? []).filter((key) => args[key] === undefined);
+  if (missing.length) {
+    throw new InvalidParamsError(`Missing required argument(s): ${missing.join(", ")}`);
+  }
+  // The advertised schemas use only flat string and number properties. Check
+  // those types before forwarding a mutation; keep extra properties permitted.
+  for (const [key, schema] of Object.entries(tool.inputSchema.properties)) {
+    if (args[key] === undefined) continue;
+    if (typeof args[key] !== schema.type || (schema.type === "number" && !Number.isFinite(args[key]))) {
+      throw new InvalidParamsError(`Argument '${key}' must be a ${schema.type}`);
+    }
+  }
+}
+
 const RESOURCES = [
   { uri: "uma-sim://run/state", name: "Current run state", description: "Full career snapshot JSON", mimeType: "application/json" },
   { uri: "uma-sim://run/text", name: "Event log text", description: "Rendered career text", mimeType: "text/plain" },
@@ -60,6 +88,7 @@ async function api(method, path, body) {
     headers: body ? { "Content-Type": "application/json" } : undefined,
     body: body ? JSON.stringify(body) : undefined,
   });
+  if (!res.ok) throw new BackendHttpError(res.status, await res.text());
   return res.json();
 }
 
@@ -145,9 +174,18 @@ process.stdin.on("data", (chunk) => {
 });
 
 async function handle(req) {
+  if (!isObject(req) || req.jsonrpc !== "2.0" || typeof req.method !== "string" ||
+      (req.id !== undefined && req.id !== null && typeof req.id !== "string" &&
+       !(typeof req.id === "number" && Number.isFinite(req.id)))) {
+    send({ jsonrpc: "2.0", id: null, error: { code: -32600, message: "Invalid Request" } });
+    return;
+  }
   const { id, method, params } = req;
   // Notifications carry no id: accept them silently (MCP stdio spec).
   if (id === undefined || id === null) return;
+  if (params !== undefined && !isObject(params)) {
+    throw new InvalidParamsError("params must be an object");
+  }
   if (method === "initialize") {
     send({
       jsonrpc: "2.0",
@@ -189,11 +227,20 @@ async function handle(req) {
   if (method === "tools/call") {
     const tool = TOOLS.find((t) => t.name === params?.name);
     if (!tool) throw new InvalidParamsError(`Unknown tool: ${params?.name}`);
-    const missing = (tool.inputSchema.required ?? []).filter((k) => params.arguments?.[k] === undefined);
-    if (missing.length) {
-      throw new InvalidParamsError(`Missing required argument(s): ${missing.join(", ")}`);
+    const args = params.arguments === undefined ? {} : params.arguments;
+    validateArguments(tool, args);
+    let result;
+    try {
+      result = await callTool(params.name, args);
+    } catch (error) {
+      if (!(error instanceof BackendHttpError)) throw error;
+      send({
+        jsonrpc: "2.0",
+        id,
+        result: { content: [{ type: "text", text: error.message }], isError: true },
+      });
+      return;
     }
-    const result = await callTool(params.name, params.arguments ?? {});
     send({
       jsonrpc: "2.0",
       id,
