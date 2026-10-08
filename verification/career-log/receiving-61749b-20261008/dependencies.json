@@ -1,0 +1,722 @@
+{
+  "isolation": "Own node_modules directory with read-only-use package symlinks; cache and outputs are inside the isolated receiving directory. No npm install or shared package edit.",
+  "lock_added": [
+    "node_modules/playwright",
+    "node_modules/playwright-core",
+    "node_modules/playwright/node_modules/fsevents"
+  ],
+  "lock_changed": [
+    ""
+  ],
+  "node_modules_source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules",
+  "packages": [
+    {
+      "package_json_sha256": "f9cccb2e601db93851f10935b4e723c95a730c467f187462eb54b16bb353b036",
+      "path": "node_modules/@babel/code-frame",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "a871a1f7397a91d00f877751ab2da88904ff1dd30c5bb4ab2e5badd9f3adf6d4",
+      "path": "node_modules/@babel/compat-data",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "6c2893db41b54a1c03ba68e676aa3ea987db9a5c9b9a3a3aa2e8d0d9a63066c4",
+      "path": "node_modules/@babel/core",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "9abb52650988f263a4e319eba536f7cdd681ad71b1e1383acb7e04f7825bc409",
+      "path": "node_modules/@babel/generator",
+      "present": true,
+      "version": "7.29.8"
+    },
+    {
+      "package_json_sha256": "6ac5b42b124c964fb3c0feed98cd2c13aaf5c5827021374db6884bab91f206d2",
+      "path": "node_modules/@babel/helper-compilation-targets",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "c06a17222ad81933dbae3768fe59cd6737ebdcfa88b84097f3a8e659e28d2c9f",
+      "path": "node_modules/@babel/helper-globals",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "fa2e7c54b6b86e250770f9b2703571bcff0c8166995e01c756539745859fedb7",
+      "path": "node_modules/@babel/helper-module-imports",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "4f5010bdec7a80d93d84a1ecff8fbdd0a9a865f1bd22ceb5b0215a07255de3b3",
+      "path": "node_modules/@babel/helper-module-transforms",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "2ce650d5c6bd8c1d1111ada7f39de65c48c227c25af74031493a377eb9fc3691",
+      "path": "node_modules/@babel/helper-plugin-utils",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "ecbd1aaffa9ad000d3bc5a526067b89244cb3ec64c738fbae8b64a9e805f401b",
+      "path": "node_modules/@babel/helper-string-parser",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "1ad6aeced8b186ac259da45fea50ab9d65d3d958f6458c80e3c8013649d1b12d",
+      "path": "node_modules/@babel/helper-validator-identifier",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "b2d7eca451e536f18f4757a54be48df604385ad978508e32ce8f2edb4973f257",
+      "path": "node_modules/@babel/helper-validator-option",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "df7df113698c9c45f0bb08c2e4fe097131dabf58dbeb23c676eb355f782c4aa3",
+      "path": "node_modules/@babel/helpers",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "6d6a65b879cd7cd249a4367c0b57cce00e78c728de45056ac2a5ca1d1f528d1a",
+      "path": "node_modules/@babel/parser",
+      "present": true,
+      "version": "7.29.8"
+    },
+    {
+      "package_json_sha256": "f0924b0a894912d8a0a4d3d8e5d58180955d64816645a1f23d86efdf76531737",
+      "path": "node_modules/@babel/plugin-transform-react-jsx-self",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "30c834a7aa33625c91ced60574ee63683be157a0d7c5dc3df627b290dcb0f215",
+      "path": "node_modules/@babel/plugin-transform-react-jsx-source",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "82b96cbb7f576768c6298b816600c0cfb2d8487c963050406d2bd895e3724145",
+      "path": "node_modules/@babel/template",
+      "present": true,
+      "version": "7.29.7"
+    },
+    {
+      "package_json_sha256": "69e31c6d56543d4e7c7f0b8c3eed161ce2ffdbe4b2c2b4aef6524e3b77404517",
+      "path": "node_modules/@babel/traverse",
+      "present": true,
+      "version": "7.29.8"
+    },
+    {
+      "package_json_sha256": "f32460a35cc4649d81f10d4bc6dcfa1ade7a47f95df5db4bb4483f34d24b476e",
+      "path": "node_modules/@babel/types",
+      "present": true,
+      "version": "7.29.8"
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/aix-ppc64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/android-arm",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/android-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/android-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/darwin-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/darwin-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/freebsd-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/freebsd-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/linux-arm",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/linux-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/linux-ia32",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/linux-loong64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/linux-mips64el",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/linux-ppc64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/linux-riscv64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/linux-s390x",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "package_json_sha256": "cfcc162c440e93cc43afbf1edc478f4fc286c6ad16b8b850f3adc3e045a27165",
+      "path": "node_modules/@esbuild/linux-x64",
+      "present": true,
+      "version": "0.21.5"
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/netbsd-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/openbsd-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/sunos-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/win32-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/win32-ia32",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@esbuild/win32-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "package_json_sha256": "6264fca78382a9782f8e8d5e653e7bf43dc8aa6d469f3322a82e531093896a01",
+      "path": "node_modules/@jridgewell/gen-mapping",
+      "present": true,
+      "version": "0.3.13"
+    },
+    {
+      "package_json_sha256": "cc535fb0665977104146fb8fe6c81ff63d2c9ae7f7b783d86e7f7db064cde57a",
+      "path": "node_modules/@jridgewell/remapping",
+      "present": true,
+      "version": "2.3.5"
+    },
+    {
+      "package_json_sha256": "0793e722ffe08f3b4f1862c4dc96d920a62d6811a3648b4feb02f06c63227e8b",
+      "path": "node_modules/@jridgewell/resolve-uri",
+      "present": true,
+      "version": "3.1.2"
+    },
+    {
+      "package_json_sha256": "ac7afd57294dbee1f891ca797e19e405340f2cd6031808e6d3845fec60a5b43f",
+      "path": "node_modules/@jridgewell/sourcemap-codec",
+      "present": true,
+      "version": "1.6.0"
+    },
+    {
+      "package_json_sha256": "7f5eacc669d36013f9b792ab15721a97d48b26b093100122aa6c8691ebe656be",
+      "path": "node_modules/@jridgewell/trace-mapping",
+      "present": true,
+      "version": "0.3.31"
+    },
+    {
+      "package_json_sha256": "578e2a50ae69cd627c2953f8fa677efbf89f3087efeafff2db65aa31b81dc136",
+      "path": "node_modules/@napi-rs/lzma-linux-x64-gnu",
+      "present": true,
+      "version": "1.5.1"
+    },
+    {
+      "package_json_sha256": "23c10679297855f4f4269d28bee817c61878d09d983e91919b04c309b9db5b6a",
+      "path": "node_modules/@rolldown/pluginutils",
+      "present": true,
+      "version": "1.0.0-beta.27"
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-android-arm-eabi",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-android-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-darwin-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-darwin-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-freebsd-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-freebsd-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-arm-gnueabihf",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-arm-musleabihf",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-arm64-gnu",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-arm64-musl",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-loong64-gnu",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-loong64-musl",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-ppc64-gnu",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-ppc64-musl",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-riscv64-gnu",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-riscv64-musl",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-linux-s390x-gnu",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "package_json_sha256": "2f3608a34d871e248a6c2cdf03b7c254b79417a18c3acac3b769abf3cf8f3758",
+      "path": "node_modules/@rollup/rollup-linux-x64-gnu",
+      "present": true,
+      "version": "4.63.1"
+    },
+    {
+      "package_json_sha256": "16cf955fa1579e8d69b31e0ba34d7ea23237ae1584f5123e8b5b55ed620e6433",
+      "path": "node_modules/@rollup/rollup-linux-x64-musl",
+      "present": true,
+      "version": "4.63.1"
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-openbsd-x64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-openharmony-arm64",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-win32-arm64-msvc",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-win32-ia32-msvc",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-win32-x64-gnu",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "optional": true,
+      "path": "node_modules/@rollup/rollup-win32-x64-msvc",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "package_json_sha256": "0787d557e5f4f1dcd57b43e2ec1a6cb955e768801bab5cad3c5c36e2d13eca0b",
+      "path": "node_modules/@types/babel__core",
+      "present": true,
+      "version": "7.20.5"
+    },
+    {
+      "package_json_sha256": "40436b147f93a5e56e69c5c0473e805ff17474c763875bdda598a977a6b824f4",
+      "path": "node_modules/@types/babel__generator",
+      "present": true,
+      "version": "7.27.0"
+    },
+    {
+      "package_json_sha256": "51293405049986b206d68e5b08181710934be70a05ecbd5384adb4eabde2ab82",
+      "path": "node_modules/@types/babel__template",
+      "present": true,
+      "version": "7.4.4"
+    },
+    {
+      "package_json_sha256": "44eeb69b60d092b2b6294defb488b61f754b36cf5dc4057af127a32a311c774d",
+      "path": "node_modules/@types/babel__traverse",
+      "present": true,
+      "version": "7.28.0"
+    },
+    {
+      "package_json_sha256": "3537a6a503f57901111d8a29df81962887653deb199b9a795c7fb50bbfdd1bdc",
+      "path": "node_modules/@types/estree",
+      "present": true,
+      "version": "1.0.9"
+    },
+    {
+      "package_json_sha256": "ec2aa770e306720d83d14e146d2fa59df6bd2a379a206f9a492e4d5f87e12179",
+      "path": "node_modules/@types/prop-types",
+      "present": true,
+      "version": "15.7.15"
+    },
+    {
+      "package_json_sha256": "7b5d39d90592ab340d44fecbf8d03afc0a0a197f3217259c3bb9ac881ff67a06",
+      "path": "node_modules/@types/react",
+      "present": true,
+      "version": "18.3.31"
+    },
+    {
+      "package_json_sha256": "7e3ee716354deebd531059c294716eed6ab402bdf37721b5b011ea093f978f70",
+      "path": "node_modules/@types/react-dom",
+      "present": true,
+      "version": "18.3.7"
+    },
+    {
+      "package_json_sha256": "d608755568d9d654c34e9e2da06659df9122fa89d2604ee09cdeda457a20c035",
+      "path": "node_modules/@vitejs/plugin-react",
+      "present": true,
+      "version": "4.7.0"
+    },
+    {
+      "package_json_sha256": "be0221a798bff3ba651036024952143cf7debc610fab2f2f77d8fb421fc87cb3",
+      "path": "node_modules/baseline-browser-mapping",
+      "present": true,
+      "version": "2.11.20"
+    },
+    {
+      "package_json_sha256": "0c005ed8979c6befc03211f5e1d7ac605c685032cb7a441d463c5f43c4801a1f",
+      "path": "node_modules/browserslist",
+      "present": true,
+      "version": "4.28.8"
+    },
+    {
+      "package_json_sha256": "85120c8ff297e58a955aa37713e6a843a05adf5e3a11dd37cd1aa696500feda5",
+      "path": "node_modules/caniuse-lite",
+      "present": true,
+      "version": "1.0.30001810"
+    },
+    {
+      "package_json_sha256": "e6bf802e6ee220d66321808ce3d619fbb85ff4d5729ea4f649bd65dfe9ee8956",
+      "path": "node_modules/convert-source-map",
+      "present": true,
+      "version": "2.0.0"
+    },
+    {
+      "package_json_sha256": "c818b74a9bc1556488b7ec2a65399224738f6619228f9a6491c5c02ca91f849e",
+      "path": "node_modules/csstype",
+      "present": true,
+      "version": "3.2.3"
+    },
+    {
+      "package_json_sha256": "ea8e33d63fe5f3a4c36609b6c3df8e2ef1f8b8ba2fc3a2e1e53cb27291f384af",
+      "path": "node_modules/debug",
+      "present": true,
+      "version": "4.4.3"
+    },
+    {
+      "package_json_sha256": "317aea5eba3385cdc0872376e095b9fd6cda177722b9880e60b2d95eb2320ef9",
+      "path": "node_modules/electron-to-chromium",
+      "present": true,
+      "version": "1.5.420"
+    },
+    {
+      "package_json_sha256": "0f35e0d63bd60a43ed85879604a40f7e9688b321904cf28a95be5b1bc629559c",
+      "path": "node_modules/esbuild",
+      "present": true,
+      "version": "0.21.5"
+    },
+    {
+      "package_json_sha256": "acd22b264ecbea162e320a360dab0ad0f3e5438fa4382288df844fa08b484e73",
+      "path": "node_modules/escalade",
+      "present": true,
+      "version": "3.2.0"
+    },
+    {
+      "optional": true,
+      "path": "node_modules/fsevents",
+      "present": false,
+      "unused_browser_runner_dependency": false
+    },
+    {
+      "package_json_sha256": "80cddca71baa1ba0cf44f65585e1c1ed7576abdb759ed391007925c961ca6334",
+      "path": "node_modules/gensync",
+      "present": true,
+      "version": "1.0.0-beta.2"
+    },
+    {
+      "package_json_sha256": "47345931827b3e26db9fe690abb81f856a0d040cbca8af1e69711a64cd58ce0d",
+      "path": "node_modules/js-tokens",
+      "present": true,
+      "version": "4.0.0"
+    },
+    {
+      "package_json_sha256": "6127ab2ccfbf576671dcfedcf2a8d97c9bbb3e5e4cff1274b3210b86a97a287c",
+      "path": "node_modules/jsesc",
+      "present": true,
+      "version": "3.1.0"
+    },
+    {
+      "package_json_sha256": "1927c4592e3811cf9b8c86e568df1c41a373b628b4b322f88872395ef87e2ba5",
+      "path": "node_modules/json5",
+      "present": true,
+      "version": "2.2.3"
+    },
+    {
+      "package_json_sha256": "8c2e27dae366396ced36fe0f7c6d35d71a1440fd8e82df5f2005a5297888a0d4",
+      "path": "node_modules/loose-envify",
+      "present": true,
+      "version": "1.4.0"
+    },
+    {
+      "package_json_sha256": "f5a3379f52a453412f5d8551bf11fa0bef4316cc88645c9d190a017e1c58a4c2",
+      "path": "node_modules/lru-cache",
+      "present": true,
+      "version": "5.1.1"
+    },
+    {
+      "package_json_sha256": "1a6b4d9739790c0b94ab96c8cc0507e281c164c311ff4fbf5e57fb8d26290b40",
+      "path": "node_modules/ms",
+      "present": true,
+      "version": "2.1.3"
+    },
+    {
+      "package_json_sha256": "18673eb0d7ed43dd871d59dc22a5670303f5d4eb9b17783b1f698f5840ce1fff",
+      "path": "node_modules/nanoid",
+      "present": true,
+      "version": "3.3.18"
+    },
+    {
+      "package_json_sha256": "6fba3ba5de88b32be9e82e8f1392ff81f5ffcc0fe6c8dfd371dd64de8a85c0fd",
+      "path": "node_modules/node-releases",
+      "present": true,
+      "version": "2.0.54"
+    },
+    {
+      "package_json_sha256": "ef2ac226c4811d312e12c64214c453878653e834482125ae475f27cea60de737",
+      "path": "node_modules/picocolors",
+      "present": true,
+      "version": "1.1.1"
+    },
+    {
+      "optional": false,
+      "path": "node_modules/playwright",
+      "present": false,
+      "unused_browser_runner_dependency": true
+    },
+    {
+      "optional": false,
+      "path": "node_modules/playwright-core",
+      "present": false,
+      "unused_browser_runner_dependency": true
+    },
+    {
+      "optional": true,
+      "path": "node_modules/playwright/node_modules/fsevents",
+      "present": false,
+      "unused_browser_runner_dependency": true
+    },
+    {
+      "package_json_sha256": "e0f23518d0e8fc0570ac68438eff7ecc7554774de3194af6f54f502e33f0c25b",
+      "path": "node_modules/postcss",
+      "present": true,
+      "version": "8.5.26"
+    },
+    {
+      "package_json_sha256": "d4e68a5c96babb20cad1daafea8b78822eae45b341552cf5418d06a5304fa64c",
+      "path": "node_modules/react",
+      "present": true,
+      "version": "18.3.1"
+    },
+    {
+      "package_json_sha256": "d2f29e31bd48b833e48cd7bbf41f192e8ee4ff8da249fdbe10d4ac4114b8b12e",
+      "path": "node_modules/react-dom",
+      "present": true,
+      "version": "18.3.1"
+    },
+    {
+      "package_json_sha256": "c042bac77d19e7de2c7afca47f6d833eba942da2501138b00e0ec74865f44001",
+      "path": "node_modules/react-refresh",
+      "present": true,
+      "version": "0.17.0"
+    },
+    {
+      "package_json_sha256": "21e36e65d4d5a80e4c9a271d4e1fc6cd1b5842eca46babba3e6fdf4ece5429b9",
+      "path": "node_modules/rollup",
+      "present": true,
+      "version": "4.63.1"
+    },
+    {
+      "package_json_sha256": "0893643a24576d727174e639586b8833a53f2a7b4a2199a719b9cfcebe9bae88",
+      "path": "node_modules/scheduler",
+      "present": true,
+      "version": "0.23.2"
+    },
+    {
+      "package_json_sha256": "aa906c5bf8a2fa68683cae07d18553ae2538ed0d5a567911980b2ef25ee8b9ba",
+      "path": "node_modules/semver",
+      "present": true,
+      "version": "6.3.1"
+    },
+    {
+      "package_json_sha256": "58f8e94a461a5e461e0cb2bb2be681cbd89b9181989fd26fceb858e67711469a",
+      "path": "node_modules/source-map-js",
+      "present": true,
+      "version": "1.2.1"
+    },
+    {
+      "package_json_sha256": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6",
+      "path": "node_modules/typescript",
+      "present": true,
+      "version": "5.9.3"
+    },
+    {
+      "package_json_sha256": "62a17bfaf441cc0dd3e094e9b8b2ace0713ebee0eb16e22dc0621ba14fd73687",
+      "path": "node_modules/update-browserslist-db",
+      "present": true,
+      "version": "1.3.2"
+    },
+    {
+      "package_json_sha256": "e9802045cdc313b6da55ec2e2dd79312074645816089d64f6021f567c10c0a03",
+      "path": "node_modules/vite",
+      "present": true,
+      "version": "5.4.21"
+    },
+    {
+      "package_json_sha256": "27699a6415a43f128c0e8ddcd5bf6e265f6cf3a581a9d959c11b977244fadc34",
+      "path": "node_modules/yallist",
+      "present": true,
+      "version": "3.1.1"
+    }
+  ]
+}

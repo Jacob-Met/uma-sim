@@ -6,7 +6,7 @@
   "license": "GPL-3.0-only",
   "description": "Browser UI for uma-sim career simulator",
   "scripts": {
-    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs",
+    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs",
     "test:browser": "node tests/receiving/uma-lab-receiver.mjs dist test-results/career-lab",
     "test:trace": "node tests/receiving/uma-trace-receiver.mjs dist test-results/trace",
     "dev": "vite",

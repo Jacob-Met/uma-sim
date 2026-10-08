@@ -1,0 +1,35 @@
+{
+  "schema": "uma.training-demo.build.v1",
+  "sourceCommit": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "sourceTree": "6ee572f7ef9a3623a8f2bd192235787fb9fbecb9",
+  "nativeFixtureSource": {
+    "commit": "0bc58cb83e89f07c6af3056dd7c37436906d994f",
+    "tree": "7c1b145124486f2a7911df3cecb620558abf84e1"
+  },
+  "inputUiBlobs": {
+    "packages/uma-sim-ui/index.html": "1711cea1cf433f0deb7d72b647e97c3906fe5353",
+    "packages/uma-sim-ui/src/components/StatsPanel.tsx": "4602576f5358f2daefc811cc773eec637f55f430",
+    "packages/uma-sim-ui/src/components/ChoicePanel.tsx": "21463054689cfc3c2c19258c4a98eb1e57b33c0e",
+    "packages/uma-sim-ui/src/api/types.ts": "18ea43a689f67043b9cdc872c8178e16728f4de5",
+    "packages/uma-sim-ui/src/styles/app.css": "f28cbea6a9f577f6a5269341a7e5ad2a0eed1aa6",
+    "packages/uma-sim-ui/package.json": "db6b16c96113566f0b9e9ac1b415c57a38c705af",
+    "packages/uma-sim-ui/package-lock.json": "10a4968db9d4507b9448dd00dba265eed483f419"
+  },
+  "fixtureSha256": "906e6876f2485b012677ffda82295858ad5afda818c33b57a39fece9f992d9de",
+  "toolchain": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "5.4.21",
+    "typescript": "5.9.3",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7"
+  },
+  "builderSha256": "e8636803597ed3c1c23ddb671dce1cbdb49ba61124e29d71968b2402fc39495c",
+  "page": {
+    "path": "out/index.html",
+    "bytes": 348711,
+    "sha256": "56f75bd888cc20b5c71ea007a76430736c0668eb89805dc867b81fb053056b85"
+  },
+  "selfContained": true,
+  "typecheck": "passed"
+}
