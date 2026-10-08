@@ -1,0 +1,75 @@
+{
+  "base": "7a2e15f623a559b2d9d425e4e7b68c1e71f24cbb",
+  "tree": "895e790957919ee1d9e64f6336c0fc176bfb35cb",
+  "source_root": "/Users/me/uma-paired-066deeadcc8b/source",
+  "overlay": [
+    {
+      "path": "docs/PAIRED_BATCHES.md",
+      "bytes": 6594,
+      "sha256": "31fea1c00010b8ac9c0f49af7c493d7a121133a080836cd00cda4df85ee711a8",
+      "git_blob": "dca48b548b0b78fae5e8ea12332c7392567faa8b"
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches/baseline.jsonl",
+      "bytes": 233,
+      "sha256": "b8713f82d84fcbf07822e30c9090ea6bfd48de426c298b540f153d09cd8cba9d",
+      "git_blob": "147ff34d9184beac1e515cf833692c3f208664c3"
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches/input.jsonl",
+      "bytes": 233,
+      "sha256": "8475f38e962f68b05542c92203b4649adf94a471e7b7a363d068aab620dcf0b6",
+      "git_blob": "1fa747ea6e99a88762853e3ece69307e6265f49a"
+    },
+    {
+      "path": "uma-sim-core/src/batch_pairs.rs",
+      "bytes": 9822,
+      "sha256": "7484075434118852a7af9c121af478cf7dceb22d3f7559d46dc97a279b3ee770",
+      "git_blob": "d083c65c64053a87da11a809de83d04184cc393b"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "bytes": 20452,
+      "sha256": "90f1594ba6e25f2af098ef0049374447959475718c5425f2228349f5afbe5676",
+      "git_blob": "3219cab93a8a7c1234f69e6ca0bea9958de177a1"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/paired_batches.rs",
+      "bytes": 3491,
+      "sha256": "2465e6a468d106bbf8beb481659ef32fe352a8cbb33e6d9161ef937a07c64379",
+      "git_blob": "3fab6f9f8669d1cc3fa5cdae52099c0846d06da9"
+    },
+    {
+      "path": "uma-sim-core/src/lib.rs",
+      "bytes": 3342,
+      "sha256": "5468e5c0e55e8701136b8cf7cdb53874e2a86e2a1ef5ebfd3f776d5705078b5e",
+      "git_blob": "e815f361d1e927f5b8fc9a0a53b317fa38917ee4"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches.rs",
+      "bytes": 7622,
+      "sha256": "1c031d01b811d4d31e67bcdb45e777560b50f77286fab0826ba249fc9c89c54b",
+      "git_blob": "cb77d7dfe9354e6d1169321eaefcd4a382bede24"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches_cli.rs",
+      "bytes": 6844,
+      "sha256": "793256047786ee6de7d97e5fcb85a39076f9eda1de91d2050a43c70a89e8af4d",
+      "git_blob": "bae14924d409470262b5880f5dfb9da11ac6405f"
+    }
+  ],
+  "unchanged_canonical_paths": 271,
+  "baseline_capsule_sha256": "30075df687dd4d04f311695fade3b60f86b08d993924a7b80ffda465ee14240e",
+  "format_command": [
+    "rustfmt",
+    "--edition",
+    "2021",
+    "--config-path",
+    "/Users/me/uma-paired-066deeadcc8b/source",
+    "/Users/me/uma-paired-066deeadcc8b/source/uma-sim-core/src/batch_pairs.rs",
+    "/Users/me/uma-paired-066deeadcc8b/source/uma-sim-core/src/bin/uma_sim/paired_batches.rs",
+    "/Users/me/uma-paired-066deeadcc8b/source/uma-sim-core/tests/paired_batches.rs",
+    "/Users/me/uma-paired-066deeadcc8b/source/uma-sim-core/tests/paired_batches_cli.rs"
+  ],
+  "successor_reason": "Propagate Unix EBADF from stdout using safe cloned owned File; original candidate failed real output-sink control, source/log/binary retained."
+}

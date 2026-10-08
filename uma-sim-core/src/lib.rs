@@ -1,5 +1,6 @@
 pub mod api;
 pub mod batch_analysis;
+pub mod batch_pairs;
 pub mod bot;
 pub mod calendar;
 pub mod career_lab;
