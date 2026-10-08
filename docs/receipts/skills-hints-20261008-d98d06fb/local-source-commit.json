@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-08T14:47:31.226857+00:00",
+  "returncode": 0,
+  "stdout": "[work/astra-uma-skills-hints-d98d06fb-20261008 cddf3bd] Show retained career skills and hints with catalog names\n Committer: Jacob Scott-Metoyer <me@Mac.lan>\nYour name and email address were configured automatically based\non your username and hostname. Please check that they are accurate.\nYou can suppress this message by setting them explicitly. Run the\nfollowing command and follow the instructions in your editor to edit\nyour configuration file:\n\n    git config --global --edit\n\nAfter doing this, you may fix the identity used for this commit with:\n\n    git commit --amend --reset-author\n\n 11 files changed, 800 insertions(+), 3 deletions(-)\n create mode 100644 docs/skills-and-hints.md\n create mode 100644 packages/uma-sim-ui/src/components/SkillsPanel.tsx\n create mode 100644 packages/uma-sim-ui/src/components/skillsView.ts\n create mode 100644 packages/uma-sim-ui/src/styles/skills.css\n create mode 100644 packages/uma-sim-ui/test/skills-view.test.mjs\n create mode 100644 packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs\n create mode 100644 uma-sim-core/tests/skill_catalog_display.rs\n",
+  "stderr": "",
+  "source_paths": [
+    "docs/skills-and-hints.md",
+    "packages/uma-sim-ui/package.json",
+    "packages/uma-sim-ui/src/App.tsx",
+    "packages/uma-sim-ui/src/components/SkillsPanel.tsx",
+    "packages/uma-sim-ui/src/components/skillsView.ts",
+    "packages/uma-sim-ui/src/styles/skills.css",
+    "packages/uma-sim-ui/test/skills-view.test.mjs",
+    "packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs",
+    "uma-sim-core/src/api.rs",
+    "uma-sim-core/src/catalog/skill.rs",
+    "uma-sim-core/tests/skill_catalog_display.rs"
+  ],
+  "patch_sha256": "0842daa0bdc780d15ddda7f22e6ca8f000f7f11c1185134ad21a4e003d555d72",
+  "v1_nine_source_files_unchanged": true,
+  "remote_publication": false,
+  "extra_files": "receiver with additional pre-start gate and concise user/API documentation",
+  "head": "cddf3bd3859143bed598515ea62290024b461723",
+  "tree": "61fa398b04df853fd7610a200f85c30be7279f3a",
+  "parent": "2378365e48234c5ae3311e1b0dd7f1247a5a9071"
+}

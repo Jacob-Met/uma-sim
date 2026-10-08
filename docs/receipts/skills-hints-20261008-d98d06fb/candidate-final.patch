@@ -1,0 +1,962 @@
+diff --git a/docs/skills-and-hints.md b/docs/skills-and-hints.md
+new file mode 100644
+index 0000000..0f49d7e
+--- /dev/null
++++ b/docs/skills-and-hints.md
+@@ -0,0 +1,47 @@
++# Skills and hints
++
++The Run tab shows a **Skills & hints** panel whenever a career is loaded, including a completed career or a resumed checkpoint. It displays every retained entry. Long lists scroll and can be focused with the keyboard.
++
++The panel separates three kinds of information:
++
++- **Learned skills** come directly from the snapshot's `learnedSkillIds`, retaining their order and any duplicate entries.
++- **Skill hints** are entries in `hintLevels` with an explicit `skill:` key. A hint can also exist for a learned skill; the two lists represent separate snapshot fields.
++- **Training & other hints** retain facility keys, generic hints, and unresolved event names. Familiar training keys receive readable labels, while the original keys remain visible.
++
++Names and descriptions come from the repository's canonical skill catalog. Display names prefer a nonempty official English name, then the fan English name, then the Japanese name. Missing catalog entries keep their literal IDs. Catalog descriptions provide reference text; this view does not compute purchases, prices, hint discounts, availability, or a skill's realized effect in the simulation.
++
++If the catalog request fails or the server returns an older HTML fallback, the panel keeps showing retained IDs and hint levels. **Retry names** retries only the catalog read. Resuming another career replaces the displayed skill and hint lists with that career's snapshot.
++
++## Read-only API
++
++`GET /v1/catalog/skills` returns an `items` array in stable numeric skill-ID order. Each item has:
++
++| Field | Value |
++| --- | --- |
++| `id` | Canonical `skill:<number>` key |
++| `name` | Catalog display name, or `null` |
++| `description` | Catalog English description, or `null` |
++
++The endpoint is available before starting a career. It uses the existing catalog initialization and does not create or advance a career. Unsupported methods return HTTP 405. Missing catalog data yields an empty array, allowing clients to keep their literal-ID fallback.
++
++## Verification
++
++Run the focused Rust catalog tests and the UI's normal test/build commands:
++
++```sh
++cargo test --locked -p uma-sim-core --test skill_catalog_display --test skill_hint_routing
++cargo build --locked -p uma-sim-core
++cd packages/uma-sim-ui
++npm ci
++npm test
++npm run build
++```
++
++The native browser receiver launches its own API process and disposable storage, then tests the built application against it. From the repository root, with Chromium installed for Playwright:
++
++```sh
++node packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs \
++  packages/uma-sim-ui/dist /tmp/uma-skills-receiving target/debug/uma-sim-api
++```
++
++An optional fourth argument selects a Chromium executable. The receiver checks actual catalog data and an initial career, full snapshot/RNG equality across reads, native checkpoint import/resume, long and empty retained lists, literal text rendering, mobile layout, catalog fallback/retry, and pending-request cancellation. Its large completed-career checkpoint is an authored display fixture, not a claimed simulation outcome.
+diff --git a/packages/uma-sim-ui/package.json b/packages/uma-sim-ui/package.json
+index f7fa8dd..d3012d7 100644
+--- a/packages/uma-sim-ui/package.json
++++ b/packages/uma-sim-ui/package.json
+@@ -6,7 +6,7 @@
+   "license": "GPL-3.0-only",
+   "description": "Browser UI for uma-sim career simulator",
+   "scripts": {
+-    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs",
++    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs",
+     "test:browser": "node tests/receiving/uma-lab-receiver.mjs dist test-results/career-lab",
+     "test:trace": "node tests/receiving/uma-trace-receiver.mjs dist test-results/trace",
+     "dev": "vite",
+diff --git a/packages/uma-sim-ui/src/App.tsx b/packages/uma-sim-ui/src/App.tsx
+index 8c947e5..790fa1c 100644
+--- a/packages/uma-sim-ui/src/App.tsx
++++ b/packages/uma-sim-ui/src/App.tsx
+@@ -8,6 +8,7 @@ import { RacePanel } from "./components/RacePanel";
+ import { GrandLivePanel } from "./components/GrandLivePanel";
+ import { DeckPanel } from "./components/DeckPanel";
+ import { AptitudePanel } from "./components/AptitudePanel";
++import { SkillsPanel } from "./components/SkillsPanel";
+ import { CareerSummary } from "./components/CareerSummary";
+ import { ControlsBar } from "./components/ControlsBar";
+ import { api } from "./api/client";
+@@ -169,6 +170,7 @@ export default function App() {
+                 busy={state.busy}
+                 onStyle={(style) => void setStyle(style)}
+               />
++              <SkillsPanel state={cs} />
+             </div>
+             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+               <LogPanel lines={state.textLines} history={cs.log} />
+diff --git a/packages/uma-sim-ui/src/components/SkillsPanel.tsx b/packages/uma-sim-ui/src/components/SkillsPanel.tsx
+new file mode 100644
+index 0000000..e04502f
+--- /dev/null
++++ b/packages/uma-sim-ui/src/components/SkillsPanel.tsx
+@@ -0,0 +1,74 @@
++import { useEffect, useId, useState } from "react";
++import type { CareerState } from "../api/types";
++import { parseSkillCatalog, skillRows, type SkillCatalog, type SkillRow } from "./skillsView";
++import "../styles/skills.css";
++
++function SkillList({ title, rows, empty }: { title: string; rows: SkillRow[]; empty: string }) {
++  return (
++    <section className="skills-group" aria-label={title}>
++      <h3>{title} <span className="skills-count">{rows.length}</span></h3>
++      {rows.length === 0 ? <p className="hint">{empty}</p> : (
++        <ul className="skills-list" tabIndex={0} aria-label={title}>
++          {rows.map((row, index) => (
++            <li key={row.id + ":" + index}>
++              <div className="skills-row-title">
++                <strong>{row.name ?? row.id}</strong>
++                {row.level !== undefined && <span className="skills-level">Hint level {row.level}</span>}
++              </div>
++              {row.name && row.name !== row.id && <code className="skills-id">{row.id}</code>}
++              {row.kind === "skill" && !row.name && (
++                <span className="skills-missing-name">Name not in catalog</span>
++              )}
++              {row.description && <p className="skills-description">{row.description}</p>}
++            </li>
++          ))}
++        </ul>
++      )}
++    </section>
++  );
++}
++
++export function SkillsPanel({ state }: { state: CareerState }) {
++  const titleId = useId();
++  const [catalog, setCatalog] = useState<SkillCatalog>(() => new Map());
++  const [status, setStatus] = useState<"loading" | "ready" | "unavailable">("loading");
++  const [retry, setRetry] = useState(0);
++
++  useEffect(() => {
++    const controller = new AbortController();
++    setStatus("loading");
++    void fetch("/v1/catalog/skills", { signal: controller.signal })
++      .then(async (response) => {
++        if (!response.ok) throw new Error("Skill catalog request failed");
++        return parseSkillCatalog(await response.json());
++      })
++      .then((items) => {
++        if (controller.signal.aborted) return;
++        setCatalog(items);
++        setStatus("ready");
++      })
++      .catch(() => {
++        if (!controller.signal.aborted) setStatus("unavailable");
++      });
++    return () => controller.abort();
++  }, [retry]);
++
++  const rows = skillRows(state.learnedSkillIds ?? [], state.hintLevels ?? {}, catalog);
++
++  return (
++    <section className="card skills-panel" aria-labelledby={titleId}>
++      <h2 id={titleId}>Skills &amp; hints</h2>
++      <p className="hint">Skills and hint levels retained in this career.</p>
++      {status === "loading" && <p className="hint" role="status">Loading skill names…</p>}
++      {status === "unavailable" && (
++        <div className="skills-catalog-status" role="status">
++          <p className="hint">Skill names are unavailable. Retained IDs and levels are shown.</p>
++          <button type="button" onClick={() => setRetry((value) => value + 1)}>Retry names</button>
++        </div>
++      )}
++      <SkillList title="Learned skills" rows={rows.learned} empty="No learned skills recorded." />
++      <SkillList title="Skill hints" rows={rows.skillHints} empty="No skill hints recorded." />
++      <SkillList title="Training & other hints" rows={rows.otherHints} empty="No other hints recorded." />
++    </section>
++  );
++}
+diff --git a/packages/uma-sim-ui/src/components/skillsView.ts b/packages/uma-sim-ui/src/components/skillsView.ts
+new file mode 100644
+index 0000000..2be7dc6
+--- /dev/null
++++ b/packages/uma-sim-ui/src/components/skillsView.ts
+@@ -0,0 +1,70 @@
++export interface SkillCatalogItem {
++  id: string;
++  name: string | null;
++  description: string | null;
++}
++
++export interface SkillRow extends SkillCatalogItem {
++  kind: "skill" | "other";
++  level?: number;
++}
++
++export type SkillCatalog = ReadonlyMap<string, SkillCatalogItem>;
++
++const TRAINING_HINT_NAMES = new Map([
++  ["speed", "Speed training"],
++  ["stamina", "Stamina training"],
++  ["power", "Power training"],
++  ["guts", "Guts training"],
++  ["wit", "Wit training"],
++  ["generic", "Generic hint"],
++]);
++
++/** Accept catalog text only; an older server's HTML fallback is not a catalog. */
++export function parseSkillCatalog(value: unknown): SkillCatalog {
++  if (!value || typeof value !== "object" ||
++      !("items" in value) || !Array.isArray(value.items)) {
++    throw new Error("Skill catalog response is unavailable");
++  }
++  const catalog = new Map<string, SkillCatalogItem>();
++  for (const item of value.items) {
++    if (!item || typeof item !== "object" ||
++        typeof item.id !== "string" || !item.id.startsWith("skill:")) continue;
++    // Keep the first exact ID, matching the catalog's existing lookup precedence.
++    if (catalog.has(item.id)) continue;
++    catalog.set(item.id, {
++      id: item.id,
++      name: typeof item.name === "string" && item.name.trim() ? item.name : null,
++      description: typeof item.description === "string" && item.description.trim()
++        ? item.description : null,
++    });
++  }
++  return catalog;
++}
++
++/** Derive a view from the current snapshot; never infer purchases or learned status from hints. */
++export function skillRows(
++  learnedIds: readonly string[],
++  hintLevels: Readonly<Record<string, number>>,
++  catalog: SkillCatalog,
++) {
++  const skill = (id: string): SkillRow => ({
++    id,
++    name: catalog.get(id)?.name ?? null,
++    description: catalog.get(id)?.description ?? null,
++    kind: "skill",
++  });
++  // Preserve all retained learned entries, including order and duplicate IDs.
++  const learned = learnedIds.map(skill);
++  const skillHints: SkillRow[] = [];
++  const otherHints: SkillRow[] = [];
++  for (const [id, level] of Object.entries(hintLevels)) {
++    // Raw event names and facility keys are not canonical skill identities.
++    if (id.startsWith("skill:")) skillHints.push({ ...skill(id), level });
++    else otherHints.push({
++      id, name: TRAINING_HINT_NAMES.get(id) ?? id, description: null, kind: "other", level,
++    });
++  }
++  const byId = (a: SkillRow, b: SkillRow) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
++  return { learned, skillHints: skillHints.sort(byId), otherHints: otherHints.sort(byId) };
++}
+diff --git a/packages/uma-sim-ui/src/styles/skills.css b/packages/uma-sim-ui/src/styles/skills.css
+new file mode 100644
+index 0000000..7bb1b96
+--- /dev/null
++++ b/packages/uma-sim-ui/src/styles/skills.css
+@@ -0,0 +1,90 @@
++.skills-panel {
++  min-width: 0;
++}
++
++.skills-group {
++  margin-top: 0.9rem;
++}
++
++.skills-group h3 {
++  display: flex;
++  align-items: baseline;
++  justify-content: space-between;
++  gap: 0.6rem;
++}
++
++.skills-count {
++  color: var(--text);
++  font-variant-numeric: tabular-nums;
++}
++
++.skills-list {
++  list-style: none;
++  margin: 0;
++  padding: 0;
++  max-height: 18rem;
++  overflow: auto;
++  overflow-wrap: anywhere;
++  scrollbar-gutter: stable;
++}
++
++.skills-list:focus-visible,
++.skills-catalog-status button:focus-visible {
++  outline: 2px solid var(--accent);
++  outline-offset: 3px;
++}
++
++.skills-list li {
++  padding: 0.6rem 0.1rem;
++  border-bottom: 1px solid var(--border);
++}
++
++.skills-list li:first-child {
++  padding-top: 0;
++}
++
++.skills-list li:last-child {
++  border-bottom: 0;
++}
++
++.skills-row-title {
++  display: flex;
++  align-items: baseline;
++  flex-wrap: wrap;
++  justify-content: space-between;
++  gap: 0.2rem 0.5rem;
++  font-size: 0.88rem;
++}
++
++.skills-row-title strong {
++  min-width: 0;
++}
++
++.skills-level {
++  color: var(--accent);
++  font-size: 0.76rem;
++  white-space: nowrap;
++}
++
++.skills-id,
++.skills-missing-name {
++  display: block;
++  color: var(--muted);
++  margin-top: 0.15rem;
++  font-size: 0.72rem;
++}
++
++.skills-description {
++  color: var(--muted);
++  margin: 0.3rem 0 0;
++  font-size: 0.8rem;
++}
++
++.skills-catalog-status {
++  margin: 0.6rem 0;
++}
++
++.skills-catalog-status button {
++  font-size: 0.8rem;
++  padding: 0.25rem 0.5rem;
++}
+diff --git a/packages/uma-sim-ui/test/skills-view.test.mjs b/packages/uma-sim-ui/test/skills-view.test.mjs
+new file mode 100644
+index 0000000..7ca177e
+--- /dev/null
++++ b/packages/uma-sim-ui/test/skills-view.test.mjs
+@@ -0,0 +1,80 @@
++import assert from "node:assert/strict";
++import { test } from "node:test";
++import { readFile } from "node:fs/promises";
++import ts from "typescript";
++
++const source = await readFile(new URL("../src/components/skillsView.ts", import.meta.url), "utf8");
++const compiled = ts.transpileModule(source, {
++  compilerOptions: { target: ts.ScriptTarget.ES2020, module: ts.ModuleKind.ESNext },
++}).outputText;
++const { parseSkillCatalog, skillRows } = await import(
++  `data:text/javascript;base64,${Buffer.from(compiled).toString("base64")}`
++);
++
++test("learned names and descriptions use exact IDs with a literal unknown fallback", () => {
++  const catalog = parseSkillCatalog({ items: [
++    { id: "skill:1", name: "Known skill", description: "Catalog description." },
++  ] });
++  const view = skillRows(["skill:1", "skill:unknown"], {}, catalog);
++  assert.deepEqual(view.learned, [
++    { id: "skill:1", name: "Known skill", description: "Catalog description.", kind: "skill" },
++    { id: "skill:unknown", name: null, description: null, kind: "skill" },
++  ]);
++  assert.deepEqual(view.skillHints, []);
++  assert.deepEqual(view.otherHints, []);
++});
++
++test("all retained learned entries survive in order, including duplicates beyond 24", () => {
++  const ids = Object.freeze([...Array.from({ length: 32 }, (_, i) => `skill:${i}`), "skill:0"]);
++  const view = skillRows(ids, Object.freeze({}), new Map());
++  assert.equal(view.learned.length, 33);
++  assert.deepEqual(view.learned.map(row => row.id), ids);
++});
++
++test("only skill namespace hints are skills; raw names and training keys remain separate", () => {
++  const catalog = parseSkillCatalog({ items: [
++    { id: "skill:1", name: "Hydrate", description: "A skill." },
++  ] });
++  const hints = Object.freeze({ "skill:1": 2, speed: 1, Hydrate: 3, generic: 0, "skill:future": 4 });
++  const view = skillRows([], hints, catalog);
++  assert.deepEqual(view.learned, []);
++  assert.deepEqual(view.skillHints.map(row => [row.id, row.level]), [["skill:1", 2], ["skill:future", 4]]);
++  assert.deepEqual(view.otherHints.map(row => [row.id, row.name, row.level]), [
++    ["Hydrate", "Hydrate", 3], ["generic", "Generic hint", 0], ["speed", "Speed training", 1],
++  ]);
++});
++
++test("hint levels are retained values, with no cap, discount, or purchase inference", () => {
++  const view = skillRows(["skill:2"], { "skill:2": 0, "skill:3": 9, wit: -0.5 }, new Map());
++  assert.equal(view.learned.length, 1);
++  assert.deepEqual(view.skillHints.map(row => row.level), [0, 9]);
++  assert.equal(view.otherHints[0].level, -0.5);
++  assert.equal(view.learned[0].level, undefined);
++});
++
++test("catalog failure and malformed entries do not manufacture names or accept an HTML fallback", () => {
++  for (const value of [null, "<html>old server</html>", {}, { items: {} }]) {
++    assert.throws(() => parseSkillCatalog(value));
++  }
++  const view = parseSkillCatalog({ items: [
++    null, false, { id: 1 }, { id: "speed", name: "Not a skill" },
++    { id: "skill:1", name: " ", description: 4 },
++    { id: "skill:1", name: "Later duplicate" },
++  ] });
++  assert.deepEqual([...view.values()], [{ id: "skill:1", name: null, description: null }]);
++  assert.equal(parseSkillCatalog({ items: [] }).size, 0);
++});
++
++test("markup-like text and object-property keys remain literal, without changing snapshot inputs", () => {
++  const name = '<img src=x onerror="throw 1">';
++  const data = Object.freeze({ items: Object.freeze([
++    Object.freeze({ id: "skill:__proto__", name, description: "<script>literal</script>" }),
++  ]) });
++  const hints = Object.freeze(JSON.parse('{"__proto__":2,"constructor":3,"skill:__proto__":4}'));
++  const before = JSON.stringify({ data, hints });
++  const view = skillRows(["skill:__proto__"], hints, parseSkillCatalog(data));
++  assert.equal(view.learned[0].name, name);
++  assert.equal(view.learned[0].description, "<script>literal</script>");
++  assert.deepEqual(view.otherHints.map(row => row.name), ["__proto__", "constructor"]);
++  assert.equal(JSON.stringify({ data, hints }), before);
++});
+diff --git a/packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs b/packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs
+new file mode 100644
+index 0000000..6e44b12
+--- /dev/null
++++ b/packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs
+@@ -0,0 +1,320 @@
++import assert from "node:assert/strict";
++import { spawn, execFileSync } from "node:child_process";
++import { createHash } from "node:crypto";
++import { once } from "node:events";
++import fs from "node:fs/promises";
++import http from "node:http";
++import net from "node:net";
++import path from "node:path";
++import { fileURLToPath } from "node:url";
++import { chromium } from "playwright";
++
++// Native API + actual built application. All careers/checkpoints belong to this
++// disposable receiver; authored checkpoint cases are not simulated game outcomes.
++// node skills-hints-receiver.mjs DIST OUTPUT API_BINARY [CHROMIUM_EXECUTABLE]
++// UMA_SKILLS_EXPECT=absent runs the historical baseline observation only.
++const [distArg, outputArg, binaryArg, chromiumExecutable] = process.argv.slice(2);
++assert(distArg && outputArg && binaryArg, "Expected DIST OUTPUT API_BINARY [CHROMIUM_EXECUTABLE]");
++const here = path.dirname(fileURLToPath(import.meta.url));
++const repo = path.resolve(here, "../../../..");
++const dist = path.resolve(distArg);
++const output = path.resolve(outputArg);
++const binary = path.resolve(binaryArg);
++const absent = process.env.UMA_SKILLS_EXPECT === "absent";
++await fs.mkdir(output, { recursive: true });
++const storage = await fs.mkdtemp(path.join(output, "native-storage-"));
++const sha = value => createHash("sha256").update(value).digest("hex");
++const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
++const receipt = {
++  startedAt: new Date().toISOString(), expectation: absent ? "baseline absence" : "received",
++  sourceHead: execFileSync("git", ["rev-parse", "HEAD"], { cwd: repo, encoding: "utf8" }).trim(),
++  binary: { path: binary, sha256: sha(await fs.readFile(binary)) },
++  sourceFiles: {}, cases: [], requests: [], blockedExternalRequests: [], pageErrors: [],
++  authoredCheckpoints: [], storage, providerCalls: 0,
++};
++for (const name of [
++  "uma-sim-core/src/catalog/skill.rs", "uma-sim-core/src/api.rs",
++  "packages/uma-sim-ui/src/components/SkillsPanel.tsx",
++  "packages/uma-sim-ui/src/components/skillsView.ts",
++]) {
++  if (absent && name.startsWith("packages/")) receipt.sourceFiles[name] = null;
++  else receipt.sourceFiles[name] = sha(absent
++    ? execFileSync("git", ["show", "HEAD:" + name], { cwd: repo })
++    : await fs.readFile(path.join(repo, name)));
++}
++receipt.builtUiIndexSha256 = sha(await fs.readFile(path.join(dist, "index.html")));
++receipt.receiverSha256 = sha(await fs.readFile(fileURLToPath(import.meta.url)));
++const choosePort = async () => {
++  const server = net.createServer();
++  server.listen(0, "127.0.0.1"); await once(server, "listening");
++  const port = server.address().port;
++  await new Promise(resolve => server.close(resolve));
++  return port;
++};
++const port = await choosePort();
++const nativeUrl = "http://127.0.0.1:" + port;
++const env = { ...process.env, UMA_REPO_ROOT: repo };
++delete env.UMA_POLICY_CMD;
++const child = spawn(binary, [String(port)], { cwd: storage, env, stdio: ["ignore", "pipe", "pipe"] });
++receipt.nativePid = child.pid; receipt.nativePort = port;
++let nativeStdout = "", nativeStderr = "", browser, server;
++child.stdout.on("data", bytes => { nativeStdout += bytes; });
++child.stderr.on("data", bytes => { nativeStderr += bytes; });
++const native = async (pathname, body, method = body === undefined ? "GET" : "POST") => {
++  const response = await fetch(nativeUrl + pathname, {
++    method, headers: body === undefined ? {} : { "Content-Type": "application/json" },
++    body: body === undefined ? undefined : JSON.stringify(body), signal: AbortSignal.timeout(10000),
++  });
++  const text = await response.text();
++  return { status: response.status, text, json: () => JSON.parse(text) };
++};
++const json = async (pathname, body) => {
++  const reply = await native(pathname, body);
++  assert.equal(reply.status, 200, pathname + ": " + reply.text);
++  return reply.json();
++};
++let catalogMode = "native";
++const pendingCatalogs = [];
++const serve = async (req, res) => {
++  try {
++    const url = new URL(req.url, "http://127.0.0.1");
++    if (url.pathname.startsWith("/v1/")) {
++      let body = "";
++      for await (const bytes of req) body += bytes;
++      const request = { method: req.method, path: url.pathname, query: url.search, at: new Date().toISOString() };
++      receipt.requests.push(request);
++      if (url.pathname === "/v1/catalog/skills" && catalogMode !== "native") {
++        request.fixture = catalogMode;
++        if (catalogMode === "hold") {
++          await new Promise(resolve => pendingCatalogs.push(resolve));
++          if (res.destroyed) return;
++        } else if (catalogMode === "html") {
++          res.writeHead(200, { "Content-Type": "text/html" }); res.end("<html>Old server fallback</html>"); return;
++        } else {
++          res.writeHead(503, { "Content-Type": "application/json" }); res.end('{"error":"Receiver catalog unavailable"}'); return;
++        }
++      }
++      const response = await fetch(nativeUrl + url.pathname + url.search, {
++        method: req.method, headers: body ? { "Content-Type": "application/json" } : {},
++        body: body || undefined, signal: AbortSignal.timeout(10000),
++      });
++      const bytes = Buffer.from(await response.arrayBuffer());
++      request.status = response.status;
++      if (!res.destroyed) {
++        res.writeHead(response.status, { "Content-Type": response.headers.get("content-type") || "application/json" });
++        res.end(bytes);
++      }
++      return;
++    }
++    const name = url.pathname === "/" ? "index.html" : decodeURIComponent(url.pathname).slice(1);
++    const file = path.resolve(dist, name);
++    assert(file.startsWith(dist + path.sep), "Static fixture stays within its own dist");
++    const bytes = await fs.readFile(file);
++    const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml" }[path.extname(file)] || "application/octet-stream";
++    res.writeHead(200, { "Content-Type": mime }); res.end(bytes);
++  } catch (error) {
++    if (!res.destroyed) { res.writeHead(500); res.end(String(error)); }
++  }
++};
++const pass = (name, details = {}) => receipt.cases.push({ name, pass: true, ...details });
++try {
++  for (let i = 0; ; i++) {
++    assert(i < 200 && child.exitCode === null && child.signalCode === null, "Own native API becomes ready");
++    try {
++      const health = await json("/v1/health");
++      assert.equal(health.repoRootPath, repo);
++      receipt.health = health; break;
++    } catch { await delay(25); }
++  }
++  if (!absent) {
++    const before = await native("/v1/run/state");
++    assert(before.status >= 400 && before.status < 500, "No career exists before the first read");
++    const sessions = await json("/v1/sessions");
++    const catalog = await json("/v1/catalog/skills");
++    assert(catalog.items.length > 1000);
++    const after = await native("/v1/run/state");
++    assert.equal(after.status, before.status);
++    assert.equal(after.text, before.text);
++    assert.deepEqual(await json("/v1/sessions"), sessions);
++    pass("Catalog is available before a career without creating a session", { catalogItems: catalog.items.length });
++  }
++  server = http.createServer((req, res) => { void serve(req, res); });
++  server.listen(0, "127.0.0.1"); await once(server, "listening");
++  const appUrl = "http://127.0.0.1:" + server.address().port;
++  browser = await chromium.launch({ headless: true, ...(chromiumExecutable ? { executablePath: chromiumExecutable } : {}) });
++  receipt.browserVersion = browser.version();
++  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
++  await context.route("**/*", route => {
++    if (new URL(route.request().url()).origin === appUrl) return route.continue();
++    receipt.blockedExternalRequests.push(route.request().url());
++    return route.abort();
++  });
++  const page = await context.newPage();
++  page.setDefaultTimeout(10000);
++  page.on("pageerror", error => receipt.pageErrors.push(String(error)));
++  await page.goto(appUrl);
++  await page.getByRole("button", { name: "Start run", exact: true }).waitFor();
++  const seedField = page.locator(".field").filter({ has: page.getByText("Seed", { exact: true }) }).locator("input");
++  await seedField.fill("421963");
++  await page.locator(".field").filter({ has: page.getByText("Dialogue", { exact: true }) }).locator("select").selectOption("off");
++  await page.getByRole("button", { name: "Start run", exact: true }).click();
++  await page.getByRole("button", { name: "New run", exact: true }).waitFor();
++  const snapshot = await json("/v1/run/state");
++  await fs.writeFile(path.join(output, "native-initial-snapshot.json"), JSON.stringify(snapshot, null, 2) + "\n");
++  assert(snapshot.state.learnedSkillIds.length > 0);
++  assert(Object.keys(snapshot.state.hintLevels).length > 0);
++  const panel = page.getByRole("region", { name: "Skills & hints", exact: true });
++  if (absent) {
++    assert.equal(await panel.count(), 0);
++    const catalog = await native("/v1/catalog/skills");
++    assert(!catalog.text.trim().startsWith('{"items":'));
++    pass("Baseline retains skills/hints but has no active-career panel or JSON catalog", {
++      learnedSkillIds: snapshot.state.learnedSkillIds, hintLevels: snapshot.state.hintLevels,
++      unknownEndpointStatus: catalog.status, unknownEndpointBodyKind: "non-catalog HTML",
++    });
++    await page.screenshot({ path: path.join(output, "baseline-career.png"), fullPage: true });
++  } else {
++    await panel.waitFor();
++    const catalog = await json("/v1/catalog/skills");
++    assert(catalog.items.length > 1000);
++    assert.equal(new Set(catalog.items.map(item => item.id)).size, catalog.items.length);
++    const group = title => panel.getByRole("region", { name: title, exact: true });
++    const learned = group("Learned skills");
++    const hints = group("Skill hints");
++    const other = group("Training & other hints");
++    const firstId = snapshot.state.learnedSkillIds[0];
++    const firstSkill = catalog.items.find(item => item.id === firstId);
++    assert(firstSkill?.name);
++    await learned.getByText(firstSkill.name, { exact: true }).waitFor();
++    assert.equal(await learned.getByRole("listitem").count(), snapshot.state.learnedSkillIds.length);
++    assert.equal(await hints.getByRole("listitem").count(), Object.keys(snapshot.state.hintLevels).length);
++    await panel.screenshot({ path: path.join(output, "native-career-skills.png") });
++    pass("Actual native career displays catalog names and every retained innate hint", {
++      catalogItems: catalog.items.length, firstSkill, learned: snapshot.state.learnedSkillIds.length,
++      hints: Object.keys(snapshot.state.hintLevels).length,
++    });
++
++    const before = await native("/v1/run/state");
++    for (let i = 0; i < 3; i++) await json("/v1/catalog/skills");
++    await learned.getByRole("list").focus();
++    await page.keyboard.press("End");
++    const rejected = await native("/v1/catalog/skills", {});
++    assert.equal(rejected.status, 405);
++    const after = await native("/v1/run/state");
++    assert.equal(after.text, before.text);
++    pass("Catalog reads, keyboard inspection and rejected POST preserve the full native snapshot and RNG", {
++      stateSha256: sha(before.text), rngCalls: snapshot.rngCalls, postStatus: rejected.status,
++    });
++
++    const checkpoint = async (name, changes) => {
++      const value = structuredClone(snapshot);
++      Object.assign(value.state, changes);
++      await json("/v1/library/import", { name, snapshot: value });
++      receipt.authoredCheckpoints.push({ name, sha256: sha(JSON.stringify(value)), fields: Object.keys(changes) });
++      await page.getByRole("button", { name: "Library & lab", exact: true }).click();
++      const row = page.getByRole("row").filter({ has: page.getByText(name, { exact: true }) });
++      await row.getByRole("button", { name: "Resume", exact: true }).click();
++      await page.waitForFunction(() => !document.querySelector(".busy-overlay"));
++      await page.getByRole("button", { name: "Run", exact: true }).click();
++      await panel.waitFor();
++      return value;
++    };
++    const unknownIds = Array.from({ length: 32 }, (_, i) => "skill:receiver-" + i);
++    const rawHint = '<img src=x onerror="window.receiverExecuted=true">';
++    const rich = await checkpoint("skills-rich-receiver", {
++      learnedSkillIds: [firstId, ...unknownIds],
++      hintLevels: { [firstId]: 2, "skill:receiver-hint": 5, speed: 1, generic: 0, [rawHint]: 3 },
++      careerComplete: true, awaitingChoice: false, pendingEventOptions: [],
++    });
++    await learned.getByText(firstSkill.name, { exact: true }).waitFor();
++    assert.equal(await learned.getByRole("listitem").count(), 33);
++    await learned.getByText("skill:receiver-31", { exact: true }).waitFor();
++    assert.equal(await hints.getByRole("listitem").count(), 2);
++    assert.equal(await other.getByRole("listitem").count(), 3);
++    await other.getByText("Speed training", { exact: true }).waitFor();
++    await other.getByText(rawHint, { exact: true }).waitFor();
++    assert.equal(await panel.locator("img, script").count(), 0);
++    assert.equal(await page.evaluate(() => window.receiverExecuted), undefined);
++    await learned.getByRole("list").focus();
++    receipt.keyboardBefore = await learned.getByRole("list").evaluate(element => ({
++      focused: document.activeElement === element, scrollTop: element.scrollTop,
++      scrollHeight: element.scrollHeight, clientHeight: element.clientHeight,
++    }));
++    assert(receipt.keyboardBefore.focused);
++    assert(receipt.keyboardBefore.scrollHeight > receipt.keyboardBefore.clientHeight);
++    await page.keyboard.press("End");
++    // Chromium scrolls the focused list on animation frames after the key event.
++    await page.waitForFunction(() => {
++      const list = document.querySelector('.skills-list[aria-label="Learned skills"]');
++      return list && list.scrollTop > 0;
++    }, undefined, { timeout: 2000 });
++    receipt.keyboardAfter = await learned.getByRole("list").evaluate(element => element.scrollTop);
++    const retained = await native("/v1/run/state");
++    await panel.screenshot({ path: path.join(output, "retained-checkpoint-skills.png") });
++    await page.setViewportSize({ width: 390, height: 844 });
++    await panel.scrollIntoViewIfNeeded();
++    assert(await panel.evaluate(element => element.scrollWidth <= element.clientWidth + 1));
++    await panel.screenshot({ path: path.join(output, "retained-checkpoint-mobile.png") });
++    assert.equal((await native("/v1/run/state")).text, retained.text);
++    pass("Native imported completed checkpoint displays all 33 skills, literal fallbacks and separate generic/training hints", {
++      learned: rich.state.learnedSkillIds.length, hintCount: 5, stateSha256: sha(retained.text),
++      keyboardScroll: true, mobileWidth: 390, literalMarkup: true,
++    });
++
++    await page.setViewportSize({ width: 1440, height: 1000 });
++    await checkpoint("skills-empty-receiver", { learnedSkillIds: [], hintLevels: {} });
++    for (const text of ["No learned skills recorded.", "No skill hints recorded.", "No other hints recorded."]) {
++      await panel.getByText(text, { exact: true }).waitFor();
++    }
++    assert.equal(await panel.getByRole("listitem").count(), 0);
++    pass("Resuming another native checkpoint clears all prior learned skills and hints");
++
++    catalogMode = "html";
++    await checkpoint("skills-fallback-receiver", { learnedSkillIds: [firstId], hintLevels: { [firstId]: 1 } });
++    await panel.getByRole("button", { name: "Retry names", exact: true }).waitFor();
++    assert.equal(await learned.getByText(firstId, { exact: true }).count(), 1);
++    const fallbackBefore = await native("/v1/run/state");
++    catalogMode = "native";
++    await panel.getByRole("button", { name: "Retry names", exact: true }).click();
++    await learned.getByText(firstSkill.name, { exact: true }).waitFor();
++    assert.equal((await native("/v1/run/state")).text, fallbackBefore.text);
++    pass("Older-server HTML falls back to retained IDs; retry restores names without changing a career");
++
++    catalogMode = "hold";
++    await page.getByRole("button", { name: "Library & lab", exact: true }).click();
++    await page.getByRole("button", { name: "Run", exact: true }).click();
++    await panel.getByText("Loading skill names…", { exact: true }).waitFor();
++    await page.getByRole("button", { name: "Library & lab", exact: true }).click();
++    catalogMode = "native";
++    pendingCatalogs.splice(0).forEach(resolve => resolve());
++    await page.getByRole("button", { name: "Run", exact: true }).click();
++    await learned.getByText(firstSkill.name, { exact: true }).waitFor();
++    assert.equal((await native("/v1/run/state")).text, fallbackBefore.text);
++    pass("Leaving the view cancels a pending catalog request; a fresh view resolves normally");
++
++    assert.deepEqual(receipt.pageErrors, []);
++  }
++  receipt.passed = true;
++} catch (error) {
++  receipt.passed = false; receipt.failure = String(error?.stack || error);
++  process.exitCode = 1;
++} finally {
++  pendingCatalogs.splice(0).forEach(resolve => resolve());
++  if (browser) await browser.close();
++  if (server) {
++    server.closeAllConnections();
++    await new Promise(resolve => server.close(resolve));
++  }
++  if (child.exitCode === null && child.signalCode === null) {
++    const closed = once(child, "exit"); child.kill("SIGTERM"); await closed;
++  }
++  receipt.finishedAt = new Date().toISOString();
++  receipt.nativeExit = { code: child.exitCode, signal: child.signalCode };
++  await fs.writeFile(path.join(output, "native.stdout.txt"), nativeStdout);
++  await fs.writeFile(path.join(output, "native.stderr.txt"), nativeStderr);
++  await fs.writeFile(path.join(output, "receiving.json"), JSON.stringify(receipt, null, 2) + "\n");
++  console.log(JSON.stringify({
++    passed: receipt.passed, cases: receipt.cases.length, output, failure: receipt.failure,
++    nativeBinarySha256: receipt.binary.sha256, providerCalls: receipt.providerCalls,
++  }));
++}
+diff --git a/uma-sim-core/src/api.rs b/uma-sim-core/src/api.rs
+index eab9ccf..5ad88b0 100644
+--- a/uma-sim-core/src/api.rs
++++ b/uma-sim-core/src/api.rs
+@@ -7,6 +7,7 @@ use crate::career_lab::{
+ };
+ use crate::catalog::event::{install_event_catalog, EventCatalog, FileEventCatalog};
+ use crate::catalog::factor::FactorCatalog;
++use crate::catalog::skill::SkillCatalog;
+ use crate::catalog::support::SupportCatalog;
+ use crate::catalog::trainee::TraineeCatalog;
+ use crate::content::{ContentPackLoader, ContentPackRegistry};
+@@ -124,6 +125,7 @@ fn route(
+         (Method::Get, "/v1/catalog/trainees") => handle_catalog_trainees(),
+         (Method::Get, "/v1/catalog/supports") => handle_catalog_supports(),
+         (Method::Get, "/v1/catalog/factors") => handle_catalog_factors(),
++        (Method::Get, "/v1/catalog/skills") => handle_catalog_skills(),
+         (Method::Post, "/v1/run/start") => with_json_body(body, |body| handle_start(st, body)),
+         (Method::Get, "/v1/run/state") => handle_state(st, query),
+         (Method::Get, "/v1/run/text") => handle_text(st, query),
+@@ -194,6 +196,7 @@ fn is_known_path(path: &str) -> bool {
+             | "/v1/catalog/trainees"
+             | "/v1/catalog/supports"
+             | "/v1/catalog/factors"
++            | "/v1/catalog/skills"
+             | "/v1/run/start"
+             | "/v1/run/state"
+             | "/v1/run/text"
+@@ -543,6 +546,11 @@ fn handle_catalog_factors() -> Response<Cursor<Vec<u8>>> {
+     json_response(200, json!({"items": items}))
+ }
+ 
++fn handle_catalog_skills() -> Response<Cursor<Vec<u8>>> {
++    let _ = init_from_detected_repo(true);
++    json_response(200, json!({"items": SkillCatalog::list_all()}))
++}
++
+ fn handle_start(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
+     let seed = body_string(body, "seed")
+         .and_then(|s| s.parse().ok())
+diff --git a/uma-sim-core/src/catalog/skill.rs b/uma-sim-core/src/catalog/skill.rs
+index 931badc..9b59270 100644
+--- a/uma-sim-core/src/catalog/skill.rs
++++ b/uma-sim-core/src/catalog/skill.rs
+@@ -1,18 +1,28 @@
+-//! Skill name → numeric id lookup from `knowledge/canonical/by_kind/skill.json`.
++//! Skill lookup and read-only display data from `knowledge/canonical/by_kind/skill.json`.
+ 
+ use serde_json::Value;
+-use std::collections::HashMap;
++use std::collections::{BTreeMap, HashMap};
+ use std::path::Path;
+ use std::sync::{LazyLock, Mutex};
+ 
++/// Catalog text for a retained skill ID; this is not a purchase or availability record.
++#[derive(Clone, Debug, serde::Serialize)]
++pub struct SkillDisplay {
++    pub id: String,
++    pub name: Option<String>,
++    pub description: Option<String>,
++}
++
+ struct SkillCatalogState {
+     by_name: HashMap<String, i32>,
++    by_id: BTreeMap<i32, SkillDisplay>,
+     loaded: bool,
+ }
+ 
+ static STATE: LazyLock<Mutex<SkillCatalogState>> = LazyLock::new(|| {
+     Mutex::new(SkillCatalogState {
+         by_name: HashMap::new(),
++        by_id: BTreeMap::new(),
+         loaded: false,
+     })
+ });
+@@ -57,6 +67,7 @@ impl SkillCatalog {
+             return false;
+         };
+         let mut by_name = HashMap::new();
++        let mut by_id = BTreeMap::new();
+         for item in arr {
+             let Some(obj) = item.as_object() else {
+                 continue;
+@@ -75,6 +86,22 @@ impl SkillCatalog {
+             let Some(sid) = id else {
+                 continue;
+             };
++            by_id.entry(sid).or_insert_with(|| SkillDisplay {
++                id: format!("skill:{sid}"),
++                name: ["name_en_official", "name_en_fan", "name_ja"]
++                    .iter()
++                    .filter_map(|key| obj.get(*key).and_then(Value::as_str))
++                    .map(str::trim)
++                    .find(|name| !name.is_empty())
++                    .map(str::to_string),
++                description: obj
++                    .get("payload")
++                    .and_then(|payload| payload.get("desc_en"))
++                    .and_then(Value::as_str)
++                    .map(str::trim)
++                    .filter(|description| !description.is_empty())
++                    .map(str::to_string),
++            });
+             for key in ["name_en_official", "name_en_fan", "name_ja"] {
+                 if let Some(name) = obj.get(key).and_then(|v| v.as_str()) {
+                     let n = normalize_name(name);
+@@ -97,6 +124,7 @@ impl SkillCatalog {
+         let mut st = STATE.lock().unwrap();
+         st.loaded = !by_name.is_empty();
+         st.by_name = by_name;
++        st.by_id = by_id;
+         st.loaded
+     }
+ 
+@@ -108,6 +136,11 @@ impl SkillCatalog {
+         STATE.lock().unwrap().by_name.get(&key).copied()
+     }
+ 
++    /// Stable ID order, copied without touching career state or its RNG.
++    pub fn list_all() -> Vec<SkillDisplay> {
++        STATE.lock().unwrap().by_id.values().cloned().collect()
++    }
++
+     pub fn is_loaded() -> bool {
+         STATE.lock().unwrap().loaded
+     }
+@@ -123,6 +156,7 @@ impl SkillCatalog {
+     pub fn clear_for_test() {
+         let mut st = STATE.lock().unwrap();
+         st.by_name.clear();
++        st.by_id.clear();
+         st.loaded = false;
+     }
+ }
+diff --git a/uma-sim-core/tests/skill_catalog_display.rs b/uma-sim-core/tests/skill_catalog_display.rs
+new file mode 100644
+index 0000000..394b965
+--- /dev/null
++++ b/uma-sim-core/tests/skill_catalog_display.rs
+@@ -0,0 +1,72 @@
++use serde_json::json;
++use uma_sim_core::catalog::skill::SkillCatalog;
++
++#[test]
++fn display_projection_preserves_name_lookup_and_failed_load_semantics() {
++    SkillCatalog::clear_for_test();
++    let fixture = json!([
++        {
++            "id": "skill:30",
++            "name_ja": "日本語の名前",
++            "payload": { "skill_id": 30, "desc_en": null }
++        },
++        {
++            "id": "skill:10",
++            "name_en_official": "  Official name  ",
++            "name_en_fan": "Fan name",
++            "aliases": ["Existing alias"],
++            "payload": { "skill_id": 10, "desc_en": "  Catalog text <literal>.  " }
++        },
++        {
++            "id": "skill:20",
++            "name_en_official": " ",
++            "name_en_fan": "Fan fallback",
++            "payload": {}
++        },
++        { "id": "skill:40", "payload": {} },
++        {
++            "id": "skill:10",
++            "name_en_official": "Later duplicate",
++            "payload": { "skill_id": 10, "desc_en": "Do not replace first." }
++        },
++        null,
++        { "id": "not-a-skill", "name_en_official": "Ignored" }
++    ]);
++    assert!(SkillCatalog::load_json(&fixture.to_string()));
++    let rows = SkillCatalog::list_all();
++    assert_eq!(
++        rows.iter().map(|row| row.id.as_str()).collect::<Vec<_>>(),
++        ["skill:10", "skill:20", "skill:30", "skill:40"]
++    );
++    assert_eq!(rows[0].name.as_deref(), Some("Official name"));
++    assert_eq!(
++        rows[0].description.as_deref(),
++        Some("Catalog text <literal>.")
++    );
++    assert_eq!(rows[1].name.as_deref(), Some("Fan fallback"));
++    assert_eq!(rows[2].name.as_deref(), Some("日本語の名前"));
++    assert_eq!(rows[3].name, None);
++    assert_eq!(rows[3].description, None);
++    assert_eq!(SkillCatalog::lookup_by_name("Existing alias"), Some(10));
++    assert_eq!(SkillCatalog::lookup_by_name("official NAME ○"), Some(10));
++    assert_eq!(SkillCatalog::lookup_by_name("Later duplicate"), Some(10));
++
++    let before = serde_json::to_value(&rows).unwrap();
++    assert!(!SkillCatalog::load_json("malformed JSON"));
++    assert!(!SkillCatalog::load_json("{}"));
++    assert_eq!(
++        serde_json::to_value(SkillCatalog::list_all()).unwrap(),
++        before
++    );
++    assert_eq!(SkillCatalog::lookup_by_name("Existing alias"), Some(10));
++
++    let mut caller_copy = SkillCatalog::list_all();
++    caller_copy[0].name = Some("Caller edit".into());
++    assert_eq!(
++        SkillCatalog::list_all()[0].name.as_deref(),
++        Some("Official name")
++    );
++    SkillCatalog::clear_for_test();
++    assert!(SkillCatalog::list_all().is_empty());
++    assert_eq!(SkillCatalog::lookup_by_name("Existing alias"), None);
++}

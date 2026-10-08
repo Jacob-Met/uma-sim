@@ -1,0 +1,109 @@
+{
+  "recordedAt": "2026-10-08T14:55:34.148Z",
+  "kind": "Normalized connector outputs, not raw HTTP custody",
+  "repository": "Jacob-Met/uma-sim",
+  "parent": "4eab1798def5c19fbdee267eb2a6ea8a2726dbe7",
+  "testedTree": "3ab69ccb1e3bf6d73b010824e7537391c5745d2e",
+  "nativeSourceCommit": "cddf3bd3859143bed598515ea62290024b461723",
+  "nativeReceivingCommit": "d22b71e105f93578dd2dd0f3ca75cde27f1a5a60",
+  "blobs": [
+    {
+      "path": "docs/skills-and-hints.md",
+      "mode": "100644",
+      "expected": "0f49d7e151ead54d8b0031a0c8670ff9772a1c4b",
+      "response": {
+        "sha": "0f49d7e151ead54d8b0031a0c8670ff9772a1c4b"
+      }
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "mode": "100644",
+      "expected": "d3012d7add792545fa83e1532b89e7b7bacbf899",
+      "response": {
+        "sha": "d3012d7add792545fa83e1532b89e7b7bacbf899"
+      }
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "mode": "100644",
+      "expected": "790fa1c7d980c205617f59260820b84a53703b27",
+      "response": {
+        "sha": "790fa1c7d980c205617f59260820b84a53703b27"
+      }
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/SkillsPanel.tsx",
+      "mode": "100644",
+      "expected": "e04502f88e8335fe84575dc5ba2ecac02978c4de",
+      "response": {
+        "sha": "e04502f88e8335fe84575dc5ba2ecac02978c4de"
+      }
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/skillsView.ts",
+      "mode": "100644",
+      "expected": "2be7dc6e879800afb6429497560ed28ada37d9fc",
+      "response": {
+        "sha": "2be7dc6e879800afb6429497560ed28ada37d9fc"
+      }
+    },
+    {
+      "path": "packages/uma-sim-ui/src/styles/skills.css",
+      "mode": "100644",
+      "expected": "7bb1b96278706891ecf01c0b9a89db856703085c",
+      "response": {
+        "sha": "7bb1b96278706891ecf01c0b9a89db856703085c"
+      }
+    },
+    {
+      "path": "packages/uma-sim-ui/test/skills-view.test.mjs",
+      "mode": "100644",
+      "expected": "7ca177e9686ed3e1e6baec0b870b4e1aa494434c",
+      "response": {
+        "sha": "7ca177e9686ed3e1e6baec0b870b4e1aa494434c"
+      }
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs",
+      "mode": "100644",
+      "expected": "6e44b127f271d410ff443870b6475df307fd517a",
+      "response": {
+        "sha": "6e44b127f271d410ff443870b6475df307fd517a"
+      }
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "mode": "100644",
+      "expected": "60a02556b3707918e57cac775f723e0c8f67b30d",
+      "response": {
+        "sha": "60a02556b3707918e57cac775f723e0c8f67b30d"
+      }
+    },
+    {
+      "path": "uma-sim-core/src/catalog/skill.rs",
+      "mode": "100644",
+      "expected": "9b59270b62f45e68658aa2ae95528f6000bbeb1a",
+      "response": {
+        "sha": "9b59270b62f45e68658aa2ae95528f6000bbeb1a"
+      }
+    },
+    {
+      "path": "uma-sim-core/tests/skill_catalog_display.rs",
+      "mode": "100644",
+      "expected": "394b9650a515f38672683d11bd027d363808a834",
+      "response": {
+        "sha": "394b9650a515f38672683d11bd027d363808a834"
+      }
+    }
+  ],
+  "tree": {
+    "sha": "3ab69ccb1e3bf6d73b010824e7537391c5745d2e"
+  },
+  "commit": {
+    "sha": "79be98d225162699bf689c96024b760e09bb333a"
+  },
+  "branch": {
+    "branch": "work/astra-uma-skills-hints-d98d06fb-20261008"
+  },
+  "route": "Authorized GitHub Git-data connector after noninteractive HTTPS push refusal; no credential inspection."
+}

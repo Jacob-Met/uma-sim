@@ -1,0 +1,104 @@
+{
+  "schema": "uma.skills-independent-late-json.v1",
+  "startedAt": "2026-10-08T14:57:08.438Z",
+  "sourceHead": "cddf3bd3859143bed598515ea62290024b461723",
+  "sourceBase": "2378365e48234c5ae3311e1b0dd7f1247a5a9071",
+  "sourceManifestSha256": "e74c9773cc9fe906192d052dcb5221d11f72518dad892d5f37ddf4260cb7981e",
+  "sourceHashesBefore": {
+    "uma-sim-core/src/catalog/skill.rs": "5a8b3989a7f7734870a787a8165b4a952a1f55784d1a1f95970b2642b7a09341",
+    "uma-sim-core/src/api.rs": "cbb36d599df9757c923f7c43070a4587bfe0ed5044fd44f986b95c02e31f21ef",
+    "uma-sim-core/tests/skill_catalog_display.rs": "52b0f6a1f6f6ff0b85b4dacce2c36067b4abf599b8ccd42de33cb564ac235cef",
+    "packages/uma-sim-ui/src/App.tsx": "289e331ff56fc15dce56716ee2418d9590387410bfb3223cd4653bf27cd97c68",
+    "packages/uma-sim-ui/package.json": "69032bafe7fb09efb2d4b9c080c22cbceef2eca199f53264fb3c3285c2dbe911",
+    "packages/uma-sim-ui/src/components/skillsView.ts": "0b41f51bb55890f31c39d435411fe6d60b3178e84f58733b27deb4b21e30cfde",
+    "packages/uma-sim-ui/src/components/SkillsPanel.tsx": "57db53a5b31e836746fbe6b95ee6e17a8cd230eadb8159162d9f755cde467cb7",
+    "packages/uma-sim-ui/src/styles/skills.css": "0b3c997dcd5cc9248a487aab8738a86136f9aeec23a2a87e56dffd317689f065",
+    "packages/uma-sim-ui/test/skills-view.test.mjs": "094ddd2014d96f8621a34ee95ec7f7cc4e859cdb0be419c4dbcd937800e9b43e"
+  },
+  "scriptSha256": "c76319a80632ff6589e1eb2802b72f75dbdca547395d78721ee9d393c3662146",
+  "scope": "One controlled late-JSON fixture against the exact actual SkillsPanel in real React StrictMode and Chromium; no native API, career session, or RNG process.",
+  "nativeApiCalls": 0,
+  "installedMutations": false,
+  "sourceEdits": false,
+  "pass": true,
+  "bundleSha256": "821879c1dceeb0f755817c843d970f856f970719f7f85187110131c430e2ab6b",
+  "entrySha256": "8ccb2d22661e3cb779d451850306a4fac48ab72c19041437bac1b7012569dc30",
+  "chromiumExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "playwright": "1.62.1",
+    "esbuild": "0.21.5"
+  },
+  "chromiumVersion": "154.0.8037.98",
+  "initialRequests": [
+    {
+      "index": 0,
+      "url": "/v1/catalog/skills",
+      "method": "GET",
+      "hasBody": false,
+      "aborted": true,
+      "jsonCalled": true
+    },
+    {
+      "index": 1,
+      "url": "/v1/catalog/skills",
+      "method": "GET",
+      "hasBody": false,
+      "aborted": false,
+      "jsonCalled": true
+    }
+  ],
+  "lateCompletion": {
+    "events": [
+      {
+        "event": "response-fulfilled",
+        "index": 0
+      },
+      {
+        "event": "abort",
+        "index": 0
+      },
+      {
+        "event": "response-fulfilled",
+        "index": 1
+      },
+      {
+        "event": "json-called",
+        "index": 0
+      },
+      {
+        "event": "json-called",
+        "index": 1
+      },
+      {
+        "event": "late-json-resolved",
+        "index": 0
+      }
+    ],
+    "inputsPreserved": true,
+    "metadataOnly": true,
+    "requestCount": 2
+  },
+  "finalAbortSignals": [
+    true,
+    true
+  ],
+  "panelTextBeforeLate": "Skills & hints\n\nSkills and hint levels retained in this career.\n\nLearned skills\n1\nFRESH new\nskill:new\n\nFresh catalog\n\nSkill hints\n1\nFRESH new\nHint level 2\nskill:new\n\nFresh catalog\n\nTraining & other hints\n0\n\nNo other hints recorded.",
+  "panelTextAfterLate": "Skills & hints\n\nSkills and hint levels retained in this career.\n\nLearned skills\n1\nFRESH new\nskill:new\n\nFresh catalog\n\nSkill hints\n1\nFRESH new\nHint level 2\nskill:new\n\nFresh catalog\n\nTraining & other hints\n0\n\nNo other hints recorded.",
+  "pageErrors": [],
+  "blockedExternalRequests": [],
+  "sourceHashesAfter": {
+    "uma-sim-core/src/catalog/skill.rs": "5a8b3989a7f7734870a787a8165b4a952a1f55784d1a1f95970b2642b7a09341",
+    "uma-sim-core/src/api.rs": "cbb36d599df9757c923f7c43070a4587bfe0ed5044fd44f986b95c02e31f21ef",
+    "uma-sim-core/tests/skill_catalog_display.rs": "52b0f6a1f6f6ff0b85b4dacce2c36067b4abf599b8ccd42de33cb564ac235cef",
+    "packages/uma-sim-ui/src/App.tsx": "289e331ff56fc15dce56716ee2418d9590387410bfb3223cd4653bf27cd97c68",
+    "packages/uma-sim-ui/package.json": "69032bafe7fb09efb2d4b9c080c22cbceef2eca199f53264fb3c3285c2dbe911",
+    "packages/uma-sim-ui/src/components/skillsView.ts": "0b41f51bb55890f31c39d435411fe6d60b3178e84f58733b27deb4b21e30cfde",
+    "packages/uma-sim-ui/src/components/SkillsPanel.tsx": "57db53a5b31e836746fbe6b95ee6e17a8cd230eadb8159162d9f755cde467cb7",
+    "packages/uma-sim-ui/src/styles/skills.css": "0b3c997dcd5cc9248a487aab8738a86136f9aeec23a2a87e56dffd317689f065",
+    "packages/uma-sim-ui/test/skills-view.test.mjs": "094ddd2014d96f8621a34ee95ec7f7cc4e859cdb0be419c4dbcd937800e9b43e"
+  },
+  "sourceUnchanged": true,
+  "finishedAt": "2026-10-08T14:57:09.593Z"
+}

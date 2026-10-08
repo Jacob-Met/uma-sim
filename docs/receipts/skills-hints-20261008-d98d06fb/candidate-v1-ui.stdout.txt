@@ -1,0 +1,92 @@
+
+> uma-sim-ui@0.1.0 test
+> node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs
+
+✔ JSON preserves every original entry and explicit retained-history scope (2.193417ms)
+✔ a prepared file survives later append or replacement without taking a filtered subset (0.153667ms)
+✔ readable text retains ordered duplicate and empty numbered blocks (0.134667ms)
+✔ empty, single-entry and long histories have explicit complete counts (7.638542ms)
+✔ one local request delivers the actual JSON Blob and releases its URL after the click (5.567083ms)
+▶ preparation and dispatch failures propagate without another click or a leaked URL
+  ✔ url (1.903834ms)
+  ✔ create (1.784083ms)
+  ✔ append (2.333667ms)
+  ✔ click (2.188542ms)
+✔ preparation and dispatch failures propagate without another click or a leaked URL (9.372667ms)
+✔ native React rendering names the full count and disables only an empty log (5.999292ms)
+✔ the actual LogPanel exposes the full-history download beside preserved reader and summary (2.718375ms)
+✔ empty query exposes every retained entry verbatim, including empty and duplicate entries (1.682209ms)
+✔ matching entries and occurrences are counted separately without crossing entry boundaries (0.403166ms)
+✔ case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters (0.175375ms)
+✔ Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s (0.320292ms)
+✔ Japanese, astral symbols, combining characters, and isolated surrogates preserve original text (0.1925ms)
+✔ all regexp metacharacters, whitespace, and markup-like text remain literal search data (0.830792ms)
+✔ matches are non-overlapping and global matching restarts independently for each entry (0.091834ms)
+✔ 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle (119.085208ms)
+✔ history changes distinguish a strict prefix append from trimming, replacement, and reordering (0.443458ms)
+✔ 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input (17.278333ms)
+✔ learned names and descriptions use exact IDs with a literal unknown fallback (2.282792ms)
+✔ all retained learned entries survive in order, including duplicates beyond 24 (0.141041ms)
+✔ only skill namespace hints are skills; raw names and training keys remain separate (1.155916ms)
+✔ hint levels are retained values, with no cap, discount, or purchase inference (0.09775ms)
+✔ catalog failure and malformed entries do not manufacture names or accept an HTML fallback (0.184541ms)
+✔ markup-like text and object-property keys remain literal, without changing snapshot inputs (0.118458ms)
+✔ preserves the full authored order, blank lines, turn zero and colon action IDs (6.481416ms)
+✔ a policy-only run is valid with no override text (0.124541ms)
+✔ accepts only the exact representable integer boundary and allowed maximum budget (0.149875ms)
+✔ refuses the whole draft for missing colon (0.200625ms)
+✔ refuses the whole draft for missing turn (0.082958ms)
+✔ refuses the whole draft for negative turn (1.842334ms)
+✔ refuses the whole draft for fractional turn (0.091583ms)
+✔ refuses the whole draft for scientific notation (0.058625ms)
+✔ refuses the whole draft for hexadecimal notation (0.051ms)
+✔ refuses the whole draft for non-number turn (0.090041ms)
+✔ refuses the whole draft for infinite turn (0.049791ms)
+✔ refuses the whole draft for signed integer overflow (0.045625ms)
+✔ refuses the whole draft for integer that would wrap to turn 8 (0.035583ms)
+✔ refuses the whole draft for unsafe integer (0.032417ms)
+✔ refuses the whole draft for empty action (0.03075ms)
+✔ duplicate turns report both source lines rather than picking the first silently (0.092167ms)
+✔ collects actionable line errors without discarding valid intervening input (0.068334ms)
+✔ refuses invalid action budget "" (0.055291ms)
+✔ refuses invalid action budget " " (1.965791ms)
+✔ refuses invalid action budget "0" (0.069667ms)
+✔ refuses invalid action budget "501" (0.144834ms)
+✔ refuses invalid action budget "1.5" (0.071083ms)
+✔ refuses invalid action budget "-1" (0.049584ms)
+✔ refuses invalid action budget "NaN" (0.0445ms)
+✔ refuses invalid action budget "Infinity" (0.333792ms)
+✔ refuses invalid action budget "1e2" (0.043583ms)
+✔ refuses invalid action budget "9007199254740993" (0.037ms)
+✔ reports both budget and override errors in a single review (0.062833ms)
+✔ preserves literal action text for the existing simulator legality check (0.434833ms)
+✔ an unselected inspector explains how to read a saved trace (4.379667ms)
+✔ loading identifies the requested branch and exposes only a close action (0.711958ms)
+✔ an error identifies its branch, is announced and supports explicit retry (0.230834ms)
+✔ same-turn rejection and later application remain separate recorded steps (1.2445ms)
+✔ a configured but unobserved turn has no invented rejection outcome (2.181875ms)
+✔ a branch with no recorded steps has an explicit empty state (0.9015ms)
+✔ a policy-only timeline offers all steps when the override filter is empty (0.695791ms)
+✔ legacy duplicate configuration is retained without dropping either authored action (0.844333ms)
+✔ source text remains literal instead of becoming active markup (0.528125ms)
+ℹ tests 66
+ℹ suites 0
+ℹ pass 66
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 525.750791
+
+> uma-sim-ui@0.1.0 build
+> tsc -b && vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 63 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.39 kB │ gzip:  0.26 kB
+dist/assets/index-D1W1Qb1i.css   12.18 kB │ gzip:  3.08 kB
+dist/assets/index-Db1MTp0t.js   209.44 kB │ gzip: 64.36 kB
+✓ built in 505ms

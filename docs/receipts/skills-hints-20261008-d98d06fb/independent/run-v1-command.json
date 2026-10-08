@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-08T14:54:03.065681+00:00",
+  "command": [
+    "node",
+    "/tmp/hamon-uma-skills-independent-d98d06fb-20261008/late-json-control-v1.mjs"
+  ],
+  "returncode": 1,
+  "schema": "uma.independent-controlled-command.v1",
+  "script_sha256": "71548e389fde6b46ee2c6422a043640833e5b3621e9a2258de2362ff7f52c930",
+  "stderr": "",
+  "stdout": "{\"pass\":false,\"resultPath\":\"/tmp/hamon-uma-skills-independent-d98d06fb-20261008/run-v1/result.json\",\"resultSha256\":\"9aa888c36bc691fce77059a817b3c1222db0778dc9ce89124bafbc78969896b6\",\"sourceUnchanged\":true,\"error\":\"page.goto: Timeout 5000ms exceeded.\\nCall log:\\n\\u001b[2m  - navigating to \\\"http://skills-review.invalid/\\\", waiting until \\\"load\\\"\\u001b[22m\\n\\n    at /private/tmp/hamon-uma-skills-independent-d98d06fb-20261008/late-json-control-v1.mjs:84:14\"}\n"
+}

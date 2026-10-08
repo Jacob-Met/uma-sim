@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-08T14:51:08.097384+00:00",
+  "route": "configured origin HTTPS; noninteractive ordinary Git, no credential inspection",
+  "branch": "refs/heads/work/astra-uma-skills-hints-d98d06fb-20261008",
+  "expected_head": "cddf3bd3859143bed598515ea62290024b461723",
+  "preflight": {
+    "rc": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "attempted_push": true,
+  "push": {
+    "argv": [
+      "git",
+      "push",
+      "--porcelain",
+      "origin",
+      "cddf3bd3859143bed598515ea62290024b461723:refs/heads/work/astra-uma-skills-hints-d98d06fb-20261008"
+    ],
+    "rc": 128,
+    "stdout": "",
+    "stderr": "fatal: could not read Username for 'https://github.com': terminal prompts disabled\n"
+  }
+}

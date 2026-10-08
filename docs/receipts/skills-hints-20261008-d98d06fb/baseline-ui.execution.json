@@ -1,0 +1,23 @@
+{
+  "name": "baseline-ui",
+  "commands": [
+    {
+      "argv": [
+        "npm",
+        "ci",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "returncode": 0
+    }
+  ],
+  "elapsed_seconds": 2.925
+}

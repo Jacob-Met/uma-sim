@@ -1,0 +1,13 @@
+diff --git a/packages/uma-sim-ui/src/components/SkillsPanel.tsx b/packages/uma-sim-ui/src/components/SkillsPanel.tsx
+index e04502f..0ce4510 100644
+--- a/packages/uma-sim-ui/src/components/SkillsPanel.tsx
++++ b/packages/uma-sim-ui/src/components/SkillsPanel.tsx
+@@ -17,7 +17,7 @@ function SkillList({ title, rows, empty }: { title: string; rows: SkillRow[]; em
+               </div>
+               {row.name && row.name !== row.id && <code className="skills-id">{row.id}</code>}
+               {row.kind === "skill" && !row.name && (
+-                <span className="skills-missing-name">Name not in catalog</span>
++                <span className="skills-missing-name">Name unavailable</span>
+               )}
+               {row.description && <p className="skills-description">{row.description}</p>}
+             </li>

@@ -1,0 +1,30 @@
+--- late-json-control-v1.mjs
++++ late-json-control-v2.mjs
+@@ -5,7 +5,7 @@
+ import { execFileSync } from "node:child_process";
+ const root = "/tmp/hamon-product-d98d06fb-20261008/uma-sim";
+ const review = "/tmp/hamon-uma-skills-independent-d98d06fb-20261008";
+-const out = path.join(review, "run-v1");
++const out = path.join(review, "run-v2");
+ const ui = path.join(root, "packages/uma-sim-ui");
+ const require = createRequire(import.meta.url);
+ const esbuild = require(path.join(ui, "node_modules/esbuild"));
+@@ -74,14 +74,10 @@
+   const page = await context.newPage();
+   page.setDefaultTimeout(5000);
+   page.on("pageerror", error => errors.push(String(error)));
+-  await context.route("**/*", route => {
+-    const url = route.request().url();
+-    if (url === "http://skills-review.invalid/") return route.fulfill({ contentType: "text/html", body: '<!doctype html><html><head><link rel="stylesheet" href="/fixture.css"></head><body><div id="root"></div><script src="/fixture.js"></script></body></html>' });
+-    if (url === "http://skills-review.invalid/fixture.js") return route.fulfill({ contentType: "application/javascript", body: js });
+-    if (url === "http://skills-review.invalid/fixture.css") return route.fulfill({ contentType: "text/css", body: css });
+-    blocked.push(url); return route.abort("blockedbyclient");
+-  });
+-  await page.goto("http://skills-review.invalid/");
++  await context.route("**/*", route => { blocked.push(route.request().url()); return route.abort("blockedbyclient"); });
++  await page.setContent('<!doctype html><html><head></head><body><div id="root"></div></body></html>', {waitUntil:"domcontentloaded"});
++  await page.addStyleTag({content:Buffer.from(css).toString("utf8")});
++  await page.addScriptTag({content:Buffer.from(js).toString("utf8")});
+   await page.waitForFunction(() => window.__review?.requests.length === 2 && window.__review.requests.every(r => r.jsonCalled));
+   const initial = await page.evaluate(() => window.__review.requests.map(r => ({index:r.index, url:r.url, method:r.method, hasBody:r.hasBody, aborted:r.signal.aborted, jsonCalled:r.jsonCalled})));
+   if (!initial[0].aborted || initial[1].aborted) throw new Error("StrictMode did not exercise stale/fresh effect lifetimes");

@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-08T15:09:29.715447+00:00",
+  "source": "/tmp/hamon-product-d98d06fb-20261008/evidence",
+  "independent_source": "/tmp/hamon-uma-skills-independent-d98d06fb-20261008",
+  "independent_manifest_sha256": "de605271d5e8ba72b13a813f27fbbd1cbb2439736ad7837c8aec5e20dade7978",
+  "independent_files": 15,
+  "compression": "Lossless gzip with mtime=0; original contents/hashes preserved",
+  "compressed_inputs": {
+    "copy-refinement-publication-capsule.json": {
+      "original_bytes": 4932,
+      "original_sha256": "db46f233e1428229bba7b2aa499feb7c8165356bc4d5231bde29b493a99b0fdd",
+      "retained_path": "copy-refinement-publication-capsule.json.gz",
+      "retained_sha256": "d5f723971a3e94fec1a753938151e5e41d261e63b30c36e282d6cd7a6dea1f60"
+    },
+    "current-main-unowned-entry-map.json": {
+      "original_bytes": 241167,
+      "original_sha256": "890daf0b0654d16b24150759f46f4d9fa3bbe98f807df4acc24f4e37ada99b5d",
+      "retained_path": "current-main-unowned-entry-map.json.gz",
+      "retained_sha256": "c69841599880a468884ce4727dad93f20ac3083ed216806368a4345e80bf84e6"
+    },
+    "source-publication-capsule.json": {
+      "original_bytes": 184676,
+      "original_sha256": "2ddaa494e31083ac5ec36f21036ea88b28645de3edfc365cf55701e6b0aa8ebc",
+      "retained_path": "source-publication-capsule.json.gz",
+      "retained_sha256": "474dc9bfdcd78c96bacfbb1b3cd274298e6551f499ff8bf9c7fcfa9dcf16fa2a"
+    }
+  },
+  "excluded": "Native binaries, node_modules, browser profiles and per-run scratch directories are reproducible execution inputs; source and authored fixture definitions retained separately."
+}

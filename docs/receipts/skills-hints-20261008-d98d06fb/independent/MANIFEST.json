@@ -1,0 +1,64 @@
+{
+  "blocking_findings": 0,
+  "files": {
+    "README.md": {
+      "bytes": 2516,
+      "sha256": "e6509862b0fec152f2b3307ef574a4e6c04e43a5d03a453269f4b6202ccbe6cb"
+    },
+    "context/call-graph-and-seam-checks.json": {
+      "bytes": 7331,
+      "sha256": "81fd68469c287c1ae7ccf702a2db29e375d702c2b9642d3d26a998c5bc5ba639"
+    },
+    "context/candidate-v1-source.json": {
+      "bytes": 1301,
+      "sha256": "e74c9773cc9fe906192d052dcb5221d11f72518dad892d5f37ddf4260cb7981e"
+    },
+    "context/candidate-v1.patch": {
+      "bytes": 22466,
+      "sha256": "865fc80235de0fa2cce8ecf701e2d5601a09a5fe1befdc331fdf6bc38c41d9ec"
+    },
+    "fixture-delivery-v1-to-v2.patch": {
+      "bytes": 2251,
+      "sha256": "4b5275aae8ec9ec880a5c3ad618f8844dde52900203debec53dde92371d4f581"
+    },
+    "late-json-control-v1.mjs": {
+      "bytes": 8926,
+      "sha256": "71548e389fde6b46ee2c6422a043640833e5b3621e9a2258de2362ff7f52c930"
+    },
+    "late-json-control-v2.mjs": {
+      "bytes": 8605,
+      "sha256": "c76319a80632ff6589e1eb2802b72f75dbdca547395d78721ee9d393c3662146"
+    },
+    "review.json": {
+      "bytes": 4842,
+      "sha256": "e47859693934df82db0bfa85c0e0d72634265f05dc9211cc87c97270fbaa7797"
+    },
+    "run-v1-command.json": {
+      "bytes": 844,
+      "sha256": "61738ed8c2e1abc41e31e243f771630abbab992754c6eaa355a998f167fa6ce6"
+    },
+    "run-v1/entry.tsx": {
+      "bytes": 1347,
+      "sha256": "8ccb2d22661e3cb779d451850306a4fac48ab72c19041437bac1b7012569dc30"
+    },
+    "run-v1/result.json": {
+      "bytes": 3534,
+      "sha256": "9aa888c36bc691fce77059a817b3c1222db0778dc9ce89124bafbc78969896b6"
+    },
+    "run-v2-command.json": {
+      "bytes": 831,
+      "sha256": "342b9f59d3edc279e439ad6aea03c17a4d2c01ff47f371d840cf14edc0506d31"
+    },
+    "run-v2/entry.tsx": {
+      "bytes": 1347,
+      "sha256": "8ccb2d22661e3cb779d451850306a4fac48ab72c19041437bac1b7012569dc30"
+    },
+    "run-v2/result.json": {
+      "bytes": 4839,
+      "sha256": "795059bdc54fe38b87bf260e1504697420a22d775839d1b823ea479ba081d9a6"
+    }
+  },
+  "schema": "uma.skills-independent-evidence.v1",
+  "source_patch_sha256": "865fc80235de0fa2cce8ecf701e2d5601a09a5fe1befdc331fdf6bc38c41d9ec",
+  "supplemental_control_pass": true
+}

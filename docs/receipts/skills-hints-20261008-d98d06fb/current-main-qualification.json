@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-08T14:49:53.712772+00:00",
+  "tree": "3ab69ccb1e3bf6d73b010824e7537391c5745d2e",
+  "receiving_commit": "d22b71e105f93578dd2dd0f3ca75cde27f1a5a60",
+  "base_candidate_api_retained_sha256": "8756d97ce33022a12860742799d22830df98fd472f00182bfa36e37ac3c43cb8",
+  "current_api_sha256": "478a358f6d8687a3f69fd968b1ae26d829d48e8b5797bd866b352a6bd50aeeb1",
+  "ui_build_inputs_identical": [
+    "packages/uma-sim-ui/src",
+    "packages/uma-sim-ui/package.json",
+    "packages/uma-sim-ui/package-lock.json",
+    "packages/uma-sim-ui/tsconfig.json",
+    "packages/uma-sim-ui/tsconfig.node.json",
+    "packages/uma-sim-ui/vite.config.ts",
+    "packages/uma-sim-ui/index.html"
+  ],
+  "reused_dist": "/tmp/hamon-product-d98d06fb-20261008/uma-sim/packages/uma-sim-ui/dist",
+  "records": [
+    {
+      "name": "current-main-build",
+      "argv": [
+        "cargo",
+        "build",
+        "--locked",
+        "-p",
+        "uma-sim-core"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 7.16,
+      "at": "2026-10-08T14:49:50.727531+00:00"
+    },
+    {
+      "name": "current-main-browser",
+      "argv": [
+        "node",
+        "/tmp/hamon-product-d98d06fb-20261008/receiving-main-v1/packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs",
+        "/tmp/hamon-product-d98d06fb-20261008/uma-sim/packages/uma-sim-ui/dist",
+        "/tmp/hamon-product-d98d06fb-20261008/evidence/browser-current-main-v3",
+        "/tmp/hamon-product-d98d06fb-20261008/target/debug/uma-sim-api",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 2.984,
+      "at": "2026-10-08T14:49:53.712390+00:00"
+    }
+  ],
+  "runtime_or_private_package_deployment": false
+}

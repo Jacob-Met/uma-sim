@@ -1,0 +1,609 @@
+{
+  "startedAt": "2026-10-08T14:41:28.341Z",
+  "expectation": "received",
+  "sourceHead": "2378365e48234c5ae3311e1b0dd7f1247a5a9071",
+  "binary": {
+    "path": "/tmp/hamon-product-d98d06fb-20261008/target/debug/uma-sim-api",
+    "sha256": "8756d97ce33022a12860742799d22830df98fd472f00182bfa36e37ac3c43cb8"
+  },
+  "sourceFiles": {
+    "uma-sim-core/src/catalog/skill.rs": "5a8b3989a7f7734870a787a8165b4a952a1f55784d1a1f95970b2642b7a09341",
+    "uma-sim-core/src/api.rs": "cbb36d599df9757c923f7c43070a4587bfe0ed5044fd44f986b95c02e31f21ef",
+    "packages/uma-sim-ui/src/components/SkillsPanel.tsx": "57db53a5b31e836746fbe6b95ee6e17a8cd230eadb8159162d9f755cde467cb7",
+    "packages/uma-sim-ui/src/components/skillsView.ts": "0b41f51bb55890f31c39d435411fe6d60b3178e84f58733b27deb4b21e30cfde"
+  },
+  "cases": [
+    {
+      "name": "Actual native career displays catalog names and every retained innate hint",
+      "pass": true,
+      "catalogItems": 1898,
+      "firstSkill": {
+        "description": "Ride the momentum to surge ahead and very slightly increase acceleration after passing another runner toward the front late-race.",
+        "id": "skill:100011",
+        "name": "Shooting Star"
+      },
+      "learned": 1,
+      "hints": 3
+    },
+    {
+      "name": "Catalog reads, keyboard inspection and rejected POST preserve the full native snapshot and RNG",
+      "pass": true,
+      "stateSha256": "60326d88faa0712c9185585f2cd079537b19d0261009066e34d9470467c1745f",
+      "rngCalls": 0,
+      "postStatus": 405
+    },
+    {
+      "name": "Native imported completed checkpoint displays all 33 skills, literal fallbacks and separate generic/training hints",
+      "pass": true,
+      "learned": 33,
+      "hintCount": 5,
+      "stateSha256": "4bd06ec0e438fe3f1278fa2b14a607f33f264572b68560fb5cf31a92873d0b97",
+      "keyboardScroll": true,
+      "mobileWidth": 390,
+      "literalMarkup": true
+    },
+    {
+      "name": "Resuming another native checkpoint clears all prior learned skills and hints",
+      "pass": true
+    },
+    {
+      "name": "Older-server HTML falls back to retained IDs; retry restores names without changing a career",
+      "pass": true
+    },
+    {
+      "name": "Leaving the view cancels a pending catalog request; a fresh view resolves normally",
+      "pass": true
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/v1/health",
+      "query": "",
+      "at": "2026-10-08T14:41:29.237Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "query": "",
+      "at": "2026-10-08T14:41:29.240Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "query": "",
+      "at": "2026-10-08T14:41:29.244Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "query": "",
+      "at": "2026-10-08T14:41:29.246Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "query": "",
+      "at": "2026-10-08T14:41:29.248Z",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/start",
+      "query": "",
+      "at": "2026-10-08T14:41:29.398Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "at": "2026-10-08T14:41:29.424Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "at": "2026-10-08T14:41:29.425Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "at": "2026-10-08T14:41:29.447Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "at": "2026-10-08T14:41:29.665Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "at": "2026-10-08T14:41:29.666Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "at": "2026-10-08T14:41:29.666Z",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/load",
+      "query": "",
+      "at": "2026-10-08T14:41:29.730Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "query": "",
+      "at": "2026-10-08T14:41:29.741Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "at": "2026-10-08T14:41:29.741Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "at": "2026-10-08T14:41:29.741Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "at": "2026-10-08T14:41:29.745Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "at": "2026-10-08T14:41:29.745Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "at": "2026-10-08T14:41:29.745Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "at": "2026-10-08T14:41:29.794Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "at": "2026-10-08T14:41:30.111Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "at": "2026-10-08T14:41:30.111Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "at": "2026-10-08T14:41:30.111Z",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/load",
+      "query": "",
+      "at": "2026-10-08T14:41:30.173Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "query": "",
+      "at": "2026-10-08T14:41:30.190Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "at": "2026-10-08T14:41:30.190Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "at": "2026-10-08T14:41:30.190Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "at": "2026-10-08T14:41:30.193Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "at": "2026-10-08T14:41:30.193Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "at": "2026-10-08T14:41:30.193Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "at": "2026-10-08T14:41:30.242Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "at": "2026-10-08T14:41:30.292Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "at": "2026-10-08T14:41:30.293Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "at": "2026-10-08T14:41:30.293Z",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/load",
+      "query": "",
+      "at": "2026-10-08T14:41:30.342Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "query": "",
+      "at": "2026-10-08T14:41:30.358Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "at": "2026-10-08T14:41:30.358Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "at": "2026-10-08T14:41:30.358Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "at": "2026-10-08T14:41:30.362Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "at": "2026-10-08T14:41:30.362Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "at": "2026-10-08T14:41:30.362Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "at": "2026-10-08T14:41:30.410Z",
+      "fixture": "html"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "at": "2026-10-08T14:41:30.474Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "at": "2026-10-08T14:41:30.526Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "at": "2026-10-08T14:41:30.526Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "at": "2026-10-08T14:41:30.526Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "at": "2026-10-08T14:41:30.560Z",
+      "fixture": "hold",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "at": "2026-10-08T14:41:30.592Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "at": "2026-10-08T14:41:30.592Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "at": "2026-10-08T14:41:30.592Z",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "at": "2026-10-08T14:41:30.627Z",
+      "status": 200
+    }
+  ],
+  "blockedExternalRequests": [
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1118.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1033.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1019.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1032.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1018.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1111.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1036.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1129.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1087.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1053.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1095.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1054.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1023.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1124.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1114.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1120.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1110.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1089.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1133.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1098.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1134.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1038.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1085.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1065.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1009.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1092.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1112.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1119.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1108.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1121.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1037.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1014.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1141.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1081.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1127.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1022.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1005.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1079.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1113.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1116.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1040.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1007.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1131.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1011.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1052.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1028.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1012.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1106.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1099.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1063.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1034.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1031.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1094.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1093.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1104.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1039.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1061.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1137.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1068.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1132.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1130.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1025.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1004.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1055.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1056.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1062.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1024.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1058.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1071.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1074.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1059.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1013.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1064.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1086.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1027.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1026.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1057.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1049.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1016.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1050.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1077.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1105.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1060.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1051.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1096.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1082.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1006.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1115.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1136.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1109.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1030.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1103.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1145.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1041.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1069.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1076.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1088.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1067.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1042.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1020.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1043.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1002.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1070.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1046.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1102.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1001.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1135.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1097.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1045.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1044.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1083.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1017.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1010.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1021.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1084.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1107.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1015.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1003.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1048.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1080.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1073.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1066.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1090.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1143.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1091.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1008.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1117.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1035.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1100.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1072.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1078.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1029.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1047.png"
+  ],
+  "pageErrors": [],
+  "authoredCheckpoints": [
+    {
+      "name": "skills-rich-receiver",
+      "sha256": "c5cc0595eea7b99a85a19dde1a39d0650599749a1f44863fdf0ff881480fff6f",
+      "fields": [
+        "learnedSkillIds",
+        "hintLevels",
+        "careerComplete",
+        "awaitingChoice",
+        "pendingEventOptions"
+      ]
+    },
+    {
+      "name": "skills-empty-receiver",
+      "sha256": "b76f04866273afcc98961b372b0925707b69f498ccb2ba38276da10522023f0e",
+      "fields": [
+        "learnedSkillIds",
+        "hintLevels"
+      ]
+    },
+    {
+      "name": "skills-fallback-receiver",
+      "sha256": "f04a21395683a29e244b9eb2b4a0ec868f9efcb483d699c67a2a3fa02ca76150",
+      "fields": [
+        "learnedSkillIds",
+        "hintLevels"
+      ]
+    }
+  ],
+  "storage": "/tmp/hamon-product-d98d06fb-20261008/evidence/browser-candidate-v2/native-storage-b4LZIG",
+  "providerCalls": 0,
+  "builtUiIndexSha256": "d616363df51a74e81972762930e3cacff7507aa6762ba898504e5da6d4641b30",
+  "receiverSha256": "709ffda5d6922f4a5de055c4e1bcd5fcb69469966b38f38ee881921e2535901c",
+  "nativePid": 70801,
+  "nativePort": 54379,
+  "health": {
+    "ok": true,
+    "repoRoot": true,
+    "repoRootPath": "/private/tmp/hamon-product-d98d06fb-20261008/uma-sim",
+    "version": "0.1.0"
+  },
+  "browserVersion": "154.0.8037.98",
+  "keyboardBefore": {
+    "focused": true,
+    "scrollTop": 0,
+    "scrollHeight": 2011,
+    "clientHeight": 288
+  },
+  "keyboardAfter": 167,
+  "passed": true,
+  "finishedAt": "2026-10-08T14:41:31.170Z",
+  "nativeExit": {
+    "code": null,
+    "signal": "SIGTERM"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "base_sha256": "81b7a06c7dc3d6790166d04baed092dea69749265993173c228c426bcaeb2d66",
+      "candidate_sha256": "289e331ff56fc15dce56716ee2418d9590387410bfb3223cd4653bf27cd97c68",
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "removing_only_documented_new_import_and_view_or_route_restores_exact_base": true
+    },
+    {
+      "base_sha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55",
+      "candidate_sha256": "cbb36d599df9757c923f7c43070a4587bfe0ed5044fd44f986b95c02e31f21ef",
+      "path": "uma-sim-core/src/api.rs",
+      "removing_only_documented_new_import_and_view_or_route_restores_exact_base": true
+    },
+    {
+      "all_existing_hint_resolution_and_rng_tail_bytes_unchanged": true,
+      "path": "uma-sim-core/src/catalog/skill.rs",
+      "tail_sha256": "abeb3ee83fc7291191e34a473a10468f4d774270816c1fd54adfdb0c0ab84674"
+    }
+  ],
+  "excerpts": [
+    {
+      "file_sha256": "067d5948755ba0f39bc8f980a1a4615fbdb8ca50da110b3657414d2d49ff5aac",
+      "line_end": 210,
+      "line_start": 160,
+      "path": "uma-sim-core/src/factory.rs",
+      "text": "    }\n}\n\n/// Initialize catalogs, research configs, training tables, and event catalog from repo.\npub fn init_engine_resources(repo_root: Option<&Path>, use_file_events: bool) {\n    // Hold the flag lock for the whole init so parallel tests cannot observe a\n    // half-loaded TraineeCatalog / event catalog (spark green unique flake).\n    let mut init = INITIALIZED.lock().unwrap();\n    if *init {\n        return;\n    }\n\n    FactorCatalog::init_from_repo(repo_root);\n    LegacyFactorContext::set_lookup(Some(factor_lookup));\n    SupportCatalog::init_from_repo(repo_root);\n    init_support_bridge();\n    TraineeCatalog::init_from_repo(repo_root);\n    if let Some(root) = repo_root {\n        SkillCatalog::init_from_repo(root);\n    }\n    TrainingGainContext::set_trainee_growth_lookup(Some(trainee_growth_lookup));\n\n    load_all_research(repo_root);\n    GrandLiveCatalogLoader::init_from_repo(repo_root);\n\n    if use_file_events {\n        if let Some(root) = repo_root {\n            let path = FileEventCatalog::default_path(root);\n            let base = FileEventCatalog::load(&path);\n            let mut pack_events = ContentPackLoader::load_events(root);\n            pack_events.extend(ContentPackRegistry::all());\n            let merged = base.merge(pack_events);\n            if merged.event_count() > 0 {\n                event::install_event_catalog(Arc::new(merged));\n            } else {\n                event::install_event_catalog(Arc::new(event::BuiltinEventCatalog));\n            }\n        }\n    }\n\n    *init = true;\n}\n\n/// Convenience: detect repo root and initialize with file-backed events when available.\npub fn init_from_detected_repo(use_file_events: bool) -> Option<PathBuf> {\n    let root = detect_repo_root();\n    init_engine_resources(root.as_deref(), use_file_events);\n    root\n}\n\npub fn training_tables_value() -> Option<Value> {\n"
+    },
+    {
+      "file_sha256": "cbb36d599df9757c923f7c43070a4587bfe0ed5044fd44f986b95c02e31f21ef",
+      "line_end": 89,
+      "line_start": 66,
+      "path": "uma-sim-core/src/api.rs",
+      "text": "    println!(\"Web UI: {url}\");\n    if open_browser {\n        open_url(&url);\n    }\n\n    // Warm catalogs once so `/v1/catalog/*` works before the first run.\n    let _ = init_from_detected_repo(true);\n\n    let state = Arc::new(Mutex::new(ApiState {\n        settings: SimSettings::default(),\n        default_policy: \"bot\".into(),\n        sessions: HashMap::new(),\n        active: String::new(),\n        library: CareerLibrary::new(),\n        branches: BranchStore::new(),\n    }));\n\n    for mut request in server.incoming_requests() {\n        let (path, query) = parse_query(request.url());\n        let method = request.method().clone();\n        if method == Method::Options {\n            let _ = request.respond(cors_preflight());\n            continue;\n        }\n"
+    },
+    {
+      "file_sha256": "cbb36d599df9757c923f7c43070a4587bfe0ed5044fd44f986b95c02e31f21ef",
+      "line_end": 553,
+      "line_start": 545,
+      "path": "uma-sim-core/src/api.rs",
+      "text": "        .collect();\n    json_response(200, json!({\"items\": items}))\n}\n\nfn handle_catalog_skills() -> Response<Cursor<Vec<u8>>> {\n    let _ = init_from_detected_repo(true);\n    json_response(200, json!({\"items\": SkillCatalog::list_all()}))\n}\n\n"
+    },
+    {
+      "file_sha256": "57db53a5b31e836746fbe6b95ee6e17a8cd230eadb8159162d9f755cde467cb7",
+      "line_end": 59,
+      "line_start": 31,
+      "path": "packages/uma-sim-ui/src/components/SkillsPanel.tsx",
+      "text": "export function SkillsPanel({ state }: { state: CareerState }) {\n  const titleId = useId();\n  const [catalog, setCatalog] = useState<SkillCatalog>(() => new Map());\n  const [status, setStatus] = useState<\"loading\" | \"ready\" | \"unavailable\">(\"loading\");\n  const [retry, setRetry] = useState(0);\n\n  useEffect(() => {\n    const controller = new AbortController();\n    setStatus(\"loading\");\n    void fetch(\"/v1/catalog/skills\", { signal: controller.signal })\n      .then(async (response) => {\n        if (!response.ok) throw new Error(\"Skill catalog request failed\");\n        return parseSkillCatalog(await response.json());\n      })\n      .then((items) => {\n        if (controller.signal.aborted) return;\n        setCatalog(items);\n        setStatus(\"ready\");\n      })\n      .catch(() => {\n        if (!controller.signal.aborted) setStatus(\"unavailable\");\n      });\n    return () => controller.abort();\n  }, [retry]);\n\n  const rows = skillRows(state.learnedSkillIds ?? [], state.hintLevels ?? {}, catalog);\n\n  return (\n    <section className=\"card skills-panel\" aria-labelledby={titleId}>\n"
+    },
+    {
+      "file_sha256": "0b41f51bb55890f31c39d435411fe6d60b3178e84f58733b27deb4b21e30cfde",
+      "line_end": 70,
+      "line_start": 42,
+      "path": "packages/uma-sim-ui/src/components/skillsView.ts",
+      "text": "  return catalog;\n}\n\n/** Derive a view from the current snapshot; never infer purchases or learned status from hints. */\nexport function skillRows(\n  learnedIds: readonly string[],\n  hintLevels: Readonly<Record<string, number>>,\n  catalog: SkillCatalog,\n) {\n  const skill = (id: string): SkillRow => ({\n    id,\n    name: catalog.get(id)?.name ?? null,\n    description: catalog.get(id)?.description ?? null,\n    kind: \"skill\",\n  });\n  // Preserve all retained learned entries, including order and duplicate IDs.\n  const learned = learnedIds.map(skill);\n  const skillHints: SkillRow[] = [];\n  const otherHints: SkillRow[] = [];\n  for (const [id, level] of Object.entries(hintLevels)) {\n    // Raw event names and facility keys are not canonical skill identities.\n    if (id.startsWith(\"skill:\")) skillHints.push({ ...skill(id), level });\n    else otherHints.push({\n      id, name: TRAINING_HINT_NAMES.get(id) ?? id, description: null, kind: \"other\", level,\n    });\n  }\n  const byId = (a: SkillRow, b: SkillRow) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0;\n  return { learned, skillHints: skillHints.sort(byId), otherHints: otherHints.sort(byId) };\n}\n"
+    }
+  ],
+  "schema": "uma.skills-independent-source-seams.v1"
+}

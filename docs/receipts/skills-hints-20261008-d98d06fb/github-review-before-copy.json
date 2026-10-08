@@ -1,0 +1,234 @@
+{
+  "schema": "uma.github.review-observations.v1",
+  "observed_at_utc": "2026-10-08T15:04:42.275Z",
+  "scope": "Normalized connector outputs; not raw HTTP custody; historical source head79be98 before copy refinement.",
+  "claim_creation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "issue": {
+        "url": "https://github.com/Jacob-Met/uma-sim/issues/96",
+        "title": "[claim] Show retained skills and hints during a career",
+        "issue_number": 96,
+        "body": "Owner: chatgpt-d98d06fbfc35/qualify_integration, operating under Jacob's HAMON execution mandate.\n\nConcrete gap at main 2378365e48234c5ae3311e1b0dd7f1247a5a9071: career snapshots retain learnedSkillIds and hintLevels, but the active career UI does not expose them; the completed-career summary shows only the first 24 raw skill IDs. Players need to inspect their retained skills and distinguish skill hints from training/other hints without changing the simulation.\n\nClaimed isolated implementation: a read-only Skills & hints panel with existing canonical catalog names/descriptions, explicit literal-ID fallback, separate learned/skill-hint/other-hint sections, and a small additive GET catalog projection. Expected edits are new UI component/helper/styles/tests, one additive App import/render, and the skill catalog/API GET seam. No skill purchasing, scoring, RNG, race, content-data, session/keyboard, run-store, career-lab, or private-package release changes.\n\nOwnership read: open claims #63 (sessions/keyboard), #86 (race history), #94 (paired batches), #73 (lab reports), and current native UMA records are preserved. Shared App/API edits will remain additive outside their named hunks and will be rechecked before integration.\n\nIsolated Mac checkout: /tmp/hamon-product-d98d06fb-20261008/uma-sim. Planned branch: work/astra-uma-skills-hints-d98d06fb-20261008. Qualification will exercise the native Rust API and browser view, including catalog failure/fallback, generic hint distinction, session state changes, full retained lists, and unchanged simulation state. Source is not yet edited or received.",
+        "state": "open",
+        "user": {
+          "login": "Jacob-Met",
+          "name": "Jacob-Met",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/150724801?v=4",
+          "id": 150724801
+        },
+        "assignees": null,
+        "labels": null,
+        "milestone": null,
+        "state_reason": null,
+        "comments": 0,
+        "created_at": "2026-10-08T14:27:59Z",
+        "updated_at": "2026-10-08T14:27:59Z",
+        "closed_at": null,
+        "display_url": "https://github.com/Jacob-Met/uma-sim/issues/96",
+        "display_title": "[claim] Show retained skills and hints during a career"
+      },
+      "url": "https://github.com/Jacob-Met/uma-sim/issues/96",
+      "title": "[claim] Show retained skills and hints during a career",
+      "display_url": "https://github.com/Jacob-Met/uma-sim/issues/96",
+      "display_title": "[claim] Show retained skills and hints during a career"
+    },
+    "isError": false
+  },
+  "pr_creation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://github.com/Jacob-Met/uma-sim/pull/99",
+      "number": 99,
+      "state": "open",
+      "merged": false,
+      "mergeable": false,
+      "draft": false,
+      "body": "## Why\n\nCareer snapshots already retain learned skills and hint levels, but the active Run tab does not show them. The completed summary shows only the first 24 raw skill IDs. Players need a readable view of the data their career actually retains.\n\n## Changes\n\nAdd a read-only skill-catalog display projection and `GET /v1/catalog/skills`, then show a Skills & hints panel in the Run tab. The panel retains complete learned lists, distinguishes explicit skill hints from training/generic/raw hints, and uses literal IDs when catalog names are missing. Catalog failure, older-server HTML, retry, and effect cleanup preserve the career view. The existing name lookup, simulation, session handling, scoring, RNG and game data stay unchanged.\n\nThe source preserves the concurrent career-lab report contribution and the named session/keyboard, race-history, paired-batch and private-package ownership scopes. Documentation and a native browser receiver are included. Refs #96.\n\n## Verification\n\n- 66/66 UI tests, including six new projection controls; normal TypeScript/Vite build passed.\n- 3/3 focused Rust tests: new display projection plus existing hint-routing controls.\n- Actual isolated Rust API and Chrome application: seven receiving cases passed on the composed current-main tree. These cover a catalog read before any career, 1,898 native catalog records, full snapshot/RNG equality through reads and a rejected POST, native checkpoint Resume with all 33 retained skills, empty replacement, literal text at 390px, HTML fallback/retry and pending-request cancellation.\n- Historical baseline absence is retained. An initial invalid fixture race-model value and a synchronous keyboard-scroll oracle failure are preserved separately; correcting the fixtures required no production-source change.\n\nPublished head: `79be98d225162699bf689c96024b760e09bb333a`. Exact tested tree: `3ab69ccb1e3bf6d73b010824e7537391c5745d2e`, parent `4eab1798def5c19fbdee267eb2a6ea8a2726dbe7`. Ordinary native Git readback verified all 11 changed blobs/modes and all 1,305 unowned first-parent entries. The connector's commit envelope differs from native source custody `cddf3bd...`; the tested tree is identical.\n\nIndependent Mac source review is passing; its one supplemental late-JSON control is still in progress. Root owns the final merge after that review and exact-tree inspection. This PR makes no installed package or private release claim. Full additive evidence is being published from `/tmp/hamon-product-d98d06fb-20261008/evidence`.\n",
+      "title": "Show retained career skills and hints with catalog names",
+      "base": "main",
+      "base_sha": "4eab1798def5c19fbdee267eb2a6ea8a2726dbe7",
+      "head": "work/astra-uma-skills-hints-d98d06fb-20261008",
+      "head_sha": "79be98d225162699bf689c96024b760e09bb333a",
+      "head_repo_id": 1355458147,
+      "head_repo_full_name": "Jacob-Met/uma-sim",
+      "merge_commit_sha": null,
+      "user": {
+        "login": "Jacob-Met",
+        "name": "Jacob-Met",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/150724801?v=4",
+        "id": 150724801
+      },
+      "requested_reviewers": null,
+      "requested_team_reviewers": null,
+      "diff": null,
+      "comments": null,
+      "created_at": "2026-10-08T14:57:22Z",
+      "updated_at": "2026-10-08T14:57:22Z",
+      "closed_at": null,
+      "merged_at": null,
+      "commits": 1,
+      "changed_files": 11,
+      "additions": 800,
+      "deletions": 3,
+      "display_url": "https://github.com/Jacob-Met/uma-sim/pull/99",
+      "display_title": "Show retained career skills and hints with catalog names"
+    },
+    "isError": false
+  },
+  "review_pr": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "url": "https://github.com/Jacob-Met/uma-sim/pull/99",
+        "number": 99,
+        "state": "open",
+        "merged": false,
+        "mergeable": true,
+        "draft": false,
+        "body": "## Why\n\nCareer snapshots already retain learned skills and hint levels, but the active Run tab does not show them. The completed summary shows only the first 24 raw skill IDs. Players need a readable view of the data their career actually retains.\n\n## Changes\n\nAdd a read-only skill-catalog display projection and `GET /v1/catalog/skills`, then show a Skills & hints panel in the Run tab. The panel retains complete learned lists, distinguishes explicit skill hints from training/generic/raw hints, and uses literal IDs when catalog names are missing. Catalog failure, older-server HTML, retry, and effect cleanup preserve the career view. The existing name lookup, simulation, session handling, scoring, RNG and game data stay unchanged.\n\nThe source preserves the concurrent career-lab report contribution and the named session/keyboard, race-history, paired-batch and private-package ownership scopes. Documentation and a native browser receiver are included. Refs #96.\n\n## Verification\n\n- 66/66 UI tests, including six new projection controls; normal TypeScript/Vite build passed.\n- 3/3 focused Rust tests: new display projection plus existing hint-routing controls.\n- Actual isolated Rust API and Chrome application: seven receiving cases passed on the composed current-main tree. These cover a catalog read before any career, 1,898 native catalog records, full snapshot/RNG equality through reads and a rejected POST, native checkpoint Resume with all 33 retained skills, empty replacement, literal text at 390px, HTML fallback/retry and pending-request cancellation.\n- Historical baseline absence is retained. An initial invalid fixture race-model value and a synchronous keyboard-scroll oracle failure are preserved separately; correcting the fixtures required no production-source change.\n\nPublished head: `79be98d225162699bf689c96024b760e09bb333a`. Exact tested tree: `3ab69ccb1e3bf6d73b010824e7537391c5745d2e`, parent `4eab1798def5c19fbdee267eb2a6ea8a2726dbe7`. Ordinary native Git readback verified all 11 changed blobs/modes and all 1,305 unowned first-parent entries. The connector's commit envelope differs from native source custody `cddf3bd...`; the tested tree is identical.\n\nIndependent Mac source review is passing; its one supplemental late-JSON control is still in progress. Root owns the final merge after that review and exact-tree inspection. This PR makes no installed package or private release claim. Full additive evidence is being published from `/tmp/hamon-product-d98d06fb-20261008/evidence`.\n",
+        "title": "Show retained career skills and hints with catalog names",
+        "base": "main",
+        "base_sha": "4eab1798def5c19fbdee267eb2a6ea8a2726dbe7",
+        "head": "work/astra-uma-skills-hints-d98d06fb-20261008",
+        "head_sha": "79be98d225162699bf689c96024b760e09bb333a",
+        "head_repo_id": 1355458147,
+        "head_repo_full_name": "Jacob-Met/uma-sim",
+        "merge_commit_sha": "3e28596f7eb8adbbd190d2f6840528a1f0399e9f",
+        "user": {
+          "login": "Jacob-Met",
+          "name": "Jacob-Met",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/150724801?v=4",
+          "id": 150724801
+        },
+        "requested_reviewers": null,
+        "requested_team_reviewers": null,
+        "diff": null,
+        "comments": null,
+        "created_at": "2026-10-08T14:57:22Z",
+        "updated_at": "2026-10-08T14:57:22Z",
+        "closed_at": null,
+        "merged_at": null,
+        "commits": 1,
+        "changed_files": 11,
+        "additions": 800,
+        "deletions": 3,
+        "display_url": "https://github.com/Jacob-Met/uma-sim/pull/99",
+        "display_title": "Show retained career skills and hints with catalog names"
+      },
+      "isError": false
+    }
+  },
+  "combined_status": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "statuses": []
+      },
+      "isError": false
+    }
+  },
+  "pr_workflow_runs": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "workflow_runs": [
+          {
+            "id": 37796741545,
+            "name": "gitleaks-secret-scan",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 142,
+            "jobs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37796741545/jobs",
+            "logs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37796741545/logs",
+            "workflow_id": 376958083
+          },
+          {
+            "id": 37796741533,
+            "name": "pr-test-gate",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 49,
+            "jobs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37796741533/jobs",
+            "logs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37796741533/logs",
+            "workflow_id": 377795279
+          },
+          {
+            "id": 37796741513,
+            "name": "ci",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 189,
+            "jobs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37796741513/jobs",
+            "logs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37796741513/logs",
+            "workflow_id": 348971533
+          }
+        ]
+      },
+      "isError": false
+    }
+  },
+  "native_packet_read_refusals": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "MCP error -32001: Request timed out [device: Mac.lan (0e3d582f-e25b-44b2-8418-9639fc4e4e33)]"
+          }
+        ],
+        "structuredContent": {
+          "error_code": "INVALID_ARGUMENT"
+        },
+        "isError": true
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "MCP error -32001: Request timed out [device: Mac.lan (0e3d582f-e25b-44b2-8418-9639fc4e4e33)]"
+          }
+        ],
+        "structuredContent": {
+          "error_code": "INVALID_ARGUMENT"
+        },
+        "isError": true
+      }
+    }
+  ]
+}

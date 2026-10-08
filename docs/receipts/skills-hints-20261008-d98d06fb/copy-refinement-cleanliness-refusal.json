@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-08T15:06:54.320395+00:00",
+  "result": "Post-commit clean-worktree guard refused its own temporary node_modules symlink",
+  "source_commit_retained": "615f22ec96281ebcb1b67afa05874f12233a26c5",
+  "untracked_path": "packages/uma-sim-ui/node_modules",
+  "link_target": "/tmp/hamon-product-d98d06fb-20261008/uma-sim/packages/uma-sim-ui/node_modules",
+  "resolution": "Remove only this exact worker-created symlink after the display check; target dependencies unchanged"
+}

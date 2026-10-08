@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-08T14:29:15.604762+00:00",
+  "binary": "/tmp/hamon-product-d98d06fb-20261008/baseline-uma-sim",
+  "binary_sha256": "fb85f762e90385bc3b07f45d42e92bfdf5ada7f980d9f751cc9cda818f3a1d8f",
+  "ui_dist": "/tmp/hamon-product-d98d06fb-20261008/baseline-ui-dist",
+  "results": [
+    {
+      "name": "baseline-rust",
+      "commands": [
+        {
+          "argv": [
+            "cargo",
+            "build",
+            "--locked",
+            "-p",
+            "uma-sim-core"
+          ],
+          "returncode": 0
+        }
+      ],
+      "elapsed_seconds": 10.996
+    },
+    {
+      "name": "baseline-ui",
+      "commands": [
+        {
+          "argv": [
+            "npm",
+            "ci",
+            "--no-audit",
+            "--no-fund"
+          ],
+          "returncode": 0
+        },
+        {
+          "argv": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "returncode": 0
+        }
+      ],
+      "elapsed_seconds": 2.925
+    }
+  ]
+}
