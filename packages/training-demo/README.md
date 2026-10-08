@@ -41,9 +41,23 @@ node packages/training-demo/build.mjs
 
 The builder imports the existing `StatsPanel`, `ChoicePanel`, UI types, and stylesheet unchanged. Its HTML entry retains the existing UI shell structure, with a demo title, description, application marker, and no-JavaScript explanation. It type-checks the actual TypeScript imports, verifies the exact reused Git blobs and fixture hash, builds with Vite, and inlines the single script and stylesheet into `out/index.html`. All temporary build files are created and removed inside this package.
 
-`out/build-receipt.json` records the input pins, locked tool versions, builder hash, and final page bytes/hash. Its UI source is pinned to commit `fe2e6fdcdf7625cb5beac0e0062ace0360288a02`, tree `6ee572f7ef9a3623a8f2bd192235787fb9fbecb9`; `nativeFixtureSource` separately preserves the simulator revision below. The UI's merged browser-test tooling changes its package metadata without changing the five reused source blobs or six direct compiler/runtime/type versions. Two independent builder invocations with these current pins produced byte-identical final pages and receipts, and the page remains byte-identical to the independently received artifact.
+`out/build-receipt.json` records the input pins, locked tool versions, builder hash, and final page bytes/hash. Its `sourceCommit` and `sourceTree` identify the qualified UI input baseline: commit `d85c09556eedbbed78a5d21204e239ef3e1900d3`, tree `178ef23920a19cf2b58117e2c683c1f001a17fe9`. The receipt records the actual package metadata separately, while `nativeFixtureSource` preserves the simulator revision below.
+
+The builder pins the five directly reused UI source blobs, the TypeScript configuration used for typechecking, and the exact lockfile. It validates every remaining `package.json` field with Node's strict structural comparison, including the complete field set, value types, object/array distinctions, and dependency declarations, while ignoring only the top-level `scripts` field. It invokes TypeScript and Vite directly and does not run those project scripts. This permits unrelated UI test-script changes without accepting dependency or other manifest changes. `inputUiBlobs` records the actual package Git blob; `nonScriptPackageSHA` records the qualified non-script manifest SHA-256 (`4956fe167824c184fd52951070ea1f3d9dede8cf471d893f1a22d99e32e910ae`).
 
 A pre-existing dependency cache may be supplied read-only with `--toolchain /path/to/uma-sim-ui`; the six direct compiler/runtime/type versions must match the canonical UI lock. The demo build does not import the UI's separate Playwright test dependency.
+
+### Check the build input boundary
+
+Use the included Node receiver with an already-installed UI toolchain and a new output directory:
+
+```sh
+node packages/training-demo/tests/receive-build.mjs \
+  --toolchain packages/uma-sim-ui \
+  --output ../uma-training-build-receipt
+```
+
+The receiver builds a fresh input copy from the current package and from a scripts-only variant whose commands would exit with an error if invoked. Both must reproduce the qualified page below. It then rejects dependency and manifest-field changes, as well as changes to the lockfile, consumed source, and TypeScript configuration, while verifying that prior output bytes remain intact. The independent receiving run passed all 11 groups with this builder against the merged UI inputs. The receiver retains its input manifest, build receipts, and raw logs, and verifies that original source inputs remain unchanged.
 
 | Artifact | SHA-256 |
 | --- | --- |

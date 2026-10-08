@@ -2,6 +2,7 @@
 // Use the existing UI's locked toolchain; never modify that package or its cache.
 import { readFile, writeFile, mkdir, mkdtemp, rm, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import { createRequire } from 'node:module';
 import { dirname, join, resolve, relative, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -22,12 +23,34 @@ const sourcePins = {
   'packages/uma-sim-ui/src/components/ChoicePanel.tsx': '21463054689cfc3c2c19258c4a98eb1e57b33c0e',
   'packages/uma-sim-ui/src/api/types.ts': '18ea43a689f67043b9cdc872c8178e16728f4de5',
   'packages/uma-sim-ui/src/styles/app.css': 'f28cbea6a9f577f6a5269341a7e5ad2a0eed1aa6',
-  'packages/uma-sim-ui/package.json': 'db6b16c96113566f0b9e9ac1b415c57a38c705af',
+  'packages/uma-sim-ui/tsconfig.json': '5cf465a006e1f120a00a325f6b151b1b0a1ddd3b',
   'packages/uma-sim-ui/package-lock.json': '10a4968db9d4507b9448dd00dba265eed483f419',
 };
 for (const [path, expected] of Object.entries(sourcePins)) {
   if (gitBlob(await readFile(join(repository, path))) !== expected) throw new Error(`Pinned UI source changed: ${path}`);
 }
+// This builder invokes Vite and TypeScript directly, not the UI package's scripts.
+// Preserve the complete remaining manifest contract, including dependency declarations.
+const expectedPackageFields = {
+  name: 'uma-sim-ui', version: '0.1.0', private: true, type: 'module',
+  license: 'GPL-3.0-only', description: 'Browser UI for uma-sim career simulator',
+  dependencies: { react: '^18.3.1', 'react-dom': '^18.3.1' },
+  devDependencies: {
+    '@types/react': '^18.3.12', '@types/react-dom': '^18.3.1',
+    '@vitejs/plugin-react': '^4.3.4', playwright: '1.62.1',
+    typescript: '^5.6.3', vite: '^5.4.11',
+  },
+};
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(',')}]`;
+  if (value !== null && typeof value === 'object') return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(',')}}`;
+  return JSON.stringify(value);
+}
+const uiPackageBytes = await readFile(join(ui, 'package.json'));
+const uiPackageFields = JSON.parse(uiPackageBytes);
+if (uiPackageFields === null || typeof uiPackageFields !== 'object' || Array.isArray(uiPackageFields)) throw new Error('Pinned UI package fields changed (only scripts may differ).');
+delete uiPackageFields.scripts;
+if (!isDeepStrictEqual(uiPackageFields, expectedPackageFields)) throw new Error('Pinned UI package fields changed (only scripts may differ).');
 const fixtureBytes = await readFile(join(root, 'fixture.json'));
 const fixtureSha256 = '906e6876f2485b012677ffda82295858ad5afda818c33b57a39fece9f992d9de';
 if (sha256(fixtureBytes) !== fixtureSha256) throw new Error('The qualified native fixture changed.');
@@ -99,10 +122,14 @@ try {
   await writeFile(join(output, 'index.html'), html);
   const receipt = {
     schema: 'uma.training-demo.build.v1',
-    sourceCommit: 'fe2e6fdcdf7625cb5beac0e0062ace0360288a02',
-    sourceTree: '6ee572f7ef9a3623a8f2bd192235787fb9fbecb9',
+    sourceCommit: 'd85c09556eedbbed78a5d21204e239ef3e1900d3',
+    sourceTree: '178ef23920a19cf2b58117e2c683c1f001a17fe9',
+    sourceScope: 'qualified UI input baseline; package scripts may differ',
     nativeFixtureSource: { commit: fixture.source.commit, tree: fixture.source.tree },
-    inputUiBlobs: sourcePins, fixtureSha256, toolchain: versions,
+    inputUiBlobs: { ...sourcePins, 'packages/uma-sim-ui/package.json': gitBlob(uiPackageBytes) },
+    nonScriptPackageSHA: sha256(canonicalJson(expectedPackageFields)),
+    ignoredPackageFields: ['scripts'],
+    fixtureSha256, toolchain: versions,
     builderSha256: sha256(await readFile(fileURLToPath(import.meta.url))),
     page: { path: 'out/index.html', bytes: Buffer.byteLength(html), sha256: sha256(html) },
     selfContained: true, typecheck: 'passed',
