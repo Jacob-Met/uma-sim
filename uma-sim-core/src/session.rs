@@ -96,6 +96,10 @@ fn publish_snapshot(path: &Path, bytes: &[u8]) -> io::Result<()> {
             std::process::id(),
             NEXT_TEMP.fetch_add(1, Ordering::Relaxed)
         ));
+        // A dangling session symlink may name this candidate itself.
+        if temporary == target {
+            continue;
+        }
         let mut options = fs::OpenOptions::new();
         options.write(true).create_new(true);
         #[cfg(unix)]
