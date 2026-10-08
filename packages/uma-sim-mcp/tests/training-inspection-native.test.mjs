@@ -79,17 +79,41 @@ test('native REST/MCP training inspection uses retained career state without spe
     }
     assert.fail('native setup did not reach training within 12 offered actions');
   }
+  async function readWithoutMutation(read) {
+    async function footprint() {
+      const sessions = await direct('GET', '/v1/sessions');
+      assert.equal(sessions.status, 200, sessions.text);
+      // The existing resolver cannot independently address an inactive default
+      // career through ?session=. Preserve every named career and the default
+      // when active without activating anything to inspect it.
+      const ids = [...new Set(sessions.data.sessions.map(row => row.id)
+        .filter(id => id !== '' || sessions.data.active === ''))].sort();
+      const snapshots = {};
+      for (const id of ids) snapshots[id] = (await getSnapshot(id)).text;
+      return { sessions: sessions.data, snapshots, files: await filesAt(join(cwd, '.uma-sim')) };
+    }
+    const before = await footprint();
+    const response = await read();
+    assert.deepEqual(await footprint(), before,
+      'each inspection must preserve every addressable career, active selection and checkpoint file');
+    return response;
+  }
+  const inspectRest = session => readWithoutMutation(() =>
+    direct('GET', '/v1/run/training' + (session === undefined ? '' : query(session))));
+  const inspectMcp = session => readWithoutMutation(() =>
+    client.call('sim_training', session === undefined ? {} : { session }));
+
   async function assertInspection(session, label) {
     const before = await getSnapshot(session);
     const expected = await nativeInspection(before.text);
     const persisted = await filesAt(join(cwd, '.uma-sim'));
     const sessions = await direct('GET', '/v1/sessions');
-    const response = await direct('GET', '/v1/run/training' + query(session));
+    const response = await inspectRest(session);
     assert.equal(response.status, 200, response.text);
     assert.match(response.type, /application\/json/);
     assert.deepEqual(response.data, expected, 'REST must return the complete unchanged native inspection');
-    assert.deepEqual(toolJson(await client.call('sim_training', { session })), expected);
-    assert.deepEqual((await direct('GET', '/v1/run/training' + query(session))).data, expected);
+    assert.deepEqual(toolJson(await inspectMcp(session)), expected);
+    assert.deepEqual((await inspectRest(session)).data, expected);
     assert.equal((await getSnapshot(session)).text, before.text, 'complete snapshot including RNG must be unchanged');
     assert.deepEqual((await direct('GET', '/v1/sessions')).data, sessions.data, 'inspection must not activate a different session');
     assert.deepEqual(await filesAt(join(cwd, '.uma-sim')), persisted, 'inspection must not write checkpoint or session files');
@@ -104,10 +128,10 @@ test('native REST/MCP training inspection uses retained career state without spe
   }
 
   await t.test('missing career and unsupported methods refuse through existing REST semantics', async () => {
-    const missing = await direct('GET', '/v1/run/training');
+    const missing = await inspectRest();
     assert.equal(missing.status, 404);
     assert.equal(missing.data?.error, 'no active run', missing.text);
-    const absent = await direct('GET', '/v1/run/training?session=unknown');
+    const absent = await inspectRest('unknown');
     assert.equal(absent.status, 404);
     assert.equal(absent.data?.error, "no such session 'unknown'", absent.text);
     assert.equal((await direct('POST', '/v1/run/training', {})).status, 405);
@@ -118,8 +142,8 @@ test('native REST/MCP training inspection uses retained career state without spe
   await t.test('default and named selection preserve active fallback and sibling careers', async () => {
     const defaultSnapshot = await start('');
     const defaultExpected = await nativeInspection(defaultSnapshot.text);
-    assert.deepEqual((await direct('GET', '/v1/run/training')).data, defaultExpected);
-    assert.deepEqual(toolJson(await client.call('sim_training')), defaultExpected);
+    assert.deepEqual((await inspectRest()).data, defaultExpected);
+    assert.deepEqual(toolJson(await inspectMcp()), defaultExpected);
     await start('training-sibling', 'unity', '702');
     const siblingBefore = await getSnapshot('training-sibling');
     await start('training-target', 'ura', '703');
@@ -129,9 +153,9 @@ test('native REST/MCP training inspection uses retained career state without spe
     assert.equal((await getSnapshot('training-sibling')).text, siblingBefore.text);
     const targetBefore = await getSnapshot('training-target');
     const active = await nativeInspection(targetBefore.text);
-    assert.deepEqual(toolJson(await client.call('sim_training')), active);
+    assert.deepEqual(toolJson(await inspectMcp()), active);
     assert.equal((await direct('GET', '/v1/sessions')).data.active, 'training-target');
-    executionError(await client.call('sim_training', { session: 'missing' }), 'no such session');
+    executionError(await inspectMcp('missing'), 'no such session');
     assert.equal((await getSnapshot('training-target')).text, targetBefore.text);
   });
 

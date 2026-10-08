@@ -13,7 +13,8 @@ test('training discovery exposes the existing immutable sample contract without 
   assert.equal(tool.inputSchema.type, 'object');
   assert.equal(tool.inputSchema.additionalProperties, false);
   assert.deepEqual(Object.keys(tool.inputSchema.properties), ['session']);
-  assert.deepEqual(tool.inputSchema.properties.session, { type: 'string', minLength: 1 });
+  assert.deepEqual(tool.inputSchema.properties.session, { type: 'string', minLength: 1,
+    description: "Nonempty named career id. Omit to use the server's active session." });
   assert.equal(requests.length, 0);
 });
 

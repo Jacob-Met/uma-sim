@@ -128,7 +128,8 @@ test("conformant handshake with newline-delimited framing", async () => {
       "sim_sessions",
       "sim_start",
       "sim_state",
-      "sim_text"
+      "sim_text",
+      "sim_training"
     ]);
 
     srv.send({ jsonrpc: "2.0", id: 4, method: "resources/list" });
