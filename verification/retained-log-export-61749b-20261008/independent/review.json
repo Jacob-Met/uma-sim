@@ -1,0 +1,147 @@
+{
+  "reviewer": "estate_runtime/61749b0088e2",
+  "disposition": "accept frozen retained-log export source at the declared native receiving boundary; no source correction requested",
+  "base_commit": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+  "base_tree": "8352de08ded783d6d23030b312c36c5b9a4b0fe1",
+  "frozen_manifest_sha256": "d237f53ecfa7af46cbe4a09a63c6a2ff56bb50e59ac41364aa5d78f31e0162bc",
+  "frozen_files": [
+    {
+      "path": "packages/uma-sim-ui/src/components/LogDownload.tsx",
+      "bytes": 1079,
+      "sha256": "cf92740a422128141f242c449f120d6e0cae02b627792b8ff388ac270f12b1d6",
+      "git_blob": "6a7257b271c1776ed377037217eb8f259e848c98",
+      "base_git_blob": null
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/logExport.ts",
+      "bytes": 2022,
+      "sha256": "7ea3a0b6066e926af6825397feb5115cebd82bbbba2923dbd900d41c09e7937c",
+      "git_blob": "67f09fbe1e860fc3bd2e0d64a7def450e7927060",
+      "base_git_blob": null
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LogPanel.tsx",
+      "bytes": 4489,
+      "sha256": "2d23c9ad7932da56d434e08c8f20af490cd9f628d71dfaa92858f0269fa557a2",
+      "git_blob": "89ec2172c8925c6c564f08c7726c7cb4c56c248a",
+      "base_git_blob": "5012e36fbee4dabe4aa0fa7243940a020b6d4ff8"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/logPanel.css",
+      "bytes": 2365,
+      "sha256": "afb5363f7aa6f9bcf089ffe755e679865b55c026bd50df1fbbcfe79efdbf7544",
+      "git_blob": "d711623e8b8b6957b61a440484f58e8edb7a0d26",
+      "base_git_blob": "7e8af97ce9aea769aca6b3f47a82d3e9cbae5546"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/log-export.test.mjs",
+      "bytes": 8550,
+      "sha256": "9ac6faa080f5e95f5b2a6302fb781e60cdc08dbb97d86960974aa19f536019f7",
+      "git_blob": "2d7fbc3fdb60a6646a606f115e8766d1adf8edf7",
+      "base_git_blob": null
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "bytes": 923,
+      "sha256": "f2b9691a77fcff7103936b9ff0717750ef404b8df53f2c019ff21ce0917412fa",
+      "git_blob": "f7fa8dd7242dfd9346e4e8d19d7c67655c64ed2d",
+      "base_git_blob": "40ef7f1cc2f78d1ade7ae1a59f30f15e16dfaa9a"
+    },
+    {
+      "path": "packages/uma-sim-ui/README.md",
+      "bytes": 7107,
+      "sha256": "604a9209d12289d7af94026d42d1bc10a2551e1922156a74d4bc340fc26e8932",
+      "git_blob": "5d0dcb5e98fba814c619a4d0ce2c161ad91f8a7e",
+      "base_git_blob": "c78ec409bb362ffc701a8e6f4117c44492f14a0a"
+    }
+  ],
+  "static_custody": {
+    "baseline_files_verified_against_existing_immutable_git_blob_manifest": 48,
+    "ui_baseline_files_verified": 47,
+    "unchanged_unowned_manifest_inputs": 44,
+    "changed_existing_paths": [
+      "packages/uma-sim-ui/README.md",
+      "packages/uma-sim-ui/package.json",
+      "packages/uma-sim-ui/src/components/LogPanel.tsx",
+      "packages/uma-sim-ui/src/components/logPanel.css"
+    ],
+    "new_paths": [
+      "packages/uma-sim-ui/src/components/LogDownload.tsx",
+      "packages/uma-sim-ui/src/components/logExport.ts",
+      "packages/uma-sim-ui/test/log-export.test.mjs"
+    ],
+    "candidate_freeze_hashes_match": true,
+    "panel_minus_exact_import_and_unfiltered_history_hook_equals_entire_previous_panel": true,
+    "css_and_readme_preserve_entire_previous_prefix": true,
+    "package_json_only_adds_focused_test_to_existing_test_script": true,
+    "App_RacePanel_runStore_logView_api_dependencies_and_existing_tests_preserved": true,
+    "fresh_remote_tree_or_publication_custody_performed_here": false
+  },
+  "behavior_review": [
+    "App supplies cs.log as history; state.textLines stays the separate summary. No inferred full engine transcript or persistence is claimed.",
+    "LogDownload receives the complete history prop, never searchLog output. Native reader filter/follow/scroll/status code is byte-preserved.",
+    "The actual click handler calls retainedLogFile synchronously before downloadLogFile; it copies the sequence and JSON.stringify completes before Blob or URL creation. Later renders cannot change the prepared string or Blob.",
+    "Versioned JSON has explicit retained-history scope and exact string-array order/count. JSON escapes controls and unpaired surrogates before UTF-8 Blob conversion. Text is a readable numbered format, not a promised lossless entry-boundary or UTF-16 encoding.",
+    "The visible native select has an implicit Log file format label; the button names the full count and disables empty history. Existing status role, aria-atomic, native controls, and focus CSS remain; a synchronous exception sets a role=alert message without claiming a saved file.",
+    "The helper appends and clicks one temporary anchor per explicit event, removes it in finally, and schedules URL revocation. The browser save decision and delayed failure behavior remain outside this qualification."
+  ],
+  "reviewed_author_evidence": [
+    {
+      "path": "/dev/shm/hamon-61749b-log-export/evidence/native-focused.json",
+      "sha256": "6bd7283fece1e2cdedffee70ccf0b6be6b49a288a6316b4ab26ee56ab95dab2d",
+      "reported_exit_code": 0,
+      "log_hash_matches": true
+    },
+    {
+      "path": "/dev/shm/hamon-61749b-log-export/evidence/typecheck.json",
+      "sha256": "73ca9316cb54b5b9384f4de7a12f5aac03f7b2488f410e0f2bc912bfe6b80836",
+      "reported_exit_code": 0,
+      "log_hash_matches": true
+    },
+    {
+      "path": "/dev/shm/hamon-61749b-log-export/evidence/build.json",
+      "sha256": "74048384ecbee3163b0f672161d45b150784164c676c85effb6b4487373a2c31",
+      "reported_exit_code": 0,
+      "log_hash_matches": true
+    },
+    {
+      "path": "/dev/shm/hamon-61749b-log-export/evidence/native-events-baseline/receipt.json",
+      "sha256": "40c495848847ce286f7fa33b21ef92c29829c5222db9db4dcb215c08753f42ef",
+      "reported_result": "original capability absence reproduced",
+      "reported_cases": 1,
+      "harness_and_recorded_blob_hashes_match": true
+    },
+    {
+      "path": "/dev/shm/hamon-61749b-log-export/evidence/native-events-candidate/receipt.json",
+      "sha256": "8085790fde260cf6dd01d055c0751d5ccd2cba37119bda2e34add8663449fda2",
+      "reported_result": "pass",
+      "reported_cases": 7,
+      "harness_and_recorded_blob_hashes_match": true
+    }
+  ],
+  "author_evidence_scope": "Inspected source and verified recorded artifact hashes; did not rerun author 12 focused or 7 React cases, typecheck, or build.",
+  "independent_native": {
+    "receipt": "native-dispatch-refusal/receipt.json",
+    "receipt_sha256": "eb9c50515d309f7054da2b03975f351923d7876c1167655e661691f93b69c4e1",
+    "harness": "review-dispatch-refusal.mjs",
+    "harness_sha256": "4e3893285734fd911587070d7eb82bbcd278b6ab679429c4ce0a123a77a1913c",
+    "scenario_count": 1,
+    "assertion_groups_passed": 7,
+    "result": "pass",
+    "meaningful_addition": "Actual React onClick composed with real Node object-URL cleanup after an authored synchronous anchor.click refusal, then explicit retry after retained-history replacement.",
+    "boundary": "Actual native React callbacks and Node Blob/URL/timer behavior; simulated document/anchor with authored synchronous refusal; no browser or download acceptance.",
+    "literal_json_coverage": "empty string, duplicates, all C0 controls, DEL, BOM, line/paragraph separators, Japanese, emoji, combining sequence, distinct lone high/low surrogates, markup and escape-looking literal text",
+    "native_urls_created_and_revoked": [
+      2,
+      2
+    ],
+    "dispatch_attempts": 2,
+    "injected_refusals": 1,
+    "automatic_retries": 0
+  },
+  "limitations": [
+    "DOM nodes and dispatch refusal are authored simulations; no browser executable, native DOM, screen reader, save dialog, actual downloaded file, or browser completion was exercised.",
+    "Native React callback execution and Node Blob/URL registration/revocation are real. This does not establish how a browser consumes a soon-revoked URL.",
+    "No product source, existing owner branch, dependency, host, or Git publication was changed by this review. Runtime source remains frozen."
+  ]
+}

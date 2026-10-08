@@ -1,0 +1,56 @@
+{
+  "mode": "baseline",
+  "result": "original capability absence reproduced",
+  "controls": {
+    "query": "race",
+    "status": "1 of 7 entries match · 1 occurrences · Following paused",
+    "entries": [
+      "Race authored result +10 fans"
+    ]
+  },
+  "download_controls": 0,
+  "fixture": [
+    "Started — ウマ娘 🏇",
+    "Rested",
+    "",
+    "Race authored result +10 fans",
+    "Rested",
+    "line 1\r\nline 2",
+    "<script>literal</script> \ud83d"
+  ],
+  "cases": [
+    {
+      "name": "retained reader works but cannot download its history",
+      "passed": true
+    }
+  ],
+  "boundary": "actual native React hooks/callbacks and Node Blob/URL lifecycle; simulated document/anchor dispatch; no browser or real save dialog",
+  "ui_root": "/dev/shm/hamon-61749b-log-export/baseline/packages/uma-sim-ui",
+  "source_files": [
+    {
+      "path": "src/components/LogPanel.tsx",
+      "sha256": "19d398a0d5f004da56d73d04233e14218ac6af798efeff2f5e85ddc3ce6bd10f"
+    },
+    {
+      "path": "src/components/logView.ts",
+      "sha256": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2"
+    }
+  ],
+  "harness_sha256": "6dbd6f6141a84ef986fbef909060aff8cf3ce4715042d19860c73b5c17bf745e",
+  "runtime": {
+    "node": "v24.19.0",
+    "typescript": "5.9.3",
+    "react": "18.3.1",
+    "renderer": "18.3.1",
+    "renderer_root": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/react-test-renderer",
+    "react_entry_sha256": "a216c390bf956cbb906c66d29fdb2e2ad6999464a5ca83e476533a6f25ad0ef3",
+    "renderer_entry_sha256": "c304f3d98e7a938dc4341c377bfbd2d14328db58359345dffd35f1bd5439703a"
+  },
+  "fetch_requests": 0,
+  "remaining_anchors": 0,
+  "object_urls_created": 0,
+  "object_urls_revoked": 0,
+  "files": [],
+  "source_unchanged": true,
+  "browser_acceptance": "unestablished"
+}
