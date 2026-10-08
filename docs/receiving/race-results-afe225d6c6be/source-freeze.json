@@ -1,0 +1,54 @@
+{
+  "repository": "Jacob-Met/uma-sim",
+  "base": "4dc00f155d29fb37887524455f0627399191c915",
+  "head": "ab287fed5e5f30b2b999c31c054b234ca1211461",
+  "tree": "5738dfd755b6bb6c7b328dd142f55d1e7ac7bf5a",
+  "claim": "https://github.com/Jacob-Met/uma-sim/issues/86",
+  "paths": [
+    {
+      "path": "packages/uma-sim-ui/README.md",
+      "bytes": 7018,
+      "sha256": "0cd4ff40ef2deb74025bdd92516f18d40c5496a44f41332e78f4f95b7f4ff6e7",
+      "git_blob": "32836e67231e8a79eb1e7bf99e07f39fb4170be6"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "bytes": 926,
+      "sha256": "5287f1ac4c1ccfd28125f25e3aae57291878986b81a0caca3a9997e7d17353bb",
+      "git_blob": "629ff6bffc0c67af067c742ecb66a3d6b6e01b41"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "bytes": 6782,
+      "sha256": "03c4d972b3287b92e44c78c6f73c32de1471e59cfd5f2cf1b4edb0a531739c5b",
+      "git_blob": "c37752faf38884913860ba48adcaff4006757b23"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/RacePanel.tsx",
+      "bytes": 3185,
+      "sha256": "6c25faa3da4f7700adfe5ff0d9d275effe9b3934e1930228335080f33559e197",
+      "git_blob": "bfcfb79e8d3a850b144d2af6c070a7b30409ffeb"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/race-results.css",
+      "bytes": 1279,
+      "sha256": "fcf111855fd7fb4911701aded6b4fa040d13b549f0892629a24078edd7b82e48",
+      "git_blob": "6dad1921d398fc2668058cc665c31580c4b4252b"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/raceResults.ts",
+      "bytes": 4020,
+      "sha256": "c7bf78335e57e8eaf538f9decd5ea0080d72fc0d877808400bec3389b6b3b8e7",
+      "git_blob": "9504a6157a7b28d972d5fd6bbd3c0f167e0fa181"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/race-results.test.mjs",
+      "bytes": 8191,
+      "sha256": "909531728fe54cb913ee5c3e8145d93abd62e02b55542c75e1f869b32f94caa9",
+      "git_blob": "cb992b455f1125911ae9f1aea1d958730f99917b"
+    }
+  ],
+  "native_api_sha256": "cca25eeadb762c71a2a4067d8d82546b72bbeb4820dca63a79134d1f49690d97",
+  "qualification": "61 native UI tests, typecheck and production build pass. Actual browser baseline reproduced; candidate browser and independent receiving are pending.",
+  "scope_note": "Production freeze only. Root composes this exact additive scope on fresh main, preserving other owners."
+}

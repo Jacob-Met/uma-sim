@@ -1,0 +1,16 @@
+
+    ○
+    │╲
+    │ ○
+    ○ ░
+    ░    gitleaks
+
+[90m2:51PM[0m DBG using github.com/wasilibs/go-re2 regex engine
+[90m2:51PM[0m DBG using gitleaks config /var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml from `--config`
+[90m2:51PM[0m DBG extending config with default config
+[90m2:51PM[0m DBG executing: /usr/bin/git -C . log -p -U0 -1
+[90m2:51PM[0m DBG skipping finding links: repository has no configured remote.
+[90m2:51PM[0m [32mINF[0m [1m1 commits scanned.[0m
+[90m2:51PM[0m DBG Note: this number might be smaller than expected due to commits with no additions
+[90m2:51PM[0m [32mINF[0m [1mscanned ~128299 bytes (128.30 KB) in 355ms[0m
+[90m2:51PM[0m [32mINF[0m [1mno leaks found[0m

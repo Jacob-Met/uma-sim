@@ -1,0 +1,42 @@
+{
+  "status": "PASS independent exact append-seam reconstruction",
+  "reviewedAt": "2026-10-08T13:53:10.958Z",
+  "currentBase": "0442091d55c0f3901f5561882ecc1ff177fcc332",
+  "contribution": "ab287fed5e5f30b2b999c31c054b234ca1211461",
+  "rootNativeCandidateReported": "6fea74452fb3bf9a0bd490ccebdc28e68276a38e",
+  "rootNativeTreeReported": "69c09a577c40b59658de229636f496e63025d3bf",
+  "readme": {
+    "bytes": 8403,
+    "sha256": "07c7c39912c5f080add258136a281a8d3af0806db35f8a9786b41e09d5a78408",
+    "gitBlob": "fbf17dd278073c05ee0dfee46e624b45af5fdd8a",
+    "baselinePrefix": {
+      "bytes": 5722,
+      "sha256": "3f9dd68d6cbaf57c2d55f9b568391a23306a0f1593495b7599a7ec41b77c7213",
+      "gitBlob": "c78ec409bb362ffc701a8e6f4117c44492f14a0a"
+    },
+    "downloadSuffix": {
+      "bytes": 1385,
+      "sha256": "2d7d114de0f260aae8dbad2fb1cc0ab8a000e4ab194ba8450e5d9a93f41f61c4",
+      "gitBlob": "e43b815ef766f9821dd1ac8757b9275caf3a5b8e"
+    },
+    "raceResultsSuffix": {
+      "bytes": 1296,
+      "sha256": "7325ddd3b801e9d88529d7370aebf27806a8e53df694021b622972908253b199",
+      "gitBlob": "51ad87d80988e3b63d0bf099c54e735e449efd56"
+    },
+    "rule": "exact044 README followed by exactab287 race-results suffix; both keep identical4dc common prefix"
+  },
+  "package": {
+    "bytes": 951,
+    "sha256": "9cc63d168f8625e4d98e2d32c9db26a091536bea2e0d52a76f78c978dbe8faa7",
+    "gitBlob": "37c2bb7283f298e4bab45dfd8733dab749a0d1a9",
+    "originalTest": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs",
+    "resultTest": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs tests/race-results.test.mjs",
+    "rule": "parse exact044 package, retain every original field, append only one inherited-compatible test entry, stringify existing2-space/newline format"
+  },
+  "limitations": [
+    "Predicted seam bytes independently match the hashes reported by root; this is not a read of the private6fea merge object.",
+    "Root owns full-current-tree preservation and73-test/typecheck/build/browser receiving.",
+    "No native histories are relabeled or repeated."
+  ]
+}

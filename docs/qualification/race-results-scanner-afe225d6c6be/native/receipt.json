@@ -1,0 +1,1136 @@
+{
+  "contract": "Exact path AND whole identity; retain default and other rules",
+  "started_utc": "2026-10-08T14:50:58Z",
+  "repository": "Jacob-Met/uma-sim",
+  "finding_source_commit": "373646ab050f355ef990088f55550177d28b18cb",
+  "current_policy_commit": "2378365e48234c5ae3311e1b0dd7f1247a5a9071",
+  "scanner": {
+    "version": "8.24.3",
+    "sha256": "e18325d568268b6efb6cd0cc721f8bea5667f4cd1c8d03618ab61987f41269ad"
+  },
+  "driver": {
+    "name": "review_gitleaks.py",
+    "sha256": "6bed73ae56b08e6ee674359ffa25a98a511b5b7934728f18dd328b6d6d69b9ea"
+  },
+  "bindings_sha256": "7a84cef8261b823c25e4e3e94d52225ddfe4e5bae2db09a74e4893cd1352e033",
+  "python": "3.14.4",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "configurations": {
+    "published": {
+      "bytes": 626,
+      "sha256": "7e5f83ee8da304f6ad7e942d482661d8be766ce18ca5e3144e6ec0d850a0b681",
+      "git_blob": "5f07f90d581bde6d58c46cffa6c23ab73bad8885"
+    },
+    "current": {
+      "bytes": 1789,
+      "sha256": "be90780c4abd7335b0a81e95005a012c8a67a08bf53914d2688bedbd4dfcc19e",
+      "git_blob": "a23640b909b35f001fac2680b53d752a5c3f9e49"
+    },
+    "candidate": {
+      "bytes": 3185,
+      "sha256": "d82c026f6aedd10c14362f7854e6f87e54d31c15c263455cc70d9b9a335bafe1",
+      "git_blob": "3f3b947e03b64689b6f02285a00002fe2f6a7e54"
+    }
+  },
+  "original_files": {
+    "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+      "bytes": 2331,
+      "sha256": "3d0d50e21fab626c2fb2c1dbfa3eac44382a582850854a250eee4979d950d103",
+      "git_blob": "c03687a53410feb6a71250f1bcf867f0ec235fd2"
+    },
+    "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": {
+      "bytes": 45578,
+      "sha256": "cb738cbc5398cf9944ffb7eef9b3988874ab8bc3f95a2cbdacb3bed37e5370d8",
+      "git_blob": "2342a75f1f8afdfaff89e9dbd5595aada3b403d9"
+    },
+    "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": {
+      "bytes": 45578,
+      "sha256": "2b3905c1bb23b5e1d7dce8d59bcbe89522597dcafc763062bca196772ca4f4d8",
+      "git_blob": "68f9f18500406eca558cb5578446eb2c93f59f8e"
+    },
+    "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+      "bytes": 13000,
+      "sha256": "004ec64c5b38fece8c6828b3ac316a04b0327d6c6c01f4cf32703c8206eafc45",
+      "git_blob": "12f17f39d1c502a0466774687a5ad3393367edbe"
+    },
+    "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+      "bytes": 21812,
+      "sha256": "06121d40b5ddae9d9900b4e52f8b583aaa066515d916f6035658faff2d6dfb9e",
+      "git_blob": "08d8e49cbeed9e7806c8026cdc9c02e7fb54a8a9"
+    }
+  },
+  "current_policy_prefix_unchanged": true,
+  "existing_rule_allowances_unchanged": 4,
+  "new_rule_allowances": 3,
+  "capacity_floor_bytes": 1073741824,
+  "groups": [
+    {
+      "name": "published-policy-baseline",
+      "fixture_commit": "3b09a182daa3329741bcd13a66fe397a37a3684c",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+          "bytes": 2331,
+          "sha256": "3d0d50e21fab626c2fb2c1dbfa3eac44382a582850854a250eee4979d950d103",
+          "git_blob": "c03687a53410feb6a71250f1bcf867f0ec235fd2"
+        },
+        "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": {
+          "bytes": 45578,
+          "sha256": "cb738cbc5398cf9944ffb7eef9b3988874ab8bc3f95a2cbdacb3bed37e5370d8",
+          "git_blob": "2342a75f1f8afdfaff89e9dbd5595aada3b403d9"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": {
+          "bytes": 45578,
+          "sha256": "2b3905c1bb23b5e1d7dce8d59bcbe89522597dcafc763062bca196772ca4f4d8",
+          "git_blob": "68f9f18500406eca558cb5578446eb2c93f59f8e"
+        },
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 13000,
+          "sha256": "004ec64c5b38fece8c6828b3ac316a04b0327d6c6c01f4cf32703c8206eafc45",
+          "git_blob": "12f17f39d1c502a0466774687a5ad3393367edbe"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+          "bytes": 21812,
+          "sha256": "06121d40b5ddae9d9900b4e52f8b583aaa066515d916f6035658faff2d6dfb9e",
+          "git_blob": "08d8e49cbeed9e7806c8026cdc9c02e7fb54a8a9"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/published-policy-baseline.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/published.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "report": {
+        "name": "published-policy-baseline.json",
+        "sha256": "468a9a7aebea1931187709f7c8500680225c56c23f5321343d33c285778032fe"
+      },
+      "log": {
+        "name": "published-policy-baseline.log",
+        "sha256": "c56e98942d63b938da2b9490b4448ba5e565056b5a4f4614575eacb992973d8d"
+      },
+      "pass": true
+    },
+    {
+      "name": "current-policy-baseline",
+      "fixture_commit": "3b09a182daa3329741bcd13a66fe397a37a3684c",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+          "bytes": 2331,
+          "sha256": "3d0d50e21fab626c2fb2c1dbfa3eac44382a582850854a250eee4979d950d103",
+          "git_blob": "c03687a53410feb6a71250f1bcf867f0ec235fd2"
+        },
+        "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": {
+          "bytes": 45578,
+          "sha256": "cb738cbc5398cf9944ffb7eef9b3988874ab8bc3f95a2cbdacb3bed37e5370d8",
+          "git_blob": "2342a75f1f8afdfaff89e9dbd5595aada3b403d9"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": {
+          "bytes": 45578,
+          "sha256": "2b3905c1bb23b5e1d7dce8d59bcbe89522597dcafc763062bca196772ca4f4d8",
+          "git_blob": "68f9f18500406eca558cb5578446eb2c93f59f8e"
+        },
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 13000,
+          "sha256": "004ec64c5b38fece8c6828b3ac316a04b0327d6c6c01f4cf32703c8206eafc45",
+          "git_blob": "12f17f39d1c502a0466774687a5ad3393367edbe"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+          "bytes": 21812,
+          "sha256": "06121d40b5ddae9d9900b4e52f8b583aaa066515d916f6035658faff2d6dfb9e",
+          "git_blob": "08d8e49cbeed9e7806c8026cdc9c02e7fb54a8a9"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/current-policy-baseline.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/current.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "report": {
+        "name": "current-policy-baseline.json",
+        "sha256": "122c0371ff92f71f00cad5102f9ea574ab0e1d52f45c07b82f029dd21d52d494"
+      },
+      "log": {
+        "name": "current-policy-baseline.log",
+        "sha256": "17619f2b9ac8e7974db72a387efc6497ee02cd30f0a532e511b574c4fbc1d3b1"
+      },
+      "pass": true
+    },
+    {
+      "name": "candidate-exact-inputs",
+      "fixture_commit": "3b09a182daa3329741bcd13a66fe397a37a3684c",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+          "bytes": 2331,
+          "sha256": "3d0d50e21fab626c2fb2c1dbfa3eac44382a582850854a250eee4979d950d103",
+          "git_blob": "c03687a53410feb6a71250f1bcf867f0ec235fd2"
+        },
+        "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": {
+          "bytes": 45578,
+          "sha256": "cb738cbc5398cf9944ffb7eef9b3988874ab8bc3f95a2cbdacb3bed37e5370d8",
+          "git_blob": "2342a75f1f8afdfaff89e9dbd5595aada3b403d9"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": {
+          "bytes": 45578,
+          "sha256": "2b3905c1bb23b5e1d7dce8d59bcbe89522597dcafc763062bca196772ca4f4d8",
+          "git_blob": "68f9f18500406eca558cb5578446eb2c93f59f8e"
+        },
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 13000,
+          "sha256": "004ec64c5b38fece8c6828b3ac316a04b0327d6c6c01f4cf32703c8206eafc45",
+          "git_blob": "12f17f39d1c502a0466774687a5ad3393367edbe"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+          "bytes": 21812,
+          "sha256": "06121d40b5ddae9d9900b4e52f8b583aaa066515d916f6035658faff2d6dfb9e",
+          "git_blob": "08d8e49cbeed9e7806c8026cdc9c02e7fb54a8a9"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/candidate-exact-inputs.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected": [],
+      "observed": [],
+      "report": {
+        "name": "candidate-exact-inputs.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "log": {
+        "name": "candidate-exact-inputs.log",
+        "sha256": "cdda19550b7db80fb8868b536d9a8c9966f14ed3a0615597a9c0d75b47c16482"
+      },
+      "pass": true
+    },
+    {
+      "name": "wrong-value",
+      "fixture_commit": "d774229ff18bd771c4493b30cbad4b5bcd265836",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+          "bytes": 2331,
+          "sha256": "598e95917e12649b5f6a6e2784a8baa92f48f511f70cb10514392cb6f1a89729",
+          "git_blob": "4ff172f11e59424627b2d29018cfca1f804f7125"
+        },
+        "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": {
+          "bytes": 45578,
+          "sha256": "ca4b3be8791ab8ba4b95b8efef5f1864ade39c0cdff15b838e0aae04eeac6fa1",
+          "git_blob": "1320774d149e331fd0ff72a7ed6cd70021f675b8"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": {
+          "bytes": 45578,
+          "sha256": "33eb080c069562dfff9fe9c4e85d695bf9c16987d9c3036c46ca6ce3d0d396b6",
+          "git_blob": "ed2dc0d2d8c8752f11359cc929e183b45fdbef78"
+        },
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 13000,
+          "sha256": "1881c784fdaa301355ab371294bd792d63f1dea0b4ef00db2102e3bb95fe1764",
+          "git_blob": "aaa9c34b03af2d599782750d5b96f46acc619d76"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+          "bytes": 21812,
+          "sha256": "c904a459f7fe2005756064896d1e210123c896567c63c3bccd888ec4278673a9",
+          "git_blob": "43963e4b685094edd89928bb2c4a45990d3d56db"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/wrong-value.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "report": {
+        "name": "wrong-value.json",
+        "sha256": "f5036c82a210b4ea4a2059549d47828a5213e1aace8176b0ce16def887c57324"
+      },
+      "log": {
+        "name": "wrong-value.log",
+        "sha256": "ea7a0e9d3176d830295ed4606b51388279c60a541b063de7f65850e9beffed43"
+      },
+      "pass": true
+    },
+    {
+      "name": "wrong-path",
+      "fixture_commit": "929d8e0be1f71b6d24aedad65271eb8ac3d4b736",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json.copy": {
+          "bytes": 2331,
+          "sha256": "3d0d50e21fab626c2fb2c1dbfa3eac44382a582850854a250eee4979d950d103",
+          "git_blob": "c03687a53410feb6a71250f1bcf867f0ec235fd2"
+        },
+        "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json.copy": {
+          "bytes": 45578,
+          "sha256": "cb738cbc5398cf9944ffb7eef9b3988874ab8bc3f95a2cbdacb3bed37e5370d8",
+          "git_blob": "2342a75f1f8afdfaff89e9dbd5595aada3b403d9"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json.copy": {
+          "bytes": 45578,
+          "sha256": "2b3905c1bb23b5e1d7dce8d59bcbe89522597dcafc763062bca196772ca4f4d8",
+          "git_blob": "68f9f18500406eca558cb5578446eb2c93f59f8e"
+        },
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json.copy": {
+          "bytes": 13000,
+          "sha256": "004ec64c5b38fece8c6828b3ac316a04b0327d6c6c01f4cf32703c8206eafc45",
+          "git_blob": "12f17f39d1c502a0466774687a5ad3393367edbe"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json.copy": {
+          "bytes": 21812,
+          "sha256": "06121d40b5ddae9d9900b4e52f8b583aaa066515d916f6035658faff2d6dfb9e",
+          "git_blob": "08d8e49cbeed9e7806c8026cdc9c02e7fb54a8a9"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/wrong-path.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json.copy",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json.copy",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json.copy",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json.copy",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json.copy",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json.copy",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json.copy",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json.copy",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json.copy",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json.copy",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json.copy",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json.copy",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json.copy",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json.copy",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json.copy",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json.copy",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "report": {
+        "name": "wrong-path.json",
+        "sha256": "1c52366b61385b8bf972305d00f2c43699938b4ecb2aa645e224cc618831c5d0"
+      },
+      "log": {
+        "name": "wrong-path.log",
+        "sha256": "3d7fb53604f2429a1233076ff27ace6cfea5dd84347283b3449a2fb01d85624a"
+      },
+      "pass": true
+    },
+    {
+      "name": "whole-value-prefix",
+      "fixture_commit": "d03616a1c13ec1c8b7e208f6b55ef9445a05b99d",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+          "bytes": 2333,
+          "sha256": "41552699330b1af15260123d6d9cdbd38a87171dbeacdfa3d1a6cada96cca345",
+          "git_blob": "66163de3a57f5588cda83baa496ae77fc30ba42d"
+        },
+        "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": {
+          "bytes": 45582,
+          "sha256": "9b482b9e38c42951905fdcb25c86c4f2abb4a87a9b059998fa9aeefa7fb2f917",
+          "git_blob": "9a0cf1c172362edb4ddca9a804ca5ead6c4fbca3"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": {
+          "bytes": 45582,
+          "sha256": "fc7faa41f665af26a72fe984146f22f87be63a1c6873148be7729bb38a8488fb",
+          "git_blob": "54807b0fab5f90a8c4c0fd23a0986d7648baf06a"
+        },
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 13003,
+          "sha256": "25bbe691c4f419741dc81dff9bf84fde93e311e822f67aa6acc10837a8bbd0ee",
+          "git_blob": "2b9e39f1822e660a6d806ce670f0e79cfb5c8250"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+          "bytes": 21814,
+          "sha256": "d7d918ccf94a12faf7cff24ca85631ad520777af99826aad0b375ba7521487fc",
+          "git_blob": "4de1c78ab9eb104c4ea4925ceca4a93bd7bfccf8"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/whole-value-prefix.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "report": {
+        "name": "whole-value-prefix.json",
+        "sha256": "749ce08da2749b6113b6e47188b5a2ac7a07a50c88053fbbb9b9ac104063fbcd"
+      },
+      "log": {
+        "name": "whole-value-prefix.log",
+        "sha256": "8fa6d2a8fd8175545c97edb9ac4c5b2472e5c2d84920afeb7680a8c28758dfa5"
+      },
+      "pass": true
+    },
+    {
+      "name": "whole-value-suffix",
+      "fixture_commit": "c95f05639680451b42531d1f9421507030e44a3e",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+          "bytes": 2333,
+          "sha256": "cedb91d2fc22cce0c75e27db9949b49c8ffbc44dff60d84b642b6438168cfa33",
+          "git_blob": "92b3aceaaf6a15d74d3f8538458110c8b88ca344"
+        },
+        "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": {
+          "bytes": 45582,
+          "sha256": "76d7fa7243c8dd742b10660856112642949b27071e7e0fb187daf141e58727ee",
+          "git_blob": "2ddb4310184b4d5b3d0da6cb5129230be2174272"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": {
+          "bytes": 45582,
+          "sha256": "1773dd805b3bd27a6b9ebaaa68ce994f90f69b048e1469aa28bbf4e6d7845c4a",
+          "git_blob": "4fb6922076dfff7cdd90d3a66ac0858b37c4ced4"
+        },
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 13003,
+          "sha256": "a7ed51dbe9e434f46ab0f538c619c1b939b2bfdfcf4cc8b1769f24a4409212d5",
+          "git_blob": "fcc58232c113c0904664c6793a43b51db2aa9e14"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+          "bytes": 21814,
+          "sha256": "1ede701f2172ba4cf130dc041f83d83331819d6a21adcfb2d1c1a8320e8ea5ab",
+          "git_blob": "a2f11ee5f174ea22257c79f5cc15da96d6e10bbb"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/whole-value-suffix.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          7,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          17,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+          1145,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          394,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          395,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          51,
+          "generic-api-key"
+        ]
+      ],
+      "report": {
+        "name": "whole-value-suffix.json",
+        "sha256": "a30fa43436d28a3428ed83d849a949147c7b86ec2c5195563cee81e4462b47fe"
+      },
+      "log": {
+        "name": "whole-value-suffix.log",
+        "sha256": "1bc632ef3a5f05163e9d1876164d4b17d2f4332aa2ff2e1829f1913a5972fb68"
+      },
+      "pass": true
+    },
+    {
+      "name": "cross-identity-path",
+      "fixture_commit": "0b36c02935c7db773b6582026328abf1a604e517",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 90,
+          "sha256": "cc7562052b6786dcc24cf02bd61bd4cb3892361ac72033695007f2aef993d2b4",
+          "git_blob": "7292209b92dc98879ee53786a370a69c1c83f665"
+        },
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+          "bytes": 64,
+          "sha256": "b939b6cd40778f13da40b755275298792b205907ea325c843c39af09ed3b61d0",
+          "git_blob": "b1e31148758dd2eedcc4e6acc2d1965c3d737ad3"
+        },
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+          "bytes": 96,
+          "sha256": "7545e21b72acffad106f3e7896e646e0cdf5836b8fbbd4340aad754348b4615b",
+          "git_blob": "56bbd95b4f63e4e97f9e3df877f7858e102ff1d2"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/cross-identity-path.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          1,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          1,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          1,
+          "generic-api-key"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          1,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+          1,
+          "generic-api-key"
+        ],
+        [
+          "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+          1,
+          "generic-api-key"
+        ]
+      ],
+      "report": {
+        "name": "cross-identity-path.json",
+        "sha256": "3dd7d6b82acdaabda36e6f38a990880e1b5a1e75a18f22a92be30851f747c577"
+      },
+      "log": {
+        "name": "cross-identity-path.log",
+        "sha256": "d46bf97bd1b58f69b53b13f5f89897be2204b7156abbc58a2d7c499218020370"
+      },
+      "pass": true
+    },
+    {
+      "name": "other-rule-same-allowed-identity",
+      "fixture_commit": "5fdee70507897df6e1faf68f1a66b06a94a25d0e",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 90,
+          "sha256": "cb6b9ab0496d3437806a771c7d3b6053c2dfdf09b73d7a128425fc1a5415824f",
+          "git_blob": "dcac2e8a99a507c6b9bbca64722b1db7693d014d"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/other-rule-same-allowed-identity.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/candidate-with-test-canary.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          1,
+          "hamon-receiving-canary"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          1,
+          "hamon-receiving-canary"
+        ]
+      ],
+      "report": {
+        "name": "other-rule-same-allowed-identity.json",
+        "sha256": "74c5e2fff8847bd2b73773008bb6ae565f780a9f7850436eda3c59478d9fca87"
+      },
+      "log": {
+        "name": "other-rule-same-allowed-identity.log",
+        "sha256": "0711cb6af2fcd39fb937d15a957a12badd6ba9c941ddad698c7ae8062f53ad6c"
+      },
+      "pass": true
+    },
+    {
+      "name": "default-github-rule",
+      "fixture_commit": "829ae0af7187abbfa7dc6fcd362fc85a32421596",
+      "input_files": {
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+          "bytes": 54,
+          "sha256": "da1ca554be18692830b1c52f0c8d657597c73a1bb62cdd107f8c51d51b2fb63a",
+          "git_blob": "d71f9cd22bee635e5324ded3f80e79521872c52e"
+        }
+      },
+      "command": [
+        "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+        "detect",
+        "--redact",
+        "-v",
+        "--exit-code=2",
+        "--report-format=json",
+        "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-review-r1/evidence/default-github-rule.json",
+        "--log-level=debug",
+        "--log-opts=-1",
+        "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "expected": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          1,
+          "github-pat"
+        ]
+      ],
+      "observed": [
+        [
+          "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+          1,
+          "github-pat"
+        ]
+      ],
+      "report": {
+        "name": "default-github-rule.json",
+        "sha256": "bebe1533b36f12b687a9d70e990c3eb24bb6005a1b55e1f09ecd6c1bd68a3d63"
+      },
+      "log": {
+        "name": "default-github-rule.log",
+        "sha256": "524b65d8a26bf0f1c4e2ec40d831f364152ef3904e0be1732f964a466b565da4"
+      },
+      "pass": true
+    }
+  ],
+  "all_original_inputs_unchanged": true,
+  "free_after_bytes": 42199232512,
+  "finished_utc": "2026-10-08T14:51:05Z",
+  "pass": true,
+  "limits": [
+    "Five source-bound finding files in synthetic local Git histories.",
+    "Does not replace exact-head full-repository hosted scanning.",
+    "Test-only canary configuration is not part of the proposed policy.",
+    "No source/evidence payload or inherited policy allowance changed."
+  ]
+}

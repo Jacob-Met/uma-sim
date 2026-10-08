@@ -61,33 +61,3 @@ paths = [
 ]
 regexTarget = "secret"
 regexes = ['''^(0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873|3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95|7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d|a3fe5fc9d14118fccd401fbe25aaf839b79a4a41d8e4c9b80ee4c980197febc4)$''']
-
-# Race-results receiving: retain these verified source and executable identities.
-# Each allowance requires the exact evidence path and the complete observed value.
-[[rules.allowlists]]
-description = "Verified source digest in the race-results native and browser receipts"
-condition = "AND"
-paths = [
-  '''^docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness\.json$''',
-  '''^docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt\.json$''',
-  '''^docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt\.json$''',
-]
-regexTarget = "secret"
-regexes = ['''^31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55$''']
-
-[[rules.allowlists]]
-description = "Verified executable digest in the race-results source and composition records"
-condition = "AND"
-paths = [
-  '''^docs/receiving/race-results-afe225d6c6be/source-freeze\.json$''',
-  '''^docs/receiving/race-results-afe225d6c6be/current-044/composition\.json$''',
-]
-regexTarget = "secret"
-regexes = ['''^cca25eeadb762c71a2a4067d8d82546b72bbeb4820dca63a79134d1f49690d97$''']
-
-[[rules.allowlists]]
-description = "Verified native build source commit in the race-results composition record"
-condition = "AND"
-paths = ['''^docs/receiving/race-results-afe225d6c6be/current-044/composition\.json$''']
-regexTarget = "secret"
-regexes = ['''^4dc00f155d29fb37887524455f0627399191c915$''']

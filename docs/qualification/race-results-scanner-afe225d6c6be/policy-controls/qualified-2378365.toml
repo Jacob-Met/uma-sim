@@ -37,31 +37,6 @@ paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current
 regexTarget = "secret"
 regexes = ['''^(b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c|fe2e6fdcdf7625cb5beac0e0062ace0360288a02)$''']
 
-# PR #91: immutable source-file SHA-256 digests verified against Git blobs.
-# Match only the exact receiving paths AND the four verified digest values.
-[[rules.allowlists]]
-description = "Verified source digests in the PR91 native report receiving evidence"
-condition = "AND"
-paths = [
-  '''^docs/receipts/career-lab-native-acd057031fb2/publication-scope\.json$''',
-  '''^docs/receipts/career-lab-native-acd057031fb2/release/local/preparation\.json$''',
-  '''^docs/receipts/career-lab-native-acd057031fb2/release/native/receipt\.json$''',
-  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/baseline/receipt\.json$''',
-  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/candidate/receipt\.json$''',
-  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/accepted-main-equality\.json$''',
-  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/adversarial-initial-oracle/receipt\.json$''',
-  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/adversarial/receipt\.json$''',
-  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/summary\.json$''',
-  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/receipt\.json$''',
-  '''^docs/receipts/lab-report-20261008/native-receiving/baseline/receipt\.json$''',
-  '''^docs/receipts/lab-report-20261008/native-receiving/candidate/receipt\.json$''',
-  '''^docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/receipt\.json$''',
-  '''^docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/receipt\.json$''',
-  '''^docs/receipts/lab-report-20261008/native-receiving/json-equivalence\.json$''',
-]
-regexTarget = "secret"
-regexes = ['''^(0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873|3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95|7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d|a3fe5fc9d14118fccd401fbe25aaf839b79a4a41d8e4c9b80ee4c980197febc4)$''']
-
 # Race-results receiving: retain these verified source and executable identities.
 # Each allowance requires the exact evidence path and the complete observed value.
 [[rules.allowlists]]

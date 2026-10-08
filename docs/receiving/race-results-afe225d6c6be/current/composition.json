@@ -1,0 +1,160 @@
+{
+  "allSourcePinsArchive": "evidence.tar.gz",
+  "ancestryGatePassed": true,
+  "base": "7a2e15f623a559b2d9d425e4e7b68c1e71f24cbb",
+  "baseLeaves": 686,
+  "baseTree": "895e790957919ee1d9e64f6336c0fc176bfb35cb",
+  "buildReuse": "Exact complete tracked UI closure, dependencies and built bytes match the qualified ce9f654f receiving. Earlier typecheck/build and browser/native executions retain their actual source identities. Incoming production edit is in the separate CLI batch output path. Full current-source native CI remains required.",
+  "incoming": [
+    {
+      "bytes": 2257,
+      "gitBlob": "0b6269a8628e8abbbdfd47a8d04bafe60e37032a",
+      "mode": "100644",
+      "path": "docs/batch-output-failures.md",
+      "sha256": "072496ec60fbb14e592aa4ac6d525ed9a20c7b6f2ded50792c5ac7ca720bd15b"
+    },
+    {
+      "bytes": 2794,
+      "gitBlob": "d71bcfed7b8a07e3369370dc5a5f285918f3cd9f",
+      "mode": "100644",
+      "path": "docs/receiving/batch-output-failures-20261008-31a349052b90/README.md",
+      "sha256": "e97a2c157636d7dbfb3569b25cd4b5fa7c6b0f67052bbf2f923045a7aa11923b"
+    },
+    {
+      "bytes": 6468,
+      "gitBlob": "7bfdbc1b5294115ab3d895e3977d38ca620d6139",
+      "mode": "100644",
+      "path": "docs/receiving/batch-output-failures-20261008-31a349052b90/engine-review.json",
+      "sha256": "ea80d1fbe2a63b641fc231f6b876e9078a3abf990000ddbe27968a662e30a911"
+    },
+    {
+      "bytes": 3032,
+      "gitBlob": "ceb857c80679612706b3721d6318636332616020",
+      "mode": "100644",
+      "path": "docs/receiving/batch-output-failures-20261008-31a349052b90/manifest.json",
+      "sha256": "4a95b6bd7614af0704ce6f9c244d13fb45cdf5789c9d3a441d8d8e32341e4ea4"
+    },
+    {
+      "bytes": 55654,
+      "gitBlob": "ed5911a90a9b31a4ba79d57ca356574a8a10410a",
+      "mode": "100644",
+      "path": "docs/receiving/batch-output-failures-20261008-31a349052b90/receiving.tar.gz",
+      "sha256": "861eca29bf4bbc2f0adecc45aae0d2d81facc74a122a79d3aed49ac7d7659e98"
+    },
+    {
+      "bytes": 2742,
+      "gitBlob": "98cea2a7ef9039a485830c8316305e68b795191c",
+      "mode": "100644",
+      "path": "docs/receiving/batch-output-failures-20261008-31a349052b90/root-review.json",
+      "sha256": "841395d2380a92e0bc95c81763dd0b7dfc51952dab10a6cd3fbacaba28707864"
+    },
+    {
+      "bytes": 20243,
+      "gitBlob": "d9b963978919dd1a8776bf066f5a27689adbb498",
+      "mode": "100644",
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "sha256": "ee7a5efa0dcadaad3c714614cf49d1fd2d7eee93abe812625601a68e64401931"
+    },
+    {
+      "bytes": 6922,
+      "gitBlob": "f42a04bfbfdcee712999085feb29e99d7a3165fd",
+      "mode": "100644",
+      "path": "uma-sim-core/tests/batch_output_failures.rs",
+      "sha256": "8ce6126356fad3dc1cf26d9351d3c800919e9a0ad5feee0c5b6d31f5ddca523a"
+    }
+  ],
+  "kind": "uma-current-main-source-receiving",
+  "nativeHead": "ce32e1256792fe0a352b131da128a8300a91e06b",
+  "nativeMergeNoConflicts": true,
+  "nativeParents": [
+    "ce9f654f4ecb805940edcb4b6b0151a3f4d4b381",
+    "7a2e15f623a559b2d9d425e4e7b68c1e71f24cbb"
+  ],
+  "nativeTree": "a63cafa8e1d2fde8130860ebbfd0c276a805422a",
+  "preservedUnownedLeaves": 682,
+  "recordedAt": "2026-10-08T13:40:46.919111+00:00",
+  "rootVisualReview": {
+    "accepted": true,
+    "observations": [
+      "Latest and earlier facts readable at390px",
+      "Raw text wraps inside panels",
+      "Visible native disclosure focus"
+    ],
+    "path": "../independent/evidence.tar.gz/browser-r2/independent-phone.png",
+    "sha256": "bba960df44d1886c498294656a291f09b55636016885f80cd8cea08742bb142c"
+  },
+  "sourceBundle": {
+    "bytes": 8311,
+    "path": "/dev/uma-root-afe225d6c6be/Uma-race-results-current-source-7a2-afe225d6c6be.bundle",
+    "sha256": "99da9c50af6bfdf334a07ab35f61c17c54cc7966c1c0b056c1ac7ca54fd1b7c3",
+    "verified": true
+  },
+  "sourceChanges": [
+    {
+      "bytes": 7018,
+      "git_blob": "32836e67231e8a79eb1e7bf99e07f39fb4170be6",
+      "mode": "100644",
+      "nativePath": "/dev/uma-root-afe225d6c6be/reference/packages/uma-sim-ui/README.md",
+      "path": "packages/uma-sim-ui/README.md",
+      "sha256": "0cd4ff40ef2deb74025bdd92516f18d40c5496a44f41332e78f4f95b7f4ff6e7"
+    },
+    {
+      "bytes": 926,
+      "git_blob": "629ff6bffc0c67af067c742ecb66a3d6b6e01b41",
+      "mode": "100644",
+      "nativePath": "/dev/uma-root-afe225d6c6be/reference/packages/uma-sim-ui/package.json",
+      "path": "packages/uma-sim-ui/package.json",
+      "sha256": "5287f1ac4c1ccfd28125f25e3aae57291878986b81a0caca3a9997e7d17353bb"
+    },
+    {
+      "bytes": 6782,
+      "git_blob": "c37752faf38884913860ba48adcaff4006757b23",
+      "mode": "100644",
+      "nativePath": "/dev/uma-root-afe225d6c6be/reference/packages/uma-sim-ui/src/App.tsx",
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "sha256": "03c4d972b3287b92e44c78c6f73c32de1471e59cfd5f2cf1b4edb0a531739c5b"
+    },
+    {
+      "bytes": 3185,
+      "git_blob": "bfcfb79e8d3a850b144d2af6c070a7b30409ffeb",
+      "mode": "100644",
+      "nativePath": "/dev/uma-root-afe225d6c6be/reference/packages/uma-sim-ui/src/components/RacePanel.tsx",
+      "path": "packages/uma-sim-ui/src/components/RacePanel.tsx",
+      "sha256": "6c25faa3da4f7700adfe5ff0d9d275effe9b3934e1930228335080f33559e197"
+    },
+    {
+      "bytes": 1279,
+      "git_blob": "6dad1921d398fc2668058cc665c31580c4b4252b",
+      "mode": "100644",
+      "nativePath": "/dev/uma-root-afe225d6c6be/reference/packages/uma-sim-ui/src/components/race-results.css",
+      "path": "packages/uma-sim-ui/src/components/race-results.css",
+      "sha256": "fcf111855fd7fb4911701aded6b4fa040d13b549f0892629a24078edd7b82e48"
+    },
+    {
+      "bytes": 4020,
+      "git_blob": "9504a6157a7b28d972d5fd6bbd3c0f167e0fa181",
+      "mode": "100644",
+      "nativePath": "/dev/uma-root-afe225d6c6be/reference/packages/uma-sim-ui/src/components/raceResults.ts",
+      "path": "packages/uma-sim-ui/src/components/raceResults.ts",
+      "sha256": "c7bf78335e57e8eaf538f9decd5ea0080d72fc0d877808400bec3389b6b3b8e7"
+    },
+    {
+      "bytes": 8191,
+      "git_blob": "cb992b455f1125911ae9f1aea1d958730f99917b",
+      "mode": "100644",
+      "nativePath": "/dev/uma-root-afe225d6c6be/reference/packages/uma-sim-ui/tests/race-results.test.mjs",
+      "path": "packages/uma-sim-ui/tests/race-results.test.mjs",
+      "sha256": "909531728fe54cb913ee5c3e8145d93abd62e02b55542c75e1f869b32f94caa9"
+    }
+  ],
+  "sourceLeaves": 689,
+  "tests": {
+    "command": "npm test",
+    "failed": 0,
+    "logSha256": "ff12129fba3eddf7b04152fc8f4a2aebb06410a412ce2799bc62056a9a423052",
+    "passed": 61,
+    "skipped": 0
+  },
+  "uiInputClosureUnchangedFrom": "ce9f654f4ecb805940edcb4b6b0151a3f4d4b381",
+  "uiInputLeaves": 50
+}

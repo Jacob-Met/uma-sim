@@ -1,0 +1,43 @@
+{
+  "source": "4dc00f155d29fb37887524455f0627399191c915",
+  "runs": [
+    {
+      "label": "baseline-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "cwd": "/dev/hamon-afe225d6c6be-uma-Kl61DF/source/packages/uma-sim-ui",
+      "exit_code": 0,
+      "seconds": 0.767,
+      "log": "baseline-tests.log",
+      "log_sha256": "d97f49cacc548e13dfc962d02f32377cb0760f6ac7f851fbee0ab5711230620e"
+    },
+    {
+      "label": "baseline-typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "/dev/hamon-afe225d6c6be-uma-Kl61DF/source/packages/uma-sim-ui",
+      "exit_code": 0,
+      "seconds": 2.243,
+      "log": "baseline-typecheck.log",
+      "log_sha256": "c7362e63c0f16360a6566d20f26f2ec0c64f5343e55ab91d622d40ba93138bd0"
+    },
+    {
+      "label": "baseline-build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/dev/hamon-afe225d6c6be-uma-Kl61DF/source/packages/uma-sim-ui",
+      "exit_code": 0,
+      "seconds": 3.623,
+      "log": "baseline-build.log",
+      "log_sha256": "64e277f63d9416accead44f3333624bc625a760be035178d821b378f6cfbf8d1"
+    }
+  ]
+}
