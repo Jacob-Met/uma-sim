@@ -1,0 +1,28 @@
+{
+  "startedAt": "2026-10-08T20:06:03.908Z",
+  "completedAt": "2026-10-08T20:09:50.905Z",
+  "command": [
+    "node",
+    "/dev/shm/integration-69570d292200-cli-persistence-inputs-v2/receive-cli-persistence.mjs",
+    "--baseline",
+    "/dev/shm/production-69570d292200/session-persistence/baseline-uma-sim",
+    "--candidate",
+    "/dev/shm/production-69570d292200/session-persistence/candidate-uma-sim",
+    "--source",
+    "/dev/shm/production-69570d292200/session-persistence/source",
+    "--session-sha256",
+    "95653ec2bc94c22598443c9e2e1c9d0301f2ec0183f0856d8c5baaa88098d637",
+    "--cli-sha256",
+    "b6acab8c62d9dfee3779f9f1b282427062a21a6030bf8dfac68654bdf2a119ed",
+    "--out",
+    "/dev/shm/integration-69570d292200-cli-persistence-native-v2-20261008T2005"
+  ],
+  "status": 1,
+  "signal": null,
+  "error": null,
+  "output": "/dev/shm/integration-69570d292200-cli-persistence-native-v2-20261008T2005",
+  "log": {
+    "path": "/dev/shm/production-69570d292200/session-persistence/independent-v2.log",
+    "sha256": "73578edda69529844f6a082fcf15b3c8d2855256f5f67dcc569027333dd1a206"
+  }
+}

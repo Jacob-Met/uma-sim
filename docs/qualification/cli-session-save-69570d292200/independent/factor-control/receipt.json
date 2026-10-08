@@ -1,0 +1,213 @@
+{
+  "recordedAt": "2026-10-08T20:13:53.064Z",
+  "reviewerRequestedControl": "At most three fresh unchanged-baseline fast commands; stop on two distinct baseline spark results; retain original v2 FAIL.",
+  "baselineBinary": {
+    "path": "/dev/shm/production-69570d292200/session-persistence/baseline-uma-sim",
+    "sha256": "bb17d29839a7485718a1fffafd9a916a4fe5f1077ef8038ae2b10de1e8376a9c",
+    "unchanged": true
+  },
+  "command": [
+    "fast",
+    "--seed=73",
+    "--scenario=ura",
+    "--dialogue=off",
+    "--race-model=stub",
+    "--deck=10001",
+    "--policy=default"
+  ],
+  "originalBaselineSparks": [
+    {
+      "color": "blue",
+      "factorId": "factor:blue:1",
+      "stars": 1,
+      "label": "speed blue"
+    },
+    {
+      "color": "red",
+      "factorId": "factor:pink:long",
+      "stars": 2,
+      "label": "long aptitude"
+    },
+    {
+      "color": "green",
+      "factorId": "skill:100011",
+      "stars": 1,
+      "label": "unique skill"
+    }
+  ],
+  "originalCandidateSparks": [
+    {
+      "color": "blue",
+      "factorId": "factor:blue:1",
+      "stars": 1,
+      "label": "speed blue"
+    },
+    {
+      "color": "red",
+      "factorId": "factor:pink:turf",
+      "stars": 2,
+      "label": "turf aptitude"
+    },
+    {
+      "color": "green",
+      "factorId": "skill:100011",
+      "stars": 1,
+      "label": "unique skill"
+    }
+  ],
+  "distinctBaselineSparkResults": 2,
+  "baselineVariationObserved": true,
+  "cases": [
+    {
+      "name": "baseline-replay-1",
+      "exit": 0,
+      "stdout": "--- State (turn 72) ---\nDate: Year 4, Month 6, Early\nStats: SPD 191 STA 123 POW 185 GUT 141 WIT 121\nEnergy: 10/100  Mood: Great  Fans: 3686  SP: 545\nScenario: happy_meek_badge=0\nEnded: career=true turn=72 fans=3686 elapsed=1446ms speed=x20 policy=default\nTerminal: U=9.000 grade=D score=2412 sp_spent=545 φ=4.50 ψ=4.50\n",
+      "stderr": "",
+      "snapshotSha256": "f7defe0ca6ac142e661c5a93275e90d4dfc8d7ec2237836514f4dc99818d3a48",
+      "sparks": [
+        {
+          "color": "blue",
+          "factorId": "factor:blue:1",
+          "stars": 1,
+          "label": "speed blue"
+        },
+        {
+          "color": "red",
+          "factorId": "factor:pink:long",
+          "stars": 2,
+          "label": "long aptitude"
+        },
+        {
+          "color": "green",
+          "factorId": "skill:100011",
+          "stars": 1,
+          "label": "unique skill"
+        }
+      ],
+      "versusOriginalBaseline": [],
+      "versusCandidate": [
+        {
+          "path": "$.state.generatedSparks.1.factorId",
+          "original": "factor:pink:turf",
+          "replay": "factor:pink:long"
+        },
+        {
+          "path": "$.state.generatedSparks.1.label",
+          "original": "turf aptitude",
+          "replay": "long aptitude"
+        },
+        {
+          "path": "$.state.log.52",
+          "original": "Generated sparks: blue 1★ (speed blue), red 2★ (turf aptitude), green 1★ (unique skill)",
+          "replay": "Generated sparks: blue 1★ (speed blue), red 2★ (long aptitude), green 1★ (unique skill)"
+        }
+      ]
+    },
+    {
+      "name": "baseline-replay-2",
+      "exit": 0,
+      "stdout": "--- State (turn 72) ---\nDate: Year 4, Month 6, Early\nStats: SPD 191 STA 123 POW 185 GUT 141 WIT 121\nEnergy: 10/100  Mood: Great  Fans: 3686  SP: 545\nScenario: happy_meek_badge=0\nEnded: career=true turn=72 fans=3686 elapsed=1750ms speed=x20 policy=default\nTerminal: U=9.000 grade=D score=2412 sp_spent=545 φ=4.50 ψ=4.50\n",
+      "stderr": "",
+      "snapshotSha256": "abf33b3e5c39d16435f36cd3f798036ee21c2a961627f448e449c662540244f8",
+      "sparks": [
+        {
+          "color": "blue",
+          "factorId": "factor:blue:1",
+          "stars": 1,
+          "label": "speed blue"
+        },
+        {
+          "color": "red",
+          "factorId": "factor:pink:long",
+          "stars": 2,
+          "label": "long aptitude"
+        },
+        {
+          "color": "green",
+          "factorId": "skill:100011",
+          "stars": 1,
+          "label": "unique skill"
+        }
+      ],
+      "versusOriginalBaseline": [],
+      "versusCandidate": [
+        {
+          "path": "$.state.generatedSparks.1.factorId",
+          "original": "factor:pink:turf",
+          "replay": "factor:pink:long"
+        },
+        {
+          "path": "$.state.generatedSparks.1.label",
+          "original": "turf aptitude",
+          "replay": "long aptitude"
+        },
+        {
+          "path": "$.state.log.52",
+          "original": "Generated sparks: blue 1★ (speed blue), red 2★ (turf aptitude), green 1★ (unique skill)",
+          "replay": "Generated sparks: blue 1★ (speed blue), red 2★ (long aptitude), green 1★ (unique skill)"
+        }
+      ]
+    },
+    {
+      "name": "baseline-replay-3",
+      "exit": 0,
+      "stdout": "--- State (turn 72) ---\nDate: Year 4, Month 6, Early\nStats: SPD 191 STA 123 POW 185 GUT 141 WIT 121\nEnergy: 10/100  Mood: Great  Fans: 3686  SP: 545\nScenario: happy_meek_badge=0\nEnded: career=true turn=72 fans=3686 elapsed=4096ms speed=x20 policy=default\nTerminal: U=9.000 grade=D score=2412 sp_spent=545 φ=4.50 ψ=4.50\n",
+      "stderr": "",
+      "snapshotSha256": "170d81ee68f5285925c3e20977d02a020bd30426f74d5f9127e0bb8e6d0c8f89",
+      "sparks": [
+        {
+          "color": "blue",
+          "factorId": "factor:blue:1",
+          "stars": 1,
+          "label": "speed blue"
+        },
+        {
+          "color": "red",
+          "factorId": "factor:pink:pace",
+          "stars": 2,
+          "label": "pace aptitude"
+        },
+        {
+          "color": "green",
+          "factorId": "skill:100011",
+          "stars": 1,
+          "label": "unique skill"
+        }
+      ],
+      "versusOriginalBaseline": [
+        {
+          "path": "$.state.generatedSparks.1.factorId",
+          "original": "factor:pink:long",
+          "replay": "factor:pink:pace"
+        },
+        {
+          "path": "$.state.generatedSparks.1.label",
+          "original": "long aptitude",
+          "replay": "pace aptitude"
+        },
+        {
+          "path": "$.state.log.52",
+          "original": "Generated sparks: blue 1★ (speed blue), red 2★ (long aptitude), green 1★ (unique skill)",
+          "replay": "Generated sparks: blue 1★ (speed blue), red 2★ (pace aptitude), green 1★ (unique skill)"
+        }
+      ],
+      "versusCandidate": [
+        {
+          "path": "$.state.generatedSparks.1.factorId",
+          "original": "factor:pink:turf",
+          "replay": "factor:pink:pace"
+        },
+        {
+          "path": "$.state.generatedSparks.1.label",
+          "original": "turf aptitude",
+          "replay": "pace aptitude"
+        },
+        {
+          "path": "$.state.log.52",
+          "original": "Generated sparks: blue 1★ (speed blue), red 2★ (turf aptitude), green 1★ (unique skill)",
+          "replay": "Generated sparks: blue 1★ (speed blue), red 2★ (pace aptitude), green 1★ (unique skill)"
+        }
+      ]
+    }
+  ]
+}

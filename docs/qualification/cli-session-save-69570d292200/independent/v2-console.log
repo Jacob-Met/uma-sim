@@ -1,0 +1,1797 @@
+{
+  "recordedAt": "2026-10-08T20:09:50.859Z",
+  "reviewer": "integration_lane",
+  "runtime": "v22.22.1",
+  "platform": "linux",
+  "source": "/dev/shm/production-69570d292200/session-persistence/source",
+  "sourcePins": {
+    "uma-sim-core/src/session.rs": {
+      "bytes": 6332,
+      "sha256": "95653ec2bc94c22598443c9e2e1c9d0301f2ec0183f0856d8c5baaa88098d637",
+      "gitBlob": "8298731be4ee70a6338cc5d708c7c5f2f4549749"
+    },
+    "uma-sim-core/src/bin/uma-sim.rs": {
+      "bytes": 21562,
+      "sha256": "b6acab8c62d9dfee3779f9f1b282427062a21a6030bf8dfac68654bdf2a119ed",
+      "gitBlob": "f54c2c50cdae8b78ed75c0eec89a0cdca9f36a37"
+    }
+  },
+  "binaryPins": {
+    "baseline": {
+      "path": "/dev/shm/production-69570d292200/session-persistence/baseline-uma-sim",
+      "bytes": 13582960,
+      "sha256": "bb17d29839a7485718a1fffafd9a916a4fe5f1077ef8038ae2b10de1e8376a9c"
+    },
+    "candidate": {
+      "path": "/dev/shm/production-69570d292200/session-persistence/candidate-uma-sim",
+      "bytes": 13605864,
+      "sha256": "ab4bbcaf06e55234abe688ec50cce7e8307e155fdc2a1dacbde769c28f61ff03"
+    }
+  },
+  "sourceUnchanged": true,
+  "binariesUnchanged": true,
+  "program": {
+    "bytes": 17683,
+    "sha256": "54ba104a4253c3dd3ffe45c707d3ba215cd874d0ebe826ae5bba25f4df383b5e"
+  },
+  "faultShim": {
+    "bytes": 5083,
+    "sha256": "68b9b4cf5f0629f942d93b69c14703f25db0b874aa0ba612c68162aa33e43585",
+    "compiledSha256": "7ff07dc1a1a798098c5591383d48dba27cba99bda1156aed8e917db91c08f14a"
+  },
+  "priorSnapshot": {
+    "bytes": 2954,
+    "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+  },
+  "cases": [
+    {
+      "name": "baseline-healthy-start",
+      "binary": "baseline",
+      "args": [
+        "start",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001"
+      ],
+      "phase": "normal",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 216,
+      "stdoutSha256": "eea47b2107d10e574a0036628380b730a778b42f06c3ba17b2db89a3ee17d821",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "b9256582650a5ed5b05f3c92419ea33a949a2e6892b97783575bf5981b8ce105",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "b9256582650a5ed5b05f3c92419ea33a949a2e6892b97783575bf5981b8ce105"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "baseline-healthy-step",
+      "binary": "baseline",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "normal",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 234,
+      "stdoutSha256": "072cfd6cc1589746ae9558a81bc53732cde60af8385cb3d4592182fbd925ff3b",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "43eb096e75e31cea8ef582bedcf5d217e8faafcaa77cf38cb276c8a5b525ab11",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "43eb096e75e31cea8ef582bedcf5d217e8faafcaa77cf38cb276c8a5b525ab11"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "baseline-healthy-fast",
+      "binary": "baseline",
+      "args": [
+        "fast",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001",
+        "--policy=default"
+      ],
+      "phase": "normal",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 321,
+      "stdoutSha256": "9f2c3eb45a95bdaef7008531ffa9e68735dff1bd350f1c7ef08e23530c343c1a",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 5963,
+      "afterSha256": "212610037a48de5cfd1e6a2fe2266f79f593f5cefa209151ec16c45e10a112f9",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 5963,
+          "sha256": "212610037a48de5cfd1e6a2fe2266f79f593f5cefa209151ec16c45e10a112f9"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 72 | 4/6 half 1\nStats SPD=191 STA=123 POW=185 GUT=141 WIT=121\nEnergy=10 Mood=GREAT Fans=3686 SP=545\nPhase=COMPLETE PendingRace=null\nDeck=1 Legacy=0\nComplete=true\n"
+    },
+    {
+      "name": "baseline-healthy-deck",
+      "binary": "baseline",
+      "args": [
+        "deck",
+        "place",
+        "10001",
+        "speed"
+      ],
+      "phase": "normal",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 22,
+      "stdoutSha256": "035beb8163766e4b99ea1b515f60c03e06276a265dccc3e23aeee74a44ef76b5",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "898a10e38a2ace3d414de8db9254ca4bbcec8ea64347a1470963e92d03469404",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "898a10e38a2ace3d414de8db9254ca4bbcec8ea64347a1470963e92d03469404"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-healthy-start",
+      "binary": "candidate",
+      "args": [
+        "start",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001"
+      ],
+      "phase": "normal",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 216,
+      "stdoutSha256": "eea47b2107d10e574a0036628380b730a778b42f06c3ba17b2db89a3ee17d821",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "f033405dff73ac3c89a819cfc7310a829c820767a69bdc06ffc86cdf464bfaf3",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "f033405dff73ac3c89a819cfc7310a829c820767a69bdc06ffc86cdf464bfaf3"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-healthy-step",
+      "binary": "candidate",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "normal",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 234,
+      "stdoutSha256": "072cfd6cc1589746ae9558a81bc53732cde60af8385cb3d4592182fbd925ff3b",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "9f6f7fe95e7ac93604b3648202733b2676fbd6ba3d598f68f1881e787f06208c",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "9f6f7fe95e7ac93604b3648202733b2676fbd6ba3d598f68f1881e787f06208c"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-healthy-fast",
+      "binary": "candidate",
+      "args": [
+        "fast",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001",
+        "--policy=default"
+      ],
+      "phase": "normal",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 321,
+      "stdoutSha256": "ea01ade6f4c5bf3d447f14fd10e709504809f4e9a95862ccf1504056f429bd76",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 5963,
+      "afterSha256": "6e14d7b245bfdf70cee205903311dcd0588f9634e51526e93f8dc55fa9df9559",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 5963,
+          "sha256": "6e14d7b245bfdf70cee205903311dcd0588f9634e51526e93f8dc55fa9df9559"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 72 | 4/6 half 1\nStats SPD=191 STA=123 POW=185 GUT=141 WIT=121\nEnergy=10 Mood=GREAT Fans=3686 SP=545\nPhase=COMPLETE PendingRace=null\nDeck=1 Legacy=0\nComplete=true\n"
+    },
+    {
+      "name": "candidate-healthy-deck",
+      "binary": "candidate",
+      "args": [
+        "deck",
+        "place",
+        "10001",
+        "speed"
+      ],
+      "phase": "normal",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 22,
+      "stdoutSha256": "035beb8163766e4b99ea1b515f60c03e06276a265dccc3e23aeee74a44ef76b5",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "ec5ebf36f7de576e391771f04f730d1c0caefc86c49be7d5a30eef7c63d0a91b",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "ec5ebf36f7de576e391771f04f730d1c0caefc86c49be7d5a30eef7c63d0a91b"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "baseline-limited-start",
+      "binary": "baseline",
+      "args": [
+        "start",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001"
+      ],
+      "phase": "limit",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 216,
+      "stdoutSha256": "eea47b2107d10e574a0036628380b730a778b42f06c3ba17b2db89a3ee17d821",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 1024,
+      "afterSha256": "5880d15479dca8ffa805b33868f5c64c0c113dbd01217b9f512e0f78f5061316",
+      "priorPreserved": false,
+      "afterJson": false,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 1024,
+          "sha256": "5880d15479dca8ffa805b33868f5c64c0c113dbd01217b9f512e0f78f5061316"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "No session. Run: start --seed=42\n"
+    },
+    {
+      "name": "baseline-limited-step",
+      "binary": "baseline",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "limit",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 234,
+      "stdoutSha256": "072cfd6cc1589746ae9558a81bc53732cde60af8385cb3d4592182fbd925ff3b",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 1024,
+      "afterSha256": "d3752ba751dc6b52608afe9672fd40f47f2d4e01f3029ba075ba2e6576f79089",
+      "priorPreserved": false,
+      "afterJson": false,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 1024,
+          "sha256": "d3752ba751dc6b52608afe9672fd40f47f2d4e01f3029ba075ba2e6576f79089"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "No session. Run: start --seed=42\n"
+    },
+    {
+      "name": "baseline-limited-fast",
+      "binary": "baseline",
+      "args": [
+        "fast",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001",
+        "--policy=default"
+      ],
+      "phase": "limit",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 321,
+      "stdoutSha256": "e636eb1ea8efb80f9c3257c9bec05ff107aabd8a2d523382177310b29ae8bf79",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 1024,
+      "afterSha256": "95858590f78d8862132975288d4857b12dc08619f3606c6943b0aee52c7ac24f",
+      "priorPreserved": false,
+      "afterJson": false,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 1024,
+          "sha256": "95858590f78d8862132975288d4857b12dc08619f3606c6943b0aee52c7ac24f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "No session. Run: start --seed=42\n"
+    },
+    {
+      "name": "baseline-limited-deck",
+      "binary": "baseline",
+      "args": [
+        "deck",
+        "place",
+        "10001",
+        "speed"
+      ],
+      "phase": "limit",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 22,
+      "stdoutSha256": "035beb8163766e4b99ea1b515f60c03e06276a265dccc3e23aeee74a44ef76b5",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 1024,
+      "afterSha256": "d3752ba751dc6b52608afe9672fd40f47f2d4e01f3029ba075ba2e6576f79089",
+      "priorPreserved": false,
+      "afterJson": false,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 1024,
+          "sha256": "d3752ba751dc6b52608afe9672fd40f47f2d4e01f3029ba075ba2e6576f79089"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "No session. Run: start --seed=42\n"
+    },
+    {
+      "name": "candidate-limited-start",
+      "binary": "candidate",
+      "args": [
+        "start",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001"
+      ],
+      "phase": "limit",
+      "fixture": "regular",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "priorPreserved": true,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-limited-step",
+      "binary": "candidate",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "limit",
+      "fixture": "regular",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "priorPreserved": true,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-limited-fast",
+      "binary": "candidate",
+      "args": [
+        "fast",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001",
+        "--policy=default"
+      ],
+      "phase": "limit",
+      "fixture": "regular",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "priorPreserved": true,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-limited-deck",
+      "binary": "candidate",
+      "args": [
+        "deck",
+        "place",
+        "10001",
+        "speed"
+      ],
+      "phase": "limit",
+      "fixture": "regular",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "priorPreserved": true,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-sync-failure",
+      "binary": "candidate",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "sync",
+      "fixture": "regular",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "HAMON_INDEPENDENT_FAULT sync fsync bytes=2954\nFailed to save session: Input/output error (os error 5)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "priorPreserved": true,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-rename-failure",
+      "binary": "candidate",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "rename",
+      "fixture": "regular",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "HAMON_INDEPENDENT_FAULT rename bytes=2954\nFailed to save session: Input/output error (os error 5)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "priorPreserved": true,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-obstructed-start",
+      "binary": "candidate",
+      "args": [
+        "start",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001"
+      ],
+      "phase": "parent-obstruction",
+      "fixture": "obstruction",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Failed to save session: File exists (os error 17)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": null,
+      "afterSha256": null,
+      "priorPreserved": null,
+      "afterJson": null,
+      "beforeEntries": null,
+      "afterEntries": null,
+      "reloadExit": null,
+      "reloadStdout": null
+    },
+    {
+      "name": "candidate-obstructed-fast",
+      "binary": "candidate",
+      "args": [
+        "fast",
+        "--seed=73",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--deck=10001",
+        "--policy=default"
+      ],
+      "phase": "parent-obstruction",
+      "fixture": "obstruction",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Failed to save session: File exists (os error 17)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": null,
+      "afterSha256": null,
+      "priorPreserved": null,
+      "afterJson": null,
+      "beforeEntries": null,
+      "afterEntries": null,
+      "reloadExit": null,
+      "reloadStdout": null
+    },
+    {
+      "name": "candidate-symlink-alias-preservation",
+      "binary": "candidate",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "normal",
+      "fixture": "symlink",
+      "exit": 0,
+      "stdoutBytes": 234,
+      "stdoutSha256": "072cfd6cc1589746ae9558a81bc53732cde60af8385cb3d4592182fbd925ff3b",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "25fcf0e37ed38fc5ad38e1b4486f303ccf3be3a9a49de60e5262af99c855b773",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "symlink",
+          "target": "other-career.json"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "25fcf0e37ed38fc5ad38e1b4486f303ccf3be3a9a49de60e5262af99c855b773"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "symlink",
+          "target": "other-career.json"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-hardlink-alias-preservation",
+      "binary": "candidate",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "normal",
+      "fixture": "hardlink",
+      "exit": 0,
+      "stdoutBytes": 234,
+      "stdoutSha256": "072cfd6cc1589746ae9558a81bc53732cde60af8385cb3d4592182fbd925ff3b",
+      "stderr": "",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "cd669b8e0b252c75981b0a4a67306e5bbf69cd9a2151db9621cc672452fb4e58",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "hardlinked-prior.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "hardlinked-prior.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "cd669b8e0b252c75981b0a4a67306e5bbf69cd9a2151db9621cc672452fb4e58"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-symlink-failed-write",
+      "binary": "candidate",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "limit",
+      "fixture": "symlink",
+      "exit": 1,
+      "stdoutBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "priorPreserved": true,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "symlink",
+          "target": "other-career.json"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "symlink",
+          "target": "other-career.json"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    },
+    {
+      "name": "candidate-exclusive-name-collision",
+      "binary": "candidate",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "phase": "collision",
+      "fixture": "regular",
+      "exit": 0,
+      "stdoutBytes": 234,
+      "stdoutSha256": "072cfd6cc1589746ae9558a81bc53732cde60af8385cb3d4592182fbd925ff3b",
+      "stderr": "HAMON_INDEPENDENT_COLLISION /dev/shm/integration-69570d292200-cli-persistence-native-v2-20261008T2005/candidate-exclusive-name-collision/.uma-sim/.session-1193424-0.tmp\n",
+      "priorBytes": 2954,
+      "priorSha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f",
+      "afterBytes": 2954,
+      "afterSha256": "7c1d77e8caa573e65760b6ed5b32c2803348512a4591a9cfd7c698209084f5da",
+      "priorPreserved": false,
+      "afterJson": true,
+      "beforeEntries": {
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "afterEntries": {
+        ".session-1193424-0.tmp": {
+          "kind": "regular",
+          "bytes": 46,
+          "sha256": "17b576ab48da28a4ffd5921ba01162fd8a8fa2b229f8887ab6cd8ea0b633e605"
+        },
+        "other-career.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "3eec274518815b4c601a77f57c87ffe85226ab25b85d7752672bc36988d9d50f"
+        },
+        "other.tmp": {
+          "kind": "regular",
+          "bytes": 34,
+          "sha256": "9f8412146f2313129a1986877ae29deaaf2ed0a4711dd9b5e9b25d37dae60d74"
+        },
+        "session.json": {
+          "kind": "regular",
+          "bytes": 2954,
+          "sha256": "7c1d77e8caa573e65760b6ed5b32c2803348512a4591a9cfd7c698209084f5da"
+        },
+        "unrelated-link": {
+          "kind": "symlink",
+          "target": "unrelated.txt"
+        },
+        "unrelated.txt": {
+          "kind": "regular",
+          "bytes": 27,
+          "sha256": "b6649f1d0f71328cc8b1d999fed3ef96be6a1e0bf1b05586d78fe76407d35812"
+        }
+      },
+      "reloadExit": 0,
+      "reloadStdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n"
+    }
+  ],
+  "failures": [
+    {
+      "name": "healthy-source-parity-fast",
+      "message": "normal snapshot, RNG, reloaded state and output preserve original semantics\n+ actual - expected\n... Skipped lines\n\n  {\n    reload: 'Turn 72 | 4/6 half 1\\n' +\n      'Stats SPD=191 STA=123 POW=185 GUT=141 WIT=121\\n' +\n      'Energy=10 Mood=GREAT Fans=3686 SP=545\\n' +\n      'Phase=COMPLETE PendingRace=null\\n' +\n...\n            color: 'red',\n+           factorId: 'factor:pink:turf',\n+           label: 'turf aptitude',\n-           factorId: 'factor:pink:long',\n-           label: 'long aptitude',\n            stars: 2\n          },\n          {\n            color: 'green',\n            factorId: 'skill:100011',\n...\n          'Career complete',\n+         'Generated sparks: blue 1★ (speed blue), red 2★ (turf aptitude), green 1★ (unique skill)'\n-         'Generated sparks: blue 1★ (speed blue), red 2★ (long aptitude), green 1★ (unique skill)'\n        ],\n        maxEnergy: 100,\n        meta: {\n          compatibilityScore: 0,\n          deckSupports: [\n",
+      "stack": "AssertionError [ERR_ASSERTION]: normal snapshot, RNG, reloaded state and output preserve original semantics\n+ actual - expected\n... Skipped lines\n\n  {\n    reload: 'Turn 72 | 4/6 half 1\\n' +\n      'Stats SPD=191 STA=123 POW=185 GUT=141 WIT=121\\n' +\n      'Energy=10 Mood=GREAT Fans=3686 SP=545\\n' +\n      'Phase=COMPLETE PendingRace=null\\n' +\n...\n            color: 'red',\n+           factorId: 'factor:pink:turf',\n+           label: 'turf aptitude',\n-           factorId: 'factor:pink:long',\n-           label: 'long aptitude',\n            stars: 2\n          },\n          {\n            color: 'green',\n            factorId: 'skill:100011',\n...\n          'Career complete',\n+         'Generated sparks: blue 1★ (speed blue), red 2★ (turf aptitude), green 1★ (unique skill)'\n-         'Generated sparks: blue 1★ (speed blue), red 2★ (long aptitude), green 1★ (unique skill)'\n        ],\n        maxEnergy: 100,\n        meta: {\n          compatibilityScore: 0,\n          deckSupports: [\n\n    at file:///dev/shm/integration-69570d292200-cli-persistence-inputs-v2/receive-cli-persistence.mjs:150:10\n    at attempt (file:///dev/shm/integration-69570d292200-cli-persistence-inputs-v2/receive-cli-persistence.mjs:73:7)\n    at file:///dev/shm/integration-69570d292200-cli-persistence-inputs-v2/receive-cli-persistence.mjs:149:44\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)"
+    }
+  ],
+  "result": "FAIL",
+  "boundary": "Reviewer-authored public native CLI receiver; original/current source and candidate binary provenance recorded separately by native builder; child-only RLIMIT and private-directory interposition; no source edits, installs, other-owner writes, command serialization or power-loss durability claim."
+}

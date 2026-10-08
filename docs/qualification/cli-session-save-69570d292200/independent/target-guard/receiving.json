@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "head": "acbe58aeface82d7e3cac1134c6d7126a910bb15",
+  "candidateSha256": "ab4bbcaf06e55234abe688ec50cce7e8307e155fdc2a1dacbde769c28f61ff03",
+  "sessionSha256": "95653ec2bc94c22598443c9e2e1c9d0301f2ec0183f0856d8c5baaa88098d637",
+  "reviewerProgramSha256": "8e3ed96745ad529bd99dedc88c9a0e702e67e37d1d5da1ed62d60bf35e4d84a6",
+  "shimSha256": "7ff07dc1a1a798098c5591383d48dba27cba99bda1156aed8e917db91c08f14a",
+  "childPid": 1220912,
+  "sessionLink": ".session-1220912-0.tmp",
+  "firstExclusiveCollision": "/dev/shm/integration-69570d292200-cli-target-guard-20261008T2013/.uma-sim/.session-1220912-1.tmp",
+  "targetBytes": 2954,
+  "targetSha256": "55cf01e708f81c72c561b941cd303d6af5677365f06467cb72ec1eb8a5086bee",
+  "nativeStateReload": true,
+  "unrelatedBytesPreserved": true,
+  "collisionBytesPreserved": true,
+  "sourceAndBinaryUnchanged": true,
+  "start": {
+    "exit": 0,
+    "stdout": "--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: happy_meek_badge=0\n=== Year 1 Jun (Late), turn 1 ===\nChoices: race\n",
+    "stderr": "HAMON_INDEPENDENT_COLLISION /dev/shm/integration-69570d292200-cli-target-guard-20261008T2013/.uma-sim/.session-1220912-1.tmp\n"
+  },
+  "state": {
+    "exit": 0,
+    "stdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=1 Legacy=0\nComplete=false\n",
+    "stderr": ""
+  },
+  "boundary": "Reviewer-authored focused program, executed unchanged by native binary owner. After-correction observation only; no uncorrected native binary was executed for this edge."
+}

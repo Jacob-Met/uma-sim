@@ -1,0 +1,21 @@
+cargo test --offline --locked -p uma-sim-core --test cli_session_persistence
+cargo 1.93.1 (083ac5135 2025-12-15) (built from a source tarball)
+rustc 1.93.1 (01f6ddf75 2026-02-11) (built from a source tarball)
+   Compiling uma-sim-core v0.1.0 (/dev/shm/production-69570d292200/session-persistence/source/uma-sim-core)
+    Finished `test` profile [unoptimized] target(s) in 1m 42s
+     Running tests/cli_session_persistence.rs (/dev/shm/production-69570d292200/session-persistence/target/debug/deps/cli_session_persistence-7b1ca9b5ef66e414)
+
+running 10 tests
+test dangling_session_symlink_can_start_a_career ... ok
+test existing_session_symlink_still_publishes_to_its_target ... ok
+test start_reports_obstructed_parent_without_success_output ... ok
+test fast_reports_obstructed_parent_without_success_output ... ok
+test replacing_session_retains_existing_permissions ... ok
+test deck_write_failure_preserves_prior_career ... ok
+test fast_write_failure_preserves_prior_career ... ok
+test start_write_failure_preserves_prior_career ... ok
+test healthy_commands_publish_reloadable_sessions ... ok
+test step_write_failure_preserves_prior_career ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.80s
+
