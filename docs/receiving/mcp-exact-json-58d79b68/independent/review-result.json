@@ -1,0 +1,286 @@
+{
+  "schema": "uma_mcp.independent_receiving_verdict.v1",
+  "recorded_at": "2026-10-08T16:03:39.755Z",
+  "reviewer": "chatgpt:58d79b68c9e4:product_work",
+  "verdict": "pass_for_exact_frozen_native_production",
+  "owner_claim": "https://github.com/Jacob-Met/uma-sim/issues/102",
+  "receiver_reservation": "https://github.com/Jacob-Met/uma-sim/issues/102#issuecomment-6063342444",
+  "production": {
+    "source": "/Users/me/uma-mcp-exact-json-58d79b68/packages/uma-sim-mcp/mcp-stdio.js",
+    "sha256": "3d5f61a368bae5b4bf91ba839b925820ef949a4bb9274dcf7e9d91e9cc02a736",
+    "git_blob": "59df3ce6d6b18112ac9e25aed02a07346fca3f00",
+    "bytes": 21273,
+    "mode": 420
+  },
+  "source_base": "b026a21f437789d7a7cd04c5074258302e36814e",
+  "source_base_tree": "359cc10294331337e200c433d95d170ea439e087",
+  "protocol": {
+    "total": 107,
+    "passed": 107,
+    "failed": 0,
+    "skipped": 0,
+    "receiver_errors": 0,
+    "exit": 0,
+    "result_sha256": "0eddba9013704390e35d4d8cc5222f1bb336740b44113477ad72619f7a485a0a"
+  },
+  "native": {
+    "total": 45,
+    "passed": 45,
+    "failed": 0,
+    "skipped": 0,
+    "receiver_errors": 0,
+    "exit": 0,
+    "result_sha256": "f8f64319a54736309bbc942b2e62906e9ebaa3ef4658b078a0407ab7ee7f9427",
+    "binary_sha256": "149620074b6fb756d1dc9c8775e2afbb68d82791e12d6a2870cd90e546f02c17",
+    "canonical_native_catalog_leaves": 136,
+    "actual_seed_continuations": [
+      {
+        "seed": "42",
+        "imported_checkpoint": "text-import-0",
+        "resumed_session": "text-resumed-0",
+        "actions": [
+          {
+            "action": "race",
+            "source_sha256": "7af57f1bf8c1a6a5a86ed5e4d5f5c92a65a61ae1b2b157ea9002d4dfa9cf7526",
+            "resumed_sha256": "3a91a61d4680b7cb8652d0cd9900a68ec81cf98bfadc3d33b4fe774ea83a4030",
+            "rng_calls_raw": "4",
+            "rng_state_changed": true
+          },
+          {
+            "action": "train_speed",
+            "source_sha256": "f95b98ae370475fedc9fecc05e8c5f2d5e7a6406132061936100651e6f26b89a",
+            "resumed_sha256": "9a328b7fa718ec5f55e82ab2ef8df1b5ea995df8e5c5f29dcf0074b46730fe47",
+            "rng_calls_raw": "10",
+            "rng_state_changed": true
+          }
+        ]
+      },
+      {
+        "seed": "9007199254740993",
+        "imported_checkpoint": "text-import-1",
+        "resumed_session": "text-resumed-1",
+        "actions": [
+          {
+            "action": "race",
+            "source_sha256": "c0741282874fee5afb8c785cd59308e37ac5d62ae27072e67f22e387cada7daa",
+            "resumed_sha256": "5e3d86d4bf65b07b40f971b4c3c4baaeacb5428165c7aa6bf97579c42a6bf2fc",
+            "rng_calls_raw": "4",
+            "rng_state_changed": true
+          },
+          {
+            "action": "train_speed",
+            "source_sha256": "67ec978c1c5b9aac55d5e74c32dcfe92f9ad3ac77e908b751ae00bfb0733192a",
+            "resumed_sha256": "4546fcd882976b612399127761441535c4e814ad73737dc3727d38f78e29a865",
+            "rng_calls_raw": "10",
+            "rng_state_changed": true
+          }
+        ]
+      },
+      {
+        "seed": "-9007199254740993",
+        "imported_checkpoint": "text-import-2",
+        "resumed_session": "text-resumed-2",
+        "actions": [
+          {
+            "action": "race",
+            "source_sha256": "073db95e1a656d8497ee987b506c9896bda73af6a398148aed9dbc5a6ed31c8a",
+            "resumed_sha256": "cfa5a21c5a535904a81aade23979e78783cc6d7985401ae7c68b7efe4293190b",
+            "rng_calls_raw": "4",
+            "rng_state_changed": true
+          },
+          {
+            "action": "train_speed",
+            "source_sha256": "a481fe2847ffebee0d3180299ffc819e365576bf0f07953edffc7d799bb897af",
+            "resumed_sha256": "6a256bcca116a568f4dbe6222990a7ca3ac027a154ee9c92dbe81bdaf6f474b9",
+            "rng_calls_raw": "10",
+            "rng_state_changed": true
+          }
+        ]
+      },
+      {
+        "seed": "9223372036854775806",
+        "imported_checkpoint": "text-import-3",
+        "resumed_session": "text-resumed-3",
+        "actions": [
+          {
+            "action": "race",
+            "source_sha256": "2438f6c310a8715ddf45826fc6505cad8459908f31e5d0fb3112fa2fb64fe9d8",
+            "resumed_sha256": "c1dc56d10fb2ba677b56768b077eb158c11e6bba8100197210f70eb62b6406ea",
+            "rng_calls_raw": "4",
+            "rng_state_changed": true
+          },
+          {
+            "action": "train_speed",
+            "source_sha256": "3b383cb8b0b0c06b7fbd25e89e69712127580e7b0e16166b29a9d65ea163e6ca",
+            "resumed_sha256": "44ffd129c7a0c65b8ef736c1be6f118df5b4fd29f74469388b043b0fabade48e",
+            "rng_calls_raw": "10",
+            "rng_state_changed": true
+          }
+        ]
+      },
+      {
+        "seed": "9223372036854775807",
+        "imported_checkpoint": "text-import-4",
+        "resumed_session": "text-resumed-4",
+        "actions": [
+          {
+            "action": "race",
+            "source_sha256": "09982020c27e3364a40fe9bb05dab394570fd52ef5a8ba89c777958d80d557a8",
+            "resumed_sha256": "9f0668e9795a2ba1a456f5cb12d5c67dc6fef8a557cd26c3b24b6f928c3fb783",
+            "rng_calls_raw": "4",
+            "rng_state_changed": true
+          },
+          {
+            "action": "train_speed",
+            "source_sha256": "93858784a0929de74edcbb88725563f801a3c2a9b91c5ef69b168af42b5508d9",
+            "resumed_sha256": "445584a21ce250f71e98394034e59437950de53305563667eb2ff68545543bca",
+            "rng_calls_raw": "10",
+            "rng_state_changed": true
+          }
+        ]
+      },
+      {
+        "seed": "-9223372036854775807",
+        "imported_checkpoint": "text-import-5",
+        "resumed_session": "text-resumed-5",
+        "actions": [
+          {
+            "action": "race",
+            "source_sha256": "66f61b127e8ed439add479d665c0648608d6eb75e1b20a9091c38c4cd072eadb",
+            "resumed_sha256": "870fa9bab2d7fbd00adcf7bd11b08d34fda41e22ab77dc11b71c834376868621",
+            "rng_calls_raw": "4",
+            "rng_state_changed": true
+          },
+          {
+            "action": "train_speed",
+            "source_sha256": "96af23869dec34ea87b3ee9cbc88b462129e630a8ecde9f0a9422a08c647dea8",
+            "resumed_sha256": "c69b563a545c1c29e6bbf6e28687bafa5655e97f120e4f36f8529100e2b1f0c9",
+            "rng_calls_raw": "10",
+            "rng_state_changed": true
+          }
+        ]
+      },
+      {
+        "seed": "-9223372036854775808",
+        "imported_checkpoint": "text-import-6",
+        "resumed_session": "text-resumed-6",
+        "actions": [
+          {
+            "action": "race",
+            "source_sha256": "b9427621fd5d3b7cf239c0f99b63721e125a1cf99f4c08d60026382ce04ee523",
+            "resumed_sha256": "01c39edd4ab2a232b8c765e1c50612e0fe3f07553337fcd6c7bba1e50e6d952e",
+            "rng_calls_raw": "3",
+            "rng_state_changed": true
+          },
+          {
+            "action": "event_0",
+            "source_sha256": "ce70812bb906dcb3af9f8c09e447abad378bfae1339f70bd4cf397205863e7c3",
+            "resumed_sha256": "b8881a4e279a3ec2ad46f351d44d6e8f69da7d82f6754f94414efd050a392ddb",
+            "rng_calls_raw": "8",
+            "rng_state_changed": true
+          }
+        ]
+      }
+    ]
+  },
+  "preserved_baselines": {
+    "schema": "uma_mcp.independent_baseline_summary.v1",
+    "recorded_at": "2026-10-08T15:52:21.703Z",
+    "candidate_read": false,
+    "candidate_acceptance": "pending frozen author source",
+    "baseline_source_commit": "b026a21f437789d7a7cd04c5074258302e36814e",
+    "native_binary_sha256": "149620074b6fb756d1dc9c8775e2afbb68d82791e12d6a2870cd90e546f02c17",
+    "protocol": {
+      "total": 107,
+      "passed": 71,
+      "target_contract_failures": 36,
+      "receiver_errors": 0,
+      "exit": 1
+    },
+    "native_original": {
+      "total": 45,
+      "passed": 14,
+      "target_contract_failures": 30,
+      "receiver_errors": 1,
+      "exit": 1
+    },
+    "native_targeted_correction": {
+      "total": 1,
+      "passed": 0,
+      "target_contract_failures": 1,
+      "receiver_errors": 0,
+      "exit": 1
+    },
+    "exact_native_findings": [
+      "Seven direct native career starts retain each exact original seed.",
+      "Old MCP export changes +/-9007199254740993 to +/-9007199254740992; native re-import succeeds with changed seed.",
+      "Old MCP export changes four i64 endpoint/adjacent values to +/-9223372036854776000; native import returns HTTP 400.",
+      "Corrected one-line unsafe-object frame dispatches once and replaces the private receiver target with seed 9007199254740992.",
+      "A separate unchanged-native restoration control selects race then train_speed; both full snapshots match and RNG calls advance to 4 then 10."
+    ],
+    "preservation": {
+      "mcp_baseline_runtime": true,
+      "native_source_catalog_files": 136,
+      "native_binary": true,
+      "all_original_failed_packets_retained": true
+    },
+    "files": [
+      {
+        "path": "protocol-baseline-v1/result.json",
+        "bytes": 74069,
+        "sha256": "9b49f34daec88be0a5eb350e8b9fc8ba02e9d60ff1f6c295bd41b57982ada39b"
+      },
+      {
+        "path": "native-baseline-v1/result.json",
+        "bytes": 52559,
+        "sha256": "2719eef707f99050b22c778f6c3f1fbc20c2a30d31689d3c5413e3d065765c56"
+      },
+      {
+        "path": "native-baseline-targeted-v2/result.json",
+        "bytes": 5349,
+        "sha256": "526ec3b9afe1494d8b3bcd2f8973c27dffe5da71d92a03f614c714265f97bc65"
+      },
+      {
+        "path": "receiver-freeze-v1.json",
+        "bytes": 1799,
+        "sha256": "e2632187a2230bdfacaaee54664aaf1e91219e7f2d458ad89dfeb5e135597282"
+      },
+      {
+        "path": "native-receiver-freeze-v1.json",
+        "bytes": 654,
+        "sha256": "d1de48f53df88dccc61824f4a587476b119c87c3fecb8fc0b56a285ff82a9ee6"
+      },
+      {
+        "path": "native-receiver-freeze-v2.json",
+        "bytes": 724,
+        "sha256": "131c5b7a99bc1668c683d67465caab73e6ad66e0a9b2dc7697a6b2b30d529f07"
+      },
+      {
+        "path": "harness-correction-v2.json",
+        "bytes": 1085,
+        "sha256": "7e08f11ef39bc20caed6b34e1414b4635662b982a58a4bc9045d40d0d11461c6"
+      }
+    ]
+  },
+  "source_fence": {
+    "parent_leaves": 1310,
+    "preserved_parent_leaves": 1306,
+    "changed_existing": 4,
+    "added_tests": 2,
+    "report": "source-review/review.json",
+    "production_unchanged_after_receiving": true
+  },
+  "coordination": {
+    "external_receiver_reservation_verified": true,
+    "native_conscience_receipt": null,
+    "native_receipt_limit": "The ThinkPad native Conscience route was unavailable during this independent reservation. No native lease, event sequence or completed integration claim is fabricated; original source owner retains publication/integration."
+  },
+  "limits": [
+    "Exact production bytes and native Mac/Node26 receiving only; Node20/hosted CI is outside this independent run.",
+    "No later-publication-head, merged-tree, new-parent-build or installed-estate acceptance is implied.",
+    "The native API remains the authority for snapshot schemas, compatibility and file publication.",
+    "Snapshot structural comparison preserves all fields and exact numeric values while ignoring only JSON object order/formatting. Stored native versus MCP export bytes are separately exact.",
+    "The receiving packet does not claim recovery of values rounded by a client before MCP receives them.",
+    "All careers/checkpoints are synthetic and stored in new private receiving directories. No user library/browser/session is used."
+  ]
+}
