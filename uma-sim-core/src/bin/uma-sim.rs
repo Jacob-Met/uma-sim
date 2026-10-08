@@ -1,5 +1,8 @@
 //! uma-sim CLI — parity with Kotlin `SimCliMain`.
 
+#[path = "uma_sim/continue_run.rs"]
+mod continue_run;
+
 #[path = "uma_sim/paired_batches.rs"]
 mod paired_batches;
 
@@ -24,6 +27,7 @@ fn main() {
         "training" => cmd_training(&args[1..]),
         "step" => cmd_step(&args[1..]),
         "fast" => cmd_fast(&args[1..]),
+        "continue" => std::process::exit(continue_run::run(&args[1..])),
         "batch" => cmd_batch(&args[1..]),
         "analyze" => cmd_analyze(&args[1..]),
         "compare-batches" => std::process::exit(paired_batches::run(&args[1..])),
@@ -606,6 +610,7 @@ uma-sim CLI v0.4 (Rust)
   training [--format=text|json]
   step [train_speed|rest|race|event_0|...]
   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
+  continue [--policy=default|bot]
   batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
   analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]
   compare-batches --input=FILE --baseline=FILE [--format=text|json]
