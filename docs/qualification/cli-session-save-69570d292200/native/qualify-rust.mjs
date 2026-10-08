@@ -1,0 +1,27 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+const root='/dev/shm/production-69570d292200/session-persistence';
+const stage=process.argv[2];
+if(!['baseline','candidate','workspace'].includes(stage))throw new Error('Unknown qualification stage');
+const source=path.join(root,'source');
+const env={...process.env,CARGO_HOME:path.join(root,'cargo-home'),CARGO_TARGET_DIR:path.join(root,'target'),TMPDIR:path.join(root,'tmp'),CARGO_INCREMENTAL:'0',CARGO_PROFILE_DEV_DEBUG:'0',CARGO_PROFILE_TEST_DEBUG:'0',CARGO_BUILD_JOBS:'2'};
+delete env.UMA_POLICY_CMD;delete env.LLVM_PROFILE_FILE;
+const version=spawnSync('cargo',['--version'],{cwd:source,env,encoding:'utf8'});
+const rust=spawnSync('rustc',['--version'],{cwd:source,env,encoding:'utf8'});
+const cap=fs.statfsSync('/dev/shm');
+if(cap.bavail*cap.bsize<2*1024**3)throw new Error('Insufficient capacity before compile');
+const args=stage==='workspace'?['test','--offline','--locked','--workspace']:['test','--offline','--locked','-p','uma-sim-core','--test','cli_session_persistence'];
+const log=path.join(root,stage+'-rust.log');
+const fd=fs.openSync(log,'w');
+fs.writeSync(fd,'cargo '+args.join(' ')+'\n'+version.stdout+rust.stdout);
+const startedAt=new Date().toISOString();
+const result=spawnSync('cargo',args,{cwd:source,env,stdio:['ignore',fd,fd],timeout:900000});
+fs.fsyncSync(fd);fs.closeSync(fd);
+const bin=path.join(root,'target/debug/uma-sim');
+const digest=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+let binary=null;
+if(stage!=='workspace'&&fs.existsSync(bin)){const copy=path.join(root,stage+'-uma-sim');fs.copyFileSync(bin,copy);binary={path:copy,sha256:digest(copy),bytes:fs.statSync(copy).size};}
+const receipt={stage,startedAt,completedAt:new Date().toISOString(),command:['cargo',...args],status:result.status,signal:result.signal,error:result.error?.message??null,offline:true,cargo:version.stdout.trim(),rustc:rust.stdout.trim(),binary,log:{path:log,sha256:digest(log),bytes:fs.statSync(log).size}};
+fs.writeFileSync(path.join(root,stage+'-rust-receipt.json'),JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt));console.log(fs.readFileSync(log,'utf8').split('\n').slice(-45).map(line=>line.length>300?line.slice(0,300)+' [display truncated; full log retained]':line).join('\n'));

@@ -1,0 +1,44 @@
+{
+  "recordedAt": "2026-10-08T20:01:50.854Z",
+  "baselineCommit": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "candidateCommit": "acbe58aeface82d7e3cac1134c6d7126a910bb15",
+  "verifiedBaselineLeaves": 300,
+  "changes": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "before": "a4d95cada08bc44e8d8916fd6c1b21348b2bd63f",
+      "after": "f54c2c50cdae8b78ed75c0eec89a0cdca9f36a37"
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "before": "c407f70093b955801126d1f3c93af79a279d2346",
+      "after": "8298731be4ee70a6338cc5d708c7c5f2f4549749"
+    }
+  ],
+  "pins": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "gitBlob": "f54c2c50cdae8b78ed75c0eec89a0cdca9f36a37",
+      "sha256": "b6acab8c62d9dfee3779f9f1b282427062a21a6030bf8dfac68654bdf2a119ed",
+      "bytes": 21562
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "gitBlob": "8298731be4ee70a6338cc5d708c7c5f2f4549749",
+      "sha256": "95653ec2bc94c22598443c9e2e1c9d0301f2ec0183f0856d8c5baaa88098d637",
+      "bytes": 6332
+    },
+    {
+      "path": "uma-sim-core/tests/cli_session_persistence.rs",
+      "gitBlob": "ac3a6e11a293f153db49016c756555ad4fffdcd2",
+      "sha256": "655739ef4796c1b314b52387345acc8d14bc9ac27356e4da9619991bccde97f1",
+      "bytes": 7353
+    }
+  ],
+  "buildOnlyPreparation": "Empty packages/uma-sim-ui/dist directory prevents perpetual build.rs invalidation in this non-embed-ui subset; no generated or embedded UI.",
+  "baselineBinary": {
+    "path": "/dev/shm/production-69570d292200/session-persistence/baseline-uma-sim",
+    "sha256": "bb17d29839a7485718a1fffafd9a916a4fe5f1077ef8038ae2b10de1e8376a9c",
+    "bytes": 13582960
+  }
+}

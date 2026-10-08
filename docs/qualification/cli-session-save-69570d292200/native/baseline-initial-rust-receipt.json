@@ -1,0 +1,31 @@
+{
+  "stage": "baseline",
+  "startedAt": "2026-10-08T19:49:09.629Z",
+  "completedAt": "2026-10-08T19:54:50.370Z",
+  "command": [
+    "cargo",
+    "test",
+    "--offline",
+    "--locked",
+    "-p",
+    "uma-sim-core",
+    "--test",
+    "cli_session_persistence"
+  ],
+  "status": 101,
+  "signal": null,
+  "error": null,
+  "offline": true,
+  "cargo": "cargo 1.93.1 (083ac5135 2025-12-15) (built from a source tarball)",
+  "rustc": "rustc 1.93.1 (01f6ddf75 2026-02-11) (built from a source tarball)",
+  "binary": {
+    "path": "/dev/shm/production-69570d292200/session-persistence/baseline-uma-sim",
+    "sha256": "bb17d29839a7485718a1fffafd9a916a4fe5f1077ef8038ae2b10de1e8376a9c",
+    "bytes": 13582960
+  },
+  "log": {
+    "path": "/dev/shm/production-69570d292200/session-persistence/baseline-rust.log",
+    "sha256": "8cb43b02532956a072eb271d4ac75bf810450ced8b0e9b966dc385f3dcde1e8b",
+    "bytes": 29668
+  }
+}

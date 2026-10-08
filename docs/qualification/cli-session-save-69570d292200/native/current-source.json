@@ -1,0 +1,1814 @@
+{
+  "receipt": {
+    "recordedAt": "2026-10-08T19:37:47.791Z",
+    "source": "/dev/shm/production-69570d292200/session-persistence/source",
+    "commit": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+    "leaves": 300,
+    "sourceBytes": 13962475,
+    "availableBefore": 5917138944,
+    "sourceVerified": true,
+    "readOnlyObjectSource": "/home/jacob/estate-production-2983fe20/uma-batch"
+  },
+  "files": [
+    {
+      "mode": "100644",
+      "blob": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "bytes": 9836,
+      "path": "Cargo.lock"
+    },
+    {
+      "mode": "100644",
+      "blob": "d55384b62968b2ada18d45aa4de2053e175579ea",
+      "bytes": 71,
+      "path": "Cargo.toml"
+    },
+    {
+      "mode": "100644",
+      "blob": "64d59960fad930c340d914fee75da2212ecd64fd",
+      "bytes": 721,
+      "path": "LICENSE"
+    },
+    {
+      "mode": "100644",
+      "blob": "c30b5bd6cf7fb8d0ea0ab8161d58318ab35cc2cc",
+      "bytes": 483,
+      "path": "content_packs/example.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "f2dead2d6968c92c26fc0197eb84a0feaf8928a4",
+      "bytes": 1358,
+      "path": "knowledge/README.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "1158f8298bcedeef324ee2ce47737fd41251561c",
+      "bytes": 532,
+      "path": "knowledge/RELEASE.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "51608bfc5a8591cb9084543d7f55bb11d0b74cdc",
+      "bytes": 1802470,
+      "path": "knowledge/canonical/by_kind/event_local.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "ba0b51f2294382ce2771acafffa5bb275430d2e1",
+      "bytes": 837378,
+      "path": "knowledge/canonical/by_kind/factor.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "84d6eb4ae5ba99e23924b66a7acd7caa174844ab",
+      "bytes": 137615,
+      "path": "knowledge/canonical/by_kind/lesson.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "db5d63a6f0f02f196d7382c0a09e30c470cbb913",
+      "bytes": 242997,
+      "path": "knowledge/canonical/by_kind/race.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "8042a37684b9930fad6b4d5a033e8d358ac9b851",
+      "bytes": 2448889,
+      "path": "knowledge/canonical/by_kind/skill.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "d4c6b997a22788319072aed3d6e408395e6cac88",
+      "bytes": 21321,
+      "path": "knowledge/canonical/by_kind/song.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "98299e33510804b2aeb0d2c23328ff1a6129d66e",
+      "bytes": 3400227,
+      "path": "knowledge/canonical/by_kind/support_card.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "b1d0a4eafa6104a08b02e1e4f03b98066240e219",
+      "bytes": 617740,
+      "path": "knowledge/canonical/by_kind/trainee.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "740d480ec530f33fb3c7169db5e94ae9114bbfb6",
+      "bytes": 1806,
+      "path": "knowledge/mechanics/champions_meeting.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "ab412afbba55a9de7398dde1f9332c03f333a608",
+      "bytes": 1785,
+      "path": "knowledge/mechanics/grand_concert_policy.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "3bfeb9b5052eddb6c225f51b7bae95a425c2ce79",
+      "bytes": 2809,
+      "path": "knowledge/mechanics/inheritance_planners.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "8952d7de035852947ed792e59b7f9445467a3297",
+      "bytes": 2106,
+      "path": "knowledge/mechanics/interaction_latency_research.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "c2f07056aae3b4ec81cfaf623f486817f0bfe3bd",
+      "bytes": 3927,
+      "path": "knowledge/mechanics/interaction_timing_audit.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "bf0eb285da91e3b02d42961332644216987c416b",
+      "bytes": 9449,
+      "path": "knowledge/mechanics/parent_farming_utility.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "002210766e20a666bb3d923c95c102059f28864d",
+      "bytes": 4297,
+      "path": "knowledge/mechanics/race_model.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "260159a164075ec950dc38223259ad8b5e36f924",
+      "bytes": 3003,
+      "path": "knowledge/mechanics/run_grade.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "f416f617c04f655a417f323ab9c87e6fd5ff2492",
+      "bytes": 3665,
+      "path": "knowledge/mechanics/skill_valuation.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "b09dc11ef65482988b866c8f4fdbda1db1dab358",
+      "bytes": 1565,
+      "path": "knowledge/mechanics/training_stat_gain.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "880ee117fc56bdbce11b5e44929956f1f6613d23",
+      "bytes": 9678,
+      "path": "knowledge/scenarios/grand_concert.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "93de1a4084d78714701a59ef5e2f74470007356f",
+      "bytes": 947,
+      "path": "knowledge/scenarios/trackblazer.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "19e7a3487a0e4d8da14972bebb76120ce2912272",
+      "bytes": 1151,
+      "path": "knowledge/scenarios/unity.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "b1aa402f3f76a7bc68799151fb7119968fee882b",
+      "bytes": 1009,
+      "path": "knowledge/scenarios/ura.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "5863ff1cc81caef956362ad97a2db6071bd1d291",
+      "bytes": 1380,
+      "path": "knowledge/schema/entity.schema.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "644679d025c58b93ed48e172d1b7c80f2c0b63e0",
+      "bytes": 1649,
+      "path": "knowledge/schema/ids.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "16681d5b7ca8f708be4d444e4d1e24b50ce194ee",
+      "bytes": 4589,
+      "path": "knowledge/validate/validate.py"
+    },
+    {
+      "mode": "100644",
+      "blob": "e42d3abd0a5a375bb3e4ae8e78cc7ea37052ab85",
+      "bytes": 883,
+      "path": "research/R88_REFREEZE.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "c3383ab2bacfaefed163aefcee083f000eb93163",
+      "bytes": 4055,
+      "path": "research/R8_DONE_CRITERIA_EVIDENCE.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "2f52b0d6e2580137e6f516bfb5b42583c93c20d3",
+      "bytes": 809,
+      "path": "research/_check_skill_presence.py"
+    },
+    {
+      "mode": "100644",
+      "blob": "03511179517425302f9ee74714fe705cadfcadd9",
+      "bytes": 552,
+      "path": "research/_list_fails2.py"
+    },
+    {
+      "mode": "100644",
+      "blob": "bc7e53491643853428abc198ae06c25958a06693",
+      "bytes": 7903,
+      "path": "research/_oracle_590_pk.txt"
+    },
+    {
+      "mode": "100644",
+      "blob": "dfe2d31604a0e85d4d3843b84436bd7d957fed06",
+      "bytes": 1014,
+      "path": "research/_oracle_590_pos.txt"
+    },
+    {
+      "mode": "100644",
+      "blob": "4b3a2b185cf896c92e85196805399bf743ef2861",
+      "bytes": 1176,
+      "path": "research/_skill_lookup.py"
+    },
+    {
+      "mode": "100644",
+      "blob": "e1f60ed9e5fed4ec2d7af0e84d1694d9883aa309",
+      "bytes": 237,
+      "path": "research/bond_gain.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "d841647e2957fd66209a8bef19b23e15bdc8c0a6",
+      "bytes": 4064,
+      "path": "research/crosscheck_course_fork.py"
+    },
+    {
+      "mode": "100644",
+      "blob": "3f5cdfa21249de550011831dee1b6dc03fb58063",
+      "bytes": 1268,
+      "path": "research/event_probabilities.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "943453197d71fc6c4d04eaba42a9da31c9c9d532",
+      "bytes": 539,
+      "path": "research/event_reward_schema.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "9b22ffc393398ce36a2bb5ca998a4e9ee960ff57",
+      "bytes": 11781,
+      "path": "research/grand_concert.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "a946fdffbd75af8b91b8984a344ed8fe04755ac6",
+      "bytes": 2254,
+      "path": "research/grand_concert_calibration.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "7421208b21a7cd4bd7c631f92665287de38248fa",
+      "bytes": 4461,
+      "path": "research/grand_concert_community.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "43c740f36123b120ab1882567fad768da20e69c1",
+      "bytes": 154,
+      "path": "research/hint_progression.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "4cb3d8ae7ed1e3ce4821f89a145134322901d092",
+      "bytes": 912,
+      "path": "research/inspiration.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "ca4b6a7bc760cd00bd964d00137c76ae792f3692",
+      "bytes": 1030,
+      "path": "research/legacy_deck_schema.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "30c56b454eb2aee07c2c46dc47f50cad7ec98d5c",
+      "bytes": 454,
+      "path": "research/mood_energy.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "e22e5fff4d6c0ad5b5b5c64b9e5caa276c59cdd0",
+      "bytes": 17205,
+      "path": "research/race_checkpoint_sample.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "fdc02b31d6cd37f14688b05a4341a0618937ba25",
+      "bytes": 5908,
+      "path": "research/race_checkpoint_triage.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "a5ec5199973c182671e5a96c13b9040b42a0f297",
+      "bytes": 120152,
+      "path": "research/race_checkpoint_v3_sample.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "6799a4a8633e12526e61b50fec3b1026deac1452",
+      "bytes": 854325,
+      "path": "research/race_checkpoint_v3_sample_1000.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "4a32c984649a1cb1f2e9c1f512eac23169b5af70",
+      "bytes": 252408,
+      "path": "research/race_checkpoint_v3_sample_240.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "59f2166e205470f04b93736175a1b31fa092822c",
+      "bytes": 302200,
+      "path": "research/race_checkpoint_v3_sample_500.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "394d651265c9da7515875711db3b04f228830321",
+      "bytes": 26916,
+      "path": "research/race_checkpoint_v3_triage.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "6acef1c847cb9cde54431c728c985b6179a11d2d",
+      "bytes": 1185,
+      "path": "research/race_checkpoint_v3_triage_1000.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "ee2f8a43198753511572c18641becc3411103158",
+      "bytes": 162,
+      "path": "research/race_checkpoint_v3_triage_240.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "45ec50ded535b0c07e5934f34ad9b3d0b3348a66",
+      "bytes": 819,
+      "path": "research/race_compete_fight.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "5124f3cd0c8d22c5f010263c0a3dadcb359e2d3c",
+      "bytes": 115753,
+      "path": "research/race_course_data.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "f0d8337c9a9a32578c977a80b792a20c8bda563e",
+      "bytes": 880,
+      "path": "research/race_course_fork_crosscheck.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "e50e741b1a69370a6da92ce3b54cfc54707730fd",
+      "bytes": 228,
+      "path": "research/race_course_mdb_crosscheck.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "2867e1854d59a8529bc835f9d564e91b1f86d083",
+      "bytes": 1887,
+      "path": "research/race_field_npc.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "98b14a9c15fb0f0bec762cb93912c3ba0b8b85f8",
+      "bytes": 1121,
+      "path": "research/race_lead_competition.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "3889506d4fd8956152e645f9511069cefc7650dd",
+      "bytes": 2549,
+      "path": "research/race_model_constants.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "33dbc241f152ae3ba96b6ceee54cb4a477683ffc",
+      "bytes": 1046,
+      "path": "research/race_oracle_trace_case1.csv"
+    },
+    {
+      "mode": "100644",
+      "blob": "2c595f9a9d366540e24d38249a2622a24b63e184",
+      "bytes": 599,
+      "path": "research/race_outcomes.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "6954bac9854b4260a7b139966a91e819c0b9212a",
+      "bytes": 1986,
+      "path": "research/race_position_keep.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "52a02cd129fed89144063489175dc6623c3f2195",
+      "bytes": 979,
+      "path": "research/race_prando_vectors.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "208a9346933d06d955bd13cc98c0a058d4418558",
+      "bytes": 622,
+      "path": "research/race_rushed.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "9fb5f4b31c14296ff5a5ae9fa1225384b06dc164",
+      "bytes": 1314,
+      "path": "research/race_skill_condition_mismatches.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "c16eae6129f321000053765538496259cecb0c67",
+      "bytes": 944,
+      "path": "research/race_skill_condition_patch_note.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "123a392a483b5af779f4da611336be055febec72",
+      "bytes": 2363,
+      "path": "research/race_skill_effects.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "dddc1ccafb57332cfe5e3c4833da0e95d9579f0b",
+      "bytes": 109849,
+      "path": "research/race_telemetry_corpus.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "f96c422711257b078465b10bac61b30c4d05ed86",
+      "bytes": 5717,
+      "path": "research/race_v4_career_place.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "c656a6623c77e5b6ef8709d0def5555d2016bb4e",
+      "bytes": 9284,
+      "path": "research/race_v4_physics_dist.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "7f7ee3553df79b67980bd53d23f7a61eab0bd678",
+      "bytes": 5766,
+      "path": "research/trackblazer.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "a91664018b33a61e0de885b2106d690518097cb3",
+      "bytes": 684,
+      "path": "research/training_failure.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "d36f205d46022ba7dfa34a40897251072ec807d3",
+      "bytes": 4284,
+      "path": "research/training_gain_tables.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "5d864d65beb91d060d05bfdcf6dacf800825515c",
+      "bytes": 2590,
+      "path": "research/unity_cup.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "a123fcec93baaa3aa3f1323733ab881b115e0357",
+      "bytes": 1675,
+      "path": "research/ura_finale.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "2cfce75b22b0134f0cacd3ae728aa3972dca7042",
+      "bytes": 36,
+      "path": "rustfmt.toml"
+    },
+    {
+      "mode": "100644",
+      "blob": "88923d293dbc1f75b705d8c37c8990c12e5b1819",
+      "bytes": 2670,
+      "path": "uma-race-core/Cargo.lock"
+    },
+    {
+      "mode": "100644",
+      "blob": "43fe390326bf6d0df59c30aca77a444b9c8dfea6",
+      "bytes": 282,
+      "path": "uma-race-core/Cargo.toml"
+    },
+    {
+      "mode": "100644",
+      "blob": "a71ed7cda85093217136315c65fa39f8eda0e48c",
+      "bytes": 11350,
+      "path": "uma-race-core/LICENSE-APACHE"
+    },
+    {
+      "mode": "100644",
+      "blob": "7485a528e5cf2815066fa31a934038b8fca4b740",
+      "bytes": 1077,
+      "path": "uma-race-core/LICENSE-MIT"
+    },
+    {
+      "mode": "100644",
+      "blob": "30a834fc220979622269e4e903da9c4a09b483d6",
+      "bytes": 1713,
+      "path": "uma-race-core/src/compete_fight.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "89153931f8de8eeb8901944f2e29667b951f0af1",
+      "bytes": 391,
+      "path": "uma-race-core/src/condition/mod.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "12cac1a7e84d201c0afa35af929700d56856d44d",
+      "bytes": 8454,
+      "path": "uma-race-core/src/condition/parser.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "775fab39cb6d56c887c886f9e428883151f122b5",
+      "bytes": 3416,
+      "path": "uma-race-core/src/condition/region.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "f5e096765638177298e7d0a3a706c306686dca48",
+      "bytes": 45225,
+      "path": "uma-race-core/src/condition/regions.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "22c38109586f01f88a11a08a18ebe6afbed23f59",
+      "bytes": 7021,
+      "path": "uma-race-core/src/condition/sample.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "cabcbc950e6baf3b761d75f62211b3c6ca1fc444",
+      "bytes": 14409,
+      "path": "uma-race-core/src/condition/skill.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "6087eef93d32d4f5a601c280c7eda9e2753fddb8",
+      "bytes": 4053,
+      "path": "uma-race-core/src/course.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "2e7bf06214aefe592246cea7cb4dd7b65fae19ab",
+      "bytes": 3250,
+      "path": "uma-race-core/src/data.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "4602f098895c326b7a0eb8a2cc5bd031cf57b826",
+      "bytes": 12905,
+      "path": "uma-race-core/src/field.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "7df8a62d54af929179fc6d6b17e2b1376873da83",
+      "bytes": 5861,
+      "path": "uma-race-core/src/hp.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "24d7b9f13ba878f90d450ac2634b951c9d89535d",
+      "bytes": 2077,
+      "path": "uma-race-core/src/lead_comp.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "42f450e7798ea65e5d219d838473472e5c934009",
+      "bytes": 1178,
+      "path": "uma-race-core/src/lib.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "4532ca7f8a09c3a5ba1ab31f770f646bc2acc7b6",
+      "bytes": 2429,
+      "path": "uma-race-core/src/physics.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "5af32c3b6dcf110c0e9f72c5df5b80eca0c60b40",
+      "bytes": 7472,
+      "path": "uma-race-core/src/pos_keep.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "aa555a746cb460a7891e8bdba18bf13185f41f74",
+      "bytes": 4728,
+      "path": "uma-race-core/src/rng.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "28117f7f41076f603ee0af4de900c0fe36bc4ccc",
+      "bytes": 58779,
+      "path": "uma-race-core/src/runner.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "7e94878d9a78fe7bc9fb7de5cf56ec7fea014982",
+      "bytes": 29039,
+      "path": "uma-race-core/src/solver.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "11549ecec295600c4682b90639d6a19ac9fadd1c",
+      "bytes": 8143,
+      "path": "uma-race-core/src/special_conditions.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "6fe4f0ec42961e471204aaea0d80485abc6a03bc",
+      "bytes": 10383,
+      "path": "uma-race-core/tests/checkpoint_r85.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "5d8a99da68ce4506fa73baaba1831071fd49ba4f",
+      "bytes": 6837,
+      "path": "uma-race-core/tests/checkpoint_v3.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "89941c860fb334708ede37ea9e83ce4d452d5da5",
+      "bytes": 5532,
+      "path": "uma-race-core/tests/checkpoint_v3_1000.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "5bc47e124bfbce2fbfd81dfd2f332a852d4072d6",
+      "bytes": 5422,
+      "path": "uma-race-core/tests/checkpoint_v3_wide.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "7e39580791d6c5465598d15e97563256c8077100",
+      "bytes": 2085,
+      "path": "uma-race-core/tests/condition_keywords.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "3f165d374614e11dd9de19ea04be5e8f898ac52e",
+      "bytes": 2460,
+      "path": "uma-race-core/tests/probe_394_202662.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "87ad6978c5f93ef7a2eb3b43a431c12fc89fb7f1",
+      "bytes": 1622,
+      "path": "uma-race-core/tests/probe_394_pending.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "40bd8bd9386f6df812245d45e3c98f45d581cb4c",
+      "bytes": 3311,
+      "path": "uma-race-core/tests/probe_534_procs.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "2c53010d6987c6431eb7ae3cc835f4a03c171e59",
+      "bytes": 1792,
+      "path": "uma-race-core/tests/probe_534_stats.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "131c8b924ece8af654f75e5fb8e7647316b1963b",
+      "bytes": 4445,
+      "path": "uma-race-core/tests/probe_last_two.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "f05bea40b95eff8bb6eb0660161c84b824cbf1ca",
+      "bytes": 6555,
+      "path": "uma-race-core/tests/probe_residual.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "4b3d1c5b9a4c99d648b51d3a61c57a31cdb2949f",
+      "bytes": 3208,
+      "path": "uma-race-core/tests/probe_residuals_bare.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "25c874ba47f607bdbc1f5fd61347d5d6e456e9d1",
+      "bytes": 23,
+      "path": "uma-sim-core/.gitignore"
+    },
+    {
+      "mode": "100644",
+      "blob": "0087a3260e58beb1547e5d795794144058a4b02a",
+      "bytes": 4686,
+      "path": "uma-sim-core/Cargo.lock"
+    },
+    {
+      "mode": "100644",
+      "blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+      "bytes": 1098,
+      "path": "uma-sim-core/Cargo.toml"
+    },
+    {
+      "mode": "100644",
+      "blob": "ac17b361a9dc447bcdf0177de3e2261db3bca47b",
+      "bytes": 157,
+      "path": "uma-sim-core/README.md"
+    },
+    {
+      "mode": "100644",
+      "blob": "7cb1193f796ecd0ab6f4cbd52a48d9f9e740c374",
+      "bytes": 865,
+      "path": "uma-sim-core/build.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "bcbcae93200cf16a3ae17bac5792e67b717e4b5c",
+      "bytes": 805,
+      "path": "uma-sim-core/examples/gl_steps.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8506a49b2c6bc9c5450ac2a5cc5514b2c541e8d4",
+      "bytes": 1651,
+      "path": "uma-sim-core/examples/golden_batch.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8fdca1b5fcc4e8d4bb9a2fa6defb45099105cf91",
+      "bytes": 3321,
+      "path": "uma-sim-core/examples/golden_refreeze_physics.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "147ff34d9184beac1e515cf833692c3f208664c3",
+      "bytes": 233,
+      "path": "uma-sim-core/examples/paired_batches/baseline.jsonl"
+    },
+    {
+      "mode": "100644",
+      "blob": "1fa747ea6e99a88762853e3ece69307e6265f49a",
+      "bytes": 233,
+      "path": "uma-sim-core/examples/paired_batches/input.jsonl"
+    },
+    {
+      "mode": "100644",
+      "blob": "bd8c973f306776ff2b34e7f38ea63ad56bacee27",
+      "bytes": 1567,
+      "path": "uma-sim-core/examples/refreeze_parity_traces.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "72506a27a2287b1c169916e2aada53aed640dae1",
+      "bytes": 311,
+      "path": "uma-sim-core/examples/summaries_check.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "c0d46a50d5979824d455865cf3ed84680e9e0a90",
+      "bytes": 1576,
+      "path": "uma-sim-core/examples/tb_diverge.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8b1af2ca14879076084e082890d6f21581ff075d",
+      "bytes": 1201,
+      "path": "uma-sim-core/examples/tb_shop_dump.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "14a4fd1ff6df559db6248ca90f251bc8dce279a1",
+      "bytes": 993,
+      "path": "uma-sim-core/examples/tb_turns.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "72ca1ef7b213f1096370ce7c6e07c41d00f35723",
+      "bytes": 1093,
+      "path": "uma-sim-core/examples/trace_check.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "93e158ec902456b81be6a072f1ac9a3f55adda18",
+      "bytes": 942,
+      "path": "uma-sim-core/examples_tmp_bot.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "60a02556b3707918e57cac775f723e0c8f67b30d",
+      "bytes": 87125,
+      "path": "uma-sim-core/src/api.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8169e3f115c4ee3a7cc2464190ced43fceb770dc",
+      "bytes": 13344,
+      "path": "uma-sim-core/src/batch_analysis.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d083c65c64053a87da11a809de83d04184cc393b",
+      "bytes": 9822,
+      "path": "uma-sim-core/src/batch_pairs.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "821ce29dc4dba0758e16392fb50d83ec5231e705",
+      "bytes": 230,
+      "path": "uma-sim-core/src/bin/uma-sim-api.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "a4d95cada08bc44e8d8916fd6c1b21348b2bd63f",
+      "bytes": 21438,
+      "path": "uma-sim-core/src/bin/uma-sim.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "3fab6f9f8669d1cc3fa5cdae52099c0846d06da9",
+      "bytes": 3491,
+      "path": "uma-sim-core/src/bin/uma_sim/paired_batches.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "68c2b3ed39ed39719dce0788afe9d7e776682624",
+      "bytes": 9706,
+      "path": "uma-sim-core/src/bot.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "85e251a9705ca092cfefbf3afef0e759c0be0e08",
+      "bytes": 1495,
+      "path": "uma-sim-core/src/calendar.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "1220bfcaa03bec1584ad8273507ac5fdc4114c76",
+      "bytes": 58455,
+      "path": "uma-sim-core/src/career_lab.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "a970065621ff85120d32c1eb1a88b70a8b852322",
+      "bytes": 7809,
+      "path": "uma-sim-core/src/catalog/event.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "15f723b2c6d8c12a2c68d11493e8bcef1be4c502",
+      "bytes": 9105,
+      "path": "uma-sim-core/src/catalog/factor.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8657d5680a880ffcc9f49aa47ee495067475f691",
+      "bytes": 80,
+      "path": "uma-sim-core/src/catalog/mod.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "9b59270b62f45e68658aa2ae95528f6000bbeb1a",
+      "bytes": 6390,
+      "path": "uma-sim-core/src/catalog/skill.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "80d49de483495516863e70ac65d0288a4b8949b5",
+      "bytes": 6683,
+      "path": "uma-sim-core/src/catalog/support.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "94d525f53f41f36e5411dc5439f25765a9b2496c",
+      "bytes": 15030,
+      "path": "uma-sim-core/src/catalog/trainee.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "1e891335b87640cc838e7c3a92820af040c4df11",
+      "bytes": 30202,
+      "path": "uma-sim-core/src/config.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "68437768525bf08645a0a09b52a59600d672471b",
+      "bytes": 4526,
+      "path": "uma-sim-core/src/content.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "b52e7d6f8a64103e9af329d0cfee93a8886ae525",
+      "bytes": 15798,
+      "path": "uma-sim-core/src/deck.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "cf14926eccac7d127640d0e7af0e180e93c85420",
+      "bytes": 51212,
+      "path": "uma-sim-core/src/engine.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "33bbd2235f08be53abcb45def4e055d71ff7b0cc",
+      "bytes": 6477,
+      "path": "uma-sim-core/src/events.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "47d4853befc9ddfea2aea622a2d68bc57307ea5f",
+      "bytes": 8875,
+      "path": "uma-sim-core/src/factory.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "cd8485db5682509c5a60c217e1ccf1aa1fa0a725",
+      "bytes": 11184,
+      "path": "uma-sim-core/src/legacy.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "a1138e2300d731c710a822f79c7551b8bf3fc2e8",
+      "bytes": 3420,
+      "path": "uma-sim-core/src/lib.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "b65e2b4c1cfd62d916e520a214e8fcfd2825e16d",
+      "bytes": 9467,
+      "path": "uma-sim-core/src/mid_run_inheritance.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "3fcd10d8da1d1df253f53dc3c9e8e93288098969",
+      "bytes": 1365,
+      "path": "uma-sim-core/src/policy.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "99c43f3d83dc8965070f9ad1201a742a78bcc69d",
+      "bytes": 19923,
+      "path": "uma-sim-core/src/policy_external.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43",
+      "bytes": 24601,
+      "path": "uma-sim-core/src/race.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "3f154753f700fa4a6faccf19faf8bfe320143137",
+      "bytes": 2595,
+      "path": "uma-sim-core/src/render.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "553c9a5a56b5c7f9aa3025e2bc721f1a45d08b8d",
+      "bytes": 8307,
+      "path": "uma-sim-core/src/rng.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "284d305034db2e6bd03bed881a6dadd575207014",
+      "bytes": 37939,
+      "path": "uma-sim-core/src/scenario/grand_live.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "07e285f032dfaa6d863be52d60348d11176c8030",
+      "bytes": 26836,
+      "path": "uma-sim-core/src/scenario/grand_live_catalog.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "0f6c6a16abab7ceb1009808d532cdb5874881522",
+      "bytes": 2526,
+      "path": "uma-sim-core/src/scenario/grand_live_deck_support.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "1d30acf645aa7fc94cb38276affc57087edb2c63",
+      "bytes": 9652,
+      "path": "uma-sim-core/src/scenario/grand_live_lesson_board.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "20e3de216cd874d7726cda7f880f8d3d3671aef3",
+      "bytes": 4072,
+      "path": "uma-sim-core/src/scenario/grand_live_lesson_scoring.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d7a8ac851358b77b7b1510fd590e34adc3056d8b",
+      "bytes": 39258,
+      "path": "uma-sim-core/src/scenario/mod.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "40011a2939bbd0e0658e1778717fbe381356294b",
+      "bytes": 19881,
+      "path": "uma-sim-core/src/scenario/trackblazer.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8518cca828a56e895a7f31959b3f1b00e972fb01",
+      "bytes": 8361,
+      "path": "uma-sim-core/src/scenario/unity.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "4c191f91144bb59b7cb9775576886504a03c0d10",
+      "bytes": 17766,
+      "path": "uma-sim-core/src/scenario/ura.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "c55345c900d2378d2f842e19ecd96b30a4f5399c",
+      "bytes": 3235,
+      "path": "uma-sim-core/src/scoring/decision_context.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "21a8e00926af18986ff81eefceb637c67ac91b56",
+      "bytes": 16664,
+      "path": "uma-sim-core/src/scoring/event_scoring.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8a559c1866f16841d8db0e55dfc637c18e713442",
+      "bytes": 2374,
+      "path": "uma-sim-core/src/scoring/formula_gain.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "ca51d457a6c5bc86b9a4fee806f0af4928e7ca49",
+      "bytes": 3822,
+      "path": "uma-sim-core/src/scoring/lesson_scoring.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "021a3d1fc76e75bf0f014358852b297c99eb4089",
+      "bytes": 3782,
+      "path": "uma-sim-core/src/scoring/mod.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "22f118a98a47841efe99dc6201ff789abe366d80",
+      "bytes": 4130,
+      "path": "uma-sim-core/src/scoring/objective_profiles.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "90274e4131334f8e78f20c6cdbce7441e2798d84",
+      "bytes": 11467,
+      "path": "uma-sim-core/src/scoring/rank_estimate.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "3c11b985a2a3b5337051c09485651b3e707470bd",
+      "bytes": 20182,
+      "path": "uma-sim-core/src/scoring/scoring.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8f33392757d1fa347dfa4a871faa6384a2b1ed34",
+      "bytes": 11325,
+      "path": "uma-sim-core/src/scoring/skill_scoring.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d0925d2c642638c17e3fdc7ef8fb020c9d5aed93",
+      "bytes": 4846,
+      "path": "uma-sim-core/src/scoring/support_effects.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "de504cca1bba34c33b22e6b8bb493e3d536ffe84",
+      "bytes": 6400,
+      "path": "uma-sim-core/src/scoring/terminal_utility.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "2a93aba017f5414d74b219021b7df320ff58c332",
+      "bytes": 9755,
+      "path": "uma-sim-core/src/scoring/types.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "c407f70093b955801126d1f3c93af79a279d2346",
+      "bytes": 2481,
+      "path": "uma-sim-core/src/session.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "a17d416cf5d9af0ce360de446852ecd4350b4be9",
+      "bytes": 1087,
+      "path": "uma-sim-core/src/snapshot.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "a0bc10d245b56445d5bb6119d2c007d5d057561a",
+      "bytes": 5622,
+      "path": "uma-sim-core/src/spark_generation.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821",
+      "bytes": 21853,
+      "path": "uma-sim-core/src/state.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "66f4c7052806607e4bade83df105a9c0d9287fa7",
+      "bytes": 20894,
+      "path": "uma-sim-core/src/telemetry.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "81dc53401e4a94bf0085bde7fcf40aff5fb77f71",
+      "bytes": 16914,
+      "path": "uma-sim-core/src/training.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "0b5bfd83a9ba6bd0fd76fb4cc174b7e066df267d",
+      "bytes": 10248,
+      "path": "uma-sim-core/src/training_inspection.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "a54fb88b055d2e7ae79eb3623aa9002c52e775f1",
+      "bytes": 9489,
+      "path": "uma-sim-core/tests/api_body_admission.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "f42a04bfbfdcee712999085feb29e99d7a3165fd",
+      "bytes": 6922,
+      "path": "uma-sim-core/tests/batch_output_failures.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "b7a251b0782b8bec7398faa8dbc07f5a56f76550",
+      "bytes": 2642,
+      "path": "uma-sim-core/tests/bond_gain_config.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "87b8401dfd3a59711f8a09126beb774d5bdc8a4b",
+      "bytes": 7259,
+      "path": "uma-sim-core/tests/bot_parity.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "ff367e9c5828856ed0fc37f370159886e51183a3",
+      "bytes": 9806,
+      "path": "uma-sim-core/tests/branch_publication.api.mjs"
+    },
+    {
+      "mode": "100644",
+      "blob": "ac10b74efd030fb6e1ac52bf32bcac46109f6bbc",
+      "bytes": 21288,
+      "path": "uma-sim-core/tests/career_lab.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "ed33ca046f6ca7d0d4f09a675179243c48cbd944",
+      "bytes": 11775,
+      "path": "uma-sim-core/tests/career_lab_branch_publication.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "7a9e36ca4e04f259a4d80dff84295f0fd464afe3",
+      "bytes": 7184,
+      "path": "uma-sim-core/tests/career_lab_divergence.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d1c0e573cd0c9c08d4e91ba7063732f6b9dde8a4",
+      "bytes": 19653,
+      "path": "uma-sim-core/tests/career_lab_reports.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "3d80ea5a58f1d6094b6f2233d3df8def1a8ea66d",
+      "bytes": 6695,
+      "path": "uma-sim-core/tests/career_library_replacement.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "4ba03fa9fab7aedada599b2b22d1ed66fbe845d6",
+      "bytes": 3140,
+      "path": "uma-sim-core/tests/cli_policy.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "465bf36edb3752021bb09f0f3fd94e9891d7aadc",
+      "bytes": 10682,
+      "path": "uma-sim-core/tests/cli_seed_admission.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "c5b11a5aa306f9c9de7871e2e10e84b0054a41bb",
+      "bytes": 2942,
+      "path": "uma-sim-core/tests/common/mod.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "5139132ff956cc9c7efbb30a3ccc9e5f2dd5bd8e",
+      "bytes": 542,
+      "path": "uma-sim-core/tests/content_pack_loader.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "a243b319e4d1c0967949dabe77e060d7dba50752",
+      "bytes": 4728,
+      "path": "uma-sim-core/tests/deck_placement.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "87d5aac4573ab219ea19e016bcdd2a6c32fde6bb",
+      "bytes": 2438,
+      "path": "uma-sim-core/tests/deck_support_bridge.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d830cf4e88eabfb70fe7740d22fcb25d3364e400",
+      "bytes": 2161,
+      "path": "uma-sim-core/tests/event_effect_applier.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "3b8a4ffd1b9a4cb235a47ee8facf771e76865900",
+      "bytes": 2546,
+      "path": "uma-sim-core/tests/event_pool_gating.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "c13a349e2b2673bac262639df9093e07fc03781e",
+      "bytes": 2387,
+      "path": "uma-sim-core/tests/event_probability_config.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "b27e091f46c4a7be4163ffdb278e50e2047e14b7",
+      "bytes": 1580,
+      "path": "uma-sim-core/tests/facility_level_config.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d35ed88a26bf2c6f45a5d07045af350bd36f626d",
+      "bytes": 65,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/choices_42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "b7d96838cdfe60111861dea56f75d7c3fc4a437a",
+      "bytes": 256,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/cli_fast_42_ura.txt"
+    },
+    {
+      "mode": "100644",
+      "blob": "7552df051fb1ffcb7e8b9f7817a4c2614bf8a2c8",
+      "bytes": 42,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/fast_42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "ac721ace57443409d88c99f66db07ace7a4ff435",
+      "bytes": 78,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/fast_42_ura.txt"
+    },
+    {
+      "mode": "100644",
+      "blob": "31d0855b172fa4528c3335a64b40218ff5536864",
+      "bytes": 260,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_action_race_seed42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "d35ed88a26bf2c6f45a5d07045af350bd36f626d",
+      "bytes": 65,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_choices_seed42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "7552df051fb1ffcb7e8b9f7817a4c2614bf8a2c8",
+      "bytes": 42,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_fast_seed42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "7acbd71077479d4be7d87d2684e780d1f6bdf199",
+      "bytes": 1820,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_start_seed42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "c3a40fe24bb624868c9d8ce3ce157d7d680b2bb4",
+      "bytes": 1820,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/session_seed42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "c3a40fe24bb624868c9d8ce3ce157d7d680b2bb4",
+      "bytes": 1820,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/start_42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "7c3c9df5dbb812e67ecf36345fb5ea92c510bad5",
+      "bytes": 224,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/start_seed42_ura.txt"
+    },
+    {
+      "mode": "100644",
+      "blob": "94fd72045f49f2ae670d38f1f9624e927d5fa92f",
+      "bytes": 174,
+      "path": "uma-sim-core/tests/fixtures/cli_rest/state_seed42_ura.txt"
+    },
+    {
+      "mode": "100644",
+      "blob": "5353fcb194fd65add33e522c071432b365f01b89",
+      "bytes": 287242,
+      "path": "uma-sim-core/tests/fixtures/event_parse_vectors.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "1bd3f9bb68a92e3266db7155e4a06af1d45eabc4",
+      "bytes": 3621,
+      "path": "uma-sim-core/tests/fixtures/grand_live_replay/fixtures.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "71e7c5b3be3d06e2635177fcc772f3c5a7deb691",
+      "bytes": 23517,
+      "path": "uma-sim-core/tests/fixtures/kotlin/golden/summaries.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "6d74b4b691df9e1be95552dca422448cf440b718",
+      "bytes": 1032,
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/fixtures.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "4fda253c111d60bd760c1bca8e33296cd216e080",
+      "bytes": 2289,
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/live_bot_sample.jsonl"
+    },
+    {
+      "mode": "100644",
+      "blob": "da632bf29db84ece743ff3ecbd9d12736bb981f0",
+      "bytes": 860,
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/sample_run.jsonl"
+    },
+    {
+      "mode": "100755",
+      "blob": "6476895b26b607ef057edf450013f5d14e688b55",
+      "bytes": 1201,
+      "path": "uma-sim-core/tests/fixtures/policy_stub.sh"
+    },
+    {
+      "mode": "100644",
+      "blob": "985078189490e71c83da6efa709dc6cd0479ae29",
+      "bytes": 651,
+      "path": "uma-sim-core/tests/fixtures/rng_seed_42.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "01a9c8f05fed162bffd23507885266568a29d070",
+      "bytes": 10911,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_grand_concert.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "2a3d4fc71290e21680d9172c3580d7013d8357ba",
+      "bytes": 12215,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_trackblazer.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "ff033beb270317f68c3a673594ab3d38257daa62",
+      "bytes": 12296,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_unity.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "9c4d311ef2c47768314581226c720bb44cff1bdf",
+      "bytes": 12115,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "2b7d715ba62584ceeacf5eddf126381474ccab2c",
+      "bytes": 9522,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_grand_concert.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "17005c8ab3efc5b8ccbb0e39f937899b5ed2e908",
+      "bytes": 9772,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_trackblazer.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "9eb43120c0ed189629af76d4c4ac52a308347815",
+      "bytes": 9884,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_unity.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "ed0c397f00a692606104c0c8e0e527af2e0ffd16",
+      "bytes": 9639,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "e942f01166ecac91085ccca06eff2b8c57a8b038",
+      "bytes": 9075,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_grand_concert.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "e7b37e98d34448f6eacda5d03c4dc80f4c5c621c",
+      "bytes": 12029,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_trackblazer.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "96d5319872b986d3b0df714932d4970a7a9cf237",
+      "bytes": 12433,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_unity.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "0a07fc1b7e2cd2c23c9ead7366ef10ca7236ea11",
+      "bytes": 11940,
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "713b5127a96ea7375ade546f9f10dfb83faecb46",
+      "bytes": 80634,
+      "path": "uma-sim-core/tests/fixtures/scoring_vectors.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "c10193a5c374e0e24083c82480d31319961dc6af",
+      "bytes": 61901,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_grand_concert.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "42d7d6d25103641a266e50567f44a2d128efe621",
+      "bytes": 30043,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_trackblazer.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "1d6061a79f1d1dc31607ae624358e9204fd3c83b",
+      "bytes": 46302,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_unity.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "c98149f2ea48db49e5d8c5a528f45b01e2edf385",
+      "bytes": 30601,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "96f7bd306864e7ed8b8833791c877adecd7cf573",
+      "bytes": 61918,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_grand_concert.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "fab214a9e7d8c65c89979fa1494855761569426c",
+      "bytes": 30089,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_trackblazer.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "5e3241a28bafe8af1a968c6dec755a92e3e7aecf",
+      "bytes": 44292,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_unity.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "070c4b4640875ebe96d00f2341a7b4c42902958d",
+      "bytes": 30592,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "51cdd25b61ef3b2d98234f12cfc6580b7fd22c9c",
+      "bytes": 61824,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_grand_concert.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "0f31f4d99d37beaf09316154fef820ecb14bf159",
+      "bytes": 30626,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_trackblazer.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "2c5be349ad6d8228d92faf9b1230995932ae072b",
+      "bytes": 44325,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_unity.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "7f1346c1f3b94edc1d64d82ca9353044bb560a29",
+      "bytes": 30619,
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_ura.json"
+    },
+    {
+      "mode": "100644",
+      "blob": "1e0aa10e7a71495e491400a3716254e8c8462b6c",
+      "bytes": 2143,
+      "path": "uma-sim-core/tests/golden_seed.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "e60ced66943584793e5941152b44664ef05f309c",
+      "bytes": 1878,
+      "path": "uma-sim-core/tests/golden_seeds.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d81c4fc8f09c846bf88c57d224af496061e3cf9a",
+      "bytes": 8010,
+      "path": "uma-sim-core/tests/grand_live_bot_replay.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "e06e068360337727d6da55c2be0f9f27c5eb285b",
+      "bytes": 1853,
+      "path": "uma-sim-core/tests/grand_live_calibration_loader.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "4b4be0663b13b7e86d1d879b141a7fcb403d1bc6",
+      "bytes": 697,
+      "path": "uma-sim-core/tests/grand_live_catalog_loader.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d500ac3d0026a24a7e132892ff8e7e022de301fd",
+      "bytes": 3945,
+      "path": "uma-sim-core/tests/grand_live_formula_calibration.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "7cb817d9749a0120329068fabd67b4b5fb35f904",
+      "bytes": 1409,
+      "path": "uma-sim-core/tests/grand_live_l1_training.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "2aa73bfa34a39b964295ea346b1d7b4854f2d84f",
+      "bytes": 19641,
+      "path": "uma-sim-core/tests/grand_live_r7.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "8acfd7f72b84cc5238ff5dff63256383a82fc674",
+      "bytes": 16628,
+      "path": "uma-sim-core/tests/grand_live_simulation.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "dd7473b5d38326973d455cca911e85a4802e8903",
+      "bytes": 844,
+      "path": "uma-sim-core/tests/grand_live_token_labels.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "6fc877e3de24c672b5f1ee4dc6ad86ef639867c3",
+      "bytes": 818,
+      "path": "uma-sim-core/tests/hint_progression_config.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "abd5d59582f6886005db26bea7b66c336a92224a",
+      "bytes": 1172,
+      "path": "uma-sim-core/tests/knowledge_validate.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "9bf6efd2465628d0ee3c40cd5370c92ef19c4c9a",
+      "bytes": 7423,
+      "path": "uma-sim-core/tests/legacy_applicator.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "78b55a73a99531428d513249b2cf188920343ce8",
+      "bytes": 854,
+      "path": "uma-sim-core/tests/live_bot_telemetry.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "adf765a9423f6f1a63406405a70a5446e17b9bcf",
+      "bytes": 740,
+      "path": "uma-sim-core/tests/live_telemetry_replay.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "c04b00ac81d30badfec5eac63464de1584db2f25",
+      "bytes": 1602,
+      "path": "uma-sim-core/tests/mid_run_inspiration.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "cb77d7dfe9354e6d1169321eaefcd4a382bede24",
+      "bytes": 7622,
+      "path": "uma-sim-core/tests/paired_batches.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "bae14924d409470262b5880f5dfb9da11ac6405f",
+      "bytes": 6844,
+      "path": "uma-sim-core/tests/paired_batches_cli.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "2e1f7cc53cda1272add035b637669116fac5d806",
+      "bytes": 17598,
+      "path": "uma-sim-core/tests/parity.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "300c88feca54afc7f0f81f10df08ca768018b7f4",
+      "bytes": 991,
+      "path": "uma-sim-core/tests/perf.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "de96aacbd0fdd5320e93ddb35ce894f13972a087",
+      "bytes": 2969,
+      "path": "uma-sim-core/tests/product_readiness.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "297053c1de379f61ea496e5c3851d1f1e803763f",
+      "bytes": 3497,
+      "path": "uma-sim-core/tests/race_npc_r86.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "e4f336e05097e87b8582438527acc08463ad7674",
+      "bytes": 2682,
+      "path": "uma-sim-core/tests/race_outcomes.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "1cb591b506a67b93eb3555626615bb50ebd1f0ec",
+      "bytes": 3043,
+      "path": "uma-sim-core/tests/race_perf_r89.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "b87b248f26df883ca9f5d124d8d9af88f55b628f",
+      "bytes": 3697,
+      "path": "uma-sim-core/tests/race_physics_r87.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "a8544e8a44e75d82c143952163ed6117e9faafdd",
+      "bytes": 835,
+      "path": "uma-sim-core/tests/race_scheduler.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "2a5620b6886f71668b5c15fe7e6d81c11edc66ac",
+      "bytes": 9575,
+      "path": "uma-sim-core/tests/race_v4_dist.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "45ec143a22d8ca10ca93124342e50a7a3dd118d0",
+      "bytes": 4549,
+      "path": "uma-sim-core/tests/rest_policy_external_stub.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "b43418255accaec1b04ad1fb5372dbf3ed4cdd7b",
+      "bytes": 6233,
+      "path": "uma-sim-core/tests/scenario_depth.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d9fafeafecfd4035ae0e0dff393303fe2e8aab43",
+      "bytes": 4986,
+      "path": "uma-sim-core/tests/sim_engine.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "516a2fdec838d0b8fc0e3cfdcbaed1c4fceff97b",
+      "bytes": 3955,
+      "path": "uma-sim-core/tests/sim_telemetry_export.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "394b9650a515f38672683d11bd027d363808a834",
+      "bytes": 2666,
+      "path": "uma-sim-core/tests/skill_catalog_display.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "04a5939f1e4b242970736df53d6c5232282d7947",
+      "bytes": 963,
+      "path": "uma-sim-core/tests/skill_hint_routing.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "5fbee9cd7954b1cef1fadc56ecc510293c8a64f5",
+      "bytes": 922,
+      "path": "uma-sim-core/tests/soft_cap.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "5b23c69807d8897dad66a152aabb746818bc99bd",
+      "bytes": 2835,
+      "path": "uma-sim-core/tests/spark_generation.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "d8b7060e8657a4227cb8b901458b03de0ef220d3",
+      "bytes": 515,
+      "path": "uma-sim-core/tests/support_catalog.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "0e3c1045d567e6d208a97649f547b316537c0762",
+      "bytes": 3765,
+      "path": "uma-sim-core/tests/telemetry_replay.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "7a8dc55233663bfd7ba5c78dea962b70c361d1be",
+      "bytes": 3773,
+      "path": "uma-sim-core/tests/trainee_catalog.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "446c66d88f4e2b05ca4670975b8cdd835c8ea13b",
+      "bytes": 3352,
+      "path": "uma-sim-core/tests/training_failure_config.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "1cff195443b2af85dff6bc91112b9bacb8e459f6",
+      "bytes": 2117,
+      "path": "uma-sim-core/tests/training_failure_penalty.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "46660009e8ff1b6d0f8c174ccbace9d979abc0b4",
+      "bytes": 12546,
+      "path": "uma-sim-core/tests/training_inspection.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "76d0dfe999fdc67c57c8c361f0ba5c8c68550d34",
+      "bytes": 2311,
+      "path": "uma-sim-core/tests/training_resolver.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "eb0c1dbc8f83bfc4f3c9c8178b01f98b64dc56e3",
+      "bytes": 14564,
+      "path": "uma-sim-core/tests/unity_trackblazer_mechanics.rs"
+    },
+    {
+      "mode": "100644",
+      "blob": "57a99479bf44bd5ba31235c74a815a0bb7d425f8",
+      "bytes": 9587,
+      "path": "uma-sim-core/tests/ura_mechanics.rs"
+    }
+  ]
+}

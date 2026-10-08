@@ -1,0 +1,64 @@
+cargo test --offline --locked -p uma-sim-core --test cli_session_persistence
+cargo 1.93.1 (083ac5135 2025-12-15) (built from a source tarball)
+rustc 1.93.1 (01f6ddf75 2026-02-11) (built from a source tarball)
+   Compiling uma-sim-core v0.1.0 (/dev/shm/production-69570d292200/session-persistence/source/uma-sim-core)
+    Finished `test` profile [unoptimized] target(s) in 3m 07s
+     Running tests/cli_session_persistence.rs (/dev/shm/production-69570d292200/session-persistence/target/debug/deps/cli_session_persistence-7b1ca9b5ef66e414)
+
+running 10 tests
+test dangling_session_symlink_can_start_a_career ... ok
+test start_reports_obstructed_parent_without_success_output ... FAILED
+test existing_session_symlink_still_publishes_to_its_target ... ok
+test fast_reports_obstructed_parent_without_success_output ... FAILED
+test deck_write_failure_preserves_prior_career ... FAILED
+test fast_write_failure_preserves_prior_career ... FAILED
+test start_write_failure_preserves_prior_career ... FAILED
+test replacing_session_retains_existing_permissions ... ok
+test step_write_failure_preserves_prior_career ... FAILED
+test healthy_commands_publish_reloadable_sessions ... ok
+
+failures:
+
+---- start_reports_obstructed_parent_without_success_output stdout ----
+
+thread 'start_reports_obstructed_parent_without_success_output' (1071838) panicked at uma-sim-core/tests/cli_session_persistence.rs:118:5:
+failed save returned success
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- fast_reports_obstructed_parent_without_success_output stdout ----
+
+thread 'fast_reports_obstructed_parent_without_success_output' (1071830) panicked at uma-sim-core/tests/cli_session_persistence.rs:118:5:
+failed save returned success
+
+---- deck_write_failure_preserves_prior_career stdout ----
+
+thread 'deck_write_failure_preserves_prior_career' (1071828) panicked at uma-sim-core/tests/cli_session_persistence.rs:118:5:
+failed save returned success
+
+---- fast_write_failure_preserves_prior_career stdout ----
+
+thread 'fast_write_failure_preserves_prior_career' (1071832) panicked at uma-sim-core/tests/cli_session_persistence.rs:118:5:
+failed save returned success
+
+---- start_write_failure_preserves_prior_career stdout ----
+
+thread 'start_write_failure_preserves_prior_career' (1073180) panicked at uma-sim-core/tests/cli_session_persistence.rs:118:5:
+failed save returned success
+
+---- step_write_failure_preserves_prior_career stdout ----
+
+thread 'step_write_failure_preserves_prior_career' (1073381) panicked at uma-sim-core/tests/cli_session_persistence.rs:118:5:
+failed save returned success
+
+
+failures:
+    deck_write_failure_preserves_prior_career
+    fast_reports_obstructed_parent_without_success_output
+    fast_write_failure_preserves_prior_career
+    start_reports_obstructed_parent_without_success_output
+    start_write_failure_preserves_prior_career
+    step_write_failure_preserves_prior_career
+
+test result: FAILED. 4 passed; 6 failed; 0 ignored; 0 measured; 0 filtered out; finished in 40.67s
+
+error: test failed, to rerun pass `-p uma-sim-core --test cli_session_persistence`
