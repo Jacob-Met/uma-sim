@@ -1,0 +1,512 @@
+{
+  "started_at": "2026-10-08T16:14:58.581697+00:00",
+  "command": [
+    "/opt/homebrew/bin/cargo",
+    "build",
+    "--locked",
+    "-p",
+    "uma-sim-core",
+    "--bin",
+    "uma-sim-api"
+  ],
+  "environment_overrides": {
+    "CARGO_TARGET_DIR": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/target",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_BUILD_JOBS": "2"
+  },
+  "native_source_head": "fd3a8b9cfb5b3a55558ef28a893ea392081298af",
+  "canonical_base": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "exit_code": 0,
+  "seconds": 10.261,
+  "log_sha256": "d38e73c4cc6a1e5b45196756c87dfc90d2569954989436edfe56a3de6aca7d54",
+  "compiled_inputs": [
+    {
+      "path": "Cargo.lock",
+      "git_blob": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "size": 9836,
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c"
+    },
+    {
+      "path": "Cargo.toml",
+      "git_blob": "d55384b62968b2ada18d45aa4de2053e175579ea",
+      "size": 71,
+      "sha256": "818161c35c9828641c370cc3c6b50dfb1e8e4417210bd8fa486e87234e40b1d8"
+    },
+    {
+      "path": "uma-race-core/Cargo.toml",
+      "git_blob": "43fe390326bf6d0df59c30aca77a444b9c8dfea6",
+      "size": 282,
+      "sha256": "c5ea8eae8e4f9703087fa43066f391b7f3656ac3b0f46c368fc88f8e1b6e73d4"
+    },
+    {
+      "path": "uma-race-core/src/compete_fight.rs",
+      "git_blob": "30a834fc220979622269e4e903da9c4a09b483d6",
+      "size": 1713,
+      "sha256": "268b4ae82ad03416f5d75575009dc7abd9080efad11fc7d87bd4acbe1d3f56b4"
+    },
+    {
+      "path": "uma-race-core/src/condition/mod.rs",
+      "git_blob": "89153931f8de8eeb8901944f2e29667b951f0af1",
+      "size": 391,
+      "sha256": "ec3812281503946ed0821721b10085dd473ba53345ae439cec1e717319f3795d"
+    },
+    {
+      "path": "uma-race-core/src/condition/parser.rs",
+      "git_blob": "12cac1a7e84d201c0afa35af929700d56856d44d",
+      "size": 8454,
+      "sha256": "90b9890853fdd1f5c7c7a08c1867452f3d6e725e164a2f572953ab3d80967106"
+    },
+    {
+      "path": "uma-race-core/src/condition/region.rs",
+      "git_blob": "775fab39cb6d56c887c886f9e428883151f122b5",
+      "size": 3416,
+      "sha256": "3720f5b8f852cbb39192c271a1102d760e7e8dec6a4cafd8bfcb9fcb59a349df"
+    },
+    {
+      "path": "uma-race-core/src/condition/regions.rs",
+      "git_blob": "f5e096765638177298e7d0a3a706c306686dca48",
+      "size": 45225,
+      "sha256": "50a96e7b3f08934c9c76703d036e1cca0ab9a8bb8ae5ccc6cb56ae208e5a9683"
+    },
+    {
+      "path": "uma-race-core/src/condition/sample.rs",
+      "git_blob": "22c38109586f01f88a11a08a18ebe6afbed23f59",
+      "size": 7021,
+      "sha256": "c95bede74e21fcfcaa6743451309e671ed6c3a6e138f59f75daa9c02a666a6b2"
+    },
+    {
+      "path": "uma-race-core/src/condition/skill.rs",
+      "git_blob": "cabcbc950e6baf3b761d75f62211b3c6ca1fc444",
+      "size": 14409,
+      "sha256": "c76eceacada786f3e40f0618f1f05acc4b60bc964cfe12f158e2704d69d27927"
+    },
+    {
+      "path": "uma-race-core/src/course.rs",
+      "git_blob": "6087eef93d32d4f5a601c280c7eda9e2753fddb8",
+      "size": 4053,
+      "sha256": "05745d3384a4ffbc8cef54c36b08d9aacaabfc9e7d31735d1554c1b09febae36"
+    },
+    {
+      "path": "uma-race-core/src/data.rs",
+      "git_blob": "2e7bf06214aefe592246cea7cb4dd7b65fae19ab",
+      "size": 3250,
+      "sha256": "99a4adce8e48482c5cdb334862f8f7c4a1b8886495a9fa3dbffee1cd97d2838c"
+    },
+    {
+      "path": "uma-race-core/src/field.rs",
+      "git_blob": "4602f098895c326b7a0eb8a2cc5bd031cf57b826",
+      "size": 12905,
+      "sha256": "78dd6971c3e2498a061bf9065e2425e6053f7bb06004c7d54937d95071f221fd"
+    },
+    {
+      "path": "uma-race-core/src/hp.rs",
+      "git_blob": "7df8a62d54af929179fc6d6b17e2b1376873da83",
+      "size": 5861,
+      "sha256": "a60f5bfbe0eaef6593638333790b38a62238d9d0b5c6aad7e5e0cac5829fec50"
+    },
+    {
+      "path": "uma-race-core/src/lead_comp.rs",
+      "git_blob": "24d7b9f13ba878f90d450ac2634b951c9d89535d",
+      "size": 2077,
+      "sha256": "5abb847011257e1bb54707acf7dced0094652e1e1f1a847b7839760959959f26"
+    },
+    {
+      "path": "uma-race-core/src/lib.rs",
+      "git_blob": "42f450e7798ea65e5d219d838473472e5c934009",
+      "size": 1178,
+      "sha256": "4651a4ef63678ddc318f40dde89707f02f8d0ed290a5fb9b9db426ae894976e8"
+    },
+    {
+      "path": "uma-race-core/src/physics.rs",
+      "git_blob": "4532ca7f8a09c3a5ba1ab31f770f646bc2acc7b6",
+      "size": 2429,
+      "sha256": "be5a50701b082b021b536e6db2105840aa1836ca350835511cf20bbe8cc95445"
+    },
+    {
+      "path": "uma-race-core/src/pos_keep.rs",
+      "git_blob": "5af32c3b6dcf110c0e9f72c5df5b80eca0c60b40",
+      "size": 7472,
+      "sha256": "7d21115707dc4ba83927d5106b9b4af0aa0606afc75c11b9a9711ce756808959"
+    },
+    {
+      "path": "uma-race-core/src/rng.rs",
+      "git_blob": "aa555a746cb460a7891e8bdba18bf13185f41f74",
+      "size": 4728,
+      "sha256": "f70b72f2f559fb436215d53d397febf0c6503e53f974999ae423401fd8187d4b"
+    },
+    {
+      "path": "uma-race-core/src/runner.rs",
+      "git_blob": "28117f7f41076f603ee0af4de900c0fe36bc4ccc",
+      "size": 58779,
+      "sha256": "754fdd50370158c666e0404ba07a971311a6f18a1fa91467f9e09f41efbe80b4"
+    },
+    {
+      "path": "uma-race-core/src/solver.rs",
+      "git_blob": "7e94878d9a78fe7bc9fb7de5cf56ec7fea014982",
+      "size": 29039,
+      "sha256": "7f80be845f974404658e49568bc1ebc6de3b1665dd893bb0b7e76daa58490995"
+    },
+    {
+      "path": "uma-race-core/src/special_conditions.rs",
+      "git_blob": "11549ecec295600c4682b90639d6a19ac9fadd1c",
+      "size": 8143,
+      "sha256": "88d95c8f9118b76b38cb1c10e10ef5a2ffc90b1a705567862baa8806d4d80e80"
+    },
+    {
+      "path": "uma-sim-core/Cargo.toml",
+      "git_blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+      "size": 1098,
+      "sha256": "4f2415320bc4548fa59ad6c115ad05a8adcad59a2b50349cf44d78d52d12c5e0"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "git_blob": "60a02556b3707918e57cac775f723e0c8f67b30d",
+      "size": 87125,
+      "sha256": "b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa"
+    },
+    {
+      "path": "uma-sim-core/src/batch_analysis.rs",
+      "git_blob": "8169e3f115c4ee3a7cc2464190ced43fceb770dc",
+      "size": 13344,
+      "sha256": "062f2ad7b03b84d82dd4f87ccb2507f56405e0c878d4b7cfa70df11855fc584b"
+    },
+    {
+      "path": "uma-sim-core/src/batch_pairs.rs",
+      "git_blob": "d083c65c64053a87da11a809de83d04184cc393b",
+      "size": 9822,
+      "sha256": "7484075434118852a7af9c121af478cf7dceb22d3f7559d46dc97a279b3ee770"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim-api.rs",
+      "git_blob": "821ce29dc4dba0758e16392fb50d83ec5231e705",
+      "size": 230,
+      "sha256": "0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "git_blob": "3219cab93a8a7c1234f69e6ca0bea9958de177a1",
+      "size": 20452,
+      "sha256": "90f1594ba6e25f2af098ef0049374447959475718c5425f2228349f5afbe5676"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/paired_batches.rs",
+      "git_blob": "3fab6f9f8669d1cc3fa5cdae52099c0846d06da9",
+      "size": 3491,
+      "sha256": "2465e6a468d106bbf8beb481659ef32fe352a8cbb33e6d9161ef937a07c64379"
+    },
+    {
+      "path": "uma-sim-core/src/bot.rs",
+      "git_blob": "68c2b3ed39ed39719dce0788afe9d7e776682624",
+      "size": 9706,
+      "sha256": "b2286220edfbbb171e06c4fd35118da988e7a9dfaf28b9a5aae2cb5116b37045"
+    },
+    {
+      "path": "uma-sim-core/src/calendar.rs",
+      "git_blob": "85e251a9705ca092cfefbf3afef0e759c0be0e08",
+      "size": 1495,
+      "sha256": "6b47564bba1d826d644cfaa3389ec4faf0ef889f82b947be690ed45b7a4b8c6b"
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "git_blob": "1220bfcaa03bec1584ad8273507ac5fdc4114c76",
+      "size": 58455,
+      "sha256": "5e38b81d75f14c3acb98dd842b6326f7b8c2eac9c5401c3fcee6474bdb2f2d06"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/event.rs",
+      "git_blob": "a970065621ff85120d32c1eb1a88b70a8b852322",
+      "size": 7809,
+      "sha256": "be115bebc8288847a6416897e2a8550ac0944fd7bb9490cd39447ad473786f23"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/factor.rs",
+      "git_blob": "15f723b2c6d8c12a2c68d11493e8bcef1be4c502",
+      "size": 9105,
+      "sha256": "c97c00886f4ddf85c3613c90a0c4d6cdf84be601c756d79cd430f6bcfdaed7cc"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/mod.rs",
+      "git_blob": "8657d5680a880ffcc9f49aa47ee495067475f691",
+      "size": 80,
+      "sha256": "0d880c7e8fb880683686a5687020882bb5396520b651d020f3fb2f2199d419eb"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/skill.rs",
+      "git_blob": "9b59270b62f45e68658aa2ae95528f6000bbeb1a",
+      "size": 6390,
+      "sha256": "5a8b3989a7f7734870a787a8165b4a952a1f55784d1a1f95970b2642b7a09341"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/support.rs",
+      "git_blob": "80d49de483495516863e70ac65d0288a4b8949b5",
+      "size": 6683,
+      "sha256": "f677cfc2ed41f192e47eb1156f086e38e3d000e045ce466290b06ba8431b851c"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/trainee.rs",
+      "git_blob": "94d525f53f41f36e5411dc5439f25765a9b2496c",
+      "size": 15030,
+      "sha256": "1d7bfe9bbd481520566589c8dc6190b980580d96f970e51f97d43627f61b265f"
+    },
+    {
+      "path": "uma-sim-core/src/config.rs",
+      "git_blob": "1e891335b87640cc838e7c3a92820af040c4df11",
+      "size": 30202,
+      "sha256": "5da9209669a971226c4ab1b24dadd462329962c3d15f2be041c96f5fa46933f4"
+    },
+    {
+      "path": "uma-sim-core/src/content.rs",
+      "git_blob": "68437768525bf08645a0a09b52a59600d672471b",
+      "size": 4526,
+      "sha256": "32e5c18c844b0bea3940c7538eccb09addd2ecda15d34b1e3b955f3d98298a09"
+    },
+    {
+      "path": "uma-sim-core/src/deck.rs",
+      "git_blob": "b52e7d6f8a64103e9af329d0cfee93a8886ae525",
+      "size": 15798,
+      "sha256": "0de21f528ad2b099052cc1683c10220d1e206f771e8e6b3e95e78c88c392c441"
+    },
+    {
+      "path": "uma-sim-core/src/engine.rs",
+      "git_blob": "7ece3123aea3ba3f17326ceb033fc53e796b3566",
+      "size": 50023,
+      "sha256": "5b2ad3cd6557d929d07fef8b1783357089d129190dc1e871e80f4d6e28dd075c"
+    },
+    {
+      "path": "uma-sim-core/src/events.rs",
+      "git_blob": "33bbd2235f08be53abcb45def4e055d71ff7b0cc",
+      "size": 6477,
+      "sha256": "4d8ea7cd9783487a5c162e9b4b8d7d8a7b467e9dc01c5f06dfd0189db12117a1"
+    },
+    {
+      "path": "uma-sim-core/src/factory.rs",
+      "git_blob": "47d4853befc9ddfea2aea622a2d68bc57307ea5f",
+      "size": 8875,
+      "sha256": "067d5948755ba0f39bc8f980a1a4615fbdb8ca50da110b3657414d2d49ff5aac"
+    },
+    {
+      "path": "uma-sim-core/src/legacy.rs",
+      "git_blob": "cd8485db5682509c5a60c217e1ccf1aa1fa0a725",
+      "size": 11184,
+      "sha256": "70fc0e91f7b18335d8b91011587664353bbc016985d7ec9230c2aa272c75e666"
+    },
+    {
+      "path": "uma-sim-core/src/lib.rs",
+      "git_blob": "e815f361d1e927f5b8fc9a0a53b317fa38917ee4",
+      "size": 3342,
+      "sha256": "5468e5c0e55e8701136b8cf7cdb53874e2a86e2a1ef5ebfd3f776d5705078b5e"
+    },
+    {
+      "path": "uma-sim-core/src/mid_run_inheritance.rs",
+      "git_blob": "b65e2b4c1cfd62d916e520a214e8fcfd2825e16d",
+      "size": 9467,
+      "sha256": "ca1536bcf8f37c88e41f5dc8a1f420af5cf04620b89a50091d83478a1828e35c"
+    },
+    {
+      "path": "uma-sim-core/src/policy.rs",
+      "git_blob": "3fcd10d8da1d1df253f53dc3c9e8e93288098969",
+      "size": 1365,
+      "sha256": "8b9593d7ef9e65d1e7c906a44a850094791719c4b23c041c78385b08f5ff1d4a"
+    },
+    {
+      "path": "uma-sim-core/src/policy_external.rs",
+      "git_blob": "99c43f3d83dc8965070f9ad1201a742a78bcc69d",
+      "size": 19923,
+      "sha256": "081382ca4d7f3fd1a0943e737a0f819c7c3f419c04a140113c15a204179f0221"
+    },
+    {
+      "path": "uma-sim-core/src/race.rs",
+      "git_blob": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43",
+      "size": 24601,
+      "sha256": "1010b41f21af0083e7cb4fdd792456b077ad2e08b5e46530ca29031242198f27"
+    },
+    {
+      "path": "uma-sim-core/src/render.rs",
+      "git_blob": "3f154753f700fa4a6faccf19faf8bfe320143137",
+      "size": 2595,
+      "sha256": "e5afaf59d6c2769c23f741583886137dbc7324f7766c97a39655277c591db1c0"
+    },
+    {
+      "path": "uma-sim-core/src/rng.rs",
+      "git_blob": "553c9a5a56b5c7f9aa3025e2bc721f1a45d08b8d",
+      "size": 8307,
+      "sha256": "6926d2388464fff071f71dc37d80eea6d3306e9279d0cdb946da78fcd84e42cc"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live.rs",
+      "git_blob": "284d305034db2e6bd03bed881a6dadd575207014",
+      "size": 37939,
+      "sha256": "7833d334dfc9405ba4d196d3b2fcf578908d4f376d2e84c1630ba93f9a1d29ea"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_catalog.rs",
+      "git_blob": "07e285f032dfaa6d863be52d60348d11176c8030",
+      "size": 26836,
+      "sha256": "51bf12f1027b8cfe45e72d9c2deae5f36528ced0db181c3893b413032bc3f7ae"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_deck_support.rs",
+      "git_blob": "0f6c6a16abab7ceb1009808d532cdb5874881522",
+      "size": 2526,
+      "sha256": "8eb06bc1f60d10ee228d57adffa27aab9d5d487dcde4b496ed8882b9187906a4"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_lesson_board.rs",
+      "git_blob": "1d30acf645aa7fc94cb38276affc57087edb2c63",
+      "size": 9652,
+      "sha256": "b3a21cf2e4b9b275e935115a6917ffcd4b397eff5039cf1122876781d1a1743a"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_lesson_scoring.rs",
+      "git_blob": "20e3de216cd874d7726cda7f880f8d3d3671aef3",
+      "size": 4072,
+      "sha256": "a9ef6f18d43f317f335ad816b4f843b8cc246a14f3f7695ab91c14d7439fc0cf"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/mod.rs",
+      "git_blob": "d7a8ac851358b77b7b1510fd590e34adc3056d8b",
+      "size": 39258,
+      "sha256": "212247478df1cc2211b8f428597bf7f33a1127af407a66a6d64d0c8004ee77ce"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/trackblazer.rs",
+      "git_blob": "40011a2939bbd0e0658e1778717fbe381356294b",
+      "size": 19881,
+      "sha256": "36812c7c3c448002e23b6335524d314f5ed95af0bab302112dbd2e21da8fa412"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/unity.rs",
+      "git_blob": "8518cca828a56e895a7f31959b3f1b00e972fb01",
+      "size": 8361,
+      "sha256": "f9c0fc3cf7241bfe2b56c25673e79f99fa91455af8e99b0657d3bb6896e49f33"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/ura.rs",
+      "git_blob": "4c191f91144bb59b7cb9775576886504a03c0d10",
+      "size": 17766,
+      "sha256": "005d64ab1e16d88e61ec7738ab439605e653f5cffe3df7dc814e0aad7f2718ed"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/decision_context.rs",
+      "git_blob": "c55345c900d2378d2f842e19ecd96b30a4f5399c",
+      "size": 3235,
+      "sha256": "73e79e440cbaf2751ea5a8988bef0ed88ce9e82ea5e1c9a6ab13ef39b9f5cc5e"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/event_scoring.rs",
+      "git_blob": "21a8e00926af18986ff81eefceb637c67ac91b56",
+      "size": 16664,
+      "sha256": "9e4ec5955424e0a6edb40d9ddb34f8f7d24fde30d6897358bf76cc77529f447e"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/formula_gain.rs",
+      "git_blob": "8a559c1866f16841d8db0e55dfc637c18e713442",
+      "size": 2374,
+      "sha256": "47984fc96ac8ad11866d84498e573d6f316b77346e05a0d9dab0d0c1d27bc929"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/lesson_scoring.rs",
+      "git_blob": "ca51d457a6c5bc86b9a4fee806f0af4928e7ca49",
+      "size": 3822,
+      "sha256": "e8e703257f7490c600248b842d94e352b14d7f059fbeeec22ae3629bb9217384"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/mod.rs",
+      "git_blob": "021a3d1fc76e75bf0f014358852b297c99eb4089",
+      "size": 3782,
+      "sha256": "c21013faaae569ad633abde7023f9879e0a10e3640308d56c61c1cb04793db49"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/objective_profiles.rs",
+      "git_blob": "22f118a98a47841efe99dc6201ff789abe366d80",
+      "size": 4130,
+      "sha256": "4071db5315b34199997cdf5b57e8ade1f3f1474d6c04a9b51cb830a2ce5e6cef"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/rank_estimate.rs",
+      "git_blob": "90274e4131334f8e78f20c6cdbce7441e2798d84",
+      "size": 11467,
+      "sha256": "1fcc35506e640c159d233b3185ad7227a2a96f63246f820ebb79ced2583bb50e"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/scoring.rs",
+      "git_blob": "3c11b985a2a3b5337051c09485651b3e707470bd",
+      "size": 20182,
+      "sha256": "e2bd2c4949f18db17e977843c1c79b336bdfc95b93b1368fe4c427767c98f790"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/skill_scoring.rs",
+      "git_blob": "8f33392757d1fa347dfa4a871faa6384a2b1ed34",
+      "size": 11325,
+      "sha256": "6c9fa6d2ac85d06cc18f4a181f64111a6b8561e0b9bd30411ef0dcaeed73feb4"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/support_effects.rs",
+      "git_blob": "d0925d2c642638c17e3fdc7ef8fb020c9d5aed93",
+      "size": 4846,
+      "sha256": "eefd1d65c50044a529d215da92cab915cfedc7930a19d91ae91802da29dc578b"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/terminal_utility.rs",
+      "git_blob": "de504cca1bba34c33b22e6b8bb493e3d536ffe84",
+      "size": 6400,
+      "sha256": "8365116eac4f4ffce7e679b67edac1b95b2dad40b1067833c1d8fdefe30db409"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/types.rs",
+      "git_blob": "2a93aba017f5414d74b219021b7df320ff58c332",
+      "size": 9755,
+      "sha256": "864eb8a43187af43f0222ae59db883fc1418cc646bff3cff588e8bc76cd6bceb"
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "git_blob": "c407f70093b955801126d1f3c93af79a279d2346",
+      "size": 2481,
+      "sha256": "fdf226997b92edb49ba5e4993b5c0bcef3976fd4eec0386077d4f4c9072d1e52"
+    },
+    {
+      "path": "uma-sim-core/src/snapshot.rs",
+      "git_blob": "a17d416cf5d9af0ce360de446852ecd4350b4be9",
+      "size": 1087,
+      "sha256": "95dcb1d92dacac6494a403cb9d39ef06b42e855aa22dfb3013f39c941c2f3e68"
+    },
+    {
+      "path": "uma-sim-core/src/spark_generation.rs",
+      "git_blob": "a0bc10d245b56445d5bb6119d2c007d5d057561a",
+      "size": 5622,
+      "sha256": "11006d40bd461f7e2e1d92b866d90c8522b2f72968cffbbd4b4b5dc4e0720af2"
+    },
+    {
+      "path": "uma-sim-core/src/state.rs",
+      "git_blob": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821",
+      "size": 21853,
+      "sha256": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833"
+    },
+    {
+      "path": "uma-sim-core/src/telemetry.rs",
+      "git_blob": "66f4c7052806607e4bade83df105a9c0d9287fa7",
+      "size": 20894,
+      "sha256": "b9ceb28e08de1957e212addcf3dc958ec54fbb8c475691a3530725445e789548"
+    },
+    {
+      "path": "uma-sim-core/src/training.rs",
+      "git_blob": "81dc53401e4a94bf0085bde7fcf40aff5fb77f71",
+      "size": 16914,
+      "sha256": "ffcba9a98219819d82d078ac117022afc677562de3512fb915b52c12762c4590"
+    }
+  ],
+  "source_freeze_sha256": "475cd201a80b7c2fd0705be4ae5fd581115ea6322801d10e86a609f543940b0c",
+  "binary": {
+    "path": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/target/debug/uma-sim-api",
+    "size": 14269024,
+    "sha256": "283c46e2a698dd1e258ef726ffd3816536c2f1f8fec7240168a4b0063e16a69a"
+  },
+  "source_unchanged": true,
+  "source_status": "",
+  "versions": {
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27) (Homebrew)",
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)"
+  },
+  "free_after": 1295114240
+}

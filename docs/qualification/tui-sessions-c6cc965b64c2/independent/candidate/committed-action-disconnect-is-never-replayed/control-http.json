@@ -1,0 +1,214 @@
+[
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "seed": "7301",
+      "scenario": "ura",
+      "speed": "3",
+      "traceTelemetry": "true"
+    },
+    "status": 200,
+    "response_sha256": "d4e319c4ef03c5340ff37f9cf8c8c5641e898777e5aafbd7a46c96e737c5012f"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "0747271957b5658424c98c8cd1ad5b2954b2dafa2f0cb4ee58ae1afd4761542d"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "8976751149d3ace8896f75736e46ad90217ea7da85f15704ef13c76718f8e28e"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "61bd244d6370d79bb55d10be2d63e2cce95b20d4ae20e1f9fdbfc27f1bb5c2e6"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "995ea7a512491c5b9c388aa2e92ea3d21ffab3f78de6a8c6b8b3cea106312f22"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "010ccf84e377ef5d520dc670d825cb104057468e5edc38ea071a195c1f3f8e92"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "96a00e7fe7217cbef47f566d2333d50e981390b553c15eaffbb39c925015a441"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "e9f59ee37e18e1873f4e3aa1f9b11bcfb41492ab5989e24464f22f654b2775d3"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "session": "saved-review",
+      "seed": "7302",
+      "scenario": "ura",
+      "traceTelemetry": "true"
+    },
+    "status": 200,
+    "response_sha256": "1e4b820d22f3606b4fea47a07641aab394c587938f062f684f449515f213bef6"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "7cf08be1f620024f73c7e41d7357e6f09af855999b2a152ae7419a39505985fc"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "b475125c798716b528f1b6435739073e03a9f629b919449e4b972eacda691856"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "dbc5c030e3299e8db678950d2fc938325b690db59ca90a3ec1dabf7d2f4087a9"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "session": "other-review",
+      "seed": "7303",
+      "scenario": "ura",
+      "speed": "7"
+    },
+    "status": 200,
+    "response_sha256": "b1278a6255ab0e63bb57411ac2f5c766a5ae4fec0dc3208026654bddf8c09e2a"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=other-review",
+    "status": 200,
+    "response_sha256": "b1278a6255ab0e63bb57411ac2f5c766a5ae4fec0dc3208026654bddf8c09e2a"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=saved-review",
+    "status": 200,
+    "response_sha256": "f0191ae67830b04cc45cf8cdd33a3236656a20c686c9632efeb4cb923835fd9b"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/fork",
+    "body": {
+      "session": "saved-review",
+      "id": "one-step-reference"
+    },
+    "status": 200,
+    "response_sha256": "3094011953124ab8669a1b51fffe5dfedff2e7026bfd95cc4faab518825601b6"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/choices?session=saved-review",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/action",
+    "body": {
+      "session": "one-step-reference",
+      "action": "train_speed"
+    },
+    "status": 200,
+    "response_sha256": "1c4a54abaf73b4df4f1988e8cec56754f7220bde913ae66d0dad7bfb2a4c3a7d"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=one-step-reference",
+    "status": 200,
+    "response_sha256": "e25dcf0d60553ced4e18e4b522406255eef2d1d1c111d852a6a407c0d1606515"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=saved-review",
+    "status": 200,
+    "response_sha256": "e25dcf0d60553ced4e18e4b522406255eef2d1d1c111d852a6a407c0d1606515"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "48269537c72d85dc6089746051f0bc943438953f6d8c4f70cb48c4278f6cd98d"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "e9f59ee37e18e1873f4e3aa1f9b11bcfb41492ab5989e24464f22f654b2775d3"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": "one-step-reference"
+    },
+    "status": 200,
+    "response_sha256": "9e7d8537810420a759b5e4f5d0ed1b423a46284b4aa5183896955b858de452e2"
+  }
+]

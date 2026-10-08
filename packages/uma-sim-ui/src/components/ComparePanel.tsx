@@ -1,22 +1,10 @@
 import { useState } from "react";
 import { api } from "../api/client";
-import type { ActionOverride, BranchComparison } from "../api/types";
+import type { BranchComparison } from "../api/types";
 import { useLabStore } from "../state/labStore";
+import { validateBranchDraft } from "./branchInput";
 
 const POLICIES = ["bot", "default"];
-
-/** Parse "turn:actionId" lines into overrides. */
-export function parseOverrides(text: string): ActionOverride[] {
-  return text
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean)
-    .map((line) => {
-      const [turn, ...rest] = line.split(":");
-      return { turn: Number(turn.trim()), actionId: rest.join(":").trim() };
-    })
-    .filter((o) => Number.isFinite(o.turn) && o.turn >= 0 && o.actionId.length > 0);
-}
 
 function OutcomeCard({
   title,
@@ -65,26 +53,34 @@ function OutcomeCard({
   );
 }
 
-export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
+export function ComparePanel({ lab, onInspectTrace }: {
+  lab: ReturnType<typeof useLabStore>;
+  onInspectTrace: (id: string) => void;
+}) {
   const { state, runBranch, deleteBranch, compare, setCompareSelection } = lab;
   const [checkpoint, setCheckpoint] = useState("");
   const [branchName, setBranchName] = useState("");
   const [policy, setPolicy] = useState("bot");
-  const [maxActions, setMaxActions] = useState(120);
+  const [maxActions, setMaxActions] = useState("120");
   const [overridesText, setOverridesText] = useState("");
+  const draft = validateBranchDraft(overridesText, maxActions);
+  const issues = draft.ok ? [] : draft.issues;
+  const overrideIssues = issues.filter((issue) => issue.field === "overrides");
+  const limitIssue = issues.find((issue) => issue.field === "maxActions");
 
   const run = () => {
-    if (!checkpoint.trim()) return;
+    if (state.busy || !checkpoint.trim() || !draft.ok) return;
     void runBranch({
       checkpoint: checkpoint.trim(),
       name: branchName.trim(),
       policy,
-      maxActions,
-      overrides: parseOverrides(overridesText),
+      maxActions: draft.maxActions,
+      overrides: draft.overrides,
     });
   };
 
   const c = state.comparison;
+  const selectionChanged = c && (c.aId !== state.compareA || c.bId !== state.compareB);
 
   return (
     <div className="card">
@@ -134,14 +130,19 @@ export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
             type="number"
             min={1}
             max={500}
+            step={1}
             value={maxActions}
-            onChange={(e) => setMaxActions(Number(e.target.value))}
+            onChange={(e) => setMaxActions(e.target.value)}
+            aria-invalid={Boolean(limitIssue)}
+            aria-describedby={limitIssue ? "branch-limit-error" : undefined}
           />
         </label>
-        <button disabled={state.busy || !checkpoint.trim()} onClick={run}>
-          Run branch
-        </button>
       </div>
+      {limitIssue && (
+        <p id="branch-limit-error" className="banner error" role="alert">
+          {limitIssue.message}
+        </p>
+      )}
       <div className="field-row">
         <label style={{ flexGrow: 1 }}>
           Per-turn overrides (one per line, <code>turn:actionId</code>; only
@@ -151,8 +152,43 @@ export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
             onChange={(e) => setOverridesText(e.target.value)}
             placeholder={"8:rest\n10:train_stamina"}
             rows={3}
+            aria-invalid={overrideIssues.length > 0}
+            aria-describedby={overrideIssues.length > 0 ? "branch-override-errors" : undefined}
           />
         </label>
+      </div>
+      {overrideIssues.length > 0 && (
+        <div id="branch-override-errors" className="banner error" role="alert">
+          <p>Correct these overrides before running the branch:</p>
+          <ul>
+            {overrideIssues.map((issue) => <li key={issue.line}>{issue.message}</li>)}
+          </ul>
+        </div>
+      )}
+      {draft.ok && (
+        <div className="hint">
+          <p>
+            Ready to run up to {draft.maxActions} actions with {draft.overrides.length}{" "}
+            {draft.overrides.length === 1 ? "override" : "overrides"}.
+          </p>
+          {draft.overrides.length > 0 && (
+            <details>
+              <summary>Review overrides</summary>
+              <ol>
+                {draft.overrides.map((override) => (
+                  <li key={override.turn}>
+                    <code>{override.turn}:{override.actionId}</code>
+                  </li>
+                ))}
+              </ol>
+            </details>
+          )}
+        </div>
+      )}
+      <div className="field-row">
+        <button disabled={state.busy || !checkpoint.trim() || !draft.ok} onClick={run}>
+          Run branch
+        </button>
       </div>
 
       <h3>Saved branches</h3>
@@ -170,7 +206,7 @@ export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
               <th>Fans</th>
               <th>A</th>
               <th>B</th>
-              <th></th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -201,6 +237,9 @@ export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
                   />
                 </td>
                 <td>
+                  <button disabled={state.busy} onClick={() => onInspectTrace(b.id)}>
+                    Inspect trace
+                  </button>{" "}
                   <button
                     disabled={state.busy}
                     onClick={() => {
@@ -218,7 +257,7 @@ export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
       )}
       <div className="field-row">
         <button
-          disabled={state.busy || !state.compareA || !state.compareB}
+          disabled={state.busy || !state.compareA || !state.compareB || state.compareA === state.compareB}
           onClick={() => void compare(state.compareA, state.compareB)}
         >
           Compare selected branches
@@ -227,14 +266,14 @@ export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
           <>
             <a
               className="link-button"
-              href={api.labReportUrl(state.compareA, state.compareB, "markdown")}
+              href={api.labReportUrl(c.aId, c.bId, "markdown")}
               download
             >
               Download markdown report
             </a>
             <a
               className="link-button"
-              href={api.labReportUrl(state.compareA, state.compareB, "json")}
+              href={api.labReportUrl(c.aId, c.bId, "json")}
               download
             >
               Download JSON report
@@ -242,6 +281,12 @@ export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
           </>
         )}
       </div>
+      {selectionChanged && (
+        <p className="hint" role="status">
+          Showing {c.aName} vs {c.bName}; downloads contain this displayed comparison.
+          Compare selected branches to update the result.
+        </p>
+      )}
 
       {c && (
         <div>

@@ -1,0 +1,105 @@
+# PR #72: these two SHA256 artifact identities are not credentials.
+# Preserve the received provenance bytes while retaining all default rules.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "Verified native receiver source and executable digests in the PR72 provenance record"
+condition = "AND"
+paths = ['''^docs/qualification/tui-sessions-c6cc965b64c2/independent/server-build-provenance\.json$''']
+regexTarget = "secret"
+regexes = ['''^(3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95|fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e)$''']
+
+
+# Durable terminal receiving: these are verified Git object identities, not credentials.
+# Each exception is limited to one exact provenance path and the observed whole value.
+[[rules.allowlists]]
+description = "Verified original API blob in the durable terminal receiving guide"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/README\.md$''']
+regexTarget = "secret"
+regexes = ['''^4ff7034bc5701d793cd93d645d89d40d73fc3273$''']
+
+[[rules.allowlists]]
+description = "Verified current owner commit in the independent terminal source manifest"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-manifest\.json$''']
+regexTarget = "secret"
+regexes = ['''^fe2e6fdcdf7625cb5beac0e0062ace0360288a02$''']
+
+[[rules.allowlists]]
+description = "Verified original and current owner commits in the independent API comparison"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/api-current-impact\.json$''']
+regexTarget = "secret"
+regexes = ['''^(b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c|fe2e6fdcdf7625cb5beac0e0062ace0360288a02)$''']
+
+# PR #91: immutable source-file SHA-256 digests verified against Git blobs.
+# Match only the exact receiving paths AND the four verified digest values.
+[[rules.allowlists]]
+description = "Verified source digests in the PR91 native report receiving evidence"
+condition = "AND"
+paths = [
+  '''^docs/receipts/career-lab-native-acd057031fb2/publication-scope\.json$''',
+  '''^docs/receipts/career-lab-native-acd057031fb2/release/local/preparation\.json$''',
+  '''^docs/receipts/career-lab-native-acd057031fb2/release/native/receipt\.json$''',
+  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/baseline/receipt\.json$''',
+  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/candidate/receipt\.json$''',
+  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/accepted-main-equality\.json$''',
+  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/adversarial-initial-oracle/receipt\.json$''',
+  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/adversarial/receipt\.json$''',
+  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/summary\.json$''',
+  '''^docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/receipt\.json$''',
+  '''^docs/receipts/lab-report-20261008/native-receiving/baseline/receipt\.json$''',
+  '''^docs/receipts/lab-report-20261008/native-receiving/candidate/receipt\.json$''',
+  '''^docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/receipt\.json$''',
+  '''^docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/receipt\.json$''',
+  '''^docs/receipts/lab-report-20261008/native-receiving/json-equivalence\.json$''',
+]
+regexTarget = "secret"
+regexes = ['''^(0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873|3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95|7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d|a3fe5fc9d14118fccd401fbe25aaf839b79a4a41d8e4c9b80ee4c980197febc4)$''']
+
+# Race-results receiving: retain these verified source and executable identities.
+# Each allowance requires the exact evidence path and the complete observed value.
+[[rules.allowlists]]
+description = "Verified source digest in the race-results native and browser receipts"
+condition = "AND"
+paths = [
+  '''^docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness\.json$''',
+  '''^docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt\.json$''',
+  '''^docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt\.json$''',
+]
+regexTarget = "secret"
+regexes = ['''^31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55$''']
+
+[[rules.allowlists]]
+description = "Verified executable digest in the race-results source and composition records"
+condition = "AND"
+paths = [
+  '''^docs/receiving/race-results-afe225d6c6be/source-freeze\.json$''',
+  '''^docs/receiving/race-results-afe225d6c6be/current-044/composition\.json$''',
+]
+regexTarget = "secret"
+regexes = ['''^cca25eeadb762c71a2a4067d8d82546b72bbeb4820dca63a79134d1f49690d97$''']
+
+[[rules.allowlists]]
+description = "Verified native build source commit in the race-results composition record"
+condition = "AND"
+paths = ['''^docs/receiving/race-results-afe225d6c6be/current-044/composition\.json$''']
+regexTarget = "secret"
+regexes = ['''^4dc00f155d29fb37887524455f0627399191c915$''']
+
+# PR #109: the native API source SHA-256 is provenance, not a credential.
+# Match only these two exact retained receipts AND this verified whole value.
+[[rules.allowlists]]
+description = "Verified native API source digest in Conditions and titles browser receipts"
+condition = "AND"
+paths = [
+  '''^docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/receipt\.json$''',
+  '''^docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/receipt\.json$''',
+]
+regexTarget = "secret"
+regexes = ['''^b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa$''']

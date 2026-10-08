@@ -1,0 +1,144 @@
+{
+  "aId": "br-1791448636-0016",
+  "aName": "Authored metadata A",
+  "bId": "br-1791448636-0017",
+  "bName": "Authored metadata B",
+  "checkpointName": "cp` `long``fence``` <tag> &amp; | marker\r\nnext",
+  "checkpointTurn": 1,
+  "seed": 4242,
+  "sameCheckpoint": true,
+  "comparedAt": "2026-10-08T08:37:16Z",
+  "firstDivergence": {
+    "stepIndex": 0,
+    "turn": 1,
+    "dateLabel": "Date [anchor](#target) | <i>tag</i>\nsecond",
+    "phase": "`phase` <em> &amp; | x\rY",
+    "kind": "decision",
+    "actionA": "`a``` | &amp; <tag> \\ path\nnext`",
+    "actionB": "b`` ` &raw; |\r\nfinish",
+    "labelA": "A | **literal** `draft` <br> &amp;\nnext",
+    "labelB": "B \\| _label_ <em>text</em>\r\nlast",
+    "rngCallsAAfter": 4,
+    "rngCallsBAfter": 4,
+    "note": "A chose 'A | **literal** `draft` <br> &amp;\nnext' while B chose 'B \\| _label_ <em>text</em>\r\nlast' on turn 1 (Date [anchor](#target) | <i>tag</i>\nsecond). RNG positions after the step: A=4 calls, B=4 calls."
+  },
+  "aligned": [
+    {
+      "stepIndex": 0,
+      "turnA": 1,
+      "turnB": 1,
+      "actionA": "`a``` | &amp; <tag> \\ path\nnext`",
+      "actionB": "b`` ` &raw; |\r\nfinish",
+      "labelA": "A | **literal** `draft` <br> &amp;\nnext",
+      "labelB": "B \\| _label_ <em>text</em>\r\nlast",
+      "sameAction": false,
+      "energyA": 100,
+      "energyB": 100,
+      "moodA": "NORMAL",
+      "moodB": "NORMAL",
+      "fansA": 1033,
+      "fansB": 1033,
+      "skillPointsA": 45,
+      "skillPointsB": 45,
+      "sameOutcome": true
+    },
+    {
+      "stepIndex": 1,
+      "turnA": 2,
+      "turnB": 2,
+      "actionA": "train_speed",
+      "actionB": "train_speed",
+      "labelA": "Train Speed",
+      "labelB": "Train Speed",
+      "sameAction": true,
+      "energyA": 65,
+      "energyB": 65,
+      "moodA": "NORMAL",
+      "moodB": "NORMAL",
+      "fansA": 1033,
+      "fansB": 1033,
+      "skillPointsA": 45,
+      "skillPointsB": 45,
+      "sameOutcome": true
+    }
+  ],
+  "outcomeA": {
+    "steps": 2,
+    "finalTurn": 3,
+    "careerComplete": false,
+    "completedRaces": [
+      "race | <tag>",
+      "literal `race`\nnew"
+    ],
+    "stats": {
+      "speed": 83,
+      "stamina": 88,
+      "power": 98,
+      "guts": 90,
+      "wit": 91
+    },
+    "energy": 65,
+    "mood": "GOOD | *literal* <br>\r\nnext",
+    "fans": 1033,
+    "skillPoints": 45,
+    "learnedSkills": [
+      "skill **x** | &amp;",
+      "second `slot`"
+    ],
+    "sparks": [
+      {
+        "color": "red | <b>tone</b>",
+        "factorId": "receipt-factor",
+        "stars": 3,
+        "label": "spark _star_ `tick`\nline"
+      }
+    ],
+    "scenarioResources": {
+      "happy_meek_badge": 0
+    },
+    "totalRngCalls": 11,
+    "telemetryRecords": 2
+  },
+  "outcomeB": {
+    "steps": 2,
+    "finalTurn": 3,
+    "careerComplete": false,
+    "completedRaces": [
+      "race | <tag>",
+      "literal `race`\nnew"
+    ],
+    "stats": {
+      "speed": 83,
+      "stamina": 88,
+      "power": 98,
+      "guts": 90,
+      "wit": 91
+    },
+    "energy": 65,
+    "mood": "B | &amp; _mood_\rstep",
+    "fans": 1033,
+    "skillPoints": 45,
+    "learnedSkills": [
+      "skill **x** | &amp;",
+      "second `slot`"
+    ],
+    "sparks": [
+      {
+        "color": "red | <b>tone</b>",
+        "factorId": "receipt-factor",
+        "stars": 3,
+        "label": "spark _star_ `tick`\nline"
+      }
+    ],
+    "scenarioResources": {
+      "happy_meek_badge": 0
+    },
+    "totalRngCalls": 11,
+    "telemetryRecords": 2
+  },
+  "caveats": [
+    "Both branches share the checkpoint's seed and RNG position, but RNG streams diverge the moment actions differ; later randomness is NOT matched between branches.",
+    "This comparison describes observed divergence only. It does not establish that one branch's decisions caused its outcome, nor that either branch is superior.",
+    "Action overrides that were not legal on their turn were rejected and fell back to the branch policy (flagged per step as overrideRejected)."
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "schema": "hamon-independent-receiving-v1",
+  "reviewer": "engine_execution / 9d2f71701d2e",
+  "verdict": "six_scoped_checks_pass_on_exact_dd1b6d_snapshot",
+  "source": {
+    "commit": "dd1b6d6e396d940e8b2eb17d1a5268b7aa5b488f",
+    "tree": "d703e1d405ef7db885cf069f7e039cb986b61aac",
+    "parents": [
+      "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+      "d77898c5e8848662df668ff48b3becccc95019ab"
+    ],
+    "bridge_blob": "723f9501129f113985dd3964b072f7e5666c3fd5",
+    "files": {
+      "mcp-stdio.js": "372c1992cb366f9ca5d06be4f069a4431f4fcdde70f3dea2a0d857fab39f1460",
+      "package.json": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    "helpers": {
+      "mcp-client.mjs": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+      "native-api.mjs": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44"
+    },
+    "binary": "/Users/me/uma-session-9d2f71701d2e/target/debug/uma-sim-api",
+    "binary_sha256": "4c1d2dfa193640af2ddc3877bac802afbb4caa375136f591544b509f56571dba",
+    "repo_root": "/Users/me/uma-session-9d2f71701d2e/career-lab-receiving",
+    "test_sha256": "1dff31c95ba28319e4bf651a125f6f1c3c373a233381b1d1b84fcea21170b286"
+  },
+  "prior_peer_commit": "8235ed147d94175a3037300703b3b36978cd71f9",
+  "results": {
+    "real_rust_native": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    "unchanged_id_controls": {
+      "passed": 2,
+      "failed": 0
+    },
+    "report_format_fixture": {
+      "passed": 1,
+      "failed": 0
+    },
+    "linux_import_skip_path": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 3
+    },
+    "career_base_precision_negative": {
+      "passed": 0,
+      "failed": 1,
+      "exit_code": 1
+    }
+  },
+  "closed_finding": {
+    "unsafe_numeric_id": "9007199254740993",
+    "final_response_error": -32600,
+    "final_backend_calls": 0,
+    "career_base_backend_calls": 1,
+    "career_base_wrong_response_id": "9007199254740992"
+  },
+  "product_additions": [
+    {
+      "packet_path": "tests/sessions-receiving-native.test.mjs",
+      "repository_path": "packages/uma-sim-mcp/tests/sessions-receiving-native.test.mjs",
+      "sha256": "1dff31c95ba28319e4bf651a125f6f1c3c373a233381b1d1b84fcea21170b286"
+    },
+    {
+      "packet_path": "tests/report-format-receiving.test.mjs",
+      "repository_path": "packages/uma-sim-mcp/tests/report-format-receiving.test.mjs",
+      "sha256": "e1e1b8c1a850f2584315173a26f85ef61caed614f2c25a490bd4893ef0bc2f54"
+    }
+  ],
+  "native_environment": {
+    "UMA_SIM_TEST_API_BIN": "/Users/me/uma-session-9d2f71701d2e/target/debug/uma-sim-api",
+    "UMA_SIM_TEST_REPO_ROOT": "/Users/me/uma-session-9d2f71701d2e/career-lab-receiving",
+    "UMA_MCP_REVIEW_SOURCE": "/Users/me/uma-independent-9d2f71701d2e/native-port/source/mcp-stdio.js",
+    "UMA_SIM_TEST_OUTPUT_DIR": "/Users/me/uma-independent-9d2f71701d2e/native-port/execution",
+    "UMA_SIM_TEST_RECEIVING_COMMIT": "dd1b6d6e396d940e8b2eb17d1a5268b7aa5b488f"
+  },
+  "native_case_results": [
+    {
+      "case": "non-active-503-rollback-and-continuation",
+      "unchangedTarget": "4926c20d00b865a267404eca2fd34bf047e9e8b06e5f69024ad9cfdefa9b69f3",
+      "unchangedActive": "7c79067ab252eab60508872078aec3bc660d89de21cf34d51fe9b765323b0fdd",
+      "targetSpeed": 3,
+      "activeSpeed": 7
+    },
+    {
+      "case": "concurrent-fork-and-no-main",
+      "winner": "receiving-fork-a",
+      "surviving": [
+        "receiving-a",
+        "receiving-b"
+      ],
+      "a": "6af6f9ed9ce465e2fcb147ccadb6f4992afaa5ed1960bf25377043eb6a7988c2",
+      "b": "6a8fdffae67c757bf2b8a40097905b3792d2b55dec3e04570194857142c2aa70"
+    },
+    {
+      "case": "global-content-native-control",
+      "loaded": 500,
+      "step": 2,
+      "turn": 3,
+      "a": "5b1c63d461e738024ec16d9c5729801feebfcbee4c2cc6d7eb5760685b0861c1",
+      "b": "5b1c63d461e738024ec16d9c5729801feebfcbee4c2cc6d7eb5760685b0861c1",
+      "unloaded": "f02c7bf2431b4bb5ccdaf17d7f18b3599ec99d4b0a630edbfef381caeb3063d7",
+      "active": "pack-b"
+    }
+  ],
+  "reused_probe": {
+    "path": "../id-guard/id-guard.test.mjs",
+    "peer_commit": "8235ed147d94175a3037300703b3b36978cd71f9",
+    "sha256": "5e313326a434487c7e4ac792fee7e657e1c499de2b0a8b9378efe38dd4c87837"
+  },
+  "limits": [
+    "No live career or external source mutation by reviewer",
+    "No repeated full native baseline",
+    "Author owns final assembled CI run and native wildcard wiring",
+    "Later payload amendment is a separate source receipt; do not relabel these logs"
+  ],
+  "files": [
+    {
+      "path": "source/mcp-stdio.js",
+      "bytes": 17543,
+      "sha256": "372c1992cb366f9ca5d06be4f069a4431f4fcdde70f3dea2a0d857fab39f1460"
+    },
+    {
+      "path": "source/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    {
+      "path": "career-lab-base/mcp-stdio.js",
+      "bytes": 17076,
+      "sha256": "0bbc3707639338a8e10c4b55404a02b383bf36a456a4afa8264f485757a8d9da"
+    },
+    {
+      "path": "career-lab-base/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+    },
+    {
+      "path": "error-owner/mcp-stdio.js",
+      "bytes": 10573,
+      "sha256": "7550c42ed2018bb1b2bf7ff76af089dc9ba954da28f37254791a7f4f7d345bac"
+    },
+    {
+      "path": "tests/sessions-receiving-native.test.mjs",
+      "bytes": 7559,
+      "sha256": "1dff31c95ba28319e4bf651a125f6f1c3c373a233381b1d1b84fcea21170b286"
+    },
+    {
+      "path": "tests/report-format-receiving.test.mjs",
+      "bytes": 2841,
+      "sha256": "e1e1b8c1a850f2584315173a26f85ef61caed614f2c25a490bd4893ef0bc2f54"
+    },
+    {
+      "path": "tests/helpers/mcp-client.mjs",
+      "bytes": 6354,
+      "sha256": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d"
+    },
+    {
+      "path": "tests/helpers/native-api.mjs",
+      "bytes": 3548,
+      "sha256": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44"
+    },
+    {
+      "path": "helper-provenance.json",
+      "bytes": 732,
+      "sha256": "cf2049228344261f6e06e4b70712db426394967311f2ac6da74c4d05e74d87bb"
+    },
+    {
+      "path": "linux-skip.tap",
+      "bytes": 1161,
+      "sha256": "ce631cbcf4c11ec4eb1e49478c61fbcc55782d6c4cf2f686c5050c7d269b131c"
+    },
+    {
+      "path": "composition-source.json",
+      "bytes": 1002,
+      "sha256": "16e750f9cc47ac7e98280d54903e913d8178c740b5d9cb776ded4545ea418ada"
+    },
+    {
+      "path": "native-port.tap",
+      "bytes": 1788,
+      "sha256": "a0dca08c6a71bfa11b5f0a0b8dacab23caa3dc7fb3714e8f01a1e559820a0a1e"
+    },
+    {
+      "path": "safe-id-receiving.tap",
+      "bytes": 1155,
+      "sha256": "1d97b97dfa2160a5fce528a3f8311a05e670893a54bbbccdb0c5e48a807fd8ea"
+    },
+    {
+      "path": "native-port-receipt.json",
+      "bytes": 2039,
+      "sha256": "061fa8b4267bdc8c1cd75aa140b0e5ad3a8271d8d35d56720f7aa585ba6b30ed"
+    },
+    {
+      "path": "report-format-receiving.tap",
+      "bytes": 572,
+      "sha256": "98ec245baa46c5b1a166d9165c51280936e29fcb730b6464849f2658170c3d44"
+    },
+    {
+      "path": "report-format-receipt.json",
+      "bytes": 512,
+      "sha256": "109584fdd19b07f1fe32d17483c2b650b905978562fbf8778a238edeb68bbe33"
+    },
+    {
+      "path": "career-base-receipt.json",
+      "bytes": 654,
+      "sha256": "ba9f4a5a256645f788a6249c66ed4f4296bc82391e57301ef7fc8d7cad52d3aa"
+    },
+    {
+      "path": "linux-career-base-precision.tap",
+      "bytes": 1525,
+      "sha256": "1390022189c70f7b37bc7be3f7ac4b33526c16d4c41791255906819acdd9ece4"
+    },
+    {
+      "path": "source-composition-check.py",
+      "bytes": 3605,
+      "sha256": "e26a4e2991762334f0535c01392e8a866598fb3e197f8c5e24ccfb5f8c313e7a"
+    },
+    {
+      "path": "independent-source-composition.json",
+      "bytes": 1473,
+      "sha256": "b35bfa0ef28d433351fd52b22e6fd977ae773998aa46f0b93fbd581b3cce1b74"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 11082,
+      "sha256": "def0c6d623675a8f408a57f3abc9e6b3e10bcba6b93f041fc4fbfcfef6c95a33"
+    },
+    {
+      "path": "execution/native-runs/review-QkSHvK/provenance.json",
+      "bytes": 573,
+      "sha256": "53e3d872492c13df617236918ee3eb69f1a6bc121ee2c60c26d9070df1c9513a"
+    },
+    {
+      "path": "execution/native-runs/review-QkSHvK/server.log",
+      "bytes": 75,
+      "sha256": "e0dd82e7418160275c3a8f98647f698a39dccd6ed3d349483feb5912633b871d"
+    },
+    {
+      "path": "execution/native-runs/review-QkSHvK/sessions-receiving-result.json",
+      "bytes": 275,
+      "sha256": "7e78b5c3c5785411583bf5c69dd18206789edbead0c5d69270d35327c259dccb"
+    },
+    {
+      "path": "execution/native-runs/review-b7uP4m/provenance.json",
+      "bytes": 573,
+      "sha256": "a663bf28bee6eaad0a13931ae080d8ab3636dbe68fe5f29c5a87dee6d7110c5a"
+    },
+    {
+      "path": "execution/native-runs/review-b7uP4m/server.log",
+      "bytes": 75,
+      "sha256": "1e7f0701caa2fae94b50d3c1634d49edbea979e39adc1c164b957ad8c5322d2e"
+    },
+    {
+      "path": "execution/native-runs/review-b7uP4m/sessions-receiving-result.json",
+      "bytes": 285,
+      "sha256": "613146cc02b6830a9722e470b03c85a7e73baae27901e9ec82b2886f3bb26968"
+    },
+    {
+      "path": "execution/native-runs/review-q1vWIB/provenance.json",
+      "bytes": 573,
+      "sha256": "4b95560050548a85b575e98391f0ef22ccd61c3d8adf094818cc3f4d0fd6abe9"
+    },
+    {
+      "path": "execution/native-runs/review-q1vWIB/server.log",
+      "bytes": 75,
+      "sha256": "de8661542915da0c02f8f8e1de15a685005abbb572c6759b6779cf06f4bbdb52"
+    },
+    {
+      "path": "execution/native-runs/review-q1vWIB/sessions-receiving-result.json",
+      "bytes": 343,
+      "sha256": "4f9222a38741414776119831b1806f35a8214052948b989a706ba2ea9809706e"
+    },
+    {
+      "path": "execution/native-runs/review-q1vWIB/independent-content.json",
+      "bytes": 79527,
+      "sha256": "5c1cd31142d20d6aeab30bc9f98aeee45855299bce7f25075fc3ef44b7e3d3ef"
+    },
+    {
+      "path": "execution/native-runs/review-wrRp4J/provenance.json",
+      "bytes": 573,
+      "sha256": "e78041aa6fc12dd057c1734b7a011837fe9c7f8e86ad9b545dc9af8cc01106c8"
+    },
+    {
+      "path": "execution/native-runs/review-wrRp4J/server.log",
+      "bytes": 75,
+      "sha256": "ca633fdcceea05b5e973340c2ac6f197c8805e1e887174e8af894bffdd385cfb"
+    }
+  ]
+}

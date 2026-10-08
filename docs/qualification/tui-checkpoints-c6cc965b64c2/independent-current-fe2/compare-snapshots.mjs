@@ -1,0 +1,22 @@
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
+import assert from "node:assert/strict";
+const prior="/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-v1";
+const current="/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-fe2e6fdc-v1";
+const hash=b=>crypto.createHash("sha256").update(b).digest("hex");
+const order=x=>Array.isArray(x)?x.map(order):x&&typeof x==="object"?Object.fromEntries(Object.keys(x).sort().map(k=>[k,order(x[k])])):x;
+const tokens=raw=>JSON.stringify(order(JSON.parse(raw,(_k,v,c)=>typeof v==="number"?{"$numericToken":c.source}:v)));
+assert.equal(JSON.parse("9223372036854775807",(_k,_v,c)=>c.source),"9223372036854775807");
+const oldReceipt=fs.readFileSync(path.join(prior,"run-v1/receipt.json"));
+assert.equal(hash(oldReceipt),"b217ca32937cbd8d7a488886799ce69950cece3ea69164973c298ae855afa199","original receipt changed");
+const newReceipt=fs.readFileSync(path.join(current,"run-v1/receipt.json"));
+const files=fs.readdirSync(path.join(prior,"run-v1/artifacts")).filter(n=>n.endsWith(".json")&&!n.endsWith(".meta.json")).sort();
+const comparisons=files.map(name=>{
+ const a=fs.readFileSync(path.join(prior,"run-v1/artifacts",name)),b=fs.readFileSync(path.join(current,"run-v1/artifacts",name));
+ return{path:"run-v1/artifacts/"+name,old_sha256:hash(a),current_sha256:hash(b),byte_identical:a.equals(b),full_state_equal_ignoring_only_object_key_order:tokens(a.toString())===tokens(b.toString())};
+});
+const result={schema:"hamon.uma.terminal_durable.current_api_snapshot_comparison.v1",prior_receipt_sha256:hash(oldReceipt),current_receipt_sha256:hash(newReceipt),normalization:"Only object key order is ignored. Array order and every JSON numeric source token and all other values are compared exactly.",excluded_metadata:"Checkpoint metadata savedAt depends on this separate run's actual wall time; each run independently proves saved metadata bytes remain unchanged through its restart/action/failure checks.",comparisons,all_full_state_snapshots_equal:comparisons.every(x=>x.full_state_equal_ignoring_only_object_key_order)};
+fs.writeFileSync(path.join(current,"cross-run-snapshot-comparison.json"),JSON.stringify(result,null,2)+"\n");
+console.log(JSON.stringify(result));
+if(!result.all_full_state_snapshots_equal)process.exitCode=1;

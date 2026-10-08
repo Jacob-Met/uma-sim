@@ -1,0 +1,43 @@
+{
+  "archive": "/Users/me/uma-paired-066deeadcc8b-root-current-4eab.tar.gz",
+  "bytes": 80718,
+  "sha256": "c42b418d1fc9c666e79d8b9fefdcebd58372e71965fb8593eb63d67920cd760e",
+  "git_blob": "bd63741c239818c54085096228f737f16c72dc4a",
+  "ordinary_files": 41,
+  "manifest_artifacts": 40,
+  "directories": 9,
+  "manifest_sha256": "8f2ead1cfa9d935c43eff6e663704e195fb6737d57bfcf840fc34760fe3d01d9",
+  "receiving_receipt_sha256": "bf6db8a265f3c14f09870e5b756eb1fc4fac42867e6e44c19692becbce76dd4a",
+  "portable_checks": [
+    {
+      "flags": [
+        "-S"
+      ],
+      "exit": 0,
+      "result": {
+        "aggregate_cases": 1,
+        "canonical_paths": 284,
+        "new_actual_processes": 3,
+        "original_owned_overlay": 9,
+        "paired_cases": 2,
+        "verified_artifacts": 40
+      }
+    },
+    {
+      "flags": [
+        "-O",
+        "-S"
+      ],
+      "exit": 0,
+      "result": {
+        "aggregate_cases": 1,
+        "canonical_paths": 284,
+        "new_actual_processes": 3,
+        "original_owned_overlay": 9,
+        "paired_cases": 2,
+        "verified_artifacts": 40
+      }
+    }
+  ],
+  "binary_excluded_retained_natively": true
+}

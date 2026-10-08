@@ -1,0 +1,243 @@
+[
+  {
+    "pid": 62,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session="
+    ],
+    "stdout": "",
+    "stderr": "--session needs a named session id: 1–64 letters, digits, '.', '_' or '-'. Use --list-sessions to find one.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 70,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session",
+      ""
+    ],
+    "stdout": "",
+    "stderr": "--session needs a named session id: 1–64 letters, digits, '.', '_' or '-'. Use --list-sessions to find one.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 78,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session= saved-review"
+    ],
+    "stdout": "",
+    "stderr": "--session needs a named session id: 1–64 letters, digits, '.', '_' or '-'. Use --list-sessions to find one.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 86,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session=.."
+    ],
+    "stdout": "",
+    "stderr": "--session needs a named session id: 1–64 letters, digits, '.', '_' or '-'. Use --list-sessions to find one.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 94,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "stdout": "",
+    "stderr": "--session needs a named session id: 1–64 letters, digits, '.', '_' or '-'. Use --list-sessions to find one.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 102,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session=saved-review",
+      "--new"
+    ],
+    "stdout": "",
+    "stderr": "--session resumes a career; do not combine it with --new, --list-sessions, a seed or a scenario.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 110,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session=saved-review",
+      "42"
+    ],
+    "stdout": "",
+    "stderr": "--session resumes a career; do not combine it with --new, --list-sessions, a seed or a scenario.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 118,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session=saved-review",
+      "42",
+      "ura"
+    ],
+    "stdout": "",
+    "stderr": "--session resumes a career; do not combine it with --new, --list-sessions, a seed or a scenario.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 126,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session=saved-review",
+      "--list-sessions"
+    ],
+    "stdout": "",
+    "stderr": "--session resumes a career; do not combine it with --new, --list-sessions, a seed or a scenario.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 134,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--wat"
+    ],
+    "stdout": "",
+    "stderr": "Unknown option '--wat'. Use --help.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 142,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "9223372036854775808"
+    ],
+    "stdout": "",
+    "stderr": "Seed must be a signed 64-bit integer.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 150,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "-9223372036854775809"
+    ],
+    "stdout": "",
+    "stderr": "Seed must be a signed 64-bit integer.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 158,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "1e3"
+    ],
+    "stdout": "",
+    "stderr": "Seed must be a signed 64-bit integer.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 166,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "3.5"
+    ],
+    "stdout": "",
+    "stderr": "Seed must be a signed 64-bit integer.\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 174,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--help"
+    ],
+    "stdout": "Usage: node packages/uma-sim-cli/tui.js [seed] [scenario] [--new]\n       node packages/uma-sim-cli/tui.js --session=<id>\n       node packages/uma-sim-cli/tui.js --list-sessions\n\nWithout --session, start a fresh, uniquely named terminal career (seed 42, URA).\n--new makes this intent explicit; it cannot be combined with --session.\n--session resumes an existing named career without restarting or activating it.\n--list-sessions lists the server's live careers without changing them.\nCommands: [choice] | auto | fast | state | quit\n\n",
+    "stderr": "",
+    "exit_code": 0,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 182,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--list-sessions"
+    ],
+    "stdout": "(main)\tmain\tturn 6\tura\tSpecial Week\nother-review *\tother-review\tturn 1\tura\tSpecial Week\nsaved-review\tsaved-review\tturn 4\tura\tSpecial Week\n",
+    "stderr": "",
+    "exit_code": 0,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 190,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session=unknown-native-career"
+    ],
+    "stdout": "",
+    "stderr": "GET /v1/run/state?session=unknown-native-career: HTTP 404: no such session 'unknown-native-career'\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 198,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "43",
+      "not-a-scenario"
+    ],
+    "stdout": "",
+    "stderr": "POST /v1/run/start: HTTP 400: unknown scenario 'not-a-scenario'; expected one of: ura, grand_concert, unity, trackblazer\n",
+    "exit_code": 1,
+    "signal": null,
+    "closed": true
+  }
+]

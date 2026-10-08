@@ -1,0 +1,47 @@
+{
+  "schema": "hamon.uma_tui.independent_native_receiving.v1",
+  "reviewer": "estate-c6cc965b64c2/native_engine",
+  "mode": "baseline",
+  "entry": "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+  "source_sha256": "3bacaa48bfaec4e10f76bfe936aab6b0a01a1b69ee7f30c1171d31a8384effd5",
+  "server_binary": "/workspace/scratch/c6cc965b64c2/agents/tui-review/server/uma-sim-api",
+  "server_sha256": "fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e",
+  "server_source_commit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "started_utc": "2026-10-08T08:49:05.717Z",
+  "results": [
+    {
+      "name": "fresh-session-preserves-real-main",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: actual native main snapshot changed during TUI launch\n+ actual - expected\n... Skipped lines\n\n  '{\\n' +\n    '  \"meta\": {\\n' +\n+   '    \"seed\": 42,\\n' +\n-   '    \"seed\": 7301,\\n' +\n    '    \"scenarioId\": \"ura\",\\n' +\n    '    \"traineeName\": \"Special Week\",\\n' +\n    '    \"objectiveProfile\": \"general\",\\n' +\n    '    \"legacyFactors\": [],\\n' +\n    '    \"parentNames\": [],\\n' +\n...\n    '    \"dialogueMode\": \"CHOICES_ONLY\",\\n' +\n+   '    \"speedMultiplier\": 1,\\n' +\n-   '    \"speedMultiplier\": 3,\\n' +\n    '    \"allowDialogueAtHighSpeed\": false,\\n' +\n    '    \"traceTelemetry\": true,\\n' +\n    '    \"traceRng\": false,\\n' +\n    '    \"raceModel\": \"physics\"\\n' +\n    '  },\\n' +\n    '  \"state\": {\\n' +\n    '    \"meta\": {\\n' +\n+   '      \"seed\": 42,\\n' +\n-   '      \"seed\": 7301,\\n' +\n    '      \"scenarioId\": \"ura\",\\n' +\n    '      \"traineeName\": \"Special Week\",\\n' +\n    '      \"objectiveProfile\": \"general\",\\n' +\n    '      \"legacyFactors\": [],\\n' +\n    '      \"parentNames\": [],\\n' +\n...\n    '      \"year\": 1,\\n' +\n+   '      \"month\": 6,\\n' +\n+   '      \"half\": 2\\n' +\n-   '      \"month\": 9,\\n' +\n-   '      \"half\": 1\\n' +\n    '    },\\n' +\n+   '    \"turn\": 1,\\n' +\n-   '    \"turn\": 6,\\n' +\n    '    \"stats\": {\\n' +\n+   '      \"speed\": 83,\\n' +\n-   '      \"speed\": 113,\\n' +\n    '      \"stamina\": 88,\\n' +\n+   '      \"power\": 98,\\n' +\n+   '      \"guts\": 90,\\n' +\n-   '      \"power\": 103,\\n' +\n-   '      \"guts\": 92,\\n' +\n    '      \"wit\": 91\\n' +\n    '    },\\n' +\n+   '    \"energy\": 100,\\n' +\n-   '    \"energy\": 10,\\n' +\n    '    \"maxEnergy\": 100,\\n' +\n+   '    \"mood\": \"NORMAL\",\\n' +\n+   '    \"fans\": 0,\\n' +\n+   '    \"skillPoints\": 0,\\n' +\n-   '    \"mood\": \"BAD\",\\n' +\n-   '    \"fans\": 271,\\n' +\n-   '    \"skillPoints\": 20,\\n' +\n    '    \"careerComplete\": false,\\n' +\n    '    \"awaitingChoice\": false,\\n' +\n    '    \"pendingEventTitle\": null,\\n' +\n+   '    \"pendingRaceId\": \"debut\",\\n' +\n+   '    \"phase\": \"MANDATORY_RACE\",\\n' +\n+   '    \"completedRaces\": [],\\n' +\n-   '    \"pendingRaceId\": null,\\n' +\n-   '    \"phase\": \"FREE\",\\n' +\n-   '    \"completedRaces\": [\\n' +\n-   '      \"debut\"\\n' +\n-   '    ],\\n' +\n    '    \"facilityLevels\": {\\n' +\n    '      \"guts\": 1,\\n' +\n    '      \"wit\": 1,\\n' +\n    '      \"power\": 1,\\n' +\n+   '      \"stamina\": 1,\\n' +\n-   '      \"speed\": 1,\\n' +\n-   '      \"stamina\": 1\\n' +\n-   '    },\\n' +\n-   '    \"facilityTrainCounts\": {\\n' +\n    '      \"speed\": 1\\n' +\n    '    },\\n' +\n+   '    \"facilityTrainCounts\": {},\\n' +\n    '    \"pendingEventOptions\": [],\\n' +\n    '    \"hintLevels\": {\\n' +\n+   '      \"skill:201352\": 1,\\n' +\n-   '      \"skill:200512\": 1,\\n' +\n    '      \"skill:200732\": 1,\\n' +\n+   '      \"skill:200512\": 1\\n' +\n-   '      \"skill:201352\": 1\\n' +\n    '    },\\n' +\n+   '    \"statuses\": [],\\n' +\n-   '    \"statuses\": [\\n' +\n-   '      \"hot topic\"\\n' +\n-   '    ],\\n' +\n    '    \"performanceTokens\": {},\\n' +\n    '    \"scenarioResources\": {\\n' +\n    '      \"values\": {\\n' +\n    '        \"happy_meek_badge\": 0\\n' +\n    '      }\\n' +\n...\n    '      \"aptitudes\": {\\n' +\n-   '        \"pace\": \"A\",\\n' +\n-   '        \"mile\": \"C\",\\n' +\n    '        \"dirt\": \"G\",\\n' +\n-   '        \"medium\": \"A\",\\n' +\n-   '        \"long\": \"A\",\\n' +\n    '        \"turf\": \"A\",\\n' +\n    '        \"sprint\": \"F\",\\n' +\n+   '        \"mile\": \"C\",\\n' +\n    '        \"front\": \"G\",\\n' +\n+   '        \"long\": \"A\",\\n' +\n+   '        \"pace\": \"A\",\\n' +\n+   '        \"medium\": \"A\",\\n' +\n    '        \"late\": \"A\",\\n' +\n    '        \"end\": \"C\"\\n' +\n    '      },\\n' +\n    '      \"raceFactorIds\": [],\\n' +\n    '      \"inheritanceComplete\": false,\\n' +\n...\n    '    \"log\": [\\n' +\n+   '      \"Career started: Special Week / ura / seed=42\"\\n' +\n-   '      \"Career started: Special Week / ura / seed=7301\",\\n' +\n-   '      \"Race debut 9th +271 fans [physics t=75.867s course=10601 seed=3536186286 field=9 margin_win=7.200s margin_ahead=0.000s]\",\\n' +\n-   '      \"Trained SPEED +10\",\\n' +\n-   '      \"Training failed at SPEED.\",\\n' +\n-   '      \"Event: Today and Tomorrow, Too\",\\n' +\n-   `      \"Event 'Today and Tomorrow, Too' choice 0\",\\n` +\n-   '      \"Training failed at SPEED.\"\\n' +\n    '    ],\\n' +\n    '    \"generatedSparks\": [],\\n' +\n    '    \"baseAptitudes\": {\\n' +\n-   '      \"pace\": \"A\",\\n' +\n-   '      \"mile\": \"C\",\\n' +\n    '      \"dirt\": \"G\",\\n' +\n-   '      \"medium\": \"A\",\\n' +\n-   '      \"long\": \"A\",\\n' +\n    '      \"turf\": \"A\",\\n' +\n    '      \"sprint\": \"F\",\\n' +\n+   '      \"mile\": \"C\",\\n' +\n    '      \"front\": \"G\",\\n' +\n+   '      \"long\": \"A\",\\n' +\n+   '      \"pace\": \"A\",\\n' +\n+   '      \"medium\": \"A\",\\n' +\n    '      \"late\": \"A\",\\n' +\n    '      \"end\": \"C\"\\n' +\n    '    }\\n' +\n    '  },\\n' +\n+   '  \"rngSeed\": 42,\\n' +\n+   '  \"rngCalls\": 0,\\n' +\n-   '  \"rngSeed\": 7301,\\n' +\n-   '  \"rngCalls\": 29,\\n' +\n    '  \"rngState\": {\\n' +\n+   '    \"x\": -165840718,\\n' +\n+   '    \"y\": 1531557566,\\n' +\n+   '    \"z\": -2082647735,\\n' +\n+   '    \"w\": 668685995,\\n' +\n+   '    \"v\": -1615262521,\\n' +\n+   '    \"addend\": 23238976\\n' +\n-   '    \"x\": 610869156,\\n' +\n-   '    \"y\": 829425305,\\n' +\n-   '    \"z\": 447321065,\\n' +\n-   '    \"w\": 626329488,\\n' +\n-   '    \"v\": 172753862,\\n' +\n-   '    \"addend\": 48431605\\n' +\n    '  }\\n' +\n    '}'\n\n    at file:///workspace/scratch/c6cc965b64c2/agents/tui-review/controls/native-tui-review.mjs:147:12\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async test (file:///workspace/scratch/c6cc965b64c2/agents/tui-review/controls/native-tui-review.mjs:136:45)\n    at async file:///workspace/scratch/c6cc965b64c2/agents/tui-review/controls/native-tui-review.mjs:140:1",
+      "artifacts": [
+        {
+          "path": "fresh-session-preserves-real-main/main-before.json",
+          "bytes": 3143,
+          "sha256": "bad3af9262e02e9f78b5f7092014c9de059329efe90707f1f84b2945b5702622"
+        },
+        {
+          "path": "fresh-session-preserves-real-main/other-before.json",
+          "bytes": 2781,
+          "sha256": "70cb440c88276ee3e47dcb401f72a2d9a743e72cf5eafd86794be28521f136c1"
+        },
+        {
+          "path": "fresh-session-preserves-real-main/saved-before.json",
+          "bytes": 3014,
+          "sha256": "b30f8d30e995858aa9c45032017fe9730eb228e8cc5f7c2c521e443103daf6b5"
+        },
+        {
+          "path": "fresh-session-preserves-real-main/main-after-launch-0.json",
+          "bytes": 2772,
+          "sha256": "e6365bf6142dd1aae123a63eaf4155dff263b599b5f0d51c6cb3059e2624b88c"
+        }
+      ],
+      "elapsed_ms": 1128.617503
+    }
+  ],
+  "passed": 0,
+  "failed": 1,
+  "finished_utc": "2026-10-08T08:49:06.848Z"
+}

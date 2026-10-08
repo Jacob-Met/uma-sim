@@ -1,0 +1,79 @@
+{
+  "scenario": "post-allocation synchronous dispatch refusal, cleanup, and explicit retry",
+  "boundary": "Actual native React callbacks and Node Blob/URL/timer behavior; simulated document/anchor with authored synchronous refusal; no browser or download acceptance.",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "implicit format label, full count, enabled native button and preserved live reader status",
+      "passed": true
+    },
+    {
+      "name": "dispatch refusal is caught synchronously, surfaced as alert, and leaves reader intact",
+      "passed": true
+    },
+    {
+      "name": "actual captured JSON Blob preserves all retained UTF-16 strings, duplicates and empty entries",
+      "passed": true
+    },
+    {
+      "name": "failed attempt releases its real object URL with no timer-driven retry",
+      "passed": true
+    },
+    {
+      "name": "explicit retry alone clears failure and captures only the current replacement history",
+      "passed": true
+    },
+    {
+      "name": "retry uses current exact entries and cannot rewrite the already captured Blob",
+      "passed": true
+    },
+    {
+      "name": "both independent URLs are revoked exactly once; no anchors, fetch, or extra dispatch",
+      "passed": true
+    }
+  ],
+  "source_files": [
+    {
+      "path": "src/components/logExport.ts",
+      "sha256": "7ea3a0b6066e926af6825397feb5115cebd82bbbba2923dbd900d41c09e7937c"
+    },
+    {
+      "path": "src/components/LogDownload.tsx",
+      "sha256": "cf92740a422128141f242c449f120d6e0cae02b627792b8ff388ac270f12b1d6"
+    },
+    {
+      "path": "src/components/logView.ts",
+      "sha256": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2"
+    },
+    {
+      "path": "src/components/LogPanel.tsx",
+      "sha256": "2d23c9ad7932da56d434e08c8f20af490cd9f628d71dfaa92858f0269fa557a2"
+    }
+  ],
+  "runtime": {
+    "node": "v24.19.0",
+    "react": "18.3.1",
+    "renderer": "18.3.1",
+    "typescript": "5.9.3",
+    "renderer_root": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/react-test-renderer"
+  },
+  "files": [
+    {
+      "file": "refused-dispatch.json",
+      "bytes": 493,
+      "sha256": "be9d24fbb5462bb9c73b837250f4b8e73562072b927e7b6a93dae150dfb4fb02"
+    },
+    {
+      "file": "explicit-retry.json",
+      "bytes": 200,
+      "sha256": "74476160aa3fdf9212dd42d9dd8d39e05930d88f935e0b8c9005f1fc77a78e99"
+    }
+  ],
+  "object_urls_created": 2,
+  "object_urls_revoked": 2,
+  "dispatch_attempts": 2,
+  "authored_dispatch_refusals": 1,
+  "browser_acceptance": "unestablished",
+  "source_unchanged": true,
+  "harness_sha256": "4e3893285734fd911587070d7eb82bbcd278b6ab679429c4ce0a123a77a1913c"
+}

@@ -1,0 +1,1 @@
+The production build updated the repository-tracked TypeScript incremental cache. The first clean-worktree freeze guard correctly stopped after committing only the seven claimed paths. Its cache-only diff is retained. Restored the unchanged HEAD cache bytes before freezing; no production file, test, dependency, or incoming owner path was changed to satisfy the guard.

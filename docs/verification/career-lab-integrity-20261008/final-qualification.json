@@ -1,0 +1,45 @@
+{
+  "canonicalBaseCommit": "0ac14602addd1a4610aa8359896915a34cce5659",
+  "baseline": {
+    "evaluatedRevision": "0ac14602addd1a4610aa8359896915a34cce5659",
+    "passing": 11,
+    "residualFailures": 12,
+    "receipt": "canonical-main/receiver-results.json",
+    "alreadyIntegrated": "Upstream PR65 report identity, selection/deletion coherence and delayed selection behavior pass the receiver."
+  },
+  "final": {
+    "trace": {
+      "passed": 15,
+      "failed": 0,
+      "receiverSha256": "3d96af883b3af297826160adf9e5e49e806d2dd29d3fa8c64f2db46da4a4a531",
+      "receipt": "final-trace/trace-receiver-results.json"
+    },
+    "comparisonAndInput": {
+      "passed": 23,
+      "failed": 0,
+      "receiverSha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d",
+      "receipt": "final-composition/receiver-results.json"
+    }
+  },
+  "build": {
+    "indexSha256": "886bcfa77cb1acdce14d119aa91a86ac3fdbf7a1925d0490e3f5f4433678e067",
+    "script": "dist/assets/index-BRvzrAXF.js",
+    "scriptSha256": "ac3ae7ba4a79bc5deb8c07293f3177081e8e8347c321c39b4d9995b8bb7b327d",
+    "css": "dist/assets/index-zeolEMFs.css",
+    "cssSha256": "e63b00b9933ccd7e637a78c23da50149d005bfbd25cf60ea0f2f4488fa0e7fea",
+    "sourceManifestSha256": "371029d82877de6b7925dc244c36196df1166294a60785242da935b9512c9b5c"
+  },
+  "visual": {
+    "receipt": "final-visual/visual-receipt.json",
+    "screenshot": "final-visual/branch-trace-full-app.png",
+    "screenshotSha256": "f2441b8b152b3e0b81a3777fbaa59b7ab14399823dd85c4e4ee61b67003bccae",
+    "horizontalOverflow": false
+  },
+  "browserVersion": "153.0.8010.0",
+  "nodeVersion": "v24.19.0",
+  "scope": "Actual built application and downloads against independent HTTP branch fixtures; no native simulation or deployment qualification.",
+  "knownLimits": [
+    "Native simulator execution, server validation, deployment and live user benefit are not qualified by these receiving fixtures.",
+    "Historical f5f9b293 negative controls are retained separately and are not the current upstream baseline."
+  ]
+}

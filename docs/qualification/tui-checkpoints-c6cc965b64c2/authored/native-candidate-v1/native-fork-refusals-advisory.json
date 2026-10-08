@@ -1,0 +1,20 @@
+{
+  "missing": {
+    "code": 1,
+    "signal": null,
+    "stdout": "Opening checkpoint 'missing' as session: tui-8d2832aa-8317-4ce0-b7aa-46aff11c0878\n",
+    "stderr": "POST /v1/session/fork: HTTP 404: no checkpoint named 'missing'\n"
+  },
+  "incompatible": {
+    "code": 1,
+    "signal": null,
+    "stdout": "Opening checkpoint 'keep' as session: tui-c22f71cf-ae3f-4bbd-9404-d5747d4ef99e\n",
+    "stderr": "POST /v1/session/fork: HTTP 422: incompatible snapshot: snapshot schema v999 is not readable by this build (expects v1)\n"
+  },
+  "terminal": {
+    "code": 0,
+    "signal": null,
+    "stdout": "Opening checkpoint 'keep' as session: tui-afca5665-af83-4e10-80b6-241d5b0371d4\nOpened checkpoint 'keep' as session: tui-afca5665-af83-4e10-80b6-241d5b0371d4\nResume this career with --session=tui-afca5665-af83-4e10-80b6-241d5b0371d4\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 1  Y1 M6\nSPD 83 STA 88 POW 98\nGUT 90 WIT 91\nE 100  Mood NORMAL  Fans 0  SP 0\nPhase: MANDATORY_RACE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: happy_meek_badge=0\n\nChoices: race (Enter mandatory race: debut)\n\n> ",
+    "stderr": "Checkpoint advisory: checkpoint was saved by uma-sim-core fixture-earlier-build; this build is 0.1.0\n"
+  }
+}

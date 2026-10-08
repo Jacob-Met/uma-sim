@@ -1,0 +1,23 @@
+{
+  "schema": "uma-sim-current-receiving-entrypoints-v1",
+  "canonicalNativeUi": {
+    "path": "scripts/verify-lab-native-ui.mjs",
+    "sha256": "e0c03858f8e00c13b6f74f902b0ec6956eb9fb01ed77b85aeee9b0ef6fa7ceec",
+    "dispatchesTo": "scripts/verify-lab-accepted-ui.mjs",
+    "testedReceiverSha256": "0ce60ae23d9b22239072e2262c2a514d553be4413092a50311de95823bc9dcb9",
+    "argumentContractUnchanged": true
+  },
+  "pr65": {
+    "path": "packages/uma-sim-ui/tests/lab-comparison.browser.mjs",
+    "sha256": "9c47dda7fb4b1d0223db6ae09b3600652cf0ad1be4080585fcd07cb1a8d21dee",
+    "testedDerivative": "scripts/verify-lab-pr65-native.mjs",
+    "testedDerivativeSha256": "f391034cc44909e4a3bb7d268f671dd6fb8815af744b5a699c1bf48684393ddc",
+    "normalizedBodiesEqual": true,
+    "onlyDifferences": "Explanatory comments and default repository path for different file locations."
+  },
+  "historicalNativeUi": {
+    "path": "docs/receipts/lab-report-20261008/native-receiving/historical/verify-lab-native-ui.mjs",
+    "sha256": "38f6137517941b72e156ff66ce4d383e9a24de4127c8d68ec31482c07bc7288e"
+  },
+  "validation": "Both current entry points parse successfully. The canonical command imports the already-tested accepted UI receiver; the existing PR65 entry point has the same executable interaction/oracle body as the tested derivative."
+}

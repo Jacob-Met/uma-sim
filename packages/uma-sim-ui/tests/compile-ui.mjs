@@ -1,5 +1,5 @@
 import { createRequire } from "node:module";
-import { mkdtempSync, readdirSync, readFileSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { copyFileSync, mkdtempSync, readdirSync, readFileSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import ts from "typescript";
@@ -29,10 +29,22 @@ function compile(directory, relative = "") {
       const output = join(outputRoot, target.replace(/\.tsx?$/, ".js"));
       mkdirSync(dirname(output), { recursive: true });
       writeFileSync(output, result.outputText);
+    } else if (entry.name.endsWith(".css")) {
+      // Preserve side-effect asset resolution for the current component tree.
+      // React renderer tests exercise behavior; Vite validates actual CSS.
+      const output = join(outputRoot, target);
+      mkdirSync(dirname(output), { recursive: true });
+      copyFileSync(path, output);
     }
   }
 }
 compile(sourceRoot);
 const require = createRequire(join(outputRoot, "package.json"));
+const previousCssLoader = require.extensions[".css"];
+require.extensions[".css"] = () => {};
 export const loadUiModule = (path) => require(join(outputRoot, `${path}.js`));
-export const cleanCompiledUi = () => rmSync(outputRoot, { recursive: true, force: true });
+export const cleanCompiledUi = () => {
+  if (previousCssLoader) require.extensions[".css"] = previousCssLoader;
+  else delete require.extensions[".css"];
+  rmSync(outputRoot, { recursive: true, force: true });
+};

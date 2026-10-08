@@ -1,0 +1,146 @@
+{
+  "schema": "uma-sim-independent-native-change-review-v1",
+  "reviewedAt": "2026-10-08T10:06:29.701Z",
+  "decision": "APPROVE",
+  "blockingFindings": [],
+  "reviewer": "/root/artifact",
+  "method": "Static native source and test-oracle review, exact Git/source hash comparisons, reading frozen native/browser receipts; no repeated browser or native case execution.",
+  "independence": {
+    "nativeProductionAndNativeTests": "Reviewer is not their author.",
+    "receivingHarnesses": "Reviewer authored the receiving harnesses; /root/production independently approved exact 2be5161 entry-point/oracle maintenance by static review."
+  },
+  "base": {
+    "commit": "0ac14602addd1a4610aa8359896915a34cce5659",
+    "tree": "e7d10088a713d8fbd7391c86050a92898652bdd6"
+  },
+  "reviewed": {
+    "commit": "f5af3b5f7825138c74b83d337f4c9f8417b636b9",
+    "tree": "e87746af0d7ac749cb9c82511588285fc20f6657",
+    "nativeGateCommit": "97754679972a3128b5b84cde2159b43a4d85c56e",
+    "nativeGateTree": "da863f9b1df928ed5bd1ac85642ee67bfd1f4cdc",
+    "receivingCommits": [
+      "8ae55a80d703a4c1e34ee28062421d23cc97f44e",
+      "2be516138c9fecd0145c1f150dc6f8176f80bbb5"
+    ],
+    "equivalentRootCommit": "042e475092a60b3bc6b3a982a14f9737654a497d",
+    "equivalentRootTree": "e87746af0d7ac749cb9c82511588285fc20f6657"
+  },
+  "sourcePins": {
+    "uma-sim-core/src/career_lab.rs": {
+      "sha256": "49d68441482fa907364292bb25b43fc06be6e95b13937cbbba898a393f4e4935",
+      "gitBlob": "197ea1f9da4f65d334b0496a0c27d2d5123579a8"
+    },
+    "uma-sim-core/src/api.rs": {
+      "sha256": "7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d",
+      "gitBlob": "0d286ec4abf5ac81b50917e0d8fe49618ff25926"
+    },
+    "uma-sim-core/tests/career_lab.rs": {
+      "sha256": "0006bf6b92c4a16985d7c6ba2f921410cc02e63c75d94a508bd30b13930d4c3e",
+      "gitBlob": "ac10b74efd030fb6e1ac52bf32bcac46109f6bbc"
+    },
+    "uma-sim-core/tests/career_lab_reports.rs": {
+      "sha256": "db0e1ee820ec99b621b7e29516fb85503b7176fa9051fa427816247740903a91",
+      "gitBlob": "d1c0e573cd0c9c08d4e91ba7063732f6b9dde8a4"
+    },
+    "uma-sim-core/tests/career_lab_divergence.rs": {
+      "sha256": "ba0f7da22a18f309bf3f220705a9c3e0b2527ed83bacfdbd4c8dcc69b162a980",
+      "gitBlob": "7a9e36ca4e04f259a4d80dff84295f0fd464afe3"
+    },
+    "packages/uma-sim-ui/tests/lab-comparison.browser.mjs": {
+      "sha256": "9c47dda7fb4b1d0223db6ae09b3600652cf0ad1be4080585fcd07cb1a8d21dee",
+      "gitBlob": "75b9277a90858b7a602d6940884a8d5081c25835"
+    },
+    "scripts/verify-lab-native-ui.mjs": {
+      "sha256": "e0c03858f8e00c13b6f74f902b0ec6956eb9fb01ed77b85aeee9b0ef6fa7ceec",
+      "gitBlob": "6c9426ff63520932d9a724875910a9d7b90bede5"
+    },
+    "scripts/verify-lab-accepted-ui.mjs": {
+      "sha256": "0ce60ae23d9b22239072e2262c2a514d553be4413092a50311de95823bc9dcb9",
+      "gitBlob": "72ac8da4670884e59f5d52fd0c94224a43d2ab19"
+    },
+    "scripts/verify-lab-pr65-native.mjs": {
+      "sha256": "f391034cc44909e4a3bb7d268f671dd6fb8815af744b5a699c1bf48684393ddc",
+      "gitBlob": "0b946aa5ab65db9c3ccda3f09dce2eb36e62b909"
+    },
+    "scripts/verify-lab-ended-branch.mjs": {
+      "sha256": "88d300ecf8f462d8c1229623d9a4169f1d0fee626b2e21c93dcf5178b6512d49",
+      "gitBlob": "bf7f4ab739baaa65dd2194a2ec22b3314ac09f02"
+    },
+    "scripts/verify-lab-report-receiving.mjs": {
+      "sha256": "a046b0e4eb95929c2eb96c57c64cfb0a1cf067f522b21215e4fd7e7b4cb20fff",
+      "gitBlob": "b23415bf937242e3412f035f40ba1a80183ca275"
+    }
+  },
+  "scope": {
+    "changedNativeSources": [
+      "uma-sim-core/src/api.rs",
+      "uma-sim-core/src/career_lab.rs"
+    ],
+    "runtimeChange": "career_lab.rs report text/code-span rendering and two ended-branch timeline length references.",
+    "apiChange": "One raw Markdown heading assertion inside #[cfg(test)] mod tests.",
+    "apiProductionPrefix": {
+      "sha256": "c189eb0757df1a1f77f7af4d5533bd1265dee71b35c38d795f0b28b163fb7f19",
+      "sameBeforeAfter": true,
+      "splitAt": "first #[cfg(test)]"
+    },
+    "protectedPaths": [
+      "packages/uma-sim-ui/src",
+      "packages/uma-sim-ui/package.json",
+      "packages/uma-sim-ui/package-lock.json",
+      "Cargo.toml",
+      "Cargo.lock",
+      ".github/workflows"
+    ],
+    "protectedPathChanges": [],
+    "uiPackageBoundary": "Runtime source and manifests unchanged from 0ac; one existing browser test receives the declared parsed-text oracle adjustment."
+  },
+  "nativeGate": {
+    "receipt": "../workspace/receipt.json",
+    "receiptSha256": "b942698791f3d5c60da69b1e49011107c2fef793d53e708e594fe75b1e912183",
+    "sourceScopeSha256": "8a61a7520b1e5dceecc1e0f991e3170522098b5fe3719eb771ef27e0ac3a6d63",
+    "source": "97754679972a3128b5b84cde2159b43a4d85c56e",
+    "gates": [
+      {
+        "command": "cargo fmt --all -- --check",
+        "exitCode": 0,
+        "log": "accepted-977-fmt.log.gz"
+      },
+      {
+        "command": "cargo clippy --workspace --all-targets --locked --offline",
+        "exitCode": 0,
+        "log": "accepted-977-clippy.log.gz"
+      },
+      {
+        "command": "cargo test --workspace --locked --offline",
+        "exitCode": 0,
+        "totals": {
+          "passed": 354,
+          "failed": 0,
+          "ignored": 0,
+          "measured": 0,
+          "filtered": 0
+        },
+        "resultBlocks": 71,
+        "log": "accepted-977-workspace-tests.log.gz"
+      }
+    ],
+    "reviewerReran": false
+  },
+  "acceptedMainContinuity": {
+    "laterMain": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+    "comparison": "current-main-compare.json",
+    "comparisonSha256": "c93597f5cb5b7b95f53c314a110412d7f2c38e806fd019275b7106d876297a88",
+    "pullRequest": 71,
+    "issue": 70,
+    "overlapWithOurChangedPaths": false,
+    "productionDelta": "LibraryPanel.tsx generated checkpoint import label.",
+    "publicationRequirement": "Retain accepted later-main changes and record exact resulting source union/ancestry."
+  },
+  "boundaries": [
+    "Native/browser receiving source pins remain distinct from receipt-only commit IDs.",
+    "The accepted UI receiving source is exact 0ac/PR65 and precedes the separate PR71 label update.",
+    "Actual API and production Vite build through transparent loopback proxy; no deployed or embedded-release qualification.",
+    "Marked 17.0.5 and Chromium 153.0.8010.0; no claim for all Markdown engines or arbitrary whitespace preservation.",
+    "No new MCP/session/tunnel/auth operation or shared publication by reviewer."
+  ]
+}

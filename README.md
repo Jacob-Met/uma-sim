@@ -97,7 +97,8 @@ the working directory.
 ```bash
 # Step through a career yourself
 uma-sim start --seed=7 --scenario=unity --trainee="Special Week"
-uma-sim state                  # stats, phase, available choices
+uma-sim state                  # stats, phase, deck and legacy
+uma-sim training               # inspect sample training gains, energy and risk
 uma-sim step race              # or train_speed, rest, recreation, event_0, …
 uma-sim clear
 
@@ -110,6 +111,13 @@ uma-sim analyze --input=new.jsonl --compare=old.jsonl        # delta of new batc
 ```
 
 `fast` always starts a new career and replaces the saved one.
+
+`start`, `fast`, `batch`, and `export-telemetry` accept `--seed=<integer>`
+as a signed 64-bit seed; omitting it uses 42. These commands reject an empty,
+malformed, or out-of-range value with status 2 before a career or output file
+changes. Every supplied `--seed=` value must be valid, even when a later seed
+or batch's `--seeds=` list overrides it. The last valid `--seed=` wins; a valid
+`--seeds=` list still overrides `--seed` and `--count`.
 
 | Flag | Values |
 |------|--------|
@@ -124,6 +132,33 @@ uma-sim analyze --input=new.jsonl --compare=old.jsonl        # delta of new batc
 `uma-sim validate --path=content_packs/example.json` checks a content pack
 (extra events merged in at run time without engine changes). The full command
 reference is in [docs/SIMULATOR.md](docs/SIMULATOR.md).
+
+### Inspect training before choosing
+
+Run `uma-sim training` beside a saved career to compare Speed, Stamina,
+Power, Guts and Wit before using `step`. The table shows the existing
+deterministic sample gains, effective facility level, successful base energy
+change, current failure chance, and preview rainbow/hint counts. Use
+`uma-sim training --format=json` for the same version-1 inspection.
+
+Stat gains are a fixed local-seed-0 resolver sample, before stat caps and later
+scenario/event effects. They are not guaranteed next-action results or expected
+values. Energy and failure use the current native training rules, including
+Unity and Trackblazer zero-failure readiness; recovery respects the energy cap.
+The inspection does not consume career RNG, take an action, save the session,
+or run an external policy.
+
+A pending event, mandatory race, or completed career reports why training is
+unavailable. An injury or insufficient energy marks affected rows as blocked;
+blocked rows have no energy result or failure roll. Their JSON `energyDelta`
+and `failureChancePct` are `null`; signed `energyCost` remains the native
+requirement (positive cost, negative recovery). Resolve the displayed blocker
+and inspect again. Wit can remain available when another training lacks energy.
+
+The command accepts no arguments or exactly one `--format=text|json`.
+Invalid arguments exit 2 before loading a session. A missing, unreadable or
+invalid saved career exits 1 without creating or replacing any file. A valid
+inspection, including an unavailable phase, exits 0.
 
 ## REST API and MCP
 

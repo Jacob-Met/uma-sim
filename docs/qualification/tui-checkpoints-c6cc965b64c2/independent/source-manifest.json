@@ -1,0 +1,48 @@
+{
+  "source_commit": "3077775807c1eb5c2af6937038bd26cf5f00c75b",
+  "source_parent": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "source_repo": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2",
+  "binary": {
+    "path": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/target/debug/uma-sim-api",
+    "sha256": "6f94216933f76a08caeade29087f50e0e49da46dabdea8d98d89a200d4835754"
+  },
+  "review_scope": "Independent real-native API restart, disk transaction failure, fork isolation, session targeting, loss/interrupt and exact checkpoint data receiving",
+  "files": [
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "git_blob": "dfeed47234f1660acd175fa61a3290327a741aa1",
+      "sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e",
+      "bytes": 14580
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "git_blob": "ccf608c0f5ef3c23ab55c38c2f56ff4f7b8c024e",
+      "sha256": "174bbaf954859841492a08359aabddbd0e23eba7f5b68b753da9e27919456419",
+      "bytes": 671
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "git_blob": "2c4c4f7b0fc1ec056ee99a034acfc5b1d2abc324",
+      "sha256": "f2d06e66eed260eb907a3b579261b41ebce92871b67361c87c357c4737591640",
+      "bytes": 7059
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "git_blob": "4ff7034bc5701d793cd93d645d89d40d73fc3273",
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+      "bytes": 85709
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "git_blob": "4360cd3dbca832a9a22be138ca13a5deb4dfeb0f",
+      "sha256": "f12208e5796ac6ab42ba515d6d8e6734388810894b600420e4badfdeab250f08",
+      "bytes": 51737
+    }
+  ],
+  "baseline_tui": {
+    "git_blob": "e3fad690acbe62f43cf9eeab421da3c7b3b5818d",
+    "sha256": "39d36f1ebba8c06823e57f2a5c9d49ab6a2b00d8ff0d67ff7afb6f5c5f1d17bb",
+    "path": "packages/uma-sim-cli/tui.js",
+    "commit": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c"
+  }
+}

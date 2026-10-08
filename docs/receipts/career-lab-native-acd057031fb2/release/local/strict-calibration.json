@@ -1,0 +1,31 @@
+{
+  "name": "strict-calibration",
+  "program": "python",
+  "args": [
+    "scripts/calibrate_grand_live.py",
+    "--strict"
+  ],
+  "cwd": "/workspace/scratch/acd057031fb2/agents/production/uma-release-review",
+  "startedAt": "2026-10-08T10:44:52.780Z",
+  "finishedAt": "2026-10-08T10:44:52.847Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "environmentOverrides": {
+    "RUSTC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustc",
+    "RUSTDOC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustdoc",
+    "CARGO_HOME": "/workspace/scratch/acd057031fb2/agents/production/uma-report-cargo-home",
+    "CARGO_TARGET_DIR": "/workspace/scratch/acd057031fb2/agents/production/uma-release-target",
+    "CARGO_NET_OFFLINE": "true",
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_RELEASE_DEBUG": "0",
+    "CARGO_PROFILE_RELEASE_STRIP": "symbols",
+    "npm_config_cache": "/workspace/scratch/acd057031fb2/agents/production/uma-release-npm-cache",
+    "TMPDIR": "/workspace/scratch/acd057031fb2/agents/production/uma-release-tmp",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdoutSha256": "31c8c6874a327220b2b0c0b42092b2109780b2f812d7e96cfd04e21233dc4856",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "passed": true
+}

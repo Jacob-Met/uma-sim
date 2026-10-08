@@ -1,0 +1,17 @@
+TAP version 13
+# Subtest: report receiving: HTTP errors retain raw bodies before format decoding and healthy text remains text
+ok 1 - report receiving: HTTP errors retain raw bodies before format decoding and healthy text remains text
+  ---
+  duration_ms: 110.96
+  type: 'test'
+  ...
+# {"case":"report-format-composition","statuses":[503,409,404,200,200],"requests":5,"healthyMarkdownBytes":43,"jsonReport":{"a":"left","b":"right","firstDivergence":{"kind":"decision"}}}
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 213.538

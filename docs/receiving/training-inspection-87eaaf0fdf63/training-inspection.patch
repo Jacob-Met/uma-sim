@@ -1,0 +1,885 @@
+From cbeb87df63271197650466d2be381a4b2ade5d84 Mon Sep 17 00:00:00 2001
+From: HAMON estate-87eaaf0fdf63 <estate-87eaaf0fdf63@users.noreply.github.com>
+Date: Thu, 8 Oct 2026 08:29:37 -0700
+Subject: [PATCH] Add read-only training inspection for native career play
+
+---
+ README.md                                 |  30 +-
+ docs/SIMULATOR.md                         |   7 +
+ uma-sim-core/src/bin/uma-sim.rs           |  30 ++
+ uma-sim-core/src/engine.rs                |  67 +++--
+ uma-sim-core/src/lib.rs                   |   2 +
+ uma-sim-core/src/training_inspection.rs   | 268 +++++++++++++++++
+ uma-sim-core/tests/training_inspection.rs | 339 ++++++++++++++++++++++
+ 7 files changed, 724 insertions(+), 19 deletions(-)
+ create mode 100644 uma-sim-core/src/training_inspection.rs
+ create mode 100644 uma-sim-core/tests/training_inspection.rs
+
+diff --git a/README.md b/README.md
+index 64c0d4d..7e2e49a 100644
+--- a/README.md
++++ b/README.md
+@@ -97,7 +97,8 @@ the working directory.
+ ```bash
+ # Step through a career yourself
+ uma-sim start --seed=7 --scenario=unity --trainee="Special Week"
+-uma-sim state                  # stats, phase, available choices
++uma-sim state                  # stats, phase, deck and legacy
++uma-sim training               # inspect sample training gains, energy and risk
+ uma-sim step race              # or train_speed, rest, recreation, event_0, …
+ uma-sim clear
+ 
+@@ -132,6 +133,33 @@ or batch's `--seeds=` list overrides it. The last valid `--seed=` wins; a valid
+ (extra events merged in at run time without engine changes). The full command
+ reference is in [docs/SIMULATOR.md](docs/SIMULATOR.md).
+ 
++### Inspect training before choosing
++
++Run `uma-sim training` beside a saved career to compare Speed, Stamina,
++Power, Guts and Wit before using `step`. The table shows the existing
++deterministic sample gains, effective facility level, successful base energy
++change, current failure chance, and preview rainbow/hint counts. Use
++`uma-sim training --format=json` for the same version-1 inspection.
++
++Stat gains are a fixed local-seed-0 resolver sample, before stat caps and later
++scenario/event effects. They are not guaranteed next-action results or expected
++values. Energy and failure use the current native training rules, including
++Unity and Trackblazer zero-failure readiness; recovery respects the energy cap.
++The inspection does not consume career RNG, take an action, save the session,
++or run an external policy.
++
++A pending event, mandatory race, or completed career reports why training is
++unavailable. An injury or insufficient energy marks affected rows as blocked;
++blocked rows have no energy result or failure roll. Their JSON `energyDelta`
++and `failureChancePct` are `null`; signed `energyCost` remains the native
++requirement (positive cost, negative recovery). Resolve the displayed blocker
++and inspect again. Wit can remain available when another training lacks energy.
++
++The command accepts no arguments or exactly one `--format=text|json`.
++Invalid arguments exit 2 before loading a session. A missing, unreadable or
++invalid saved career exits 1 without creating or replacing any file. A valid
++inspection, including an unavailable phase, exits 0.
++
+ ## REST API and MCP
+ 
+ `uma-sim serve [--port=8765]` (or the bare `uma-sim-api [port]` binary) serves:
+diff --git a/docs/SIMULATOR.md b/docs/SIMULATOR.md
+index 4f4b1fd..b479514 100644
+--- a/docs/SIMULATOR.md
++++ b/docs/SIMULATOR.md
+@@ -79,6 +79,7 @@ Integer **1–100**. Presets: 1, 2, 5, 10, 20, 50, 100.
+ |---------|-------------|
+ | `start` | New career; persists to `.uma-sim/session.json` |
+ | `state` | Print stats, phase, deck, legacy |
++| `training [--format=text|json]` | Read-only training samples, energy, risk and blockers for the saved career |
+ | `step [action]` | Single action (`train_speed`, `rest`, `race`, `event_0`) |
+ | `fast` | Auto-play to completion (default speed 20 if unset) |
+ | `batch` | Run many careers to JSONL (`--count=` or `--seeds=`, `--seed`, `--scenario`, `--policy`, `--output`) |
+@@ -92,6 +93,12 @@ Integer **1–100**. Presets: 1, 2, 5, 10, 20, 50, 100.
+ 
+ Flags: `--seed`, `--scenario`, `--trainee`, `--speed=1-100`, `--dialogue=off|choices|full`, `--deck=id1,id2`, `--legacy=factor:...`, `--policy=default|bot|external`, `--race-model=stub|physics` (default **physics**), `--trace-rng`, `--trace-telemetry`, `--output=`. Env: `UMA_RACE_MODEL`.
+ 
++Training inspection uses deterministic local-seed-0 samples before stat caps and
++later scenario/event effects; it does not promise the next training outcome.
++It preserves the saved career and RNG, and makes unavailable phases, injuries
++and insufficient energy explicit. See [the CLI training guide](../README.md#inspect-training-before-choosing)
++for output fields and refusal behavior.
++
+ ## Mid-run races (R8)
+ 
+ | Item | Status | Evidence |
+diff --git a/uma-sim-core/src/bin/uma-sim.rs b/uma-sim-core/src/bin/uma-sim.rs
+index d9b9639..79b285a 100644
+--- a/uma-sim-core/src/bin/uma-sim.rs
++++ b/uma-sim-core/src/bin/uma-sim.rs
+@@ -18,6 +18,7 @@ fn main() {
+     match args[0].as_str() {
+         "start" => cmd_start(&args[1..]),
+         "state" => cmd_state(),
++        "training" => cmd_training(&args[1..]),
+         "step" => cmd_step(&args[1..]),
+         "fast" => cmd_fast(&args[1..]),
+         "batch" => cmd_batch(&args[1..]),
+@@ -244,6 +245,34 @@ fn cmd_state() {
+     );
+ }
+ 
++fn cmd_training(args: &[String]) {
++    let json = match args {
++        [] => false,
++        [format] if format == "--format=text" => false,
++        [format] if format == "--format=json" => true,
++        _ => {
++            eprintln!("Usage: uma-sim training [--format=text|json]");
++            std::process::exit(2);
++        }
++    };
++    let Some((engine, _)) = RunSession::load() else {
++        eprintln!("No readable saved career. Run: uma-sim start --seed=42");
++        std::process::exit(1);
++    };
++    let inspection = engine.training_inspection();
++    if json {
++        match serde_json::to_string_pretty(&inspection) {
++            Ok(text) => println!("{text}"),
++            Err(error) => {
++                eprintln!("Could not render training inspection: {error}");
++                std::process::exit(1);
++            }
++        }
++    } else {
++        print!("{}", inspection.render_text());
++    }
++}
++
+ fn cmd_step(args: &[String]) {
+     let Some((mut engine, _)) = RunSession::load() else {
+         println!("No session. Run: start --seed=42");
+@@ -566,6 +595,7 @@ uma-sim CLI v0.4 (Rust)
+   deck place <supportId> <facility>
+         [--policy=default|bot] [--race-model=stub|physics] [--trace-rng] [--trace-telemetry]
+   state
++  training [--format=text|json]
+   step [train_speed|rest|race|event_0|...]
+   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
+   batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
+diff --git a/uma-sim-core/src/engine.rs b/uma-sim-core/src/engine.rs
+index 7ece312..cf14926 100644
+--- a/uma-sim-core/src/engine.rs
++++ b/uma-sim-core/src/engine.rs
+@@ -23,7 +23,8 @@ use crate::state::{
+     SimAction, SimActionKind, SimChoice, SimDate, SimSettings, TrainingFacility, TurnPhase,
+ };
+ use crate::telemetry::SimTelemetry;
+-use crate::training::TrainingResolver;
++use crate::training::{TrainingOutcome, TrainingResolver};
++use crate::training_inspection::TrainingInspection;
+ use std::sync::Arc;
+ 
+ #[derive(Debug, Clone)]
+@@ -240,6 +241,31 @@ impl SimEngine {
+         &self.state
+     }
+ 
++    /// Inspect training without consuming the career RNG or changing its state.
++    pub fn training_inspection(&self) -> TrainingInspection {
++        let mut preview_state = self.state.clone();
++        for facility in TrainingFacility::ALL {
++            preview_state
++                .facility_levels
++                .insert(facility.key().into(), self.facility_level(facility));
++        }
++        TrainingInspection::build(
++            &preview_state,
++            &self.choices(),
++            &self.training_resolver,
++            |level, outcome| {
++                (
++                    self.training_failure_chance_pct(level, outcome),
++                    apply_energy_after_training(
++                        self.state.energy,
++                        outcome.energy_cost,
++                        self.state.max_energy,
++                    ) - self.state.energy,
++                )
++            },
++        )
++    }
++
+     pub fn assign_deck_slot(&mut self, support_id: &str, facility: TrainingFacility) -> bool {
+         let Some(updated) = DeckPlacement::reassign(&self.state.deck.slots, support_id, facility)
+         else {
+@@ -882,24 +908,10 @@ impl SimEngine {
+         format!("Event: {title} → {}", lines.join("; "))
+     }
+ 
+-    fn do_train(&mut self, action: &SimAction) -> String {
+-        if self.state.is_injured() {
+-            return "Injured — rest to recover before training.".to_string();
+-        }
+-        let facility = parse_facility(action.payload.as_deref()).unwrap_or(TrainingFacility::Speed);
+-        let key = facility.key();
+-        let level = self.facility_level(facility);
++    fn training_failure_chance_pct(&self, level: i32, outcome: &TrainingOutcome) -> i32 {
+         let energy_before = self.state.energy;
+-        let outcome = self.training_resolver.resolve(
+-            facility,
+-            level,
+-            self.state.mood,
+-            &mut self.rng,
+-            Some(&self.state),
+-            None,
+-        );
+         let scenario = self.state.meta.scenario_id.to_lowercase();
+-        let fail_pct = if (scenario == "unity" || scenario == "unity_cup")
++        if (scenario == "unity" || scenario == "unity_cup")
+             && UnityCupMechanics::zero_failure_when_burst_ready(&self.state.scenario_resources)
+         {
+             0
+@@ -914,7 +926,26 @@ impl SimEngine {
+                 self.state.mood,
+                 level,
+             )
+-        };
++        }
++    }
++
++    fn do_train(&mut self, action: &SimAction) -> String {
++        if self.state.is_injured() {
++            return "Injured — rest to recover before training.".to_string();
++        }
++        let facility = parse_facility(action.payload.as_deref()).unwrap_or(TrainingFacility::Speed);
++        let key = facility.key();
++        let level = self.facility_level(facility);
++        let energy_before = self.state.energy;
++        let outcome = self.training_resolver.resolve(
++            facility,
++            level,
++            self.state.mood,
++            &mut self.rng,
++            Some(&self.state),
++            None,
++        );
++        let fail_pct = self.training_failure_chance_pct(level, &outcome);
+         if outcome.energy_cost > 0 && energy_before < outcome.energy_cost {
+             return format!(
+                 "Not enough energy to train ({} required, {} available).",
+diff --git a/uma-sim-core/src/lib.rs b/uma-sim-core/src/lib.rs
+index 5a72c10..2c79ba2 100644
+--- a/uma-sim-core/src/lib.rs
++++ b/uma-sim-core/src/lib.rs
+@@ -25,6 +25,7 @@ pub mod spark_generation;
+ pub mod state;
+ pub mod telemetry;
+ pub mod training;
++pub mod training_inspection;
+ 
+ pub use bot::{scoring_auto_policy, BotDecisionAdapter};
+ pub use calendar::{TurnCalendar, CAREER_TURNS};
+@@ -82,3 +83,4 @@ pub use state::{
+ };
+ pub use telemetry::{SimReplayLine, SimTelemetry, TelemetryReplayLoader};
+ pub use training::{TrainingGainContext, TrainingOutcome, TrainingPreview, TrainingResolver};
++pub use training_inspection::TrainingInspection;
+diff --git a/uma-sim-core/src/training_inspection.rs b/uma-sim-core/src/training_inspection.rs
+new file mode 100644
+index 0000000..0b5bfd8
+--- /dev/null
++++ b/uma-sim-core/src/training_inspection.rs
+@@ -0,0 +1,268 @@
++//! Read-only, deterministic training samples for a player inspecting a career.
++//! These are resolver samples, not promised next-action outcomes.
++
++use crate::state::{CareerState, SimChoice, StatName, TrainingFacility, TurnPhase};
++use crate::training::{TrainingOutcome, TrainingPreview, TrainingResolver};
++use serde::Serialize;
++use std::fmt::Write;
++
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
++#[serde(rename_all = "snake_case")]
++pub enum TrainingUnavailableReason {
++    CareerComplete,
++    MandatoryRace,
++    PendingEvent,
++    TrainingUnavailable,
++}
++
++impl TrainingUnavailableReason {
++    fn message(self) -> &'static str {
++        match self {
++            Self::CareerComplete => "Career complete; there is no next training action.",
++            Self::MandatoryRace => "Enter the mandatory race before training.",
++            Self::PendingEvent => "Resolve the pending event choice before training.",
++            Self::TrainingUnavailable => "Training is not offered in this phase.",
++        }
++    }
++}
++
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
++#[serde(rename_all = "snake_case")]
++pub enum TrainingBlockReason {
++    Injured,
++    InsufficientEnergy,
++}
++
++#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
++#[serde(rename_all = "camelCase")]
++pub struct TrainingStatGains {
++    pub speed: i32,
++    pub stamina: i32,
++    pub power: i32,
++    pub guts: i32,
++    pub wit: i32,
++}
++
++#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
++#[serde(rename_all = "camelCase")]
++pub struct TrainingInspectionRow {
++    pub action_id: String,
++    pub facility: String,
++    pub label: String,
++    pub level: i32,
++    pub stat_gains: TrainingStatGains,
++    /// Positive is required energy; negative is recovery.
++    pub energy_cost: i32,
++    /// Successful base effect after the ordinary cap, before later effects.
++    /// No attempt is available for a blocked row, so its effect/risk are null.
++    pub energy_delta: Option<i32>,
++    pub failure_chance_pct: Option<i32>,
++    pub num_rainbow: i32,
++    pub num_skill_hints: i32,
++    pub available: bool,
++    pub blocked_reason: Option<TrainingBlockReason>,
++}
++
++#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
++#[serde(rename_all = "camelCase")]
++pub struct TrainingInspection {
++    pub schema_version: u8,
++    pub turn: i32,
++    pub date: String,
++    pub phase: String,
++    pub scenario_id: String,
++    pub trainee_name: String,
++    pub energy: i32,
++    pub max_energy: i32,
++    pub mood: String,
++    pub sample_kind: &'static str,
++    pub notes: Vec<&'static str>,
++    pub unavailable_reason: Option<TrainingUnavailableReason>,
++    pub rows: Vec<TrainingInspectionRow>,
++}
++
++impl TrainingInspection {
++    pub(crate) fn build(
++        state: &CareerState,
++        choices: &[SimChoice],
++        resolver: &TrainingResolver,
++        effects: impl Fn(i32, &TrainingOutcome) -> (i32, i32),
++    ) -> Self {
++        let has_training = TrainingFacility::ALL.iter().any(|facility| {
++            let action_id = format!("train_{}", facility.key());
++            choices.iter().any(|choice| choice.id == action_id)
++        });
++        let unavailable_reason = if has_training {
++            None
++        } else if state.career_complete {
++            Some(TrainingUnavailableReason::CareerComplete)
++        } else if state.phase == TurnPhase::MandatoryRace.as_str() {
++            Some(TrainingUnavailableReason::MandatoryRace)
++        } else if state.phase == TurnPhase::Event.as_str() {
++            Some(TrainingUnavailableReason::PendingEvent)
++        } else {
++            Some(TrainingUnavailableReason::TrainingUnavailable)
++        };
++
++        let mut rows = Vec::new();
++        if has_training {
++            let options = TrainingPreview::build_options(state, resolver);
++            for facility in TrainingFacility::ALL {
++                let action_id = format!("train_{}", facility.key());
++                if !choices.iter().any(|choice| choice.id == action_id) {
++                    continue;
++                }
++                // build_options always includes every TrainingFacility.
++                let option = &options[&facility];
++                let level = option.training_level.unwrap_or(1);
++                let outcome = resolver.resolve_typical(facility, level, state.mood, Some(state));
++                let blocked_reason = if state.is_injured() {
++                    Some(TrainingBlockReason::Injured)
++                } else if outcome.energy_cost > 0 && state.energy < outcome.energy_cost {
++                    Some(TrainingBlockReason::InsufficientEnergy)
++                } else {
++                    None
++                };
++                let (failure_chance_pct, energy_delta) = if blocked_reason.is_none() {
++                    let (risk, delta) = effects(level, &outcome);
++                    (Some(risk), Some(delta))
++                } else {
++                    (None, None)
++                };
++                let gain = |stat| option.stat_gains.get(&stat).copied().unwrap_or(0);
++                rows.push(TrainingInspectionRow {
++                    action_id,
++                    facility: facility.key().into(),
++                    label: match facility {
++                        TrainingFacility::Speed => "Speed",
++                        TrainingFacility::Stamina => "Stamina",
++                        TrainingFacility::Power => "Power",
++                        TrainingFacility::Guts => "Guts",
++                        TrainingFacility::Wit => "Wit",
++                    }
++                    .into(),
++                    level,
++                    stat_gains: TrainingStatGains {
++                        speed: gain(StatName::Speed),
++                        stamina: gain(StatName::Stamina),
++                        power: gain(StatName::Power),
++                        guts: gain(StatName::Guts),
++                        wit: gain(StatName::Wit),
++                    },
++                    energy_cost: outcome.energy_cost,
++                    energy_delta,
++                    failure_chance_pct,
++                    num_rainbow: option.num_rainbow,
++                    num_skill_hints: option.num_skill_hints,
++                    available: blocked_reason.is_none(),
++                    blocked_reason,
++                });
++            }
++        }
++        Self {
++            schema_version: 1,
++            turn: state.turn,
++            date: format!(
++                "Year {}, Month {}, {}",
++                state.date.year,
++                state.date.month,
++                if state.date.half == 1 { "Early" } else { "Late" }
++            ),
++            phase: state.phase.clone(),
++            scenario_id: state.meta.scenario_id.clone(),
++            trainee_name: state.meta.trainee_name.clone(),
++            energy: state.energy,
++            max_energy: state.max_energy,
++            mood: state.mood.kotlin_name().into(),
++            sample_kind: "deterministic_seed_0",
++            notes: vec![
++                "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
++                "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
++                "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
++                "Inspection does not take an action, advance the career RNG, or save the session.",
++            ],
++            unavailable_reason,
++            rows,
++        }
++    }
++
++    pub fn render_text(&self) -> String {
++        let mut text = format!(
++            "Training inspection — {} / {}\nTurn {} | {} | Phase {}\nEnergy {}/{} | Mood {}\n\n",
++            self.trainee_name,
++            self.scenario_id,
++            self.turn,
++            self.date,
++            self.phase,
++            self.energy,
++            self.max_energy,
++            self.mood
++        );
++        for note in &self.notes {
++            writeln!(text, "{note}").expect("writing to a String");
++        }
++        text.push('\n');
++        if let Some(reason) = self.unavailable_reason {
++            writeln!(text, "No training choices: {}", reason.message())
++                .expect("writing to a String");
++            return text;
++        }
++        writeln!(
++            text,
++            "{:<8} {:>2} {:>5} {:>5} {:>5} {:>5} {:>5} {:>7} {:>6} {:>7} {:>5}",
++            "Training",
++            "Lv",
++            "SPD",
++            "STA",
++            "POW",
++            "GUT",
++            "WIT",
++            "Energy",
++            "Fail",
++            "Rainbow",
++            "Hints"
++        )
++        .expect("writing to a String");
++        for row in &self.rows {
++            let energy = row
++                .energy_delta
++                .map_or_else(|| "—".into(), |n| format!("{n:+}"));
++            let failure = row
++                .failure_chance_pct
++                .map_or_else(|| "—".into(), |n| format!("{n}%"));
++            writeln!(
++                text,
++                "{:<8} {:>2} {:+5} {:+5} {:+5} {:+5} {:+5} {:>7} {:>6} {:>7} {:>5}",
++                row.label,
++                row.level,
++                row.stat_gains.speed,
++                row.stat_gains.stamina,
++                row.stat_gains.power,
++                row.stat_gains.guts,
++                row.stat_gains.wit,
++                energy,
++                failure,
++                row.num_rainbow,
++                row.num_skill_hints
++            )
++            .expect("writing to a String");
++            match row.blocked_reason {
++                None => writeln!(text, "  {} — available", row.action_id),
++                Some(TrainingBlockReason::Injured) => {
++                    writeln!(
++                        text,
++                        "  {} — blocked: injured; rest to recover.",
++                        row.action_id
++                    )
++                }
++                Some(TrainingBlockReason::InsufficientEnergy) => writeln!(
++                    text,
++                    "  {} — blocked: requires {} energy; {} available.",
++                    row.action_id, row.energy_cost, self.energy
++                ),
++            }
++            .expect("writing to a String");
++        }
++        text
++    }
++}
+diff --git a/uma-sim-core/tests/training_inspection.rs b/uma-sim-core/tests/training_inspection.rs
+new file mode 100644
+index 0000000..4666000
+--- /dev/null
++++ b/uma-sim-core/tests/training_inspection.rs
+@@ -0,0 +1,339 @@
++use serde_json::Value;
++use std::fs;
++use std::path::{Path, PathBuf};
++use std::process::{Command, Output};
++use std::sync::atomic::{AtomicU64, Ordering};
++use std::sync::Mutex;
++use uma_sim_core::training_inspection::{TrainingBlockReason, TrainingUnavailableReason};
++use uma_sim_core::{
++    parse_sim_action, MoodLevel, RunMeta, RunSnapshotCodec, SimEngine, SimSettings,
++    TrainingFailureConfig, TurnPhase, INJURED,
++};
++
++static ENGINE_CONFIG: Mutex<()> = Mutex::new(());
++static NEXT_DIR: AtomicU64 = AtomicU64::new(0);
++
++fn free_engine(scenario: &str, energy: i32) -> SimEngine {
++    let mut engine = SimEngine::new(SimSettings {
++        trace_rng: true,
++        ..SimSettings::default()
++    });
++    engine.start(RunMeta::new(701, scenario, "Training inspection fixture"));
++    let mut snapshot = engine.export();
++    snapshot.state.phase = TurnPhase::Free.as_str().into();
++    snapshot.state.pending_race_id = None;
++    snapshot.state.pending_event_title = None;
++    snapshot.state.pending_event_options.clear();
++    snapshot.state.awaiting_choice = false;
++    snapshot.state.energy = energy;
++    snapshot.state.mood = MoodLevel::Normal;
++    engine.restore(snapshot);
++    engine
++}
++
++fn value(engine: &SimEngine) -> Value {
++    serde_json::from_str(&RunSnapshotCodec::encode(&engine.export())).unwrap()
++}
++
++#[test]
++fn repeated_inspection_preserves_snapshot_rng_and_next_action() {
++    let _guard = ENGINE_CONFIG.lock().unwrap();
++    TrainingFailureConfig::reset_to_defaults();
++    let mut engine = free_engine("ura", 100);
++    let mut snapshot = engine.export();
++    snapshot.state.facility_levels.insert("power".into(), 3);
++    snapshot.state.hint_levels.insert("power".into(), 2);
++    engine.restore(snapshot);
++    let before = value(&engine);
++    let rng_calls = engine.rng_calls();
++    let first = engine.training_inspection();
++    assert_eq!(first, engine.training_inspection());
++    assert_eq!(first.schema_version, 1);
++    assert_eq!(first.sample_kind, "deterministic_seed_0");
++    assert_eq!(
++        first
++            .rows
++            .iter()
++            .map(|row| row.action_id.as_str())
++            .collect::<Vec<_>>(),
++        [
++            "train_speed",
++            "train_stamina",
++            "train_power",
++            "train_guts",
++            "train_wit"
++        ]
++    );
++    assert_eq!(first.rows[2].level, 3);
++    assert_eq!(first.rows[2].num_skill_hints, 2);
++    assert_eq!(value(&engine), before);
++    assert_eq!(engine.rng_calls(), rng_calls);
++    let mut twin = SimEngine::new(SimSettings::default());
++    twin.restore(engine.export());
++    engine.step(parse_sim_action("train_power"));
++    twin.step(parse_sim_action("train_power"));
++    assert_eq!(value(&engine), value(&twin));
++}
++
++#[test]
++fn current_energy_risk_uses_the_native_post_cost_boundary() {
++    let _guard = ENGINE_CONFIG.lock().unwrap();
++    TrainingFailureConfig::reset_to_defaults();
++    // Default level-one training costs 20; remaining 29 and 30 cross a risk band.
++    let lower = free_engine("ura", 49).training_inspection();
++    let upper = free_engine("ura", 50).training_inspection();
++    assert_eq!(lower.rows[0].energy_cost, 20);
++    assert_eq!(lower.rows[0].energy_delta, Some(-20));
++    assert_eq!(lower.rows[0].failure_chance_pct, Some(45));
++    assert_eq!(upper.rows[0].failure_chance_pct, Some(30));
++    // Wit uses the engine's existing pre-recovery risk rule, not recovered energy.
++    assert_eq!(lower.rows[4].energy_cost, -5);
++    assert_eq!(lower.rows[4].failure_chance_pct, Some(30));
++}
++
++#[test]
++fn scenario_zero_failure_and_effective_unity_level_are_inspected() {
++    let _guard = ENGINE_CONFIG.lock().unwrap();
++    TrainingFailureConfig::reset_to_defaults();
++    for (scenario, ready) in [
++        ("unity", "unity_burst_ready"),
++        ("unity", "unity_extreme_ready"),
++        ("trackblazer", "tb_zero_fail_turns"),
++    ] {
++        let mut engine = free_engine(scenario, 49);
++        assert!(
++            engine.training_inspection().rows[0]
++                .failure_chance_pct
++                .unwrap()
++                > 0
++        );
++        let mut snapshot = engine.export();
++        snapshot.state.scenario_resources = snapshot.state.scenario_resources.set(ready, 1);
++        engine.restore(snapshot);
++        assert!(engine
++            .training_inspection()
++            .rows
++            .iter()
++            .all(|row| { row.failure_chance_pct == Some(0) }));
++    }
++    let mut engine = free_engine("unity", 49);
++    let mut snapshot = engine.export();
++    snapshot.state.facility_levels.insert("speed".into(), 1);
++    snapshot.state.scenario_resources =
++        snapshot.state.scenario_resources.set("unity_rank_speed", 4);
++    engine.restore(snapshot);
++    let before = value(&engine);
++    let view = engine.training_inspection();
++    assert_eq!(view.rows[0].level, 4);
++    assert_eq!(view.rows[0].energy_cost, 25);
++    assert_eq!(view.rows[0].failure_chance_pct, Some(51));
++    assert_eq!(value(&engine), before);
++    assert_eq!(engine.state().facility_levels.get("speed"), Some(&1));
++}
++
++#[test]
++fn unavailable_phases_and_blocked_rows_have_no_attempt_results() {
++    let _guard = ENGINE_CONFIG.lock().unwrap();
++    TrainingFailureConfig::reset_to_defaults();
++    for (phase, complete, reason) in [
++        (
++            "MANDATORY_RACE",
++            false,
++            TrainingUnavailableReason::MandatoryRace,
++        ),
++        ("EVENT", false, TrainingUnavailableReason::PendingEvent),
++        ("COMPLETE", true, TrainingUnavailableReason::CareerComplete),
++    ] {
++        let mut engine = free_engine("ura", 100);
++        let mut snapshot = engine.export();
++        snapshot.state.phase = phase.into();
++        snapshot.state.career_complete = complete;
++        snapshot.state.pending_event_options = vec!["First choice".into()];
++        engine.restore(snapshot);
++        let view = engine.training_inspection();
++        assert_eq!(view.unavailable_reason, Some(reason));
++        assert!(view.rows.is_empty());
++        assert!(view.render_text().contains("No training choices:"));
++    }
++    let mut engine = free_engine("ura", 10);
++    let low = engine.training_inspection();
++    assert!(low.rows[..4].iter().all(|row| {
++        !row.available
++            && row.blocked_reason == Some(TrainingBlockReason::InsufficientEnergy)
++            && row.energy_delta.is_none()
++            && row.failure_chance_pct.is_none()
++    }));
++    assert!(low.rows[4].available);
++    assert_eq!(low.rows[4].energy_delta, Some(5));
++    assert!(low
++        .render_text()
++        .contains("requires 20 energy; 10 available"));
++    let mut snapshot = engine.export();
++    snapshot.state.statuses.push(INJURED.into());
++    engine.restore(snapshot);
++    let injured = engine.training_inspection();
++    assert!(injured.rows.iter().all(|row| {
++        !row.available
++            && row.blocked_reason == Some(TrainingBlockReason::Injured)
++            && row.energy_delta.is_none()
++            && row.failure_chance_pct.is_none()
++    }));
++    assert!(injured.render_text().contains("blocked: injured"));
++}
++
++#[test]
++fn samples_stay_raw_while_energy_recovery_respects_the_cap() {
++    let _guard = ENGINE_CONFIG.lock().unwrap();
++    TrainingFailureConfig::reset_to_defaults();
++    let mut engine = free_engine("ura", 98);
++    let ordinary = engine.training_inspection();
++    let mut snapshot = engine.export();
++    snapshot.state.stats.speed = 1200;
++    snapshot.state.stats.stamina = 1200;
++    snapshot.state.stats.power = 1200;
++    snapshot.state.stats.guts = 1200;
++    snapshot.state.stats.wit = 1200;
++    engine.restore(snapshot);
++    let capped = engine.training_inspection();
++    assert_eq!(ordinary.rows[0].stat_gains, capped.rows[0].stat_gains);
++    assert!(capped.rows[0].stat_gains.speed > 0);
++    assert_eq!(capped.rows[4].energy_cost, -5);
++    assert_eq!(capped.rows[4].energy_delta, Some(2));
++    let text = capped.render_text();
++    for disclosure in [
++        "deterministic samples",
++        "before stat caps",
++        "not guaranteed",
++        "does not take an action",
++    ] {
++        assert!(text.contains(disclosure), "missing {disclosure:?}");
++    }
++}
++
++struct FixtureDir(PathBuf);
++
++impl FixtureDir {
++    fn new() -> Self {
++        let root = std::env::temp_dir().join(format!(
++            "uma-training-inspection-{}-{}",
++            std::process::id(),
++            NEXT_DIR.fetch_add(1, Ordering::Relaxed)
++        ));
++        fs::create_dir(&root).unwrap();
++        Self(root)
++    }
++
++    fn session(&self) -> PathBuf {
++        self.0.join(".uma-sim/session.json")
++    }
++
++    fn cli(&self, args: &[&str]) -> Output {
++        let repo = Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap();
++        Command::new(env!("CARGO_BIN_EXE_uma-sim"))
++            .args(args)
++            .current_dir(&self.0)
++            .env("UMA_REPO_ROOT", repo)
++            .env_remove("UMA_POLICY_CMD")
++            .output()
++            .unwrap()
++    }
++}
++
++impl Drop for FixtureDir {
++    fn drop(&mut self) {
++        let _ = fs::remove_dir_all(&self.0);
++    }
++}
++
++#[test]
++fn actual_cli_inspects_saved_native_career_without_rewriting_it() {
++    let fixture = FixtureDir::new();
++    let start = fixture.cli(&[
++        "start",
++        "--seed=7",
++        "--scenario=ura",
++        "--race-model=stub",
++        "--trace-rng",
++    ]);
++    assert!(
++        start.status.success(),
++        "{}",
++        String::from_utf8_lossy(&start.stderr)
++    );
++    let first_bytes = fs::read(fixture.session()).unwrap();
++    let pending = fixture.cli(&["training", "--format=json"]);
++    assert!(pending.status.success());
++    let pending: Value = serde_json::from_slice(&pending.stdout).unwrap();
++    assert_eq!(pending["unavailableReason"], "mandatory_race");
++    assert_eq!(pending["rows"], serde_json::json!([]));
++    assert_eq!(fs::read(fixture.session()).unwrap(), first_bytes);
++
++    // Follow offered native pre-training gates instead of fabricating a phase.
++    for _ in 0..12 {
++        let snapshot =
++            RunSnapshotCodec::decode(&fs::read_to_string(fixture.session()).unwrap()).unwrap();
++        if snapshot.state.phase == "FREE" {
++            break;
++        }
++        let action = if snapshot.state.phase == "EVENT" {
++            "event_0"
++        } else {
++            "race"
++        };
++        assert!(fixture.cli(&["step", action]).status.success());
++    }
++    let before = fs::read(fixture.session()).unwrap();
++    let json = fixture.cli(&["training", "--format=json"]);
++    assert!(
++        json.status.success(),
++        "{}",
++        String::from_utf8_lossy(&json.stderr)
++    );
++    let view: Value = serde_json::from_slice(&json.stdout).unwrap();
++    assert_eq!(view["schemaVersion"], 1);
++    assert_eq!(view["rows"].as_array().unwrap().len(), 5);
++    assert_eq!(view["rows"][0]["actionId"], "train_speed");
++    assert_eq!(view["rows"][4]["actionId"], "train_wit");
++    let repeat = fixture.cli(&["training", "--format=json"]);
++    assert_eq!(json.stdout, repeat.stdout);
++    let text = fixture.cli(&["training"]);
++    assert!(text.status.success());
++    assert!(String::from_utf8_lossy(&text.stdout).contains("deterministic samples"));
++    assert_eq!(fs::read(fixture.session()).unwrap(), before);
++}
++
++#[test]
++fn actual_cli_refuses_arguments_and_unreadable_sessions_without_writes() {
++    let fixture = FixtureDir::new();
++    let missing = fixture.cli(&["training"]);
++    assert_eq!(missing.status.code(), Some(1));
++    assert!(missing.stdout.is_empty());
++    assert!(!fixture.0.join(".uma-sim").exists());
++    fs::create_dir(fixture.0.join(".uma-sim")).unwrap();
++    let malformed = b"{not a saved career}\n";
++    fs::write(fixture.session(), malformed).unwrap();
++    for args in [
++        vec!["training", "--format="],
++        vec!["training", "--format=xml"],
++        vec!["training", "--format=json", "--format=text"],
++        vec!["training", "--format=json", "extra"],
++        vec!["training", "--policy=external"],
++        vec!["training", "--format", "json"],
++    ] {
++        let output = fixture.cli(&args);
++        assert_eq!(output.status.code(), Some(2), "{args:?}");
++        assert!(output.stdout.is_empty());
++        assert!(String::from_utf8_lossy(&output.stderr).contains("Usage:"));
++        assert_eq!(fs::read(fixture.session()).unwrap(), malformed);
++    }
++    for args in [
++        vec!["training"],
++        vec!["training", "--format=text"],
++        vec!["training", "--format=json"],
++    ] {
++        let output = fixture.cli(&args);
++        assert_eq!(output.status.code(), Some(1), "{args:?}");
++        assert!(output.stdout.is_empty());
++        assert_eq!(fs::read(fixture.session()).unwrap(), malformed);
++    }
++}
+-- 
+2.50.1 (Apple Git-155)
+

@@ -1,0 +1,75 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+.race-panel,
+.race-panel .race-result {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.race-panel .race-pending {
+  margin-bottom: 0.9rem;
+}
+
+.race-panel .race-pending p {
+  margin-top: 0;
+}
+
+.race-panel .race-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 0 0.3rem;
+}
+
+.race-panel h3 {
+  font-size: 1rem;
+  margin: 0 0 0.65rem;
+}
+
+.race-panel .race-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem 1rem;
+  margin: 0 0 0.8rem;
+}
+
+.race-panel .race-facts dt,
+.race-panel .race-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.race-panel .race-facts dd {
+  margin: 0.15rem 0 0;
+  font-weight: 600;
+}
+
+.race-panel summary {
+  cursor: pointer;
+  padding: 0.4rem 0;
+}
+
+.race-panel summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.race-panel .race-record pre {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  padding: 0.65rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.race-panel .race-history ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.race-panel .race-history li {
+  border-top: 1px solid var(--border);
+  padding: 0.85rem 0;
+}

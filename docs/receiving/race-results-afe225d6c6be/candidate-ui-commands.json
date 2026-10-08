@@ -1,0 +1,37 @@
+[
+  {
+    "label": "candidate-tests",
+    "command": [
+      "npm",
+      "test"
+    ],
+    "exit_code": 0,
+    "seconds": 1.048,
+    "log": "candidate-tests.log",
+    "log_sha256": "70192c95f22f2397b659afc4590b31ef3a0e06b3a9d0e6939a3bfad5abca9031"
+  },
+  {
+    "label": "candidate-typecheck",
+    "command": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "exit_code": 0,
+    "seconds": 2.239,
+    "log": "candidate-typecheck.log",
+    "log_sha256": "c7362e63c0f16360a6566d20f26f2ec0c64f5343e55ab91d622d40ba93138bd0"
+  },
+  {
+    "label": "candidate-build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exit_code": 0,
+    "seconds": 3.93,
+    "log": "candidate-build.log",
+    "log_sha256": "c4cdd1c772fcc0533e1eb0aa186bc808da4c9d52cd9f8e571530801cba921312"
+  }
+]

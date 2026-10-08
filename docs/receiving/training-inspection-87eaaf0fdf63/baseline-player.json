@@ -1,0 +1,56 @@
+{
+  "source_commit": "b026a21f437789d7a7cd04c5074258302e36814e",
+  "binary_bytes": 14816160,
+  "binary_sha256": "7cbdd02eb755d33bb6bcd3964ce1399642dfccdbe71ae2437b89a8b393ce991e",
+  "commands": [
+    {
+      "argv": [
+        "start",
+        "--seed=7",
+        "--scenario=ura",
+        "--race-model=stub",
+        "--trace-rng"
+      ],
+      "exit": 0,
+      "stdout": "--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: happy_meek_badge=0\n=== Year 1 Jun (Late), turn 1 ===\nChoices: race\n",
+      "stderr": "",
+      "before_sha256": null,
+      "after_sha256": "eb30ee6b61236bb07c7fa9528a40328824bd5050c61573e43a3c81bae0f64bbc",
+      "session_unchanged": false
+    },
+    {
+      "argv": [
+        "state"
+      ],
+      "exit": 0,
+      "stdout": "Turn 1 | 1/6 half 2\nStats SPD=83 STA=88 POW=98 GUT=90 WIT=91\nEnergy=100 Mood=NORMAL Fans=0 SP=0\nPhase=MANDATORY_RACE PendingRace=debut\nDeck=0 Legacy=0\nComplete=false\n",
+      "stderr": "",
+      "before_sha256": "eb30ee6b61236bb07c7fa9528a40328824bd5050c61573e43a3c81bae0f64bbc",
+      "after_sha256": "eb30ee6b61236bb07c7fa9528a40328824bd5050c61573e43a3c81bae0f64bbc",
+      "session_unchanged": true
+    },
+    {
+      "argv": [
+        "training"
+      ],
+      "exit": 0,
+      "stdout": "uma-sim CLI v0.4 (Rust)\n  start [--seed=N] [--scenario=ura|grand_concert|unity|trackblazer]\n        [--trainee=Name] [--speed=1-100] [--dialogue=off|choices|full]\n        [--deck=id1,id2,...] [--legacy=factor:blue:1@3,...]\n        Deck: support:10001@speed:85 (manual facility + bond)\n  deck place <supportId> <facility>\n        [--policy=default|bot] [--race-model=stub|physics] [--trace-rng] [--trace-telemetry]\n  state\n  step [train_speed|rest|race|event_0|...]\n  fast [--seed=N] [--speed=20] [--policy=default|bot|external]\n  batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]\n  analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]\n  validate [--path=content_packs/example.json]\n  content validate [--path=...]\n  serve [--port=8765] [--open]\n  clear\nEnv: UMA_RACE_MODEL=stub|physics (default physics), UMA_REPO_ROOT=<folder with research/ and knowledge/>\nSession persisted to .uma-sim/session.json\n",
+      "stderr": "",
+      "before_sha256": "eb30ee6b61236bb07c7fa9528a40328824bd5050c61573e43a3c81bae0f64bbc",
+      "after_sha256": "eb30ee6b61236bb07c7fa9528a40328824bd5050c61573e43a3c81bae0f64bbc",
+      "session_unchanged": true
+    },
+    {
+      "argv": [
+        "training",
+        "--format=json"
+      ],
+      "exit": 0,
+      "stdout": "uma-sim CLI v0.4 (Rust)\n  start [--seed=N] [--scenario=ura|grand_concert|unity|trackblazer]\n        [--trainee=Name] [--speed=1-100] [--dialogue=off|choices|full]\n        [--deck=id1,id2,...] [--legacy=factor:blue:1@3,...]\n        Deck: support:10001@speed:85 (manual facility + bond)\n  deck place <supportId> <facility>\n        [--policy=default|bot] [--race-model=stub|physics] [--trace-rng] [--trace-telemetry]\n  state\n  step [train_speed|rest|race|event_0|...]\n  fast [--seed=N] [--speed=20] [--policy=default|bot|external]\n  batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]\n  analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]\n  validate [--path=content_packs/example.json]\n  content validate [--path=...]\n  serve [--port=8765] [--open]\n  clear\nEnv: UMA_RACE_MODEL=stub|physics (default physics), UMA_REPO_ROOT=<folder with research/ and knowledge/>\nSession persisted to .uma-sim/session.json\n",
+      "stderr": "",
+      "before_sha256": "eb30ee6b61236bb07c7fa9528a40328824bd5050c61573e43a3c81bae0f64bbc",
+      "after_sha256": "eb30ee6b61236bb07c7fa9528a40328824bd5050c61573e43a3c81bae0f64bbc",
+      "session_unchanged": true
+    }
+  ]
+}

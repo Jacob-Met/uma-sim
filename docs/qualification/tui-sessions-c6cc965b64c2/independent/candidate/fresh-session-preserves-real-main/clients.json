@@ -1,0 +1,41 @@
+[
+  {
+    "pid": 18,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js"
+    ],
+    "stdout": "New session: tui-23e3f2e2-01d2-4871-8420-907b7ff9fc4e\nResume this career with --session=tui-23e3f2e2-01d2-4871-8420-907b7ff9fc4e\numa-sim TUI — [choice] | auto | fast | state | quit\n\n\n┌─ State ─────────────────────\nTurn 1  Y1 M6\nSPD 83 STA 88 POW 98\nGUT 90 WIT 91\nE 100  Mood NORMAL  Fans 0  SP 0\nPhase: MANDATORY_RACE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: happy_meek_badge=0\n\nChoices: race (Enter mandatory race: debut)\n\n> ",
+    "stderr": "",
+    "exit_code": 0,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 26,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--new"
+    ],
+    "stdout": "New session: tui-d098a6a6-30ac-40ce-8d7b-730078c7a0ec\nResume this career with --session=tui-d098a6a6-30ac-40ce-8d7b-730078c7a0ec\numa-sim TUI — [choice] | auto | fast | state | quit\n\n\n┌─ State ─────────────────────\nTurn 1  Y1 M6\nSPD 83 STA 88 POW 98\nGUT 90 WIT 91\nE 100  Mood NORMAL  Fans 0  SP 0\nPhase: MANDATORY_RACE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: happy_meek_badge=0\n\nChoices: race (Enter mandatory race: debut)\n\n> ",
+    "stderr": "",
+    "exit_code": 0,
+    "signal": null,
+    "closed": true
+  },
+  {
+    "pid": 34,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "+123",
+      "unity"
+    ],
+    "stdout": "New session: tui-7dd8f6c3-6f76-4d4a-b2f6-4fb7c6991f4b\nResume this career with --session=tui-7dd8f6c3-6f76-4d4a-b2f6-4fb7c6991f4b\numa-sim TUI — [choice] | auto | fast | state | quit\n\n\n┌─ State ─────────────────────\nTurn 1  Y1 M6\nSPD 83 STA 88 POW 98\nGUT 90 WIT 91\nE 100  Mood NORMAL  Fans 0  SP 0\nPhase: MANDATORY_RACE\n  Scenario: {\"unity_rank_speed\":1,\"unity_rank_power\":1,\"unity_rank_stamina\":1,\"unity_rank_wit\":1,\"unity_rank_guts\":1}\n└─────────────────────────────\n--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: unity_rank_speed=1 unity_rank_power=1 unity_rank_stamina=1 unity_rank_wit=1 unity_rank_guts=1\n\nChoices: race (Enter mandatory race: debut)\n\n> ",
+    "stderr": "",
+    "exit_code": 0,
+    "signal": null,
+    "closed": true
+  }
+]

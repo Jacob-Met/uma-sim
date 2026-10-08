@@ -1,0 +1,186 @@
+{
+  "schema": "uma-sim-composed-release-receiving.v1",
+  "assembledAt": "2026-10-08T11:11:36.000Z",
+  "verdict": "PASS",
+  "scope": "Current UI build, strict Grand Live calibration, optimized embedded-UI release compilation, staged release layout and exact embedded asset serving. The prior 354-test workspace qualification is not rerun or counted here.",
+  "source": {
+    "localUiAndCalibration": {
+      "commit": "c19fcd5f2dac1f193f167c407cbc3215522b4eb5",
+      "tree": "12aeb224c7f322756c1d18b7cbe25863ebac2a78",
+      "receipt": "local/preparation.json"
+    },
+    "nativeRelease": {
+      "commit": "fe0ff870ee10f21e1a7cfa9264ef3196bc417854",
+      "tree": "7842ede60ef41699c0930dc2c5f217aa4fdcec10",
+      "receipt": "native/receipt.json"
+    },
+    "exactMatchingReleaseInputs": 300,
+    "releaseInputHashesIdenticalAcrossHosts": true,
+    "sourceAfterChecks": {
+      "localAll300Match": true,
+      "localGitClean": true,
+      "nativeAll300Match": true,
+      "nativeGitHeadAndStatusClean": true
+    },
+    "localTrackedBuildCache": {
+      "path": "packages/uma-sim-ui/tsconfig.tsbuildinfo",
+      "originalSha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+      "generatedSha256": "068c8132c5f1f5aad9c06e6ed7c5783c7f903fe0dd2873e0451f093111d9ec9e",
+      "kind": "Already-tracked compiler build cache rewritten by the repository npm run build command (tsc -b). It is an observed build output, not a product-source fix.",
+      "preservedGeneratedCopy": "tsconfig.generated.tsbuildinfo",
+      "restoredOriginalBytesInIsolatedClone": true,
+      "other299PinnedInputsUnchanged": true
+    }
+  },
+  "successfulCommandGates": [
+    {
+      "name": "ui-typecheck",
+      "exitCode": 0,
+      "receipt": "local/ui-typecheck.json"
+    },
+    {
+      "name": "ui-build",
+      "exitCode": 0,
+      "receipt": "local/ui-build.json"
+    },
+    {
+      "name": "strict-calibration",
+      "exitCode": 0,
+      "receipt": "local/strict-calibration.json"
+    },
+    {
+      "name": "locked-release-metadata",
+      "exitCode": 0,
+      "receipt": "native/receipt.json"
+    },
+    {
+      "name": "release-build",
+      "exitCode": 0,
+      "receipt": "native/receipt.json"
+    },
+    {
+      "name": "staged-release-layout",
+      "exitCode": 0,
+      "receipt": "native/receipt.json"
+    }
+  ],
+  "calibration": {
+    "rowsChecked": 9,
+    "exactMatches": 9,
+    "mismatches": 0,
+    "pass": true
+  },
+  "declaredMsrv": {
+    "compiler": "1.93.1",
+    "incompatible": [],
+    "receipt": "native/declared-msrv.json"
+  },
+  "stagedRelease": {
+    "models": [
+      "stub",
+      "physics"
+    ],
+    "requiredCompletion": "career=true turn=72",
+    "passed": true,
+    "sourceDataHiddenByCanonicalScript": [
+      "research",
+      "knowledge"
+    ],
+    "workingDirectory": "Unrelated temporary directory",
+    "stdout": "native/staged-release-layout.stdout.gz"
+  },
+  "embeddedRuntime": {
+    "sourceDistHidden": true,
+    "workingDirectory": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-receiving-fe0ff870/embedded-runtime",
+    "threeAssetBodiesByteExact": true,
+    "checks": [
+      {
+        "route": "/",
+        "status": 200,
+        "bytes": 394,
+        "sha256": "4dbea013d8024e8236d0b0c884fc70efab5ebf5e92dec3dceaa02acf6a9dc841",
+        "contentType": "text/html; charset=utf-8",
+        "expectedSha256": "4dbea013d8024e8236d0b0c884fc70efab5ebf5e92dec3dceaa02acf6a9dc841"
+      },
+      {
+        "route": "/assets/index-C8rte7ax.css",
+        "status": 200,
+        "bytes": 8250,
+        "sha256": "beda9c92acf18ac0a0ca344bea9c6be08715624da91d007032ffdcb5dad195ac",
+        "contentType": "text/css; charset=utf-8",
+        "expectedSha256": "beda9c92acf18ac0a0ca344bea9c6be08715624da91d007032ffdcb5dad195ac"
+      },
+      {
+        "route": "/assets/index-uVUO5YHC.js",
+        "status": 200,
+        "bytes": 192349,
+        "sha256": "3614049c80538516288a75776571c079ea2703e639aa4dc44bee32adced83d9c",
+        "contentType": "application/javascript; charset=utf-8",
+        "expectedSha256": "3614049c80538516288a75776571c079ea2703e639aa4dc44bee32adced83d9c"
+      }
+    ],
+    "missingAsset": {
+      "route": "/assets/receiving-definitely-absent.js",
+      "status": 404
+    },
+    "passed": true
+  },
+  "binaries": [
+    {
+      "name": "uma-sim",
+      "compiled": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-target/release/uma-sim",
+      "staged": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-receiving-fe0ff870/stage/uma-sim",
+      "bytes": 5226184,
+      "sha256": "fa14dfaa76432c3a7dc5ee4ecf090d9d287179b2198a117f1538defb49aec8d8"
+    },
+    {
+      "name": "uma-sim-api",
+      "compiled": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-target/release/uma-sim-api",
+      "staged": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-receiving-fe0ff870/stage/uma-sim-api",
+      "bytes": 5074632,
+      "sha256": "4bfb35d2c595daaa2afcd624e5e2cc8539f7c10bd33d018187039e7468d57f89"
+    }
+  ],
+  "environment": {
+    "uiNode": "v24.19.0",
+    "python": "Python 3.12.14",
+    "nativeNode": "v22.22.1",
+    "rustc": "rustc 1.93.1 (01f6ddf75 2026-02-11) (built from a source tarball)",
+    "cargo": "cargo 1.93.1 (083ac5135 2025-12-15) (built from a source tarball)",
+    "nativeOverrides": {
+      "CARGO_HOME": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-cargo-home",
+      "CARGO_TARGET_DIR": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-target",
+      "RUSTC": "/usr/bin/rustc",
+      "CARGO_BUILD_JOBS": "2",
+      "CARGO_INCREMENTAL": "0",
+      "CARGO_PROFILE_RELEASE_DEBUG": "0",
+      "CARGO_PROFILE_RELEASE_STRIP": "symbols",
+      "TMPDIR": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-receiving-fe0ff870/tmp"
+    },
+    "profile": "Standard release optimization (opt-level3), two jobs, debug0, incremental0, symbol stripping to limit disk use."
+  },
+  "differencesFromGitHubActions": [
+    "Native execution via the existing authorized ThinkPad route; this is not an observed GitHub Actions run.",
+    "UI commands use Node24.19.0 instead of CI Node20. Current-lock package versions, URLs and integrities match the existing worker cache; 69 installed package versions were checked and copied, rather than npm ci.",
+    "Native Cargo/Rustc1.93.1 is used instead of the CI floating stable toolchain. All declared dependency MSRVs fit and the locked build succeeds.",
+    "Build uses two jobs, incremental0, release debug0 and symbol stripping; standard release optimization remains in force.",
+    "Python3.12.14 matches CI minor3.12; calibration ran on local c19 with the same 300 release-input bytes as native fe0.",
+    "The three built UI files are transferred with SHA256 readback instead of Actions artifact upload/download."
+  ],
+  "historicalAttempt": {
+    "path": "local/release-resolution-offline.json",
+    "exitCode": 101,
+    "reason": "Local locked/offline metadata could not download block-buffer0.12.1. No local release compile was attempted. Native locked metadata later resolved normally and the single native release build passed.",
+    "preparationAndUiHandoffAreHistorical": true
+  },
+  "retainedRuntime": {
+    "host": "hamon-thinkpad",
+    "deviceId": "cadafaf3-4d0b-4c4f-a0d3-34a95d2cec90",
+    "namespace": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2",
+    "sourceRoot": "/srv/hamon-estate/worktrees/chatgpt-acd057031fb2-uma-native",
+    "nativeArtifactDirectory": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-receiving-fe0ff870",
+    "receiptSha256": "3c8e9d61225923919de62bcba731cb75978ef73f434b47ca6f6e907530ea0377"
+  },
+  "publicationScope": "This packet adds receipt files only. It does not change runtime source, test source, package manifests, lockfiles, workflow, Git refs on the native host, shared service configuration or user environment.",
+  "logStorage": "log-storage.json"
+}

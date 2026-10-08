@@ -1,0 +1,31 @@
+{
+  "name": "ui-build",
+  "program": "npm",
+  "args": [
+    "run",
+    "build"
+  ],
+  "cwd": "/workspace/scratch/acd057031fb2/agents/production/uma-release-review/packages/uma-sim-ui",
+  "startedAt": "2026-10-08T10:45:01.659Z",
+  "finishedAt": "2026-10-08T10:45:05.134Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "environmentOverrides": {
+    "RUSTC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustc",
+    "RUSTDOC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustdoc",
+    "CARGO_HOME": "/workspace/scratch/acd057031fb2/agents/production/uma-report-cargo-home",
+    "CARGO_TARGET_DIR": "/workspace/scratch/acd057031fb2/agents/production/uma-release-target",
+    "CARGO_NET_OFFLINE": "true",
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_RELEASE_DEBUG": "0",
+    "CARGO_PROFILE_RELEASE_STRIP": "symbols",
+    "npm_config_cache": "/workspace/scratch/acd057031fb2/agents/production/uma-release-npm-cache",
+    "TMPDIR": "/workspace/scratch/acd057031fb2/agents/production/uma-release-tmp",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdoutSha256": "1bea43d5c907c74cd6ec0b5e7c1e7791ecb7517ef403a45946fcb96f3c9af89b",
+  "stderrSha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f",
+  "passed": true
+}

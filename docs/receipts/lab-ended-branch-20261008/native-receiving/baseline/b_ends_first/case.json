@@ -1,0 +1,47 @@
+{
+  "id": "b_ends_first",
+  "ids": [
+    "br-1791450109-0001",
+    "br-1791450109-0000"
+  ],
+  "steps": [
+    3,
+    2
+  ],
+  "expectedNote": "Branch B ended after 2 steps while the other continued.",
+  "checks": [
+    {
+      "name": "Comparison identities and actual outcome lengths match API-created branches",
+      "passed": true
+    },
+    {
+      "name": "Comparison note counts the branch that actually ended",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Branch B ended after 3 steps while the other continued.'\n- 'Branch B ended after 2 steps while the other continued.'\n"
+    },
+    {
+      "name": "Downloaded JSON preserves the comparison and correct shorter-branch note",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Branch B ended after 3 steps while the other continued.'\n- 'Branch B ended after 2 steps while the other continued.'\n"
+    },
+    {
+      "name": "Actual report attachments retain correct headers and received byte lengths",
+      "passed": true
+    },
+    {
+      "name": "Received Markdown states the correct shorter count or equal-length control",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Branch B ended after 3 steps while the other continued.'\n- 'Branch B ended after 2 steps while the other continued.'\n"
+    },
+    {
+      "name": "Rendered outcome counts independently expose each branch length",
+      "passed": true
+    }
+  ],
+  "observedNotes": {
+    "comparison": "Branch B ended after 3 steps while the other continued.",
+    "jsonReport": "Branch B ended after 3 steps while the other continued.",
+    "markdown": "Branch B ended after 3 steps while the other continued."
+  },
+  "passed": false
+}

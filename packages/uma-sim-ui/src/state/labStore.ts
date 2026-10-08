@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { api } from "../api/client";
 import type {
   ActionOverride,
@@ -39,6 +39,8 @@ export function useLabStore(refreshRun: () => Promise<void>) {
     error: null,
     notice: null,
   });
+  const comparisonRequest = useRef(0);
+  const branchRevisions = useRef(new Map<string, number>());
 
   const patch = useCallback(
     (p: Partial<LabUiState>) => setState((s) => ({ ...s, ...p })),
@@ -208,16 +210,24 @@ export function useLabStore(refreshRun: () => Promise<void>) {
 
   const deleteBranch = useCallback(
     async (id: string) => {
-      const ok = await withBusy(() => api.labBranchDelete(id));
-      if (ok) {
-        patch({ branches: await api.labBranches() });
+      await withBusy(async () => {
+        await api.labBranchDelete(id);
+        // Apply the acknowledged deletion before a fallible list refresh.
+        // Pending comparisons of this branch must not revive its old report.
+        branchRevisions.current.set(id, (branchRevisions.current.get(id) ?? 0) + 1);
         setState((s) => ({
           ...s,
-          comparison: s.comparison && (s.compareA === id || s.compareB === id) ? null : s.comparison,
+          branches: s.branches.filter((branch) => branch.id !== id),
+          compareA: s.compareA === id ? "" : s.compareA,
+          compareB: s.compareB === id ? "" : s.compareB,
+          comparison: s.comparison && (s.comparison.aId === id || s.comparison.bId === id)
+            ? null
+            : s.comparison,
         }));
-      }
+        patch({ branches: await api.labBranches() });
+      });
     },
-    [withBusy],
+    [patch, withBusy],
   );
 
   const compare = useCallback(
@@ -226,8 +236,18 @@ export function useLabStore(refreshRun: () => Promise<void>) {
         patch({ error: "Pick two different branches to compare." });
         return;
       }
+      const request = ++comparisonRequest.current;
+      const revisionA = branchRevisions.current.get(a) ?? 0;
+      const revisionB = branchRevisions.current.get(b) ?? 0;
       const c = await withBusy(() => api.labCompare(a, b));
-      if (c) patch({ comparison: c, compareA: a, compareB: b });
+      if (
+        c && request === comparisonRequest.current &&
+        revisionA === (branchRevisions.current.get(a) ?? 0) &&
+        revisionB === (branchRevisions.current.get(b) ?? 0)
+      ) {
+        // Selection is an editable draft, independent of the received result.
+        patch({ comparison: c });
+      }
     },
     [patch, withBusy],
   );

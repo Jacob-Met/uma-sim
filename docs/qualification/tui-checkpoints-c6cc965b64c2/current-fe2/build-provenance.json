@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "sourceBase": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "sourceTree": "6ee572f7ef9a3623a8f2bd192235787fb9fbecb9",
+  "composedSourceHead": "92db1618cc014924e43a69b2dfe4d5891680b176",
+  "composedSourceTree": "4ee456989b96c3557f0c167f6d53ccc6631b6cd2",
+  "command": "CARGO_BUILD_JOBS=1 CARGO_INCREMENTAL=0 CARGO_PROFILE_DEV_DEBUG=0 cargo build --offline --locked -p uma-sim-core --bin uma-sim-api",
+  "cwd": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc",
+  "exitCode": 0,
+  "compiler": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)",
+  "cargo": "cargo 1.99.0 (5f94df478 2026-08-27) (Homebrew)",
+  "node": "v26.3.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "files": [
+    {
+      "path": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc/target/debug/uma-sim-api",
+      "sha256": "b5f4c2c7af89751b38a2be4a646c6a2b0a183d376002394e80b485f9c81709a4"
+    },
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "gitBlob": "dfeed47234f1660acd175fa61a3290327a741aa1",
+      "sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e"
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "gitBlob": "ccf608c0f5ef3c23ab55c38c2f56ff4f7b8c024e",
+      "sha256": "174bbaf954859841492a08359aabddbd0e23eba7f5b68b753da9e27919456419"
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "gitBlob": "2c4c4f7b0fc1ec056ee99a034acfc5b1d2abc324",
+      "sha256": "f2d06e66eed260eb907a3b579261b41ebce92871b67361c87c357c4737591640"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoints.native.mjs",
+      "gitBlob": "7fdc14954d7798eeee7a9614581249baadcab798",
+      "sha256": "0e3041de58c6d3c657801539127bd2cfd2f5e1c0a911dd506864a1db4a019854"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "gitBlob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+      "sha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55"
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "gitBlob": "4360cd3dbca832a9a22be138ca13a5deb4dfeb0f",
+      "sha256": "f12208e5796ac6ab42ba515d6d8e6734388810894b600420e4badfdeab250f08"
+    },
+    {
+      "path": "Cargo.lock",
+      "gitBlob": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c"
+    }
+  ],
+  "nativeTestCommand": "UMA_SIM_NATIVE_API=/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc/target/debug/uma-sim-api UMA_TUI_RECEIPTS=/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2-native npm --prefix packages/uma-sim-cli run test:tui:native",
+  "nativeTests": {
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0
+  },
+  "previousApi": {
+    "path": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/target/debug/uma-sim-api",
+    "sha256": "6f94216933f76a08caeade29087f50e0e49da46dabdea8d98d89a200d4835754"
+  },
+  "rustAndCargoInputsChangedAfterBuild": false,
+  "receivingNote": "The API was built before the terminal/evidence overlay. Only Rust/Cargo build inputs are asserted unchanged; terminal and documentation files were composed afterward."
+}

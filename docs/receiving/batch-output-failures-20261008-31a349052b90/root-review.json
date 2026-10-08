@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "reviewer": "estate-31a349052b90 / root",
+  "repository": "Jacob-Met/uma-sim",
+  "disposition": "ACCEPT the exact two-error-exit correction for source publication; normal current-head CI and freshness gates remain before merge",
+  "authored_baseline": "0bc58cb83e89f07c6af3056dd7c37436906d994f",
+  "receiving_main_snapshot": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "baseline_cli_blob": "2df06c16c8cb4bffe711b37e1afb3a8a57ebd528",
+  "candidate_cli_blob": "fc10bfc7ea9efff3a20b9af6354c75cd6d8acbb7",
+  "test_blob": "f42a04bfbfdcee712999085feb29e99d7a3165fd",
+  "source_review": [
+    "Read the complete two-line production diff, main dispatch and cmd_batch context, full new integration test, receiving and user documentation, and independent engine review.",
+    "The original unit-returning main reports success when cmd_batch returns after File::create or writeln! error. exit(1) matches existing neighboring CLI refusal conventions.",
+    "Both errors retain diagnostic text and stop before the success summary. Successful simulation, seed order, JSON serialization, direct output writes and analyze are unchanged.",
+    "Child-only Linux x86-64 RLIMIT_FSIZE plus ignored SIGXFSZ causes actual EFBIG; Some(1) excludes a signal termination. The successful-reference byte prefix and directory sentinel are checked before the failing status assertion.",
+    "The finite three-seed success fixture runs the native simulator and validates actual JSONL records. Separate fixture paths avoid collisions among parallel native tests."
+  ],
+  "qualified_evidence": {
+    "author": "product_execution",
+    "final_unchanged_test_sha256": "8ce6126356fad3dc1cf26d9351d3c800919e9a0ad5feee0c5b6d31f5ddca523a",
+    "baseline": {
+      "passed": 1,
+      "failed": 2
+    },
+    "candidate": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    "preserved_partial_bytes": 311,
+    "preserved_success_bytes": 884,
+    "preserved_sentinel_bytes": 30,
+    "compiler": "existing Linux x86-64 Rust 1.99.0",
+    "compilation_boundary": "Exact CLI sources compiled with three pinned borrowed native library inputs; 76 source/manifests match authored main, one separately owned career_lab.rs differs outside this batch execution. No fresh full-main Cargo build claimed.",
+    "root_new_runtime_execution": false
+  },
+  "excluded_claims": [
+    "Existing missing-terminal or serialization handling",
+    "Atomic output replacement or rollback",
+    "Filesystem durability after successful write",
+    "Unrelated CLI behavior",
+    "Hosted CI until actually observed",
+    "Deployment"
+  ],
+  "independent_review": "engine-review.json",
+  "archive_sha256": "861eca29bf4bbc2f0adecc45aae0d2d81facc74a122a79d3aed49ac7d7659e98"
+}

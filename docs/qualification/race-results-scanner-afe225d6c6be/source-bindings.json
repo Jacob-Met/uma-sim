@@ -1,0 +1,75 @@
+{
+  "repository": "Jacob-Met/uma-sim",
+  "finding_source_commit": "373646ab050f355ef990088f55550177d28b18cb",
+  "current_policy_commit": "2378365e48234c5ae3311e1b0dd7f1247a5a9071",
+  "current_policy_blob": "a23640b909b35f001fac2680b53d752a5c3f9e49",
+  "published_policy_blob": "5f07f90d581bde6d58c46cffa6c23ab73bad8885",
+  "scanner_version": "8.24.3",
+  "scanner_sha256": "e18325d568268b6efb6cd0cc721f8bea5667f4cd1c8d03618ab61987f41269ad",
+  "file_blobs": {
+    "docs/receiving/race-results-afe225d6c6be/source-freeze.json": "c03687a53410feb6a71250f1bcf867f0ec235fd2",
+    "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": "2342a75f1f8afdfaff89e9dbd5595aada3b403d9",
+    "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": "68f9f18500406eca558cb5578446eb2c93f59f8e",
+    "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": "12f17f39d1c502a0466774687a5ad3393367edbe",
+    "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": "08d8e49cbeed9e7806c8026cdc9c02e7fb54a8a9"
+  },
+  "identities": {
+    "source_digest": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55",
+    "executable_digest": "cca25eeadb762c71a2a4067d8d82546b72bbeb4820dca63a79134d1f49690d97",
+    "source_commit": "4dc00f155d29fb37887524455f0627399191c915"
+  },
+  "expected_findings": [
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+      "line": 51,
+      "rule": "generic-api-key"
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+      "line": 17,
+      "rule": "generic-api-key"
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+      "line": 1145,
+      "rule": "generic-api-key"
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+      "line": 17,
+      "rule": "generic-api-key"
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json",
+      "line": 1145,
+      "rule": "generic-api-key"
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+      "line": 7,
+      "rule": "generic-api-key"
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+      "line": 394,
+      "rule": "generic-api-key"
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/current-044/composition.json",
+      "line": 395,
+      "rule": "generic-api-key"
+    }
+  ],
+  "published_jobs": [
+    {
+      "run": 37788580137,
+      "job": 113349619733,
+      "kind": "pull_request"
+    },
+    {
+      "run": 37788483609,
+      "job": 113349288689,
+      "kind": "push"
+    }
+  ]
+}

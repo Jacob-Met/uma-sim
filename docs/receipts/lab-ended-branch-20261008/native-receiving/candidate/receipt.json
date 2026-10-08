@@ -1,0 +1,432 @@
+{
+  "schema": "uma-sim-ended-branch-receiving-v1",
+  "startedAt": "2026-10-08T09:05:41.381Z",
+  "boundary": "Actual native branch API with built-in bot/stub races; direct HTTP comparison and attachment receiving; saved Markdown parsed with marked GFM and rendered in Chromium. No HTTP fixtures or persisted edits.",
+  "source": {
+    "root": "/workspace/scratch/acd057031fb2/agents/artifact/uma-ended-candidate",
+    "commit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+    "before": {
+      "Cargo.lock": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+      "uma-sim-core/src/career_lab.rs": "49d68441482fa907364292bb25b43fc06be6e95b13937cbbba898a393f4e4935",
+      "uma-sim-core/src/api.rs": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    },
+    "after": {
+      "Cargo.lock": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+      "uma-sim-core/src/career_lab.rs": "49d68441482fa907364292bb25b43fc06be6e95b13937cbbba898a393f4e4935",
+      "uma-sim-core/src/api.rs": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    },
+    "unchanged": true
+  },
+  "binary": {
+    "path": "/workspace/scratch/acd057031fb2/agents/artifact/uma-report-tools/uma-sim-api-composed",
+    "sha256": "149600d040481e6eb2530c2a3081d1c680f223d7a16d6bcd54feb247ab50579d",
+    "afterSha256": "149600d040481e6eb2530c2a3081d1c680f223d7a16d6bcd54feb247ab50579d",
+    "unchanged": true
+  },
+  "harnessSha256": "88d300ecf8f462d8c1229623d9a4169f1d0fee626b2e21c93dcf5178b6512d49",
+  "parser": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/marked/lib/marked.esm.js",
+  "browser": {
+    "executable": "/workspace/scratch/acd057031fb2/agents/artifact/browser/chromium",
+    "sha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "version": "153.0.8010.0"
+  },
+  "requests": [
+    {
+      "method": "POST",
+      "route": "/v1/run/start",
+      "input": {
+        "seed": 4242,
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "raceModel": "stub",
+        "policy": "bot"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-length": "2778",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 2778,
+      "sha256": "8700d758e5a71c06c8f8690817b701c94a6a6055d31f96153ce8ed87939ecb88"
+    },
+    {
+      "method": "POST",
+      "route": "/v1/library/save",
+      "input": {
+        "name": "ended-branch-receiving"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-length": "412",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 412,
+      "sha256": "36ce23b3183bbdd4b51ec95a5ae371e7b5d0946db9342ac044740a20274f375f"
+    },
+    {
+      "method": "POST",
+      "route": "/v1/lab/branch",
+      "input": {
+        "checkpoint": "ended-branch-receiving",
+        "name": "Short two",
+        "maxActions": 2,
+        "policy": "bot"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-length": "603",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 603,
+      "sha256": "e8f9b6d2e126b4fafe0b85c8f4325b8d91b813e46efc9f2e85470173a7dbbf22"
+    },
+    {
+      "method": "POST",
+      "route": "/v1/lab/branch",
+      "input": {
+        "checkpoint": "ended-branch-receiving",
+        "name": "Long three",
+        "maxActions": 3,
+        "policy": "bot"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-length": "605",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 605,
+      "sha256": "24c55fe95d92621e6e983127b36341ef6693354665a370f0fa7fa07fc43417e3"
+    },
+    {
+      "method": "POST",
+      "route": "/v1/lab/branch",
+      "input": {
+        "checkpoint": "ended-branch-receiving",
+        "name": "Equal two",
+        "maxActions": 2,
+        "policy": "bot"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-length": "603",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 603,
+      "sha256": "e89016375689551b802730b1b7e0c63dfb514ec47d558cff13bba72c7b0b8428"
+    },
+    {
+      "method": "POST",
+      "route": "/v1/lab/compare",
+      "input": {
+        "a": "br-1791450342-0000",
+        "b": "br-1791450342-0001"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-length": "3476",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 3476,
+      "sha256": "fde6fe69411db6ff43147ce39b7e405d44c82781d1356a4e2ec2c9c4255e2db2"
+    },
+    {
+      "method": "GET",
+      "route": "/v1/lab/report?a=br-1791450342-0000&b=br-1791450342-0001&format=json",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-disposition": "attachment; filename=\"branch-compare-br-1791450342-0000-vs-br-1791450342-0001.json\"",
+        "content-length": "3476",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 3476,
+      "sha256": "fde6fe69411db6ff43147ce39b7e405d44c82781d1356a4e2ec2c9c4255e2db2"
+    },
+    {
+      "method": "GET",
+      "route": "/v1/lab/report?a=br-1791450342-0000&b=br-1791450342-0001&format=markdown",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-disposition": "attachment; filename=\"branch-compare-br-1791450342-0000-vs-br-1791450342-0001.md\"",
+        "content-length": "1845",
+        "content-type": "text/markdown; charset=utf-8",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 1845,
+      "sha256": "0f56f98cca069e99efca6d8ac21c0f982abbdc9513da3fc598a368c63c211879"
+    },
+    {
+      "method": "POST",
+      "route": "/v1/lab/compare",
+      "input": {
+        "a": "br-1791450342-0001",
+        "b": "br-1791450342-0000"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-length": "3476",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 3476,
+      "sha256": "cdc2841533e28966d02ae11a3a9d2477a782079204c7705b15c3a19bad1d213b"
+    },
+    {
+      "method": "GET",
+      "route": "/v1/lab/report?a=br-1791450342-0001&b=br-1791450342-0000&format=json",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-disposition": "attachment; filename=\"branch-compare-br-1791450342-0001-vs-br-1791450342-0000.json\"",
+        "content-length": "3476",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 3476,
+      "sha256": "cdc2841533e28966d02ae11a3a9d2477a782079204c7705b15c3a19bad1d213b"
+    },
+    {
+      "method": "GET",
+      "route": "/v1/lab/report?a=br-1791450342-0001&b=br-1791450342-0000&format=markdown",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-disposition": "attachment; filename=\"branch-compare-br-1791450342-0001-vs-br-1791450342-0000.md\"",
+        "content-length": "1843",
+        "content-type": "text/markdown; charset=utf-8",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 1843,
+      "sha256": "be895b87ffd63f7751d5ed698b23fb7afb26567334bc974fc77c550001e09f4f"
+    },
+    {
+      "method": "POST",
+      "route": "/v1/lab/compare",
+      "input": {
+        "a": "br-1791450342-0000",
+        "b": "br-1791450342-0002"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-length": "2716",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 2716,
+      "sha256": "7b20c9920e6805cd66e08e74f2f9e416df2d061518c55b73278e27e17ef3a6a2"
+    },
+    {
+      "method": "GET",
+      "route": "/v1/lab/report?a=br-1791450342-0000&b=br-1791450342-0002&format=json",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-disposition": "attachment; filename=\"branch-compare-br-1791450342-0000-vs-br-1791450342-0002.json\"",
+        "content-length": "2716",
+        "content-type": "application/json",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 2716,
+      "sha256": "7b20c9920e6805cd66e08e74f2f9e416df2d061518c55b73278e27e17ef3a6a2"
+    },
+    {
+      "method": "GET",
+      "route": "/v1/lab/report?a=br-1791450342-0000&b=br-1791450342-0002&format=markdown",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-disposition": "attachment; filename=\"branch-compare-br-1791450342-0000-vs-br-1791450342-0002.md\"",
+        "content-length": "1639",
+        "content-type": "text/markdown; charset=utf-8",
+        "date": "Thu, 08 Oct 2026 09:05:42 GMT",
+        "server": "tiny-http (Rust)"
+      },
+      "bytes": 1639,
+      "sha256": "f1654475f39a9486eca1c380f247ed4d1ac908e831530ce0b238a64a6f5846c1"
+    }
+  ],
+  "cases": [
+    {
+      "id": "a_ends_first",
+      "ids": [
+        "br-1791450342-0000",
+        "br-1791450342-0001"
+      ],
+      "steps": [
+        2,
+        3
+      ],
+      "expectedNote": "Branch A ended after 2 steps while the other continued.",
+      "checks": [
+        {
+          "name": "Comparison identities and actual outcome lengths match API-created branches",
+          "passed": true
+        },
+        {
+          "name": "Comparison note counts the branch that actually ended",
+          "passed": true
+        },
+        {
+          "name": "Downloaded JSON preserves the comparison and correct shorter-branch note",
+          "passed": true
+        },
+        {
+          "name": "Actual report attachments retain correct headers and received byte lengths",
+          "passed": true
+        },
+        {
+          "name": "Received Markdown states the correct shorter count or equal-length control",
+          "passed": true
+        },
+        {
+          "name": "Rendered outcome counts independently expose each branch length",
+          "passed": true
+        }
+      ],
+      "observedNotes": {
+        "comparison": "Branch A ended after 2 steps while the other continued.",
+        "jsonReport": "Branch A ended after 2 steps while the other continued.",
+        "markdown": "Branch A ended after 2 steps while the other continued."
+      },
+      "passed": true
+    },
+    {
+      "id": "b_ends_first",
+      "ids": [
+        "br-1791450342-0001",
+        "br-1791450342-0000"
+      ],
+      "steps": [
+        3,
+        2
+      ],
+      "expectedNote": "Branch B ended after 2 steps while the other continued.",
+      "checks": [
+        {
+          "name": "Comparison identities and actual outcome lengths match API-created branches",
+          "passed": true
+        },
+        {
+          "name": "Comparison note counts the branch that actually ended",
+          "passed": true
+        },
+        {
+          "name": "Downloaded JSON preserves the comparison and correct shorter-branch note",
+          "passed": true
+        },
+        {
+          "name": "Actual report attachments retain correct headers and received byte lengths",
+          "passed": true
+        },
+        {
+          "name": "Received Markdown states the correct shorter count or equal-length control",
+          "passed": true
+        },
+        {
+          "name": "Rendered outcome counts independently expose each branch length",
+          "passed": true
+        }
+      ],
+      "observedNotes": {
+        "comparison": "Branch B ended after 2 steps while the other continued.",
+        "jsonReport": "Branch B ended after 2 steps while the other continued.",
+        "markdown": "Branch B ended after 2 steps while the other continued."
+      },
+      "passed": true
+    },
+    {
+      "id": "equal_length_control",
+      "ids": [
+        "br-1791450342-0000",
+        "br-1791450342-0002"
+      ],
+      "steps": [
+        2,
+        2
+      ],
+      "expectedNote": null,
+      "checks": [
+        {
+          "name": "Comparison identities and actual outcome lengths match API-created branches",
+          "passed": true
+        },
+        {
+          "name": "Comparison note counts the branch that actually ended",
+          "passed": true
+        },
+        {
+          "name": "Downloaded JSON preserves the comparison and correct shorter-branch note",
+          "passed": true
+        },
+        {
+          "name": "Actual report attachments retain correct headers and received byte lengths",
+          "passed": true
+        },
+        {
+          "name": "Received Markdown states the correct shorter count or equal-length control",
+          "passed": true
+        },
+        {
+          "name": "Rendered outcome counts independently expose each branch length",
+          "passed": true
+        }
+      ],
+      "observedNotes": {
+        "comparison": null,
+        "jsonReport": null,
+        "markdown": null
+      },
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "outsideRequests": [],
+  "nativeOrigin": "http://127.0.0.1:42343",
+  "health": {
+    "ok": true,
+    "repoRoot": true,
+    "repoRootPath": "/workspace/scratch/acd057031fb2/agents/artifact/uma-ended-candidate",
+    "version": "0.1.0"
+  },
+  "nativeExit": {
+    "code": null,
+    "signal": "SIGTERM"
+  },
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "checksPassed": 18,
+    "checksFailed": 0
+  },
+  "accepted": true,
+  "finishedAt": "2026-10-08T09:05:43.030Z"
+}

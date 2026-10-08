@@ -1,0 +1,21 @@
+✔ JSON preserves every original entry and explicit retained-history scope (1.544703ms)
+✔ a prepared file survives later append or replacement without taking a filtered subset (0.243386ms)
+✔ readable text retains ordered duplicate and empty numbered blocks (0.19282ms)
+✔ empty, single-entry and long histories have explicit complete counts (21.619263ms)
+✔ one local request delivers the actual JSON Blob and releases its URL after the click (12.32844ms)
+▶ preparation and dispatch failures propagate without another click or a leaked URL
+  ✔ url (1.9412ms)
+  ✔ create (5.371719ms)
+  ✔ append (1.902922ms)
+  ✔ click (2.832544ms)
+✔ preparation and dispatch failures propagate without another click or a leaked URL (13.279786ms)
+✔ native React rendering names the full count and disables only an empty log (5.238988ms)
+✔ the actual LogPanel exposes the full-history download beside preserved reader and summary (5.027571ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 619.727089

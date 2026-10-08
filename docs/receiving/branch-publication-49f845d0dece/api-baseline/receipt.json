@@ -1,0 +1,589 @@
+{
+  "source": {
+    "main": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+    "binaryBuild": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+    "sourceRef": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+    "attribution": "Generated branch results in landed main."
+  },
+  "startedAt": "2026-10-08T09:48:37.698Z",
+  "expectMode": "loss",
+  "output": "/Users/me/workspace/estate/production-evidence-49f845d0dece/branch-publication-receiving/api-baseline/loss-fAawTc",
+  "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/branch-publication-receiving/api-baseline/loss-fAawTc/storage",
+  "sourceFiles": {
+    "uma-sim-core/src/career_lab.rs": {
+      "sha256": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7"
+    },
+    "uma-sim-core/src/api.rs": {
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    },
+    "Cargo.lock": {
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c"
+    }
+  },
+  "nativeBinary": {
+    "sha256": "61298b37b1ecdf7dfaaca892ac51de4b03ba22b233b962f1fa1304f5f0a2fd66"
+  },
+  "fixture": {
+    "sha256": "093306eb6ade18a3b6ae8812f9d26751c1dcb13918b41a9f1514f5c272116a68"
+  },
+  "boots": [
+    {
+      "name": "setup",
+      "pid": 14286,
+      "port": 49885,
+      "startedAt": "2026-10-08T09:48:37.760Z",
+      "health": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim",
+        "version": "0.1.0"
+      },
+      "exitedAt": "2026-10-08T09:48:37.986Z",
+      "exitCode": null,
+      "exitSignal": "SIGTERM"
+    },
+    {
+      "name": "first-fresh-process",
+      "pid": 14372,
+      "port": 49891,
+      "startedAt": "2026-10-08T09:48:37.989Z",
+      "health": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim",
+        "version": "0.1.0"
+      },
+      "exitedAt": "2026-10-08T09:48:39.058Z",
+      "exitCode": null,
+      "exitSignal": "SIGTERM"
+    },
+    {
+      "name": "second-fresh-process",
+      "pid": 14393,
+      "port": 49897,
+      "startedAt": "2026-10-08T09:48:38.193Z",
+      "health": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim",
+        "version": "0.1.0"
+      },
+      "exitedAt": "2026-10-08T09:48:39.060Z",
+      "exitCode": null,
+      "exitSignal": "SIGTERM"
+    },
+    {
+      "name": "restart",
+      "pid": 14396,
+      "port": 49902,
+      "startedAt": "2026-10-08T09:48:39.062Z",
+      "health": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim",
+        "version": "0.1.0"
+      },
+      "exitedAt": "2026-10-08T09:48:39.276Z",
+      "exitCode": null,
+      "exitSignal": "SIGTERM"
+    }
+  ],
+  "requests": [
+    {
+      "process": "setup",
+      "pid": 14286,
+      "pathname": "/v1/library/import",
+      "startMs": 1791452917977,
+      "endMs": 1791452917980,
+      "status": 200
+    },
+    {
+      "process": "setup",
+      "pid": 14286,
+      "pathname": "/v1/lab/branch",
+      "startMs": 1791452917981,
+      "endMs": 1791452917984,
+      "status": 200
+    },
+    {
+      "process": "first-fresh-process",
+      "pid": 14372,
+      "pathname": "/v1/lab/branch",
+      "startMs": 1791452919025,
+      "endMs": 1791452919036,
+      "status": 200
+    },
+    {
+      "process": "second-fresh-process",
+      "pid": 14393,
+      "pathname": "/v1/lab/branch",
+      "startMs": 1791452919037,
+      "endMs": 1791452919049,
+      "status": 200
+    },
+    {
+      "process": "first-fresh-process",
+      "pid": 14372,
+      "pathname": "/v1/lab/branch?id=br-1791452919-0000",
+      "startMs": 1791452919050,
+      "endMs": 1791452919052,
+      "status": 200
+    },
+    {
+      "process": "second-fresh-process",
+      "pid": 14393,
+      "pathname": "/v1/lab/branches",
+      "startMs": 1791452919052,
+      "endMs": 1791452919054,
+      "status": 200
+    },
+    {
+      "process": "restart",
+      "pid": 14396,
+      "pathname": "/v1/lab/branches",
+      "startMs": 1791452919274,
+      "endMs": 1791452919275,
+      "status": 200
+    },
+    {
+      "process": "restart",
+      "pid": 14396,
+      "pathname": "/v1/lab/branch?id=br-1791452919-0000",
+      "startMs": 1791452919275,
+      "endMs": 1791452919275,
+      "status": 200
+    }
+  ],
+  "cases": [
+    {
+      "name": "two fresh native processes completed first branches in the same Unix second",
+      "pass": true
+    },
+    {
+      "name": "independent process results have distinct persistent IDs",
+      "pass": false
+    },
+    {
+      "name": "first acknowledged result stays byte-identical after second write",
+      "pass": false
+    },
+    {
+      "name": "reading first ID returns first acknowledged result",
+      "pass": false
+    },
+    {
+      "name": "prior sibling, checkpoint files, and CLI session stay byte-identical",
+      "pass": true
+    },
+    {
+      "name": "restart retains all three acknowledged results",
+      "pass": false
+    },
+    {
+      "name": "restart retains original payload at first result ID",
+      "pass": false
+    }
+  ],
+  "sentinel": {
+    "careerComplete": false,
+    "checkpointName": "process-fixture",
+    "fans": 2573,
+    "finalTurn": 12,
+    "id": "br-1791452917-0000",
+    "name": "earlier-sibling",
+    "policy": "default",
+    "scenarioId": "ura",
+    "seed": 42,
+    "startedAt": "2026-10-08T09:48:37Z",
+    "steps": 1,
+    "traineeName": "Special Week"
+  },
+  "first": {
+    "branch": {
+      "careerComplete": false,
+      "checkpointName": "process-fixture",
+      "fans": 2573,
+      "finalTurn": 12,
+      "id": "br-1791452919-0000",
+      "name": "first-acknowledged-result",
+      "policy": "default",
+      "scenarioId": "ura",
+      "seed": 42,
+      "startedAt": "2026-10-08T09:48:39Z",
+      "steps": 1,
+      "traineeName": "Special Week"
+    },
+    "outcome": {
+      "careerComplete": false,
+      "completedRaces": [
+        "debut"
+      ],
+      "energy": 5,
+      "fans": 2573,
+      "finalTurn": 12,
+      "learnedSkills": [
+        "skill:100011"
+      ],
+      "mood": "BAD",
+      "scenarioResources": {
+        "happy_meek_badge": 0
+      },
+      "skillPoints": 136,
+      "sparks": [],
+      "stats": {
+        "guts": 93,
+        "power": 107,
+        "speed": 103,
+        "stamina": 88,
+        "wit": 91
+      },
+      "steps": 1,
+      "telemetryRecords": 1,
+      "totalRngCalls": 57
+    }
+  },
+  "second": {
+    "branch": {
+      "careerComplete": false,
+      "checkpointName": "process-fixture",
+      "fans": 3428,
+      "finalTurn": 13,
+      "id": "br-1791452919-0000",
+      "name": "second-acknowledged-result",
+      "policy": "bot",
+      "scenarioId": "ura",
+      "seed": 42,
+      "startedAt": "2026-10-08T09:48:39Z",
+      "steps": 2,
+      "traineeName": "Special Week"
+    },
+    "outcome": {
+      "careerComplete": false,
+      "completedRaces": [
+        "debut"
+      ],
+      "energy": 5,
+      "fans": 3428,
+      "finalTurn": 13,
+      "learnedSkills": [
+        "skill:100011"
+      ],
+      "mood": "BAD",
+      "scenarioResources": {
+        "happy_meek_badge": 0
+      },
+      "skillPoints": 196,
+      "sparks": [],
+      "stats": {
+        "guts": 93,
+        "power": 107,
+        "speed": 103,
+        "stamina": 88,
+        "wit": 91
+      },
+      "steps": 2,
+      "telemetryRecords": 2,
+      "totalRngCalls": 61
+    }
+  },
+  "readFirstAfterSecond": {
+    "branch": {
+      "checkpointName": "process-fixture",
+      "checkpointTurn": 11,
+      "config": {
+        "maxActions": 2,
+        "overrides": [],
+        "policy": "bot"
+      },
+      "id": "br-1791452919-0000",
+      "name": "second-acknowledged-result",
+      "outcome": {
+        "careerComplete": false,
+        "completedRaces": [
+          "debut"
+        ],
+        "energy": 5,
+        "fans": 3428,
+        "finalTurn": 13,
+        "learnedSkills": [
+          "skill:100011"
+        ],
+        "mood": "BAD",
+        "scenarioResources": {
+          "happy_meek_badge": 0
+        },
+        "skillPoints": 196,
+        "sparks": [],
+        "stats": {
+          "guts": 93,
+          "power": 107,
+          "speed": 103,
+          "stamina": 88,
+          "wit": 91
+        },
+        "steps": 2,
+        "telemetryRecords": 2,
+        "totalRngCalls": 61
+      },
+      "scenarioId": "ura",
+      "seed": 42,
+      "startedAt": "2026-10-08T09:48:39Z",
+      "timeline": [
+        {
+          "actionId": "race",
+          "actionLabel": "Race (optional)",
+          "dateLabel": "Y1 Nov · 2nd half",
+          "energy": 5,
+          "fans": 2995,
+          "mood": "BAD",
+          "newRaces": [],
+          "overrideApplied": false,
+          "overrideRejected": false,
+          "phase": "FREE",
+          "rngCallsAfter": 57,
+          "rngCallsBefore": 53,
+          "skillPoints": 166,
+          "stats": {
+            "guts": 93,
+            "power": 107,
+            "speed": 103,
+            "stamina": 88,
+            "wit": 91
+          },
+          "stepIndex": 0,
+          "totalRaces": 1,
+          "totalSkills": 1,
+          "turn": 11
+        },
+        {
+          "actionId": "race",
+          "actionLabel": "Race (optional)",
+          "dateLabel": "Y1 Dec · 1st half",
+          "energy": 5,
+          "fans": 3428,
+          "mood": "BAD",
+          "newRaces": [],
+          "overrideApplied": false,
+          "overrideRejected": false,
+          "phase": "FREE",
+          "rngCallsAfter": 61,
+          "rngCallsBefore": 57,
+          "skillPoints": 196,
+          "stats": {
+            "guts": 93,
+            "power": 107,
+            "speed": 103,
+            "stamina": 88,
+            "wit": 91
+          },
+          "stepIndex": 1,
+          "totalRaces": 1,
+          "totalSkills": 1,
+          "turn": 12
+        }
+      ],
+      "traineeName": "Special Week"
+    }
+  },
+  "listAfterSecond": {
+    "branches": [
+      {
+        "careerComplete": false,
+        "checkpointName": "process-fixture",
+        "fans": 3428,
+        "finalTurn": 13,
+        "id": "br-1791452919-0000",
+        "name": "second-acknowledged-result",
+        "policy": "bot",
+        "scenarioId": "ura",
+        "seed": 42,
+        "startedAt": "2026-10-08T09:48:39Z",
+        "steps": 2,
+        "traineeName": "Special Week"
+      },
+      {
+        "careerComplete": false,
+        "checkpointName": "process-fixture",
+        "fans": 2573,
+        "finalTurn": 12,
+        "id": "br-1791452917-0000",
+        "name": "earlier-sibling",
+        "policy": "default",
+        "scenarioId": "ura",
+        "seed": 42,
+        "startedAt": "2026-10-08T09:48:37Z",
+        "steps": 1,
+        "traineeName": "Special Week"
+      }
+    ]
+  },
+  "firstBefore": {
+    "sha256": "f74cafca64768adc3629b25b188a8d04b5e94ed916f8264e8e72a0532b00c785"
+  },
+  "firstAfter": {
+    "sha256": "91c34b6146a59d4bd6101d6953b501db23e952952803724bca1bd44d215c8d67"
+  },
+  "protectedBefore": {
+    "lab/br-1791452917-0000.json": {
+      "sha256": "0863fdf654a8e100bd526b0faf0f0f0a5f0ee2c24c9a59bfe4d8b1a358ccb1e0"
+    },
+    "library/process-fixture.meta.json": {
+      "sha256": "18f3be17175190afb0c4d0b0b146e08705ed711871a26af0f021f9ef09244d74"
+    },
+    "library/process-fixture.snapshot.json": {
+      "sha256": "fd0c55025e8e458201df4764826dc25cf3dce2c2054515fe7af454ad16687480"
+    },
+    "session.json": {
+      "sha256": "093306eb6ade18a3b6ae8812f9d26751c1dcb13918b41a9f1514f5c272116a68"
+    }
+  },
+  "protectedAfter": {
+    "lab/br-1791452917-0000.json": {
+      "sha256": "0863fdf654a8e100bd526b0faf0f0f0a5f0ee2c24c9a59bfe4d8b1a358ccb1e0"
+    },
+    "library/process-fixture.meta.json": {
+      "sha256": "18f3be17175190afb0c4d0b0b146e08705ed711871a26af0f021f9ef09244d74"
+    },
+    "library/process-fixture.snapshot.json": {
+      "sha256": "fd0c55025e8e458201df4764826dc25cf3dce2c2054515fe7af454ad16687480"
+    },
+    "session.json": {
+      "sha256": "093306eb6ade18a3b6ae8812f9d26751c1dcb13918b41a9f1514f5c272116a68"
+    }
+  },
+  "restartList": {
+    "branches": [
+      {
+        "careerComplete": false,
+        "checkpointName": "process-fixture",
+        "fans": 3428,
+        "finalTurn": 13,
+        "id": "br-1791452919-0000",
+        "name": "second-acknowledged-result",
+        "policy": "bot",
+        "scenarioId": "ura",
+        "seed": 42,
+        "startedAt": "2026-10-08T09:48:39Z",
+        "steps": 2,
+        "traineeName": "Special Week"
+      },
+      {
+        "careerComplete": false,
+        "checkpointName": "process-fixture",
+        "fans": 2573,
+        "finalTurn": 12,
+        "id": "br-1791452917-0000",
+        "name": "earlier-sibling",
+        "policy": "default",
+        "scenarioId": "ura",
+        "seed": 42,
+        "startedAt": "2026-10-08T09:48:37Z",
+        "steps": 1,
+        "traineeName": "Special Week"
+      }
+    ]
+  },
+  "restartFirst": {
+    "branch": {
+      "checkpointName": "process-fixture",
+      "checkpointTurn": 11,
+      "config": {
+        "maxActions": 2,
+        "overrides": [],
+        "policy": "bot"
+      },
+      "id": "br-1791452919-0000",
+      "name": "second-acknowledged-result",
+      "outcome": {
+        "careerComplete": false,
+        "completedRaces": [
+          "debut"
+        ],
+        "energy": 5,
+        "fans": 3428,
+        "finalTurn": 13,
+        "learnedSkills": [
+          "skill:100011"
+        ],
+        "mood": "BAD",
+        "scenarioResources": {
+          "happy_meek_badge": 0
+        },
+        "skillPoints": 196,
+        "sparks": [],
+        "stats": {
+          "guts": 93,
+          "power": 107,
+          "speed": 103,
+          "stamina": 88,
+          "wit": 91
+        },
+        "steps": 2,
+        "telemetryRecords": 2,
+        "totalRngCalls": 61
+      },
+      "scenarioId": "ura",
+      "seed": 42,
+      "startedAt": "2026-10-08T09:48:39Z",
+      "timeline": [
+        {
+          "actionId": "race",
+          "actionLabel": "Race (optional)",
+          "dateLabel": "Y1 Nov · 2nd half",
+          "energy": 5,
+          "fans": 2995,
+          "mood": "BAD",
+          "newRaces": [],
+          "overrideApplied": false,
+          "overrideRejected": false,
+          "phase": "FREE",
+          "rngCallsAfter": 57,
+          "rngCallsBefore": 53,
+          "skillPoints": 166,
+          "stats": {
+            "guts": 93,
+            "power": 107,
+            "speed": 103,
+            "stamina": 88,
+            "wit": 91
+          },
+          "stepIndex": 0,
+          "totalRaces": 1,
+          "totalSkills": 1,
+          "turn": 11
+        },
+        {
+          "actionId": "race",
+          "actionLabel": "Race (optional)",
+          "dateLabel": "Y1 Dec · 1st half",
+          "energy": 5,
+          "fans": 3428,
+          "mood": "BAD",
+          "newRaces": [],
+          "overrideApplied": false,
+          "overrideRejected": false,
+          "phase": "FREE",
+          "rngCallsAfter": 61,
+          "rngCallsBefore": 57,
+          "skillPoints": 196,
+          "stats": {
+            "guts": 93,
+            "power": 107,
+            "speed": 103,
+            "stamina": 88,
+            "wit": 91
+          },
+          "stepIndex": 1,
+          "totalRaces": 1,
+          "totalSkills": 1,
+          "turn": 12
+        }
+      ],
+      "traineeName": "Special Week"
+    }
+  },
+  "observedLoss": true,
+  "finishedAt": "2026-10-08T09:48:39.277Z",
+  "pass": 2,
+  "fail": 5
+}

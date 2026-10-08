@@ -1,0 +1,36 @@
+{
+  "name": "release-resolution-offline",
+  "program": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/cargo",
+  "args": [
+    "metadata",
+    "--format-version",
+    "1",
+    "--locked",
+    "--offline",
+    "--features",
+    "embed-ui"
+  ],
+  "cwd": "/workspace/scratch/acd057031fb2/agents/production/uma-release-review",
+  "startedAt": "2026-10-08T10:46:02.327Z",
+  "finishedAt": "2026-10-08T10:46:02.574Z",
+  "exitCode": 101,
+  "signal": null,
+  "error": null,
+  "environmentOverrides": {
+    "RUSTC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustc",
+    "RUSTDOC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustdoc",
+    "CARGO_HOME": "/workspace/scratch/acd057031fb2/agents/production/uma-report-cargo-home",
+    "CARGO_TARGET_DIR": "/workspace/scratch/acd057031fb2/agents/production/uma-release-target",
+    "CARGO_NET_OFFLINE": "true",
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_RELEASE_DEBUG": "0",
+    "CARGO_PROFILE_RELEASE_STRIP": "symbols",
+    "npm_config_cache": "/workspace/scratch/acd057031fb2/agents/production/uma-release-npm-cache",
+    "TMPDIR": "/workspace/scratch/acd057031fb2/agents/production/uma-release-tmp",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderrSha256": "639ff4d74f3cd71ddaaf17dbf5faca6e292aad22476a6e853a25d7266dbccadd",
+  "passed": false
+}

@@ -1,5 +1,8 @@
 //! uma-sim CLI — parity with Kotlin `SimCliMain`.
 
+#[path = "uma_sim/paired_batches.rs"]
+mod paired_batches;
+
 use std::path::PathBuf;
 use std::time::Instant;
 use uma_sim_core::deck::DeckPlacement;
@@ -18,10 +21,12 @@ fn main() {
     match args[0].as_str() {
         "start" => cmd_start(&args[1..]),
         "state" => cmd_state(),
+        "training" => cmd_training(&args[1..]),
         "step" => cmd_step(&args[1..]),
         "fast" => cmd_fast(&args[1..]),
         "batch" => cmd_batch(&args[1..]),
         "analyze" => cmd_analyze(&args[1..]),
+        "compare-batches" => std::process::exit(paired_batches::run(&args[1..])),
         "export-telemetry" => cmd_export_telemetry(&args[1..]),
         "validate" => cmd_validate(&args[1..]),
         "content" => match args.get(1).map(|s| s.as_str()) {
@@ -88,8 +93,12 @@ fn parse_flags(args: &[String]) -> CliFlags {
     let mut f = CliFlags::default();
     for arg in args {
         if let Some(v) = arg.strip_prefix("--seed=") {
-            if let Ok(n) = v.parse() {
-                f.seed = n;
+            match v.parse::<i64>() {
+                Ok(seed) => f.seed = seed,
+                Err(_) => {
+                    eprintln!("Error: invalid seed '{v}'; expected a signed 64-bit integer");
+                    std::process::exit(2);
+                }
             }
         } else if let Some(v) = arg.strip_prefix("--scenario=") {
             // Reject unknown scenarios loudly: the engine silently falls back
@@ -240,6 +249,34 @@ fn cmd_state() {
     );
 }
 
+fn cmd_training(args: &[String]) {
+    let json = match args {
+        [] => false,
+        [format] if format == "--format=text" => false,
+        [format] if format == "--format=json" => true,
+        _ => {
+            eprintln!("Usage: uma-sim training [--format=text|json]");
+            std::process::exit(2);
+        }
+    };
+    let Some((engine, _)) = RunSession::load() else {
+        eprintln!("No readable saved career. Run: uma-sim start --seed=42");
+        std::process::exit(1);
+    };
+    let inspection = engine.training_inspection();
+    if json {
+        match serde_json::to_string_pretty(&inspection) {
+            Ok(text) => println!("{text}"),
+            Err(error) => {
+                eprintln!("Could not render training inspection: {error}");
+                std::process::exit(1);
+            }
+        }
+    } else {
+        print!("{}", inspection.render_text());
+    }
+}
+
 fn cmd_step(args: &[String]) {
     let Some((mut engine, _)) = RunSession::load() else {
         println!("No session. Run: start --seed=42");
@@ -371,7 +408,7 @@ fn cmd_batch(args: &[String]) {
         Ok(fh) => fh,
         Err(e) => {
             eprintln!("Failed to open {}: {e}", out_path.display());
-            return;
+            std::process::exit(1);
         }
     };
     use std::io::Write;
@@ -394,7 +431,7 @@ fn cmd_batch(args: &[String]) {
             Ok(line) => {
                 if let Err(e) = writeln!(file, "{line}") {
                     eprintln!("write error: {e}");
-                    return;
+                    std::process::exit(1);
                 }
                 written += 1;
             }
@@ -562,10 +599,12 @@ uma-sim CLI v0.4 (Rust)
   deck place <supportId> <facility>
         [--policy=default|bot] [--race-model=stub|physics] [--trace-rng] [--trace-telemetry]
   state
+  training [--format=text|json]
   step [train_speed|rest|race|event_0|...]
   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
   batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
   analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]
+  compare-batches --input=FILE --baseline=FILE [--format=text|json]
   validate [--path=content_packs/example.json]
   content validate [--path=...]
   serve [--port=8765] [--open]

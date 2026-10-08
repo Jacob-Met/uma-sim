@@ -1,0 +1,69 @@
+{
+  "started_utc": "2026-10-08T14:58:24Z",
+  "finished_utc": "2026-10-08T14:58:24Z",
+  "current_main": "4eab1798def5c19fbdee267eb2a6ea8a2726dbe7",
+  "prior_native_receipt_sha256": "16b86f1fba6bf84237436b5c1ef31dd89b1b1df76e017b77190ab9bdfbace37e",
+  "prior_policy_git_blob": "a23640b909b35f001fac2680b53d752a5c3f9e49",
+  "current_policy": {
+    "git_blob": "be1e1ff7327e634edfac5d9a77fa580517e9093b",
+    "sha256": "643948008079828df49c9a1ffaabb9385353725625ef50c0c765391750816ef6",
+    "bytes": 3847
+  },
+  "final_policy": {
+    "git_blob": "e2027e966078668e08a11e1735d1d27c33ce40e6",
+    "sha256": "ec94a66fd6c510f7a7fd3c8703a80b9c1afce760deb0b6858079c8222b08cdf1",
+    "bytes": 5243
+  },
+  "current_prefix_preserved": true,
+  "all_five_inherited_allowances_preserved": true,
+  "same_three_qualified_allowances_appended": true,
+  "source_files": {
+    "docs/receiving/race-results-afe225d6c6be/source-freeze.json": {
+      "git_blob": "c03687a53410feb6a71250f1bcf867f0ec235fd2",
+      "sha256": "3d0d50e21fab626c2fb2c1dbfa3eac44382a582850854a250eee4979d950d103",
+      "bytes": 2331
+    },
+    "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json": {
+      "git_blob": "2342a75f1f8afdfaff89e9dbd5595aada3b403d9",
+      "sha256": "cb738cbc5398cf9944ffb7eef9b3988874ab8bc3f95a2cbdacb3bed37e5370d8",
+      "bytes": 45578
+    },
+    "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json": {
+      "git_blob": "68f9f18500406eca558cb5578446eb2c93f59f8e",
+      "sha256": "2b3905c1bb23b5e1d7dce8d59bcbe89522597dcafc763062bca196772ca4f4d8",
+      "bytes": 45578
+    },
+    "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json": {
+      "git_blob": "12f17f39d1c502a0466774687a5ad3393367edbe",
+      "sha256": "004ec64c5b38fece8c6828b3ac316a04b0327d6c6c01f4cf32703c8206eafc45",
+      "bytes": 13000
+    },
+    "docs/receiving/race-results-afe225d6c6be/current-044/composition.json": {
+      "git_blob": "08d8e49cbeed9e7806c8026cdc9c02e7fb54a8a9",
+      "sha256": "06121d40b5ddae9d9900b4e52f8b583aaa066515d916f6035658faff2d6dfb9e",
+      "bytes": 21812
+    }
+  },
+  "scanner_version": "8.24.3",
+  "scanner_sha256": "e18325d568268b6efb6cd0cc721f8bea5667f4cd1c8d03618ab61987f41269ad",
+  "command": [
+    "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/release/gitleaks",
+    "detect",
+    "--redact",
+    "-v",
+    "--exit-code=2",
+    "--report-format=json",
+    "--report-path=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-current-4eab/scanner-report.json",
+    "--log-level=debug",
+    "--log-opts=-1",
+    "--config=/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/native-current-4eab/candidate.toml"
+  ],
+  "exit_code": 0,
+  "observed_findings": 0,
+  "report_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "log_sha256": "c6486758eaf8c83e887b587eb3f08ae34b6fb9b0e978181d2c86e5b3de47086a",
+  "original_five_files_unchanged": true,
+  "free_after_bytes": 41910431744,
+  "pass": true,
+  "scope": "One exact-five-files scan after preserving the entire new current policy; ten original controls remain separately frozen."
+}

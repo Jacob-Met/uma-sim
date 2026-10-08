@@ -1,0 +1,77 @@
+{
+  "source_closure_sha256": "326117c0bada0f9104667b7370db67e912dd707d425195dd0331c45abc7ba5d4",
+  "binary": {
+    "path": "/Users/me/uma-paired-066deeadcc8b/target/debug/uma-sim",
+    "bytes": 15064864,
+    "sha256": "01d7e9aee08492579143a297d74be01816a10da8e40045ecf4436b619ebcc989"
+  },
+  "gates": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--locked",
+        "-p",
+        "uma-sim-core",
+        "--test",
+        "paired_batches",
+        "--test",
+        "paired_batches_cli"
+      ],
+      "cwd": "/Users/me/uma-paired-066deeadcc8b/source",
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/me/uma-paired-066deeadcc8b/target",
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_PROFILE_DEV_DEBUG": "0",
+        "CARGO_INCREMENTAL": "0"
+      },
+      "exit": 0,
+      "elapsed_seconds": 5.443642854690552,
+      "source_closure_sha256": "326117c0bada0f9104667b7370db67e912dd707d425195dd0331c45abc7ba5d4",
+      "log_sha256": "62724707aa40e7cd40578098edddbda6d69cb4d8a737caa0c23231ed1c5575a3"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "/Users/me/uma-paired-066deeadcc8b/source",
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/me/uma-paired-066deeadcc8b/target",
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_PROFILE_DEV_DEBUG": "0",
+        "CARGO_INCREMENTAL": "0"
+      },
+      "exit": 0,
+      "elapsed_seconds": 0.3140280246734619,
+      "source_closure_sha256": "326117c0bada0f9104667b7370db67e912dd707d425195dd0331c45abc7ba5d4",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--offline",
+        "--locked"
+      ],
+      "cwd": "/Users/me/uma-paired-066deeadcc8b/source",
+      "environment_overrides": {
+        "CARGO_TARGET_DIR": "/Users/me/uma-paired-066deeadcc8b/target",
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_PROFILE_DEV_DEBUG": "0",
+        "CARGO_INCREMENTAL": "0"
+      },
+      "exit": 0,
+      "elapsed_seconds": 3.8588502407073975,
+      "source_closure_sha256": "326117c0bada0f9104667b7370db67e912dd707d425195dd0331c45abc7ba5d4",
+      "log_sha256": "4020ba4288b886355ceee650467ea7422391ecbc5ab5f330dfabb90853bef932"
+    }
+  ],
+  "owned_source_freeze_sha256": "28029900f8ac9131ffe57e09c62212ec8761f93591fc5198802453c1d6ec753a"
+}

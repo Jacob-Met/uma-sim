@@ -1,0 +1,5 @@
+{
+  "phase": "before native review",
+  "classification": "Staging helper assumed remote write_file created a missing parent directory. It does not. Both writes returned ENOENT and the attempted staging invocation found no script. No product source or test was executed or changed.",
+  "remedy": "Create the owned receiving directory explicitly, then retry the exact retained packet and script."
+}

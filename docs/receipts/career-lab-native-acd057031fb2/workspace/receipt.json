@@ -1,0 +1,225 @@
+{
+  "schema": "uma-sim-native-workspace-receiving-v1",
+  "source": {
+    "baseCommit": "0ac14602addd1a4610aa8359896915a34cce5659",
+    "baseTree": "e7d10088a713d8fbd7391c86050a92898652bdd6",
+    "commit": "97754679972a3128b5b84cde2159b43a4d85c56e",
+    "tree": "da863f9b1df928ed5bd1ac85642ee67bfd1f4cdc",
+    "cleanBeforeAndAfterGates": true,
+    "pins": {
+      "uma-sim-core/src/career_lab.rs": {
+        "sha256": "49d68441482fa907364292bb25b43fc06be6e95b13937cbbba898a393f4e4935",
+        "gitBlob": "197ea1f9da4f65d334b0496a0c27d2d5123579a8",
+        "workingBytesMatch": true
+      },
+      "uma-sim-core/tests/career_lab.rs": {
+        "sha256": "0006bf6b92c4a16985d7c6ba2f921410cc02e63c75d94a508bd30b13930d4c3e",
+        "gitBlob": "ac10b74efd030fb6e1ac52bf32bcac46109f6bbc",
+        "workingBytesMatch": true
+      },
+      "uma-sim-core/tests/career_lab_reports.rs": {
+        "sha256": "db0e1ee820ec99b621b7e29516fb85503b7176fa9051fa427816247740903a91",
+        "gitBlob": "d1c0e573cd0c9c08d4e91ba7063732f6b9dde8a4",
+        "workingBytesMatch": true
+      },
+      "uma-sim-core/tests/career_lab_divergence.rs": {
+        "sha256": "ba0f7da22a18f309bf3f220705a9c3e0b2527ed83bacfdbd4c8dcc69b162a980",
+        "gitBlob": "7a9e36ca4e04f259a4d80dff84295f0fd464afe3",
+        "workingBytesMatch": true
+      },
+      "uma-sim-core/src/api.rs": {
+        "sha256": "7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d",
+        "gitBlob": "0d286ec4abf5ac81b50917e0d8fe49618ff25926",
+        "workingBytesMatch": true
+      }
+    },
+    "manifest": "source-scope.json"
+  },
+  "toolchain": {
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+    "clippy": "clippy 0.1.99 (b940084d7e 2026-09-28)",
+    "rustfmt": "rustfmt 1.10.0-stable (b940084d7e 2026-09-28)"
+  },
+  "environment": {
+    "PATH": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin:<inherited PATH>",
+    "CARGO_HOME": "/workspace/scratch/acd057031fb2/agents/production/uma-report-cargo-home",
+    "CARGO_TARGET_DIR": "/dev/shm/estate-acd057031fb2-final-native-target",
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_NET_OFFLINE": "true",
+    "TMPDIR": "/workspace/scratch/acd057031fb2/agents/production/final-native-tmp",
+    "RUSTC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustc",
+    "RUSTDOC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustdoc"
+  },
+  "gates": [
+    {
+      "command": "cargo fmt --all -- --check",
+      "exitCode": 0,
+      "log": "accepted-977-fmt.log.gz",
+      "profile": "environment above"
+    },
+    {
+      "command": "cargo clippy --workspace --all-targets --locked --offline",
+      "exitCode": 0,
+      "log": "accepted-977-clippy.log.gz",
+      "profile": "environment above",
+      "warnings": "Existing warnings retained; CI does not deny warnings. All emitted source locations lie in byte-identical files or unchanged sweep_stale_tmp.",
+      "warningSourceFiles": 33
+    },
+    {
+      "command": "cargo test --workspace --locked --offline",
+      "exitCode": 0,
+      "log": "accepted-977-workspace-tests.log.gz",
+      "profile": {
+        "debug": 0,
+        "incremental": false,
+        "strip": "symbols",
+        "buildJobs": 2,
+        "optimization": "unoptimized",
+        "features": "default",
+        "additionalEnvironment": {
+          "CARGO_PROFILE_DEV_STRIP": "symbols",
+          "CARGO_PROFILE_TEST_STRIP": "symbols"
+        }
+      },
+      "totals": {
+        "passed": 354,
+        "failed": 0,
+        "ignored": 0,
+        "measured": 0,
+        "filtered": 0
+      },
+      "resultBlocks": 71,
+      "nonemptyTestBinaries": 67,
+      "emptyBinTargets": 2,
+      "emptyDocTestTargets": 2,
+      "suiteManifest": "workspace-suites.json"
+    }
+  ],
+  "focusedSuites": {
+    "career_lab": {
+      "passed": 14,
+      "failed": 0
+    },
+    "career_lab_reports": {
+      "passed": 9,
+      "failed": 0
+    },
+    "career_lab_divergence": {
+      "passed": 6,
+      "failed": 0
+    },
+    "core_library": {
+      "passed": 45,
+      "failed": 0
+    }
+  },
+  "priorSourceFailure": {
+    "commit": "f6bbea9f1480a1ed6db2a7b5f974743e94bc2e2f",
+    "tree": "253bc986f9b78bcb03beb0f589f964ca61712d11",
+    "command": "cargo test --workspace --locked --offline",
+    "exitCode": 101,
+    "coreLibrary": {
+      "passed": 36,
+      "failed": 9
+    },
+    "primaryFailure": "api::tests::lab_library_fork_branch_compare_flow asserted unescaped raw Markdown heading source.",
+    "secondaryFailures": "Eight shared-lock poison cascades.",
+    "log": "initial-f6-tests.log.gz",
+    "baselineControl": {
+      "commit": "0ac14602addd1a4610aa8359896915a34cce5659",
+      "command": "cargo test --locked --offline -p uma-sim-core --lib api::tests::lab_library_fork_branch_compare_flow -- --exact",
+      "exitCode": 0,
+      "passed": 1,
+      "failed": 0,
+      "filtered": 44,
+      "log": "baseline-0ac-api-heading-control.log.gz"
+    },
+    "correctionCommit": "97754679972a3128b5b84cde2159b43a4d85c56e",
+    "correction": "One embedded test assertion accepts legal escapes; production API code remains unchanged."
+  },
+  "capacityAttempts": "capacity-attempts.json",
+  "boundary": [
+    "Default-feature native workspace formatting, Clippy and tests are qualified.",
+    "Release embedding/layout smoke, standalone calibration, UI builds, browser receiving and MCP tests have separate evidence; this receipt does not claim the entire CI pipeline.",
+    "The source manifest stops at the exact native gate commit. Later receiving-script and documentation changes must be accounted for in the publication manifest.",
+    "No source edits were made by this final receiving worker; root authored the localized API-test correction."
+  ],
+  "logs": [
+    {
+      "file": "initial-f6-fmt.log.gz",
+      "originalLocalLog": "candidate-fmt.log",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressedBytes": 0,
+      "uncompressedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "initial-f6-clippy.log.gz",
+      "originalLocalLog": "candidate-clippy.log",
+      "bytes": 5126,
+      "sha256": "b007d04c6e2e3bea15bfe3d391beef5fb65671f44b8d71b7ece4360892d1e3ca",
+      "uncompressedBytes": 25359,
+      "uncompressedSha256": "9f22f61b85b3835b86849aebf6ca70b582a62cdf05d790b91580d395340b0f62"
+    },
+    {
+      "file": "initial-f6-tests.log.gz",
+      "originalLocalLog": "candidate-tests.log",
+      "bytes": 3545,
+      "sha256": "357a7c985ab574073fd7da016a500967a0833336180f25869cc9373d768e0cd2",
+      "uncompressedBytes": 13910,
+      "uncompressedSha256": "db3a68c8fc23d1744a0eec6d2d6a5c37d797143e2d8a1cbd7540c13c7ea991c8"
+    },
+    {
+      "file": "baseline-0ac-api-heading-control.log.gz",
+      "originalLocalLog": "baseline-api-heading-control.log",
+      "bytes": 346,
+      "sha256": "c9635041170844466d20a3df8abe8b62fc9a4f7f9cd4198e901efd2d97118205",
+      "uncompressedBytes": 599,
+      "uncompressedSha256": "4a23381d1aabc08d7e9a89bf23d584fd3497600f39f40a72b076408ee978f2da"
+    },
+    {
+      "file": "accepted-977-fmt.log.gz",
+      "originalLocalLog": "final-fmt.log",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressedBytes": 0,
+      "uncompressedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "accepted-977-clippy.log.gz",
+      "originalLocalLog": "final-clippy.log",
+      "bytes": 4965,
+      "sha256": "ad2fd362f427879593b55bae122a6b481c3def481e882c168e945b6eca319199",
+      "uncompressedBytes": 24791,
+      "uncompressedSha256": "f4dca2916fb76e55c7c27b30249adf85fe18c63d2a5fb3df8ef5669242c3edd4"
+    },
+    {
+      "file": "storage-977-truncated-tests.log.gz",
+      "originalLocalLog": "final-tests.log",
+      "bytes": 1464,
+      "sha256": "fbfa6e71def09d1dbff898bbc087f584b5af84cdfcc96e9ab5fe3b980eb8b829",
+      "uncompressedBytes": 4096,
+      "uncompressedSha256": "f37cd9274ee87f567be300c25b56f8362415fac956ea4d8caf2b866bead06950"
+    },
+    {
+      "file": "storage-977-streamed-tests.log.gz",
+      "originalLocalLog": "storage-tests-stream.log",
+      "bytes": 3717,
+      "sha256": "d010a0179e8a51a665cc34d8efeb6c5e46701b83d6c23903d852e05fdaccd9c0",
+      "uncompressedBytes": 15357,
+      "uncompressedSha256": "a57c661a87d0e776939597c1e996e8875ec01cd2757e2d8e167ef08ad6eb0656"
+    },
+    {
+      "file": "accepted-977-workspace-tests.log.gz",
+      "originalLocalLog": "accepted-workspace-tests.log",
+      "bytes": 8816,
+      "sha256": "f63c60ef924f402d53b354c540a5aecf82b85937236182baf892e4cc85075fa5",
+      "uncompressedBytes": 38124,
+      "uncompressedSha256": "c30fe390d8450bd755e9f20bcc8166d0df75b400bdfa060b49a3ea42315f4446"
+    }
+  ]
+}

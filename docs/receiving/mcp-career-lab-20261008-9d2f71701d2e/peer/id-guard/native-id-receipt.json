@@ -1,0 +1,42 @@
+{
+  "started": "2026-10-08T09:01:29.629002+00:00",
+  "finished": "2026-10-08T09:01:30.362074+00:00",
+  "node": "v26.3.0",
+  "candidate_sha256": "203eee45b6e57ca79db5f3284095c1a90b63118f5f7199bfb790553f1b774c5c",
+  "previous_sha256": "b4591af36221aa0a97f9efefb9f9a17243ff2c7fd5e9010b35d2b118bab9d1be",
+  "harness_sha256": "5e313326a434487c7e4ac792fee7e657e1c499de2b0a8b9378efe38dd4c87837",
+  "owner_guard_exact": true,
+  "only_bridge_delta_owner_guard": true,
+  "results": [
+    {
+      "log": "native-id-guard.tap",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "--test",
+        "--test-reporter=tap",
+        "id-guard.test.mjs"
+      ],
+      "environment_overrides": {},
+      "exit_code": 1,
+      "sha256": "78f7f2098e1f922831193abefb2e6b9b5686c9b035686c139193f790a13ae77e",
+      "observed": "inherited integer precision control fails; not counted as a passing qualification"
+    },
+    {
+      "log": "native-predecessor-precision.tap",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "--test",
+        "--test-reporter=tap",
+        "--test-name-pattern=unrepresentable integer",
+        "id-guard.test.mjs"
+      ],
+      "environment_overrides": {
+        "MCP_SERVER_PATH": "/Users/me/uma-independent-9d2f71701d2e/id-guard/previous/mcp-stdio.js",
+        "EXPECTED_BRIDGE_SHA": "b4591af36221aa0a97f9efefb9f9a17243ff2c7fd5e9010b35d2b118bab9d1be"
+      },
+      "exit_code": 1,
+      "sha256": "8109c8a33901f3dea0603922c57f3af07d4563060b507da8adb2949072e9c225",
+      "observed": "inherited integer precision control fails; not counted as a passing qualification"
+    }
+  ]
+}

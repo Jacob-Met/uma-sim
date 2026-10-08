@@ -7,7 +7,7 @@
 //! * a **durable named checkpoint library** (`.uma-sim/library/`): save, list,
 //!   load, delete, import and export named career checkpoints with visible
 //!   seed/scenario/turn, a content fingerprint for compatibility disclosure,
-//!   and atomic (crash-safe) writes;
+//!   atomic individual-file writes, and restoration after failed saves;
 //! * **branch runs**: play a checkpoint forward to completion with one of the
 //!   built-in policies (or per-turn action overrides), recording a full
 //!   decision/timeline/outcome trace per branch with its own isolated
@@ -32,7 +32,8 @@ use crate::state::{
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 use std::fmt;
-use std::fs;
+use std::fs::{self, OpenOptions};
+use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::{SystemTime, UNIX_EPOCH};
@@ -55,7 +56,7 @@ const CORE_VERSION: &str = env!("CARGO_PKG_VERSION");
 pub enum LabError {
     /// Entry name violates the naming rules.
     InvalidName(String),
-    /// A library entry with this name already exists (and `overwrite=false`).
+    /// A durable entry or branch result with this name or ID already exists.
     AlreadyExists(String),
     /// No library entry with this name.
     NotFound(String),
@@ -71,10 +72,9 @@ impl fmt::Display for LabError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             LabError::InvalidName(m) => write!(f, "invalid checkpoint name: {m}"),
-            LabError::AlreadyExists(n) => write!(
-                f,
-                "checkpoint '{n}' already exists (pass overwrite=true to replace it)"
-            ),
+            LabError::AlreadyExists(n) => {
+                write!(f, "entry '{n}' already exists and was not replaced")
+            }
             LabError::NotFound(n) => write!(f, "no checkpoint named '{n}'"),
             LabError::InvalidSnapshot(m) => {
                 write!(f, "snapshot failed validation and was not imported: {m}")
@@ -294,6 +294,72 @@ fn atomic_write(path: &Path, bytes: &[u8]) -> Result<(), LabError> {
     Ok(())
 }
 
+/// Preserve the prior snapshot before replacing either part of a checkpoint.
+/// The recovery name deliberately avoids `.tmp-`: a failed restoration must
+/// not let the ordinary stale-temp sweep delete the remaining saved career.
+fn preserve_snapshot(path: &Path) -> Result<Option<PathBuf>, LabError> {
+    let mut source = match fs::File::open(path) {
+        Ok(file) => file,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+        Err(error) => return Err(LabError::Io(error.to_string())),
+    };
+    static BACKUP_COUNTER: AtomicU64 = AtomicU64::new(0);
+    let backup_path = path.with_file_name(format!(
+        ".rollback-{}-{}-{}",
+        std::process::id(),
+        BACKUP_COUNTER.fetch_add(1, Ordering::Relaxed),
+        path.file_name().unwrap_or_default().to_string_lossy()
+    ));
+    let mut backup = fs::OpenOptions::new()
+        .write(true)
+        .create_new(true)
+        .open(&backup_path)
+        .map_err(|error| {
+            LabError::Io(format!(
+                "could not preserve prior snapshot at {}: {error}",
+                backup_path.display()
+            ))
+        })?;
+    if let Err(error) = std::io::copy(&mut source, &mut backup).and_then(|_| backup.sync_all()) {
+        drop(backup);
+        let _ = fs::remove_file(&backup_path);
+        return Err(LabError::Io(format!(
+            "could not preserve prior snapshot: {error}"
+        )));
+    }
+    Ok(Some(backup_path))
+}
+
+fn discard_snapshot_backup(backup: Option<&Path>) {
+    if let Some(path) = backup {
+        let _ = fs::remove_file(path);
+    }
+}
+
+/// Return the original save error after restoration. If restoration itself is
+/// refused, retain the complete backup and identify it in the returned error.
+fn rollback_snapshot(path: &Path, backup: Option<&Path>, save_error: LabError) -> LabError {
+    let restored = match backup {
+        Some(previous) => fs::rename(previous, path),
+        None => fs::remove_file(path),
+    };
+    match restored {
+        Ok(()) => save_error,
+        Err(error) if backup.is_none() && error.kind() == std::io::ErrorKind::NotFound => {
+            save_error
+        }
+        Err(error) => {
+            let recovery = match backup {
+                Some(previous) => format!("prior snapshot retained at {}", previous.display()),
+                None => format!("incomplete new snapshot remains at {}", path.display()),
+            };
+            LabError::Io(format!(
+                "{save_error}; snapshot restoration failed: {error}; {recovery}"
+            ))
+        }
+    }
+}
+
 /// Durable named checkpoint library under `.uma-sim/library/` (cwd-relative,
 /// same convention as the CLI session file).
 pub struct CareerLibrary {
@@ -334,7 +400,9 @@ impl CareerLibrary {
     }
 
     /// Save `snapshot` as a named checkpoint. `overwrite=false` (the default)
-    /// refuses to clobber an existing entry; nothing is half-written.
+    /// refuses to clobber existing metadata or an orphan snapshot. A returned
+    /// metadata-write failure restores the prior snapshot; a refused restore
+    /// retains its recovery copy and reports that path.
     pub fn save(
         &self,
         name: &str,
@@ -345,7 +413,8 @@ impl CareerLibrary {
     ) -> Result<LibraryEntry, LabError> {
         validate_name(name)?;
         let meta_path = self.meta_path(name);
-        if !overwrite && meta_path.exists() {
+        let snapshot_path = self.snapshot_path(name);
+        if !overwrite && (meta_path.exists() || snapshot_path.exists()) {
             return Err(LabError::AlreadyExists(name.to_string()));
         }
         let saved_at_unix = now_unix();
@@ -371,13 +440,18 @@ impl CareerLibrary {
             serde_json::to_string_pretty(snapshot).map_err(|e| LabError::Io(e.to_string()))?;
         let meta_bytes =
             serde_json::to_string_pretty(&entry).map_err(|e| LabError::Io(e.to_string()))?;
-        // Snapshot first; if the meta write fails afterwards, remove the
-        // orphan snapshot so the library never holds half an entry.
-        atomic_write(&self.snapshot_path(name), snap_bytes.as_bytes())?;
-        if let Err(e) = atomic_write(&meta_path, meta_bytes.as_bytes()) {
-            let _ = fs::remove_file(self.snapshot_path(name));
-            return Err(e);
+        // Retain the old bytes before publishing the replacement. Restoring
+        // uses a rename, so a metadata write failure (including exhausted
+        // space) does not need another full snapshot allocation to recover.
+        let previous = preserve_snapshot(&snapshot_path)?;
+        if let Err(error) = atomic_write(&snapshot_path, snap_bytes.as_bytes()) {
+            discard_snapshot_backup(previous.as_deref());
+            return Err(error);
         }
+        if let Err(e) = atomic_write(&meta_path, meta_bytes.as_bytes()) {
+            return Err(rollback_snapshot(&snapshot_path, previous.as_deref(), e));
+        }
+        discard_snapshot_backup(previous.as_deref());
         Ok(entry)
     }
 
@@ -643,8 +717,18 @@ pub struct LabResult {
 static BRANCH_COUNTER: AtomicU64 = AtomicU64::new(0);
 
 fn branch_id() -> String {
-    let n = BRANCH_COUNTER.fetch_add(1, Ordering::SeqCst);
-    format!("br-{}-{:04}", now_unix(), n % 10_000)
+    let now = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .unwrap_or_default();
+    let n = BRANCH_COUNTER.fetch_add(1, Ordering::Relaxed);
+    // Process identity and subsecond time distinguish independent invocations.
+    // Publication still refuses collisions; generated IDs are not a lock.
+    format!(
+        "br-{}-{:09}-{}-{n:016x}",
+        now.as_secs(),
+        now.subsec_nanos(),
+        std::process::id()
+    )
 }
 
 fn choose_action(
@@ -844,12 +928,35 @@ impl BranchStore {
         Ok(self.dir.join(format!("{id}.json")))
     }
 
-    /// Persist a branch result (atomic).
+    /// Create an immutable branch result; an existing ID is never replaced.
+    /// The complete temporary file is published atomically with a hard link,
+    /// which refuses an existing destination even across competing processes.
     pub fn save(&self, result: &LabResult) -> Result<PathBuf, LabError> {
         let path = self.path_for(&result.id)?;
         let bytes =
             serde_json::to_string_pretty(result).map_err(|e| LabError::Io(e.to_string()))?;
-        atomic_write(&path, bytes.as_bytes())?;
+        fs::create_dir_all(&self.dir).map_err(|e| LabError::Io(e.to_string()))?;
+        let tmp = self.dir.join(format!(".tmp-{}-{}", branch_id(), result.id));
+        let mut file = OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(&tmp)
+            .map_err(|e| LabError::Io(format!("create temporary branch file: {e}")))?;
+        let ready = file
+            .write_all(bytes.as_bytes())
+            .and_then(|_| file.sync_all());
+        drop(file);
+        // Do not use a replacing rename here: two processes can independently
+        // generate or receive the same ID before either result is published.
+        let published = ready.and_then(|_| fs::hard_link(&tmp, &path));
+        let _ = fs::remove_file(&tmp);
+        published.map_err(|e| {
+            if e.kind() == std::io::ErrorKind::AlreadyExists {
+                LabError::AlreadyExists(result.id.clone())
+            } else {
+                LabError::Io(format!("publish branch result '{}': {e}", result.id))
+            }
+        })?;
         Ok(path)
     }
 
@@ -1074,9 +1181,9 @@ pub fn compare_branches(a: &LabResult, b: &LabResult) -> BranchComparison {
                     note: format!(
                         "Branch {side} ended after {} steps while the other continued.",
                         if side == "A" {
-                            b.timeline.len()
-                        } else {
                             a.timeline.len()
+                        } else {
+                            b.timeline.len()
                         }
                     ),
                 });
@@ -1134,37 +1241,96 @@ fn stats_line(s: &TraineeStats) -> String {
     )
 }
 
+/// Keep report data literal in prose, headings and GFM table cells. Line
+/// breaks stay inside their existing block instead of creating rows/headings.
+fn markdown_text(value: &str) -> String {
+    let mut out = String::with_capacity(value.len());
+    let mut chars = value.chars().peekable();
+    while let Some(ch) = chars.next() {
+        match ch {
+            '&' => out.push_str("&amp;"),
+            '<' => out.push_str("&lt;"),
+            '>' => out.push_str("&gt;"),
+            '\r' | '\n' => {
+                if ch == '\r' && chars.peek() == Some(&'\n') {
+                    chars.next();
+                }
+                out.push_str("<br>");
+            }
+            ch if ch.is_ascii_punctuation() => {
+                out.push('\\');
+                out.push(ch);
+            }
+            ch => out.push(ch),
+        }
+    }
+    out
+}
+
+/// Code spans do not interpret text escapes or entities. Choose a delimiter
+/// longer than any backtick run in the value and protect significant padding.
+fn markdown_code(value: &str) -> String {
+    let value = value.replace("\r\n", " ").replace(['\r', '\n'], " ");
+    if value.is_empty() {
+        return String::new();
+    }
+    let mut longest = 0;
+    let mut run = 0;
+    for ch in value.chars() {
+        if ch == '`' {
+            run += 1;
+            longest = longest.max(run);
+        } else {
+            run = 0;
+        }
+    }
+    let delimiter = "`".repeat(longest + 1);
+    let padding = if value.starts_with('`')
+        || value.ends_with('`')
+        || (value.starts_with(' ') && value.ends_with(' ') && !value.chars().all(|ch| ch == ' '))
+    {
+        " "
+    } else {
+        ""
+    };
+    format!("{delimiter}{padding}{value}{padding}{delimiter}")
+}
+
 /// Render the comparison as a downloadable Markdown report.
 pub fn render_markdown(c: &BranchComparison) -> String {
     let mut out = String::new();
     out.push_str(&format!(
         "# Branch comparison: {} vs {}\n\n",
-        c.a_name, c.b_name
+        markdown_text(&c.a_name),
+        markdown_text(&c.b_name)
     ));
     out.push_str(&format!(
-        "- Checkpoint: `{}` (seed {}, turn {})\n",
-        c.checkpoint_name, c.seed, c.checkpoint_turn
+        "- Checkpoint: {} (seed {}, turn {})\n",
+        markdown_code(&c.checkpoint_name),
+        c.seed,
+        c.checkpoint_turn
     ));
     out.push_str(&format!(
         "- Same checkpoint: {}\n- Compared at: {}\n\n",
-        c.same_checkpoint, c.compared_at
+        c.same_checkpoint,
+        markdown_text(&c.compared_at)
     ));
 
     out.push_str("## First divergence\n\n");
     match &c.first_divergence {
         Some(d) => {
             out.push_str(&format!(
-                "- Step {} · turn {} ({}) · phase `{}` · kind `{}`\n- A: `{}` — {}\n- B: `{}` — {}\n- {}\n",
+                "- Step {} · turn {} ({}) · phase {} · kind {}\n- A: {} — {}\n- B: {} — {}\n- {}\n",
                 d.step_index,
                 d.turn,
-                d.date_label,
-                d.phase,
-                d.kind,
-                d.action_a,
-                d.label_a,
-                d.action_b,
-                d.label_b,
-                d.note
+                markdown_text(&d.date_label),
+                markdown_code(&d.phase),
+                markdown_code(&d.kind),
+                markdown_code(&d.action_a),
+                markdown_text(&d.label_a),
+                markdown_code(&d.action_b),
+                markdown_text(&d.label_b),
+                markdown_text(&d.note)
             ));
         }
         None => out.push_str("No divergence: the recorded timelines are identical.\n"),
@@ -1187,8 +1353,8 @@ pub fn render_markdown(c: &BranchComparison) -> String {
             row.turn_a
                 .map(|t| t.to_string())
                 .unwrap_or_else(|| "–".into()),
-            row.label_a.as_deref().unwrap_or("–"),
-            row.label_b.as_deref().unwrap_or("–"),
+            markdown_text(row.label_a.as_deref().unwrap_or("–")),
+            markdown_text(row.label_b.as_deref().unwrap_or("–")),
             mark,
             row.energy_a
                 .map(|e| e.to_string())
@@ -1215,7 +1381,9 @@ pub fn render_markdown(c: &BranchComparison) -> String {
     out.push_str("|  | A | B |\n| - | - | - |\n");
     let oa = &c.outcome_a;
     let ob = &c.outcome_b;
-    let row = |k: &str, a: String, b: String| format!("| {k} | {a} | {b} |\n");
+    let row = |k: &str, a: String, b: String| {
+        format!("| {k} | {} | {} |\n", markdown_text(&a), markdown_text(&b))
+    };
     out.push_str(&row("Branch", c.a_name.clone(), c.b_name.clone()));
     out.push_str(&row("Steps", oa.steps.to_string(), ob.steps.to_string()));
     out.push_str(&row(
@@ -1287,7 +1455,7 @@ pub fn render_markdown(c: &BranchComparison) -> String {
 
     out.push_str("\n## Caveats\n\n");
     for caveat in &c.caveats {
-        out.push_str(&format!("- {caveat}\n"));
+        out.push_str(&format!("- {}\n", markdown_text(caveat)));
     }
     out.push_str("\n_Generated by uma-sim career lab._\n");
     out
@@ -1373,6 +1541,42 @@ pub fn sweep_stale_tmp(dir: &Path) -> usize {
 #[cfg(test)]
 mod unit_tests {
     use super::*;
+
+    #[test]
+    fn refused_snapshot_restoration_retains_recoverable_bytes() {
+        let dir = std::env::temp_dir().join(format!(
+            "uma-refused-rollback-{}-{}",
+            std::process::id(),
+            SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        fs::create_dir(&dir).unwrap();
+        let target = dir.join("keep.snapshot.json");
+        fs::create_dir(&target).unwrap();
+        fs::write(target.join("unrelated"), b"preserve").unwrap();
+        let backup = dir.join(".rollback-previous.snapshot.json");
+        let previous = br#"{"previous":"saved career"}"#;
+        fs::write(&backup, previous).unwrap();
+
+        let error = rollback_snapshot(
+            &target,
+            Some(&backup),
+            LabError::Io("metadata publication was refused".into()),
+        );
+        assert!(matches!(error, LabError::Io(_)));
+        let message = error.to_string();
+        assert!(message.contains("metadata publication was refused"));
+        assert!(message.contains("snapshot restoration failed"));
+        assert!(message.contains(&backup.display().to_string()));
+        assert_eq!(fs::read(&backup).unwrap(), previous);
+        assert_eq!(fs::read(target.join("unrelated")).unwrap(), b"preserve");
+        fs::write(dir.join(".tmp-stale"), b"partial").unwrap();
+        assert_eq!(sweep_stale_tmp(&dir), 1);
+        assert_eq!(fs::read(&backup).unwrap(), previous);
+        fs::remove_dir_all(dir).unwrap();
+    }
 
     #[test]
     fn rfc3339_formats_epoch() {
