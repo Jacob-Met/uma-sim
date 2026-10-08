@@ -1,0 +1,21 @@
+{
+  "sourceRepository": "https://github.com/Jacob-Met/uma-sim",
+  "sourceCommit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "materialization": "git archive of verified pinned author baseline into isolated reviewer baseline",
+  "build": "cargo build --locked --package uma-sim-core --bin uma-sim-api",
+  "toolchain": {
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)"
+  },
+  "node": "v24.19.0",
+  "receivingIsolation": "Fresh localhost process, unique port and private cwd per test, UMA_REPO_ROOT points at unmodified pinned baseline, UMA_POLICY_CMD removed",
+  "filesSha256": {
+    "baseline/Cargo.lock": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+    "baseline/uma-sim-core/src/api.rs": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+    "baseline/uma-sim-core/src/career_lab.rs": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7",
+    "baseline/uma-sim-core/src/factory.rs": "067d5948755ba0f39bc8f980a1a4615fbdb8ca50da110b3657414d2d49ff5aac",
+    "baseline/packages/uma-sim-mcp/mcp-stdio.js": "68db607fd2485439888cdb929ddc2637af156de154dfd30eab58df8f50440bf0",
+    "baseline/packages/uma-sim-mcp/package.json": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72",
+    "target/debug/uma-sim-api": "fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e"
+  }
+}

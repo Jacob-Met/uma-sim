@@ -1,0 +1,302 @@
+[
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "seed": "7301",
+      "scenario": "ura",
+      "speed": "3",
+      "traceTelemetry": "true"
+    },
+    "status": 200,
+    "response_sha256": "9d772ee583d87db278701e0bb07b9d44f46c0c584e1dd30d9200e3936a937ec8"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "0747271957b5658424c98c8cd1ad5b2954b2dafa2f0cb4ee58ae1afd4761542d"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "8976751149d3ace8896f75736e46ad90217ea7da85f15704ef13c76718f8e28e"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "61bd244d6370d79bb55d10be2d63e2cce95b20d4ae20e1f9fdbfc27f1bb5c2e6"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "995ea7a512491c5b9c388aa2e92ea3d21ffab3f78de6a8c6b8b3cea106312f22"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "010ccf84e377ef5d520dc670d825cb104057468e5edc38ea071a195c1f3f8e92"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "96a00e7fe7217cbef47f566d2333d50e981390b553c15eaffbb39c925015a441"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "session": "saved-review",
+      "seed": "7302",
+      "scenario": "ura",
+      "traceTelemetry": "true"
+    },
+    "status": 200,
+    "response_sha256": "bb974d5f7cb760dc5edf4eb67969563ae6f10589ebf72d192dddaa5fa11959d0"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "7cf08be1f620024f73c7e41d7357e6f09af855999b2a152ae7419a39505985fc"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "b475125c798716b528f1b6435739073e03a9f629b919449e4b972eacda691856"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "dbc5c030e3299e8db678950d2fc938325b690db59ca90a3ec1dabf7d2f4087a9"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "session": "other-review",
+      "seed": "7303",
+      "scenario": "ura",
+      "speed": "7"
+    },
+    "status": 200,
+    "response_sha256": "e2a18371fc61537f0424da6a136f0aecc82098b856b21c94e4a3e52b9e0411c8"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=other-review",
+    "status": 200,
+    "response_sha256": "e2a18371fc61537f0424da6a136f0aecc82098b856b21c94e4a3e52b9e0411c8"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=saved-review",
+    "status": 200,
+    "response_sha256": "0b6395af8739ca1aa5b910c7b4351320b6546fc6dea5f28edc191014f1a72117"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "09e6ef41e0edd7c4ca499611df23e43a65ca5d631bb7be5657e27ce4d6a32b77"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": "tui-23e3f2e2-01d2-4871-8420-907b7ff9fc4e"
+    },
+    "status": 200,
+    "response_sha256": "c29f1793d1b8524029fa4f567a79dc1fbe81e115cc3d3bba041efb755de54209"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=saved-review",
+    "status": 200,
+    "response_sha256": "0b6395af8739ca1aa5b910c7b4351320b6546fc6dea5f28edc191014f1a72117"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=other-review",
+    "status": 200,
+    "response_sha256": "e2a18371fc61537f0424da6a136f0aecc82098b856b21c94e4a3e52b9e0411c8"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "a860b8faa277756986681370d59c2cc583475d0e14795790bc08ad2259136858"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": "tui-d098a6a6-30ac-40ce-8d7b-730078c7a0ec"
+    },
+    "status": 200,
+    "response_sha256": "37de5c53f57d32e9a5772b537bcaf6dce6021bf44682c7c32a828155994a6a6a"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=saved-review",
+    "status": 200,
+    "response_sha256": "0b6395af8739ca1aa5b910c7b4351320b6546fc6dea5f28edc191014f1a72117"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=other-review",
+    "status": 200,
+    "response_sha256": "e2a18371fc61537f0424da6a136f0aecc82098b856b21c94e4a3e52b9e0411c8"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "97d2bde87e923339037b37fead6ac04e25ffe1438cfe8859c710a71ce6e81563"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": "tui-7dd8f6c3-6f76-4d4a-b2f6-4fb7c6991f4b"
+    },
+    "status": 200,
+    "response_sha256": "6250e5c00f3d892886d639fc5d97b15d22badb7e351f15889d4a68b128df31ed"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=saved-review",
+    "status": 200,
+    "response_sha256": "0b6395af8739ca1aa5b910c7b4351320b6546fc6dea5f28edc191014f1a72117"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=other-review",
+    "status": 200,
+    "response_sha256": "e2a18371fc61537f0424da6a136f0aecc82098b856b21c94e4a3e52b9e0411c8"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "97d2bde87e923339037b37fead6ac04e25ffe1438cfe8859c710a71ce6e81563"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": "tui-7dd8f6c3-6f76-4d4a-b2f6-4fb7c6991f4b"
+    },
+    "status": 200,
+    "response_sha256": "6250e5c00f3d892886d639fc5d97b15d22badb7e351f15889d4a68b128df31ed"
+  }
+]

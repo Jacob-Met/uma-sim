@@ -1,0 +1,52 @@
+{
+  "schema": "hamon.uma_terminal.authored_qualification.v1",
+  "worker": "estate-c6cc965b64c2/production",
+  "recorded_utc": "2026-10-08T08:59:50.091Z",
+  "repository": "Jacob-Met/uma-sim",
+  "base_commit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "reviewed_implementation_commit": "379eee9707a224d14adb6c362d729b38f43dcf43",
+  "independent_review_commit": "a7bc65a938ba01bc14bd7028b4a76d6c9fce34fa",
+  "terminal_sha256": "39d36f1ebba8c06823e57f2a5c9d49ab6a2b00d8ff0d67ff7afb6f5c5f1d17bb",
+  "current_main_comparison": {
+    "provider": "GitHub.compare_commits",
+    "base": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+    "head": "main",
+    "status": "identical",
+    "ahead_by": 0,
+    "behind_by": 0,
+    "total_commits": 0
+  },
+  "authored_frozen_suite": {
+    "node": "v20.19.0",
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0,
+    "log": "node20-candidate.tap",
+    "sha256": "3618d83256a0a80e9a6fed2221ac72768ef6f428a67ebe4713e8173dc804f5b0"
+  },
+  "supplementary_authored_baseline": {
+    "selected_tests": 4,
+    "meaningful_expected_behavior_failures": 3,
+    "invalid_fixture_assumptions_excluded": 1,
+    "log": "baseline-negative.tap",
+    "sha256": "cdc4783a651269c40137dbd448ff9ff4d4fcc339ca79c38e02a83bcfde5a67e2"
+  },
+  "independent_native": {
+    "passed": 11,
+    "failed": 0,
+    "node": "v24.19.0",
+    "platform": "linux-x64",
+    "receipt": "../independent/candidate/receipt.json",
+    "sha256": "921ac1f2daa821012f83c03752da034f36c75a06d13cfbf69c598446cb0329a2",
+    "native_binary_sha256": "fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e"
+  },
+  "state": {
+    "implemented": true,
+    "locally_verified": true,
+    "independently_reviewed": true,
+    "published": false,
+    "merged": false,
+    "deployed": false,
+    "ci_on_published_head": "not-yet-requested"
+  }
+}

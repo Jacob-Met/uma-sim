@@ -1,0 +1,164 @@
+[
+  {
+    "method": "GET",
+    "url": "/v1/health",
+    "route": "/v1/health",
+    "query": {},
+    "status": 200,
+    "response_sha256": "5c1abce5be6fd8d78f1d9759052d712ac6c5fc007f5bdbd62c984776a192bdde"
+  },
+  {
+    "method": "POST",
+    "url": "/v1/run/start",
+    "route": "/v1/run/start",
+    "query": {},
+    "body": {
+      "seed": "9223372036854775807",
+      "scenario": "ura",
+      "trainee": "Special Week",
+      "speed": "1",
+      "traceTelemetry": "true",
+      "session": "tui-356f91c8-9248-4116-a1ca-e9ecda6d09ad"
+    },
+    "status": 200,
+    "response_sha256": "df504aeb855a603a728ac3e22885a2d10647c985044ba87a7568f45f9773e4b9"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/state?session=tui-356f91c8-9248-4116-a1ca-e9ecda6d09ad",
+    "route": "/v1/run/state",
+    "query": {
+      "session": "tui-356f91c8-9248-4116-a1ca-e9ecda6d09ad"
+    },
+    "status": 200,
+    "response_sha256": "df504aeb855a603a728ac3e22885a2d10647c985044ba87a7568f45f9773e4b9"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/text?session=tui-356f91c8-9248-4116-a1ca-e9ecda6d09ad",
+    "route": "/v1/run/text",
+    "query": {
+      "session": "tui-356f91c8-9248-4116-a1ca-e9ecda6d09ad"
+    },
+    "status": 200,
+    "response_sha256": "10617495620251f6d3f61847547c1879df806955e15bda3092d429616c7593b0"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/choices?session=tui-356f91c8-9248-4116-a1ca-e9ecda6d09ad",
+    "route": "/v1/run/choices",
+    "query": {
+      "session": "tui-356f91c8-9248-4116-a1ca-e9ecda6d09ad"
+    },
+    "status": 200,
+    "response_sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/health",
+    "route": "/v1/health",
+    "query": {},
+    "status": 200,
+    "response_sha256": "5c1abce5be6fd8d78f1d9759052d712ac6c5fc007f5bdbd62c984776a192bdde"
+  },
+  {
+    "method": "POST",
+    "url": "/v1/run/start",
+    "route": "/v1/run/start",
+    "query": {},
+    "body": {
+      "seed": "-9223372036854775808",
+      "scenario": "ura",
+      "trainee": "Special Week",
+      "speed": "1",
+      "traceTelemetry": "true",
+      "session": "tui-54e469e3-a6bf-4e95-abcb-c90180cbbde3"
+    },
+    "status": 200,
+    "response_sha256": "52be072e1af7b68382eba7d76ae8c55df43854e71f410d80825246495211c289"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/state?session=tui-54e469e3-a6bf-4e95-abcb-c90180cbbde3",
+    "route": "/v1/run/state",
+    "query": {
+      "session": "tui-54e469e3-a6bf-4e95-abcb-c90180cbbde3"
+    },
+    "status": 200,
+    "response_sha256": "52be072e1af7b68382eba7d76ae8c55df43854e71f410d80825246495211c289"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/text?session=tui-54e469e3-a6bf-4e95-abcb-c90180cbbde3",
+    "route": "/v1/run/text",
+    "query": {
+      "session": "tui-54e469e3-a6bf-4e95-abcb-c90180cbbde3"
+    },
+    "status": 200,
+    "response_sha256": "10617495620251f6d3f61847547c1879df806955e15bda3092d429616c7593b0"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/choices?session=tui-54e469e3-a6bf-4e95-abcb-c90180cbbde3",
+    "route": "/v1/run/choices",
+    "query": {
+      "session": "tui-54e469e3-a6bf-4e95-abcb-c90180cbbde3"
+    },
+    "status": 200,
+    "response_sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/health",
+    "route": "/v1/health",
+    "query": {},
+    "status": 200,
+    "response_sha256": "5c1abce5be6fd8d78f1d9759052d712ac6c5fc007f5bdbd62c984776a192bdde"
+  },
+  {
+    "method": "POST",
+    "url": "/v1/run/start",
+    "route": "/v1/run/start",
+    "query": {},
+    "body": {
+      "seed": "+0",
+      "scenario": "ura",
+      "trainee": "Special Week",
+      "speed": "1",
+      "traceTelemetry": "true",
+      "session": "tui-f2241233-c9e3-45ea-a18a-33a9a308cc81"
+    },
+    "status": 200,
+    "response_sha256": "7a82515ca9382d2c0806131be0367f1a63f57b1515ef82d64683044abb0634d9"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/state?session=tui-f2241233-c9e3-45ea-a18a-33a9a308cc81",
+    "route": "/v1/run/state",
+    "query": {
+      "session": "tui-f2241233-c9e3-45ea-a18a-33a9a308cc81"
+    },
+    "status": 200,
+    "response_sha256": "7a82515ca9382d2c0806131be0367f1a63f57b1515ef82d64683044abb0634d9"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/text?session=tui-f2241233-c9e3-45ea-a18a-33a9a308cc81",
+    "route": "/v1/run/text",
+    "query": {
+      "session": "tui-f2241233-c9e3-45ea-a18a-33a9a308cc81"
+    },
+    "status": 200,
+    "response_sha256": "10617495620251f6d3f61847547c1879df806955e15bda3092d429616c7593b0"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/choices?session=tui-f2241233-c9e3-45ea-a18a-33a9a308cc81",
+    "route": "/v1/run/choices",
+    "query": {
+      "session": "tui-f2241233-c9e3-45ea-a18a-33a9a308cc81"
+    },
+    "status": 200,
+    "response_sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db"
+  }
+]
