@@ -1,0 +1,32 @@
+{
+  "sourceSha256": "d214179b4389ccaf2b3ac0992c97364b86ea8a2ffac9762daa5086174ea1b7d4",
+  "binarySha256": "4c9ad36a01fe9d3a0abefc0dea237dd5e7a84288bd36c62de0b54c7a33b425a7",
+  "binary": "/workspace/scratch/acd057031fb2/agents/artifact/uma-report-tools/uma-sim-api-candidate",
+  "buildArtifact": "/workspace/scratch/acd057031fb2/agents/artifact/uma-report-candidate-target/debug/uma-sim-api",
+  "sourceBaseCommit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "buildEnvironment": {
+    "CARGO_HOME": "/workspace/scratch/acd057031fb2/agents/artifact/cargo-home",
+    "CARGO_TARGET_DIR": "/workspace/scratch/acd057031fb2/agents/artifact/uma-report-candidate-target",
+    "RUSTC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustc"
+  },
+  "command": [
+    "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/cargo",
+    "build",
+    "--locked",
+    "--offline",
+    "--manifest-path",
+    "/workspace/scratch/acd057031fb2/agents/artifact/uma-report-candidate/Cargo.toml",
+    "-p",
+    "uma-sim-core",
+    "--bin",
+    "uma-sim-api"
+  ],
+  "completionToolResult": {
+    "chunk_id": "377208",
+    "wall_time_seconds": 0.000016164,
+    "exit_code": 0,
+    "original_token_count": 79,
+    "output": "   Compiling syn v3.0.4\n   Compiling regex-automata v0.4.18\n   Compiling serde_derive v1.0.229\n   Compiling regex v1.13.1\n   Compiling uma-race-core v0.1.0 (/workspace/scratch/acd057031fb2/agents/artifact/uma-report-candidate/uma-race-core)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 12.82s\n"
+  },
+  "logBoundary": "Completion output only; initial compilation output remains in the tool transcript."
+}

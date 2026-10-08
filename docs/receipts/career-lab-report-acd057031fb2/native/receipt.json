@@ -1,0 +1,110 @@
+{
+  "kind": "independent-native-report-review",
+  "reviewer": "production",
+  "date": "2026-10-08",
+  "repository": "Jacob-Met/uma-sim",
+  "baseline": {
+    "commit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+    "rendererPath": "uma-sim-core/src/career_lab.rs",
+    "rendererGitBlob": "6f726976b0bbe448c1dd4d7f8e6427dfd547e199",
+    "rendererSha256": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7"
+  },
+  "candidate": {
+    "origin": "/workspace/scratch/acd057031fb2/implementation/uma-report/uma-sim-core/src/career_lab.rs",
+    "rendererGitBlob": "cd0fbf11973da90a24c60c33f5b0fb59da541f4b",
+    "rendererSha256": "d214179b4389ccaf2b3ac0992c97364b86ea8a2ffac9762daa5086174ea1b7d4",
+    "existingTestSha256": "0006bf6b92c4a16985d7c6ba2f921410cc02e63c75d94a508bd30b13930d4c3e",
+    "pinMethod": "Origin hash before copy, destination hash and origin hash after copy were identical; destination renderer and test hashes were checked after execution.",
+    "sourceModifiedByReviewer": false
+  },
+  "tests": {
+    "path": "uma-sim-core/tests/career_lab_reports.rs",
+    "commits": [
+      "716df2cdb055cbdd38107266e0a7a8d200e808e9",
+      "7bdb5e76d545eba448b73e467cbcc738602761a8"
+    ],
+    "sha256": "db0e1ee820ec99b621b7e29516fb85503b7176fa9051fa427816247740903a91",
+    "count": 9,
+    "displayedStringLocations": 26,
+    "inlineCodeChangedInputCases": 65,
+    "dependenciesAdded": false,
+    "oracleRefinement": "Initial eight-test oracle applied prose decoding and raw-HTML checks inside literal code spans. Before any candidate execution, the reviewer added matched-code-span handling and 65 code-field input cases. Both the original and refined baseline receipts are retained. The final nine-test file was committed before candidate execution and was unchanged between the completed baseline and candidate runs.",
+    "limitation": "The bounded native table/inline helpers are not a full Markdown parser. Actual GFM and browser receiving is separately owned by artifact."
+  },
+  "nativeEnvironment": {
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+    "cargoHome": "/workspace/scratch/acd057031fb2/agents/production/uma-report-cargo-home",
+    "target": "/workspace/scratch/acd057031fb2/agents/production/uma-report-native-target",
+    "mode": "--locked --offline",
+    "command": "cargo test --locked --offline -p uma-sim-core --test career_lab_reports -- --test-threads=1"
+  },
+  "results": [
+    {
+      "name": "original eight-test baseline",
+      "passed": 4,
+      "failed": 4,
+      "exitCode": 101,
+      "log": "baseline-career-lab-reports.log",
+      "logSha256": "284dba8ec9fc5bbb445fdd30f8dcbadb0674cac0edc6ff85f6b9fa19afb08964"
+    },
+    {
+      "name": "refined baseline interrupted during compilation",
+      "testsExecuted": false,
+      "reason": "Shared tmpfs filled; compiler returned os error 28. Only this worker's cache and target were moved to its owned overlay directories, then the unchanged baseline was rebuilt successfully.",
+      "log": "baseline-career-lab-reports-v2.log",
+      "logSha256": "92de47128a3dab665e7ca5dd00adad87881b9259b50581802b437c69aed4bb53"
+    },
+    {
+      "name": "completed frozen nine-test baseline",
+      "passed": 4,
+      "failed": 5,
+      "exitCode": 101,
+      "log": "baseline-career-lab-reports-v2-completed.log",
+      "logSha256": "1dfb0f55ab4cc7710ec6523351a3a31cbf5a8b98c5fe241a78380f50b9754856"
+    },
+    {
+      "name": "candidate with unchanged frozen nine tests",
+      "passed": 9,
+      "failed": 0,
+      "exitCode": 0,
+      "log": "candidate-career-lab-reports.log",
+      "logSha256": "6a1c41c5e32399fbe4b0f95c668abed2c84c47b8594b29c087d87584ed453a5e"
+    },
+    {
+      "name": "candidate with existing career_lab suite",
+      "passed": 13,
+      "failed": 1,
+      "exitCode": 101,
+      "command": "cargo test --locked --offline -p uma-sim-core --test career_lab -- --test-threads=1",
+      "failure": "comparison_report_renders line 417 asserts the raw unescaped hyphenated heading. The candidate escapes hyphens without changing displayed text. Root was notified to update the source-format expectation before integration.",
+      "log": "candidate-existing-career-lab.log",
+      "logSha256": "d9e12635a57d175cedd77b16e421e8289e1c6d34543e8fb7281ba601631c7d2a"
+    },
+    {
+      "name": "candidate with root's localized existing-test compatibility update",
+      "passed": 14,
+      "failed": 0,
+      "exitCode": 0,
+      "command": "cargo test --locked --offline -p uma-sim-core --test career_lab -- --test-threads=1",
+      "change": "Root changed only the raw-heading expectation to the equivalent escaped Markdown source and added an explanatory comment. The reviewer copied the exact pinned file; renderer and new regression tests remained unchanged.",
+      "log": "candidate-existing-career-lab-updated.log",
+      "logSha256": "718431fdef8db9897e86e884b3a914a1b93bb14902f08ee533775151a9e9106e"
+    }
+  ],
+  "review": {
+    "productionDefectsFound": [],
+    "coverage": [
+      "All 26 displayed string locations route through their appropriate prose/table or inline-code serializer.",
+      "HTML entity order, Markdown punctuation, backslash parity, literal entities and Unicode preserve supplied text in the tested contexts.",
+      "CRLF emits one prose break; lone CR and LF cannot create document structure. Code-span line breaks normalize to spaces.",
+      "Code delimiter selection and padding preserve empty, all-space, significant-padding and mixed-backtick values.",
+      "All code-context fields are outside GFM tables, so raw pipes inside these spans cannot split table columns.",
+      "Numeric values, timeline meaning, missing cells, JSON and typed comparison input remain consistent with their data sources.",
+      "Diff stays within Markdown helpers and render_markdown; render_json and simulation behavior are unchanged."
+    ],
+    "verdict": "No production defect found in the pinned renderer. Nine new report tests and all fourteen existing career-lab tests pass. The original source-format compatibility failure is resolved by the pinned root-authored test update.",
+    "integrationGate": "Root must preserve reviewed source/test pins in its integration and perform its established exact-head gates. Artifact owns independent API/download/GFM/Chromium evidence."
+  },
+  "sharedWritesPerformed": false
+}

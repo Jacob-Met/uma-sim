@@ -1,0 +1,141 @@
+{
+  "schema": "uma-release-log-storage.v1",
+  "note": "Raw command output is retained byte-exact after gzip decompression, including terminal blank lines. Original native files and local step receipts are unchanged. Compression reduces the committed packet size.",
+  "files": [
+    {
+      "path": "local/release-resolution-offline.stderr.gz",
+      "compression": "gzip",
+      "storedBytes": 130,
+      "storedSha256": "8d14f5fa20ef649dc7058d77e4791b8b7863599079063f93859c65887bc73879",
+      "uncompressedName": "local/release-resolution-offline.stderr",
+      "uncompressedBytes": 127,
+      "uncompressedSha256": "639ff4d74f3cd71ddaaf17dbf5faca6e292aad22476a6e853a25d7266dbccadd"
+    },
+    {
+      "path": "local/release-resolution-offline.stdout.gz",
+      "compression": "gzip",
+      "storedBytes": 20,
+      "storedSha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressedName": "local/release-resolution-offline.stdout",
+      "uncompressedBytes": 0,
+      "uncompressedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local/strict-calibration.stderr.gz",
+      "compression": "gzip",
+      "storedBytes": 20,
+      "storedSha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressedName": "local/strict-calibration.stderr",
+      "uncompressedBytes": 0,
+      "uncompressedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local/strict-calibration.stdout.gz",
+      "compression": "gzip",
+      "storedBytes": 147,
+      "storedSha256": "f7367c534ed4fc95bfa08df53de4d8df152765ca060b44d0bf64933d6163529c",
+      "uncompressedName": "local/strict-calibration.stdout",
+      "uncompressedBytes": 238,
+      "uncompressedSha256": "31c8c6874a327220b2b0c0b42092b2109780b2f812d7e96cfd04e21233dc4856"
+    },
+    {
+      "path": "local/ui-build.stderr.gz",
+      "compression": "gzip",
+      "storedBytes": 101,
+      "storedSha256": "934a9d56e1b77b540f21becd97102d1b7088e8e2eba852118cfc29df5c6f4bb7",
+      "uncompressedName": "local/ui-build.stderr",
+      "uncompressedBytes": 99,
+      "uncompressedSha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f"
+    },
+    {
+      "path": "local/ui-build.stdout.gz",
+      "compression": "gzip",
+      "storedBytes": 256,
+      "storedSha256": "10b6672ecded7275dba4f0389c39373f9ce402a4eef6deb9389e04ea28240f0a",
+      "uncompressedName": "local/ui-build.stdout",
+      "uncompressedBytes": 379,
+      "uncompressedSha256": "1bea43d5c907c74cd6ec0b5e7c1e7791ecb7517ef403a45946fcb96f3c9af89b"
+    },
+    {
+      "path": "local/ui-typecheck.stderr.gz",
+      "compression": "gzip",
+      "storedBytes": 101,
+      "storedSha256": "934a9d56e1b77b540f21becd97102d1b7088e8e2eba852118cfc29df5c6f4bb7",
+      "uncompressedName": "local/ui-typecheck.stderr",
+      "uncompressedBytes": 99,
+      "uncompressedSha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f"
+    },
+    {
+      "path": "local/ui-typecheck.stdout.gz",
+      "compression": "gzip",
+      "storedBytes": 66,
+      "storedSha256": "3463d43cef1bbed4cb16747063285ad96fef0a25c9e361cc5103f6c5d1653d93",
+      "uncompressedName": "local/ui-typecheck.stdout",
+      "uncompressedBytes": 46,
+      "uncompressedSha256": "ba382cd035fd5e48f00d1e124a7a3ba53cdd163dd8b92442adeb5c0817b2c02f"
+    },
+    {
+      "path": "native/embedded-api.log.gz",
+      "compression": "gzip",
+      "storedBytes": 74,
+      "storedSha256": "812e8edc91aa02d1bc690bb7750417f154ae9b1a553fb6ea24f90711882b22c5",
+      "uncompressedName": "native/embedded-api.log",
+      "uncompressedBytes": 75,
+      "uncompressedSha256": "65366d8b26808716b991f2db2f9b609331176c69336545c550777d4f7e8d11bb"
+    },
+    {
+      "path": "native/locked-release-metadata.stderr.gz",
+      "compression": "gzip",
+      "storedBytes": 447,
+      "storedSha256": "54bf3786de4bcf636e6ae3b44b65bd8a60e752a1ee44a2b4c1d900fd7e9a5364",
+      "uncompressedName": "native/locked-release-metadata.stderr",
+      "uncompressedBytes": 1210,
+      "uncompressedSha256": "36e25d10cd6ac446ae70584569e756652a70f0446647cb2f400e1bb2e90ba3e1"
+    },
+    {
+      "path": "native/locked-release-metadata.stdout.gz",
+      "compression": "gzip",
+      "storedBytes": 15512,
+      "storedSha256": "82769af989de6a7f4e631c70ad52849021481ae464ef1303d24a37984470b3d2",
+      "uncompressedName": "native/locked-release-metadata.stdout",
+      "uncompressedBytes": 187705,
+      "uncompressedSha256": "b225dce717a440d8f355d4e3d3ac23fd2aaa62d88eff9eb65a0729d2a54d1df1"
+    },
+    {
+      "path": "native/release-build.stderr.gz",
+      "compression": "gzip",
+      "storedBytes": 538,
+      "storedSha256": "6c729910586a532f6d584de9cba26302afd00df2fc5a0eb43610898eeda3df1a",
+      "uncompressedName": "native/release-build.stderr",
+      "uncompressedBytes": 1438,
+      "uncompressedSha256": "46c47c27e56ca56d1e5e23ab7d97cabc05b616ff00954cd2f5ff6e96aefcf96e"
+    },
+    {
+      "path": "native/release-build.stdout.gz",
+      "compression": "gzip",
+      "storedBytes": 20,
+      "storedSha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressedName": "native/release-build.stdout",
+      "uncompressedBytes": 0,
+      "uncompressedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native/staged-release-layout.stderr.gz",
+      "compression": "gzip",
+      "storedBytes": 20,
+      "storedSha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressedName": "native/staged-release-layout.stderr",
+      "uncompressedBytes": 0,
+      "uncompressedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native/staged-release-layout.stdout.gz",
+      "compression": "gzip",
+      "storedBytes": 295,
+      "storedSha256": "2597fe711a89cfdfd76ca85c62e8fc98d5ee298b5a8ecd239de81fd190d4aeba",
+      "uncompressedName": "native/staged-release-layout.stdout",
+      "uncompressedBytes": 595,
+      "uncompressedSha256": "ebc50096ab5a7a53b54b0d03af3ea18f81b0c6eec398bb603c65945400a3c28c"
+    }
+  ]
+}

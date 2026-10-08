@@ -1,0 +1,16 @@
+diff --git a/uma-sim-core/src/career_lab.rs b/uma-sim-core/src/career_lab.rs
+index 6f72697..5f8fa90 100644
+--- a/uma-sim-core/src/career_lab.rs
++++ b/uma-sim-core/src/career_lab.rs
+@@ -1074,9 +1074,9 @@ pub fn compare_branches(a: &LabResult, b: &LabResult) -> BranchComparison {
+                     note: format!(
+                         "Branch {side} ended after {} steps while the other continued.",
+                         if side == "A" {
+-                            b.timeline.len()
+-                        } else {
+                             a.timeline.len()
++                        } else {
++                            b.timeline.len()
+                         }
+                     ),
+                 });

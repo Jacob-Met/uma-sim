@@ -1,0 +1,91 @@
+{
+  "schema": "uma-sim-renderer-json-equivalence-v1",
+  "sourceBefore": {
+    "Cargo.toml": "818161c35c9828641c370cc3c6b50dfb1e8e4417210bd8fa486e87234e40b1d8",
+    "Cargo.lock": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+    "uma-sim-core/Cargo.toml": "4f2415320bc4548fa59ad6c115ad05a8adcad59a2b50349cf44d78d52d12c5e0",
+    "uma-sim-core/src/career_lab.rs": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7",
+    "uma-sim-core/src/api.rs": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+    "uma-sim-core/src/bin/uma-sim-api.rs": "0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873"
+  },
+  "sourceAfter": {
+    "Cargo.toml": "818161c35c9828641c370cc3c6b50dfb1e8e4417210bd8fa486e87234e40b1d8",
+    "Cargo.lock": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+    "uma-sim-core/Cargo.toml": "4f2415320bc4548fa59ad6c115ad05a8adcad59a2b50349cf44d78d52d12c5e0",
+    "uma-sim-core/src/career_lab.rs": "d214179b4389ccaf2b3ac0992c97364b86ea8a2ffac9762daa5086174ea1b7d4",
+    "uma-sim-core/src/api.rs": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+    "uma-sim-core/src/bin/uma-sim-api.rs": "0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873"
+  },
+  "excludedOnly": [
+    "aId",
+    "bId",
+    "comparedAt"
+  ],
+  "reason": "Each native run creates fresh opaque branch IDs and a comparison timestamp. Each receiving run separately checks those exact IDs against its API-created branches. Every other JSON field, including original names, checkpoint, timeline, outcomes and caveats, must remain deeply equal.",
+  "cases": [
+    {
+      "case": "ordinary_names",
+      "equal": true,
+      "beforeDownloadSha256": "e8724cfa69405f0b8326449e7f589c1ccc5c6d5f2f41153b4854567a1f94e7b5",
+      "afterDownloadSha256": "dc4419e491915b9b4c36dca785e2f62cdc8045e26195a0e76704b7b481cc8716",
+      "canonicalMeaningSha256": "e1f4b802379df55660e800fa07400eb9342c34bcb203a62669c2334c183525c4"
+    },
+    {
+      "case": "pipe",
+      "equal": true,
+      "beforeDownloadSha256": "4609d311e2237ade3b292e5b6903899d229b51d364a212ebbeee3dab07b53835",
+      "afterDownloadSha256": "a19b103f4c678e76f47fae95dba457daf7d9c09ca85b12ae51ed8d6abe9e787b",
+      "canonicalMeaningSha256": "d9bda7fef555cf1ff9ef54b93455f9b05604b5a9eb699dc33844712ac540cfc2"
+    },
+    {
+      "case": "markdown",
+      "equal": true,
+      "beforeDownloadSha256": "f04ee85724e700f438166787470a7c8b39be6c93768f0659b4ce296c0754ed9a",
+      "afterDownloadSha256": "2226283046a4d9c8e8026b89b5c8e59e4f833ea8c88272779b4b1c1ef66cd761",
+      "canonicalMeaningSha256": "8dd219be818d6a15a03b44d14620b2e34e78fd0cfb44108b8589d1416be52d22"
+    },
+    {
+      "case": "html",
+      "equal": true,
+      "beforeDownloadSha256": "037a66dad0d42d8eed8929755b624057473dfd5043a2adf071ef34a8ad85705c",
+      "afterDownloadSha256": "4a7cbea5a242ca0b0f29a8ce1b90648c5a59a1ab7de5d967f7a00c3e04f310fa",
+      "canonicalMeaningSha256": "0ab58aebbc0efc0848f4175c51b1d33891315e6e96ca9e833718d462e1407492"
+    },
+    {
+      "case": "line_breaks",
+      "equal": true,
+      "beforeDownloadSha256": "b2970fbe00e7af71f2e210290a2cf691dcc506983bf3a803553c807c8324cecf",
+      "afterDownloadSha256": "e8e55fb330e69615e33de2ccca7f1924f6031d58c9f6c58d67c06a460c19abdc",
+      "canonicalMeaningSha256": "ca2ef7faacfe1465d29fb9bdb6812dee2dd691c1901d517f943f8a5631891bc9"
+    },
+    {
+      "case": "backslash_pipe_backticks",
+      "equal": true,
+      "beforeDownloadSha256": "e80432c588be2d8e4b17a8d01838ff4ced1df49e23413171a230676469695cb4",
+      "afterDownloadSha256": "35bb05897e8812eaba2f82e74291368561b6d8e5aefc882bcfe478adfaba857f",
+      "canonicalMeaningSha256": "01e8a43bcc87681036d457dd8f62804c1def46c43d3eda8c7dbf648785e84199"
+    },
+    {
+      "case": "unicode",
+      "equal": true,
+      "beforeDownloadSha256": "d2f806f11dbf0aa0a046858710d25ffa9615ab6222d61e917760ed3284aa7350",
+      "afterDownloadSha256": "f034570d0b0d8e962420a45c1ce6e0c60e6a075ab047b22dd6bf092e3a36c08f",
+      "canonicalMeaningSha256": "78d86e1ad74c0973c46a7e2196049574d4ba257419925fbd21b0184dff013022"
+    },
+    {
+      "case": "literal_entities",
+      "equal": true,
+      "beforeDownloadSha256": "b142e8e85517fbfdd13799f139b3421834ace3e954deeeb71d925f87dc588054",
+      "afterDownloadSha256": "1193af7b0de0cb94b07926535031fb982ecac3ef939233d3f69e8ab434f6313b",
+      "canonicalMeaningSha256": "f6db1637f9ce34ca8cd777ffbb3617850963940c969a3dc9c2eaba74106fab11"
+    },
+    {
+      "case": "authored_persisted_fields",
+      "equal": true,
+      "beforeDownloadSha256": "c2eaea50e8e8a9a32455ad25f176c4ee7c2d6ea0332a4d5991909012c4aeac02",
+      "afterDownloadSha256": "1bea6c609795f6513af9858038c6c0d4e4a06f486c468da13be98f876bf85dae",
+      "canonicalMeaningSha256": "1264aa80d899d8b99ef8d529dfce3c0c019bf39f4ec46c61c01d4f3fcee8e03a"
+    }
+  ],
+  "accepted": true
+}

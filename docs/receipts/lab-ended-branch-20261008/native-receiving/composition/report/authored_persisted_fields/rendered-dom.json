@@ -1,0 +1,134 @@
+{
+  "headings": [
+    "Branch comparison: Authored metadata A vs Authored metadata B"
+  ],
+  "sectionHeadings": [
+    "First divergence",
+    "Timeline (per step)",
+    "Final outcomes",
+    "Caveats"
+  ],
+  "tables": [
+    {
+      "headers": [
+        [
+          "step",
+          "turn",
+          "A action",
+          "B action",
+          "Δ",
+          "energy A→B",
+          "fans A→B",
+          "SP A→B"
+        ]
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "A | **literal** `draft` <br> &amp;\nnext",
+          "B \\| _label_ <em>text</em>\nlast",
+          "≠ act",
+          "100→100",
+          "1033→1033",
+          "45→45"
+        ],
+        [
+          "1",
+          "2",
+          "Train Speed",
+          "Train Speed",
+          "",
+          "65→65",
+          "1033→1033",
+          "45→45"
+        ]
+      ]
+    },
+    {
+      "headers": [
+        [
+          "",
+          "A",
+          "B"
+        ]
+      ],
+      "rows": [
+        [
+          "Branch",
+          "Authored metadata A",
+          "Authored metadata B"
+        ],
+        [
+          "Steps",
+          "2",
+          "2"
+        ],
+        [
+          "Career complete",
+          "false",
+          "false"
+        ],
+        [
+          "Final turn",
+          "3",
+          "3"
+        ],
+        [
+          "Stats",
+          "Spd 83 / Sta 88 / Pow 98 / Gut 90 / Wit 91",
+          "Spd 83 / Sta 88 / Pow 98 / Gut 90 / Wit 91"
+        ],
+        [
+          "Energy / mood",
+          "65 / GOOD | *literal* <br>\nnext",
+          "65 / B | &amp; _mood_\nstep"
+        ],
+        [
+          "Fans",
+          "1033",
+          "1033"
+        ],
+        [
+          "Skill points",
+          "45",
+          "45"
+        ],
+        [
+          "Races",
+          "2 (race | <tag>, literal `race`\nnew)",
+          "2 (race | <tag>, literal `race`\nnew)"
+        ],
+        [
+          "Skills learned",
+          "2: skill **x** | &amp;, second `slot`",
+          "2: skill **x** | &amp;, second `slot`"
+        ],
+        [
+          "Sparks",
+          "red | <b>tone</b>★3 spark _star_ `tick`\nline",
+          "red | <b>tone</b>★3 spark _star_ `tick`\nline"
+        ],
+        [
+          "RNG calls",
+          "11",
+          "11"
+        ]
+      ]
+    }
+  ],
+  "codeSpans": [
+    "cp` `long``fence``` <tag> &amp; | marker next",
+    "`phase` <em> &amp; | x Y",
+    "decision",
+    "`a``` | &amp; <tag> \\ path next`",
+    "b`` ` &raw; | finish"
+  ],
+  "divergenceItems": [
+    "Step 0 · turn 1 (Date [anchor](#target) | <i>tag</i>\nsecond) · phase `phase` <em> &amp; | x Y · kind decision",
+    "A: `a``` | &amp; <tag> \\ path next` — A | **literal** `draft` <br> &amp;\nnext",
+    "B: b`` ` &raw; | finish — B \\| _label_ <em>text</em>\nlast",
+    "A chose 'A | **literal** `draft` <br> &amp;\nnext' while B chose 'B \\| _label_ <em>text</em>\nlast' on turn 1 (Date [anchor](#target) | <i>tag</i>\nsecond). RNG positions after the step: A=4 calls, B=4 calls."
+  ],
+  "mainText": "Branch comparison: Authored metadata A vs Authored metadata B\nCheckpoint: cp` `long``fence``` <tag> &amp; | marker next (seed 4242, turn 1)\nSame checkpoint: true\nCompared at: 2026-10-08T09:05:44Z\nFirst divergence\nStep 0 · turn 1 (Date [anchor](#target) | <i>tag</i>\nsecond) · phase `phase` <em> &amp; | x Y · kind decision\nA: `a``` | &amp; <tag> \\ path next` — A | **literal** `draft` <br> &amp;\nnext\nB: b`` ` &raw; | finish — B \\| _label_ <em>text</em>\nlast\nA chose 'A | **literal** `draft` <br> &amp;\nnext' while B chose 'B \\| _label_ <em>text</em>\nlast' on turn 1 (Date [anchor](#target) | <i>tag</i>\nsecond). RNG positions after the step: A=4 calls, B=4 calls.\nTimeline (per step)\nstep\tturn\tA action\tB action\tΔ\tenergy A→B\tfans A→B\tSP A→B\n0\t1\tA | **literal** `draft` <br> &amp;\nnext\tB \\| _label_ <em>text</em>\nlast\t≠ act\t100→100\t1033→1033\t45→45\n1\t2\tTrain Speed\tTrain Speed\t\t65→65\t1033→1033\t45→45\nFinal outcomes\n\tA\tB\nBranch\tAuthored metadata A\tAuthored metadata B\nSteps\t2\t2\nCareer complete\tfalse\tfalse\nFinal turn\t3\t3\nStats\tSpd 83 / Sta 88 / Pow 98 / Gut 90 / Wit 91\tSpd 83 / Sta 88 / Pow 98 / Gut 90 / Wit 91\nEnergy / mood\t65 / GOOD | *literal* <br>\nnext\t65 / B | &amp; _mood_\nstep\nFans\t1033\t1033\nSkill points\t45\t45\nRaces\t2 (race | <tag>, literal `race`\nnew)\t2 (race | <tag>, literal `race`\nnew)\nSkills learned\t2: skill **x** | &amp;, second `slot`\t2: skill **x** | &amp;, second `slot`\nSparks\tred | <b>tone</b>★3 spark _star_ `tick`\nline\tred | <b>tone</b>★3 spark _star_ `tick`\nline\nRNG calls\t11\t11\nCaveats\nBoth branches share the checkpoint's seed and RNG position, but RNG streams diverge the moment actions differ; later randomness is NOT matched between branches.\nThis comparison describes observed divergence only. It does not establish that one branch's decisions caused its outcome, nor that either branch is superior.\nAction overrides that were not legal on their turn were rejected and fell back to the branch policy (flagged per step as overrideRejected).\n\nGenerated by uma-sim career lab."
+}

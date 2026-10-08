@@ -1,0 +1,125 @@
+{
+  "id": "html",
+  "submittedNames": [
+    "Pace <em>fast</em> & <br> recover",
+    "Control > baseline"
+  ],
+  "inputBoundary": "Actual API branch creation; no persisted input changes.",
+  "checks": [
+    {
+      "name": "API admits each intended name without changing internal data",
+      "passed": true
+    },
+    {
+      "name": "markdown browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "json browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "Downloaded JSON preserves ordered branch IDs and original names",
+      "passed": true
+    },
+    {
+      "name": "Rendered heading retains each name as literal data",
+      "passed": true
+    },
+    {
+      "name": "Embedded name data cannot split sections or tables",
+      "passed": true
+    },
+    {
+      "name": "Rendered final Branch row preserves ordered original cell text",
+      "passed": true
+    },
+    {
+      "name": "Rendered numeric and deterministic outcome cells match downloaded JSON",
+      "passed": true
+    },
+    {
+      "name": "markdown observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:45281/v1/lab/report?a=br-1791449522-0006&b=br-1791449522-0007&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791449522-0006-vs-br-1791449522-0007.md\"",
+          "content-length": "1751",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 08:52:02 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "name": "json observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:45281/v1/lab/report?a=br-1791449522-0006&b=br-1791449522-0007&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791449522-0006-vs-br-1791449522-0007.json\"",
+          "content-length": "2743",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 08:52:02 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "downloads": [
+    {
+      "format": "markdown",
+      "url": "http://127.0.0.1:45281/v1/lab/report?a=br-1791449522-0006&b=br-1791449522-0007&format=markdown",
+      "suggestedFilename": "branch-compare-br-1791449522-0006-vs-br-1791449522-0007.md",
+      "failure": null,
+      "bytes": 1751,
+      "sha256": "085b6d9e9788ef9d4fb20ca3da1809e1f2629b35d7f55f710b7209269bd2f36a",
+      "response": {
+        "url": "http://127.0.0.1:45281/v1/lab/report?a=br-1791449522-0006&b=br-1791449522-0007&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791449522-0006-vs-br-1791449522-0007.md\"",
+          "content-length": "1751",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 08:52:02 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "format": "json",
+      "url": "http://127.0.0.1:45281/v1/lab/report?a=br-1791449522-0006&b=br-1791449522-0007&format=json",
+      "suggestedFilename": "branch-compare-br-1791449522-0006-vs-br-1791449522-0007.json",
+      "failure": null,
+      "bytes": 2743,
+      "sha256": "4a7cbea5a242ca0b0f29a8ce1b90648c5a59a1ab7de5d967f7a00c3e04f310fa",
+      "response": {
+        "url": "http://127.0.0.1:45281/v1/lab/report?a=br-1791449522-0006&b=br-1791449522-0007&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791449522-0006-vs-br-1791449522-0007.json\"",
+          "content-length": "2743",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 08:52:02 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "branchIds": [
+    "br-1791449522-0006",
+    "br-1791449522-0007"
+  ],
+  "admittedNames": [
+    "Pace <em>fast</em> & <br> recover",
+    "Control > baseline"
+  ],
+  "passed": true
+}

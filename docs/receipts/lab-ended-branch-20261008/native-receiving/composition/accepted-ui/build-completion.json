@@ -1,0 +1,24 @@
+{
+  "schema": "uma-sim-ui-build-completion-v1",
+  "commit": "1cf2fc6e5e82aefa9d940c8a873c17fc97f9a875",
+  "command": "npm run build",
+  "source": "Immutable committed PR65 source copied to an isolated detached checkout; no active worker changes copied.",
+  "dependencies": {
+    "source": "Read-only copy of producer's installed dependencies into an owned temporary node_modules directory.",
+    "lockedVersions": "Every applicable lockfile dependency present at the required version; playwright/playwright-core provided separately by the explicit receiving runtime, and nonmatching platform packages excluded.",
+    "installOrNetwork": false
+  },
+  "initialAttempt": {
+    "exitCode": 1,
+    "error": "ERR_MODULE_NOT_FOUND: Cannot find package 'rollup' imported from temporary vite/dist/node/index.js",
+    "cause": "The copied node_modules directory had a nonstandard basename, so Node's realpath-based dependency resolution did not find sibling packages.",
+    "correction": "Move the unchanged copied dependencies under a directory named node_modules and repoint only the isolated UI dependency link; no source or dependency version change."
+  },
+  "completion": {
+    "chunk_id": "06bfeb",
+    "wall_time_seconds": 3.024959406,
+    "exit_code": 0,
+    "original_token_count": 120,
+    "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> uma-sim-ui@0.1.0 build\n> tsc -b && vite build\n\nvite v5.4.21 building for production...\ntransforming...\n✓ 52 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.39 kB │ gzip:  0.26 kB\ndist/assets/index-C8rte7ax.css    8.25 kB │ gzip:  2.26 kB\ndist/assets/index-X8h0Ki6P.js   192.20 kB │ gzip: 59.24 kB\n✓ built in 853ms\n"
+  }
+}

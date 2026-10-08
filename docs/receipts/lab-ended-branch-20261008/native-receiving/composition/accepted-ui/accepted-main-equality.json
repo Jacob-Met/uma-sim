@@ -1,0 +1,284 @@
+{
+  "schema": "uma-sim-accepted-main-source-equality-v1",
+  "acceptedMain": "0ac14602addd1a4610aa8359896915a34cce5659",
+  "acceptedMainTree": "e7d10088a713d8fbd7391c86050a92898652bdd6",
+  "testedPr65Commit": "1cf2fc6e5e82aefa9d940c8a873c17fc97f9a875",
+  "testedPr65Tree": "e7d10088a713d8fbd7391c86050a92898652bdd6",
+  "entireCommittedTreesEqual": true,
+  "integrationBase": "f6bbea9f1480a1ed6db2a7b5f974743e94bc2e2f",
+  "integrationBaseTree": "253bc986f9b78bcb03beb0f589f964ca61712d11",
+  "trackedUiFiles": 32,
+  "files": [
+    {
+      "path": "packages/uma-sim-ui/README.md",
+      "pr65CommittedSha256": "3d06e0e57b0de97eec236e3c614788cbf8ede9087839db859793714b982c7c23",
+      "acceptedMainSha256": "3d06e0e57b0de97eec236e3c614788cbf8ede9087839db859793714b982c7c23",
+      "integrationBaseSha256": "3d06e0e57b0de97eec236e3c614788cbf8ede9087839db859793714b982c7c23",
+      "postBuildSha256": "3d06e0e57b0de97eec236e3c614788cbf8ede9087839db859793714b982c7c23",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/index.html",
+      "pr65CommittedSha256": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10",
+      "acceptedMainSha256": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10",
+      "integrationBaseSha256": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10",
+      "postBuildSha256": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/package-lock.json",
+      "pr65CommittedSha256": "f85a99235d60510170cc7152c98451235c231c794d69106cfeec4088c634cfce",
+      "acceptedMainSha256": "f85a99235d60510170cc7152c98451235c231c794d69106cfeec4088c634cfce",
+      "integrationBaseSha256": "f85a99235d60510170cc7152c98451235c231c794d69106cfeec4088c634cfce",
+      "postBuildSha256": "f85a99235d60510170cc7152c98451235c231c794d69106cfeec4088c634cfce",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "pr65CommittedSha256": "1654c82c8d6e6cc5444eb3b41adb1af9e05b3f41da2d8062085e044117733efb",
+      "acceptedMainSha256": "1654c82c8d6e6cc5444eb3b41adb1af9e05b3f41da2d8062085e044117733efb",
+      "integrationBaseSha256": "1654c82c8d6e6cc5444eb3b41adb1af9e05b3f41da2d8062085e044117733efb",
+      "postBuildSha256": "1654c82c8d6e6cc5444eb3b41adb1af9e05b3f41da2d8062085e044117733efb",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "pr65CommittedSha256": "13cef9b422c7fea38a041994a10a8b2b1e6eb475ca824c14edc83352c6d94fee",
+      "acceptedMainSha256": "13cef9b422c7fea38a041994a10a8b2b1e6eb475ca824c14edc83352c6d94fee",
+      "integrationBaseSha256": "13cef9b422c7fea38a041994a10a8b2b1e6eb475ca824c14edc83352c6d94fee",
+      "postBuildSha256": "13cef9b422c7fea38a041994a10a8b2b1e6eb475ca824c14edc83352c6d94fee",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "pr65CommittedSha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee",
+      "acceptedMainSha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee",
+      "integrationBaseSha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee",
+      "postBuildSha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/types.ts",
+      "pr65CommittedSha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92",
+      "acceptedMainSha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92",
+      "integrationBaseSha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92",
+      "postBuildSha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/AptitudePanel.tsx",
+      "pr65CommittedSha256": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce",
+      "acceptedMainSha256": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce",
+      "integrationBaseSha256": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce",
+      "postBuildSha256": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/CareerSummary.tsx",
+      "pr65CommittedSha256": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29",
+      "acceptedMainSha256": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29",
+      "integrationBaseSha256": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29",
+      "postBuildSha256": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/ChoicePanel.tsx",
+      "pr65CommittedSha256": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5",
+      "acceptedMainSha256": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5",
+      "integrationBaseSha256": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5",
+      "postBuildSha256": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/ComparePanel.tsx",
+      "pr65CommittedSha256": "5d1497dd64f0e43fb751bd9d2f1e46d94f2842da8a90421d78a56d669fdc853a",
+      "acceptedMainSha256": "5d1497dd64f0e43fb751bd9d2f1e46d94f2842da8a90421d78a56d669fdc853a",
+      "integrationBaseSha256": "5d1497dd64f0e43fb751bd9d2f1e46d94f2842da8a90421d78a56d669fdc853a",
+      "postBuildSha256": "5d1497dd64f0e43fb751bd9d2f1e46d94f2842da8a90421d78a56d669fdc853a",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/ControlsBar.tsx",
+      "pr65CommittedSha256": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc",
+      "acceptedMainSha256": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc",
+      "integrationBaseSha256": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc",
+      "postBuildSha256": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/DeckPanel.tsx",
+      "pr65CommittedSha256": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0",
+      "acceptedMainSha256": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0",
+      "integrationBaseSha256": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0",
+      "postBuildSha256": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/EventDialog.tsx",
+      "pr65CommittedSha256": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831",
+      "acceptedMainSha256": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831",
+      "integrationBaseSha256": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831",
+      "postBuildSha256": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/GrandLivePanel.tsx",
+      "pr65CommittedSha256": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd",
+      "acceptedMainSha256": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd",
+      "integrationBaseSha256": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd",
+      "postBuildSha256": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LabTab.tsx",
+      "pr65CommittedSha256": "57e516b21aead62db05fb8574cbfecd4461894efe7290c9a333429af6d030f53",
+      "acceptedMainSha256": "57e516b21aead62db05fb8574cbfecd4461894efe7290c9a333429af6d030f53",
+      "integrationBaseSha256": "57e516b21aead62db05fb8574cbfecd4461894efe7290c9a333429af6d030f53",
+      "postBuildSha256": "57e516b21aead62db05fb8574cbfecd4461894efe7290c9a333429af6d030f53",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LegacyPanel.tsx",
+      "pr65CommittedSha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3",
+      "acceptedMainSha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3",
+      "integrationBaseSha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3",
+      "postBuildSha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LibraryPanel.tsx",
+      "pr65CommittedSha256": "447d79389bbcbebdc78e04188614f9ffe3f06681b8f3160d7d5b1c8d75db5684",
+      "acceptedMainSha256": "447d79389bbcbebdc78e04188614f9ffe3f06681b8f3160d7d5b1c8d75db5684",
+      "integrationBaseSha256": "447d79389bbcbebdc78e04188614f9ffe3f06681b8f3160d7d5b1c8d75db5684",
+      "postBuildSha256": "447d79389bbcbebdc78e04188614f9ffe3f06681b8f3160d7d5b1c8d75db5684",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LogPanel.tsx",
+      "pr65CommittedSha256": "9cbe26c6f648b07d5be61520fd257f6fdfcae35bd585063d66d2d43b85e633a1",
+      "acceptedMainSha256": "9cbe26c6f648b07d5be61520fd257f6fdfcae35bd585063d66d2d43b85e633a1",
+      "integrationBaseSha256": "9cbe26c6f648b07d5be61520fd257f6fdfcae35bd585063d66d2d43b85e633a1",
+      "postBuildSha256": "9cbe26c6f648b07d5be61520fd257f6fdfcae35bd585063d66d2d43b85e633a1",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/RacePanel.tsx",
+      "pr65CommittedSha256": "b8f4a6db8e1c8927a8a09d3955f0cd2c5ac8cd4f4ebb3cdd034754a40ef1a2a1",
+      "acceptedMainSha256": "b8f4a6db8e1c8927a8a09d3955f0cd2c5ac8cd4f4ebb3cdd034754a40ef1a2a1",
+      "integrationBaseSha256": "b8f4a6db8e1c8927a8a09d3955f0cd2c5ac8cd4f4ebb3cdd034754a40ef1a2a1",
+      "postBuildSha256": "b8f4a6db8e1c8927a8a09d3955f0cd2c5ac8cd4f4ebb3cdd034754a40ef1a2a1",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/RunSetup.tsx",
+      "pr65CommittedSha256": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d",
+      "acceptedMainSha256": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d",
+      "integrationBaseSha256": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d",
+      "postBuildSha256": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/SessionPanel.tsx",
+      "pr65CommittedSha256": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb",
+      "acceptedMainSha256": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb",
+      "integrationBaseSha256": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb",
+      "postBuildSha256": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/StatsPanel.tsx",
+      "pr65CommittedSha256": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a",
+      "acceptedMainSha256": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a",
+      "integrationBaseSha256": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a",
+      "postBuildSha256": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/legacyPreview.ts",
+      "pr65CommittedSha256": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a",
+      "acceptedMainSha256": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a",
+      "integrationBaseSha256": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a",
+      "postBuildSha256": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/main.tsx",
+      "pr65CommittedSha256": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981",
+      "acceptedMainSha256": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981",
+      "integrationBaseSha256": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981",
+      "postBuildSha256": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "pr65CommittedSha256": "aeccd1b983ff988f185b2bc5ce1cfffcbf1f9d7020929fce4e6117b0e21a926a",
+      "acceptedMainSha256": "aeccd1b983ff988f185b2bc5ce1cfffcbf1f9d7020929fce4e6117b0e21a926a",
+      "integrationBaseSha256": "aeccd1b983ff988f185b2bc5ce1cfffcbf1f9d7020929fce4e6117b0e21a926a",
+      "postBuildSha256": "aeccd1b983ff988f185b2bc5ce1cfffcbf1f9d7020929fce4e6117b0e21a926a",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/runStore.ts",
+      "pr65CommittedSha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922",
+      "acceptedMainSha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922",
+      "integrationBaseSha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922",
+      "postBuildSha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/styles/app.css",
+      "pr65CommittedSha256": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd",
+      "acceptedMainSha256": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd",
+      "integrationBaseSha256": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd",
+      "postBuildSha256": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/lab-comparison.browser.mjs",
+      "pr65CommittedSha256": "d407593eab32880015c2b33be28e86db209618b4307c02744e52afc643ba028a",
+      "acceptedMainSha256": "d407593eab32880015c2b33be28e86db209618b4307c02744e52afc643ba028a",
+      "integrationBaseSha256": "d407593eab32880015c2b33be28e86db209618b4307c02744e52afc643ba028a",
+      "postBuildSha256": "d407593eab32880015c2b33be28e86db209618b4307c02744e52afc643ba028a",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/tsconfig.json",
+      "pr65CommittedSha256": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a",
+      "acceptedMainSha256": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a",
+      "integrationBaseSha256": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a",
+      "postBuildSha256": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/tsconfig.tsbuildinfo",
+      "pr65CommittedSha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+      "acceptedMainSha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+      "integrationBaseSha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+      "postBuildSha256": "068c8132c5f1f5aad9c06e6ed7c5783c7f903fe0dd2873e0451f093111d9ec9e",
+      "committedFilesEqual": true
+    },
+    {
+      "path": "packages/uma-sim-ui/vite.config.ts",
+      "pr65CommittedSha256": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd",
+      "acceptedMainSha256": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd",
+      "integrationBaseSha256": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd",
+      "postBuildSha256": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd",
+      "committedFilesEqual": true
+    }
+  ],
+  "buildGeneratedTrackedChanges": [
+    {
+      "path": "packages/uma-sim-ui/tsconfig.tsbuildinfo",
+      "committedSha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+      "postBuildSha256": "068c8132c5f1f5aad9c06e6ed7c5783c7f903fe0dd2873e0451f093111d9ec9e",
+      "reason": "tsc -b regenerated its tracked incremental compilation cache; no runtime source or configuration edit."
+    }
+  ],
+  "nativeEqualsReceivedComposition": {
+    "uma-sim-core/src/career_lab.rs": "49d68441482fa907364292bb25b43fc06be6e95b13937cbbba898a393f4e4935",
+    "uma-sim-core/src/api.rs": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+    "Cargo.lock": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c"
+  },
+  "receiverMeaning": "All 32 committed UI files and the complete committed PR65/main trees are identical. The receiving build rewrote only tsconfig.tsbuildinfo. All 31 remaining UI files including runtime source, configuration and lockfiles match accepted main exactly. The recorded nine-case workflow and six-check adversarial report receiving qualify this accepted UI with the pinned native composition.",
+  "laterTestOnlyChange": "The final receiving commit updates the existing PR65 browser test Markdown oracle and current verification CLI dispatch. These do not change runtime UI inputs or the built artifact."
+}
