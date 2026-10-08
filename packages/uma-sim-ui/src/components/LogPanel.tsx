@@ -1,5 +1,6 @@
 import { useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { historyChange, searchLog } from "./logView";
+import { LogDownload } from "./LogDownload";
 import "./logPanel.css";
 
 interface Props {
@@ -121,6 +122,7 @@ export function LogPanel({ lines, history }: Props) {
           <p>No retained entries match “{query}”.</p>
         )}
       </div>
+      <LogDownload history={history} />
       <details className="career-log-summary">
         <summary>Current state summary</summary>
         <pre>{lines.length ? lines.join("\n") : "No current state summary."}</pre>
