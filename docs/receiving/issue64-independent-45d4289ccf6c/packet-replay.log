@@ -1,0 +1,37 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> uma-issue64-independent-receiving@0.0.0 test
+> node --test tests/override-form-receiving.test.mjs tests/comparison-result.test.mjs
+
+✔ changing radios retains exports for the displayed A/B result (39.08722ms)
+✔ deleting compared A clears its result after that radio changes (10.318587ms)
+✔ deleting compared B clears its result after that radio changes (6.238171ms)
+✔ deleting selected C retains the unrelated displayed A/B comparison (6.712145ms)
+✔ a successful fresh A/C comparison updates display and both exports (7.305677ms)
+✔ a delayed compare response cannot restore a successfully deleted branch (4.702702ms)
+✔ confirmed deletion invalidates its comparison even when branch reload fails (8.213963ms)
+✔ a refused deletion retains the displayed result, selections, and branch list (6.741228ms)
+✔ deleting unrelated C does not cancel a pending A/B comparison (4.152866ms)
+✔ an older successful comparison cannot replace a newer completed result (3.702799ms)
+✔ a pending A/B result preserves the newer A/C radio draft for the next comparison (4.252866ms)
+✔ override form rejects mixed malformed line before creating any branch (25.065794ms)
+✔ override form rejects missing turn before creating any branch (4.123101ms)
+✔ override form rejects fractional turn before creating any branch (2.907072ms)
+✔ override form rejects turn above signed i32 maximum before creating any branch (2.548482ms)
+✔ override form rejects turn that would narrow to zero before creating any branch (2.167499ms)
+✔ override form rejects empty action before creating any branch (3.593169ms)
+✔ override form rejects negative turn before creating any branch (1.838205ms)
+✔ override form rejects nonnumeric turn before creating any branch (1.450682ms)
+✔ override form rejects all errors retain original blank-line numbering before creating any branch (1.843863ms)
+✔ override form preserves blank optional overrides (3.094925ms)
+✔ override form preserves ordinary authored order and whitespace (2.863617ms)
+✔ override form preserves zero, signed-i32 boundary, action colons and unknown choices (2.414121ms)
+✔ correcting a malformed override enables exactly one complete branch request (2.797287ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 839.185764

@@ -1,0 +1,160 @@
+{
+  "reviewer": "estate-45d4289ccf6c/production_recovery",
+  "observedAt": "2026-10-08T09:19:24.032Z",
+  "repository": "Jacob-Met/uma-sim",
+  "owner": "estate-7e7ad6f8e5bd; issue64",
+  "disposition": "Accepted exact existing owner parser/form source within independently qualified component/request scope; retain its implementation ownership and authorship",
+  "ownershipFinding": "Fresh issue search found #64 before any production edit or competing claim. Existing source already implements the requested product behavior. Work changed to independent receiving.",
+  "baseline": {
+    "commit": "0ac14602addd1a4610aa8359896915a34cce5659",
+    "tree": "e7d10088a713d8fbd7391c86050a92898652bdd6",
+    "uiSourceLeavesMatchedToGitTree": 24
+  },
+  "candidateFiles": [
+    {
+      "path": "packages/uma-sim-ui/src/components/ComparePanel.tsx",
+      "bytes": 12110,
+      "sha256": "ca3c3814b76f57bc84a2b1079e2835fcd8913b5cdd97165e7cfceb429dbf74f9",
+      "gitBlob": "763a333c683538271a5af2c56ff4caaf2b4a290d",
+      "origin": "/workspace/scratch/7e7ad6f8e5bd/production/uma-sim/packages/uma-sim-ui/src/components/ComparePanel.tsx"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/branchInput.ts",
+      "bytes": 2285,
+      "sha256": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d",
+      "gitBlob": "4f803d0899a5d8a2e8f37e1cf3cfddf6ba254f46",
+      "origin": "/workspace/scratch/7e7ad6f8e5bd/production/uma-sim/packages/uma-sim-ui/src/components/branchInput.ts"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "bytes": 8003,
+      "sha256": "ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b",
+      "gitBlob": "6cc39e49150ab6774cb78aac1b89676b704418f8",
+      "origin": "/workspace/scratch/7e7ad6f8e5bd/production/uma-sim/packages/uma-sim-ui/src/state/labStore.ts"
+    }
+  ],
+  "sourceReadback": [
+    {
+      "identity": "baseline",
+      "snapshotsExact": true,
+      "originalReadbackExact": true,
+      "files": 24
+    },
+    {
+      "identity": "owner",
+      "snapshotsExact": true,
+      "originalReadbackExact": true,
+      "files": 25
+    }
+  ],
+  "sourceCustody": {
+    "path": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/evidence/source-custody.json",
+    "sha256": "68fc01d24b26b7556782686310a4975e6ecbda78ed55181f049b0e89d6b730d4",
+    "limit": "Existing owner production and integration paths are plain source directories. Exact file bytes are qualified; no unobserved owner commit is inferred."
+  },
+  "nativeTests": {
+    "parserModule": {
+      "path": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/harness/tests/override-form-receiving.test.mjs",
+      "sha256": "cff7adc7ea56c12d104226b420369aea632503dadf6b0875f4a399e925ee2721"
+    },
+    "comparisonModule": {
+      "path": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-comparison-review/comparison-result-v4.test.mjs",
+      "sha256": "0b716effeeb01b93c6889e7c23666548d12de736e7a7054b26a4f79c52312655"
+    },
+    "loaderSha256": "c31b09adc672c453a50937f06327f24d2b3e0038148a2c23e157e35812699efb",
+    "runtime": {
+      "node": "v24.19.0",
+      "react": "18.3.1",
+      "renderer": "18.3.1",
+      "typescript": "5.9.3"
+    },
+    "results": {
+      "baseline": {
+        "log": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/evidence/baseline-tests.log",
+        "sha256": "3c42722376ad4a12b99580e1f853a1fea0702715375b50f7c7692f6e4da8d8ac",
+        "tests": 13,
+        "pass": 3,
+        "fail": 10,
+        "cancelled": 0,
+        "skipped": 0,
+        "exitCode": 1
+      },
+      "owner": {
+        "log": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/evidence/owner-tests.log",
+        "sha256": "9354d8380d3a56ebd3b71c9e2586b9ed4c7e3a0980871bb29dd5e8e5171cc8e7",
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "owner-comparison": {
+        "log": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/evidence/owner-comparison-tests.log",
+        "sha256": "9eefa04f2e3d96e7b6f8ffa50deae41391f4b4559f31871eccc33a9a49d55013",
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "exitCode": 0
+      }
+    }
+  },
+  "baselineFindings": [
+    "A mixed valid/malformed draft creates a branch using only the valid lines, with no displayed validation.",
+    "An omitted turn before a colon becomes numeric zero in the actual request.",
+    "Fractional and out-of-i32-range turns reach the actual HTTP request body.",
+    "Empty-action, negative-turn and nonnumeric-turn drafts create a branch with an empty override array.",
+    "Blank optional input and ordinary complete input remain healthy controls."
+  ],
+  "ownerFindings": [
+    "Malformed whole drafts create no branch requests; the original text and original line numbers remain visible with linked field validation.",
+    "Correcting a malformed line enables one request carrying the complete corrected override list.",
+    "Zero and signed-i32 maximum turns, action IDs containing colons, ordinary action order/whitespace, unknown choices and blank input retain their request values.",
+    "All 11 existing comparison/result/deletion controls pass on the same frozen owner source."
+  ],
+  "actualRequestContract": {
+    "source": [
+      {
+        "path": "uma-sim-core/src/api.rs",
+        "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+        "gitBlob": "4ff7034bc5701d793cd93d645d89d40d73fc3273"
+      },
+      {
+        "path": "uma-sim-core/src/career_lab.rs",
+        "sha256": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7",
+        "gitBlob": "6f726976b0bbe448c1dd4d7f8e6427dfd547e199"
+      }
+    ],
+    "turnRepresentation": "ActionOverride.turn is i32. handle_lab_branch accepts values through as_i64 then casts to i32; malformed array entries are filter_map omissions.",
+    "implication": "Fractional JSON values can be dropped; oversized integer values can narrow to another turn. A generic 400 is not the demonstrated behavior of this receiver.",
+    "actionLegality": "The engine resolves the authored action against choices on that turn and records overrideRejected with policy fallback when absent. The UI must retain unknown action IDs for that existing run-level behavior.",
+    "engineExecutedHere": false
+  },
+  "integrationFindings": [
+    "Current main already contains PR65 at 0ac14602. Preserve its exports, native browser receiver, evidence and authorship when composing the existing #64 delta.",
+    "The owner package uses tests/*.test.mjs. Issue63 commit faf80aaa656fb1ac9d21cfcc79fc48b8c6c8963e intentionally replaced that wildcard with explicit filenames; preserve that correction in composition.",
+    "The owner labStore already guards comparison completion with a request counter and per-branch revisions. Its shared withBusy boolean/error completion behavior remains inherited; no general request-lifetime qualification is claimed."
+  ],
+  "observations": {
+    "baseline": {
+      "path": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/evidence/baseline-observations.json",
+      "sha256": "f429e434df3c2d9f8a3053a194a6322af2e48e99d7a10f6339f8d64f6db9c601",
+      "records": 13
+    },
+    "owner": {
+      "path": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/evidence/owner-observations.json",
+      "sha256": "ef4a99c25cf28f711191fc63cd521c072ad6e94bfac99cdfdd6093eaae02ce71",
+      "records": 14
+    }
+  },
+  "limits": [
+    "Actual ComparePanel, useLabStore and API-client execution on real React with deterministic HTTP fixture responses. This worker did not rerun a native Rust server or browser for this parser receiving.",
+    "The baseline is current PR65 main, so historical pre-PR65 comparison defects are not attributed to it.",
+    "This receiving does not reproduce the owner package TypeScript/build/CI gates or qualify its later branch-trace candidate.",
+    "No owner production files, package scripts, shared runtimes or remote source branches were modified."
+  ],
+  "implementationEdits": false,
+  "remoteSourceMutations": false
+}

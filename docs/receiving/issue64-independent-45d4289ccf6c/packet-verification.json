@@ -1,0 +1,17 @@
+{
+  "archive": "independent-receiving.tar.gz",
+  "archiveSha256": "946df3bc9ec0189435964206db632e029dcf6f352d48ff71c48904101d07b854",
+  "archiveLeavesReadBackExact": 137,
+  "extractedReceiver": {
+    "command": "UMA_UI_TEST_SOURCE=../source-owner/src npm test",
+    "exitCode": 0,
+    "cases": 24,
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0,
+    "log": "packet-replay.log",
+    "logSha256": "e6f51ac6bf78bef6f37b020b1c8baa278dbc68630c4a83f9ae8c6a8f559296bb"
+  },
+  "runtime": "Reused exact installed native dependencies whose versions match the included locked runtime; npm ci was not rerun",
+  "sourceOwnerModified": false
+}

@@ -1,0 +1,221 @@
+{
+  "reviewer": "estate-45d4289ccf6c/production_recovery",
+  "frozenAt": "2026-10-08T09:31:11.010Z",
+  "disposition": "Compatible prospective native package composition of exact issue63 commit and independently frozen issue64 source",
+  "source63": {
+    "commit": "f5d65944dc327087b235b6917c5ce9f94947e24e",
+    "origin": "/workspace/scratch/69570d292200/agents/production/uma-sim",
+    "archiveSha256": "4d81dab50d3821880cc616db10fd4e216ad771e01f8f76b7e1f1e3beaa2f5718",
+    "cleanAtCapture": true,
+    "finalReadback": {
+      "head": "f5d65944dc327087b235b6917c5ce9f94947e24e",
+      "status": ""
+    },
+    "ownerSourceUnchanged": true
+  },
+  "source64": {
+    "identity": "estate-7e7ad6f8e5bd / issue64",
+    "source": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/source-owner/src",
+    "custody": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/evidence/source-custody.json",
+    "qualification": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/evidence/receiving-receipt.json",
+    "publishedCommit": null,
+    "limitation": "Prospective composition of the exact independently frozen initial owner source; later trace/current-main publication remains separately owned and pending its actual pin"
+  },
+  "sourceDeltaAgainst63": [
+    {
+      "path": "packages/uma-sim-ui/src/components/ComparePanel.tsx",
+      "beforeSha256": "9a6df02cd8b5f6ab4a13744c9c86498586698b6858ef50dbd2ec0a62d64addea",
+      "afterSha256": "ca3c3814b76f57bc84a2b1079e2835fcd8913b5cdd97165e7cfceb429dbf74f9",
+      "origin": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/source-owner/src/components/ComparePanel.tsx"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/branchInput.ts",
+      "beforeSha256": null,
+      "afterSha256": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d",
+      "origin": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/source-owner/src/components/branchInput.ts"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "beforeSha256": "94bcb25e54ab66d9bb2933af4cae3823591f4306c1bf07c78168241429485647",
+      "afterSha256": "ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b",
+      "origin": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-override-receiving/source-owner/src/state/labStore.ts"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/branch-input.test.mjs",
+      "beforeSha256": null,
+      "afterSha256": "c3678c4cbe54629c3189a3f9c4191f8ed38b262f39fdecb06f34bbe30f97d14c",
+      "origin": "/workspace/scratch/7e7ad6f8e5bd/production/uma-sim/packages/uma-sim-ui/tests/branch-input.test.mjs"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/uma-lab-receiver.mjs",
+      "beforeSha256": null,
+      "afterSha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d",
+      "origin": "/workspace/scratch/7e7ad6f8e5bd/production/uma-sim/packages/uma-sim-ui/tests/receiving/uma-lab-receiver.mjs"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "beforeSha256": "ad437d6e56d0e02fe97cf54390571bffac96094c2aaa09fd640c4fb44de3e5d8",
+      "afterSha256": "9ec9f2984d45589c702b5b068149a6a8460a449dcdd58747523edc1a25e1fc72",
+      "detail": "Union of exact owner declarations; retain session prebuild and explicit filenames, retain owner64 browser receiver script"
+    },
+    {
+      "path": "packages/uma-sim-ui/package-lock.json",
+      "beforeSha256": "6f1f1c4ff4d0af190ea63f9608ba6251c112633511a5dd209f4817cbb607e969",
+      "afterSha256": "23a1ab0b8cf38e381a2c13ec5579b2c35be3a31d9baef16cbb807cde2451d47a",
+      "detail": "Exact common entries retained; add only owner64 Playwright closure and its unchanged integrity metadata"
+    }
+  ],
+  "ownership": "Issue64 remains canonical source owner; no alternative source implementation or source PR is produced by this receiving",
+  "unrelatedOwner63SourceLeavesAndModesPreserved": 357,
+  "retainedTests": {
+    "session": {
+      "path": "packages/uma-sim-ui/tests/run-session.test.mjs",
+      "cases": 13,
+      "sha256": "45124a80d4982749aa9ede170c1facceafae6afe3d19f43b107c378963029143"
+    },
+    "parser": {
+      "path": "packages/uma-sim-ui/tests/branch-input.test.mjs",
+      "cases": 29,
+      "sha256": "c3678c4cbe54629c3189a3f9c4191f8ed38b262f39fdecb06f34bbe30f97d14c"
+    },
+    "browserReceiver": {
+      "path": "packages/uma-sim-ui/tests/receiving/uma-lab-receiver.mjs",
+      "sha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d",
+      "executedHere": false
+    },
+    "sharedLoader": {
+      "path": "packages/uma-sim-ui/tests/compile-ui.mjs",
+      "sha256": "c31b09adc672c453a50937f06327f24d2b3e0038148a2c23e157e35812699efb"
+    }
+  },
+  "testRegistration": {
+    "script": "node --test tests/run-session.test.mjs tests/branch-input.test.mjs",
+    "nativeSessionCases": 13,
+    "nativeParserCases": 29,
+    "independentComparisonModuleRegisteredInCi": false,
+    "reason": "Existing owner native receiving is preserved; full11 module stays independent evidence until the actual published candidate coverage is known"
+  },
+  "independentReceiving": {
+    "comparisonCases": 11,
+    "overrideFormCases": 13,
+    "bothExecutedAgainstComposedSource": true,
+    "registeredInCi": false
+  },
+  "dependencyComposition": {
+    "commonEntriesExactlyPreserved": 115,
+    "addedLockEntries": [
+      {
+        "path": "node_modules/playwright",
+        "version": "1.62.1"
+      },
+      {
+        "path": "node_modules/playwright-core",
+        "version": "1.62.1"
+      },
+      {
+        "path": "node_modules/playwright/node_modules/fsevents",
+        "version": "2.3.2"
+      }
+    ],
+    "source63LockSha256": "6f1f1c4ff4d0af190ea63f9608ba6251c112633511a5dd209f4817cbb607e969",
+    "source64LockSha256": "b306b84fc9fb3285a442d8360a419eba3276d3d4effda266205832331ac1dc99",
+    "playwrightInstalledSource": "/workspace/scratch/7e7ad6f8e5bd/integration/uma-ui",
+    "actualVersions": {
+      "react": "18.3.1",
+      "react-dom": "18.3.1",
+      "@types/react": "18.3.31",
+      "@types/react-dom": "18.3.7",
+      "@vitejs/plugin-react": "4.7.0",
+      "react-test-renderer": "18.3.1",
+      "typescript": "5.9.3",
+      "vite": "5.4.21",
+      "playwright": "1.62.1"
+    }
+  },
+  "qualification": {
+    "tests": {
+      "build.log": {
+        "commandLog": "build.log",
+        "logSha256": "e14b3eda5f4798750861b300ae625c960a875cf5f65185c4e10b3e42bbfc62e5",
+        "exitCode": 0,
+        "tests": 42,
+        "pass": 42,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      "comparison-receiving.log": {
+        "commandLog": "comparison-receiving.log",
+        "logSha256": "d016ebf3dcb7d60c7e8ea39e1e52bbd1a4b0a925263624d61ba30ee160e8a2de",
+        "exitCode": 0,
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      "override-receiving.log": {
+        "commandLog": "override-receiving.log",
+        "logSha256": "3d08781445d06ef7bf422180f75eb19fa4a701d2d1f76218a9563430de885dca",
+        "exitCode": 0,
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      }
+    },
+    "typecheck": {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "logSha256": "c7362e63c0f16360a6566d20f26f2ec0c64f5343e55ab91d622d40ba93138bd0"
+    },
+    "build": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "prebuildTests": 42,
+      "modules": 53
+    }
+  },
+  "generatedTrackedMetadata": {
+    "path": "packages/uma-sim-ui/tsconfig.tsbuildinfo",
+    "committedSha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+    "generatedSha256": "20a4c4fec8df0f8a1b99cad8a1b87d0fb57b909454a1f65f0c9d03291cce9139",
+    "generatedBytes": 780,
+    "action": "Preserved actual generated output, then restored only isolated composition metadata before final source readback"
+  },
+  "builtArtifacts": [
+    {
+      "path": "packages/uma-sim-ui/dist/assets/index-C8rte7ax.css",
+      "sha256": "beda9c92acf18ac0a0ca344bea9c6be08715624da91d007032ffdcb5dad195ac"
+    },
+    {
+      "path": "packages/uma-sim-ui/dist/assets/index-yECPSvRM.js",
+      "sha256": "f1cfb8ca745ebcbd97078769b3311f33fd4a80d939a6441c0ab3fac6e18f3a62"
+    },
+    {
+      "path": "packages/uma-sim-ui/dist/index.html",
+      "sha256": "b794ac1bfaa2b30b7338f8dffdbe1408914b54a0f0705e93999a7c96b1155a1c"
+    }
+  ],
+  "owner63Bundle": {
+    "path": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-63-64-composition/evidence/owner63-session.bundle",
+    "sha256": "d81a9dc2868a8af5a088ad2f3d9b5289904a99e255f7c203b4cbaefd116af4c8",
+    "prerequisite": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+    "head": "f5d65944dc327087b235b6917c5ce9f94947e24e",
+    "verifiedAgainstOriginalRepository": true
+  },
+  "setupFailurePreserved": {
+    "receipt": "/workspace/scratch/45d4289ccf6c/agents/production_recovery/uma-63-64-composition/evidence/preparation-failure.json",
+    "cause": "Declared Playwright was absent from the production directory runtime",
+    "resolution": "Read-only reuse of matching Playwright1.62.1 from the owner integration runtime; source pins and lock entries stayed exact"
+  },
+  "limits": [
+    "This prospective composition uses exact frozen initial issue64 file hashes. Its later trace/current-main candidate and eventual published Git head remain pending separate readback.",
+    "The 42 native cases and both independent receivers executed real TypeScript/React on fixture HTTP boundaries. No live career/session, inference, Rust-server or deployed-service action was performed.",
+    "This is a native UI/package composition, not a Git merge or reproduction of repository CI. Unrelated issue63 source is preserved; the separate Rust suite was not rerun.",
+    "Existing owner browser/API receiving is retained; this worker does not substitute the fixture/component run for that browser qualification."
+  ],
+  "sourceOwnerEdits": false,
+  "remoteSourceMutations": false
+}
