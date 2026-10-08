@@ -1,0 +1,435 @@
+{
+  "authored_head": "adab078345167a57b960fb3dc530af720aea8b60",
+  "current_main": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "node_version": "v24.19.0",
+  "npm_version": "11.9.0",
+  "results": [
+    {
+      "argv": [
+        "npm",
+        "test"
+      ],
+      "cwd": "/dev/shm/hamon-61749b-uma-receiving/candidate/packages/uma-sim-ui",
+      "duration_seconds": 0.8865584279992618,
+      "log": "node-gate.log",
+      "log_sha256": "565cf61aeb7eeb1ad6eb94cb4a74b9f66745c106195cb1ff937115cd1b96a92a",
+      "name": "node-gate",
+      "returncode": 0,
+      "started_utc": "2026-10-08T11:46:22.966128+00:00"
+    },
+    {
+      "argv": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "/dev/shm/hamon-61749b-uma-receiving/candidate/packages/uma-sim-ui",
+      "duration_seconds": 2.3063032450008905,
+      "log": "typecheck.log",
+      "log_sha256": "c7362e63c0f16360a6566d20f26f2ec0c64f5343e55ab91d622d40ba93138bd0",
+      "name": "typecheck",
+      "returncode": 0,
+      "started_utc": "2026-10-08T11:46:23.852795+00:00"
+    },
+    {
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/dev/shm/hamon-61749b-uma-receiving/candidate/packages/uma-sim-ui",
+      "duration_seconds": 3.627338010002859,
+      "log": "build.log",
+      "log_sha256": "a47ada91918626c7a9918d5ff4d1dcd58f4cc9e428d0a43fb967ec742f421a77",
+      "name": "build",
+      "returncode": 0,
+      "started_utc": "2026-10-08T11:46:26.159192+00:00"
+    }
+  ],
+  "schema": "uma.career-log-current-ui-receiving.v1",
+  "scope": "Existing npm UI test gate, TypeScript check and production build on the full composed current UI. Prior Rust/native browser receipts remain historical; no native browser replay.",
+  "source_after": [
+    {
+      "file": ".gitignore",
+      "sha256": "787044cb79f3fec00a8a5d95851b7c42fbe5b62b98a2153dbd7d190c702748d4"
+    },
+    {
+      "file": "README.md",
+      "sha256": "3f9dd68d6cbaf57c2d55f9b568391a23306a0f1593495b7599a7ec41b77c7213"
+    },
+    {
+      "file": "index.html",
+      "sha256": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10"
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "b306b84fc9fb3285a442d8360a419eba3276d3d4effda266205832331ac1dc99"
+    },
+    {
+      "file": "package.json",
+      "sha256": "4147977fa0409eb31c3315078897e01253975f974ce0b691127297241835ac6e"
+    },
+    {
+      "file": "src/App.tsx",
+      "sha256": "81b7a06c7dc3d6790166d04baed092dea69749265993173c228c426bcaeb2d66"
+    },
+    {
+      "file": "src/api/client.ts",
+      "sha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee"
+    },
+    {
+      "file": "src/api/types.ts",
+      "sha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92"
+    },
+    {
+      "file": "src/components/AptitudePanel.tsx",
+      "sha256": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce"
+    },
+    {
+      "file": "src/components/BranchTracePanel.tsx",
+      "sha256": "bd71c1c794211021dde6ba038c5938cfcf81824d7d92e738ca807daa59e0c514"
+    },
+    {
+      "file": "src/components/CareerSummary.tsx",
+      "sha256": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29"
+    },
+    {
+      "file": "src/components/ChoicePanel.tsx",
+      "sha256": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5"
+    },
+    {
+      "file": "src/components/ComparePanel.tsx",
+      "sha256": "c35c5727d480a88e081eb955bfd6a95cb14e937ec42e833cb5971d92d1c611a0"
+    },
+    {
+      "file": "src/components/ControlsBar.tsx",
+      "sha256": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc"
+    },
+    {
+      "file": "src/components/DeckPanel.tsx",
+      "sha256": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0"
+    },
+    {
+      "file": "src/components/EventDialog.tsx",
+      "sha256": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831"
+    },
+    {
+      "file": "src/components/GrandLivePanel.tsx",
+      "sha256": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd"
+    },
+    {
+      "file": "src/components/LabTab.tsx",
+      "sha256": "a59e06410115292b1f06a1106c3d67d3f57cc765dd1985e730afe1fbf2eec9c1"
+    },
+    {
+      "file": "src/components/LegacyPanel.tsx",
+      "sha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3"
+    },
+    {
+      "file": "src/components/LibraryPanel.tsx",
+      "sha256": "4ee64eea0e358402db5ac82ea20bd5567db00e0bba2f24efec32b31b6ff4664a"
+    },
+    {
+      "file": "src/components/LogPanel.tsx",
+      "sha256": "19d398a0d5f004da56d73d04233e14218ac6af798efeff2f5e85ddc3ce6bd10f"
+    },
+    {
+      "file": "src/components/RacePanel.tsx",
+      "sha256": "b8f4a6db8e1c8927a8a09d3955f0cd2c5ac8cd4f4ebb3cdd034754a40ef1a2a1"
+    },
+    {
+      "file": "src/components/RunSetup.tsx",
+      "sha256": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d"
+    },
+    {
+      "file": "src/components/SessionPanel.tsx",
+      "sha256": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb"
+    },
+    {
+      "file": "src/components/StatsPanel.tsx",
+      "sha256": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a"
+    },
+    {
+      "file": "src/components/branch-trace.css",
+      "sha256": "de60a2bb970b9b3b012c0890f74bbc9519b0be46b1d14444b6222768319afae2"
+    },
+    {
+      "file": "src/components/branchInput.ts",
+      "sha256": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d"
+    },
+    {
+      "file": "src/components/legacyPreview.ts",
+      "sha256": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a"
+    },
+    {
+      "file": "src/components/logPanel.css",
+      "sha256": "17e85d1c63567265ea9fb330fea2472090cd72dde1d64c070f10833a5c8cc072"
+    },
+    {
+      "file": "src/components/logView.ts",
+      "sha256": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2"
+    },
+    {
+      "file": "src/main.tsx",
+      "sha256": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981"
+    },
+    {
+      "file": "src/state/branchTraceStore.ts",
+      "sha256": "3e76129407244fac596be4562af715dbbdff91a44fb6d9e0b28f3ce7c6261bc2"
+    },
+    {
+      "file": "src/state/labStore.ts",
+      "sha256": "ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b"
+    },
+    {
+      "file": "src/state/runStore.ts",
+      "sha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922"
+    },
+    {
+      "file": "src/styles/app.css",
+      "sha256": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd"
+    },
+    {
+      "file": "test/career-log-browser.mjs",
+      "sha256": "31ad15f4f28a23235dc8fbbc7d8b313a6a9734300f34e327af165602fb8dc3ab"
+    },
+    {
+      "file": "test/log-view.test.mjs",
+      "sha256": "13cfc75c020bea6ca536b07a6a385e350b577f646387638b178b69776c6bf255"
+    },
+    {
+      "file": "tests/branch-input.test.mjs",
+      "sha256": "c3678c4cbe54629c3189a3f9c4191f8ed38b262f39fdecb06f34bbe30f97d14c"
+    },
+    {
+      "file": "tests/branch-trace-panel.test.mjs",
+      "sha256": "8b83f6729bcbf23cb805429ac51d055af1daada712f2fad4ed0596931357b0ab"
+    },
+    {
+      "file": "tests/checkpoint-portability.browser.mjs",
+      "sha256": "a48784b6c94410eb7d1ac0e3178a8ebf17926ea3a5a63c6a35745ec82c0e8ae9"
+    },
+    {
+      "file": "tests/lab-comparison.browser.mjs",
+      "sha256": "d407593eab32880015c2b33be28e86db209618b4307c02744e52afc643ba028a"
+    },
+    {
+      "file": "tests/receiving/TRACE-RECEIVER-CONTRACT.md",
+      "sha256": "b5e5e8e670576a8f2c3a220543eebcc2e636f55876d195d354e6b942b592756d"
+    },
+    {
+      "file": "tests/receiving/uma-lab-receiver.mjs",
+      "sha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d"
+    },
+    {
+      "file": "tests/receiving/uma-trace-receiver.mjs",
+      "sha256": "3d96af883b3af297826160adf9e5e49e806d2dd29d3fa8c64f2db46da4a4a531"
+    },
+    {
+      "file": "tsconfig.json",
+      "sha256": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a"
+    },
+    {
+      "file": "vite.config.ts",
+      "sha256": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd"
+    }
+  ],
+  "source_before": [
+    {
+      "file": ".gitignore",
+      "sha256": "787044cb79f3fec00a8a5d95851b7c42fbe5b62b98a2153dbd7d190c702748d4"
+    },
+    {
+      "file": "README.md",
+      "sha256": "3f9dd68d6cbaf57c2d55f9b568391a23306a0f1593495b7599a7ec41b77c7213"
+    },
+    {
+      "file": "index.html",
+      "sha256": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10"
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "b306b84fc9fb3285a442d8360a419eba3276d3d4effda266205832331ac1dc99"
+    },
+    {
+      "file": "package.json",
+      "sha256": "4147977fa0409eb31c3315078897e01253975f974ce0b691127297241835ac6e"
+    },
+    {
+      "file": "src/App.tsx",
+      "sha256": "81b7a06c7dc3d6790166d04baed092dea69749265993173c228c426bcaeb2d66"
+    },
+    {
+      "file": "src/api/client.ts",
+      "sha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee"
+    },
+    {
+      "file": "src/api/types.ts",
+      "sha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92"
+    },
+    {
+      "file": "src/components/AptitudePanel.tsx",
+      "sha256": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce"
+    },
+    {
+      "file": "src/components/BranchTracePanel.tsx",
+      "sha256": "bd71c1c794211021dde6ba038c5938cfcf81824d7d92e738ca807daa59e0c514"
+    },
+    {
+      "file": "src/components/CareerSummary.tsx",
+      "sha256": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29"
+    },
+    {
+      "file": "src/components/ChoicePanel.tsx",
+      "sha256": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5"
+    },
+    {
+      "file": "src/components/ComparePanel.tsx",
+      "sha256": "c35c5727d480a88e081eb955bfd6a95cb14e937ec42e833cb5971d92d1c611a0"
+    },
+    {
+      "file": "src/components/ControlsBar.tsx",
+      "sha256": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc"
+    },
+    {
+      "file": "src/components/DeckPanel.tsx",
+      "sha256": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0"
+    },
+    {
+      "file": "src/components/EventDialog.tsx",
+      "sha256": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831"
+    },
+    {
+      "file": "src/components/GrandLivePanel.tsx",
+      "sha256": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd"
+    },
+    {
+      "file": "src/components/LabTab.tsx",
+      "sha256": "a59e06410115292b1f06a1106c3d67d3f57cc765dd1985e730afe1fbf2eec9c1"
+    },
+    {
+      "file": "src/components/LegacyPanel.tsx",
+      "sha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3"
+    },
+    {
+      "file": "src/components/LibraryPanel.tsx",
+      "sha256": "4ee64eea0e358402db5ac82ea20bd5567db00e0bba2f24efec32b31b6ff4664a"
+    },
+    {
+      "file": "src/components/LogPanel.tsx",
+      "sha256": "19d398a0d5f004da56d73d04233e14218ac6af798efeff2f5e85ddc3ce6bd10f"
+    },
+    {
+      "file": "src/components/RacePanel.tsx",
+      "sha256": "b8f4a6db8e1c8927a8a09d3955f0cd2c5ac8cd4f4ebb3cdd034754a40ef1a2a1"
+    },
+    {
+      "file": "src/components/RunSetup.tsx",
+      "sha256": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d"
+    },
+    {
+      "file": "src/components/SessionPanel.tsx",
+      "sha256": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb"
+    },
+    {
+      "file": "src/components/StatsPanel.tsx",
+      "sha256": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a"
+    },
+    {
+      "file": "src/components/branch-trace.css",
+      "sha256": "de60a2bb970b9b3b012c0890f74bbc9519b0be46b1d14444b6222768319afae2"
+    },
+    {
+      "file": "src/components/branchInput.ts",
+      "sha256": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d"
+    },
+    {
+      "file": "src/components/legacyPreview.ts",
+      "sha256": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a"
+    },
+    {
+      "file": "src/components/logPanel.css",
+      "sha256": "17e85d1c63567265ea9fb330fea2472090cd72dde1d64c070f10833a5c8cc072"
+    },
+    {
+      "file": "src/components/logView.ts",
+      "sha256": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2"
+    },
+    {
+      "file": "src/main.tsx",
+      "sha256": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981"
+    },
+    {
+      "file": "src/state/branchTraceStore.ts",
+      "sha256": "3e76129407244fac596be4562af715dbbdff91a44fb6d9e0b28f3ce7c6261bc2"
+    },
+    {
+      "file": "src/state/labStore.ts",
+      "sha256": "ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b"
+    },
+    {
+      "file": "src/state/runStore.ts",
+      "sha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922"
+    },
+    {
+      "file": "src/styles/app.css",
+      "sha256": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd"
+    },
+    {
+      "file": "test/career-log-browser.mjs",
+      "sha256": "31ad15f4f28a23235dc8fbbc7d8b313a6a9734300f34e327af165602fb8dc3ab"
+    },
+    {
+      "file": "test/log-view.test.mjs",
+      "sha256": "13cfc75c020bea6ca536b07a6a385e350b577f646387638b178b69776c6bf255"
+    },
+    {
+      "file": "tests/branch-input.test.mjs",
+      "sha256": "c3678c4cbe54629c3189a3f9c4191f8ed38b262f39fdecb06f34bbe30f97d14c"
+    },
+    {
+      "file": "tests/branch-trace-panel.test.mjs",
+      "sha256": "8b83f6729bcbf23cb805429ac51d055af1daada712f2fad4ed0596931357b0ab"
+    },
+    {
+      "file": "tests/checkpoint-portability.browser.mjs",
+      "sha256": "a48784b6c94410eb7d1ac0e3178a8ebf17926ea3a5a63c6a35745ec82c0e8ae9"
+    },
+    {
+      "file": "tests/lab-comparison.browser.mjs",
+      "sha256": "d407593eab32880015c2b33be28e86db209618b4307c02744e52afc643ba028a"
+    },
+    {
+      "file": "tests/receiving/TRACE-RECEIVER-CONTRACT.md",
+      "sha256": "b5e5e8e670576a8f2c3a220543eebcc2e636f55876d195d354e6b942b592756d"
+    },
+    {
+      "file": "tests/receiving/uma-lab-receiver.mjs",
+      "sha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d"
+    },
+    {
+      "file": "tests/receiving/uma-trace-receiver.mjs",
+      "sha256": "3d96af883b3af297826160adf9e5e49e806d2dd29d3fa8c64f2db46da4a4a531"
+    },
+    {
+      "file": "tsconfig.json",
+      "sha256": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a"
+    },
+    {
+      "file": "vite.config.ts",
+      "sha256": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd"
+    }
+  ],
+  "source_record_format": "Typed file/digest records preserve every captured value; raw local receipt remains at its original path. This follows the accepted career-log evidence representation.",
+  "source_unchanged": true,
+  "test_gate_result": {
+    "current_lab_methods": 38,
+    "failed": 0,
+    "methods": 48,
+    "passed": 48,
+    "retained_log_methods": 10,
+    "skipped": 0
+  },
+  "tracked_buildinfo_generated": true,
+  "tracked_buildinfo_restored": true
+}

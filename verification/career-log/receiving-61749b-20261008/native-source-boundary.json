@@ -1,0 +1,170 @@
+{
+  "added_functions": [
+    "with_json_body"
+  ],
+  "changed_functions": [
+    {
+      "current_sha256": "6866b042be278cb3a340c74f5de056ec7c17ed59ff2807b4d3acd9e243e70952",
+      "name": "handle_action",
+      "old_sha256": "88517440d905276589ccbe4592198b5741435f6e2235d096e8977df34f9ef343",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "3a328bc6c75c58740aad3b8f5143d8aa9054ae64840bb11ef88bedc9862e1f21",
+      "name": "handle_auto",
+      "old_sha256": "0107b0ccd8699410394db050beb58856d7d6107f6c8defa75de5dd96761195d4",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "4dcffce724910a56793f2be1eb7cb439f672eae579129ea88f650685af12766e",
+      "name": "handle_deck_place",
+      "old_sha256": "65a2a2e0357ef2e1b68f42793514fb47ad65c79256b371abe6c50bb60b34d689",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "2cf4aa58d321462742aa43b858acc64ada9896569e3e76f0abf85f68138e47c4",
+      "name": "handle_fast",
+      "old_sha256": "f758ff894d17618b98a9f6e97b8f1b8042c88e0e14647226db61d0969d0d7d84",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "5c1eb3a1ca9513e327738e6d200525fdbd2d9f9f71f4ec602cfa546c5eb1c5a1",
+      "name": "handle_lab_branch",
+      "old_sha256": "42eae08b8d124f1eba2788de380fde2658893b0437b77475bfca6d7923466d74",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "13de2702f786385477c760e8119b89926315c72ab2cd6115fe029496e2b5ce78",
+      "name": "handle_lab_branch_delete",
+      "old_sha256": "1d41fe5ea89e0fd91521cb7772625ac8fa2672a880a3363acea3df0f61cb3cda",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "da46bd2abacf0fbd192decfebb92b9ae2a53fdaa8fe6a7c46fe6450ce20a4187",
+      "name": "handle_lab_compare",
+      "old_sha256": "86dc5a676a94d2492334581d96138ef7795b18fdef69632635650d65683727a2",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "d058f0cbcbb43efbe630d70979e69d14dff55c8068c968848eabb2fc07f58248",
+      "name": "handle_library_delete",
+      "old_sha256": "1bc8b8c626b2681420ec77cf8c01fa88d84c459479d565f1ceabcadbcb3b193a",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "0a3e31bfafafd6135426f82d7c4bea19263645a2cc2ea63710ef98fbe01b028b",
+      "name": "handle_library_import",
+      "old_sha256": "9a9cee889fc4d6321ca2fd3421f6d26068d48508225e95b04a204b972a4d51a6",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "84d01639d19999a20506ced55d2c3111e1b07d9653aadab1e5b457fb2e47a3c7",
+      "name": "handle_library_load",
+      "old_sha256": "9e5eb7a2358f85439b62dc94261a820cfad2130d7aec5864e5d9f455893aa84b",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "f9253223e2bc74cab459553c45dc9ddda62d274d2a9e3aa09d53e9f22b9cbf7f",
+      "name": "handle_library_save",
+      "old_sha256": "54bbae355c88ea416c16aafbb40e1e40c0877fa7caebce05e7d34d57e9eea69a",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "5426f29bfa2584c21f857c1a15ac1d846e2b8d85793aa0cb5d043eb21f443562",
+      "name": "handle_load_content_pack",
+      "old_sha256": "bbf22b014bf77aef2093cbd91ccc57e8dcbc4e92e8a1aff700adae077dca6d96",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "274ef12dd8017bdc4944b2a1d701bdaafcf6b2a68713140346b694dd1301afd4",
+      "name": "handle_session_activate",
+      "old_sha256": "6d3d6117cd69443bf829afc3b7241224666e5743e943eef136e7aae78884fad9",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "2e9dc89ca44b286aebb2495218329e27ef55d7fe151aa3bef2ca87c2a5eb4b50",
+      "name": "handle_session_close",
+      "old_sha256": "0ea371755125d8dc473c325d72e1c3d5132443951419063deff117d1efde97b0",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "a7c49a4f116084af4c35e99798fed93260cd3dd5547293af11a7e32a5e7ab762",
+      "name": "handle_session_fork",
+      "old_sha256": "800b9cd57d7f6dd6ff8174fa00a1c90977b65f66e0aeb9be22e93622ad171f0a",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "6115330970ea2fb15c260dc680b6aa771bc0e8ff16a4b90af473725375a09895",
+      "name": "handle_set_style",
+      "old_sha256": "5e83c3bdb23409b21b7dee61b4085a5772f1b9247c4bcebf046c15206ebb103b",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "f7647b6f5aba7995be3e15ed21b62e91cfc61bf74bd7aa150d38571c4debb0ad",
+      "name": "handle_start",
+      "old_sha256": "a2955ac1769d69d02f3a6e66287ac93c5e763baa0d28a1baadc833c2b2a31263",
+      "valid_object_parameter_transform_exact": true
+    },
+    {
+      "current_sha256": "d6424bf5ec3f47c128f734f603726b6bd5c65c4fa1141f9e80e6c19ec8f57928",
+      "name": "parse_body",
+      "old_sha256": "c70fa01a7878d090f5b962a35b1299e6f3b8dbfd3b70dc9612763ecbd0489190",
+      "valid_object_parameter_transform_exact": false
+    },
+    {
+      "current_sha256": "f159a9f6ed688b2d7e24e79415232ffacef7a4fc16b1c2b3dd6b399bf1ae2dd5",
+      "name": "read_body",
+      "old_sha256": "2a7e838be967fd431d2ccb6b6c09f4038955ed1871df8cf25d6d3cca3587bfcc",
+      "valid_object_parameter_transform_exact": false
+    },
+    {
+      "current_sha256": "06fefbcd05ba97c252ed5bb0fede82235c120964fe8512c5bae5f134546135f7",
+      "name": "route",
+      "old_sha256": "17e1e1862cdf7c369b83309b9114b7eb55fa01ba8ac45cf8330679e6aca0694d",
+      "valid_object_parameter_transform_exact": false
+    },
+    {
+      "current_sha256": "3ac0e9980ea1835bf2d48b6b94f2912d56e45791850050df7b1a207fc5923d04",
+      "name": "serve_opts",
+      "old_sha256": "d603ce074b76a4b208c589d56cc84a1eeea947b97f3a6ff3121b8ff4b022b3af",
+      "valid_object_parameter_transform_exact": false
+    }
+  ],
+  "extraction": "Literal column-zero complete fn blocks. Changed valid-object handlers match after raw-to-parsed-Value parameter substitution, removing the former local parse line, and dereference adjustment. This is not a Rust AST comparison.",
+  "get_route_arms": [
+    "        (Method::Get, \"/v1/health\") => handle_health(),",
+    "        (Method::Get, \"/v1/catalog/scenarios\") => handle_catalog_scenarios(),",
+    "        (Method::Get, \"/v1/catalog/trainees\") => handle_catalog_trainees(),",
+    "        (Method::Get, \"/v1/catalog/supports\") => handle_catalog_supports(),",
+    "        (Method::Get, \"/v1/catalog/factors\") => handle_catalog_factors(),",
+    "        (Method::Get, \"/v1/run/state\") => handle_state(st, query),",
+    "        (Method::Get, \"/v1/run/text\") => handle_text(st, query),",
+    "        (Method::Get, \"/v1/run/choices\") => handle_choices(st, query),",
+    "        (Method::Get, \"/v1/run/telemetry\") => handle_telemetry(st, query),",
+    "        (Method::Get, \"/v1/sessions\") => handle_sessions(st),",
+    "        (Method::Get, \"/v1/library\") => handle_library_list(st),",
+    "        (Method::Get, \"/v1/library/export\") => handle_library_export(st, query),",
+    "        (Method::Get, \"/v1/lab/branches\") => handle_lab_branches(st),",
+    "        (Method::Get, \"/v1/lab/branch\") => handle_lab_branch_get(st, query),",
+    "        (Method::Get, \"/v1/lab/report\") => handle_lab_report(st, query),",
+    "        (Method::Get, _) => serve_static(path),"
+  ],
+  "get_route_arms_identical": true,
+  "qualification": "Source receiving only. This does not claim a rebuilt native API or a current browser run.",
+  "removed_functions": [],
+  "schema": "uma.career-log-api-source-boundary.v1",
+  "source_files": [
+    {
+      "file": "authored/uma-sim-core/src/api.rs",
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    },
+    {
+      "file": "current/uma-sim-core/src/api.rs",
+      "sha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55"
+    }
+  ],
+  "unchanged_cargo_files": [
+    "Cargo.toml",
+    "Cargo.lock"
+  ]
+}

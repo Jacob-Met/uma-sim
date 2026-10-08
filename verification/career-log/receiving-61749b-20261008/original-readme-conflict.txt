@@ -19,6 +19,7 @@ Requires `uma-sim serve` (or `uma-sim-api`) on port 8765 for API calls.
 
 See the root [README](../../README.md) for release / embed instructions.
 
+<<<<<<< /dev/shm/hamon-61749b-uma-receiving/current/packages/uma-sim-ui/README.md
 ## Reviewing career-lab experiments
 
 The branch form validates the complete draft before it can send a run request.
@@ -66,6 +67,7 @@ closing the panel or deleting the branch invalidates an earlier pending read.
 Read failures retain the requested branch ID and offer a retry. Inspection does
 not change the active career or the A/B comparison selection.
 
+=======
 ## Reading a career
 
 The **Career event log** shows entries retained in the current career snapshot,
@@ -85,9 +87,7 @@ entries; the reader does not create an additional history store.
 
 ## Log reader checks
 
-After `npm ci`, run `npm test` with Node 20 or newer. The shared test command
-includes the log reader and career-lab regressions. For the log reader alone,
-run `node --test test/log-view.test.mjs`.
+After `npm ci`, run `node --test test/log-view.test.mjs` with Node 20 or newer.
 This uses the existing TypeScript compiler and needs no additional dependencies.
 `npm run typecheck` and `npm run build` also cover the receiving React component.
 
@@ -106,3 +106,4 @@ career/checkpoint state, then removes its state after finishing. Set
 temporary career state parent or evidence folder. It never connects to
 an existing uma-sim server. See [the receiving record](../../verification/career-log/README.md)
 for the exact source baseline, comparison and browser results.
+>>>>>>> /dev/shm/hamon-61749b-uma-receiving/authored/packages/uma-sim-ui/README.md

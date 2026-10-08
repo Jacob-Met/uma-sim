@@ -1,0 +1,20 @@
+Before the resize correction, LogPanel.tsx SHA-256:
+80bfb990f32731f3c0e458084ab75d1d6185bdfe6d67c61ed5dc21470b649a86
+The real Rust/API + Chromium run passed the earlier native-history/search/pause
+checks and then reproduced the independent review's mobile-resize concern:
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Resize must keep a following reader at the latest entry
+    at file:///tmp/hamon-estate-e652aa3341b6-uma-sim/packages/uma-sim-ui/test/career-log-browser.mjs:242:48 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v22.22.1
