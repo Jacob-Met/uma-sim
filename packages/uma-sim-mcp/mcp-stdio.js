@@ -90,6 +90,13 @@ const TOOLS = [
   tool("sim_deck_place", "Reposition a support card onto a facility in the target career", {
     supportId: NONEMPTY, facility: NONEMPTY, session: NAMED_SESSION,
   }, ["supportId", "facility"]),
+  tool("sim_catalog", "List the existing native catalog so you can choose exact career identities. Does not start or change a career.", {
+    kind: { type: "string", enum: ["scenarios", "trainees", "supports", "factors", "skills"] },
+  }, ["kind"]),
+  tool("sim_style", "Set the target career\'s preferred race style without taking a turn. Auto restores the engine\'s best-aptitude choice; it does not promise a better outcome.", {
+    style: { type: "string", enum: ["auto", "front", "pace", "late", "end"] },
+    session: NAMED_SESSION,
+  }, ["style"]),
   tool("sim_sessions", "List live careers and the server's active session id"),
   tool("sim_session_fork", "Fork an independent live career and make it active. Use a checkpoint or a source session, never both; omit both for the active career. Source session may be empty for main.", {
     checkpoint: NONEMPTY, session: STRING, id: NONEMPTY, label: STRING,
@@ -237,6 +244,12 @@ async function callTool(name, args) {
         supportId: args.supportId,
         facility: args.facility,
         session: args.session,
+      });
+    case "sim_catalog":
+      return api("GET", `/v1/catalog/${args.kind}`);
+    case "sim_style":
+      return api("POST", "/v1/run/style", {
+        style: args.style === "auto" ? "" : args.style, session: args.session,
       });
     case "sim_sessions":
       return api("GET", "/v1/sessions");

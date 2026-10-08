@@ -1,0 +1,50 @@
+{
+  "schema": "uma.mcp-career-controls.contract.v1",
+  "at": "2026-10-08 20:00:57 UTC",
+  "base": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+  "beneficiary": "MCP career players selecting real catalog identities and changing race strategy in an independent fork without guessing IDs or using a separate REST client",
+  "plannedTools": {
+    "sim_catalog": {
+      "kind": [
+        "scenarios",
+        "trainees",
+        "supports",
+        "factors",
+        "skills"
+      ],
+      "transport": "Existing GET /v1/catalog/{kind}; unchanged result transport, no local catalog cache, no speculative IDs or filtering"
+    },
+    "sim_style": {
+      "style": [
+        "auto",
+        "front",
+        "pace",
+        "late",
+        "end"
+      ],
+      "session": "Existing NAMED_SESSION schema; omission means active; explicit empty remains refused",
+      "transport": "Existing POST /v1/run/style; auto maps exactly to empty native style and others pass exact accepted key"
+    }
+  },
+  "sourceFence": [
+    "Two new TOOLS schema rows and two dispatch cases in packages/uma-sim-mcp/mcp-stdio.js",
+    "New focused protocol/native tests under packages/uma-sim-mcp/tests",
+    "Additive package README section",
+    "Unique docs/receiving/mcp-career-controls-0378a7b6 evidence"
+  ],
+  "preserve": [
+    "all existing transport/schema/query/dispatch helpers and cases",
+    "all Rust/API/engine/RNG/catalog sources",
+    "UI/session/CLI/persistence and existing owner scopes #63 #97 #102 #108 #112 #113 #115",
+    "dependencies/lockfiles/workflows"
+  ],
+  "checks": [
+    "Baseline actual stdio discovery lacks both controls; calls refuse while native GET/style routes work",
+    "Catalog tools equal existing native JSON for all five kinds before/after a career, without creating or changing a session",
+    "Style enum and nonempty target validation refuse malformed requests before any HTTP dispatch",
+    "Each style and explicit Auto change only preferredRunningStyle; exact full RNG/state remainder, sibling and saved checkpoint preserved",
+    "Named session and omitted-active targeting; missing target/no active run backend errors retain current tool-error semantics",
+    "Selected catalog identity flows through existing sim_start; fork style may be set while source remains byte-identical",
+    "Maintained protocol/native checks, exact unowned source preservation, independent review, current-parent composition and pinned hosted gates"
+  ]
+}

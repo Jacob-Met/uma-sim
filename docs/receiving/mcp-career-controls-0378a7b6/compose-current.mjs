@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import {execFileSync,spawn} from 'node:child_process';
+const root='D:/Hamon/worktrees/uma-sim-discovery-0378a7b6',out='D:/Hamon/worktrees/uma-sim-career-controls-0378a7b6-proof';
+const git=(...a)=>execFileSync('git',['-C',root,...a],{encoding:'utf8'});
+const head='aff7450bb97f3ba85e0c637d3c31363282596a57',base='38291c1aaf915da17229eca0afbbd58d9b3ce453';
+assert.equal(git('rev-parse','HEAD').trim(),head);assert.equal(git('status','--porcelain'), '');assert.equal(git('rev-parse','origin/main').trim(),base);
+const owned=git('diff','--name-only','0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa',head).trim().split('\n');
+const before=Object.fromEntries(owned.map(p=>[p,fs.readFileSync(root+'/'+p)]));
+fs.copyFileSync(out+'/target/debug/uma-sim-api.exe',out+'/baseline-uma-sim-api.exe',fs.constants.COPYFILE_EXCL);
+const merged=git('merge','--no-ff',base,'-m','Receive current session targeting before MCP career controls');
+for(const [p,b] of Object.entries(before))assert.ok(fs.readFileSync(root+'/'+p).equals(b),p);
+const parse=s=>new Map(s.trim().split('\n').map(l=>{const i=l.indexOf('\t');return[l.slice(i+1),l.slice(0,i)]}));
+const old=parse(git('ls-tree','-r',base)),now=parse(git('ls-tree','-r','HEAD'));
+let count=0;for(const [p,v]of old){if(!owned.includes(p)){assert.equal(now.get(p),v,p);count++;}}
+const receipt={at:new Date().toISOString(),authoredHead:head,currentParent:base,composedHead:git('rev-parse','HEAD').trim(),tree:git('rev-parse','HEAD^{tree}').trim(),ownedFiles:owned,ownedBytesPreserved:true,currentParentLeavesPreserved:count};
+fs.writeFileSync(out+'/current-parent-composition.json',JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(receipt));
+const startedAt=new Date().toISOString(),log=fs.createWriteStream(out+'/build-composed.log',{flags:'wx'});
+const child=spawn('cmd.exe',['/d','/s','/c','cargo build --locked -p uma-sim-core --bin uma-sim-api'],{cwd:root,env:{...process.env,CARGO_TARGET_DIR:out+'/target',CARGO_BUILD_JOBS:'2',TEMP:out+'/temp',TMP:out+'/temp'},stdio:['ignore','pipe','pipe']});
+child.stdout.pipe(log,{end:false});child.stderr.pipe(log,{end:false});
+child.on('exit',(code,signal)=>{log.end();const r={startedAt,completedAt:new Date().toISOString(),head:receipt.composedHead,command:'cargo build --locked -p uma-sim-core --bin uma-sim-api',code,signal,apiSha256:code===0?crypto.createHash('sha256').update(fs.readFileSync(out+'/target/debug/uma-sim-api.exe')).digest('hex'):null};fs.writeFileSync(out+'/build-composed.json',JSON.stringify(r,null,2)+'\n');console.log(JSON.stringify(r));process.exitCode=code??1;});

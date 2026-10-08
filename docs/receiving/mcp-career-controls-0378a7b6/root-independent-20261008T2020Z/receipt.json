@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-08T20:29:30.738Z",
+  "result": "pass",
+  "worker": "chatgpt-0378a7b6b7c2/root",
+  "sourceHead": "aff7450bb97f3ba85e0c637d3c31363282596a57",
+  "sourceSha256": "a6e5ca16f5bf411a7cacc5d43cb944644c375f47fbdb5ce039e13edc2103e4ea",
+  "nativeApiSha256": "5ee4f7a6792c7d27930dbb9948f44631814a4d710f4dca0085357c07b46234d7",
+  "fixture": {
+    "seed": -17,
+    "trainee": "Zenno Rob Roy",
+    "support": "support:20011",
+    "factor": "factor:skill:21028",
+    "originalPreference": "late",
+    "initialActive": "root-fork-b"
+  },
+  "groups": [
+    "four catalog values equal native records and leave empty sessions intact",
+    "catalog identities create a different native career",
+    "Auto clears a fork inherited explicit late preference without reverting to it",
+    "named request preserves different active career and all complete sibling state",
+    "omitted session targets active fork only",
+    "missing target and invalid schema preserve all state and active identity",
+    "repeated Auto is idempotent while another fork retains end preference",
+    "saved checkpoint remains byte-identical and native source pins remain exact"
+  ],
+  "fullStateChecks": true,
+  "checkpointSha256": "cb04969486e630547c87cb018c9172e82a0a3c185f337ba09412a693b38cece8",
+  "nativeRun": "D:/Hamon/worktrees/uma-sim-career-controls-0378a7b6-proof/root-independent-20261008T2020Z/native-runs/review-QP0WYY",
+  "limits": "No race outcomes or better-strategy claim. Isolated native API and actual stdio MCP only."
+}

@@ -1,0 +1,617 @@
+{
+  "sourceState": {
+    "meta": {
+      "seed": -17,
+      "scenarioId": "ura",
+      "traineeName": "Zenno Rob Roy",
+      "objectiveProfile": "general",
+      "legacyFactors": [
+        "factor:skill:21028"
+      ],
+      "parentNames": [],
+      "deckSupports": [
+        "support:20011"
+      ],
+      "compatibilityScore": 0
+    },
+    "settings": {
+      "dialogueMode": "CHOICES_ONLY",
+      "speedMultiplier": 1,
+      "allowDialogueAtHighSpeed": false,
+      "traceTelemetry": true,
+      "traceRng": false,
+      "raceModel": "stub"
+    },
+    "state": {
+      "meta": {
+        "seed": -17,
+        "scenarioId": "ura",
+        "traineeName": "Zenno Rob Roy",
+        "objectiveProfile": "general",
+        "legacyFactors": [
+          "factor:skill:21028"
+        ],
+        "parentNames": [],
+        "deckSupports": [
+          "support:20011"
+        ],
+        "compatibilityScore": 0
+      },
+      "date": {
+        "year": 1,
+        "month": 6,
+        "half": 2
+      },
+      "turn": 1,
+      "stats": {
+        "speed": 88,
+        "stamina": 97,
+        "power": 91,
+        "guts": 74,
+        "wit": 100
+      },
+      "energy": 100,
+      "maxEnergy": 100,
+      "mood": "NORMAL",
+      "fans": 0,
+      "skillPoints": 0,
+      "careerComplete": false,
+      "awaitingChoice": false,
+      "pendingEventTitle": null,
+      "pendingRaceId": "debut",
+      "phase": "MANDATORY_RACE",
+      "completedRaces": [],
+      "facilityLevels": {
+        "wit": 1,
+        "power": 1,
+        "speed": 1,
+        "guts": 1,
+        "stamina": 1
+      },
+      "facilityTrainCounts": {},
+      "pendingEventOptions": [],
+      "hintLevels": {
+        "skill:200572": 1,
+        "skill:201112": 1,
+        "skill:200192": 1
+      },
+      "statuses": [],
+      "performanceTokens": {},
+      "scenarioResources": {
+        "values": {
+          "happy_meek_badge": 0
+        }
+      },
+      "legacy": {
+        "parentNames": [],
+        "factorIds": [
+          "factor:skill:21028"
+        ],
+        "inheritedSkillIds": [
+          "skill:210282"
+        ],
+        "sparkCaps": {},
+        "blueStartBonuses": {},
+        "pinkFactorIds": [],
+        "pinkAptitudeTags": [],
+        "pinkStarTotals": {},
+        "aptitudes": {
+          "dirt": "G",
+          "end": "E",
+          "sprint": "G",
+          "long": "A",
+          "late": "A",
+          "pace": "A",
+          "front": "G",
+          "medium": "A",
+          "turf": "A",
+          "mile": "E"
+        },
+        "raceFactorIds": [],
+        "inheritanceComplete": false,
+        "inspirationEventsDone": 0
+      },
+      "learnedSkillIds": [
+        "skill:100471"
+      ],
+      "deck": {
+        "slots": [
+          {
+            "supportId": "support:20011",
+            "bond": 80,
+            "specialty": "guts",
+            "assignedFacility": "guts"
+          }
+        ]
+      },
+      "log": [
+        "Career started: Zenno Rob Roy / ura / seed=-17"
+      ],
+      "generatedSparks": [],
+      "baseAptitudes": {
+        "dirt": "G",
+        "end": "E",
+        "sprint": "G",
+        "long": "A",
+        "late": "A",
+        "pace": "A",
+        "front": "G",
+        "medium": "A",
+        "turf": "A",
+        "mile": "E"
+      },
+      "preferredRunningStyle": "late"
+    },
+    "rngSeed": -17,
+    "rngCalls": 0,
+    "rngState": {
+      "x": -90718587,
+      "y": -1878660654,
+      "z": 192079151,
+      "w": -1074419740,
+      "v": -866321164,
+      "addend": -245222081
+    }
+  },
+  "automatic": {
+    "meta": {
+      "seed": -17,
+      "scenarioId": "ura",
+      "traineeName": "Zenno Rob Roy",
+      "objectiveProfile": "general",
+      "legacyFactors": [
+        "factor:skill:21028"
+      ],
+      "parentNames": [],
+      "deckSupports": [
+        "support:20011"
+      ],
+      "compatibilityScore": 0
+    },
+    "settings": {
+      "dialogueMode": "CHOICES_ONLY",
+      "speedMultiplier": 1,
+      "allowDialogueAtHighSpeed": false,
+      "traceTelemetry": true,
+      "traceRng": false,
+      "raceModel": "stub"
+    },
+    "state": {
+      "meta": {
+        "seed": -17,
+        "scenarioId": "ura",
+        "traineeName": "Zenno Rob Roy",
+        "objectiveProfile": "general",
+        "legacyFactors": [
+          "factor:skill:21028"
+        ],
+        "parentNames": [],
+        "deckSupports": [
+          "support:20011"
+        ],
+        "compatibilityScore": 0
+      },
+      "date": {
+        "year": 1,
+        "month": 6,
+        "half": 2
+      },
+      "turn": 1,
+      "stats": {
+        "speed": 88,
+        "stamina": 97,
+        "power": 91,
+        "guts": 74,
+        "wit": 100
+      },
+      "energy": 100,
+      "maxEnergy": 100,
+      "mood": "NORMAL",
+      "fans": 0,
+      "skillPoints": 0,
+      "careerComplete": false,
+      "awaitingChoice": false,
+      "pendingEventTitle": null,
+      "pendingRaceId": "debut",
+      "phase": "MANDATORY_RACE",
+      "completedRaces": [],
+      "facilityLevels": {
+        "wit": 1,
+        "power": 1,
+        "speed": 1,
+        "guts": 1,
+        "stamina": 1
+      },
+      "facilityTrainCounts": {},
+      "pendingEventOptions": [],
+      "hintLevels": {
+        "skill:200572": 1,
+        "skill:201112": 1,
+        "skill:200192": 1
+      },
+      "statuses": [],
+      "performanceTokens": {},
+      "scenarioResources": {
+        "values": {
+          "happy_meek_badge": 0
+        }
+      },
+      "legacy": {
+        "parentNames": [],
+        "factorIds": [
+          "factor:skill:21028"
+        ],
+        "inheritedSkillIds": [
+          "skill:210282"
+        ],
+        "sparkCaps": {},
+        "blueStartBonuses": {},
+        "pinkFactorIds": [],
+        "pinkAptitudeTags": [],
+        "pinkStarTotals": {},
+        "aptitudes": {
+          "dirt": "G",
+          "end": "E",
+          "sprint": "G",
+          "long": "A",
+          "late": "A",
+          "pace": "A",
+          "front": "G",
+          "medium": "A",
+          "turf": "A",
+          "mile": "E"
+        },
+        "raceFactorIds": [],
+        "inheritanceComplete": false,
+        "inspirationEventsDone": 0
+      },
+      "learnedSkillIds": [
+        "skill:100471"
+      ],
+      "deck": {
+        "slots": [
+          {
+            "supportId": "support:20011",
+            "bond": 80,
+            "specialty": "guts",
+            "assignedFacility": "guts"
+          }
+        ]
+      },
+      "log": [
+        "Career started: Zenno Rob Roy / ura / seed=-17"
+      ],
+      "generatedSparks": [],
+      "baseAptitudes": {
+        "dirt": "G",
+        "end": "E",
+        "sprint": "G",
+        "long": "A",
+        "late": "A",
+        "pace": "A",
+        "front": "G",
+        "medium": "A",
+        "turf": "A",
+        "mile": "E"
+      }
+    },
+    "rngSeed": -17,
+    "rngCalls": 0,
+    "rngState": {
+      "x": -90718587,
+      "y": -1878660654,
+      "z": 192079151,
+      "w": -1074419740,
+      "v": -866321164,
+      "addend": -245222081
+    }
+  },
+  "end": {
+    "meta": {
+      "seed": -17,
+      "scenarioId": "ura",
+      "traineeName": "Zenno Rob Roy",
+      "objectiveProfile": "general",
+      "legacyFactors": [
+        "factor:skill:21028"
+      ],
+      "parentNames": [],
+      "deckSupports": [
+        "support:20011"
+      ],
+      "compatibilityScore": 0
+    },
+    "settings": {
+      "dialogueMode": "CHOICES_ONLY",
+      "speedMultiplier": 1,
+      "allowDialogueAtHighSpeed": false,
+      "traceTelemetry": true,
+      "traceRng": false,
+      "raceModel": "stub"
+    },
+    "state": {
+      "meta": {
+        "seed": -17,
+        "scenarioId": "ura",
+        "traineeName": "Zenno Rob Roy",
+        "objectiveProfile": "general",
+        "legacyFactors": [
+          "factor:skill:21028"
+        ],
+        "parentNames": [],
+        "deckSupports": [
+          "support:20011"
+        ],
+        "compatibilityScore": 0
+      },
+      "date": {
+        "year": 1,
+        "month": 6,
+        "half": 2
+      },
+      "turn": 1,
+      "stats": {
+        "speed": 88,
+        "stamina": 97,
+        "power": 91,
+        "guts": 74,
+        "wit": 100
+      },
+      "energy": 100,
+      "maxEnergy": 100,
+      "mood": "NORMAL",
+      "fans": 0,
+      "skillPoints": 0,
+      "careerComplete": false,
+      "awaitingChoice": false,
+      "pendingEventTitle": null,
+      "pendingRaceId": "debut",
+      "phase": "MANDATORY_RACE",
+      "completedRaces": [],
+      "facilityLevels": {
+        "wit": 1,
+        "power": 1,
+        "speed": 1,
+        "guts": 1,
+        "stamina": 1
+      },
+      "facilityTrainCounts": {},
+      "pendingEventOptions": [],
+      "hintLevels": {
+        "skill:200572": 1,
+        "skill:201112": 1,
+        "skill:200192": 1
+      },
+      "statuses": [],
+      "performanceTokens": {},
+      "scenarioResources": {
+        "values": {
+          "happy_meek_badge": 0
+        }
+      },
+      "legacy": {
+        "parentNames": [],
+        "factorIds": [
+          "factor:skill:21028"
+        ],
+        "inheritedSkillIds": [
+          "skill:210282"
+        ],
+        "sparkCaps": {},
+        "blueStartBonuses": {},
+        "pinkFactorIds": [],
+        "pinkAptitudeTags": [],
+        "pinkStarTotals": {},
+        "aptitudes": {
+          "dirt": "G",
+          "end": "E",
+          "sprint": "G",
+          "long": "A",
+          "late": "A",
+          "pace": "A",
+          "front": "G",
+          "medium": "A",
+          "turf": "A",
+          "mile": "E"
+        },
+        "raceFactorIds": [],
+        "inheritanceComplete": false,
+        "inspirationEventsDone": 0
+      },
+      "learnedSkillIds": [
+        "skill:100471"
+      ],
+      "deck": {
+        "slots": [
+          {
+            "supportId": "support:20011",
+            "bond": 80,
+            "specialty": "guts",
+            "assignedFacility": "guts"
+          }
+        ]
+      },
+      "log": [
+        "Career started: Zenno Rob Roy / ura / seed=-17"
+      ],
+      "generatedSparks": [],
+      "baseAptitudes": {
+        "dirt": "G",
+        "end": "E",
+        "sprint": "G",
+        "long": "A",
+        "late": "A",
+        "pace": "A",
+        "front": "G",
+        "medium": "A",
+        "turf": "A",
+        "mile": "E"
+      },
+      "preferredRunningStyle": "end"
+    },
+    "rngSeed": -17,
+    "rngCalls": 0,
+    "rngState": {
+      "x": -90718587,
+      "y": -1878660654,
+      "z": 192079151,
+      "w": -1074419740,
+      "v": -866321164,
+      "addend": -245222081
+    }
+  },
+  "front": {
+    "meta": {
+      "seed": -17,
+      "scenarioId": "ura",
+      "traineeName": "Zenno Rob Roy",
+      "objectiveProfile": "general",
+      "legacyFactors": [
+        "factor:skill:21028"
+      ],
+      "parentNames": [],
+      "deckSupports": [
+        "support:20011"
+      ],
+      "compatibilityScore": 0
+    },
+    "settings": {
+      "dialogueMode": "CHOICES_ONLY",
+      "speedMultiplier": 1,
+      "allowDialogueAtHighSpeed": false,
+      "traceTelemetry": true,
+      "traceRng": false,
+      "raceModel": "stub"
+    },
+    "state": {
+      "meta": {
+        "seed": -17,
+        "scenarioId": "ura",
+        "traineeName": "Zenno Rob Roy",
+        "objectiveProfile": "general",
+        "legacyFactors": [
+          "factor:skill:21028"
+        ],
+        "parentNames": [],
+        "deckSupports": [
+          "support:20011"
+        ],
+        "compatibilityScore": 0
+      },
+      "date": {
+        "year": 1,
+        "month": 6,
+        "half": 2
+      },
+      "turn": 1,
+      "stats": {
+        "speed": 88,
+        "stamina": 97,
+        "power": 91,
+        "guts": 74,
+        "wit": 100
+      },
+      "energy": 100,
+      "maxEnergy": 100,
+      "mood": "NORMAL",
+      "fans": 0,
+      "skillPoints": 0,
+      "careerComplete": false,
+      "awaitingChoice": false,
+      "pendingEventTitle": null,
+      "pendingRaceId": "debut",
+      "phase": "MANDATORY_RACE",
+      "completedRaces": [],
+      "facilityLevels": {
+        "wit": 1,
+        "power": 1,
+        "speed": 1,
+        "guts": 1,
+        "stamina": 1
+      },
+      "facilityTrainCounts": {},
+      "pendingEventOptions": [],
+      "hintLevels": {
+        "skill:200572": 1,
+        "skill:201112": 1,
+        "skill:200192": 1
+      },
+      "statuses": [],
+      "performanceTokens": {},
+      "scenarioResources": {
+        "values": {
+          "happy_meek_badge": 0
+        }
+      },
+      "legacy": {
+        "parentNames": [],
+        "factorIds": [
+          "factor:skill:21028"
+        ],
+        "inheritedSkillIds": [
+          "skill:210282"
+        ],
+        "sparkCaps": {},
+        "blueStartBonuses": {},
+        "pinkFactorIds": [],
+        "pinkAptitudeTags": [],
+        "pinkStarTotals": {},
+        "aptitudes": {
+          "dirt": "G",
+          "end": "E",
+          "sprint": "G",
+          "long": "A",
+          "late": "A",
+          "pace": "A",
+          "front": "G",
+          "medium": "A",
+          "turf": "A",
+          "mile": "E"
+        },
+        "raceFactorIds": [],
+        "inheritanceComplete": false,
+        "inspirationEventsDone": 0
+      },
+      "learnedSkillIds": [
+        "skill:100471"
+      ],
+      "deck": {
+        "slots": [
+          {
+            "supportId": "support:20011",
+            "bond": 80,
+            "specialty": "guts",
+            "assignedFacility": "guts"
+          }
+        ]
+      },
+      "log": [
+        "Career started: Zenno Rob Roy / ura / seed=-17"
+      ],
+      "generatedSparks": [],
+      "baseAptitudes": {
+        "dirt": "G",
+        "end": "E",
+        "sprint": "G",
+        "long": "A",
+        "late": "A",
+        "pace": "A",
+        "front": "G",
+        "medium": "A",
+        "turf": "A",
+        "mile": "E"
+      },
+      "preferredRunningStyle": "front"
+    },
+    "rngSeed": -17,
+    "rngCalls": 0,
+    "rngState": {
+      "x": -90718587,
+      "y": -1878660654,
+      "z": 192079151,
+      "w": -1074419740,
+      "v": -866321164,
+      "addend": -245222081
+    }
+  }
+}

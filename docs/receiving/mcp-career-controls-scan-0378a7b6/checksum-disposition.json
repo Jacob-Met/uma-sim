@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-08T20:44:04.342Z",
+  "scope": "two immutable native executable checksums in receiving receipts; no credentials",
+  "binaries": [
+    {
+      "path": "baseline-uma-sim-api.exe",
+      "sha256": "5ee4f7a6792c7d27930dbb9948f44631814a4d710f4dca0085357c07b46234d7"
+    },
+    {
+      "path": "target/debug/uma-sim-api.exe",
+      "sha256": "6e849d296f35a27bb5dc32ef6730c02612c66d199c440d841b794a1442b27995"
+    }
+  ],
+  "fingerprints": [
+    "0ef6460cb516ac5f2bf78d173e7f87b30f0538bf:docs/receiving/mcp-career-controls-0378a7b6/build-composed.json:generic-api-key:8",
+    "0ef6460cb516ac5f2bf78d173e7f87b30f0538bf:docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z/receipt.json:generic-api-key:7"
+  ],
+  "originalIgnoreSha256": "cbac16cf93dc4240a6338bfb6d6ad79fd27ef5c29a71f254b4aa82bedbadb7d2",
+  "proposedIgnoreSha256": "a310bd94c477c8c18585cc06a85821b63272d0712468a26b2b383402ed18e965",
+  "nativeArchive": {
+    "files": 102,
+    "decodedBytes": 428971,
+    "allHashesAndOriginalBytesExact": true
+  }
+}

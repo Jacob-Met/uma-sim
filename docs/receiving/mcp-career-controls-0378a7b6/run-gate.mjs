@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import {spawn,execFileSync} from 'node:child_process';
+const root='D:/Hamon/worktrees/uma-sim-discovery-0378a7b6';
+const out='D:/Hamon/worktrees/uma-sim-career-controls-0378a7b6-proof';
+const tag=process.argv[2]??'candidate';
+const dir=root+'/packages/uma-sim-mcp/tests';
+const files=fs.readdirSync(dir).filter(n=>n.endsWith('.test.mjs')).sort().map(n=>dir+'/'+n);
+const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const source=sha(root+'/packages/uma-sim-mcp/mcp-stdio.js');
+const startedAt=new Date().toISOString();const log=fs.createWriteStream(out+'/'+tag+'-gate.log',{flags:'wx'});
+const args=['--test','--test-concurrency=2',...files];
+const child=spawn(process.execPath,args,{cwd:root,env:{...process.env,UMA_SIM_TEST_REPO_ROOT:root,UMA_SIM_TEST_OUTPUT_DIR:out+'/'+tag,UMA_SIM_TEST_API_BIN:out+'/target/debug/uma-sim-api.exe',UMA_SIM_TEST_RECEIVING_COMMIT:execFileSync('git',['-C',root,'rev-parse','HEAD'],{encoding:'utf8'}).trim()},stdio:['ignore','pipe','pipe']});
+child.stdout.pipe(log,{end:false});child.stderr.pipe(log,{end:false});
+child.on('error',error=>{fs.writeFileSync(out+'/'+tag+'-gate-error.json',JSON.stringify({error:String(error)}));process.exitCode=1;});
+child.on('exit',(code,signal)=>{log.end();const receipt={startedAt,completedAt:new Date().toISOString(),node:process.version,args,sourceSha256:source,sourceStable:sha(root+'/packages/uma-sim-mcp/mcp-stdio.js')===source,code,signal};fs.writeFileSync(out+'/'+tag+'-gate.json',JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt));process.exitCode=code??1;});
