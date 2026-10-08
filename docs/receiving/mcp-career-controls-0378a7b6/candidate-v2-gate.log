@@ -1,0 +1,213 @@
+▶ MCP catalog selection and race style use the real native career without advancing it
+  ✔ all five catalogs are available before a career and equal native records (274.3634ms)
+  ✔ catalog-chosen identities create a native career and further catalog reads preserve it (183.9199ms)
+  ✖ every explicit style and Auto change only the named target preference (219.9449ms)
+  ✔ omitted session uses active target while a named request ignores a different active career (121.0313ms)
+  ✔ missing target refusal leaves complete careers, checkpoint and active session unchanged (93.0079ms)
+✖ MCP catalog selection and race style use the real native career without advancing it (1728.7642ms)
+✔ catalog and style discovery states their required enums and dispatches nothing (96.3416ms)
+✔ all catalog kinds use their existing GET and preserve returned values (179.1532ms)
+✔ style dispatch keeps explicit named identity and maps only Auto to the native empty key (179.4669ms)
+✔ invalid catalog/style inputs and empty session never dispatch HTTP (79.2107ms)
+✔ native HTTP refusals remain unsuccessful tool results without automatic retries (127.8379ms)
+▶ native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+  ✔ save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes (185.6388ms)
+  ✔ forking and named actions do not mutate the source, sibling or saved checkpoint (234.1889ms)
+  ✔ incompatible checkpoint metadata returns real 422 and preserves the target session (109.513ms)
+  ✔ known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics (281.6718ms)
+  ✔ external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged (92.5324ms)
+  ✔ branches compare actual decisions while preserving live sessions and checkpoint bytes (390.5702ms)
+  ✔ invalid branch/import operations and deletions preserve unrelated native state (202.8687ms)
+✔ native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports (2322.4554ms)
+✔ discovery preserves existing tool and resource identities and publishes the full lab boundary (88.5679ms)
+▶ named run calls and the process-wide content operation retain REST identities
+  ✔ sim_state (99.9111ms)
+  ✔ sim_text (8.79ms)
+  ✔ sim_choices (15.498ms)
+  ✔ sim_export_telemetry (14.947ms)
+  ✔ sim_act (15.8594ms)
+  ✔ sim_auto (8.019ms)
+  ✔ sim_fast_forward (3.0491ms)
+  ✔ sim_deck_place (17.8683ms)
+  ✔ sim_load_content_pack (15.7448ms)
+✔ named run calls and the process-wide content operation retain REST identities (218.2974ms)
+✔ start preserves default-session creation and explicit configuration (140.8948ms)
+▶ all added operations preserve their method, route, selectors and payload values
+  ✔ sim_sessions (96.3606ms)
+  ✔ sim_session_fork (10.2476ms)
+  ✔ sim_session_fork (14.9387ms)
+  ✔ sim_session_activate (16.049ms)
+  ✔ sim_session_close (14.3376ms)
+  ✔ sim_library_list (8.293ms)
+  ✔ sim_library_save (7.2359ms)
+  ✔ sim_library_load (15.1374ms)
+  ✔ sim_library_delete (15.9512ms)
+  ✔ sim_library_import (2.511ms)
+  ✔ sim_library_export (12.6746ms)
+  ✔ sim_lab_branch (14.7425ms)
+  ✔ sim_lab_branches (15.157ms)
+  ✔ sim_lab_branch_get (15.9946ms)
+  ✔ sim_lab_branch_delete (16.1584ms)
+  ✔ sim_lab_compare (15.602ms)
+  ✔ sim_lab_report (15.6143ms)
+✔ all added operations preserve their method, route, selectors and payload values (327.2546ms)
+▶ empty default-session selectors are permitted only on endpoints with correct native semantics
+  ✔ sim_state (53.2481ms)
+  ✔ sim_text (0.4821ms)
+  ✔ sim_choices (0.4485ms)
+  ✔ sim_export_telemetry (0.4515ms)
+  ✔ sim_act (0.7432ms)
+  ✔ sim_auto (0.6377ms)
+  ✔ sim_fast_forward (0.7667ms)
+  ✔ sim_deck_place (0.6386ms)
+  ✔ sim_library_save (0.5699ms)
+  ✔ sim_library_load (0.5813ms)
+  ✔ sim_session_close (0.4467ms)
+  ✔ sim_start explicit default (45.2399ms)
+  ✔ sim_session_activate explicit default (17.3149ms)
+  ✔ sim_session_fork explicit default (16.7291ms)
+✔ empty default-session selectors are permitted only on endpoints with correct native semantics (155.7066ms)
+▶ query values cannot inject a second selector or change the endpoint
+  ✔ sim_state (93.8492ms)
+  ✔ sim_library_export (15.3017ms)
+  ✔ sim_lab_branch_get (2.3783ms)
+  ✔ sim_lab_report (13.3264ms)
+✔ query values cannot inject a second selector or change the endpoint (140.5421ms)
+▶ invalid containers and mutation arguments fail before HTTP dispatch
+  ✔ 1: sim_state null (52.9696ms)
+  ✔ 2: sim_state [] (0.5268ms)
+  ✔ 3: sim_state false (0.4227ms)
+  ✔ 4: sim_state "text" (0.3902ms)
+  ✔ 5: sim_state 4 (0.4377ms)
+  ✔ 6: sim_act {} (0.3846ms)
+  ✔ 7: sim_act {"action":1} (0.3996ms)
+  ✔ 8: sim_act {"action":"rest","session":null} (0.5047ms)
+  ✔ 9: sim_act {"action":"rest","sessionId":"sibling"} (0.4524ms)
+  ✔ 10: sim_start {"seed":"7"} (0.3936ms)
+  ✔ 11: sim_start {"seed":9007199254740992} (0.351ms)
+  ✔ 12: sim_start {"speed":0} (0.3479ms)
+  ✔ 13: sim_fast_forward {"multiplier":101} (0.3703ms)
+  ✔ 14: sim_start {"raceModel":false} (0.4896ms)
+  ✔ 15: sim_library_save {"name":"mid","__proto__":{"overwrite":true}} (0.5983ms)
+  ✔ 16: sim_library_save {"name":"mid","constructor":true} (0.4708ms)
+  ✔ 17: sim_start {"session":false} (0.3496ms)
+  ✔ 18: sim_fast_forward {"multiplier":"3"} (0.5693ms)
+  ✔ 19: sim_load_content_pack {"path":"pack.json","session":"sibling"} (0.6491ms)
+  ✔ 20: sim_session_fork {"id":5} (0.5891ms)
+  ✔ 21: sim_session_fork {"checkpoint":"mid","session":"source"} (0.6312ms)
+  ✔ 22: sim_session_activate {} (0.3519ms)
+  ✔ 23: sim_session_close {"session":5} (0.3718ms)
+  ✔ 24: sim_library_save {"overwrite":"true"} (0.3365ms)
+  ✔ 25: sim_library_save {"overwrite":null} (0.3191ms)
+  ✔ 26: sim_library_save {"name":"mid","overwritee":true} (0.4583ms)
+  ✔ 27: sim_library_load {} (0.3462ms)
+  ✔ 28: sim_library_import {} (0.3386ms)
+  ✔ 29: sim_library_import {"snapshot":[]} (0.4671ms)
+  ✔ 30: sim_library_import {"snapshot":"raw"} (0.4239ms)
+  ✔ 31: sim_library_import {"snapshot":{},"overwrite":1} (0.3211ms)
+  ✔ 32: sim_library_export {"name":4} (0.3481ms)
+  ✔ 33: sim_lab_compare {"a":"a"} (0.3082ms)
+  ✔ 34: sim_lab_compare {"a":"a","b":false} (0.3988ms)
+  ✔ 35: sim_lab_report {"a":"a","b":"b","format":"html"} (0.3819ms)
+  ✔ 36: sim_lab_branch_delete {"id":null} (0.3751ms)
+  ✔ 37: sim_lab_branch {"checkpoint":"mid","policy":"external"} (0.3377ms)
+  ✔ 38: sim_lab_branch {"checkpoint":"mid","maxActions":0} (0.3719ms)
+  ✔ 39: sim_lab_branch {"checkpoint":"mid","maxActions":501} (1.3884ms)
+  ✔ 40: sim_lab_branch {"checkpoint":"mid","maxActions":1.5} (0.8811ms)
+  ✔ 41: sim_lab_branch {"checkpoint":"mid","maxActions":"2"} (0.4212ms)
+  ✔ 42: sim_lab_branch {"checkpoint":"mid","maxActions":null} (0.518ms)
+  ✔ 43: sim_lab_branch {"checkpoint":"mid","overrides":{}} (0.3835ms)
+  ✔ 44: sim_lab_branch {"checkpoint":"mid","overrides":"rest"} (0.3235ms)
+  ✔ 45: sim_lab_branch {"checkpoint":"mid","overrides":[null]} (0.3819ms)
+  ✔ 46: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1}]} (0.3445ms)
+  ✔ 47: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":"1","actionId":"rest"}]} (0.5937ms)
+  ✔ 48: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1.5,"actionId":"rest"}]} (0.3673ms)
+  ✔ 49: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":4294967297,"actionId":"rest"}]} (0.4192ms)
+  ✔ 50: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":3}]} (0.3631ms)
+  ✔ 51: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":"rest","typo":true}]} (0.5763ms)
+✔ invalid containers and mutation arguments fail before HTTP dispatch (95.209ms)
+✔ valid numeric edges survive validation without changing the requested experiment (130.5761ms)
+▶ HTTP failures retain the native diagnostic and never retry the mutation
+  ✔ 400 (94.1641ms)
+  ✔ 404 (17.4698ms)
+  ✔ 409 (15.0153ms)
+  ✔ 422 (15.464ms)
+  ✔ 503 (15.2978ms)
+✔ HTTP failures retain the native diagnostic and never retry the mutation (175.209ms)
+✔ non-JSON HTTP errors and Markdown reports preserve readable text (106.5055ms)
+✔ connection loss after a mutation is not automatically replayed and stdio stays usable (103.8163ms)
+✔ malformed JSON successes remain internal failures, including resource reads (114.6949ms)
+✔ concurrent response IDs, fragmented UTF-8, notifications and parse errors preserve the protocol boundary (157.8971ms)
+✔ conformant handshake with newline-delimited framing (394.2224ms)
+✔ protocol negotiation, -32602 error mapping, and argument validation (90.5709ms)
+✔ HTTP failures are actionable tool errors, including non-JSON and empty bodies (181.2941ms)
+✔ failed resource reads return RPC errors without advertising resource contents (102.0203ms)
+✔ successful HTTP payloads and run setup arguments keep their existing shape (167.3023ms)
+✔ invalid JSON-RPC frames are rejected and the stdio connection stays usable (211.9854ms)
+✔ malformed parameters are rejected before any backend mutation (107.2135ms)
+✔ MCP invalid or unsafe numeric request IDs cannot execute a tool (262.7531ms)
+✔ string and safe integer IDs preserve accepted career-lab arguments and zero seeds (155.6308ms)
+✔ numeric overflow in valid JSON arguments is rejected before REST (58.5498ms)
+✔ report receiving: HTTP errors retain raw bodies before format decoding and healthy text remains text (195.8901ms)
+ℹ {"case":"report-format-composition","statuses":[503,409,404,200,200],"requests":5,"healthyMarkdownBytes":43,"jsonReport":{"a":"left","b":"right","firstDivergence":{"kind":"decision"}}}
+✔ preserve the current fully escaped whole-second timestamp format (3.0846ms)
+✔ normalize only the whole generated line and retain identical text inside data (0.1862ms)
+✔ wrong branch identity, counts, retained dates and escape bytes remain distinguishable (0.3549ms)
+✔ invalid timestamp syntax and unknown escape sequences refuse (0.6549ms)
+✔ the escaped shape cannot admit unparseable month, day or hour values (4.7099ms)
+✔ missing or duplicate generated lines cannot disappear as timestamp variance (0.7326ms)
+✔ the JSON helper keeps its existing raw UTC and experiment identity contract (1.0479ms)
+✔ valid Gregorian leap days remain accepted in the current escaped format (0.1739ms)
+✔ finite Date.parse normalization cannot hide day or midnight rollover (0.7011ms)
+✔ native receiving: fork contention has one winner and closing it without main preserves surviving careers (1012.355ms)
+ℹ {"case":"concurrent-fork-and-no-main","winner":"receiving-fork-a","surviving":["receiving-a","receiving-b"],"a":"ee0556a41e2d36d463282a87e8a5dc603d7c7adde8c8df8a32cafa7b12c86693","b":"0e482b145017f201f147cf755b181acb178a4d520cbe85ddc63228d1ba1d27bc"}
+✔ native receiving: external-policy refusal fully restores a non-active target and permits later continuation (814.3294ms)
+ℹ {"case":"non-active-503-rollback-and-continuation","unchangedTarget":"c989de1e995fa0c04e220ed555504b65b80d186bef83cd7974d451dc2229ccf3","unchangedActive":"1dc6453d935e047312c5c931f4a03ae0a8f374d60339068b223d6482adae098a","targetSpeed":3,"activeSpeed":7}
+✔ native receiving: global content reaches both existing careers and differs from an unloaded API control (1532.43ms)
+ℹ {"case":"global-content-native-control","loaded":500,"step":2,"turn":3,"a":"7b8f9e155ea422b040d5853ed8769c0a0f286c2dfa3a51d0bca30703660e85fa","b":"7b8f9e155ea422b040d5853ed8769c0a0f286c2dfa3a51d0bca30703660e85fa","unloaded":"12e21ec659bf0b283b9a45d0c77fa99d220c8e98beefb03c0de0995a31cd459c","active":"pack-b"}
+✔ success payload receiving: legacy JSON strings stay encoded while default Markdown reports stay literal (153.634ms)
+ℹ {"case":"success-payload-owner-contract","requests":3,"modes":["legacy JSON string","default raw Markdown","JSON report string"]}
+ℹ tests 156
+ℹ suites 0
+ℹ pass 154
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7846.2804
+
+✖ failing tests:
+
+test at packages\uma-sim-mcp\tests\career-controls-native.test.mjs:57:11
+✖ every explicit style and Auto change only the named target preference (219.9449ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      meta: {
+        compatibilityScore: 0,
+        deckSupports: [
+          'support:10133'
+  ...
+        phase: 'MANDATORY_RACE',
+  -     preferredRunningStyle: null,
+        scenarioResources: {
+          values: {
+            happy_meek_badge: 0
+          }
+        },
+  
+      at TestContext.<anonymous> (file:///D:/Hamon/worktrees/uma-sim-discovery-0378a7b6/packages/uma-sim-mcp/tests/career-controls-native.test.mjs:62:14)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async TestContext.<anonymous> (file:///D:/Hamon/worktrees/uma-sim-discovery-0378a7b6/packages/uma-sim-mcp/tests/career-controls-native.test.mjs:57:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { meta: { seed: 42, scenarioId: 'ura', traineeName: 'Special Week', objectiveProfile: 'general', legacyFactors: [Array], parentNames: [], deckSupports: [Array], compatibilityScore: 0 }, settings: { dialogueMode: 'CHOICES_ONLY', speedMultiplier: 1, allowDialogueAtHighSpeed: false, traceTelemetry: true, traceRng: false, raceModel: 'stub' }, state: { meta: [Object], date: [Object], turn: 1, stats: [Object], energy: 100, maxEnergy: 100, mood: 'NORMAL', fans: 0, skillPoints: 0, careerComplete: false, awaitingChoice: false, pendingEventTitle: null, pendingRaceId: 'debut', phase: 'MANDATORY_RACE', completedRaces: [], facilityLevels: [Object], facilityTrainCounts: {}, pendingEventOptions: [], hintLevels: [Object], statuses: [], performanceTokens: {}, scenarioResources: [Object], legacy: [Object], learnedSkillIds: [Array], deck: [Object], log: [Array], generatedSparks: [], baseAptitudes: [Object] }, rngSeed: 42, rngCalls: 0, rngState: { x: -165840718, y: 1531557566, z: -2082647735, w: 668685995, v: -1615262521, addend: 23238976 } },
+    expected: { meta: { seed: 42, scenarioId: 'ura', traineeName: 'Special Week', objectiveProfile: 'general', legacyFactors: [Array], parentNames: [], deckSupports: [Array], compatibilityScore: 0 }, settings: { dialogueMode: 'CHOICES_ONLY', speedMultiplier: 1, allowDialogueAtHighSpeed: false, traceTelemetry: true, traceRng: false, raceModel: 'stub' }, state: { meta: [Object], date: [Object], turn: 1, stats: [Object], energy: 100, maxEnergy: 100, mood: 'NORMAL', fans: 0, skillPoints: 0, careerComplete: false, awaitingChoice: false, pendingEventTitle: null, pendingRaceId: 'debut', phase: 'MANDATORY_RACE', completedRaces: [], facilityLevels: [Object], facilityTrainCounts: {}, pendingEventOptions: [], hintLevels: [Object], statuses: [], performanceTokens: {}, scenarioResources: [Object], legacy: [Object], learnedSkillIds: [Array], deck: [Object], log: [Array], generatedSparks: [], baseAptitudes: [Object], preferredRunningStyle: null }, rngSeed: 42, rngCalls: 0, rngState: { x: -165840718, y: 1531557566, z: -2082647735, w: 668685995, v: -1615262521, addend: 23238976 } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
