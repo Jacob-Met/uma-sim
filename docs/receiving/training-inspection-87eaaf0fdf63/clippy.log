@@ -1,0 +1,613 @@
+    Checking memchr v2.8.3
+    Checking itoa v1.0.18
+    Checking regex-syntax v0.8.11
+    Checking log v0.4.34
+    Checking chunked_transfer v1.5.0
+    Checking serde_core v1.0.229
+    Checking zmij v1.0.23
+   Compiling uma-sim-core v0.1.0 (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/source/uma-sim-core)
+    Checking httpdate v1.0.3
+    Checking ascii v1.1.0
+    Checking tiny_http v0.12.0
+    Checking aho-corasick v1.1.5
+    Checking regex-automata v0.4.18
+    Checking serde v1.0.229
+    Checking serde_json v1.0.151
+    Checking uma-race-core v0.1.0 (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/source/uma-race-core)
+warning: manually reimplementing `div_ceil`
+  --> uma-race-core/src/compete_fight.rs:33:16
+   |
+33 |     let half = (field_size + 1) / 2; // ceil(n/2)
+   |                ^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `field_size.div_ceil(2)`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_div_ceil
+   = note: `#[warn(clippy::manual_div_ceil)]` on by default
+
+warning: using `contains()` instead of `iter().any()` is more efficient
+   --> uma-race-core/src/condition/skill.rs:176:8
+    |
+176 |     if SCENARIO.iter().any(|s| *s == skill_id) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `SCENARIO.contains(&skill_id)`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_contains
+    = note: `#[warn(clippy::manual_contains)]` on by default
+
+warning: this OR pattern can be rewritten using a range
+   --> uma-race-core/src/condition/skill.rs:282:83
+    |
+282 | ...arity.unwrap_or(1), 3 | 4 | 5);
+    |                        ^^^^^^^^^ help: try: `3..=5`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_patterns
+    = note: `#[warn(clippy::manual_range_patterns)]` on by default
+
+warning: this function has too many arguments (11/7)
+  --> uma-race-core/src/pos_keep.rs:86:1
+   |
+86 | / pub fn tick_nige_pos_keep(
+87 | |     state: PosKeepState,
+88 | |     strategy: Strategy,
+89 | |     am_i_pacer: bool,
+...  |
+97 | |     section_len: f64,
+98 | | ) -> (PosKeepState, f64, f64, f64) {
+   | |__________________________________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+   = note: `#[warn(clippy::too_many_arguments)]` on by default
+
+warning: this function has too many arguments (13/7)
+   --> uma-race-core/src/pos_keep.rs:151:1
+    |
+151 | / pub fn tick_pack_pos_keep(
+152 | |     state: PosKeepState,
+153 | |     strategy: Strategy,
+154 | |     behind: f64,
+...   |
+164 | |     section_len: f64,
+165 | | ) -> (PosKeepState, f64, f64, f64) {
+    | |__________________________________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+warning: this function has too many arguments (12/7)
+  --> uma-race-core/src/runner.rs:74:1
+   |
+74 | / fn apply_gate_skills(
+75 | |     pending: &mut Vec<PendingSkill>,
+76 | |     h: &mut HorseInput,
+77 | |     start_delay: &mut f64,
+...  |
+86 | |     num_umas: u32,
+87 | | ) -> GatePhysics {
+   | |________________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+warning: this function has too many arguments (8/7)
+   --> uma-race-core/src/runner.rs:379:5
+    |
+379 | /     fn build(
+380 | |         course: &Course,
+381 | |         ground: GroundCondition,
+382 | |         horse: &HorseInput,
+...   |
+387 | |         num_umas: u32,
+388 | |     ) -> Self {
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+warning: struct update has no effect, all the fields in the struct have already been specified
+    --> uma-race-core/src/runner.rs:1303:15
+     |
+1303 |             ..Default::default()
+     |               ^^^^^^^^^^^^^^^^^^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_update
+     = note: `#[warn(clippy::needless_update)]` on by default
+
+warning: this function has too many arguments (15/7)
+   --> uma-race-core/src/solver.rs:430:1
+    |
+430 | / pub(crate) fn dynamics_ok(
+431 | |     dynamics: &[DynamicPred],
+432 | |     t: f64,
+433 | |     is_last_spurt: bool,
+...   |
+445 | |     used_skills: &std::collections::HashSet<String>,
+446 | | ) -> bool {
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+warning: this function has too many arguments (8/7)
+   --> uma-race-core/src/special_conditions.rs:161:5
+    |
+161 | /     pub fn tick(
+162 | |         &mut self,
+163 | |         rng: &mut PrandoRng,
+164 | |         phase: Phase,
+...   |
+169 | |         horse_lane: f64,
+170 | |     ) {
+    | |_____^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+warning: this function has too many arguments (8/7)
+   --> uma-race-core/src/special_conditions.rs:201:5
+    |
+201 | /     pub fn on_frame(
+202 | |         &mut self,
+203 | |         dt: f64,
+204 | |         phase: Phase,
+...   |
+209 | |         horse_lane: f64,
+210 | |     ) {
+    | |_____^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+    Checking regex v1.13.1
+warning: `uma-race-core` (lib) generated 11 warnings (run `cargo clippy --fix --lib -p uma-race-core -- ` to apply 3 suggestions)
+warning: this operation has no effect
+   --> uma-race-core/src/solver.rs:982:40
+    |
+982 |         assert_eq!(gate_block(16, 18), 1 + (24 - 16) % 8);
+    |                                        ^^^^^^^^^^^^^^^^^ help: consider reducing it to: `1`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#identity_op
+    = note: `#[warn(clippy::identity_op)]` on by default
+
+warning: manual `RangeInclusive::contains` implementation
+  --> uma-race-core/tests/probe_residual.rs:75:16
+   |
+75 |             || (i >= 105 && i <= 130)
+   |                ^^^^^^^^^^^^^^^^^^^^^^ help: use: `(105..=130).contains(&i)`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_contains
+   = note: `#[warn(clippy::manual_range_contains)]` on by default
+
+warning: manual `RangeInclusive::contains` implementation
+  --> uma-race-core/tests/probe_residual.rs:76:18
+   |
+76 |             || ((i >= 60 && i <= 180 && i % 5 == 0) || i < 5);
+   |                  ^^^^^^^^^^^^^^^^^^^ help: use: `(60..=180).contains(&i)`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_contains
+
+warning: `uma-race-core` (test "probe_residual") generated 2 warnings (run `cargo clippy --fix --test "probe_residual" -p uma-race-core -- ` to apply 2 suggestions)
+warning: `uma-race-core` (lib test) generated 12 warnings (11 duplicates) (run `cargo clippy --fix --lib -p uma-race-core --tests -- ` to apply 1 suggestion)
+warning: consider using `sort_by_key`
+   --> uma-sim-core/src/batch_analysis.rs:174:5
+    |
+174 |     top.sort_by(|a, b| b.score.cmp(&a.score));
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_sort_by
+    = note: `#[warn(clippy::unnecessary_sort_by)]` on by default
+help: try
+    |
+174 -     top.sort_by(|a, b| b.score.cmp(&a.score));
+174 +     top.sort_by_key(|a| std::cmp::Reverse(a.score));
+    |
+
+warning: this `if` statement can be collapsed
+    --> uma-sim-core/src/career_lab.rs:1531:13
+     |
+1531 | /             if name.starts_with(".tmp-") {
+1532 | |                 if fs::remove_file(de.path()).is_ok() {
+1533 | |                     removed += 1;
+1534 | |                 }
+1535 | |             }
+     | |_____________^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+     = note: `#[warn(clippy::collapsible_if)]` on by default
+help: collapse nested if block
+     |
+1531 ~             if name.starts_with(".tmp-")
+1532 ~                 && fs::remove_file(de.path()).is_ok() {
+1533 |                     removed += 1;
+1534 ~                 }
+     |
+
+warning: this `impl` can be derived
+  --> uma-sim-core/src/catalog/factor.rs:35:1
+   |
+35 | / impl Default for FactorCatalogState {
+36 | |     fn default() -> Self {
+37 | |         Self {
+38 | |             by_id: HashMap::new(),
+...  |
+42 | | }
+   | |_^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#derivable_impls
+   = note: `#[warn(clippy::derivable_impls)]` on by default
+help: replace the manual implementation with a derive attribute
+   |
+30 + #[derive(Default)]
+31 | struct FactorCatalogState {
+   |
+
+warning: this `impl` can be derived
+  --> uma-sim-core/src/catalog/support.rs:45:1
+   |
+45 | / impl Default for SupportCatalogState {
+46 | |     fn default() -> Self {
+47 | |         Self {
+48 | |             by_id: HashMap::new(),
+...  |
+53 | | }
+   | |_^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#derivable_impls
+help: replace the manual implementation with a derive attribute
+   |
+39 + #[derive(Default)]
+40 | struct SupportCatalogState {
+   |
+
+warning: consider using `sort_by_key`
+   --> uma-sim-core/src/catalog/support.rs:118:9
+    |
+118 | ...   rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_sort_by
+help: try
+    |
+118 -         rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+118 +         rows.sort_by_key(|a| a.name.to_lowercase());
+    |
+
+warning: this `impl` can be derived
+  --> uma-sim-core/src/catalog/trainee.rs:55:1
+   |
+55 | / impl Default for TraineeCatalogState {
+56 | |     fn default() -> Self {
+57 | |         Self {
+58 | |             by_name: HashMap::new(),
+...  |
+65 | | }
+   | |_^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#derivable_impls
+help: replace the manual implementation with a derive attribute
+   |
+47 + #[derive(Default)]
+48 | struct TraineeCatalogState {
+   |
+
+warning: consider using `sort_by_key`
+   --> uma-sim-core/src/catalog/trainee.rs:371:9
+    |
+371 | ...   rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_sort_by
+help: try
+    |
+371 -         rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+371 +         rows.sort_by_key(|a| a.name.to_lowercase());
+    |
+
+warning: this `let...else` may be rewritten with the `?` operator
+   --> uma-sim-core/src/config.rs:464:9
+    |
+464 | /         let Some(id) = Self::epithet_for_win(race_id) else {
+465 | |             return None;
+466 | |         };
+    | |__________^ help: replace it with: `let id = Self::epithet_for_win(race_id)?;`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#question_mark
+    = note: `#[warn(clippy::question_mark)]` on by default
+
+warning: redundant closure
+   --> uma-sim-core/src/deck.rs:285:18
+    |
+285 |             .map(|s| Self::to_resolved_card(s))
+    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace the closure with the associated function itself: `Self::to_resolved_card`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#redundant_closure
+    = note: `#[warn(clippy::redundant_closure)]` on by default
+
+warning: redundant closure
+   --> uma-sim-core/src/engine.rs:521:58
+    |
+521 | ...x_actions, |choices| default_auto_policy(choices));
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace the closure with the function itself: `default_auto_policy`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#redundant_closure
+
+warning: this `if` has identical blocks
+   --> uma-sim-core/src/engine.rs:916:9
+    |
+916 | /         {
+917 | |             0
+918 | |         } else if (scenario == "trackblazer" || scenario == "tb")
+    | |_________^
+    |
+note: same as this
+   --> uma-sim-core/src/engine.rs:920:9
+    |
+920 | /         {
+921 | |             0
+922 | |         } else {
+    | |_________^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#if_same_then_else
+    = note: `#[warn(clippy::if_same_then_else)]` on by default
+
+warning: literal with an empty format string
+   --> uma-sim-core/src/policy_external.rs:161:44
+    |
+161 |         let _ = writeln!(self.stdin, "{}", r#"{"cmd":"quit"}"#);
+    |                                            ^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#write_literal
+    = note: `#[warn(clippy::write_literal)]` on by default
+help: try
+    |
+161 -         let _ = writeln!(self.stdin, "{}", r#"{"cmd":"quit"}"#);
+161 +         let _ = writeln!(self.stdin, "{{\"cmd\":\"quit\"}}");
+    |
+
+warning: this OR pattern can be rewritten using a range
+   --> uma-sim-core/src/race.rs:524:9
+    |
+524 |         11 | 12 | 13 => "th",
+    |         ^^^^^^^^^^^^ help: try: `11..=13`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_patterns
+    = note: `#[warn(clippy::manual_range_patterns)]` on by default
+
+warning: manual implementation of `isolate_lowest_one`
+  --> uma-sim-core/src/rng.rs:62:16
+   |
+62 |             if n & -n == n {
+   |                ^^^^^^ help: consider using `.isolate_lowest_one()`: `n.isolate_lowest_one()`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_isolate_lowest_one
+   = note: `#[warn(clippy::manual_isolate_lowest_one)]` on by default
+
+warning: this function has too many arguments (9/7)
+   --> uma-sim-core/src/scenario/grand_live.rs:193:5
+    |
+193 | /     pub fn load_community_calibration(
+194 | |         gate_before_1st: Option<Vec<i32>>,
+195 | |         gate_before_2nd_4th: Option<Vec<i32>>,
+196 | |         gate_before_grand: Option<Vec<i32>>,
+...   |
+202 | |         cycle_max: Option<i32>,
+203 | |     ) {
+    | |_____^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+    = note: `#[warn(clippy::too_many_arguments)]` on by default
+
+warning: used consecutive `str::replace` call
+  --> uma-sim-core/src/scenario/grand_live_deck_support.rs:11:14
+   |
+11 |               .replace('_', " ")
+   |  ______________^
+12 | |             .replace('-', " ");
+   | |______________________________^ help: replace with: `replace(['_', '-'], " ")`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_str_replace
+   = note: `#[warn(clippy::collapsible_str_replace)]` on by default
+
+warning: unnecessary use of `to_string`
+   --> uma-sim-core/src/scenario/ura.rs:266:59
+    |
+266 | ..., capitalize(&f.key().to_string())))
+    |                 ^^^^^^^^^^^^^^^^^^^^ help: use: `f.key()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_to_owned
+    = note: `#[warn(clippy::unnecessary_to_owned)]` on by default
+
+warning: unnecessary use of `to_string`
+   --> uma-sim-core/src/scenario/ura.rs:278:50
+    |
+278 |                 format!("{} +{gain}", capitalize(&f.key().to_string()))
+    |                                                  ^^^^^^^^^^^^^^^^^^^^ help: use: `f.key()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_to_owned
+
+warning: unneeded `return` statement
+   --> uma-sim-core/src/scenario/mod.rs:589:13
+    |
+589 |             return (next, lines);
+    |             ^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_return
+    = note: `#[warn(clippy::needless_return)]` on by default
+help: remove `return`
+    |
+589 -             return (next, lines);
+589 +             (next, lines)
+    |
+
+warning: this function has too many arguments (8/7)
+   --> uma-sim-core/src/scoring/rank_estimate.rs:280:1
+    |
+280 | / pub fn estimate_rank(
+281 | |     speed: i32,
+282 | |     stamina: i32,
+283 | |     power: i32,
+...   |
+288 | |     unique_level: i32,
+289 | | ) -> RankResult {
+    | |_______________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+warning: module has the same name as its containing module
+  --> uma-sim-core/src/scoring/mod.rs:10:1
+   |
+10 | pub mod scoring;
+   | ^^^^^^^^^^^^^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#module_inception
+   = note: `#[warn(clippy::module_inception)]` on by default
+
+warning: using `contains()` instead of `iter().any()` is more efficient
+   --> uma-sim-core/src/scoring/scoring.rs:249:8
+    |
+249 |     if config.blacklist.iter().any(|b| *b == Some(training.name)) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `config.blacklist.contains(&Some(training.name))`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_contains
+    = note: `#[warn(clippy::manual_contains)]` on by default
+
+warning: this `if` has identical blocks
+   --> uma-sim-core/src/scoring/skill_scoring.rs:186:34
+    |
+186 |       if apt >= AptitudeOrdinal::S {
+    |  __________________________________^
+187 | |         1.1
+188 | |     } else if apt >= AptitudeOrdinal::A {
+    | |_____^
+    |
+note: same as this
+   --> uma-sim-core/src/scoring/skill_scoring.rs:188:41
+    |
+188 |       } else if apt >= AptitudeOrdinal::A {
+    |  _________________________________________^
+189 | |         1.1
+190 | |     } else if apt >= AptitudeOrdinal::B {
+    | |_____^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#if_same_then_else
+
+warning: this function has too many arguments (10/7)
+   --> uma-sim-core/src/scoring/terminal_utility.rs:116:1
+    |
+116 | / pub fn evaluate_career_terminal(
+117 | |     seed: i64,
+118 | |     scenario: &str,
+119 | |     trainee: &str,
+...   |
+126 | |     appearance_probs: &[f64],
+127 | | ) -> CareerTerminalRecord {
+    | |_________________________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+warning: this function has too many arguments (14/7)
+   --> uma-sim-core/src/state.rs:524:5
+    |
+524 | /     pub fn copy_with(
+525 | |         &self,
+526 | |         scenario_resources: ScenarioResources,
+527 | |         stats: Option<TraineeStats>,
+...   |
+538 | |         log: Option<Vec<String>>,
+539 | |     ) -> Self {
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+
+warning: using `Option.and_then(|x| Some(y))`, which is more succinctly expressed as `map(|x| y)`
+   --> uma-sim-core/src/telemetry.rs:192:13
+    |
+192 | /             stat_key.as_ref().and_then(|k| {
+193 | |                 let before = pre.stats.get(facility_from_stat(k));
+194 | |                 let after = post.stats.get(facility_from_stat(k));
+195 | |                 Some((after - before).max(0))
+196 | |             })
+    | |______________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#bind_instead_of_map
+    = note: `#[warn(clippy::bind_instead_of_map)]` on by default
+help: use `map` instead
+    |
+192 ~             stat_key.as_ref().map(|k| {
+193 |                 let before = pre.stats.get(facility_from_stat(k));
+194 |                 let after = post.stats.get(facility_from_stat(k));
+195 ~                 (after - before).max(0)
+    |
+
+warning: redundant closure
+   --> uma-sim-core/src/telemetry.rs:422:25
+    |
+422 |             .filter_map(|l| Self::parse_line(l))
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^ help: replace the closure with the associated function itself: `Self::parse_line`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#redundant_closure
+
+warning: the borrowed expression implements the required traits
+   --> uma-sim-core/src/training.rs:187:41
+    |
+187 |                     .and_then(|v| v.get(&level.to_string()))
+    |                                         ^^^^^^^^^^^^^^^^^^ help: change this to: `level.to_string()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+    = note: `#[warn(clippy::needless_borrows_for_generic_args)]` on by default
+
+warning: the borrowed expression implements the required traits
+   --> uma-sim-core/src/training.rs:199:37
+    |
+199 |                 .and_then(|v| v.get(&level.to_string()))
+    |                                     ^^^^^^^^^^^^^^^^^^ help: change this to: `level.to_string()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+
+warning: the borrowed expression implements the required traits
+   --> uma-sim-core/src/training.rs:229:37
+    |
+229 |                 .and_then(|v| v.get(&level.to_string()))
+    |                                     ^^^^^^^^^^^^^^^^^^ help: change this to: `level.to_string()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+
+warning: the borrowed expression implements the required traits
+   --> uma-sim-core/src/training.rs:236:37
+    |
+236 |                 .and_then(|v| v.get(&level.to_string()))
+    |                                     ^^^^^^^^^^^^^^^^^^ help: change this to: `level.to_string()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+
+warning: `uma-sim-core` (lib) generated 31 warnings (run `cargo clippy --fix --lib -p uma-sim-core -- ` to apply 22 suggestions)
+warning: iterating on a map's keys
+   --> uma-sim-core/tests/parity.rs:308:32
+    |
+308 | ....stat_caps = stats.iter().map(|(k, _)| (*k, 1400)).collect();
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `stats.keys().map(|k| (*k, 1400))`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#iter_kv_map
+    = note: `#[warn(clippy::iter_kv_map)]` on by default
+
+warning: `uma-sim-core` (test "parity") generated 1 warning (run `cargo clippy --fix --test "parity" -p uma-sim-core -- ` to apply 1 suggestion)
+warning: manual implementation of `.is_multiple_of()`
+  --> uma-sim-core/tests/career_lab_branch_publication.rs:44:33
+   |
+44 | ...if marker % 2 == 0 {"default"} else {"bot"}, "maxActions": marker + 1...
+   |       ^^^^^^^^^^^^^^^ help: replace with: `marker.is_multiple_of(2)`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_is_multiple_of
+   = note: `#[warn(clippy::manual_is_multiple_of)]` on by default
+
+warning: `uma-sim-core` (test "career_lab_branch_publication") generated 1 warning (run `cargo clippy --fix --test "career_lab_branch_publication" -p uma-sim-core -- ` to apply 1 suggestion)
+warning: `uma-sim-core` (lib test) generated 31 warnings (31 duplicates)
+warning: unused import: `uma_sim_core::scenario::TrackblazerMechanics`
+ --> uma-sim-core/examples/tb_shop_dump.rs:1:5
+  |
+1 | use uma_sim_core::scenario::TrackblazerMechanics;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `uma-sim-core` (example "tb_shop_dump") generated 1 warning (run `cargo clippy --fix --example "tb_shop_dump" -p uma-sim-core -- ` to apply 1 suggestion)
+warning: manual `RangeInclusive::contains` implementation
+   --> uma-sim-core/tests/race_v4_dist.rs:291:9
+    |
+291 |         mean_place >= 1.0 && mean_place <= 12.0,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: use: `(1.0..=12.0).contains(&mean_place)`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_contains
+    = note: `#[warn(clippy::manual_range_contains)]` on by default
+
+warning: `uma-sim-core` (test "race_v4_dist") generated 1 warning (run `cargo clippy --fix --test "race_v4_dist" -p uma-sim-core -- ` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized] target(s) in 7.42s

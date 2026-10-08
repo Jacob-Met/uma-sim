@@ -1,0 +1,98 @@
+   Compiling uma-sim-core v0.1.0 (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/source/uma-sim-core)
+    Finished `test` profile [unoptimized] target(s) in 4.53s
+     Running tests/golden_seed.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/golden_seed-cf94e5f768ef31e8)
+
+running 3 tests
+test golden_seed_42_ura ... ok
+test fixture_file_matches_engine ... ok
+test all_fifty_seeds_reproducible ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 17.52s
+
+     Running tests/golden_seeds.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/golden_seeds-4e2eed587ebacc2a)
+
+running 3 tests
+test kotlin_golden_fixture_seed_42_ura ... ok
+test seed_42_ura_reproducible ... ok
+test all_kotlin_golden_summaries ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.17s
+
+     Running tests/grand_live_l1_training.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/grand_live_l1_training-65e1f3443787f0eb)
+
+running 3 tests
+test grand_concert_l1_wit_recovers_energy ... ok
+test ura_l1_unchanged_by_gl_override ... ok
+test grand_concert_l1_speed_matches_gametora_base ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/sim_engine.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/sim_engine-d8bf9197a9386b98)
+
+running 10 tests
+test turbo_suppresses_dialogue ... ok
+test speed_clamped_to_100 ... ok
+test training_uses_formula_gain ... ok
+test mandatory_debut_race_on_turn_1 ... ok
+test trackblazer_earns_coins_on_race ... ok
+test snapshot_round_trip_preserves_turn ... ok
+test grand_concert_earns_performance_tokens ... ok
+test event_choice_updates_stats ... ok
+test same_seed_same_outcome ... ok
+test completes_72_turn_career ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/training_failure_config.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/training_failure_config-76bc01b137ff14f3)
+
+running 3 tests
+test awful_mood_increases_failure ... ok
+test low_energy_increases_failure ... ok
+test rainbow_activates_friendship_for_all_cards_on_facility ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/training_failure_penalty.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/training_failure_penalty-f4c9200e5e4033a7)
+
+running 4 tests
+test certain_injury_chance_applies_injury_flag ... ok
+test rest_clears_injury ... ok
+test injured_trainee_blocked_from_training ... ok
+test wit_training_restores_energy ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/training_resolver.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/training_resolver-b29b24c63685fbfd)
+
+running 2 tests
+test power_training_secondary_is_stamina ... ok
+test tertiary_gain_is_twenty_percent_of_main ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/unity_trackblazer_mechanics.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/unity_trackblazer_mechanics-d5ef108001237d63)
+
+running 20 tests
+test trackblazer_climax2_gap_documented ... ok
+test trackblazer_megaphone_training_multiplier ... ok
+test trackblazer_climax_pays_more_coins ... ok
+test trackblazer_shop_purchase_deducts_coins_and_applies_stats ... ok
+test trackblazer_epithet_gap_documented ... ok
+test trackblazer_climax_awards_victory_points ... ok
+test trackblazer_inventory_gap_documented ... ok
+test trackblazer_rival_gap_documented ... ok
+test unity_plugin_syncs_facility_levels_from_rank ... ok
+test trackblazer_shop_sale_reduces_purchase_cost ... ok
+test unity_per_leg_gap_documented ... ok
+test trackblazer_shop_roll_is_deterministic ... ok
+test unity_teammate_share_gap_documented ... ok
+test trackblazer_speed_charm_effects_raise_speed ... ok
+test unity_extreme_burst_grants_ignited_spirit_hint ... ok
+test unity_spirit_burst_at_research_threshold ... ok
+test trackblazer_shop_opens_on_interval ... ok
+test unity_spirit_burst_bumps_team_rank ... ok
+test unity_team_race_win_counts_five_legs_and_zenith ... ok
+test unity_team_rank_maps_to_facility_level ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

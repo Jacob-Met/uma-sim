@@ -1,0 +1,92 @@
+{
+  "candidate_commit": "cbeb87df63271197650466d2be381a4b2ade5d84",
+  "binary_sha256": "d544e727e797492908ef8a053da97c09797063039e22bec2b978c247fe44d048",
+  "fixtures": "authored private native career; no existing user career used",
+  "records": [
+    {
+      "argv": [
+        "start",
+        "--seed=7",
+        "--scenario=ura",
+        "--race-model=stub",
+        "--trace-rng"
+      ],
+      "exit": 0,
+      "stdout": "--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: happy_meek_badge=0\n=== Year 1 Jun (Late), turn 1 ===\nChoices: race\n",
+      "stderr": "",
+      "before_sha256": null,
+      "after_sha256": "fa10391c7950a5d2973e5e64eb0297f6f3109ccaa58782dcfc54f8811f74b7d0",
+      "unchanged": false
+    },
+    {
+      "argv": [
+        "training"
+      ],
+      "exit": 0,
+      "stdout": "Training inspection \u2014 Special Week / ura\nTurn 1 | Year 1, Month 6, Late | Phase MANDATORY_RACE\nEnergy 100/100 | Mood NORMAL\n\nStat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.\nEnergy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.\nBlocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.\nInspection does not take an action, advance the career RNG, or save the session.\n\nNo training choices: Enter the mandatory race before training.\n",
+      "stderr": "",
+      "before_sha256": "fa10391c7950a5d2973e5e64eb0297f6f3109ccaa58782dcfc54f8811f74b7d0",
+      "after_sha256": "fa10391c7950a5d2973e5e64eb0297f6f3109ccaa58782dcfc54f8811f74b7d0",
+      "unchanged": true
+    },
+    {
+      "argv": [
+        "training",
+        "--format=json"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"schemaVersion\": 1,\n  \"turn\": 1,\n  \"date\": \"Year 1, Month 6, Late\",\n  \"phase\": \"MANDATORY_RACE\",\n  \"scenarioId\": \"ura\",\n  \"traineeName\": \"Special Week\",\n  \"energy\": 100,\n  \"maxEnergy\": 100,\n  \"mood\": \"NORMAL\",\n  \"sampleKind\": \"deterministic_seed_0\",\n  \"notes\": [\n    \"Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.\",\n    \"Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.\",\n    \"Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.\",\n    \"Inspection does not take an action, advance the career RNG, or save the session.\"\n  ],\n  \"unavailableReason\": \"mandatory_race\",\n  \"rows\": []\n}\n",
+      "stderr": "",
+      "before_sha256": "fa10391c7950a5d2973e5e64eb0297f6f3109ccaa58782dcfc54f8811f74b7d0",
+      "after_sha256": "fa10391c7950a5d2973e5e64eb0297f6f3109ccaa58782dcfc54f8811f74b7d0",
+      "unchanged": true
+    },
+    {
+      "argv": [
+        "step",
+        "race"
+      ],
+      "exit": 0,
+      "stdout": "--- State (turn 2) ---\nDate: Year 1, Month 7, Early\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 886  SP: 45\nScenario: happy_meek_badge=0\nMandatory race (debut): 1st! +886 fans\n\u2192 Year 1 Jul (Early), turn 2\nChoices: event_0, event_1, event_2\n",
+      "stderr": "",
+      "before_sha256": "fa10391c7950a5d2973e5e64eb0297f6f3109ccaa58782dcfc54f8811f74b7d0",
+      "after_sha256": "3be4edbdab54b4ca6532583bb41dd057540bb4d514edb093f39c817651b8da46",
+      "unchanged": false
+    },
+    {
+      "argv": [
+        "step",
+        "event_0"
+      ],
+      "exit": 0,
+      "stdout": "--- State (turn 3) ---\nDate: Year 1, Month 7, Late\nStats: SPD 101 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 886  SP: 45\nScenario: happy_meek_badge=0\nEvent: Inspiration! \u2192 Speed +18\n\u2192 Year 1 Jul (Late), turn 3\nChoices: train_speed, train_stamina, train_power, train_guts, train_wit, rest, recreation, race\n",
+      "stderr": "",
+      "before_sha256": "3be4edbdab54b4ca6532583bb41dd057540bb4d514edb093f39c817651b8da46",
+      "after_sha256": "e4c54e9fb9a942879f93e1a3d23488faf89e58521c104b267cd4327a404372f1",
+      "unchanged": false
+    },
+    {
+      "argv": [
+        "training"
+      ],
+      "exit": 0,
+      "stdout": "Training inspection \u2014 Special Week / ura\nTurn 3 | Year 1, Month 7, Late | Phase FREE\nEnergy 100/100 | Mood NORMAL\n\nStat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.\nEnergy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.\nBlocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.\nInspection does not take an action, advance the career RNG, or save the session.\n\nTraining Lv   SPD   STA   POW   GUT   WIT  Energy   Fail Rainbow Hints\nSpeed     1   +10    +0    +5    +2    +0     -20     5%       0     0\n  train_speed \u2014 available\nStamina   1    +0   +12    +2    +6    +0     -20     5%       0     0\n  train_stamina \u2014 available\nPower     1    +2    +5   +10    +0    +0     -20     5%       0     0\n  train_power \u2014 available\nGuts      1    +5    +0    +2   +10    +0     -20     5%       0     0\n  train_guts \u2014 available\nWit       1    +5    +2    +0    +0   +11      +0     0%       0     0\n  train_wit \u2014 available\n",
+      "stderr": "",
+      "before_sha256": "e4c54e9fb9a942879f93e1a3d23488faf89e58521c104b267cd4327a404372f1",
+      "after_sha256": "e4c54e9fb9a942879f93e1a3d23488faf89e58521c104b267cd4327a404372f1",
+      "unchanged": true
+    },
+    {
+      "argv": [
+        "training",
+        "--format=json"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"schemaVersion\": 1,\n  \"turn\": 3,\n  \"date\": \"Year 1, Month 7, Late\",\n  \"phase\": \"FREE\",\n  \"scenarioId\": \"ura\",\n  \"traineeName\": \"Special Week\",\n  \"energy\": 100,\n  \"maxEnergy\": 100,\n  \"mood\": \"NORMAL\",\n  \"sampleKind\": \"deterministic_seed_0\",\n  \"notes\": [\n    \"Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.\",\n    \"Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.\",\n    \"Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.\",\n    \"Inspection does not take an action, advance the career RNG, or save the session.\"\n  ],\n  \"unavailableReason\": null,\n  \"rows\": [\n    {\n      \"actionId\": \"train_speed\",\n      \"facility\": \"speed\",\n      \"label\": \"Speed\",\n      \"level\": 1,\n      \"statGains\": {\n        \"speed\": 10,\n        \"stamina\": 0,\n        \"power\": 5,\n        \"guts\": 2,\n        \"wit\": 0\n      },\n      \"energyCost\": 20,\n      \"energyDelta\": -20,\n      \"failureChancePct\": 5,\n      \"numRainbow\": 0,\n      \"numSkillHints\": 0,\n      \"available\": true,\n      \"blockedReason\": null\n    },\n    {\n      \"actionId\": \"train_stamina\",\n      \"facility\": \"stamina\",\n      \"label\": \"Stamina\",\n      \"level\": 1,\n      \"statGains\": {\n        \"speed\": 0,\n        \"stamina\": 12,\n        \"power\": 2,\n        \"guts\": 6,\n        \"wit\": 0\n      },\n      \"energyCost\": 20,\n      \"energyDelta\": -20,\n      \"failureChancePct\": 5,\n      \"numRainbow\": 0,\n      \"numSkillHints\": 0,\n      \"available\": true,\n      \"blockedReason\": null\n    },\n    {\n      \"actionId\": \"train_power\",\n      \"facility\": \"power\",\n      \"label\": \"Power\",\n      \"level\": 1,\n      \"statGains\": {\n        \"speed\": 2,\n        \"stamina\": 5,\n        \"power\": 10,\n        \"guts\": 0,\n        \"wit\": 0\n      },\n      \"energyCost\": 20,\n      \"energyDelta\": -20,\n      \"failureChancePct\": 5,\n      \"numRainbow\": 0,\n      \"numSkillHints\": 0,\n      \"available\": true,\n      \"blockedReason\": null\n    },\n    {\n      \"actionId\": \"train_guts\",\n      \"facility\": \"guts\",\n      \"label\": \"Guts\",\n      \"level\": 1,\n      \"statGains\": {\n        \"speed\": 5,\n        \"stamina\": 0,\n        \"power\": 2,\n        \"guts\": 10,\n        \"wit\": 0\n      },\n      \"energyCost\": 20,\n      \"energyDelta\": -20,\n      \"failureChancePct\": 5,\n      \"numRainbow\": 0,\n      \"numSkillHints\": 0,\n      \"available\": true,\n      \"blockedReason\": null\n    },\n    {\n      \"actionId\": \"train_wit\",\n      \"facility\": \"wit\",\n      \"label\": \"Wit\",\n      \"level\": 1,\n      \"statGains\": {\n        \"speed\": 5,\n        \"stamina\": 2,\n        \"power\": 0,\n        \"guts\": 0,\n        \"wit\": 11\n      },\n      \"energyCost\": -5,\n      \"energyDelta\": 0,\n      \"failureChancePct\": 0,\n      \"numRainbow\": 0,\n      \"numSkillHints\": 0,\n      \"available\": true,\n      \"blockedReason\": null\n    }\n  ]\n}\n",
+      "stderr": "",
+      "before_sha256": "e4c54e9fb9a942879f93e1a3d23488faf89e58521c104b267cd4327a404372f1",
+      "after_sha256": "e4c54e9fb9a942879f93e1a3d23488faf89e58521c104b267cd4327a404372f1",
+      "unchanged": true
+    }
+  ]
+}
