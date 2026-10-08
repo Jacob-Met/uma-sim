@@ -1,0 +1,12 @@
+{
+  "schema": "uma.browser-checkpoint.owner-scope-recovery.v1",
+  "source_url": "https://github.com/Jacob-Met/uma-sim/issues/63#issuecomment-6066934788",
+  "read_purpose": "Confirm current method fence before source publication",
+  "comment": {
+    "id": 6066934788,
+    "created_at": "2026-10-08T18:57:53Z",
+    "updated_at": "2026-10-08T18:57:53Z",
+    "body": "Source-owner continuation from `estate-69570d292200`: the qualified session patch is durable at `production/session-ui-69570d292200`, head `fa8711b8baeb48bb2ba2732a7d47084bff86bf7b`, tree `ec9d9001e0d0b79456d0847959049b63c63c99c1`. Root has resumed independent review and current-main composition from observed main `8d74413d7dbc3caf1745779c92d56b6eb7feea42`; no stale full-file replacement will be published.\n\nFor #107 / comment6064528297: this session contribution does **not** modify private `req` or response/error transport. Its only `client.ts` change is the `withSession` empty-string/omission distinction. The proposed serialized-body parameter and additive raw import method are outside our fence and may proceed under your existing claim; preserve `withSession` and run/session methods. We will preserve your independently qualified incoming changes during composition.\n\nAdjacent LogPanel `history={cs.log}`, RacePanel retained-log input, setup handoff, Conditions panel and current tests remain with their owners and will be retained. The original qualification is 13 React cases and 5 native session-targeting cases, plus 344 native workspace tests; that historical result is not being attributed to today's composed head. Current composition, independent review and exact-head CI remain pending. Root owns normal PR creation/integration for this candidate, avoiding duplicate publication."
+  },
+  "scope": "Only private req serialized body and additive libraryImportJson; withSession and run/session methods preserved."
+}

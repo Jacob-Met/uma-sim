@@ -59,7 +59,7 @@ no `session` argument.
 
 ## Tools
 
-The server advertises 26 tools through `tools/list`; their input schemas contain
+The server advertises 27 tools through `tools/list`; their input schemas contain
 the supported fields and bounds. Unknown fields and incorrectly typed arguments
 are rejected before any REST call.
 
@@ -67,6 +67,7 @@ are rejected before any REST call.
 | --- | --- |
 | `sim_start` | Start or replace a career; accepts seed, scenario, trainee, deck, legacy, speed, session, label, policy, and race model. |
 | `sim_state`, `sim_text`, `sim_choices` | Inspect a career and its available decisions. |
+| `sim_training` | Read the native training samples, energy effects, failure chances and blockers without spending a turn. |
 | `sim_act`, `sim_auto`, `sim_fast_forward` | Take a chosen action, one policy step, or play to completion. |
 | `sim_deck_place`, `sim_export_telemetry` | Place support cards or export recorded turns from a career. |
 | `sim_load_content_pack` | Load events into the process-wide catalog. |
@@ -93,6 +94,24 @@ or `"default"`, `maxActions` from 1 to 500, and optional
 32-bit integers; each override needs a nonempty action id. The Rust engine's
 actual choices, decisions, and skipped-override information remain authoritative.
 Branch execution is synchronous and uses an independent copy of the source.
+
+## Inspect training before choosing
+
+Call `{"name":"sim_training","arguments":{"session":"study-42"}}` before
+choosing a training action. The tool uses `GET /v1/run/training` and returns
+the existing native version-1 inspection unchanged, with `sampleKind` set to
+`deterministic_seed_0`, its explanatory `notes`, and Speed/Stamina/Power/Guts/Wit
+rows. The optional session follows the same nonempty named-session guard and
+active fallback as the other run reads.
+
+Gains are fixed local-seed-0 samples before stat caps and later scenario/event
+effects, not guaranteed results or expected values. Energy is the base successful
+change after the ordinary cap; failure chance uses the current engine rules.
+Blocked rows retain their reason and required `energyCost`, while `energyDelta`
+and `failureChancePct` are null. Pending events, mandatory races and completed
+careers have no training rows and explain why through `unavailableReason`.
+Inspection does not take an action, advance the career RNG, save a checkpoint,
+or change the active session.
 
 ## Example: save, fork, play, and compare
 
@@ -173,13 +192,19 @@ Run the dependency-free handshake and HTTP-contract suite:
 node --test packages/uma-sim-mcp/tests/*.test.mjs
 ```
 
-Build the native API and run the same suite with real career-lab receiving:
+Build the native API and CLI, then run the same suite with real career-lab
+and training-inspection receiving:
 
 ```sh
-cargo build --locked -p uma-sim-core --bin uma-sim-api
+cargo build --locked -p uma-sim-core --bins
 UMA_SIM_TEST_API_BIN="$PWD/target/debug/uma-sim-api" \
   node --test packages/uma-sim-mcp/tests/*.test.mjs
 ```
+
+The training receiver also invokes the sibling `uma-sim` CLI as its existing
+inspection oracle; `UMA_SIM_TEST_CLI_BIN` can name it explicitly. It compares
+the complete projection in all four scenarios, admitted blocked/unavailable
+fixtures, preserved snapshots/checkpoint files and forked next-action results.
 
 Native tests use a temporary working directory, a private loopback server, and
 the repository's shipped catalogs. They check actual session isolation,

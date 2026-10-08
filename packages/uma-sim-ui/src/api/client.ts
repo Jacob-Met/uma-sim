@@ -1,3 +1,4 @@
+import { checkpointImportBody } from "./checkpointJson";
 import type {
   ActionOverride,
   BranchComparison,
@@ -13,11 +14,11 @@ import type {
   StepResponse,
 } from "./types";
 
-async function req<T>(method: string, path: string, body?: unknown): Promise<T> {
+async function req<T>(method: string, path: string, body?: unknown, jsonBody?: string): Promise<T> {
   const res = await fetch(path, {
     method,
-    headers: body ? { "Content-Type": "application/json" } : undefined,
-    body: body !== undefined ? JSON.stringify(body) : undefined,
+    headers: body || jsonBody !== undefined ? { "Content-Type": "application/json" } : undefined,
+    body: jsonBody !== undefined ? jsonBody : body !== undefined ? JSON.stringify(body) : undefined,
   });
   const text = await res.text();
   let data: unknown = null;
@@ -117,6 +118,9 @@ export const api = {
     req<{ deleted: string }>("POST", "/v1/library/delete", { name }),
   libraryImport: (body: { snapshot: unknown; name?: string; overwrite?: boolean }) =>
     req<{ entry: LibraryEntry }>("POST", "/v1/library/import", body).then((r) => r.entry),
+  libraryImportJson: (snapshotJson: string, name?: string) =>
+    req<{ entry: LibraryEntry }>("POST", "/v1/library/import", undefined,
+      checkpointImportBody(snapshotJson, name)).then((r) => r.entry),
   labBranch: (body: {
     checkpoint: string;
     name?: string;

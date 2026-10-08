@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { fixture, toolJson, toolText, paramsError, executionError } from './helpers/mcp-client.mjs';
 
 const oldNames = ['sim_start', 'sim_state', 'sim_text', 'sim_choices', 'sim_act', 'sim_auto', 'sim_fast_forward', 'sim_export_telemetry', 'sim_load_content_pack', 'sim_deck_place'];
-const newNames = ['sim_sessions', 'sim_session_fork', 'sim_session_activate', 'sim_session_close', 'sim_library_list', 'sim_library_save', 'sim_library_load', 'sim_library_delete', 'sim_library_import', 'sim_library_export', 'sim_lab_branch', 'sim_lab_branches', 'sim_lab_branch_get', 'sim_lab_branch_delete', 'sim_lab_compare', 'sim_lab_report'];
+const newNames = ['sim_training', 'sim_sessions', 'sim_session_fork', 'sim_session_activate', 'sim_session_close', 'sim_library_list', 'sim_library_save', 'sim_library_load', 'sim_library_delete', 'sim_library_import', 'sim_library_export', 'sim_lab_branch', 'sim_lab_branches', 'sim_lab_branch_get', 'sim_lab_branch_delete', 'sim_lab_compare', 'sim_lab_report'];
 
 test('discovery preserves existing tool and resource identities and publishes the full lab boundary', async t => {
   const { client, requests } = await fixture(t);

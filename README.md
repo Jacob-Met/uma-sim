@@ -170,6 +170,7 @@ inspection, including an unavailable phase, exits 0.
 | GET | `/v1/catalog/{scenarios,trainees,supports,factors}` | catalogs |
 | POST | `/v1/run/start` | `{"seed":"42","scenario":"ura","trainee":"Special Week"}` |
 | GET | `/v1/run/{state,text,choices,telemetry}` | current career |
+| GET | `/v1/run/training` | read-only native training samples, costs, risks and blockers |
 | POST | `/v1/run/action` | `{"action":"train_speed"}` |
 | POST | `/v1/run/auto`, `/v1/run/fast` | one bot step / play to the end |
 | POST | `/v1/run/deck/place`, `/v1/run/style`, `/v1/run/load_content_pack` | setup |
@@ -183,6 +184,14 @@ curl -X POST localhost:8765/v1/run/start -d '{"seed":"42","scenario":"ura"}'
 curl localhost:8765/v1/run/choices
 curl -X POST localhost:8765/v1/run/fast -d '{}'
 ```
+
+REST and MCP clients can inspect training before choosing an action. Use
+`GET /v1/run/training?session=career-name` or call `sim_training` with
+`{"session":"career-name"}`. Omitting the session targets the active career.
+Both return the same version-1 JSON inspection as `uma-sim training --format=json`,
+including its sample qualifications and unavailable/blocked meanings above.
+This read does not advance RNG, take a turn, save a checkpoint, or activate
+another session.
 
 ### Sessions
 
