@@ -2158,7 +2158,7 @@ mod tests {
                 .contains("content-type: text/markdown"),
             "report must be markdown"
         );
-        assert!(raw.contains("# Branch comparison: e2e-rest vs e2e-train"));
+        assert!(raw.contains(r"# Branch comparison: e2e\-rest vs e2e\-train"));
         assert!(raw.contains(&format!("turn {cp_turn}")));
         scrub_checkpoints(&["lab-e2e"]);
     }

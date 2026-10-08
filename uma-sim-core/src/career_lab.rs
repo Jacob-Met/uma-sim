@@ -1181,9 +1181,9 @@ pub fn compare_branches(a: &LabResult, b: &LabResult) -> BranchComparison {
                     note: format!(
                         "Branch {side} ended after {} steps while the other continued.",
                         if side == "A" {
-                            b.timeline.len()
-                        } else {
                             a.timeline.len()
+                        } else {
+                            b.timeline.len()
                         }
                     ),
                 });
@@ -1241,37 +1241,96 @@ fn stats_line(s: &TraineeStats) -> String {
     )
 }
 
+/// Keep report data literal in prose, headings and GFM table cells. Line
+/// breaks stay inside their existing block instead of creating rows/headings.
+fn markdown_text(value: &str) -> String {
+    let mut out = String::with_capacity(value.len());
+    let mut chars = value.chars().peekable();
+    while let Some(ch) = chars.next() {
+        match ch {
+            '&' => out.push_str("&amp;"),
+            '<' => out.push_str("&lt;"),
+            '>' => out.push_str("&gt;"),
+            '\r' | '\n' => {
+                if ch == '\r' && chars.peek() == Some(&'\n') {
+                    chars.next();
+                }
+                out.push_str("<br>");
+            }
+            ch if ch.is_ascii_punctuation() => {
+                out.push('\\');
+                out.push(ch);
+            }
+            ch => out.push(ch),
+        }
+    }
+    out
+}
+
+/// Code spans do not interpret text escapes or entities. Choose a delimiter
+/// longer than any backtick run in the value and protect significant padding.
+fn markdown_code(value: &str) -> String {
+    let value = value.replace("\r\n", " ").replace(['\r', '\n'], " ");
+    if value.is_empty() {
+        return String::new();
+    }
+    let mut longest = 0;
+    let mut run = 0;
+    for ch in value.chars() {
+        if ch == '`' {
+            run += 1;
+            longest = longest.max(run);
+        } else {
+            run = 0;
+        }
+    }
+    let delimiter = "`".repeat(longest + 1);
+    let padding = if value.starts_with('`')
+        || value.ends_with('`')
+        || (value.starts_with(' ') && value.ends_with(' ') && !value.chars().all(|ch| ch == ' '))
+    {
+        " "
+    } else {
+        ""
+    };
+    format!("{delimiter}{padding}{value}{padding}{delimiter}")
+}
+
 /// Render the comparison as a downloadable Markdown report.
 pub fn render_markdown(c: &BranchComparison) -> String {
     let mut out = String::new();
     out.push_str(&format!(
         "# Branch comparison: {} vs {}\n\n",
-        c.a_name, c.b_name
+        markdown_text(&c.a_name),
+        markdown_text(&c.b_name)
     ));
     out.push_str(&format!(
-        "- Checkpoint: `{}` (seed {}, turn {})\n",
-        c.checkpoint_name, c.seed, c.checkpoint_turn
+        "- Checkpoint: {} (seed {}, turn {})\n",
+        markdown_code(&c.checkpoint_name),
+        c.seed,
+        c.checkpoint_turn
     ));
     out.push_str(&format!(
         "- Same checkpoint: {}\n- Compared at: {}\n\n",
-        c.same_checkpoint, c.compared_at
+        c.same_checkpoint,
+        markdown_text(&c.compared_at)
     ));
 
     out.push_str("## First divergence\n\n");
     match &c.first_divergence {
         Some(d) => {
             out.push_str(&format!(
-                "- Step {} · turn {} ({}) · phase `{}` · kind `{}`\n- A: `{}` — {}\n- B: `{}` — {}\n- {}\n",
+                "- Step {} · turn {} ({}) · phase {} · kind {}\n- A: {} — {}\n- B: {} — {}\n- {}\n",
                 d.step_index,
                 d.turn,
-                d.date_label,
-                d.phase,
-                d.kind,
-                d.action_a,
-                d.label_a,
-                d.action_b,
-                d.label_b,
-                d.note
+                markdown_text(&d.date_label),
+                markdown_code(&d.phase),
+                markdown_code(&d.kind),
+                markdown_code(&d.action_a),
+                markdown_text(&d.label_a),
+                markdown_code(&d.action_b),
+                markdown_text(&d.label_b),
+                markdown_text(&d.note)
             ));
         }
         None => out.push_str("No divergence: the recorded timelines are identical.\n"),
@@ -1294,8 +1353,8 @@ pub fn render_markdown(c: &BranchComparison) -> String {
             row.turn_a
                 .map(|t| t.to_string())
                 .unwrap_or_else(|| "–".into()),
-            row.label_a.as_deref().unwrap_or("–"),
-            row.label_b.as_deref().unwrap_or("–"),
+            markdown_text(row.label_a.as_deref().unwrap_or("–")),
+            markdown_text(row.label_b.as_deref().unwrap_or("–")),
             mark,
             row.energy_a
                 .map(|e| e.to_string())
@@ -1322,7 +1381,9 @@ pub fn render_markdown(c: &BranchComparison) -> String {
     out.push_str("|  | A | B |\n| - | - | - |\n");
     let oa = &c.outcome_a;
     let ob = &c.outcome_b;
-    let row = |k: &str, a: String, b: String| format!("| {k} | {a} | {b} |\n");
+    let row = |k: &str, a: String, b: String| {
+        format!("| {k} | {} | {} |\n", markdown_text(&a), markdown_text(&b))
+    };
     out.push_str(&row("Branch", c.a_name.clone(), c.b_name.clone()));
     out.push_str(&row("Steps", oa.steps.to_string(), ob.steps.to_string()));
     out.push_str(&row(
@@ -1394,7 +1455,7 @@ pub fn render_markdown(c: &BranchComparison) -> String {
 
     out.push_str("\n## Caveats\n\n");
     for caveat in &c.caveats {
-        out.push_str(&format!("- {caveat}\n"));
+        out.push_str(&format!("- {}\n", markdown_text(caveat)));
     }
     out.push_str("\n_Generated by uma-sim career lab._\n");
     out

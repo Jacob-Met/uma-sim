@@ -7,6 +7,10 @@ import {createWriteStream} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
+// Report fields are literal Markdown text. Use a real consumer for its meaning;
+// MARKED_MODULE may point to an existing marked ESM installation.
+const markedModule = process.env.MARKED_MODULE || 'marked';
+const {marked} = await import(path.isAbsolute(markedModule) ? pathToFileURL(markedModule).href : markedModule);
 const repo = process.env.UMA_LAB_REPO || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const outputRoot = process.env.UMA_LAB_OUTPUT_ROOT || path.join(repo, '.lab-receiving');
 const stage = process.env.LAB_STAGE || 'candidate';
@@ -159,7 +163,21 @@ try {
   const markdownPath = path.join(evidence, 'after-selection-report.md');
   await markdownDownload[0].saveAs(markdownPath);
   const markdown = await readFile(markdownPath, 'utf8');
-  const markdownAgrees = markdown.includes(names.a) && markdown.includes(names.b) && !markdown.includes(names.c);
+  const reportPage = await context.newPage();
+  const reportHtml = '<!doctype html><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src \'none\'"><main>' + marked.parse(markdown, {gfm: true}) + '</main>';
+  await reportPage.setContent(reportHtml);
+  const renderedReport = await reportPage.evaluate(() => ({
+    headings: [...document.querySelectorAll('h1')].map(node => node.innerText),
+    branches: [...document.querySelectorAll('tbody tr')]
+      .filter(row => row.firstElementChild?.innerText === 'Branch')
+      .map(row => [...row.children].map(cell => cell.innerText)),
+  }));
+  const markdownAgrees = JSON.stringify(renderedReport.headings) === JSON.stringify(['Branch comparison: ' + names.a + ' vs ' + names.b])
+    && JSON.stringify(renderedReport.branches) === JSON.stringify([['Branch', names.a, names.b]]);
+  receipt.markdownConsumer = {parser: 'marked GFM and Chromium', dom: renderedReport};
+  await writeFile(path.join(evidence, 'after-selection-report.html'), reportHtml);
+  await writeFile(path.join(evidence, 'after-selection-rendered-dom.json'), JSON.stringify(renderedReport, null, 2) + '\n');
+  await reportPage.close();
   receipt.cases.push({name: 'markdown download remains bound to displayed comparison', pass: markdownAgrees});
 
   receipt.cases.push({name: 'download remains bound to displayed comparison after draft selection', pass: agrees, headingStillAB, reportLink, displayedIds: [a.id,b.id], downloadedIds: [changedReport.aId, changedReport.bId]});
