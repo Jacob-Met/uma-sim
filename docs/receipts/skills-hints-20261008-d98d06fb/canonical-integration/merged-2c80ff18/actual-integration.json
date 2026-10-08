@@ -1,0 +1,80 @@
+{
+  "schema": "uma.canonical-integration.native-proof.v1",
+  "at": "2026-10-08T15:23:38.133986+00:00",
+  "merge_commit": "2c80ff18b8c62fff425bab02d698adfc14eb5f37",
+  "actual_parents": [
+    "b026a21f437789d7a7cd04c5074258302e36814e",
+    "d4c208e46382b7f69f1ffea57474df46b38c7a8b"
+  ],
+  "actual_tree": "23dbe5c1dec644978ab8d623da0891fa971223ae",
+  "recomputed_clean_merge_tree": "23dbe5c1dec644978ab8d623da0891fa971223ae",
+  "matches_premerge_first_parent": true,
+  "matches_premerge_tree": true,
+  "source_head": "d4c208e46382b7f69f1ffea57474df46b38c7a8b",
+  "remote_ref_observation": "2c80ff18b8c62fff425bab02d698adfc14eb5f37\trefs/heads/main",
+  "qualified_source_entries": {
+    "docs/skills-and-hints.md": {
+      "qualified": "100644 blob 0f49d7e151ead54d8b0031a0c8670ff9772a1c4b",
+      "merged": "100644 blob 0f49d7e151ead54d8b0031a0c8670ff9772a1c4b",
+      "equal": true
+    },
+    "packages/uma-sim-ui/package.json": {
+      "qualified": "100644 blob d3012d7add792545fa83e1532b89e7b7bacbf899",
+      "merged": "100644 blob d3012d7add792545fa83e1532b89e7b7bacbf899",
+      "equal": true
+    },
+    "packages/uma-sim-ui/src/App.tsx": {
+      "qualified": "100644 blob 790fa1c7d980c205617f59260820b84a53703b27",
+      "merged": "100644 blob 790fa1c7d980c205617f59260820b84a53703b27",
+      "equal": true
+    },
+    "packages/uma-sim-ui/src/components/SkillsPanel.tsx": {
+      "qualified": "100644 blob 0ce451024e053c6dbac74c5ebd4633ed1824827a",
+      "merged": "100644 blob 0ce451024e053c6dbac74c5ebd4633ed1824827a",
+      "equal": true
+    },
+    "packages/uma-sim-ui/src/components/skillsView.ts": {
+      "qualified": "100644 blob 2be7dc6e879800afb6429497560ed28ada37d9fc",
+      "merged": "100644 blob 2be7dc6e879800afb6429497560ed28ada37d9fc",
+      "equal": true
+    },
+    "packages/uma-sim-ui/src/styles/skills.css": {
+      "qualified": "100644 blob 7bb1b96278706891ecf01c0b9a89db856703085c",
+      "merged": "100644 blob 7bb1b96278706891ecf01c0b9a89db856703085c",
+      "equal": true
+    },
+    "packages/uma-sim-ui/test/skills-view.test.mjs": {
+      "qualified": "100644 blob 7ca177e9686ed3e1e6baec0b870b4e1aa494434c",
+      "merged": "100644 blob 7ca177e9686ed3e1e6baec0b870b4e1aa494434c",
+      "equal": true
+    },
+    "packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs": {
+      "qualified": "100644 blob 6e44b127f271d410ff443870b6475df307fd517a",
+      "merged": "100644 blob 6e44b127f271d410ff443870b6475df307fd517a",
+      "equal": true
+    },
+    "uma-sim-core/src/api.rs": {
+      "qualified": "100644 blob 60a02556b3707918e57cac775f723e0c8f67b30d",
+      "merged": "100644 blob 60a02556b3707918e57cac775f723e0c8f67b30d",
+      "equal": true
+    },
+    "uma-sim-core/src/catalog/skill.rs": {
+      "qualified": "100644 blob 9b59270b62f45e68658aa2ae95528f6000bbeb1a",
+      "merged": "100644 blob 9b59270b62f45e68658aa2ae95528f6000bbeb1a",
+      "equal": true
+    },
+    "uma-sim-core/tests/skill_catalog_display.rs": {
+      "qualified": "100644 blob 394b9650a515f38672683d11bd027d363808a834",
+      "merged": "100644 blob 394b9650a515f38672683d11bd027d363808a834",
+      "equal": true
+    }
+  },
+  "all_11_qualified_blobs_modes_preserved": true,
+  "unowned_actual_first_parent_entries": 1306,
+  "all_unowned_entries_preserved": true,
+  "full_path_set_preserved": true,
+  "unowned_map_original_sha256": "41298a2e5fe35c6eb1e14947da1ae496cffca1357ae362fbad4a60431c5cb969",
+  "native_git_commit_bytes_sha256": "77aa83aa094548f05e3555ecbb73ed37b204a01cbee1343e3edd4ff443b97767",
+  "installed_package_change": false,
+  "main_ref_mutated_by_this_worker": false
+}

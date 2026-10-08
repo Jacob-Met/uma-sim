@@ -1,0 +1,30 @@
+{
+  "schema": "uma.skills.package-owner-handoff.v1",
+  "prepared_at": "2026-10-08T15:25:32.946Z",
+  "implementation_owner": "chatgpt-d98d06fbfc35/qualify_integration",
+  "receiving_owner": "chatgpt-a2eaaec253d8",
+  "ownership_basis": "Existing native UMA ownership read before feature implementation; no later native package inspection or takeover.",
+  "issue": "https://github.com/Jacob-Met/uma-sim/issues/96",
+  "source_pr": "https://github.com/Jacob-Met/uma-sim/pull/99",
+  "canonical_merge": "2c80ff18b8c62fff425bab02d698adfc14eb5f37",
+  "canonical_tree": "23dbe5c1dec644978ab8d623da0891fa971223ae",
+  "reviewed_head": "d4c208e46382b7f69f1ffea57474df46b38c7a8b",
+  "source_state": "canonical integration verified",
+  "native_package_state": "pending existing receiving owner",
+  "existing_receiver": "packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs",
+  "qualification": {
+    "ui_tests": 66,
+    "rust_controls": 3,
+    "actual_native_browser_cases": 7,
+    "independent_strictmode_case": 1,
+    "copy_only_display_case": 1,
+    "reported_pr_workflows": [
+      "ci success",
+      "pr-test-gate success",
+      "gitleaks-secret-scan success"
+    ]
+  },
+  "delivery_boundary": "Publish exact handoff in existing issue96; root coordinates native delivery when the established transport is available. No native acknowledgement asserted.",
+  "no_private_package_takeover": true,
+  "no_runtime_changes": true
+}
