@@ -1,0 +1,310 @@
+   Compiling uma-sim-core v0.1.0 (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/source/uma-sim-core)
+    Finished `test` profile [unoptimized] target(s) in 6.70s
+     Running tests/api_body_admission.rs (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/target/debug/deps/api_body_admission-0ef94eb6e25aff83)
+
+running 5 tests
+test empty_bodies_and_valid_objects_keep_existing_defaults ... ok
+test invalid_utf8_is_rejected_before_start_and_auto ... FAILED
+test malformed_json_is_rejected_before_every_post_handler ... FAILED
+test nonobject_json_is_not_an_empty_command ... FAILED
+test unsupported_routes_and_preflight_keep_their_status ... ok
+
+failures:
+
+---- invalid_utf8_is_rejected_before_start_and_auto stdout ----
+
+thread 'invalid_utf8_is_rejected_before_start_and_auto' (1495449) panicked at uma-sim-core/tests/api_body_admission.rs:27:9:
+assertion `left == right` failed: /v1/run/start: {
+  "meta": {
+    "seed": 42,
+    "scenarioId": "ura",
+    "traineeName": "Special Week",
+    "objectiveProfile": "general",
+    "legacyFactors": [],
+    "parentNames": [],
+    "deckSupports": [],
+    "compatibilityScore": 0
+  },
+  "settings": {
+    "dialogueMode": "CHOICES_ONLY",
+    "speedMultiplier": 1,
+    "allowDialogueAtHighSpeed": false,
+    "traceTelemetry": false,
+    "traceRng": false,
+    "raceModel": "physics"
+  },
+  "state": {
+    "meta": {
+      "seed": 42,
+      "scenarioId": "ura",
+      "traineeName": "Special Week",
+      "objectiveProfile": "general",
+      "legacyFactors": [],
+      "parentNames": [],
+      "deckSupports": [],
+      "compatibilityScore": 0
+    },
+    "date": {
+      "year": 1,
+      "month": 6,
+      "half": 2
+    },
+    "turn": 1,
+    "stats": {
+      "speed": 83,
+      "stamina": 88,
+      "power": 98,
+      "guts": 90,
+      "wit": 91
+    },
+    "energy": 100,
+    "maxEnergy": 100,
+    "mood": "NORMAL",
+    "fans": 0,
+    "skillPoints": 0,
+    "careerComplete": false,
+    "awaitingChoice": false,
+    "pendingEventTitle": null,
+    "pendingRaceId": "debut",
+    "phase": "MANDATORY_RACE",
+    "completedRaces": [],
+    "facilityLevels": {
+      "guts": 1,
+      "speed": 1,
+      "stamina": 1,
+      "power": 1,
+      "wit": 1
+    },
+    "facilityTrainCounts": {},
+    "pendingEventOptions": [],
+    "hintLevels": {
+      "skill:201352": 1,
+      "skill:200732": 1,
+      "skill:200512": 1
+    },
+    "statuses": [],
+    "performanceTokens": {},
+    "scenarioResources": {
+      "values": {
+        "happy_meek_badge": 0
+      }
+    },
+    "legacy": {
+      "parentNames": [],
+      "factorIds": [],
+      "inheritedSkillIds": [],
+      "sparkCaps": {},
+      "blueStartBonuses": {},
+      "pinkFactorIds": [],
+      "pinkAptitudeTags": [],
+      "pinkStarTotals": {},
+      "aptitudes": {
+        "mile": "C",
+        "sprint": "F",
+        "pace": "A",
+        "front": "G",
+        "medium": "A",
+        "late": "A",
+        "turf": "A",
+        "dirt": "G",
+        "long": "A",
+        "end": "C"
+      },
+      "raceFactorIds": [],
+      "inheritanceComplete": false,
+      "inspirationEventsDone": 0
+    },
+    "learnedSkillIds": [
+      "skill:100011"
+    ],
+    "deck": {
+      "slots": []
+    },
+    "log": [
+      "Career started: Special Week / ura / seed=42"
+    ],
+    "generatedSparks": [],
+    "baseAptitudes": {
+      "mile": "C",
+      "sprint": "F",
+      "pace": "A",
+      "front": "G",
+      "medium": "A",
+      "late": "A",
+      "turf": "A",
+      "dirt": "G",
+      "long": "A",
+      "end": "C"
+    }
+  },
+  "rngSeed": 42,
+  "rngCalls": 0,
+  "rngState": {
+    "x": -165840718,
+    "y": 1531557566,
+    "z": -2082647735,
+    "w": 668685995,
+    "v": -1615262521,
+    "addend": 23238976
+  }
+}
+  left: 200
+ right: 400
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- malformed_json_is_rejected_before_every_post_handler stdout ----
+
+thread 'malformed_json_is_rejected_before_every_post_handler' (1495480) panicked at uma-sim-core/tests/api_body_admission.rs:27:9:
+assertion `left == right` failed: /v1/run/start: {
+  "meta": {
+    "seed": 42,
+    "scenarioId": "ura",
+    "traineeName": "Special Week",
+    "objectiveProfile": "general",
+    "legacyFactors": [],
+    "parentNames": [],
+    "deckSupports": [],
+    "compatibilityScore": 0
+  },
+  "settings": {
+    "dialogueMode": "CHOICES_ONLY",
+    "speedMultiplier": 1,
+    "allowDialogueAtHighSpeed": false,
+    "traceTelemetry": false,
+    "traceRng": false,
+    "raceModel": "physics"
+  },
+  "state": {
+    "meta": {
+      "seed": 42,
+      "scenarioId": "ura",
+      "traineeName": "Special Week",
+      "objectiveProfile": "general",
+      "legacyFactors": [],
+      "parentNames": [],
+      "deckSupports": [],
+      "compatibilityScore": 0
+    },
+    "date": {
+      "year": 1,
+      "month": 6,
+      "half": 2
+    },
+    "turn": 1,
+    "stats": {
+      "speed": 83,
+      "stamina": 88,
+      "power": 98,
+      "guts": 90,
+      "wit": 91
+    },
+    "energy": 100,
+    "maxEnergy": 100,
+    "mood": "NORMAL",
+    "fans": 0,
+    "skillPoints": 0,
+    "careerComplete": false,
+    "awaitingChoice": false,
+    "pendingEventTitle": null,
+    "pendingRaceId": "debut",
+    "phase": "MANDATORY_RACE",
+    "completedRaces": [],
+    "facilityLevels": {
+      "power": 1,
+      "speed": 1,
+      "stamina": 1,
+      "guts": 1,
+      "wit": 1
+    },
+    "facilityTrainCounts": {},
+    "pendingEventOptions": [],
+    "hintLevels": {
+      "skill:200732": 1,
+      "skill:201352": 1,
+      "skill:200512": 1
+    },
+    "statuses": [],
+    "performanceTokens": {},
+    "scenarioResources": {
+      "values": {
+        "happy_meek_badge": 0
+      }
+    },
+    "legacy": {
+      "parentNames": [],
+      "factorIds": [],
+      "inheritedSkillIds": [],
+      "sparkCaps": {},
+      "blueStartBonuses": {},
+      "pinkFactorIds": [],
+      "pinkAptitudeTags": [],
+      "pinkStarTotals": {},
+      "aptitudes": {
+        "dirt": "G",
+        "turf": "A",
+        "long": "A",
+        "front": "G",
+        "sprint": "F",
+        "mile": "C",
+        "end": "C",
+        "late": "A",
+        "pace": "A",
+        "medium": "A"
+      },
+      "raceFactorIds": [],
+      "inheritanceComplete": false,
+      "inspirationEventsDone": 0
+    },
+    "learnedSkillIds": [
+      "skill:100011"
+    ],
+    "deck": {
+      "slots": []
+    },
+    "log": [
+      "Career started: Special Week / ura / seed=42"
+    ],
+    "generatedSparks": [],
+    "baseAptitudes": {
+      "dirt": "G",
+      "turf": "A",
+      "long": "A",
+      "front": "G",
+      "sprint": "F",
+      "mile": "C",
+      "end": "C",
+      "late": "A",
+      "pace": "A",
+      "medium": "A"
+    }
+  },
+  "rngSeed": 42,
+  "rngCalls": 0,
+  "rngState": {
+    "x": -165840718,
+    "y": 1531557566,
+    "z": -2082647735,
+    "w": 668685995,
+    "v": -1615262521,
+    "addend": 23238976
+  }
+}
+  left: 200
+ right: 400
+
+---- nonobject_json_is_not_an_empty_command stdout ----
+
+thread 'nonobject_json_is_not_an_empty_command' (1495509) panicked at uma-sim-core/tests/api_body_admission.rs:27:9:
+assertion `left == right` failed: null: {"careerEnded":false,"choices":[{"id":"train_speed","label":"Train Speed"},{"id":"train_stamina","label":"Train Stamina"},{"id":"train_power","label":"Train Power"},{"id":"train_guts","label":"Train Guts"},{"id":"train_wit","label":"Train Wits"},{"id":"rest","label":"Rest"},{"id":"recreation","label":"Recreation"},{"id":"race","label":"Race (optional)"}],"state":{"meta":{"compatibilityScore":0,"deckSupports":[],"legacyFactors":[],"objectiveProfile":"general","parentNames":[],"scenarioId":"ura","seed":7301,"traineeName":"Special Week"},"rngCalls":33,"rngSeed":7301,"rngState":{"addend":50968664,"v":-1927586769,"w":1296345063,"x":-721542635,"y":-283325991,"z":129061136},"settings":{"allowDialogueAtHighSpeed":false,"dialogueMode":"CHOICES_ONLY","raceModel":"stub","speedMultiplier":1,"traceRng":false,"traceTelemetry":false},"state":{"awaitingChoice":false,"baseAptitudes":{"dirt":"G","end":"C","front":"G","late":"A","long":"A","medium":"A","mile":"C","pace":"A","sprint":"F","turf":"A"},"careerComplete":false,"completedRaces":["debut"],"date":{"half":2,"month":9,"year":1},"deck":{"slots":[]},"energy":60,"facilityLevels":{"guts":1,"power":1,"speed":1,"stamina":1,"wit":1},"facilityTrainCounts":{"speed":1},"fans":905,"generatedSparks":[],"hintLevels":{"skill:200512":1,"skill:200732":1,"skill:201352":1},"learnedSkillIds":["skill:100011"],"legacy":{"aptitudes":{"dirt":"G","end":"C","front":"G","late":"A","long":"A","medium":"A","mile":"C","pace":"A","sprint":"F","turf":"A"},"blueStartBonuses":{},"factorIds":[],"inheritanceComplete":false,"inheritedSkillIds":[],"inspirationEventsDone":0,"parentNames":[],"pinkAptitudeTags":[],"pinkFactorIds":[],"pinkStarTotals":{},"raceFactorIds":[],"sparkCaps":{}},"log":["Career started: Special Week / ura / seed=7301","Race debut +905 fans","Trained SPEED +10","Training failed at SPEED.","Event: Today and Tomorrow, Too","Event 'Today and Tomorrow, Too' choice 0","Training failed at SPEED.","Rested"],"maxEnergy":100,"meta":{"compatibilityScore":0,"deckSupports":[],"legacyFactors":[],"objectiveProfile":"general","parentNames":[],"scenarioId":"ura","seed":7301,"traineeName":"Special Week"},"mood":"BAD","pendingEventOptions":[],"pendingEventTitle":null,"pendingRaceId":null,"performanceTokens":{},"phase":"FREE","scenarioResources":{"values":{"happy_meek_badge":0}},"skillPoints":45,"stats":{"guts":92,"power":103,"speed":113,"stamina":88,"wit":91},"statuses":["hot topic"],"turn":7}},"text":"--- State (turn 7) ---\nDate: Year 1, Month 9, Late\nStats: SPD 113 STA 88 POW 103 GUT 92 WIT 91\nEnergy: 60/100  Mood: Bad  Fans: 905  SP: 45\nScenario: happy_meek_badge=0\nRested: +50 energy\n→ Year 1 Sep (Late), turn 7"}
+  left: 200
+ right: 400
+
+
+failures:
+    invalid_utf8_is_rejected_before_start_and_auto
+    malformed_json_is_rejected_before_every_post_handler
+    nonobject_json_is_not_an_empty_command
+
+test result: FAILED. 2 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.16s
+
+error: test failed, to rerun pass `-p uma-sim-core --test api_body_admission`

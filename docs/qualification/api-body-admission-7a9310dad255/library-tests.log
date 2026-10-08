@@ -1,0 +1,52 @@
+   Compiling uma-sim-core v0.1.0 (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/source/uma-sim-core)
+    Finished `test` profile [unoptimized] target(s) in 6.21s
+     Running unittests src/lib.rs (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/target/debug/deps/uma_sim_core-1c93eb2acdd2cac3)
+
+running 45 tests
+test api::tests::fast_503_leaves_speed_unchanged_success_sets_it ... ok
+test api::tests::health_and_catalogs_and_action_include_state ... ok
+test api::tests::lab_library_fork_branch_compare_flow ... ok
+test api::tests::lab_library_import_failure_is_nondestructive ... ok
+test api::tests::policy_error_shape_contract ... ok
+test batch_analysis::tests::aggregates_known_values ... ok
+test batch_analysis::tests::compare_deltas ... ok
+test batch_analysis::tests::empty_input_is_error ... ok
+test batch_analysis::tests::malformed_lines_skipped_not_fatal ... ok
+test batch_analysis::tests::text_render_contains_key_sections ... ok
+test batch_analysis::tests::top_n_truncates ... ok
+test career_lab::unit_tests::action_choice_id_round_trips ... ok
+test career_lab::unit_tests::fingerprint_check_flags_schema_but_not_version ... ok
+test career_lab::unit_tests::name_validation ... ok
+test career_lab::unit_tests::rfc3339_formats_epoch ... ok
+test legacy::unit::aptitude_rise_caps_at_a ... ok
+test legacy::unit::blue_star_tables ... ok
+test legacy::unit::pink_rank_table_matches_planner ... ok
+test mid_run_inheritance::tests::april_dates_match_classic_and_senior ... ok
+test mid_run_inheritance::tests::blue_ranges_match_crazyfellow_table ... ok
+test mid_run_inheritance::tests::compatibility_grade_bands ... ok
+test mid_run_inheritance::tests::odds_scale_with_compatibility ... ok
+test api::tests::policy_unknown_on_auto_and_fast ... ok
+test api::tests::policy_external_without_policy_cmd_fails_loudly_not_silently ... ok
+test race::tests::course_id_lookup_from_canonical_race_json ... ok
+test race::tests::default_race_model_is_physics_since_r88 ... ok
+test race::tests::derive_race_seed_is_stable_and_nonzero ... ok
+test race::tests::npc_count_uses_race_json_entries_when_present ... ok
+test api::tests::run_endpoints_unaffected_by_policy_errors ... ok
+test race::tests::placeholder_npcs_vary_aptitudes_moods_strategies_skills ... ok
+test race::tests::placement_bands ... ok
+test race::tests::preferred_running_style_overrides_best_aptitude ... ok
+test race::tests::race_effective_stat_halves_above_soft_cap ... ok
+test rng::tests::matches_kotlin_seed_42_fixture ... ok
+test rng::tests::raw_ints_match_kotlin ... ok
+test scoring::terminal_utility::tests::evaluate_produces_nonzero_u ... ok
+test scoring::terminal_utility::tests::phi_matches_condor_allocations ... ok
+test scoring::terminal_utility::tests::skill_shop_converts_sp ... ok
+test race::tests::physics_debut_with_weak_stats_does_not_always_place_first ... ok
+test api::tests::session_usable_after_policy_503 ... ok
+test api::tests::policy_case_variants ... ok
+test api::tests::start_rejects_unknown_policy ... ok
+test api::tests::start_rejects_unknown_scenario_and_race_model ... ok
+test policy_external::tests::dead_policy_child_is_reaped_and_respawned ... ok
+test policy_external::tests::wedged_policy_server_times_out_loudly_and_respawns ... ok
+
+test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.30s

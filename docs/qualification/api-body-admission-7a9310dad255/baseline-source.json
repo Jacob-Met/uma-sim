@@ -1,0 +1,1981 @@
+{
+  "source_checkout": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "current_main": "0ac14602addd1a4610aa8359896915a34cce5659",
+  "current_tree": "e7d10088a713d8fbd7391c86050a92898652bdd6",
+  "manifest": [
+    {
+      "path": "Cargo.lock",
+      "sha": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "mode": "100644",
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+      "bytes": 9836
+    },
+    {
+      "path": "Cargo.toml",
+      "sha": "d55384b62968b2ada18d45aa4de2053e175579ea",
+      "mode": "100644",
+      "sha256": "818161c35c9828641c370cc3c6b50dfb1e8e4417210bd8fa486e87234e40b1d8",
+      "bytes": 71
+    },
+    {
+      "path": "content_packs/example.json",
+      "sha": "c30b5bd6cf7fb8d0ea0ab8161d58318ab35cc2cc",
+      "mode": "100644",
+      "sha256": "7dfc0268758b63b6669d9a985871dcc4036b851711e614d0c595b8020bdbdc91",
+      "bytes": 483
+    },
+    {
+      "path": "knowledge/README.md",
+      "sha": "f2dead2d6968c92c26fc0197eb84a0feaf8928a4",
+      "mode": "100644",
+      "sha256": "b399fc3fa9f0c577ce39adf18fb42ff8909071abcc9120350512b1d8cecd1c21",
+      "bytes": 1358
+    },
+    {
+      "path": "knowledge/RELEASE.md",
+      "sha": "1158f8298bcedeef324ee2ce47737fd41251561c",
+      "mode": "100644",
+      "sha256": "26312654ccca41e010b6377da09f9956fe69f64eb1a6031b9ea7d34d64a8c832",
+      "bytes": 532
+    },
+    {
+      "path": "knowledge/canonical/by_kind/event_local.json",
+      "sha": "51608bfc5a8591cb9084543d7f55bb11d0b74cdc",
+      "mode": "100644",
+      "sha256": "2d5fb029c8ebc8e54210d0bfe5273fa2a8f14888edd7b7b7ed77b9a83bd452ad",
+      "bytes": 1802470
+    },
+    {
+      "path": "knowledge/canonical/by_kind/factor.json",
+      "sha": "ba0b51f2294382ce2771acafffa5bb275430d2e1",
+      "mode": "100644",
+      "sha256": "9305da3961c1ab2f783baf49d2c817018fa6877fd3c430320333349a3753f452",
+      "bytes": 837378
+    },
+    {
+      "path": "knowledge/canonical/by_kind/lesson.json",
+      "sha": "84d6eb4ae5ba99e23924b66a7acd7caa174844ab",
+      "mode": "100644",
+      "sha256": "c29c8a9f8da69c9d644dcdf0616a66af4d10f975eec50468462213e25a91db01",
+      "bytes": 137615
+    },
+    {
+      "path": "knowledge/canonical/by_kind/race.json",
+      "sha": "db5d63a6f0f02f196d7382c0a09e30c470cbb913",
+      "mode": "100644",
+      "sha256": "b57f1b3033887926d69e871153545920e9613caf809114583e08ed7ccad91ec8",
+      "bytes": 242997
+    },
+    {
+      "path": "knowledge/canonical/by_kind/skill.json",
+      "sha": "8042a37684b9930fad6b4d5a033e8d358ac9b851",
+      "mode": "100644",
+      "sha256": "1317b0bfc80085e0cb1aa756a1b6dbea0b0258fb12583e884e7b6f516d9a7df2",
+      "bytes": 2448889
+    },
+    {
+      "path": "knowledge/canonical/by_kind/song.json",
+      "sha": "d4c6b997a22788319072aed3d6e408395e6cac88",
+      "mode": "100644",
+      "sha256": "27bb6616675b0749ffd7b2df2a06b03b9f0a5d379bd3d0cb31056741bef89d13",
+      "bytes": 21321
+    },
+    {
+      "path": "knowledge/canonical/by_kind/support_card.json",
+      "sha": "98299e33510804b2aeb0d2c23328ff1a6129d66e",
+      "mode": "100644",
+      "sha256": "399c936652486f8ed684039a93645b4a60f68b5c01942a323c1b6736f208af2d",
+      "bytes": 3400227
+    },
+    {
+      "path": "knowledge/canonical/by_kind/trainee.json",
+      "sha": "b1d0a4eafa6104a08b02e1e4f03b98066240e219",
+      "mode": "100644",
+      "sha256": "f22144a37818b358b1ebf188ee948de751c46c01a97a2e77faf47c746a5f8b48",
+      "bytes": 617740
+    },
+    {
+      "path": "knowledge/mechanics/champions_meeting.md",
+      "sha": "740d480ec530f33fb3c7169db5e94ae9114bbfb6",
+      "mode": "100644",
+      "sha256": "e09cd7c6ca433c11124106490b67eeae737da46a7b307fa0945ce5fb90c0d6ab",
+      "bytes": 1806
+    },
+    {
+      "path": "knowledge/mechanics/grand_concert_policy.md",
+      "sha": "ab412afbba55a9de7398dde1f9332c03f333a608",
+      "mode": "100644",
+      "sha256": "84c20ca45a40fdf940b1f7718db90699b9a91630b2a079891268b5d841317fbd",
+      "bytes": 1785
+    },
+    {
+      "path": "knowledge/mechanics/inheritance_planners.md",
+      "sha": "3bfeb9b5052eddb6c225f51b7bae95a425c2ce79",
+      "mode": "100644",
+      "sha256": "0e59b3fa02fd4d1bdda35f99257f91b071d92f43fdecb43e74b154a7c781aad2",
+      "bytes": 2809
+    },
+    {
+      "path": "knowledge/mechanics/interaction_latency_research.md",
+      "sha": "8952d7de035852947ed792e59b7f9445467a3297",
+      "mode": "100644",
+      "sha256": "834f0935ebe0e137da40394d2595f7b627fd0675e417a9f34a9c4dcef9a947f6",
+      "bytes": 2106
+    },
+    {
+      "path": "knowledge/mechanics/interaction_timing_audit.md",
+      "sha": "c2f07056aae3b4ec81cfaf623f486817f0bfe3bd",
+      "mode": "100644",
+      "sha256": "474c0c6a83c26873649a67c27abdf9595d0aed2485dd0f10754979e86e2f5364",
+      "bytes": 3927
+    },
+    {
+      "path": "knowledge/mechanics/parent_farming_utility.md",
+      "sha": "bf0eb285da91e3b02d42961332644216987c416b",
+      "mode": "100644",
+      "sha256": "84194829fdeaa34fa0c8c31be4706b4ff7b07a613421d8a10d8cf3e0643205ad",
+      "bytes": 9449
+    },
+    {
+      "path": "knowledge/mechanics/race_model.md",
+      "sha": "002210766e20a666bb3d923c95c102059f28864d",
+      "mode": "100644",
+      "sha256": "997c261299e7f403b83157b9a9657b7dd2614c529545bc9dbd1efa5678a455d2",
+      "bytes": 4297
+    },
+    {
+      "path": "knowledge/mechanics/run_grade.md",
+      "sha": "260159a164075ec950dc38223259ad8b5e36f924",
+      "mode": "100644",
+      "sha256": "576e9e6a7ad19ad752654199ca430ab777dcf810035fbe67be98762897ebcd24",
+      "bytes": 3003
+    },
+    {
+      "path": "knowledge/mechanics/skill_valuation.md",
+      "sha": "f416f617c04f655a417f323ab9c87e6fd5ff2492",
+      "mode": "100644",
+      "sha256": "836a321d5e31886abec7c82c2234ebe7c719107e3ed9df719beb6ba501049d20",
+      "bytes": 3665
+    },
+    {
+      "path": "knowledge/mechanics/training_stat_gain.md",
+      "sha": "b09dc11ef65482988b866c8f4fdbda1db1dab358",
+      "mode": "100644",
+      "sha256": "04168b3216b8573b46ff5216600933f88b73b4ffa6bf5da8e79a828bca470dff",
+      "bytes": 1565
+    },
+    {
+      "path": "knowledge/scenarios/grand_concert.md",
+      "sha": "880ee117fc56bdbce11b5e44929956f1f6613d23",
+      "mode": "100644",
+      "sha256": "b191cb7ffe8e172b7759e87ea12ea573cf85a1d303977ffe2e95380af8ad55fb",
+      "bytes": 9678
+    },
+    {
+      "path": "knowledge/scenarios/trackblazer.md",
+      "sha": "93de1a4084d78714701a59ef5e2f74470007356f",
+      "mode": "100644",
+      "sha256": "16413159a292b8f9b50f91748784e74ff7eb488b587287e24ccf004e91489a9f",
+      "bytes": 947
+    },
+    {
+      "path": "knowledge/scenarios/unity.md",
+      "sha": "19e7a3487a0e4d8da14972bebb76120ce2912272",
+      "mode": "100644",
+      "sha256": "fa2ebb908a9d66af5042b37d839b593fd0193e4f2f0dec8c4a1954ce14c6ae24",
+      "bytes": 1151
+    },
+    {
+      "path": "knowledge/scenarios/ura.md",
+      "sha": "b1aa402f3f76a7bc68799151fb7119968fee882b",
+      "mode": "100644",
+      "sha256": "692f7d06d51f83606ee32ca54074592283ee7ab3bfd4bbc66dc44251f7330e7e",
+      "bytes": 1009
+    },
+    {
+      "path": "knowledge/schema/entity.schema.json",
+      "sha": "5863ff1cc81caef956362ad97a2db6071bd1d291",
+      "mode": "100644",
+      "sha256": "99d93604557ff576cb701b87369951b3a97a6ae0fbde6d57245aff45fc20cb0f",
+      "bytes": 1380
+    },
+    {
+      "path": "knowledge/schema/ids.json",
+      "sha": "644679d025c58b93ed48e172d1b7c80f2c0b63e0",
+      "mode": "100644",
+      "sha256": "2826e46fd100488fe06ac91405bd5f7838526b8a55bd0b8ad186392fd8337b0e",
+      "bytes": 1649
+    },
+    {
+      "path": "knowledge/validate/validate.py",
+      "sha": "16681d5b7ca8f708be4d444e4d1e24b50ce194ee",
+      "mode": "100644",
+      "sha256": "b462ef95cc6bf245f0f4592e14f06d095903ed41cefbb5350de1af50a9926103",
+      "bytes": 4589
+    },
+    {
+      "path": "research/R88_REFREEZE.md",
+      "sha": "e42d3abd0a5a375bb3e4ae8e78cc7ea37052ab85",
+      "mode": "100644",
+      "sha256": "6dbfafdc4ac2a10399022ecfd445709abcfa9c70f75cbe1cf65cbb1c9faf4cea",
+      "bytes": 883
+    },
+    {
+      "path": "research/R8_DONE_CRITERIA_EVIDENCE.md",
+      "sha": "c3383ab2bacfaefed163aefcee083f000eb93163",
+      "mode": "100644",
+      "sha256": "63b876a5a87dd82aca26c878974e146e2c3a0ea0ff1da59c7411cdc71689d62a",
+      "bytes": 4055
+    },
+    {
+      "path": "research/_check_skill_presence.py",
+      "sha": "2f52b0d6e2580137e6f516bfb5b42583c93c20d3",
+      "mode": "100644",
+      "sha256": "bed485e8a431be7e6de3d7ae493df4fffa2a7d7c58f226b12df9e5739fa1a589",
+      "bytes": 809
+    },
+    {
+      "path": "research/_list_fails2.py",
+      "sha": "03511179517425302f9ee74714fe705cadfcadd9",
+      "mode": "100644",
+      "sha256": "e736f8b440e0e7929ad4afe78b5e4bc834098d215ba54296252a835816d7e3e4",
+      "bytes": 552
+    },
+    {
+      "path": "research/_oracle_590_pk.txt",
+      "sha": "bc7e53491643853428abc198ae06c25958a06693",
+      "mode": "100644",
+      "sha256": "d2bc329bf765ad017ec58c57d2331749d21f509e6bb2d83047365b89ee36bc8c",
+      "bytes": 7903
+    },
+    {
+      "path": "research/_oracle_590_pos.txt",
+      "sha": "dfe2d31604a0e85d4d3843b84436bd7d957fed06",
+      "mode": "100644",
+      "sha256": "05c6e50f60c84909103fcb7cb58cac5bd1ec1c93663277f4180f88dadf63cb11",
+      "bytes": 1014
+    },
+    {
+      "path": "research/_skill_lookup.py",
+      "sha": "4b3a2b185cf896c92e85196805399bf743ef2861",
+      "mode": "100644",
+      "sha256": "5ff4d3042f3a589801a4aa8aea6391560ddbd60c23127c9fbe48d488b072f215",
+      "bytes": 1176
+    },
+    {
+      "path": "research/bond_gain.json",
+      "sha": "e1f60ed9e5fed4ec2d7af0e84d1694d9883aa309",
+      "mode": "100644",
+      "sha256": "15d92bc337bc71691073229d5af738368d1d1311d5631db668a5a5565c2e72c6",
+      "bytes": 237
+    },
+    {
+      "path": "research/crosscheck_course_fork.py",
+      "sha": "d841647e2957fd66209a8bef19b23e15bdc8c0a6",
+      "mode": "100644",
+      "sha256": "cdd4b044fcd1f44b5bcb27917dc4b6339f97d00dbd711976abd7c5d98b4032c2",
+      "bytes": 4064
+    },
+    {
+      "path": "research/event_probabilities.json",
+      "sha": "3f5cdfa21249de550011831dee1b6dc03fb58063",
+      "mode": "100644",
+      "sha256": "4def2cc242364011ce1ccb5472295e4a8c449e3844e92391aaeb3f40d3fabf7c",
+      "bytes": 1268
+    },
+    {
+      "path": "research/event_reward_schema.json",
+      "sha": "943453197d71fc6c4d04eaba42a9da31c9c9d532",
+      "mode": "100644",
+      "sha256": "8e115a4cc6ee3c9c1e3c98b1ff5b0511c46550537a5ad5be20c9760f5fa46f4b",
+      "bytes": 539
+    },
+    {
+      "path": "research/grand_concert.json",
+      "sha": "9b22ffc393398ce36a2bb5ca998a4e9ee960ff57",
+      "mode": "100644",
+      "sha256": "a8aeb46e3610ad9667266199bc26a842a406fb83632e467bb36809a8b8bac00e",
+      "bytes": 11781
+    },
+    {
+      "path": "research/grand_concert_calibration.json",
+      "sha": "a946fdffbd75af8b91b8984a344ed8fe04755ac6",
+      "mode": "100644",
+      "sha256": "4e080f2903f5130ac61f12759264fec6f445ef59217256ce126e4ca17431dcf7",
+      "bytes": 2254
+    },
+    {
+      "path": "research/grand_concert_community.json",
+      "sha": "7421208b21a7cd4bd7c631f92665287de38248fa",
+      "mode": "100644",
+      "sha256": "7ba448fc42c3644468079d57d3a1d04aeeb68797c677d9dec1e5bce1ab9489da",
+      "bytes": 4461
+    },
+    {
+      "path": "research/hint_progression.json",
+      "sha": "43c740f36123b120ab1882567fad768da20e69c1",
+      "mode": "100644",
+      "sha256": "3025b3766b1156c4379c8a858ddb84e0ff85877d69d3b7362a2dcf910837160a",
+      "bytes": 154
+    },
+    {
+      "path": "research/inspiration.json",
+      "sha": "4cb3d8ae7ed1e3ce4821f89a145134322901d092",
+      "mode": "100644",
+      "sha256": "1ecd87b697dffb8d8bf091b667a4007875be4babf25e054f51c6a094e41b57c4",
+      "bytes": 912
+    },
+    {
+      "path": "research/legacy_deck_schema.json",
+      "sha": "ca4b6a7bc760cd00bd964d00137c76ae792f3692",
+      "mode": "100644",
+      "sha256": "61a1a7ebc177dc03be2ae337aa48ff924cecd159002395ed4a33a0b350417fb0",
+      "bytes": 1030
+    },
+    {
+      "path": "research/mood_energy.json",
+      "sha": "30c56b454eb2aee07c2c46dc47f50cad7ec98d5c",
+      "mode": "100644",
+      "sha256": "1faaed041f0460d418c2429797197dd784ade0b8a25e0998abac716635c24f7a",
+      "bytes": 454
+    },
+    {
+      "path": "research/race_checkpoint_sample.json",
+      "sha": "e22e5fff4d6c0ad5b5b5c64b9e5caa276c59cdd0",
+      "mode": "100644",
+      "sha256": "9e0367f943ab013896477f0f0dbab041db42ad16b394fd23da30375bca634986",
+      "bytes": 17205
+    },
+    {
+      "path": "research/race_checkpoint_triage.json",
+      "sha": "fdc02b31d6cd37f14688b05a4341a0618937ba25",
+      "mode": "100644",
+      "sha256": "830f2c9cfdaaa99587c35b6d8cbbc00d43d76babb34844888572823aeebeb607",
+      "bytes": 5908
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample.json",
+      "sha": "a5ec5199973c182671e5a96c13b9040b42a0f297",
+      "mode": "100644",
+      "sha256": "df45a9a02f36f6548e0885c91ab6ed88751e00f07e62168f74f7a7b5eb433661",
+      "bytes": 120152
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_1000.json",
+      "sha": "6799a4a8633e12526e61b50fec3b1026deac1452",
+      "mode": "100644",
+      "sha256": "0138c8d357eaeae33e8b49237117746af62729024642fe04a52fb311b7523fc0",
+      "bytes": 854325
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_240.json",
+      "sha": "4a32c984649a1cb1f2e9c1f512eac23169b5af70",
+      "mode": "100644",
+      "sha256": "478948417960f6cdf0dd3ba91775262bee2daa54ee501c505f056354d4f7103a",
+      "bytes": 252408
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_500.json",
+      "sha": "59f2166e205470f04b93736175a1b31fa092822c",
+      "mode": "100644",
+      "sha256": "dde51de26623fe7245d73b697284617d2a41086508b225c4806f519655ee5299",
+      "bytes": 302200
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage.json",
+      "sha": "394d651265c9da7515875711db3b04f228830321",
+      "mode": "100644",
+      "sha256": "2f3c5d71e677acdd053e34f6b891936f502553e1a03e39d95d83ebca501c1808",
+      "bytes": 26916
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage_1000.json",
+      "sha": "6acef1c847cb9cde54431c728c985b6179a11d2d",
+      "mode": "100644",
+      "sha256": "9ea9d20643135cc6a015200c1080142d0f0b66d0f3a716314c4a1aef4548c633",
+      "bytes": 1185
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage_240.json",
+      "sha": "ee2f8a43198753511572c18641becc3411103158",
+      "mode": "100644",
+      "sha256": "b6547102a6965dde9842c06a6ca2b8bb48872a1462cafecba6e54e42bb5f22b9",
+      "bytes": 162
+    },
+    {
+      "path": "research/race_compete_fight.json",
+      "sha": "45ec50ded535b0c07e5934f34ad9b3d0b3348a66",
+      "mode": "100644",
+      "sha256": "d446e94596760ec1e49d8026dba44c5ed3d634af6ea80daaaa3413ae4bd108ee",
+      "bytes": 819
+    },
+    {
+      "path": "research/race_course_data.json",
+      "sha": "5124f3cd0c8d22c5f010263c0a3dadcb359e2d3c",
+      "mode": "100644",
+      "sha256": "85faef3864439a200f406249be78386fde3985388257de2a693ecee1b426b8c1",
+      "bytes": 115753
+    },
+    {
+      "path": "research/race_course_fork_crosscheck.json",
+      "sha": "f0d8337c9a9a32578c977a80b792a20c8bda563e",
+      "mode": "100644",
+      "sha256": "43a9afc6b314a68de6d811050030dc3e9fe988b8c6961d5df1e17637489ec124",
+      "bytes": 880
+    },
+    {
+      "path": "research/race_course_mdb_crosscheck.json",
+      "sha": "e50e741b1a69370a6da92ce3b54cfc54707730fd",
+      "mode": "100644",
+      "sha256": "c86d60b9cb915ddffef173a6cd339580646c9ee531d5efea83ccba056cfeec2a",
+      "bytes": 228
+    },
+    {
+      "path": "research/race_field_npc.json",
+      "sha": "2867e1854d59a8529bc835f9d564e91b1f86d083",
+      "mode": "100644",
+      "sha256": "8478df955af337b32cf3bc75641db75cbea2f7326379a5d702ee53962e9c4cb3",
+      "bytes": 1887
+    },
+    {
+      "path": "research/race_lead_competition.json",
+      "sha": "98b14a9c15fb0f0bec762cb93912c3ba0b8b85f8",
+      "mode": "100644",
+      "sha256": "79985d02cf3f5fae9208a4310743e6c0c5fabd47ff86e5ea401c7462bbdbbb1c",
+      "bytes": 1121
+    },
+    {
+      "path": "research/race_model_constants.json",
+      "sha": "3889506d4fd8956152e645f9511069cefc7650dd",
+      "mode": "100644",
+      "sha256": "280d821a3d254b5b917e33339110e513f29db59f26c98d0b9b4070fda2967bad",
+      "bytes": 2549
+    },
+    {
+      "path": "research/race_oracle_trace_case1.csv",
+      "sha": "33dbc241f152ae3ba96b6ceee54cb4a477683ffc",
+      "mode": "100644",
+      "sha256": "33a8330dac252c0147c48fa269a0b8379f4546a4da7e1455492844c8ee917c47",
+      "bytes": 1046
+    },
+    {
+      "path": "research/race_outcomes.json",
+      "sha": "2c595f9a9d366540e24d38249a2622a24b63e184",
+      "mode": "100644",
+      "sha256": "acb56b993b97b681b24ce2830d3e09d9175b4bc3bb45302884f520bf77c6d838",
+      "bytes": 599
+    },
+    {
+      "path": "research/race_position_keep.json",
+      "sha": "6954bac9854b4260a7b139966a91e819c0b9212a",
+      "mode": "100644",
+      "sha256": "b9b5fda6524637ac8cbfcf29ea210b9ae4494b73bf723f27400431a79c5bef5e",
+      "bytes": 1986
+    },
+    {
+      "path": "research/race_prando_vectors.json",
+      "sha": "52a02cd129fed89144063489175dc6623c3f2195",
+      "mode": "100644",
+      "sha256": "2cf06ec1602bfe24bc31e56fd5c7d99da4a415ce666b7f8ae8a35a4821c86d1d",
+      "bytes": 979
+    },
+    {
+      "path": "research/race_rushed.json",
+      "sha": "208a9346933d06d955bd13cc98c0a058d4418558",
+      "mode": "100644",
+      "sha256": "404e35a0925cbbfb81e9681b71eee0d2512da42b70191994253e13c3e90cee61",
+      "bytes": 622
+    },
+    {
+      "path": "research/race_skill_condition_mismatches.json",
+      "sha": "9fb5f4b31c14296ff5a5ae9fa1225384b06dc164",
+      "mode": "100644",
+      "sha256": "43b249ab8c5616fc3414e020b54331eda8fcdfa6af4795dc50ae57f24a6a5643",
+      "bytes": 1314
+    },
+    {
+      "path": "research/race_skill_condition_patch_note.json",
+      "sha": "c16eae6129f321000053765538496259cecb0c67",
+      "mode": "100644",
+      "sha256": "5b708327daac9e6cb5ee14f3fa3a4009940f6f9f7208bcfe9fb0cea6ebf4c41b",
+      "bytes": 944
+    },
+    {
+      "path": "research/race_skill_effects.json",
+      "sha": "123a392a483b5af779f4da611336be055febec72",
+      "mode": "100644",
+      "sha256": "84752f4017ed4f28184a0d70433d07b978b45b33d09e738ec38decca777c289e",
+      "bytes": 2363
+    },
+    {
+      "path": "research/race_telemetry_corpus.json",
+      "sha": "dddc1ccafb57332cfe5e3c4833da0e95d9579f0b",
+      "mode": "100644",
+      "sha256": "665232079d4a9a99f35aedd082d649c874c6132734c45725c5a31506e81d9987",
+      "bytes": 109849
+    },
+    {
+      "path": "research/race_v4_career_place.json",
+      "sha": "f96c422711257b078465b10bac61b30c4d05ed86",
+      "mode": "100644",
+      "sha256": "3de31caf6012a6fb885ddecf15df7f2e643933596cf026c396ede89200b330b4",
+      "bytes": 5717
+    },
+    {
+      "path": "research/race_v4_physics_dist.json",
+      "sha": "c656a6623c77e5b6ef8709d0def5555d2016bb4e",
+      "mode": "100644",
+      "sha256": "665770041ef436faf5c3526e6c931cbe23b9e270c932d2106e3b2fc3bf22ad56",
+      "bytes": 9284
+    },
+    {
+      "path": "research/trackblazer.json",
+      "sha": "7f7ee3553df79b67980bd53d23f7a61eab0bd678",
+      "mode": "100644",
+      "sha256": "e8055b7df1d36d8a7326dd52b69bfd85f9821d60a3d658d9721f8b2f348e0d38",
+      "bytes": 5766
+    },
+    {
+      "path": "research/training_failure.json",
+      "sha": "a91664018b33a61e0de885b2106d690518097cb3",
+      "mode": "100644",
+      "sha256": "32ac94ba013fb060b4fb4c7e46e06491c03327b7a3b3b04937fb70ce42bb7245",
+      "bytes": 684
+    },
+    {
+      "path": "research/training_gain_tables.json",
+      "sha": "d36f205d46022ba7dfa34a40897251072ec807d3",
+      "mode": "100644",
+      "sha256": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60",
+      "bytes": 4284
+    },
+    {
+      "path": "research/unity_cup.json",
+      "sha": "5d864d65beb91d060d05bfdcf6dacf800825515c",
+      "mode": "100644",
+      "sha256": "3aa56ace360f1d3c4c6eff379e891cc1ae874f8ad102d413c7e2f942a23b9c50",
+      "bytes": 2590
+    },
+    {
+      "path": "research/ura_finale.json",
+      "sha": "a123fcec93baaa3aa3f1323733ab881b115e0357",
+      "mode": "100644",
+      "sha256": "90850730c9a041f4d1ae636cd7e9a3c8b650ce2f4e32ffab36485d70cd712d6e",
+      "bytes": 1675
+    },
+    {
+      "path": "rustfmt.toml",
+      "sha": "2cfce75b22b0134f0cacd3ae728aa3972dca7042",
+      "mode": "100644",
+      "sha256": "38e662871d848cf0a41e3428aafee79b60ae6e92c3f3e35e429d51ff5819872a",
+      "bytes": 36
+    },
+    {
+      "path": "uma-race-core/Cargo.lock",
+      "sha": "88923d293dbc1f75b705d8c37c8990c12e5b1819",
+      "mode": "100644",
+      "sha256": "2b166d1a0ae1edc416fd6ca9dfbb95fee080f6a4f6c45d5ce699749527940c22",
+      "bytes": 2670
+    },
+    {
+      "path": "uma-race-core/Cargo.toml",
+      "sha": "43fe390326bf6d0df59c30aca77a444b9c8dfea6",
+      "mode": "100644",
+      "sha256": "c5ea8eae8e4f9703087fa43066f391b7f3656ac3b0f46c368fc88f8e1b6e73d4",
+      "bytes": 282
+    },
+    {
+      "path": "uma-race-core/LICENSE-APACHE",
+      "sha": "a71ed7cda85093217136315c65fa39f8eda0e48c",
+      "mode": "100644",
+      "sha256": "1a2195fb201ede22d67795b0e892d86145abfb3299b29bbe2599d4366b868098",
+      "bytes": 11350
+    },
+    {
+      "path": "uma-race-core/LICENSE-MIT",
+      "sha": "7485a528e5cf2815066fa31a934038b8fca4b740",
+      "mode": "100644",
+      "sha256": "b7ad7ad5cccf6f269aa1798e1a03327fd0ac53a97b3debd88a9b80a631e0965f",
+      "bytes": 1077
+    },
+    {
+      "path": "uma-race-core/src/compete_fight.rs",
+      "sha": "30a834fc220979622269e4e903da9c4a09b483d6",
+      "mode": "100644",
+      "sha256": "268b4ae82ad03416f5d75575009dc7abd9080efad11fc7d87bd4acbe1d3f56b4",
+      "bytes": 1713
+    },
+    {
+      "path": "uma-race-core/src/condition/mod.rs",
+      "sha": "89153931f8de8eeb8901944f2e29667b951f0af1",
+      "mode": "100644",
+      "sha256": "ec3812281503946ed0821721b10085dd473ba53345ae439cec1e717319f3795d",
+      "bytes": 391
+    },
+    {
+      "path": "uma-race-core/src/condition/parser.rs",
+      "sha": "12cac1a7e84d201c0afa35af929700d56856d44d",
+      "mode": "100644",
+      "sha256": "90b9890853fdd1f5c7c7a08c1867452f3d6e725e164a2f572953ab3d80967106",
+      "bytes": 8454
+    },
+    {
+      "path": "uma-race-core/src/condition/region.rs",
+      "sha": "775fab39cb6d56c887c886f9e428883151f122b5",
+      "mode": "100644",
+      "sha256": "3720f5b8f852cbb39192c271a1102d760e7e8dec6a4cafd8bfcb9fcb59a349df",
+      "bytes": 3416
+    },
+    {
+      "path": "uma-race-core/src/condition/regions.rs",
+      "sha": "f5e096765638177298e7d0a3a706c306686dca48",
+      "mode": "100644",
+      "sha256": "50a96e7b3f08934c9c76703d036e1cca0ab9a8bb8ae5ccc6cb56ae208e5a9683",
+      "bytes": 45225
+    },
+    {
+      "path": "uma-race-core/src/condition/sample.rs",
+      "sha": "22c38109586f01f88a11a08a18ebe6afbed23f59",
+      "mode": "100644",
+      "sha256": "c95bede74e21fcfcaa6743451309e671ed6c3a6e138f59f75daa9c02a666a6b2",
+      "bytes": 7021
+    },
+    {
+      "path": "uma-race-core/src/condition/skill.rs",
+      "sha": "cabcbc950e6baf3b761d75f62211b3c6ca1fc444",
+      "mode": "100644",
+      "sha256": "c76eceacada786f3e40f0618f1f05acc4b60bc964cfe12f158e2704d69d27927",
+      "bytes": 14409
+    },
+    {
+      "path": "uma-race-core/src/course.rs",
+      "sha": "6087eef93d32d4f5a601c280c7eda9e2753fddb8",
+      "mode": "100644",
+      "sha256": "05745d3384a4ffbc8cef54c36b08d9aacaabfc9e7d31735d1554c1b09febae36",
+      "bytes": 4053
+    },
+    {
+      "path": "uma-race-core/src/data.rs",
+      "sha": "2e7bf06214aefe592246cea7cb4dd7b65fae19ab",
+      "mode": "100644",
+      "sha256": "99a4adce8e48482c5cdb334862f8f7c4a1b8886495a9fa3dbffee1cd97d2838c",
+      "bytes": 3250
+    },
+    {
+      "path": "uma-race-core/src/field.rs",
+      "sha": "4602f098895c326b7a0eb8a2cc5bd031cf57b826",
+      "mode": "100644",
+      "sha256": "78dd6971c3e2498a061bf9065e2425e6053f7bb06004c7d54937d95071f221fd",
+      "bytes": 12905
+    },
+    {
+      "path": "uma-race-core/src/hp.rs",
+      "sha": "7df8a62d54af929179fc6d6b17e2b1376873da83",
+      "mode": "100644",
+      "sha256": "a60f5bfbe0eaef6593638333790b38a62238d9d0b5c6aad7e5e0cac5829fec50",
+      "bytes": 5861
+    },
+    {
+      "path": "uma-race-core/src/lead_comp.rs",
+      "sha": "24d7b9f13ba878f90d450ac2634b951c9d89535d",
+      "mode": "100644",
+      "sha256": "5abb847011257e1bb54707acf7dced0094652e1e1f1a847b7839760959959f26",
+      "bytes": 2077
+    },
+    {
+      "path": "uma-race-core/src/lib.rs",
+      "sha": "42f450e7798ea65e5d219d838473472e5c934009",
+      "mode": "100644",
+      "sha256": "4651a4ef63678ddc318f40dde89707f02f8d0ed290a5fb9b9db426ae894976e8",
+      "bytes": 1178
+    },
+    {
+      "path": "uma-race-core/src/physics.rs",
+      "sha": "4532ca7f8a09c3a5ba1ab31f770f646bc2acc7b6",
+      "mode": "100644",
+      "sha256": "be5a50701b082b021b536e6db2105840aa1836ca350835511cf20bbe8cc95445",
+      "bytes": 2429
+    },
+    {
+      "path": "uma-race-core/src/pos_keep.rs",
+      "sha": "5af32c3b6dcf110c0e9f72c5df5b80eca0c60b40",
+      "mode": "100644",
+      "sha256": "7d21115707dc4ba83927d5106b9b4af0aa0606afc75c11b9a9711ce756808959",
+      "bytes": 7472
+    },
+    {
+      "path": "uma-race-core/src/rng.rs",
+      "sha": "aa555a746cb460a7891e8bdba18bf13185f41f74",
+      "mode": "100644",
+      "sha256": "f70b72f2f559fb436215d53d397febf0c6503e53f974999ae423401fd8187d4b",
+      "bytes": 4728
+    },
+    {
+      "path": "uma-race-core/src/runner.rs",
+      "sha": "28117f7f41076f603ee0af4de900c0fe36bc4ccc",
+      "mode": "100644",
+      "sha256": "754fdd50370158c666e0404ba07a971311a6f18a1fa91467f9e09f41efbe80b4",
+      "bytes": 58779
+    },
+    {
+      "path": "uma-race-core/src/solver.rs",
+      "sha": "7e94878d9a78fe7bc9fb7de5cf56ec7fea014982",
+      "mode": "100644",
+      "sha256": "7f80be845f974404658e49568bc1ebc6de3b1665dd893bb0b7e76daa58490995",
+      "bytes": 29039
+    },
+    {
+      "path": "uma-race-core/src/special_conditions.rs",
+      "sha": "11549ecec295600c4682b90639d6a19ac9fadd1c",
+      "mode": "100644",
+      "sha256": "88d95c8f9118b76b38cb1c10e10ef5a2ffc90b1a705567862baa8806d4d80e80",
+      "bytes": 8143
+    },
+    {
+      "path": "uma-race-core/tests/checkpoint_r85.rs",
+      "sha": "6fe4f0ec42961e471204aaea0d80485abc6a03bc",
+      "mode": "100644",
+      "sha256": "932e44c4f32cd498e156a56f13bfea71c8e9a53bbf8b4f025a0d26ed582fb14e",
+      "bytes": 10383
+    },
+    {
+      "path": "uma-race-core/tests/checkpoint_v3.rs",
+      "sha": "5d8a99da68ce4506fa73baaba1831071fd49ba4f",
+      "mode": "100644",
+      "sha256": "b60e47fa4b7ecdfc2ed1c8fca24bbbb388c5112c49e5a77c6bd72fedb855cb9d",
+      "bytes": 6837
+    },
+    {
+      "path": "uma-race-core/tests/checkpoint_v3_1000.rs",
+      "sha": "89941c860fb334708ede37ea9e83ce4d452d5da5",
+      "mode": "100644",
+      "sha256": "df7678a9a02f0372561a21abd3e289cb11642c679cabcd9c26c28525082db92f",
+      "bytes": 5532
+    },
+    {
+      "path": "uma-race-core/tests/checkpoint_v3_wide.rs",
+      "sha": "5bc47e124bfbce2fbfd81dfd2f332a852d4072d6",
+      "mode": "100644",
+      "sha256": "e76586eda9d83907cd87a85efcc72a1af44c09b97cf9039c920dbd6ad6ebba7b",
+      "bytes": 5422
+    },
+    {
+      "path": "uma-race-core/tests/condition_keywords.rs",
+      "sha": "7e39580791d6c5465598d15e97563256c8077100",
+      "mode": "100644",
+      "sha256": "23e75fc21c3c64cfd0f8839d3e800ffb6490ebe09e9db694aba2690e848d30f1",
+      "bytes": 2085
+    },
+    {
+      "path": "uma-race-core/tests/probe_394_202662.rs",
+      "sha": "3f165d374614e11dd9de19ea04be5e8f898ac52e",
+      "mode": "100644",
+      "sha256": "9f39339420604af1f1a119cff609dfda03428577040c241f03a009636d4aa944",
+      "bytes": 2460
+    },
+    {
+      "path": "uma-race-core/tests/probe_394_pending.rs",
+      "sha": "87ad6978c5f93ef7a2eb3b43a431c12fc89fb7f1",
+      "mode": "100644",
+      "sha256": "6990960df2d8a0eca3237d1e640fc9aca37f9bb931d80e74c96e1b43f28eb34d",
+      "bytes": 1622
+    },
+    {
+      "path": "uma-race-core/tests/probe_534_procs.rs",
+      "sha": "40bd8bd9386f6df812245d45e3c98f45d581cb4c",
+      "mode": "100644",
+      "sha256": "fe682332f84d4710b788c949ded7157425c4af24876138f6822f420d952ad7c3",
+      "bytes": 3311
+    },
+    {
+      "path": "uma-race-core/tests/probe_534_stats.rs",
+      "sha": "2c53010d6987c6431eb7ae3cc835f4a03c171e59",
+      "mode": "100644",
+      "sha256": "f91481ffade189df17cd0cef175ac6b0c3b3e747d6d34b87fad18c0a674b4c45",
+      "bytes": 1792
+    },
+    {
+      "path": "uma-race-core/tests/probe_last_two.rs",
+      "sha": "131c8b924ece8af654f75e5fb8e7647316b1963b",
+      "mode": "100644",
+      "sha256": "fd90eef495725dd6de43875efa0831c97f1c253eaf3a66900336e77e4c9dda64",
+      "bytes": 4445
+    },
+    {
+      "path": "uma-race-core/tests/probe_residual.rs",
+      "sha": "f05bea40b95eff8bb6eb0660161c84b824cbf1ca",
+      "mode": "100644",
+      "sha256": "917c13dec6ddf50b08f830a3d9f774f35d48d50e39643e9c6ca558059ad722fd",
+      "bytes": 6555
+    },
+    {
+      "path": "uma-race-core/tests/probe_residuals_bare.rs",
+      "sha": "4b3d1c5b9a4c99d648b51d3a61c57a31cdb2949f",
+      "mode": "100644",
+      "sha256": "8b415bc0d150a916ee827fc3b2527a6160ca68fd99ed28786fec566d03eb9bda",
+      "bytes": 3208
+    },
+    {
+      "path": "uma-sim-core/.gitignore",
+      "sha": "25c874ba47f607bdbc1f5fd61347d5d6e456e9d1",
+      "mode": "100644",
+      "sha256": "f0be29b4ea90d8e7cd56978f9c8a2aa773779e3e029fc1290ec5567e8d22c1e6",
+      "bytes": 23
+    },
+    {
+      "path": "uma-sim-core/Cargo.lock",
+      "sha": "0087a3260e58beb1547e5d795794144058a4b02a",
+      "mode": "100644",
+      "sha256": "d3d54e7858c84a7e8694553d3936d44bd702727c1770dac0c7a3c4607bca9a6d",
+      "bytes": 4686
+    },
+    {
+      "path": "uma-sim-core/Cargo.toml",
+      "sha": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+      "mode": "100644",
+      "sha256": "4f2415320bc4548fa59ad6c115ad05a8adcad59a2b50349cf44d78d52d12c5e0",
+      "bytes": 1098
+    },
+    {
+      "path": "uma-sim-core/README.md",
+      "sha": "ac17b361a9dc447bcdf0177de3e2261db3bca47b",
+      "mode": "100644",
+      "sha256": "cbf409705b08b46bd9af9e1bb699131f2d431396ec1b857f0fa95331d2cddbd5",
+      "bytes": 157
+    },
+    {
+      "path": "uma-sim-core/build.rs",
+      "sha": "7cb1193f796ecd0ab6f4cbd52a48d9f9e740c374",
+      "mode": "100644",
+      "sha256": "658a88b6f8b51554de15951a3ce4fd46bccb8fc9179c4a4625deb54c14fe8ddb",
+      "bytes": 865
+    },
+    {
+      "path": "uma-sim-core/examples/gl_steps.rs",
+      "sha": "bcbcae93200cf16a3ae17bac5792e67b717e4b5c",
+      "mode": "100644",
+      "sha256": "a8cdce888be75548577f80f374fc8c7176138aabe7a6d6848d8f71ed6ff9ee7a",
+      "bytes": 805
+    },
+    {
+      "path": "uma-sim-core/examples/golden_batch.rs",
+      "sha": "8506a49b2c6bc9c5450ac2a5cc5514b2c541e8d4",
+      "mode": "100644",
+      "sha256": "636dedd3b17972b218cf7290c0aa43ed92b89330cf4eae4cc79ac1897aa5e931",
+      "bytes": 1651
+    },
+    {
+      "path": "uma-sim-core/examples/golden_refreeze_physics.rs",
+      "sha": "8fdca1b5fcc4e8d4bb9a2fa6defb45099105cf91",
+      "mode": "100644",
+      "sha256": "25a56ae385dc6ad60adfc05b44c928fb450c3a5f51140bfda977f67391430b60",
+      "bytes": 3321
+    },
+    {
+      "path": "uma-sim-core/examples/refreeze_parity_traces.rs",
+      "sha": "bd8c973f306776ff2b34e7f38ea63ad56bacee27",
+      "mode": "100644",
+      "sha256": "4d6e7540a0dda2a34f0a83ca61357b7b509530879f1fa1b97484e9b06a10f66c",
+      "bytes": 1567
+    },
+    {
+      "path": "uma-sim-core/examples/summaries_check.rs",
+      "sha": "72506a27a2287b1c169916e2aada53aed640dae1",
+      "mode": "100644",
+      "sha256": "cb40dd9639d73f5599c7fe53535b1d7640708b145ba95cfc685d25929c302677",
+      "bytes": 311
+    },
+    {
+      "path": "uma-sim-core/examples/tb_diverge.rs",
+      "sha": "c0d46a50d5979824d455865cf3ed84680e9e0a90",
+      "mode": "100644",
+      "sha256": "fe8bb02e800e7342272b6f3bb20edf5a131cd8c41dfaff93440b1abc643a03ef",
+      "bytes": 1576
+    },
+    {
+      "path": "uma-sim-core/examples/tb_shop_dump.rs",
+      "sha": "8b1af2ca14879076084e082890d6f21581ff075d",
+      "mode": "100644",
+      "sha256": "e4e056a3cc6654f7ff318c0168b32e9fbf6599eb534f1967ee2ca13f34f1554c",
+      "bytes": 1201
+    },
+    {
+      "path": "uma-sim-core/examples/tb_turns.rs",
+      "sha": "14a4fd1ff6df559db6248ca90f251bc8dce279a1",
+      "mode": "100644",
+      "sha256": "52a6f186ca7e608440d8d3556e93f35b110ecbaee1d94c3eafe6c13e1c0ad3b8",
+      "bytes": 993
+    },
+    {
+      "path": "uma-sim-core/examples/trace_check.rs",
+      "sha": "72ca1ef7b213f1096370ce7c6e07c41d00f35723",
+      "mode": "100644",
+      "sha256": "91ec5efb4ec1712a3fab34c18d1c7916fb77b193b7ee34b2546df91ca985bded",
+      "bytes": 1093
+    },
+    {
+      "path": "uma-sim-core/examples_tmp_bot.rs",
+      "sha": "93e158ec902456b81be6a072f1ac9a3f55adda18",
+      "mode": "100644",
+      "sha256": "f0cd3835fd3020a26f1f1fa3a9f07ec57b8d41cb5068b3c067d233273f1c21df",
+      "bytes": 942
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "sha": "4ff7034bc5701d793cd93d645d89d40d73fc3273",
+      "mode": "100644",
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+      "bytes": 85709
+    },
+    {
+      "path": "uma-sim-core/src/batch_analysis.rs",
+      "sha": "8169e3f115c4ee3a7cc2464190ced43fceb770dc",
+      "mode": "100644",
+      "sha256": "062f2ad7b03b84d82dd4f87ccb2507f56405e0c878d4b7cfa70df11855fc584b",
+      "bytes": 13344
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim-api.rs",
+      "sha": "821ce29dc4dba0758e16392fb50d83ec5231e705",
+      "mode": "100644",
+      "sha256": "0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873",
+      "bytes": 230
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "sha": "2df06c16c8cb4bffe711b37e1afb3a8a57ebd528",
+      "mode": "100644",
+      "sha256": "921bc4758384e7a01d5b10c3aecba888e3e25ced8c00843f36c33b8657614ad0",
+      "bytes": 20017
+    },
+    {
+      "path": "uma-sim-core/src/bot.rs",
+      "sha": "68c2b3ed39ed39719dce0788afe9d7e776682624",
+      "mode": "100644",
+      "sha256": "b2286220edfbbb171e06c4fd35118da988e7a9dfaf28b9a5aae2cb5116b37045",
+      "bytes": 9706
+    },
+    {
+      "path": "uma-sim-core/src/calendar.rs",
+      "sha": "85e251a9705ca092cfefbf3afef0e759c0be0e08",
+      "mode": "100644",
+      "sha256": "6b47564bba1d826d644cfaa3389ec4faf0ef889f82b947be690ed45b7a4b8c6b",
+      "bytes": 1495
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "sha": "6f726976b0bbe448c1dd4d7f8e6427dfd547e199",
+      "mode": "100644",
+      "sha256": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7",
+      "bytes": 50200
+    },
+    {
+      "path": "uma-sim-core/src/catalog/event.rs",
+      "sha": "a970065621ff85120d32c1eb1a88b70a8b852322",
+      "mode": "100644",
+      "sha256": "be115bebc8288847a6416897e2a8550ac0944fd7bb9490cd39447ad473786f23",
+      "bytes": 7809
+    },
+    {
+      "path": "uma-sim-core/src/catalog/factor.rs",
+      "sha": "15f723b2c6d8c12a2c68d11493e8bcef1be4c502",
+      "mode": "100644",
+      "sha256": "c97c00886f4ddf85c3613c90a0c4d6cdf84be601c756d79cd430f6bcfdaed7cc",
+      "bytes": 9105
+    },
+    {
+      "path": "uma-sim-core/src/catalog/mod.rs",
+      "sha": "8657d5680a880ffcc9f49aa47ee495067475f691",
+      "mode": "100644",
+      "sha256": "0d880c7e8fb880683686a5687020882bb5396520b651d020f3fb2f2199d419eb",
+      "bytes": 80
+    },
+    {
+      "path": "uma-sim-core/src/catalog/skill.rs",
+      "sha": "931badcdf44e0828f79cf4d7ec50fe4574ba0a74",
+      "mode": "100644",
+      "sha256": "788bed1f8058dc304e735c11c9925c095230a326b78e03dcbfebe459f87b95af",
+      "bytes": 5021
+    },
+    {
+      "path": "uma-sim-core/src/catalog/support.rs",
+      "sha": "80d49de483495516863e70ac65d0288a4b8949b5",
+      "mode": "100644",
+      "sha256": "f677cfc2ed41f192e47eb1156f086e38e3d000e045ce466290b06ba8431b851c",
+      "bytes": 6683
+    },
+    {
+      "path": "uma-sim-core/src/catalog/trainee.rs",
+      "sha": "94d525f53f41f36e5411dc5439f25765a9b2496c",
+      "mode": "100644",
+      "sha256": "1d7bfe9bbd481520566589c8dc6190b980580d96f970e51f97d43627f61b265f",
+      "bytes": 15030
+    },
+    {
+      "path": "uma-sim-core/src/config.rs",
+      "sha": "1e891335b87640cc838e7c3a92820af040c4df11",
+      "mode": "100644",
+      "sha256": "5da9209669a971226c4ab1b24dadd462329962c3d15f2be041c96f5fa46933f4",
+      "bytes": 30202
+    },
+    {
+      "path": "uma-sim-core/src/content.rs",
+      "sha": "68437768525bf08645a0a09b52a59600d672471b",
+      "mode": "100644",
+      "sha256": "32e5c18c844b0bea3940c7538eccb09addd2ecda15d34b1e3b955f3d98298a09",
+      "bytes": 4526
+    },
+    {
+      "path": "uma-sim-core/src/deck.rs",
+      "sha": "b52e7d6f8a64103e9af329d0cfee93a8886ae525",
+      "mode": "100644",
+      "sha256": "0de21f528ad2b099052cc1683c10220d1e206f771e8e6b3e95e78c88c392c441",
+      "bytes": 15798
+    },
+    {
+      "path": "uma-sim-core/src/engine.rs",
+      "sha": "7ece3123aea3ba3f17326ceb033fc53e796b3566",
+      "mode": "100644",
+      "sha256": "5b2ad3cd6557d929d07fef8b1783357089d129190dc1e871e80f4d6e28dd075c",
+      "bytes": 50023
+    },
+    {
+      "path": "uma-sim-core/src/events.rs",
+      "sha": "33bbd2235f08be53abcb45def4e055d71ff7b0cc",
+      "mode": "100644",
+      "sha256": "4d8ea7cd9783487a5c162e9b4b8d7d8a7b467e9dc01c5f06dfd0189db12117a1",
+      "bytes": 6477
+    },
+    {
+      "path": "uma-sim-core/src/factory.rs",
+      "sha": "47d4853befc9ddfea2aea622a2d68bc57307ea5f",
+      "mode": "100644",
+      "sha256": "067d5948755ba0f39bc8f980a1a4615fbdb8ca50da110b3657414d2d49ff5aac",
+      "bytes": 8875
+    },
+    {
+      "path": "uma-sim-core/src/legacy.rs",
+      "sha": "cd8485db5682509c5a60c217e1ccf1aa1fa0a725",
+      "mode": "100644",
+      "sha256": "70fc0e91f7b18335d8b91011587664353bbc016985d7ec9230c2aa272c75e666",
+      "bytes": 11184
+    },
+    {
+      "path": "uma-sim-core/src/lib.rs",
+      "sha": "5a72c106af2af92e3f8968b5136d6d465ec336c7",
+      "mode": "100644",
+      "sha256": "d221f26cd4b98e9fd12b78952e59397846d7dd351283061c5eb252d6ba5cf6fc",
+      "bytes": 3321
+    },
+    {
+      "path": "uma-sim-core/src/mid_run_inheritance.rs",
+      "sha": "b65e2b4c1cfd62d916e520a214e8fcfd2825e16d",
+      "mode": "100644",
+      "sha256": "ca1536bcf8f37c88e41f5dc8a1f420af5cf04620b89a50091d83478a1828e35c",
+      "bytes": 9467
+    },
+    {
+      "path": "uma-sim-core/src/policy.rs",
+      "sha": "3fcd10d8da1d1df253f53dc3c9e8e93288098969",
+      "mode": "100644",
+      "sha256": "8b9593d7ef9e65d1e7c906a44a850094791719c4b23c041c78385b08f5ff1d4a",
+      "bytes": 1365
+    },
+    {
+      "path": "uma-sim-core/src/policy_external.rs",
+      "sha": "99c43f3d83dc8965070f9ad1201a742a78bcc69d",
+      "mode": "100644",
+      "sha256": "081382ca4d7f3fd1a0943e737a0f819c7c3f419c04a140113c15a204179f0221",
+      "bytes": 19923
+    },
+    {
+      "path": "uma-sim-core/src/race.rs",
+      "sha": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43",
+      "mode": "100644",
+      "sha256": "1010b41f21af0083e7cb4fdd792456b077ad2e08b5e46530ca29031242198f27",
+      "bytes": 24601
+    },
+    {
+      "path": "uma-sim-core/src/render.rs",
+      "sha": "3f154753f700fa4a6faccf19faf8bfe320143137",
+      "mode": "100644",
+      "sha256": "e5afaf59d6c2769c23f741583886137dbc7324f7766c97a39655277c591db1c0",
+      "bytes": 2595
+    },
+    {
+      "path": "uma-sim-core/src/rng.rs",
+      "sha": "553c9a5a56b5c7f9aa3025e2bc721f1a45d08b8d",
+      "mode": "100644",
+      "sha256": "6926d2388464fff071f71dc37d80eea6d3306e9279d0cdb946da78fcd84e42cc",
+      "bytes": 8307
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live.rs",
+      "sha": "284d305034db2e6bd03bed881a6dadd575207014",
+      "mode": "100644",
+      "sha256": "7833d334dfc9405ba4d196d3b2fcf578908d4f376d2e84c1630ba93f9a1d29ea",
+      "bytes": 37939
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_catalog.rs",
+      "sha": "07e285f032dfaa6d863be52d60348d11176c8030",
+      "mode": "100644",
+      "sha256": "51bf12f1027b8cfe45e72d9c2deae5f36528ced0db181c3893b413032bc3f7ae",
+      "bytes": 26836
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_deck_support.rs",
+      "sha": "0f6c6a16abab7ceb1009808d532cdb5874881522",
+      "mode": "100644",
+      "sha256": "8eb06bc1f60d10ee228d57adffa27aab9d5d487dcde4b496ed8882b9187906a4",
+      "bytes": 2526
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_lesson_board.rs",
+      "sha": "1d30acf645aa7fc94cb38276affc57087edb2c63",
+      "mode": "100644",
+      "sha256": "b3a21cf2e4b9b275e935115a6917ffcd4b397eff5039cf1122876781d1a1743a",
+      "bytes": 9652
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_lesson_scoring.rs",
+      "sha": "20e3de216cd874d7726cda7f880f8d3d3671aef3",
+      "mode": "100644",
+      "sha256": "a9ef6f18d43f317f335ad816b4f843b8cc246a14f3f7695ab91c14d7439fc0cf",
+      "bytes": 4072
+    },
+    {
+      "path": "uma-sim-core/src/scenario/mod.rs",
+      "sha": "d7a8ac851358b77b7b1510fd590e34adc3056d8b",
+      "mode": "100644",
+      "sha256": "212247478df1cc2211b8f428597bf7f33a1127af407a66a6d64d0c8004ee77ce",
+      "bytes": 39258
+    },
+    {
+      "path": "uma-sim-core/src/scenario/trackblazer.rs",
+      "sha": "40011a2939bbd0e0658e1778717fbe381356294b",
+      "mode": "100644",
+      "sha256": "36812c7c3c448002e23b6335524d314f5ed95af0bab302112dbd2e21da8fa412",
+      "bytes": 19881
+    },
+    {
+      "path": "uma-sim-core/src/scenario/unity.rs",
+      "sha": "8518cca828a56e895a7f31959b3f1b00e972fb01",
+      "mode": "100644",
+      "sha256": "f9c0fc3cf7241bfe2b56c25673e79f99fa91455af8e99b0657d3bb6896e49f33",
+      "bytes": 8361
+    },
+    {
+      "path": "uma-sim-core/src/scenario/ura.rs",
+      "sha": "4c191f91144bb59b7cb9775576886504a03c0d10",
+      "mode": "100644",
+      "sha256": "005d64ab1e16d88e61ec7738ab439605e653f5cffe3df7dc814e0aad7f2718ed",
+      "bytes": 17766
+    },
+    {
+      "path": "uma-sim-core/src/scoring/decision_context.rs",
+      "sha": "c55345c900d2378d2f842e19ecd96b30a4f5399c",
+      "mode": "100644",
+      "sha256": "73e79e440cbaf2751ea5a8988bef0ed88ce9e82ea5e1c9a6ab13ef39b9f5cc5e",
+      "bytes": 3235
+    },
+    {
+      "path": "uma-sim-core/src/scoring/event_scoring.rs",
+      "sha": "21a8e00926af18986ff81eefceb637c67ac91b56",
+      "mode": "100644",
+      "sha256": "9e4ec5955424e0a6edb40d9ddb34f8f7d24fde30d6897358bf76cc77529f447e",
+      "bytes": 16664
+    },
+    {
+      "path": "uma-sim-core/src/scoring/formula_gain.rs",
+      "sha": "8a559c1866f16841d8db0e55dfc637c18e713442",
+      "mode": "100644",
+      "sha256": "47984fc96ac8ad11866d84498e573d6f316b77346e05a0d9dab0d0c1d27bc929",
+      "bytes": 2374
+    },
+    {
+      "path": "uma-sim-core/src/scoring/lesson_scoring.rs",
+      "sha": "ca51d457a6c5bc86b9a4fee806f0af4928e7ca49",
+      "mode": "100644",
+      "sha256": "e8e703257f7490c600248b842d94e352b14d7f059fbeeec22ae3629bb9217384",
+      "bytes": 3822
+    },
+    {
+      "path": "uma-sim-core/src/scoring/mod.rs",
+      "sha": "021a3d1fc76e75bf0f014358852b297c99eb4089",
+      "mode": "100644",
+      "sha256": "c21013faaae569ad633abde7023f9879e0a10e3640308d56c61c1cb04793db49",
+      "bytes": 3782
+    },
+    {
+      "path": "uma-sim-core/src/scoring/objective_profiles.rs",
+      "sha": "22f118a98a47841efe99dc6201ff789abe366d80",
+      "mode": "100644",
+      "sha256": "4071db5315b34199997cdf5b57e8ade1f3f1474d6c04a9b51cb830a2ce5e6cef",
+      "bytes": 4130
+    },
+    {
+      "path": "uma-sim-core/src/scoring/rank_estimate.rs",
+      "sha": "90274e4131334f8e78f20c6cdbce7441e2798d84",
+      "mode": "100644",
+      "sha256": "1fcc35506e640c159d233b3185ad7227a2a96f63246f820ebb79ced2583bb50e",
+      "bytes": 11467
+    },
+    {
+      "path": "uma-sim-core/src/scoring/scoring.rs",
+      "sha": "3c11b985a2a3b5337051c09485651b3e707470bd",
+      "mode": "100644",
+      "sha256": "e2bd2c4949f18db17e977843c1c79b336bdfc95b93b1368fe4c427767c98f790",
+      "bytes": 20182
+    },
+    {
+      "path": "uma-sim-core/src/scoring/skill_scoring.rs",
+      "sha": "8f33392757d1fa347dfa4a871faa6384a2b1ed34",
+      "mode": "100644",
+      "sha256": "6c9fa6d2ac85d06cc18f4a181f64111a6b8561e0b9bd30411ef0dcaeed73feb4",
+      "bytes": 11325
+    },
+    {
+      "path": "uma-sim-core/src/scoring/support_effects.rs",
+      "sha": "d0925d2c642638c17e3fdc7ef8fb020c9d5aed93",
+      "mode": "100644",
+      "sha256": "eefd1d65c50044a529d215da92cab915cfedc7930a19d91ae91802da29dc578b",
+      "bytes": 4846
+    },
+    {
+      "path": "uma-sim-core/src/scoring/terminal_utility.rs",
+      "sha": "de504cca1bba34c33b22e6b8bb493e3d536ffe84",
+      "mode": "100644",
+      "sha256": "8365116eac4f4ffce7e679b67edac1b95b2dad40b1067833c1d8fdefe30db409",
+      "bytes": 6400
+    },
+    {
+      "path": "uma-sim-core/src/scoring/types.rs",
+      "sha": "2a93aba017f5414d74b219021b7df320ff58c332",
+      "mode": "100644",
+      "sha256": "864eb8a43187af43f0222ae59db883fc1418cc646bff3cff588e8bc76cd6bceb",
+      "bytes": 9755
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "sha": "c407f70093b955801126d1f3c93af79a279d2346",
+      "mode": "100644",
+      "sha256": "fdf226997b92edb49ba5e4993b5c0bcef3976fd4eec0386077d4f4c9072d1e52",
+      "bytes": 2481
+    },
+    {
+      "path": "uma-sim-core/src/snapshot.rs",
+      "sha": "a17d416cf5d9af0ce360de446852ecd4350b4be9",
+      "mode": "100644",
+      "sha256": "95dcb1d92dacac6494a403cb9d39ef06b42e855aa22dfb3013f39c941c2f3e68",
+      "bytes": 1087
+    },
+    {
+      "path": "uma-sim-core/src/spark_generation.rs",
+      "sha": "a0bc10d245b56445d5bb6119d2c007d5d057561a",
+      "mode": "100644",
+      "sha256": "11006d40bd461f7e2e1d92b866d90c8522b2f72968cffbbd4b4b5dc4e0720af2",
+      "bytes": 5622
+    },
+    {
+      "path": "uma-sim-core/src/state.rs",
+      "sha": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821",
+      "mode": "100644",
+      "sha256": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833",
+      "bytes": 21853
+    },
+    {
+      "path": "uma-sim-core/src/telemetry.rs",
+      "sha": "66f4c7052806607e4bade83df105a9c0d9287fa7",
+      "mode": "100644",
+      "sha256": "b9ceb28e08de1957e212addcf3dc958ec54fbb8c475691a3530725445e789548",
+      "bytes": 20894
+    },
+    {
+      "path": "uma-sim-core/src/training.rs",
+      "sha": "81dc53401e4a94bf0085bde7fcf40aff5fb77f71",
+      "mode": "100644",
+      "sha256": "ffcba9a98219819d82d078ac117022afc677562de3512fb915b52c12762c4590",
+      "bytes": 16914
+    },
+    {
+      "path": "uma-sim-core/tests/bond_gain_config.rs",
+      "sha": "b7a251b0782b8bec7398faa8dbc07f5a56f76550",
+      "mode": "100644",
+      "sha256": "b384bab9a374e6f95789f971472502683f768bc5d157c48e252116b7da30edf3",
+      "bytes": 2642
+    },
+    {
+      "path": "uma-sim-core/tests/bot_parity.rs",
+      "sha": "87b8401dfd3a59711f8a09126beb774d5bdc8a4b",
+      "mode": "100644",
+      "sha256": "176b48da41ae5a0dc5de8576cbd02b2edd75e1bf3a6d31544e9be79c3eb05b5b",
+      "bytes": 7259
+    },
+    {
+      "path": "uma-sim-core/tests/career_lab.rs",
+      "sha": "8b856172497a43162e12f6a1dd50b5fe71a37647",
+      "mode": "100644",
+      "sha256": "6f60b88ca428c549a1a56cf6cd745d4389be82407a78ebf9fc72c708473ee829",
+      "bytes": 21206
+    },
+    {
+      "path": "uma-sim-core/tests/cli_policy.rs",
+      "sha": "4ba03fa9fab7aedada599b2b22d1ed66fbe845d6",
+      "mode": "100644",
+      "sha256": "114bbf239ad47b680977b8f54576077addc06587cfe206f0ea6cd57b9657ed73",
+      "bytes": 3140
+    },
+    {
+      "path": "uma-sim-core/tests/common/mod.rs",
+      "sha": "c5b11a5aa306f9c9de7871e2e10e84b0054a41bb",
+      "mode": "100644",
+      "sha256": "7ed7cbf3b99a0939660e479326de3e1b8c9a3da718231da2daf8e1fcd31bf85e",
+      "bytes": 2942
+    },
+    {
+      "path": "uma-sim-core/tests/content_pack_loader.rs",
+      "sha": "5139132ff956cc9c7efbb30a3ccc9e5f2dd5bd8e",
+      "mode": "100644",
+      "sha256": "6a3b0d48a8c1fbacca0c1943c89d41c99bf325eaae304a5b636a6115a5622841",
+      "bytes": 542
+    },
+    {
+      "path": "uma-sim-core/tests/deck_placement.rs",
+      "sha": "a243b319e4d1c0967949dabe77e060d7dba50752",
+      "mode": "100644",
+      "sha256": "bc59e32fa943f29351a8aa996863c57a6c2ec4ff187506dc2f62d6b1cb7f3299",
+      "bytes": 4728
+    },
+    {
+      "path": "uma-sim-core/tests/deck_support_bridge.rs",
+      "sha": "87d5aac4573ab219ea19e016bcdd2a6c32fde6bb",
+      "mode": "100644",
+      "sha256": "91d895bbf49b2090a297b40a8a6ba624f20186c656cd610aa9d7d55d4bb67fb0",
+      "bytes": 2438
+    },
+    {
+      "path": "uma-sim-core/tests/event_effect_applier.rs",
+      "sha": "d830cf4e88eabfb70fe7740d22fcb25d3364e400",
+      "mode": "100644",
+      "sha256": "52c7f3d0f0cda818f3b82ac383ffcb5f155086ccff87b5bd535abe596a928f36",
+      "bytes": 2161
+    },
+    {
+      "path": "uma-sim-core/tests/event_pool_gating.rs",
+      "sha": "3b8a4ffd1b9a4cb235a47ee8facf771e76865900",
+      "mode": "100644",
+      "sha256": "f33d64ca55a4f356bbfaccfa7f583a3d6a0e032c4a3ed6a92b80a20b5f6ea849",
+      "bytes": 2546
+    },
+    {
+      "path": "uma-sim-core/tests/event_probability_config.rs",
+      "sha": "c13a349e2b2673bac262639df9093e07fc03781e",
+      "mode": "100644",
+      "sha256": "862505c95121dd0314e3862250b92c15e9cce1baeb7e996c63f4d152834ffd4f",
+      "bytes": 2387
+    },
+    {
+      "path": "uma-sim-core/tests/facility_level_config.rs",
+      "sha": "b27e091f46c4a7be4163ffdb278e50e2047e14b7",
+      "mode": "100644",
+      "sha256": "fb53029e9625272614ca3b736861a947e030bfea9be6d3077938d5291cc7ecf0",
+      "bytes": 1580
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/choices_42_ura.json",
+      "sha": "d35ed88a26bf2c6f45a5d07045af350bd36f626d",
+      "mode": "100644",
+      "sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db",
+      "bytes": 65
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/cli_fast_42_ura.txt",
+      "sha": "b7d96838cdfe60111861dea56f75d7c3fc4a437a",
+      "mode": "100644",
+      "sha256": "4ea0b64792db61f15f91e5a574a5bd74f11cc5b348a07b3c67be173d9781a027",
+      "bytes": 256
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/fast_42_ura.json",
+      "sha": "7552df051fb1ffcb7e8b9f7817a4c2614bf8a2c8",
+      "mode": "100644",
+      "sha256": "458a6092af24e452c0a2498ef724c3a8686c66c1b1562f7e436db8bd29a53fa5",
+      "bytes": 42
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/fast_42_ura.txt",
+      "sha": "ac721ace57443409d88c99f66db07ace7a4ff435",
+      "mode": "100644",
+      "sha256": "39dbee3bd09036fafdb3d7a368e1a432343e775cb0c22b43026e703d6cc93909",
+      "bytes": 78
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_action_race_seed42_ura.json",
+      "sha": "31d0855b172fa4528c3335a64b40218ff5536864",
+      "mode": "100644",
+      "sha256": "50af0c57aa68d18f7220c66735b2511efae623c40d3ec9d0a4546d099c802c8c",
+      "bytes": 260
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_choices_seed42_ura.json",
+      "sha": "d35ed88a26bf2c6f45a5d07045af350bd36f626d",
+      "mode": "100644",
+      "sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db",
+      "bytes": 65
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_fast_seed42_ura.json",
+      "sha": "7552df051fb1ffcb7e8b9f7817a4c2614bf8a2c8",
+      "mode": "100644",
+      "sha256": "458a6092af24e452c0a2498ef724c3a8686c66c1b1562f7e436db8bd29a53fa5",
+      "bytes": 42
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_start_seed42_ura.json",
+      "sha": "7acbd71077479d4be7d87d2684e780d1f6bdf199",
+      "mode": "100644",
+      "sha256": "fefbdefc3a51d5f2f7c63949172aac26366aa35a32851a1c356f45fd0d993194",
+      "bytes": 1820
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/session_seed42_ura.json",
+      "sha": "c3a40fe24bb624868c9d8ce3ce157d7d680b2bb4",
+      "mode": "100644",
+      "sha256": "7a92506b61d5112c07161e4c13e324af9b35ba4310876cbbc7f60eb75f601e60",
+      "bytes": 1820
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/start_42_ura.json",
+      "sha": "c3a40fe24bb624868c9d8ce3ce157d7d680b2bb4",
+      "mode": "100644",
+      "sha256": "7a92506b61d5112c07161e4c13e324af9b35ba4310876cbbc7f60eb75f601e60",
+      "bytes": 1820
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/start_seed42_ura.txt",
+      "sha": "7c3c9df5dbb812e67ecf36345fb5ea92c510bad5",
+      "mode": "100644",
+      "sha256": "71d20d05f9cc12fdf4cb34d22960ff54118528edb13fd7c65f274e70055a39b6",
+      "bytes": 224
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/state_seed42_ura.txt",
+      "sha": "94fd72045f49f2ae670d38f1f9624e927d5fa92f",
+      "mode": "100644",
+      "sha256": "8f9a43b164d5cd3148f51208e0d3ce0b4c9d4d355b0e53c69c0e7bd14c4851a3",
+      "bytes": 174
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/event_parse_vectors.json",
+      "sha": "5353fcb194fd65add33e522c071432b365f01b89",
+      "mode": "100644",
+      "sha256": "33ff404dcfc4fde569a566f4cdc5538e75796811ff9e34a8f5c79a180c2942f7",
+      "bytes": 287242
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/grand_live_replay/fixtures.json",
+      "sha": "1bd3f9bb68a92e3266db7155e4a06af1d45eabc4",
+      "mode": "100644",
+      "sha256": "9cc78c146dc949908daf3c5bc75aea77cf635088fb60e779575cac373b52eee1",
+      "bytes": 3621
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/golden/summaries.json",
+      "sha": "71e7c5b3be3d06e2635177fcc772f3c5a7deb691",
+      "mode": "100644",
+      "sha256": "dce854853abf88719fd3b5ca149e6f92b5e8c7bc564cb180faac870823954253",
+      "bytes": 23517
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/fixtures.json",
+      "sha": "6d74b4b691df9e1be95552dca422448cf440b718",
+      "mode": "100644",
+      "sha256": "a0fd2da3a664ffff757f951010fe66ba3ab1b15aa8ee31443cb87c350b4041fb",
+      "bytes": 1032
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/live_bot_sample.jsonl",
+      "sha": "4fda253c111d60bd760c1bca8e33296cd216e080",
+      "mode": "100644",
+      "sha256": "f05cc36cc213c6285d4eaa21678fcc06e9d187450e2b34d70bf455a7385ddead",
+      "bytes": 2289
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/sample_run.jsonl",
+      "sha": "da632bf29db84ece743ff3ecbd9d12736bb981f0",
+      "mode": "100644",
+      "sha256": "3a12a16427ccc13a1fec68b7d3c70e67137ef48677983c180b31756b17bb8d5d",
+      "bytes": 860
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/policy_stub.sh",
+      "sha": "6476895b26b607ef057edf450013f5d14e688b55",
+      "mode": "100755",
+      "sha256": "de20a9c5f0a17651a329a038cbcb3f42c979d0bf1f772762700c66d3c1de9992",
+      "bytes": 1201
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_seed_42.json",
+      "sha": "985078189490e71c83da6efa709dc6cd0479ae29",
+      "mode": "100644",
+      "sha256": "89de76ae2136b2dc17571386b193ee803f8425c5dc40510025084a9924ebd688",
+      "bytes": 651
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_grand_concert.json",
+      "sha": "01a9c8f05fed162bffd23507885266568a29d070",
+      "mode": "100644",
+      "sha256": "eb83d61fb4204661a1ecd5f117d2e9113c178293669bfb4e342fce69e2c19455",
+      "bytes": 10911
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_trackblazer.json",
+      "sha": "2a3d4fc71290e21680d9172c3580d7013d8357ba",
+      "mode": "100644",
+      "sha256": "09c831b90f603cc31455164aa67bf15c3d4192223774e41994ec1dc09d805d17",
+      "bytes": 12215
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_unity.json",
+      "sha": "ff033beb270317f68c3a673594ab3d38257daa62",
+      "mode": "100644",
+      "sha256": "10484f634721f506a36edd5a8763791b93ead6019fca771a940675b20387bd12",
+      "bytes": 12296
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_ura.json",
+      "sha": "9c4d311ef2c47768314581226c720bb44cff1bdf",
+      "mode": "100644",
+      "sha256": "d1fd7ecb3ad53fdb5e879d5547b8c15bfc43e67813cd44a03d00d999b149e2c2",
+      "bytes": 12115
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_grand_concert.json",
+      "sha": "2b7d715ba62584ceeacf5eddf126381474ccab2c",
+      "mode": "100644",
+      "sha256": "7e5b2f02a9016b65f51fbe854ed08d1a23c715e31d5c45fe0d637decf08b3dc8",
+      "bytes": 9522
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_trackblazer.json",
+      "sha": "17005c8ab3efc5b8ccbb0e39f937899b5ed2e908",
+      "mode": "100644",
+      "sha256": "6836cff952ae089a8cb21153e39b22ae1db6cc39b78cf35636870303e2b5c899",
+      "bytes": 9772
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_unity.json",
+      "sha": "9eb43120c0ed189629af76d4c4ac52a308347815",
+      "mode": "100644",
+      "sha256": "543899dfc80314dc8c969bef65cd4d3a3273e5afd3010a92099b350923c05910",
+      "bytes": 9884
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_ura.json",
+      "sha": "ed0c397f00a692606104c0c8e0e527af2e0ffd16",
+      "mode": "100644",
+      "sha256": "0f727802477ab26f8e8f4848ef2fad48e49c9925e9756b23a01a4269d8504fb0",
+      "bytes": 9639
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_grand_concert.json",
+      "sha": "e942f01166ecac91085ccca06eff2b8c57a8b038",
+      "mode": "100644",
+      "sha256": "6b549b126488fb22e6c0ffdd4169f0b47e84071129cce555590b617477bd86b5",
+      "bytes": 9075
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_trackblazer.json",
+      "sha": "e7b37e98d34448f6eacda5d03c4dc80f4c5c621c",
+      "mode": "100644",
+      "sha256": "f3ca1659486d292a3bbda5439b0ed728e79d9cdbe0d5ab1d06fa061f6ebb522a",
+      "bytes": 12029
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_unity.json",
+      "sha": "96d5319872b986d3b0df714932d4970a7a9cf237",
+      "mode": "100644",
+      "sha256": "fdc8d40ce2aebc9f30bd853695ff019e0014b0330549f4e9583f698103f35b31",
+      "bytes": 12433
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_ura.json",
+      "sha": "0a07fc1b7e2cd2c23c9ead7366ef10ca7236ea11",
+      "mode": "100644",
+      "sha256": "19b53f54cc6e5ffc7c6def8afa76dde5289f43b023c8bfae965c1f045264537c",
+      "bytes": 11940
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/scoring_vectors.json",
+      "sha": "713b5127a96ea7375ade546f9f10dfb83faecb46",
+      "mode": "100644",
+      "sha256": "7211b43a896fa114cfe75b81c8df15a964692a62cf35024afcfa13c2e692d644",
+      "bytes": 80634
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_grand_concert.json",
+      "sha": "c10193a5c374e0e24083c82480d31319961dc6af",
+      "mode": "100644",
+      "sha256": "8ef22b79b79c95d32cce3e9551f2061fd3eef9523ca466a62ad37bd3221d10da",
+      "bytes": 61901
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_trackblazer.json",
+      "sha": "42d7d6d25103641a266e50567f44a2d128efe621",
+      "mode": "100644",
+      "sha256": "c270a2a89290777a14e4988371714d83bc25d00557741f50491331b68cacdfde",
+      "bytes": 30043
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_unity.json",
+      "sha": "1d6061a79f1d1dc31607ae624358e9204fd3c83b",
+      "mode": "100644",
+      "sha256": "ad356f9fb8209fc81d4b17d7f989471106e2056f61a9bfc2ea0714ebf8426794",
+      "bytes": 46302
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_ura.json",
+      "sha": "c98149f2ea48db49e5d8c5a528f45b01e2edf385",
+      "mode": "100644",
+      "sha256": "ea771f81b2595b0f215c2b2c321fc87cd815d93a32bd85e8f8797b04cb5a1c7f",
+      "bytes": 30601
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_grand_concert.json",
+      "sha": "96f7bd306864e7ed8b8833791c877adecd7cf573",
+      "mode": "100644",
+      "sha256": "fbb0da3e07288c8e66f46d5f8e76a6bd3844d0bf18f884f030099a92a4e4d628",
+      "bytes": 61918
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_trackblazer.json",
+      "sha": "fab214a9e7d8c65c89979fa1494855761569426c",
+      "mode": "100644",
+      "sha256": "67fc924e25364969df8d0969e88c0fa10887c968b060229c2bb704189630524a",
+      "bytes": 30089
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_unity.json",
+      "sha": "5e3241a28bafe8af1a968c6dec755a92e3e7aecf",
+      "mode": "100644",
+      "sha256": "6334f03248d48b8baab1a3449f77f52eec1e640933228e44cb019eeac7332a78",
+      "bytes": 44292
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_ura.json",
+      "sha": "070c4b4640875ebe96d00f2341a7b4c42902958d",
+      "mode": "100644",
+      "sha256": "a55c7b1183dcb7bb97b7caf7926e4f939ea18cc76f21733d624e4fefca5a0e82",
+      "bytes": 30592
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_grand_concert.json",
+      "sha": "51cdd25b61ef3b2d98234f12cfc6580b7fd22c9c",
+      "mode": "100644",
+      "sha256": "492f5611d9ff506e36ac0f25683a7b93103e0eb7e57e3fb2e5da7c04d0020577",
+      "bytes": 61824
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_trackblazer.json",
+      "sha": "0f31f4d99d37beaf09316154fef820ecb14bf159",
+      "mode": "100644",
+      "sha256": "c97fc60a2a0710fd86467f6b403a54681bbac44aa638546a0bbf40cc1d8a6726",
+      "bytes": 30626
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_unity.json",
+      "sha": "2c5be349ad6d8228d92faf9b1230995932ae072b",
+      "mode": "100644",
+      "sha256": "1d2367a109c1a6c6a69aa2a837d653553d819c88c0ad4af5d9a89927b420f7d7",
+      "bytes": 44325
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_ura.json",
+      "sha": "7f1346c1f3b94edc1d64d82ca9353044bb560a29",
+      "mode": "100644",
+      "sha256": "2af18a8af182502cf680fca5645e52a72a3ab35c50f4283e5a644c377faf4f92",
+      "bytes": 30619
+    },
+    {
+      "path": "uma-sim-core/tests/golden_seed.rs",
+      "sha": "1e0aa10e7a71495e491400a3716254e8c8462b6c",
+      "mode": "100644",
+      "sha256": "9a3f994f09dd0011eced215de519ea62c07c5f977b389abdf39907cb9864e27f",
+      "bytes": 2143
+    },
+    {
+      "path": "uma-sim-core/tests/golden_seeds.rs",
+      "sha": "e60ced66943584793e5941152b44664ef05f309c",
+      "mode": "100644",
+      "sha256": "97e93956e871e5359d07bd2e3a2f0c5cc1c6e28116493d2dabba945d93c5f403",
+      "bytes": 1878
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_bot_replay.rs",
+      "sha": "d81c4fc8f09c846bf88c57d224af496061e3cf9a",
+      "mode": "100644",
+      "sha256": "de76be0c448b1c8aec703ec52ab663206740a1ed3f1a5f68b3b536580f8ade32",
+      "bytes": 8010
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_calibration_loader.rs",
+      "sha": "e06e068360337727d6da55c2be0f9f27c5eb285b",
+      "mode": "100644",
+      "sha256": "adf3a78cb53549584d6d38649b9c00c691a654729173b87d50ce3072c2e7a247",
+      "bytes": 1853
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_catalog_loader.rs",
+      "sha": "4b4be0663b13b7e86d1d879b141a7fcb403d1bc6",
+      "mode": "100644",
+      "sha256": "5a2d479c838a6c115722b341392db56b27cfc311971fe7151f1d2c9a7fd85bfc",
+      "bytes": 697
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_formula_calibration.rs",
+      "sha": "d500ac3d0026a24a7e132892ff8e7e022de301fd",
+      "mode": "100644",
+      "sha256": "0bb936cc6ae507d9f484f37a5c37824fce9cf4ddc3816263caf137048796b409",
+      "bytes": 3945
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_l1_training.rs",
+      "sha": "7cb817d9749a0120329068fabd67b4b5fb35f904",
+      "mode": "100644",
+      "sha256": "6fc58aa1f6900518819b3a435bb6b58641bf766602c829c83366ff480d70545d",
+      "bytes": 1409
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_r7.rs",
+      "sha": "2aa73bfa34a39b964295ea346b1d7b4854f2d84f",
+      "mode": "100644",
+      "sha256": "470e5de45dba0156562157bf65a8ed004edc0110a4358129165171c65ac108dd",
+      "bytes": 19641
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_simulation.rs",
+      "sha": "8acfd7f72b84cc5238ff5dff63256383a82fc674",
+      "mode": "100644",
+      "sha256": "cae538bdb0e9642d38b8df54c9ac6a7362c34ceb2b8344d9e480b7eb150903c2",
+      "bytes": 16628
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_token_labels.rs",
+      "sha": "dd7473b5d38326973d455cca911e85a4802e8903",
+      "mode": "100644",
+      "sha256": "a3fe5fc9d14118fccd401fbe25aaf839b79a4a41d8e4c9b80ee4c980197febc4",
+      "bytes": 844
+    },
+    {
+      "path": "uma-sim-core/tests/hint_progression_config.rs",
+      "sha": "6fc877e3de24c672b5f1ee4dc6ad86ef639867c3",
+      "mode": "100644",
+      "sha256": "0b1e0927d14883c2ca9628b5f6371bd3cfd30cd5e27c44dc180268ca93c07312",
+      "bytes": 818
+    },
+    {
+      "path": "uma-sim-core/tests/knowledge_validate.rs",
+      "sha": "abd5d59582f6886005db26bea7b66c336a92224a",
+      "mode": "100644",
+      "sha256": "4ad02a66b3fb1a298c79df4cee9620cf162e723086395911664abf7203ffdf2c",
+      "bytes": 1172
+    },
+    {
+      "path": "uma-sim-core/tests/legacy_applicator.rs",
+      "sha": "9bf6efd2465628d0ee3c40cd5370c92ef19c4c9a",
+      "mode": "100644",
+      "sha256": "1b303b2c33fd8a040d04601d1464d076d110f72a29b9efb2f6f0cad54f75a1b8",
+      "bytes": 7423
+    },
+    {
+      "path": "uma-sim-core/tests/live_bot_telemetry.rs",
+      "sha": "78b55a73a99531428d513249b2cf188920343ce8",
+      "mode": "100644",
+      "sha256": "08858dda6a20d4bb741132e3e55d0bf369db8bc4f16f925f29a6254c2617be69",
+      "bytes": 854
+    },
+    {
+      "path": "uma-sim-core/tests/live_telemetry_replay.rs",
+      "sha": "adf765a9423f6f1a63406405a70a5446e17b9bcf",
+      "mode": "100644",
+      "sha256": "fabd3a0b83e289ea6d68bdc3c0f8dd2e3a9c18086f64f4a898e333335aeaa04d",
+      "bytes": 740
+    },
+    {
+      "path": "uma-sim-core/tests/mid_run_inspiration.rs",
+      "sha": "c04b00ac81d30badfec5eac63464de1584db2f25",
+      "mode": "100644",
+      "sha256": "c86f4f1f85f2f0b266e13bbec885c85d5b896bf59a29d0bcf9747dcc46d3b9b9",
+      "bytes": 1602
+    },
+    {
+      "path": "uma-sim-core/tests/parity.rs",
+      "sha": "2e1f7cc53cda1272add035b637669116fac5d806",
+      "mode": "100644",
+      "sha256": "545bc353edc38a0ed7754770e24fc8c7ae07d46210124871f6e8224dcbbe9da8",
+      "bytes": 17598
+    },
+    {
+      "path": "uma-sim-core/tests/perf.rs",
+      "sha": "300c88feca54afc7f0f81f10df08ca768018b7f4",
+      "mode": "100644",
+      "sha256": "3614f1e55c6cbf64d8bd58815028598fd67b5e4b1a430f4856c8ee6471cc4073",
+      "bytes": 991
+    },
+    {
+      "path": "uma-sim-core/tests/product_readiness.rs",
+      "sha": "de96aacbd0fdd5320e93ddb35ce894f13972a087",
+      "mode": "100644",
+      "sha256": "b845caab08262cdfd568f5ccce774ee7738048478c1ab710e9199ff299081c77",
+      "bytes": 2969
+    },
+    {
+      "path": "uma-sim-core/tests/race_npc_r86.rs",
+      "sha": "297053c1de379f61ea496e5c3851d1f1e803763f",
+      "mode": "100644",
+      "sha256": "405e8c5af549173fd858f9ff6205fa7e1c8f27f58cb4422ba8d9e245e50b4f3d",
+      "bytes": 3497
+    },
+    {
+      "path": "uma-sim-core/tests/race_outcomes.rs",
+      "sha": "e4f336e05097e87b8582438527acc08463ad7674",
+      "mode": "100644",
+      "sha256": "cf14c08ea72fcfa860bc45f70565ab0e0c9c1b8eaea236bae277690e6baa0dbe",
+      "bytes": 2682
+    },
+    {
+      "path": "uma-sim-core/tests/race_perf_r89.rs",
+      "sha": "1cb591b506a67b93eb3555626615bb50ebd1f0ec",
+      "mode": "100644",
+      "sha256": "60832dba19f39226e64564d1c8551cd725dde0ff317031c6ff55cc5e95ff6a33",
+      "bytes": 3043
+    },
+    {
+      "path": "uma-sim-core/tests/race_physics_r87.rs",
+      "sha": "b87b248f26df883ca9f5d124d8d9af88f55b628f",
+      "mode": "100644",
+      "sha256": "1bd4956260a28817e3307dc55bf1133d9439801b1ec7cb22191eddae1d81b6a8",
+      "bytes": 3697
+    },
+    {
+      "path": "uma-sim-core/tests/race_scheduler.rs",
+      "sha": "a8544e8a44e75d82c143952163ed6117e9faafdd",
+      "mode": "100644",
+      "sha256": "d37e7fb1cc0c00dd9a2d1457af245b6293f38c244e98043940567202e311c344",
+      "bytes": 835
+    },
+    {
+      "path": "uma-sim-core/tests/race_v4_dist.rs",
+      "sha": "2a5620b6886f71668b5c15fe7e6d81c11edc66ac",
+      "mode": "100644",
+      "sha256": "303c1b6fb180c9fbab0177f89a5c88788e637be1d2635c73310313ce48bb9f07",
+      "bytes": 9575
+    },
+    {
+      "path": "uma-sim-core/tests/rest_policy_external_stub.rs",
+      "sha": "45ec143a22d8ca10ca93124342e50a7a3dd118d0",
+      "mode": "100644",
+      "sha256": "146339025f4d85103766ba83a3602378216a0ed274a82c557b90367bf3551d33",
+      "bytes": 4549
+    },
+    {
+      "path": "uma-sim-core/tests/scenario_depth.rs",
+      "sha": "b43418255accaec1b04ad1fb5372dbf3ed4cdd7b",
+      "mode": "100644",
+      "sha256": "ffa1440606069c3ba1aacf345e594bbf4650ce6c2a4b8d263e01641d78a176b5",
+      "bytes": 6233
+    },
+    {
+      "path": "uma-sim-core/tests/sim_engine.rs",
+      "sha": "d9fafeafecfd4035ae0e0dff393303fe2e8aab43",
+      "mode": "100644",
+      "sha256": "f7eba0aee1e9c1b60f5fe132fec5addf2ed92cab6682b34671fff8512ad783d2",
+      "bytes": 4986
+    },
+    {
+      "path": "uma-sim-core/tests/sim_telemetry_export.rs",
+      "sha": "516a2fdec838d0b8fc0e3cfdcbaed1c4fceff97b",
+      "mode": "100644",
+      "sha256": "5cd58c555840dc558e76c9794516fbeca621a40b409895bb134f1211632e22c1",
+      "bytes": 3955
+    },
+    {
+      "path": "uma-sim-core/tests/skill_hint_routing.rs",
+      "sha": "04a5939f1e4b242970736df53d6c5232282d7947",
+      "mode": "100644",
+      "sha256": "f02ce1fd6d74344348feb137eb843352cceaadd940b0e412bf69a92cbd3b9f1f",
+      "bytes": 963
+    },
+    {
+      "path": "uma-sim-core/tests/soft_cap.rs",
+      "sha": "5fbee9cd7954b1cef1fadc56ecc510293c8a64f5",
+      "mode": "100644",
+      "sha256": "d0f2f6b4fd2c76f18546461a6c8768e3e0d0f0b3c5d822e01cfb16badd4f58f7",
+      "bytes": 922
+    },
+    {
+      "path": "uma-sim-core/tests/spark_generation.rs",
+      "sha": "5b23c69807d8897dad66a152aabb746818bc99bd",
+      "mode": "100644",
+      "sha256": "8d97d915fb61f983db1b00cd6d6272e3c56a56e02818f2b1fda4561c85ed3e52",
+      "bytes": 2835
+    },
+    {
+      "path": "uma-sim-core/tests/support_catalog.rs",
+      "sha": "d8b7060e8657a4227cb8b901458b03de0ef220d3",
+      "mode": "100644",
+      "sha256": "493be4d55fb96a0ec5a25cb854fa596243848891bd0fd130c6b193708b280c70",
+      "bytes": 515
+    },
+    {
+      "path": "uma-sim-core/tests/telemetry_replay.rs",
+      "sha": "0e3c1045d567e6d208a97649f547b316537c0762",
+      "mode": "100644",
+      "sha256": "53a010ea3201193dab9e4b5f1bd91927435038d13a213e1ff8b9ff736d26b020",
+      "bytes": 3765
+    },
+    {
+      "path": "uma-sim-core/tests/trainee_catalog.rs",
+      "sha": "7a8dc55233663bfd7ba5c78dea962b70c361d1be",
+      "mode": "100644",
+      "sha256": "186d89c9fcac7d71af2514d516ba0691eb3fbe75b921543f5f027c56167b7a3a",
+      "bytes": 3773
+    },
+    {
+      "path": "uma-sim-core/tests/training_failure_config.rs",
+      "sha": "446c66d88f4e2b05ca4670975b8cdd835c8ea13b",
+      "mode": "100644",
+      "sha256": "3c3423b78ca6d638bf6f35a66fccbc07e3e12527780bc333ab401e79be566fa4",
+      "bytes": 3352
+    },
+    {
+      "path": "uma-sim-core/tests/training_failure_penalty.rs",
+      "sha": "1cff195443b2af85dff6bc91112b9bacb8e459f6",
+      "mode": "100644",
+      "sha256": "b162d39f9d0522aeb04b0fd068c986c6b4bf03f847389068ce26d9d981c35fe7",
+      "bytes": 2117
+    },
+    {
+      "path": "uma-sim-core/tests/training_resolver.rs",
+      "sha": "76d0dfe999fdc67c57c8c361f0ba5c8c68550d34",
+      "mode": "100644",
+      "sha256": "a21e2ece035e444fb35de91f327bb6d1fd99f8ef0444a796678e80d34584ae46",
+      "bytes": 2311
+    },
+    {
+      "path": "uma-sim-core/tests/unity_trackblazer_mechanics.rs",
+      "sha": "eb0c1dbc8f83bfc4f3c9c8178b01f98b64dc56e3",
+      "mode": "100644",
+      "sha256": "ac9a6d0a63eac7816148325e119ef42ca20ae74cc0d807f465db516227b4fc58",
+      "bytes": 14564
+    },
+    {
+      "path": "uma-sim-core/tests/ura_mechanics.rs",
+      "sha": "57a99479bf44bd5ba31235c74a815a0bb7d425f8",
+      "mode": "100644",
+      "sha256": "422d43a9f53f6e610089630f09a1240fdb4292ff7ad7cae5a8216093bb20f891",
+      "bytes": 9587
+    }
+  ]
+}
