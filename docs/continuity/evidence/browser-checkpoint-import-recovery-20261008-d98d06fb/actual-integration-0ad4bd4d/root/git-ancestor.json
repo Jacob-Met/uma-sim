@@ -1,0 +1,76 @@
+{
+  "error": null,
+  "no_repository_source_or_remote_ref_mutation": true,
+  "no_worktree_checkout": true,
+  "passed": true,
+  "records": [
+    {
+      "argv": [
+        "/usr/bin/git",
+        "init",
+        "--bare",
+        "/dev/shm/uma-checkpoint-source-receiving-d98d06fb-20261008/root-merge-v1/graph.git"
+      ],
+      "finished_at": "2026-10-08T19:34:13.096749+00:00",
+      "returncode": 0,
+      "started_at": "2026-10-08T19:34:13.080737+00:00",
+      "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n",
+      "stdout": "Initialized empty Git repository in /dev/shm/uma-checkpoint-source-receiving-d98d06fb-20261008/root-merge-v1/graph.git/\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/git",
+        "-C",
+        "/dev/shm/uma-checkpoint-source-receiving-d98d06fb-20261008/root-merge-v1/graph.git",
+        "-c",
+        "maintenance.auto=false",
+        "-c",
+        "gc.auto=0",
+        "fetch",
+        "--filter=blob:none",
+        "--depth=2",
+        "--no-tags",
+        "--no-write-fetch-head",
+        "https://github.com/Jacob-Met/uma-sim.git",
+        "618ad8f9702a39d23965e0ff68065822629bb9ba"
+      ],
+      "finished_at": "2026-10-08T19:34:14.305207+00:00",
+      "returncode": 0,
+      "started_at": "2026-10-08T19:34:13.096794+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/git",
+        "-C",
+        "/dev/shm/uma-checkpoint-source-receiving-d98d06fb-20261008/root-merge-v1/graph.git",
+        "merge-base",
+        "--is-ancestor",
+        "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+        "618ad8f9702a39d23965e0ff68065822629bb9ba"
+      ],
+      "finished_at": "2026-10-08T19:34:14.314786+00:00",
+      "returncode": 0,
+      "started_at": "2026-10-08T19:34:14.305244+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/git",
+        "-C",
+        "/dev/shm/uma-checkpoint-source-receiving-d98d06fb-20261008/root-merge-v1/graph.git",
+        "show",
+        "-s",
+        "--format=%H%n%T%n%P",
+        "618ad8f9702a39d23965e0ff68065822629bb9ba"
+      ],
+      "finished_at": "2026-10-08T19:34:14.330552+00:00",
+      "returncode": 0,
+      "started_at": "2026-10-08T19:34:14.314818+00:00",
+      "stderr": "",
+      "stdout": "618ad8f9702a39d23965e0ff68065822629bb9ba\n8457386cf41c5530b39dec1fa6be127dfc430d01\n8d74413d7dbc3caf1745779c92d56b6eb7feea42\n"
+    }
+  ]
+}

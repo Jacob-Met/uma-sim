@@ -1,0 +1,37 @@
+{
+  "schema": "uma.browser-checkpoint.actual-integration.v1",
+  "actor": "chatgpt:d98d06fbfc35:production_recovery",
+  "pr": 114,
+  "merged_at": "2026-10-08T19:36:12Z",
+  "merge": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+  "actual_first_parent": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "reviewed_second_parent": "618ad8f9702a39d23965e0ff68065822629bb9ba",
+  "actual_tree": "8457386cf41c5530b39dec1fa6be127dfc430d01",
+  "frozen_qualified_tree_reused": true,
+  "tree_proof": {
+    "base": "8a77986dcacbdb137a31f4e438561153b38f8c06",
+    "target": "8457386cf41c5530b39dec1fa6be127dfc430d01",
+    "owned_files": 15,
+    "unchanged_incoming_leaves": 1541,
+    "total_leaves": 1556,
+    "exact": true
+  },
+  "root_manifest_sha256": "e737c96d59faf1e78e03593d53cd9f7875322dbb20d8c7d192648d4e0b068726",
+  "root_files_transferred": 8,
+  "root_transfer": {
+    "device": "d55b2499-5e82-4805-819a-d0d7ddea1efe",
+    "process_id": 931076,
+    "exit_code": 0,
+    "files_exact": true,
+    "bare_graph_read": false,
+    "filesystem_writes": false,
+    "transport": "Existing sudo -n Python read route, manifest-listed regular files only; read_process_output followed the same running PID."
+  },
+  "root_source_acceptance": "https://github.com/Jacob-Met/uma-sim/pull/114#issuecomment-6067592038",
+  "independent_review_commit": "78e3f739e31d7f6dfb7a4d9418757213a64563a9",
+  "independent_review_manifest_sha256": "d964ed5037ea8c1f62318c6e9fbb9d8543c904cd88717633c4b046ff30dc768c",
+  "source_implementation": "complete and integrated",
+  "original_native_browser_attempt": "unknown; not relaunched",
+  "installed_package_receiving": "retained by existing owner",
+  "production_benefit_claimed": false
+}
