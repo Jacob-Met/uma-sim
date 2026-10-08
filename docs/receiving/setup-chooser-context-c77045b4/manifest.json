@@ -1,0 +1,939 @@
+{
+  "schema": "uma-sim.setup-receiving-archive/1",
+  "createdAt": "2026-10-08T16:55:14.915Z",
+  "nativeReviewHead": "aafdec251ab26eab85993cc9676c362e4dd500bb",
+  "nativeProposalHead": "596a6a26f45a57774a77585ef6dbb7d14dea341e",
+  "baseHead": "3c9c58dde2c42227c3b0f07f28f96a94ba2b0244",
+  "archive": {
+    "path": "independent-receiving.tar.gz",
+    "bytes": 1570006,
+    "sha256": "b6c9e457718bf652ecee4692365e8df71736168adc4533c160b18b3c42d17ca9"
+  },
+  "memberCount": 154,
+  "members": [
+    {
+      "path": "candidate/docs/receiving/run-setup-b0e250296538/README.md",
+      "bytes": 9283,
+      "mode": "644",
+      "sha256": "ff19fb07bd244ac552ee3e747863cc419610c011b141f604b45b2f71074f64d9"
+    },
+    {
+      "path": "candidate/docs/receiving/run-setup-b0e250296538/SOURCE_MANIFEST.json",
+      "bytes": 16190,
+      "mode": "644",
+      "sha256": "9c09f30b4d296480aa1dba447fa6e3ac624fc61c753d9dade21c530f1c5ad180"
+    },
+    {
+      "path": "candidate/LICENSE",
+      "bytes": 721,
+      "mode": "644",
+      "sha256": "6200d8929718b2d04e2d26a1c58a900ed70ff4085bcccb5b60ef71ae3b8bc28e"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/.gitignore",
+      "bytes": 14,
+      "mode": "644",
+      "sha256": "787044cb79f3fec00a8a5d95851b7c42fbe5b62b98a2153dbd7d190c702748d4"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/index.html",
+      "bytes": 294,
+      "mode": "644",
+      "sha256": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/package-lock.json",
+      "bytes": 60211,
+      "mode": "644",
+      "sha256": "b306b84fc9fb3285a442d8360a419eba3276d3d4effda266205832331ac1dc99"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/package.json",
+      "bytes": 979,
+      "mode": "644",
+      "sha256": "480f39acfa09a3486abdb9ca4d569a3ac2b2413a89df8a6e4761e5fae6030a67"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/README.md",
+      "bytes": 9806,
+      "mode": "644",
+      "sha256": "d4ea3ae57e7050a96f2b76e89a75ffeb24ad7601391026d126721e3189e8335c"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/api/client.ts",
+      "bytes": 5477,
+      "mode": "644",
+      "sha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/api/types.ts",
+      "bytes": 8048,
+      "mode": "644",
+      "sha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/App.tsx",
+      "bytes": 6944,
+      "mode": "644",
+      "sha256": "1872c0f2d2f7b2d5500da6779ad09e7805e9b1bc982544bb4ff4562326ceb977"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/AptitudePanel.tsx",
+      "bytes": 2504,
+      "mode": "644",
+      "sha256": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/branch-trace.css",
+      "bytes": 1002,
+      "mode": "644",
+      "sha256": "de60a2bb970b9b3b012c0890f74bbc9519b0be46b1d14444b6222768319afae2"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/branchInput.ts",
+      "bytes": 2285,
+      "mode": "644",
+      "sha256": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/BranchTracePanel.tsx",
+      "bytes": 7914,
+      "mode": "644",
+      "sha256": "bd71c1c794211021dde6ba038c5938cfcf81824d7d92e738ca807daa59e0c514"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/CareerSummary.tsx",
+      "bytes": 2454,
+      "mode": "644",
+      "sha256": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/ChoicePanel.tsx",
+      "bytes": 1384,
+      "mode": "644",
+      "sha256": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/ComparePanel.tsx",
+      "bytes": 12329,
+      "mode": "644",
+      "sha256": "c35c5727d480a88e081eb955bfd6a95cb14e937ec42e833cb5971d92d1c611a0"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/ControlsBar.tsx",
+      "bytes": 1204,
+      "mode": "644",
+      "sha256": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/DeckPanel.tsx",
+      "bytes": 1749,
+      "mode": "644",
+      "sha256": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/EventDialog.tsx",
+      "bytes": 1018,
+      "mode": "644",
+      "sha256": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/GrandLivePanel.tsx",
+      "bytes": 2275,
+      "mode": "644",
+      "sha256": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/LabTab.tsx",
+      "bytes": 1876,
+      "mode": "644",
+      "sha256": "a59e06410115292b1f06a1106c3d67d3f57cc765dd1985e730afe1fbf2eec9c1"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/LegacyPanel.tsx",
+      "bytes": 10122,
+      "mode": "644",
+      "sha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/legacyPreview.ts",
+      "bytes": 2826,
+      "mode": "644",
+      "sha256": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/LibraryPanel.tsx",
+      "bytes": 5436,
+      "mode": "644",
+      "sha256": "4ee64eea0e358402db5ac82ea20bd5567db00e0bba2f24efec32b31b6ff4664a"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/LogDownload.tsx",
+      "bytes": 1079,
+      "mode": "644",
+      "sha256": "cf92740a422128141f242c449f120d6e0cae02b627792b8ff388ac270f12b1d6"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/logExport.ts",
+      "bytes": 2022,
+      "mode": "644",
+      "sha256": "7ea3a0b6066e926af6825397feb5115cebd82bbbba2923dbd900d41c09e7937c"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/logPanel.css",
+      "bytes": 2365,
+      "mode": "644",
+      "sha256": "afb5363f7aa6f9bcf089ffe755e679865b55c026bd50df1fbbcfe79efdbf7544"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/LogPanel.tsx",
+      "bytes": 4489,
+      "mode": "644",
+      "sha256": "2d23c9ad7932da56d434e08c8f20af490cd9f628d71dfaa92858f0269fa557a2"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/logView.ts",
+      "bytes": 1886,
+      "mode": "644",
+      "sha256": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/RacePanel.tsx",
+      "bytes": 1894,
+      "mode": "644",
+      "sha256": "b8f4a6db8e1c8927a8a09d3955f0cd2c5ac8cd4f4ebb3cdd034754a40ef1a2a1"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/RunSetup.tsx",
+      "bytes": 13851,
+      "mode": "644",
+      "sha256": "f0082a05ef1095a1f7b28f1ce37f00d26020f1c9f17cebe9df156624b6858c55"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/runSetupFile.ts",
+      "bytes": 8420,
+      "mode": "644",
+      "sha256": "37cfe7401402ad83c35ac46460904a79fbcc069839f84f20763264de357a2c91"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/runSetupFiles.css",
+      "bytes": 1258,
+      "mode": "644",
+      "sha256": "078d6893bbe083944c581eb190db090c408e8e7166ea10d9c802962a273a1cd6"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/RunSetupFiles.tsx",
+      "bytes": 10511,
+      "mode": "644",
+      "sha256": "5419c9497f6d7b103af690e5260d57601f2eee1f42464d6d5cf51480c00856f4"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/SessionPanel.tsx",
+      "bytes": 3075,
+      "mode": "644",
+      "sha256": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/SkillsPanel.tsx",
+      "bytes": 3275,
+      "mode": "644",
+      "sha256": "2819e889e028641c6497206967c09ecfa49d5406c34b4131521cfd5d8aa7c5a1"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/skillsView.ts",
+      "bytes": 2564,
+      "mode": "644",
+      "sha256": "0b41f51bb55890f31c39d435411fe6d60b3178e84f58733b27deb4b21e30cfde"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/components/StatsPanel.tsx",
+      "bytes": 1942,
+      "mode": "644",
+      "sha256": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/main.tsx",
+      "bytes": 236,
+      "mode": "644",
+      "sha256": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/state/branchTraceStore.ts",
+      "bytes": 2400,
+      "mode": "644",
+      "sha256": "3e76129407244fac596be4562af715dbbdff91a44fb6d9e0b28f3ce7c6261bc2"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/state/labStore.ts",
+      "bytes": 8003,
+      "mode": "644",
+      "sha256": "ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/state/runStore.ts",
+      "bytes": 6660,
+      "mode": "644",
+      "sha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/styles/app.css",
+      "bytes": 10243,
+      "mode": "644",
+      "sha256": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/src/styles/skills.css",
+      "bytes": 1396,
+      "mode": "644",
+      "sha256": "0b3c997dcd5cc9248a487aab8738a86136f9aeec23a2a87e56dffd317689f065"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/test/career-log-browser.mjs",
+      "bytes": 20142,
+      "mode": "644",
+      "sha256": "31ad15f4f28a23235dc8fbbc7d8b313a6a9734300f34e327af165602fb8dc3ab"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/test/log-export.test.mjs",
+      "bytes": 8550,
+      "mode": "644",
+      "sha256": "9ac6faa080f5e95f5b2a6302fb781e60cdc08dbb97d86960974aa19f536019f7"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/test/log-view.test.mjs",
+      "bytes": 9518,
+      "mode": "644",
+      "sha256": "13cfc75c020bea6ca536b07a6a385e350b577f646387638b178b69776c6bf255"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/test/skills-view.test.mjs",
+      "bytes": 3994,
+      "mode": "644",
+      "sha256": "094ddd2014d96f8621a34ee95ec7f7cc4e859cdb0be419c4dbcd937800e9b43e"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/branch-input.test.mjs",
+      "bytes": 4232,
+      "mode": "644",
+      "sha256": "c3678c4cbe54629c3189a3f9c4191f8ed38b262f39fdecb06f34bbe30f97d14c"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/branch-trace-panel.test.mjs",
+      "bytes": 6944,
+      "mode": "644",
+      "sha256": "8b83f6729bcbf23cb805429ac51d055af1daada712f2fad4ed0596931357b0ab"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/checkpoint-portability.browser.mjs",
+      "bytes": 15289,
+      "mode": "644",
+      "sha256": "a48784b6c94410eb7d1ac0e3178a8ebf17926ea3a5a63c6a35745ec82c0e8ae9"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/lab-comparison.browser.mjs",
+      "bytes": 17345,
+      "mode": "644",
+      "sha256": "9c47dda7fb4b1d0223db6ae09b3600652cf0ad1be4080585fcd07cb1a8d21dee"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs",
+      "bytes": 17811,
+      "mode": "644",
+      "sha256": "c84764b19e2f74f9fcdd29ac7a35a7a9a12bc6e0e7fe6ce0aa2b7c0686bf2255"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/receiving/TRACE-RECEIVER-CONTRACT.md",
+      "bytes": 2998,
+      "mode": "644",
+      "sha256": "b5e5e8e670576a8f2c3a220543eebcc2e636f55876d195d354e6b942b592756d"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/receiving/uma-lab-receiver.mjs",
+      "bytes": 20297,
+      "mode": "644",
+      "sha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/receiving/uma-trace-receiver.mjs",
+      "bytes": 21519,
+      "mode": "644",
+      "sha256": "3d96af883b3af297826160adf9e5e49e806d2dd29d3fa8c64f2db46da4a4a531"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/run-setup-file.test.mjs",
+      "bytes": 11734,
+      "mode": "644",
+      "sha256": "991e156d1898e002935a3068353175cea8a88fed7c3cc06f2d8e08d6a92df0d8"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tests/run-setup.browser.mjs",
+      "bytes": 19694,
+      "mode": "644",
+      "sha256": "da0d1c9e137a7b151297a08536b7de4021e138e17aff39e39beec54063fbe5ce"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tsconfig.json",
+      "bytes": 540,
+      "mode": "644",
+      "sha256": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/tsconfig.tsbuildinfo",
+      "bytes": 582,
+      "mode": "644",
+      "sha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf"
+    },
+    {
+      "path": "candidate/packages/uma-sim-ui/vite.config.ts",
+      "bytes": 300,
+      "mode": "644",
+      "sha256": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd"
+    },
+    {
+      "path": "evidence/browser-proposal-exit.json",
+      "bytes": 55,
+      "mode": "644",
+      "sha256": "90cd87de1f1c95b630dbb9763a2a1b0d99248426bf05f856100284d0e78cc6e0"
+    },
+    {
+      "path": "evidence/browser-proposal.log",
+      "bytes": 609,
+      "mode": "644",
+      "sha256": "a2cd44f8104651282872fca42159a1566e9adedca7c38f09e863a0f5dd7c5d60"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/bad-json.json",
+      "bytes": 10,
+      "mode": "644",
+      "sha256": "7e3eb5fc8da3096692ed52e9ff2a99e4f5bcb43640259131f8ab783a7723862a"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/bad-seed.json",
+      "bytes": 1992,
+      "mode": "644",
+      "sha256": "9da68234f10fb3fedf27b8b9e736948462fa7236bf9f2808c747c724f9013932"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/bad-utf8.json",
+      "bytes": 3,
+      "mode": "644",
+      "sha256": "8ca9f8c269c0a4b1d8bf0efc67d97df8ad5e0ea93630fd9099860d36c0fe75ea"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/extra-field.json",
+      "bytes": 2011,
+      "mode": "644",
+      "sha256": "7d985aff5fedb32791cd750e18cf57ba149980d1b35f52f8528ffcd31c9f2a5d"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/over-limit.json",
+      "bytes": 65537,
+      "mode": "644",
+      "sha256": "76c002eec0c9da854ca2ee5dae9fb0069a622274b6638ab712fcb70384304899"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/setup-A.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/setup-B.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/slow-A.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/unavailable-factor.json",
+      "bytes": 2003,
+      "mode": "644",
+      "sha256": "0cec390b978630866ee204283040afcb2a1bbe8f1eb22563ba2ca96ec2f4ed9f"
+    },
+    {
+      "path": "evidence/browser-proposal/inputs/wrong-version.json",
+      "bytes": 1993,
+      "mode": "644",
+      "sha256": "65c883c0be0d4d51d5c7a98f63e5899b854ead2bd06fc2115e2b592a2e6f8100"
+    },
+    {
+      "path": "evidence/browser-proposal/keyboard-roundtrip.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-proposal/newer-file-roundtrip.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-proposal/phone-applied.png",
+      "bytes": 156200,
+      "mode": "644",
+      "sha256": "ec20917524f9272a92d5bf2c37c51d87fee2dee01f22aa033a48b589b429dfd0"
+    },
+    {
+      "path": "evidence/browser-proposal/phone-review.png",
+      "bytes": 62793,
+      "mode": "644",
+      "sha256": "0645fbd0b3f4008ab721b65ed87f3791ed7bb006b0913cf43c9b9e471277e2fd"
+    },
+    {
+      "path": "evidence/browser-proposal/receipt.json",
+      "bytes": 31243,
+      "mode": "644",
+      "sha256": "7ce658b7f4b625975180467243e7b4b8bef115326682f4e40108fa8ae04f5726"
+    },
+    {
+      "path": "evidence/browser-proposal/valid-roundtrip.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/browser-v1-bound.log",
+      "bytes": 795,
+      "mode": "644",
+      "sha256": "ab621e545023668eac6091d0980142b6222f2cd34cae1fe7e69e6d390ce45dce"
+    },
+    {
+      "path": "evidence/browser-v1-bound/10-catalog-change-while-chooser-open-failure.html",
+      "bytes": 9674,
+      "mode": "644",
+      "sha256": "f0a2e23a571472832a8f81f5ec4e7840706cf9db0a4d73fd0cfe2ffa7235c204"
+    },
+    {
+      "path": "evidence/browser-v1-bound/10-catalog-change-while-chooser-open-failure.png",
+      "bytes": 186788,
+      "mode": "644",
+      "sha256": "891b9e4a81ff9ddca787584d095ac475d251ecfcbdb986532c0e96ae9e5f3abc"
+    },
+    {
+      "path": "evidence/browser-v1-bound/11-edit-while-chooser-open-failure.html",
+      "bytes": 9676,
+      "mode": "644",
+      "sha256": "63e2e9e947c1cb01139bf4eccf88a8a39986488903334b7f01883b67697db79a"
+    },
+    {
+      "path": "evidence/browser-v1-bound/11-edit-while-chooser-open-failure.png",
+      "bytes": 187716,
+      "mode": "644",
+      "sha256": "02085d536fabfefeb72af76ea2b689a444b572ee8e0d2ba307af3cd96cc16c30"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/bad-json.json",
+      "bytes": 10,
+      "mode": "644",
+      "sha256": "7e3eb5fc8da3096692ed52e9ff2a99e4f5bcb43640259131f8ab783a7723862a"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/bad-seed.json",
+      "bytes": 1992,
+      "mode": "644",
+      "sha256": "9da68234f10fb3fedf27b8b9e736948462fa7236bf9f2808c747c724f9013932"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/bad-utf8.json",
+      "bytes": 3,
+      "mode": "644",
+      "sha256": "8ca9f8c269c0a4b1d8bf0efc67d97df8ad5e0ea93630fd9099860d36c0fe75ea"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/extra-field.json",
+      "bytes": 2011,
+      "mode": "644",
+      "sha256": "7d985aff5fedb32791cd750e18cf57ba149980d1b35f52f8528ffcd31c9f2a5d"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/over-limit.json",
+      "bytes": 65537,
+      "mode": "644",
+      "sha256": "76c002eec0c9da854ca2ee5dae9fb0069a622274b6638ab712fcb70384304899"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/setup-A.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/setup-B.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/slow-A.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/unavailable-factor.json",
+      "bytes": 2003,
+      "mode": "644",
+      "sha256": "0cec390b978630866ee204283040afcb2a1bbe8f1eb22563ba2ca96ec2f4ed9f"
+    },
+    {
+      "path": "evidence/browser-v1-bound/inputs/wrong-version.json",
+      "bytes": 1993,
+      "mode": "644",
+      "sha256": "65c883c0be0d4d51d5c7a98f63e5899b854ead2bd06fc2115e2b592a2e6f8100"
+    },
+    {
+      "path": "evidence/browser-v1-bound/keyboard-roundtrip.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-v1-bound/newer-file-roundtrip.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-v1-bound/phone-applied.png",
+      "bytes": 156200,
+      "mode": "644",
+      "sha256": "ec20917524f9272a92d5bf2c37c51d87fee2dee01f22aa033a48b589b429dfd0"
+    },
+    {
+      "path": "evidence/browser-v1-bound/phone-review.png",
+      "bytes": 62793,
+      "mode": "644",
+      "sha256": "0645fbd0b3f4008ab721b65ed87f3791ed7bb006b0913cf43c9b9e471277e2fd"
+    },
+    {
+      "path": "evidence/browser-v1-bound/receipt.json",
+      "bytes": 32471,
+      "mode": "644",
+      "sha256": "648a9c255bd84cfa3446cfd7888380a204dda43b3e8e36ca964754b8546cf116"
+    },
+    {
+      "path": "evidence/browser-v1-bound/valid-roundtrip.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/browser-v1-exit.json",
+      "bytes": 55,
+      "mode": "644",
+      "sha256": "bc6159df7e3247cb12b3791fbe0f6402c96bf1e75d929b9b20f36a7dc1593261"
+    },
+    {
+      "path": "evidence/browser-v1.log",
+      "bytes": 789,
+      "mode": "644",
+      "sha256": "65e1b70f5dfd946baa250c9d0a6a4651d0250a51f67ca856760334782cf854f7"
+    },
+    {
+      "path": "evidence/browser-v1/10-catalog-change-while-chooser-open-failure.html",
+      "bytes": 9674,
+      "mode": "644",
+      "sha256": "f0a2e23a571472832a8f81f5ec4e7840706cf9db0a4d73fd0cfe2ffa7235c204"
+    },
+    {
+      "path": "evidence/browser-v1/10-catalog-change-while-chooser-open-failure.png",
+      "bytes": 186788,
+      "mode": "644",
+      "sha256": "891b9e4a81ff9ddca787584d095ac475d251ecfcbdb986532c0e96ae9e5f3abc"
+    },
+    {
+      "path": "evidence/browser-v1/11-edit-while-chooser-open-failure.html",
+      "bytes": 9676,
+      "mode": "644",
+      "sha256": "63e2e9e947c1cb01139bf4eccf88a8a39986488903334b7f01883b67697db79a"
+    },
+    {
+      "path": "evidence/browser-v1/11-edit-while-chooser-open-failure.png",
+      "bytes": 187716,
+      "mode": "644",
+      "sha256": "02085d536fabfefeb72af76ea2b689a444b572ee8e0d2ba307af3cd96cc16c30"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/bad-json.json",
+      "bytes": 10,
+      "mode": "644",
+      "sha256": "7e3eb5fc8da3096692ed52e9ff2a99e4f5bcb43640259131f8ab783a7723862a"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/bad-seed.json",
+      "bytes": 1992,
+      "mode": "644",
+      "sha256": "9da68234f10fb3fedf27b8b9e736948462fa7236bf9f2808c747c724f9013932"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/bad-utf8.json",
+      "bytes": 3,
+      "mode": "644",
+      "sha256": "8ca9f8c269c0a4b1d8bf0efc67d97df8ad5e0ea93630fd9099860d36c0fe75ea"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/extra-field.json",
+      "bytes": 2011,
+      "mode": "644",
+      "sha256": "7d985aff5fedb32791cd750e18cf57ba149980d1b35f52f8528ffcd31c9f2a5d"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/over-limit.json",
+      "bytes": 65537,
+      "mode": "644",
+      "sha256": "76c002eec0c9da854ca2ee5dae9fb0069a622274b6638ab712fcb70384304899"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/setup-A.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/setup-B.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/slow-A.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/unavailable-factor.json",
+      "bytes": 2003,
+      "mode": "644",
+      "sha256": "0cec390b978630866ee204283040afcb2a1bbe8f1eb22563ba2ca96ec2f4ed9f"
+    },
+    {
+      "path": "evidence/browser-v1/inputs/wrong-version.json",
+      "bytes": 1993,
+      "mode": "644",
+      "sha256": "65c883c0be0d4d51d5c7a98f63e5899b854ead2bd06fc2115e2b592a2e6f8100"
+    },
+    {
+      "path": "evidence/browser-v1/keyboard-roundtrip.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-v1/newer-file-roundtrip.json",
+      "bytes": 3559,
+      "mode": "644",
+      "sha256": "97367c5150301141a4b9586cd6b8b52ad29a38744b17a91db3527dcbdaa71b4e"
+    },
+    {
+      "path": "evidence/browser-v1/phone-applied.png",
+      "bytes": 156200,
+      "mode": "644",
+      "sha256": "ec20917524f9272a92d5bf2c37c51d87fee2dee01f22aa033a48b589b429dfd0"
+    },
+    {
+      "path": "evidence/browser-v1/phone-review.png",
+      "bytes": 62793,
+      "mode": "644",
+      "sha256": "0645fbd0b3f4008ab721b65ed87f3791ed7bb006b0913cf43c9b9e471277e2fd"
+    },
+    {
+      "path": "evidence/browser-v1/receipt.json",
+      "bytes": 32453,
+      "mode": "644",
+      "sha256": "030b3460ab15f0c65c7eff0df8cb489f0308f8839003250f396be4e37996375a"
+    },
+    {
+      "path": "evidence/browser-v1/valid-roundtrip.json",
+      "bytes": 3568,
+      "mode": "644",
+      "sha256": "e999d0f43e76626f17398cb7ea7ec748c305da8442c0567e86bcd2910731c411"
+    },
+    {
+      "path": "evidence/build-first.log",
+      "bytes": 1778,
+      "mode": "644",
+      "sha256": "e50698f6dbe5ae061da4364a99abbd933bc4cfb18f9969663381709aa1798a3d"
+    },
+    {
+      "path": "evidence/build-proposal.log",
+      "bytes": 1778,
+      "mode": "644",
+      "sha256": "c8982d34c04d22307ecf63c7674729a1410b67fdd7ef670ee786ae527c9ce69e"
+    },
+    {
+      "path": "evidence/initial/setup-failure.json",
+      "bytes": 274,
+      "mode": "644",
+      "sha256": "e0d97f100ace329b0c40666c91fe3c1916ef1d33e6e71cc9c1bd455ce5a7876e"
+    },
+    {
+      "path": "evidence/original-source/source-before-build.json",
+      "bytes": 11049,
+      "mode": "644",
+      "sha256": "963e29c398ae22b2b0100f28eb8cfe3bdd7e1579c38ed1d44626e33840d9833e"
+    },
+    {
+      "path": "evidence/source-before-build.json",
+      "bytes": 11049,
+      "mode": "644",
+      "sha256": "3e77cc7bb8aa24ac6cf5396fd419b044d8ddded8c6bf1a4ee85b19281a92f818"
+    },
+    {
+      "path": "evidence/source-binding-parameterization.json",
+      "bytes": 358,
+      "mode": "644",
+      "sha256": "2885772e8ac176b917c2827e82b0142e8060791e470f52fb75f118cbcf6dfe13"
+    },
+    {
+      "path": "evidence/typecheck-capacity-refusal.json",
+      "bytes": 518,
+      "mode": "644",
+      "sha256": "d4c051b1b19b57df064ab6197f3aefb8dfd1134ef3c979f3032329e27b335bda"
+    },
+    {
+      "path": "evidence/typecheck-proposal.json",
+      "bytes": 656,
+      "mode": "644",
+      "sha256": "92388f2813475132c07b0777ae973d8c05b000718efa5f78600a98f7e783aebb"
+    },
+    {
+      "path": "evidence/typecheck-proposal.log",
+      "bytes": 0,
+      "mode": "644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/typecheck-proposal.tsbuildinfo",
+      "bytes": 21979,
+      "mode": "644",
+      "sha256": "08448c3d66f7e460a107363de6d43aecb87a4a4adf2f28aa53f6df8e0a503c9b"
+    },
+    {
+      "path": "review-dist/assets/index-CIHwpcX5.js",
+      "bytes": 169708,
+      "mode": "644",
+      "sha256": "8cd22a3e08f5d1a602bf829b67d3459deb06c3db30755a9259a01edbb64dd8cf"
+    },
+    {
+      "path": "review-dist/assets/index-CkaGubF7.css",
+      "bytes": 9278,
+      "mode": "644",
+      "sha256": "083f4dcafe0cfbcebf538bd28ed60ce8bd44323869682a47384c6032b3cb1ba2"
+    },
+    {
+      "path": "review-dist/index.html",
+      "bytes": 377,
+      "mode": "644",
+      "sha256": "45fbdb6f9f8a48916856a13cd752340395e7706e15a777ebcd08896e288ec03e"
+    },
+    {
+      "path": "review/build.mjs",
+      "bytes": 2563,
+      "mode": "644",
+      "sha256": "9f481d1ce9eb928dc0bb2f533e8c2852ad551c097204e645b5484de02c01fd5d"
+    },
+    {
+      "path": "review/check_setup_async.mjs",
+      "bytes": 15141,
+      "mode": "644",
+      "sha256": "db4cfd07d07c066a6f02c415192af99dbf4a1db249dcbd75e77fa63e665b11c7"
+    },
+    {
+      "path": "review/CONTRACT.md",
+      "bytes": 1754,
+      "mode": "644",
+      "sha256": "74053997d076781eb98e2f3ae46d4b050da0272c3f1f0dfa4d3b50f003a30cf7"
+    },
+    {
+      "path": "review/fixtures.json",
+      "bytes": 10543,
+      "mode": "644",
+      "sha256": "5ba1169de5fe824697d3fd076fa2fd911c03348920a2aca42c619b2cb81815b8"
+    },
+    {
+      "path": "review/original/build.mjs",
+      "bytes": 2674,
+      "mode": "644",
+      "sha256": "c8bb9875d626a47619bdce162c0934a5e1a5700c09ad9d8e090d8b0748b8ccb0"
+    },
+    {
+      "path": "review/original/check_setup_async.mjs",
+      "bytes": 15079,
+      "mode": "644",
+      "sha256": "b64aa879010009675effd8b3c716de52c9f1449101c309ba1c2db6aefb52fbdc"
+    },
+    {
+      "path": "review/original/RunSetupFiles.tsx",
+      "bytes": 10518,
+      "mode": "644",
+      "sha256": "95bcab51949aa157edb041dfb5afd8669a79ed61133f817f1a1c7af202f1af14"
+    },
+    {
+      "path": "review/proposal/chooser-context.patch",
+      "bytes": 1048,
+      "mode": "644",
+      "sha256": "212a6194084c595b8841e1bbbd0a063e4219f00f58c756d24e922b5e49db8968"
+    },
+    {
+      "path": "review/proposal/RunSetupFiles.tsx",
+      "bytes": 10511,
+      "mode": "644",
+      "sha256": "5419c9497f6d7b103af690e5260d57601f2eee1f42464d6d5cf51480c00856f4"
+    },
+    {
+      "path": "review/proposal/source-pin.json",
+      "bytes": 9638,
+      "mode": "644",
+      "sha256": "ce642632140de4a774ee5f6bb84cf862ec6320ba9be07462222b1b2b61ce0d24"
+    },
+    {
+      "path": "review/REVIEW.md",
+      "bytes": 7020,
+      "mode": "644",
+      "sha256": "3b5daeaf5f63d40a631dae56502ad5379016c82624f1f6616dbc9553f6ff766a"
+    },
+    {
+      "path": "review/source-current.json",
+      "bytes": 9638,
+      "mode": "644",
+      "sha256": "ce642632140de4a774ee5f6bb84cf862ec6320ba9be07462222b1b2b61ce0d24"
+    },
+    {
+      "path": "review/third-party/react-dom-LICENSE",
+      "bytes": 1086,
+      "mode": "644",
+      "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
+    },
+    {
+      "path": "review/third-party/react-LICENSE",
+      "bytes": 1086,
+      "mode": "644",
+      "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
+    },
+    {
+      "path": "review/third-party/scheduler-LICENSE",
+      "bytes": 1086,
+      "mode": "644",
+      "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
+    },
+    {
+      "path": "review/view/entry.tsx",
+      "bytes": 1594,
+      "mode": "644",
+      "sha256": "bb20a4009296ac3aebdab034ba947be9a3f98aa62b8069ad3455174e59461931"
+    },
+    {
+      "path": "review/view/index.html",
+      "bytes": 274,
+      "mode": "644",
+      "sha256": "2bd8c2b3f49565c3025e0d8e80a5699fc318a27d0e86098130c516d139ab946c"
+    }
+  ]
+}
