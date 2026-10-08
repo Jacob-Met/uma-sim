@@ -8,7 +8,7 @@ All five current source/test files were fetched by exact Git blob, staged in the
 
 Actual cargo test --offline --locked -p uma-sim-core --test paired_batches --test paired_batches_cli passed the same12 focused methods on this rebuilt dependency closure. Actual full repository formatting and the existing workspace/all-target Clippy command also passed. Raw logs and command/environment receipts are retained. This is not a new count of24 distinct tests, nor a full native workspace-test claim.
 
-Current executable: /Users/me/uma-paired-066deeadcc8b/target/debug/uma-sim,15,064,864 bytes,SHA25601d7e9aee08492579143a297d74be01816a10da8e40045ecf4436b619ebcc989. The original accepted executable is preserved at evidence/accepted-7a2-uma-sim with its original ab563811 hash. No executable bytes are embedded in this source/evidence supplement.
+Current executable: [redacted],15,064,864 bytes,SHA25601d7e9aee08492579143a297d74be01816a10da8e40045ecf4436b619ebcc989. The original accepted executable is preserved at evidence/accepted-7a2-uma-sim with its original ab563811 hash. No executable bytes are embedded in this source/evidence supplement.
 
 Root performs a separate bounded independent compatibility reception using the unchanged original oracle and actual previously captured native input files. That receiving result is separately attributed and archived; the original92-case acceptance is unchanged. Exact-head hosted gates qualify the final repository checkout.
 
