@@ -1,0 +1,71 @@
+{
+  "schema": "uma.browser-checkpoint.source-recovery.v1",
+  "base_commit": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "base_tree": "8a77986dcacbdb137a31f4e438561153b38f8c06",
+  "independent_commit": "09c94cc504b6f51ef329cf765ca075e89e7beb72",
+  "production_files_recovered_byte_exact": true,
+  "new_test": true,
+  "preimages": [
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "git_blob": "bed38774d5dcd48af5b964d97472a76db92f78e7"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "git_blob": "6cc39e49150ab6774cb78aac1b89676b704418f8"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "git_blob": "f789d67b739516861dc004be765aa20d21bfe42b"
+    }
+  ],
+  "files": [
+    {
+      "path": "packages/uma-sim-ui/src/api/checkpointJson.ts",
+      "bytes": 751,
+      "sha256": "8a204b07413c0d2b41401f4aac54f884baf4bd55c548c0f2fd519de50e50df5d",
+      "git_blob": "7ffd6458667d05e7b8a46ac8e3d2b18dc5f44945"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "bytes": 5821,
+      "sha256": "542fb7fb53f19d0cbf9e4f96d6e3b1b191bb86a1aba99e45739b208a03ca2a55",
+      "git_blob": "f32f85e4afbc60edc4426c32d9dc1b22a15777e7"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "bytes": 7823,
+      "sha256": "42de971e46a746ae4b2aa051749e6e15b417de3c059c153e8aeb56ead8e3ffde",
+      "git_blob": "a8c6301c82e5edfe40754454320382cbc03afe16"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/checkpoint-json.test.mjs",
+      "bytes": 6804,
+      "sha256": "5cb01aad7949c8118dd2804e1e86131965be8634dc685840a433d037359372af",
+      "git_blob": "eab213bc5029e3b7af72b74bf4a29e5b37ba8584"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "bytes": 1038,
+      "sha256": "9e35a0ef7525a01d3a06a5f0aa8de5283f4b159a221e90170817bd59ee0307c8",
+      "git_blob": "153b054128fa410d2012e425ea9d9bd3f049e70c"
+    },
+    {
+      "path": "docs/browser-checkpoint-import.md",
+      "bytes": 849,
+      "sha256": "bf9b831d08d0884c90c9b60bafdf701820c1a1d2f0f1c6c60a320ce06de1c6ba",
+      "git_blob": "67d6aa53e19d5e61cabf7b2ee76be36a1ab938e4"
+    }
+  ],
+  "package_append_only": true,
+  "withSession_and_run_methods": "unchanged from exact current main and independent frozen candidate",
+  "new_focused_test_result": {
+    "pass": 15,
+    "fail": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "native_browser_candidate_result": "unknown",
+  "original_author_raw_evidence": "unavailable; not reconstructed",
+  "full_current_build": "pending required hosted gate"
+}
