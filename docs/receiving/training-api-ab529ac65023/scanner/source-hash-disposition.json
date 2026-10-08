@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "review_status": "Proposed exact benign-source-hash fingerprint; independent review and actual scanner execution pending.",
+  "head": "4d081cddcdc828288a08f84064502aa89c6dc6fe",
+  "run": 37835376516,
+  "job": 113510936391,
+  "rule": "generic-api-key",
+  "fingerprint": "4d081cddcdc828288a08f84064502aa89c6dc6fe:docs/receiving/training-api-ab529ac65023/first-candidate/manifest.json:generic-api-key:358",
+  "flagged_file": "docs/receiving/training-api-ab529ac65023/first-candidate/manifest.json",
+  "line": 358,
+  "flagged_file_blob": "b139e2edd29b020d03185c63808851153267df59",
+  "meaning": "The production.api field contains the actual public Git object identity of uma-sim-core/src/api.rs, not an authentication credential.",
+  "source_blob_sha1": "5444a61a8773d57938eafdb183c0bca2321b853a",
+  "source_bytes": 87506,
+  "source_sha256": "879740c7541cd226e86612e09d124e82463805c23a486c820d962c3a6f620008",
+  "independent_recomputation": {
+    "bytes": 87506,
+    "gitBlob": "5444a61a8773d57938eafdb183c0bca2321b853a",
+    "sha256": "879740c7541cd226e86612e09d124e82463805c23a486c820d962c3a6f620008"
+  },
+  "method": "Python hashlib.sha1(b'blob '+decimal_UTF8_length+b'\\0'+exact_source_UTF8) and hashlib.sha256(exact_source_UTF8), using directly fetched immutable source. Matches the immutable Git tree and fetched source blob. No file write or network authentication test.",
+  "scope": "Append only this exact commit:path:rule:line fingerprint to existing .gitleaksignore; preserve its four existing entries. Do not change any scanner rule, workflow, broad path allowance, history or product/receiver byte.",
+  "original_ignore_blob": "5d91ff5481272a31271a0b21001693418c55fe61",
+  "unchanged_config_blob": "2aa79ba99ac7a0e702998a75d7e05e71c3c250df",
+  "unchanged_workflow_blob": "ecb8ab7d4601d4665ff3aeba811aa541654c0960",
+  "failed_log": {
+    "path": "gitleaks.log",
+    "bytes": 23193,
+    "sha256": "d08fc5b6fc8dc4daa5c2ecfcc7d1a60fca1f860c6761bd409749d96a5b5fb3b7"
+  },
+  "limitation": "The scanner's secondary attempt to post a PR comment failed Resource not accessible by integration. The full scan log independently retains the one finding; this comment failure did not determine its classification."
+}

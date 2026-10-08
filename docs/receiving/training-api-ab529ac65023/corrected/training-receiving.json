@@ -1,0 +1,839 @@
+{
+  "version": 1,
+  "receivingCommit": "93293755e5739f2d59fc0f7d266a5209ea63bcc0",
+  "cli": "/home/runner/work/uma-sim/uma-sim/target/release/uma-sim",
+  "cliSha256": "9cf89dbd5ab1d3b4e3562c68a1299647c57738e93e9b5cb3dae77af1a00d5366",
+  "observations": [
+    {
+      "label": "named-mandatory",
+      "session": "training-sibling",
+      "snapshotSha256": "39a190dba62b9181c0f7c202d910a7e62c9356eee219d9c5101a1aa10cddd170",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 1,
+        "date": "Year 1, Month 6, Late",
+        "phase": "MANDATORY_RACE",
+        "scenarioId": "unity",
+        "traineeName": "Special Week",
+        "energy": 100,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": "mandatory_race",
+        "rows": []
+      }
+    },
+    {
+      "label": "ura-free",
+      "session": "training-ura",
+      "snapshotSha256": "3dbf99c8e8649c47d5a62dff9117bf3e547dee96fa84fe18b52a9dba22b129b6",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 2,
+        "date": "Year 1, Month 7, Early",
+        "phase": "FREE",
+        "scenarioId": "ura",
+        "traineeName": "Special Week",
+        "energy": 100,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": null,
+        "rows": [
+          {
+            "actionId": "train_speed",
+            "facility": "speed",
+            "label": "Speed",
+            "level": 1,
+            "statGains": {
+              "speed": 10,
+              "stamina": 0,
+              "power": 5,
+              "guts": 2,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_stamina",
+            "facility": "stamina",
+            "label": "Stamina",
+            "level": 1,
+            "statGains": {
+              "speed": 0,
+              "stamina": 12,
+              "power": 2,
+              "guts": 6,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_power",
+            "facility": "power",
+            "label": "Power",
+            "level": 1,
+            "statGains": {
+              "speed": 2,
+              "stamina": 5,
+              "power": 10,
+              "guts": 0,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_guts",
+            "facility": "guts",
+            "label": "Guts",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 0,
+              "power": 2,
+              "guts": 10,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_wit",
+            "facility": "wit",
+            "label": "Wit",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 2,
+              "power": 0,
+              "guts": 0,
+              "wit": 11
+            },
+            "energyCost": -5,
+            "energyDelta": 0,
+            "failureChancePct": 0,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          }
+        ]
+      }
+    },
+    {
+      "label": "unity-free",
+      "session": "training-unity",
+      "snapshotSha256": "63ecbac534cc09fdb0d2748f6b9be9283c099b38cd59ce0eecf998d9d21da709",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 2,
+        "date": "Year 1, Month 7, Early",
+        "phase": "FREE",
+        "scenarioId": "unity",
+        "traineeName": "Special Week",
+        "energy": 100,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": null,
+        "rows": [
+          {
+            "actionId": "train_speed",
+            "facility": "speed",
+            "label": "Speed",
+            "level": 1,
+            "statGains": {
+              "speed": 10,
+              "stamina": 0,
+              "power": 5,
+              "guts": 2,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_stamina",
+            "facility": "stamina",
+            "label": "Stamina",
+            "level": 1,
+            "statGains": {
+              "speed": 0,
+              "stamina": 12,
+              "power": 2,
+              "guts": 6,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_power",
+            "facility": "power",
+            "label": "Power",
+            "level": 1,
+            "statGains": {
+              "speed": 2,
+              "stamina": 5,
+              "power": 10,
+              "guts": 0,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_guts",
+            "facility": "guts",
+            "label": "Guts",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 0,
+              "power": 2,
+              "guts": 10,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_wit",
+            "facility": "wit",
+            "label": "Wit",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 2,
+              "power": 0,
+              "guts": 0,
+              "wit": 11
+            },
+            "energyCost": -5,
+            "energyDelta": 0,
+            "failureChancePct": 0,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          }
+        ]
+      }
+    },
+    {
+      "label": "trackblazer-free",
+      "session": "training-trackblazer",
+      "snapshotSha256": "830752e03000925f0625a4a789864131dfa460809ed68646ed67cc1ef66fcefe",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 2,
+        "date": "Year 1, Month 7, Early",
+        "phase": "FREE",
+        "scenarioId": "trackblazer",
+        "traineeName": "Special Week",
+        "energy": 100,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": null,
+        "rows": [
+          {
+            "actionId": "train_speed",
+            "facility": "speed",
+            "label": "Speed",
+            "level": 1,
+            "statGains": {
+              "speed": 10,
+              "stamina": 0,
+              "power": 5,
+              "guts": 2,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_stamina",
+            "facility": "stamina",
+            "label": "Stamina",
+            "level": 1,
+            "statGains": {
+              "speed": 0,
+              "stamina": 12,
+              "power": 2,
+              "guts": 6,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_power",
+            "facility": "power",
+            "label": "Power",
+            "level": 1,
+            "statGains": {
+              "speed": 2,
+              "stamina": 5,
+              "power": 10,
+              "guts": 0,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_guts",
+            "facility": "guts",
+            "label": "Guts",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 0,
+              "power": 2,
+              "guts": 10,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_wit",
+            "facility": "wit",
+            "label": "Wit",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 2,
+              "power": 0,
+              "guts": 0,
+              "wit": 11
+            },
+            "energyCost": -5,
+            "energyDelta": 0,
+            "failureChancePct": 0,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          }
+        ]
+      }
+    },
+    {
+      "label": "grand_concert-free",
+      "session": "training-grand_concert",
+      "snapshotSha256": "62e8c5a7f794e43a5d207bce86ef0e6eb3a9a60e68d77ac14dd29e68622fb072",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 2,
+        "date": "Year 1, Month 7, Early",
+        "phase": "FREE",
+        "scenarioId": "grand_concert",
+        "traineeName": "Special Week",
+        "energy": 100,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": null,
+        "rows": [
+          {
+            "actionId": "train_speed",
+            "facility": "speed",
+            "label": "Speed",
+            "level": 1,
+            "statGains": {
+              "speed": 8,
+              "stamina": 0,
+              "power": 4,
+              "guts": 0,
+              "wit": 0
+            },
+            "energyCost": 19,
+            "energyDelta": -19,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_stamina",
+            "facility": "stamina",
+            "label": "Stamina",
+            "level": 1,
+            "statGains": {
+              "speed": 0,
+              "stamina": 10,
+              "power": 0,
+              "guts": 8,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_power",
+            "facility": "power",
+            "label": "Power",
+            "level": 1,
+            "statGains": {
+              "speed": 0,
+              "stamina": 4,
+              "power": 9,
+              "guts": 0,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_guts",
+            "facility": "guts",
+            "label": "Guts",
+            "level": 1,
+            "statGains": {
+              "speed": 2,
+              "stamina": 0,
+              "power": 2,
+              "guts": 7,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": -20,
+            "failureChancePct": 5,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          },
+          {
+            "actionId": "train_wit",
+            "facility": "wit",
+            "label": "Wit",
+            "level": 1,
+            "statGains": {
+              "speed": 2,
+              "stamina": 0,
+              "power": 0,
+              "guts": 0,
+              "wit": 6
+            },
+            "energyCost": -5,
+            "energyDelta": 0,
+            "failureChancePct": 0,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          }
+        ]
+      }
+    },
+    {
+      "label": "synthetic-low-energy",
+      "session": "training-low-energy",
+      "snapshotSha256": "84c9220e8158e00058f190f7e92526f4a9ae45b8c27c81af072bd4af68c4671e",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 2,
+        "date": "Year 1, Month 7, Early",
+        "phase": "FREE",
+        "scenarioId": "ura",
+        "traineeName": "Special Week",
+        "energy": 10,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": null,
+        "rows": [
+          {
+            "actionId": "train_speed",
+            "facility": "speed",
+            "label": "Speed",
+            "level": 1,
+            "statGains": {
+              "speed": 10,
+              "stamina": 0,
+              "power": 5,
+              "guts": 2,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "insufficient_energy"
+          },
+          {
+            "actionId": "train_stamina",
+            "facility": "stamina",
+            "label": "Stamina",
+            "level": 1,
+            "statGains": {
+              "speed": 0,
+              "stamina": 12,
+              "power": 2,
+              "guts": 6,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "insufficient_energy"
+          },
+          {
+            "actionId": "train_power",
+            "facility": "power",
+            "label": "Power",
+            "level": 1,
+            "statGains": {
+              "speed": 2,
+              "stamina": 5,
+              "power": 10,
+              "guts": 0,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "insufficient_energy"
+          },
+          {
+            "actionId": "train_guts",
+            "facility": "guts",
+            "label": "Guts",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 0,
+              "power": 2,
+              "guts": 10,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "insufficient_energy"
+          },
+          {
+            "actionId": "train_wit",
+            "facility": "wit",
+            "label": "Wit",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 2,
+              "power": 0,
+              "guts": 0,
+              "wit": 11
+            },
+            "energyCost": -5,
+            "energyDelta": 5,
+            "failureChancePct": 45,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": true,
+            "blockedReason": null
+          }
+        ]
+      }
+    },
+    {
+      "label": "synthetic-injured",
+      "session": "training-injured",
+      "snapshotSha256": "5c1ec826d9e3cecc81b8beb9e352e7b39fca7467fe0f5cde90f27647c6fc971d",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 2,
+        "date": "Year 1, Month 7, Early",
+        "phase": "FREE",
+        "scenarioId": "ura",
+        "traineeName": "Special Week",
+        "energy": 100,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": null,
+        "rows": [
+          {
+            "actionId": "train_speed",
+            "facility": "speed",
+            "label": "Speed",
+            "level": 1,
+            "statGains": {
+              "speed": 10,
+              "stamina": 0,
+              "power": 5,
+              "guts": 2,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "injured"
+          },
+          {
+            "actionId": "train_stamina",
+            "facility": "stamina",
+            "label": "Stamina",
+            "level": 1,
+            "statGains": {
+              "speed": 0,
+              "stamina": 12,
+              "power": 2,
+              "guts": 6,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "injured"
+          },
+          {
+            "actionId": "train_power",
+            "facility": "power",
+            "label": "Power",
+            "level": 1,
+            "statGains": {
+              "speed": 2,
+              "stamina": 5,
+              "power": 10,
+              "guts": 0,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "injured"
+          },
+          {
+            "actionId": "train_guts",
+            "facility": "guts",
+            "label": "Guts",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 0,
+              "power": 2,
+              "guts": 10,
+              "wit": 0
+            },
+            "energyCost": 20,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "injured"
+          },
+          {
+            "actionId": "train_wit",
+            "facility": "wit",
+            "label": "Wit",
+            "level": 1,
+            "statGains": {
+              "speed": 5,
+              "stamina": 2,
+              "power": 0,
+              "guts": 0,
+              "wit": 11
+            },
+            "energyCost": -5,
+            "energyDelta": null,
+            "failureChancePct": null,
+            "numRainbow": 0,
+            "numSkillHints": 0,
+            "available": false,
+            "blockedReason": "injured"
+          }
+        ]
+      }
+    },
+    {
+      "label": "synthetic-pending-event",
+      "session": "training-pending-event",
+      "snapshotSha256": "e00a8814413cdb738854ee3b97d2d9f8bde1930bfbd8564cf8dc4227e8ac115c",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 2,
+        "date": "Year 1, Month 7, Early",
+        "phase": "EVENT",
+        "scenarioId": "ura",
+        "traineeName": "Special Week",
+        "energy": 100,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": "pending_event",
+        "rows": []
+      }
+    },
+    {
+      "label": "synthetic-complete",
+      "session": "training-complete",
+      "snapshotSha256": "7b489d0ff76fabd7c4f24a3d3f208eab3773dbd9b27cdca15e0fd1eaaf66b811",
+      "inspection": {
+        "schemaVersion": 1,
+        "turn": 2,
+        "date": "Year 1, Month 7, Early",
+        "phase": "COMPLETE",
+        "scenarioId": "ura",
+        "traineeName": "Special Week",
+        "energy": 100,
+        "maxEnergy": 100,
+        "mood": "NORMAL",
+        "sampleKind": "deterministic_seed_0",
+        "notes": [
+          "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+          "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+          "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+          "Inspection does not take an action, advance the career RNG, or save the session."
+        ],
+        "unavailableReason": "career_complete",
+        "rows": []
+      }
+    }
+  ]
+}
