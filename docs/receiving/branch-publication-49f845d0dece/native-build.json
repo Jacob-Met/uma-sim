@@ -1,0 +1,33 @@
+{
+  "command": [
+    "/opt/homebrew/bin/cargo",
+    "build",
+    "--offline",
+    "--locked",
+    "-p",
+    "uma-sim-core",
+    "--bin",
+    "uma-sim-api"
+  ],
+  "sourceBase": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+  "exitCode": 0,
+  "elapsedSeconds": 2.122628927230835,
+  "sourceFiles": {
+    "uma-sim-core/src/career_lab.rs": {
+      "sha256": "f12208e5796ac6ab42ba515d6d8e6734388810894b600420e4badfdeab250f08"
+    },
+    "uma-sim-core/src/api.rs": {
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    },
+    "Cargo.lock": {
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c"
+    },
+    "target/debug/uma-sim-api": {
+      "sha256": "d45f5f80baf91d32ea8993b0740709723f2e2169f21868a8543587f0af4f31d5"
+    },
+    "target/debug/deps/libuma_sim_core-8744fe8d52c199c4.rlib": {
+      "sha256": "a0357aa3c3661fa71cddd02150cdc801235c27657d818f6a972f5078d30227fd"
+    }
+  },
+  "free": 6430838784
+}
