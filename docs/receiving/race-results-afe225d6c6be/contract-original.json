@@ -1,0 +1,118 @@
+{
+  "repository": "Jacob-Met/uma-sim",
+  "base": "a3e04846521c8877d112842332bc4825a29edaf3",
+  "tree": "a92719a498a121d10aa4b12737860b36f426ccee",
+  "status": "Pre-implementation source and receiving contract; root claim pending",
+  "beneficiary": "A player who has taken one or more races in the existing browser career and wants to inspect the actual simulated race result after moving to a later turn.",
+  "observed_source_problem": [
+    "App passes the short current-state textLines into RacePanel instead of the current snapshot's retained state.log.",
+    "RacePanel requires place/finish tokens which are not emitted by the actual native physics race logger; correcting the prop alone does not admit real physics records."
+  ],
+  "production_scope": [
+    "packages/uma-sim-ui/src/components/RacePanel.tsx",
+    "new component-local packages/uma-sim-ui/src/components/raceResults.ts",
+    "new component-local packages/uma-sim-ui/src/components/race-results.css if needed",
+    "only the RacePanel lines={cs.log} receiving prop in packages/uma-sim-ui/src/App.tsx",
+    "new packages/uma-sim-ui/tests/race-results.test.mjs, following existing native test conventions",
+    "append the exact new test entry to the existing package.json test script; no dependency change",
+    "a concise race-results section in packages/uma-sim-ui/README.md and unique docs/receiving/race-results-afe225d6c6be evidence"
+  ],
+  "native_data_contract": {
+    "physics_line": "Race <race-id> <ordinal> +<fan-gain> fans [physics t=<seconds>s course=<course-id> seed=<seed> field=<field-size> margin_win=<seconds>s margin_ahead=<seconds>s]",
+    "legacy_stub_line": "Race <race-id> +<fan-gain> fans",
+    "authority": "Exact retained engine log strings; full native state and source pins accompany receiving.",
+    "visible_facts": [
+      "Show only fields actually recorded in a recognized line; preserve the literal source record in an expandable detail.",
+      "Do not infer placement, finish time or field size from a legacy/stub line, from fans gained, from current settings, or from another race.",
+      "Recognized physics facts require valid finite numeric fields and consistent recorded place/field bounds; malformed or unknown records retain their literal text without invented values.",
+      "A newer unrecognized Race record must not cause an older result to be relabeled as the newest result.",
+      "Keep every retained race occurrence, including repeated race IDs; label the view as retained records rather than promising a complete career archive.",
+      "React renders record text literally; markup, odd Unicode and malformed numbers cannot turn into active content or fabricated stats."
+    ]
+  },
+  "interaction_contract": [
+    "Latest recorded race and retained history remain readable after a later non-race action.",
+    "History review and disclosures are read-only and issue no career action requests.",
+    "Existing mandatory-race action and busy state stay operational.",
+    "Changing the supplied current-career log replaces the displayed records; the component must not retain a prior session's results.",
+    "Desktop and narrow-phone views support keyboard access without overflowing; session/request and keyboard routing remain with #63."
+  ],
+  "receiving": [
+    "Establish the original RacePanel failure with actual Rust REST-produced physics lines, not invented positive fixtures.",
+    "Run at least two real races and a later ordinary action from a disposable seeded career; bind state.log, text output and visible results to the same state.",
+    "Use a separate native stub-model career to verify absent result fields stay unknown, not first place or zero seconds.",
+    "Native parser/component changed-input controls cover unrelated lines, retained duplicates, malformed fields, unknown newest record and refreshed props.",
+    "Actual React typecheck/build and component tests using unchanged declared dependencies.",
+    "Fresh Chromium against the real local Rust API and built UI, observing result/history/mandatory control/after-turn behavior with no live account or shared service.",
+    "Independent reviewer freezes line, negative and interaction cases before candidate exposure.",
+    "Root rechecks complete current repo and central ownership, composes the one App prop with #63/#80, and preserves exact source/CI/receiving boundaries."
+  ],
+  "exclusions": [
+    "No engine mechanics, race formulas, RNG, catalogs, settings, logging or storage changes.",
+    "No API/session, MCP, policy, checkpoint/library, comparison, Event Log #67/#80, training-demo #83 or Longwater trend changes.",
+    "No credentials, live account/session, shared UMA service, restricted Mac or deployed runtime.",
+    "No new framework, export route or generated replacement application."
+  ],
+  "runtime_preconditions": [
+    "Node v24.19.0 and Playwright1.62.1 are available; existing Chromium path is supplied by root.",
+    "Rust compiler and declared React/Vite dependency closure must be located or qualified in an owned isolated environment before native execution; neither is currently on the primary runtime PATH/module root.",
+    "Use only bounded owned storage and one-session /dev build temporaries; retain evidence under the owned /dev/shm source area."
+  ],
+  "source_blobs": [
+    {
+      "path": "packages/uma-sim-ui/src/components/RacePanel.tsx",
+      "git_blob": "9bbb87b3d1d71272b44031552aa053fdc4067469",
+      "bytes": 1894
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "git_blob": "728840c093324a246037b6e7901afa2286495946",
+      "bytes": 6774
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/types.ts",
+      "git_blob": "18ea43a689f67043b9cdc872c8178e16728f4de5",
+      "bytes": 8048
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "git_blob": "db6b16c96113566f0b9e9ac1b415c57a38c705af",
+      "bytes": 875
+    },
+    {
+      "path": "packages/uma-sim-ui/package-lock.json",
+      "git_blob": "10a4968db9d4507b9448dd00dba265eed483f419",
+      "bytes": 60211
+    },
+    {
+      "path": "uma-sim-core/src/engine.rs",
+      "git_blob": "7ece3123aea3ba3f17326ceb033fc53e796b3566",
+      "bytes": 50023
+    },
+    {
+      "path": "uma-sim-core/src/race.rs",
+      "git_blob": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43",
+      "bytes": 24601
+    },
+    {
+      "path": "uma-sim-core/src/render.rs",
+      "git_blob": "3f154753f700fa4a6faccf19faf8bfe320143137",
+      "bytes": 2595
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "git_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+      "bytes": 86803
+    },
+    {
+      "path": "uma-sim-core/Cargo.toml",
+      "git_blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+      "bytes": 1098
+    },
+    {
+      "path": "Cargo.lock",
+      "git_blob": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "bytes": 9836
+    }
+  ]
+}

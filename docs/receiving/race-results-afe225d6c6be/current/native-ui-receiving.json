@@ -1,0 +1,77 @@
+{
+  "base": "f27829a266bb39fb1a4f298e2c2b3b32f380af0f",
+  "dependencyPackages": 71,
+  "distribution": [
+    {
+      "bytes": 207224,
+      "path": "assets/index-B3jlwUA5.js",
+      "sha256": "a6ffbe074949e6adacbbf23c1ca0a8328f2016ab46bf3dfc3ba973352182e4ac"
+    },
+    {
+      "bytes": 11593,
+      "path": "assets/index-CVMYEY2m.css",
+      "sha256": "706e28d1f4def20637e6b196a8a9d0cd2aa65d709ef104eae07a87c89c77912b"
+    },
+    {
+      "bytes": 394,
+      "path": "index.html",
+      "sha256": "a0be77a1ea27c7efe7e73cd4c7558735a2341edcc14a2977eafc749d12658bdf"
+    }
+  ],
+  "kind": "uma-race-current-native-ui-receiving",
+  "lockSha256": "b306b84fc9fb3285a442d8360a419eba3276d3d4effda266205832331ac1dc99",
+  "node": "v24.19.0",
+  "passed": true,
+  "recorded_at_utc": "2026-10-08T13:36:24.040409+00:00",
+  "results": [
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exitCode": 0,
+      "finished_at_utc": "2026-10-08T13:36:17.259074+00:00",
+      "log": "/dev/uma-root-afe225d6c6be/receiving/ui-tests.log",
+      "logSha256": "7447fa3645540a559aefcc4f37fac828f9d0dd5c52819aa722eb8c7ad019203a",
+      "name": "ui-tests",
+      "started_at_utc": "2026-10-08T13:36:16.270816+00:00"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "finished_at_utc": "2026-10-08T13:36:19.987403+00:00",
+      "log": "/dev/uma-root-afe225d6c6be/receiving/ui-typecheck.log",
+      "logSha256": "b30d8076fcced429fa96bb273249552af29b242ffd106bcf346172b082c4fd90",
+      "name": "ui-typecheck",
+      "started_at_utc": "2026-10-08T13:36:17.259109+00:00"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "finished_at_utc": "2026-10-08T13:36:24.003923+00:00",
+      "log": "/dev/uma-root-afe225d6c6be/receiving/ui-build.log",
+      "logSha256": "6f07683cb27fb9f3906bd4791e675576150952cb6461aee4acde6fdd6f186ccb",
+      "name": "ui-build",
+      "started_at_utc": "2026-10-08T13:36:19.987438+00:00"
+    }
+  ],
+  "sourceHead": "ce9f654f4ecb805940edcb4b6b0151a3f4d4b381",
+  "sourceTree": "87fda7cdc403c82a789154a5d860b88fbc285599",
+  "sourceUnchangedAfterReceiving": true,
+  "trackedBuildCache": {
+    "afterSha256": "3e3a502f88f8d31e535777205c1c33b49312a4eef466a64996e492797c28932c",
+    "beforeSha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+    "generatedDifferentBytes": true,
+    "originalAndGeneratedPreserved": true,
+    "originalRestored": true,
+    "path": "packages/uma-sim-ui/tsconfig.tsbuildinfo"
+  }
+}

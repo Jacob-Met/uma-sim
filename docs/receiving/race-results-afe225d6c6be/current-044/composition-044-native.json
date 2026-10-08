@@ -1,0 +1,78 @@
+{
+  "status": "PASS source-only API/data identity check",
+  "base": "4dc00f155d29fb37887524455f0627399191c915",
+  "current": "0442091d55c0f3901f5561882ecc1ff177fcc332",
+  "currentTree": "26e9d9238fef8bc86cfbf671be5765c3f5a3d95b",
+  "readAt": "2026-10-08T13:54:03.755Z",
+  "authoritative": [
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "base": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+      "current": "eab9ccf7082ffc96c446f434bd76f313aff14bc9"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim-api.rs",
+      "base": "821ce29dc4dba0758e16392fb50d83ec5231e705",
+      "current": "821ce29dc4dba0758e16392fb50d83ec5231e705"
+    },
+    {
+      "path": "uma-sim-core/src/engine.rs",
+      "base": "7ece3123aea3ba3f17326ceb033fc53e796b3566",
+      "current": "7ece3123aea3ba3f17326ceb033fc53e796b3566"
+    },
+    {
+      "path": "uma-sim-core/src/race.rs",
+      "base": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43",
+      "current": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43"
+    },
+    {
+      "path": "uma-sim-core/src/state.rs",
+      "base": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821",
+      "current": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821"
+    },
+    {
+      "path": "uma-sim-core/src/render.rs",
+      "base": "3f154753f700fa4a6faccf19faf8bfe320143137",
+      "current": "3f154753f700fa4a6faccf19faf8bfe320143137"
+    },
+    {
+      "path": "Cargo.toml",
+      "base": "d55384b62968b2ada18d45aa4de2053e175579ea",
+      "current": "d55384b62968b2ada18d45aa4de2053e175579ea"
+    },
+    {
+      "path": "Cargo.lock",
+      "base": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "current": "1f99851c45524f129e8544a2d779b3c21594d816"
+    }
+  ],
+  "addedNativeOrData": [
+    {
+      "path": "uma-sim-core/tests/batch_output_failures.rs",
+      "sha": "f42a04bfbfdcee712999085feb29e99d7a3165fd"
+    },
+    {
+      "path": "uma-sim-core/tests/career_library_replacement.rs",
+      "sha": "3d80ea5a58f1d6094b6f2233d3df8def1a8ea66d"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_seed_admission.rs",
+      "sha": "465bf36edb3752021bb09f0f3fd94e9891d7aadc"
+    }
+  ],
+  "changedNativeSource": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "scope": "Separate CLI binary, outside the exercised API entry point; no CLI equivalence claim."
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "current": "83025a33775d3559c54c56c0183badd1c919cc50",
+      "scope": "Same exact checkpoint-save rollback blob already source-reviewed on f27829; no start/action/state/text route change."
+    }
+  ],
+  "limitations": [
+    "The executed API binary remains the exact4dc build cca25eea; this is no fresh-current-native binary claim.",
+    "All catalog/data existing leaves are exact; additions listed exhaustively include only native tests and any explicit new source input."
+  ]
+}

@@ -1,0 +1,61 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> uma-sim-ui@0.1.0 test
+> node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs
+
+✔ empty query exposes every retained entry verbatim, including empty and duplicate entries (1.57562ms)
+✔ matching entries and occurrences are counted separately without crossing entry boundaries (0.45916ms)
+✔ case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters (0.310246ms)
+✔ Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s (0.552871ms)
+✔ Japanese, astral symbols, combining characters, and isolated surrogates preserve original text (0.504528ms)
+✔ all regexp metacharacters, whitespace, and markup-like text remain literal search data (1.8949ms)
+✔ matches are non-overlapping and global matching restarts independently for each entry (0.295645ms)
+✔ 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle (114.14214ms)
+✔ history changes distinguish a strict prefix append from trimming, replacement, and reordering (0.375635ms)
+✔ 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input (17.392416ms)
+✔ preserves the full authored order, blank lines, turn zero and colon action IDs (1.94146ms)
+✔ a policy-only run is valid with no override text (0.165489ms)
+✔ accepts only the exact representable integer boundary and allowed maximum budget (0.243987ms)
+✔ refuses the whole draft for missing colon (0.342705ms)
+✔ refuses the whole draft for missing turn (0.121532ms)
+✔ refuses the whole draft for negative turn (0.083024ms)
+✔ refuses the whole draft for fractional turn (0.122374ms)
+✔ refuses the whole draft for scientific notation (0.14612ms)
+✔ refuses the whole draft for hexadecimal notation (0.172629ms)
+✔ refuses the whole draft for non-number turn (0.25296ms)
+✔ refuses the whole draft for infinite turn (0.089805ms)
+✔ refuses the whole draft for signed integer overflow (0.154702ms)
+✔ refuses the whole draft for integer that would wrap to turn 8 (0.146771ms)
+✔ refuses the whole draft for unsafe integer (0.092339ms)
+✔ refuses the whole draft for empty action (0.049194ms)
+✔ duplicate turns report both source lines rather than picking the first silently (0.206461ms)
+✔ collects actionable line errors without discarding valid intervening input (0.138368ms)
+✔ refuses invalid action budget "" (0.132149ms)
+✔ refuses invalid action budget " " (0.085158ms)
+✔ refuses invalid action budget "0" (0.094582ms)
+✔ refuses invalid action budget "501" (0.041673ms)
+✔ refuses invalid action budget "1.5" (0.038468ms)
+✔ refuses invalid action budget "-1" (0.061572ms)
+✔ refuses invalid action budget "NaN" (0.035724ms)
+✔ refuses invalid action budget "Infinity" (0.100511ms)
+✔ refuses invalid action budget "1e2" (0.044307ms)
+✔ refuses invalid action budget "9007199254740993" (0.039058ms)
+✔ reports both budget and override errors in a single review (0.080631ms)
+✔ preserves literal action text for the existing simulator legality check (0.09288ms)
+✔ an unselected inspector explains how to read a saved trace (5.122113ms)
+✔ loading identifies the requested branch and exposes only a close action (0.55149ms)
+✔ an error identifies its branch, is announced and supports explicit retry (0.409626ms)
+✔ same-turn rejection and later application remain separate recorded steps (4.047968ms)
+✔ a configured but unobserved turn has no invented rejection outcome (0.879523ms)
+✔ a branch with no recorded steps has an explicit empty state (0.431679ms)
+✔ a policy-only timeline offers all steps when the override filter is empty (0.682036ms)
+✔ legacy duplicate configuration is retained without dropping either authored action (3.616018ms)
+✔ source text remains literal instead of becoming active markup (1.906958ms)
+ℹ tests 48
+ℹ suites 0
+ℹ pass 48
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 566.074917

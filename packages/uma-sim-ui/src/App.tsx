@@ -173,7 +173,7 @@ export default function App() {
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               <LogPanel lines={state.textLines} history={cs.log} />
               <RacePanel
-                lines={state.textLines}
+                lines={cs.log}
                 mandatory={mandatory}
                 pendingRaceId={cs.pendingRaceId}
                 busy={state.busy}

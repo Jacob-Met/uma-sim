@@ -1,0 +1,973 @@
+{
+  "source_commit": "4dc00f155d29fb37887524455f0627399191c915",
+  "lock_git_blob": "10a4968db9d4507b9448dd00dba265eed483f419",
+  "lock_sha256": "b306b84fc9fb3285a442d8360a419eba3276d3d4effda266205832331ac1dc99",
+  "method": "Owned node_modules root with read-only package symlinks to matching declared lock versions; primary Playwright 1.62.1 supplied from existing runtime. No install or dependency changes. Package manifest hashes establish reused contents, not a fresh registry integrity verification.",
+  "matched": [
+    {
+      "package": "@babel/code-frame",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/code-frame",
+      "package_manifest_sha256": "f9cccb2e601db93851f10935b4e723c95a730c467f187462eb54b16bb353b036",
+      "locked_integrity": "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw=="
+    },
+    {
+      "package": "@babel/compat-data",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/compat-data",
+      "package_manifest_sha256": "a871a1f7397a91d00f877751ab2da88904ff1dd30c5bb4ab2e5badd9f3adf6d4",
+      "locked_integrity": "sha512-locTkQyKvwIEgBzVrn8693ebc97F2U8ZHjbXwDXJ5Fn2TCpNwTlKcaKLkdHop5c/icOFE7qt7Q9JC5hnKNa6Gg=="
+    },
+    {
+      "package": "@babel/core",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/core",
+      "package_manifest_sha256": "6c2893db41b54a1c03ba68e676aa3ea987db9a5c9b9a3a3aa2e8d0d9a63066c4",
+      "locked_integrity": "sha512-RgHBCvtjbOK2gXSNBNIkNoEc9qoVEtau3hj8gEqKQuL3HZAibKarWFEI3Lfm6EYKkLalOh8eSrj9b+ch9H/VBA=="
+    },
+    {
+      "package": "@babel/generator",
+      "version": "7.29.8",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/generator",
+      "package_manifest_sha256": "9abb52650988f263a4e319eba536f7cdd681ad71b1e1383acb7e04f7825bc409",
+      "locked_integrity": "sha512-gZbepsdh3WDtgZKWL+vTPh71LSBrm/Y4/QDZBVCcYfmeTEEuoOYwlSy+G1StfJg+/Zy550u/3TATbm7qDbbMtg=="
+    },
+    {
+      "package": "@babel/helper-compilation-targets",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helper-compilation-targets",
+      "package_manifest_sha256": "6ac5b42b124c964fb3c0feed98cd2c13aaf5c5827021374db6884bab91f206d2",
+      "locked_integrity": "sha512-wem6WaBj4NaVYVdNhLPPVacES6ZJ+KBBfSkTMD3YZxbP3rm3Di85tJU5ljaUNhaOynt+Aj0xruhYuzQBt8n71g=="
+    },
+    {
+      "package": "@babel/helper-globals",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helper-globals",
+      "package_manifest_sha256": "c06a17222ad81933dbae3768fe59cd6737ebdcfa88b84097f3a8e659e28d2c9f",
+      "locked_integrity": "sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA=="
+    },
+    {
+      "package": "@babel/helper-module-imports",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helper-module-imports",
+      "package_manifest_sha256": "fa2e7c54b6b86e250770f9b2703571bcff0c8166995e01c756539745859fedb7",
+      "locked_integrity": "sha512-ejHwrQQYcm9xnTivShn2IDOlIzInN34AXskvq9QicvCtEzq1Vzclu/tKF8Jq1Cg8JG2GL6/EmjgsCT7lXepE3g=="
+    },
+    {
+      "package": "@babel/helper-module-transforms",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helper-module-transforms",
+      "package_manifest_sha256": "4f5010bdec7a80d93d84a1ecff8fbdd0a9a865f1bd22ceb5b0215a07255de3b3",
+      "locked_integrity": "sha512-UPUVSyXbOh627KiCIGQSgwWzGeBKLkaJ9PJEdrngIwMSzxLR4jS4+f1f1jb7VzBbg8nFLaYotvVPFCTqdrmTAg=="
+    },
+    {
+      "package": "@babel/helper-plugin-utils",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helper-plugin-utils",
+      "package_manifest_sha256": "2ce650d5c6bd8c1d1111ada7f39de65c48c227c25af74031493a377eb9fc3691",
+      "locked_integrity": "sha512-G7sHYigPY17oO5SYWnfD/0MTBwVR781S/JI643e/JhUYgVgWE/61SoW3NH9KWUKyKq5LVh3npif99Wkt6j86Jw=="
+    },
+    {
+      "package": "@babel/helper-string-parser",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helper-string-parser",
+      "package_manifest_sha256": "ecbd1aaffa9ad000d3bc5a526067b89244cb3ec64c738fbae8b64a9e805f401b",
+      "locked_integrity": "sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw=="
+    },
+    {
+      "package": "@babel/helper-validator-identifier",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helper-validator-identifier",
+      "package_manifest_sha256": "1ad6aeced8b186ac259da45fea50ab9d65d3d958f6458c80e3c8013649d1b12d",
+      "locked_integrity": "sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg=="
+    },
+    {
+      "package": "@babel/helper-validator-option",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helper-validator-option",
+      "package_manifest_sha256": "b2d7eca451e536f18f4757a54be48df604385ad978508e32ce8f2edb4973f257",
+      "locked_integrity": "sha512-N9ZErrD+yW5geCDtBqnOoxmR8+tNKiGuxKlDpuJxfsqpa2dFcexaziGAE/qoHLiDDreVNMupxGmSoNlyvsA3gw=="
+    },
+    {
+      "package": "@babel/helpers",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/helpers",
+      "package_manifest_sha256": "df7df113698c9c45f0bb08c2e4fe097131dabf58dbeb23c676eb355f782c4aa3",
+      "locked_integrity": "sha512-1k2lAGRMfHTcwuNYcCNUmaUffmQv8KWMfh2iJUUeRlwlwH4FdNG7mfPI10NPfLHJFThE4Tyr4mv7kTNZOiPuBg=="
+    },
+    {
+      "package": "@babel/parser",
+      "version": "7.29.8",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/parser",
+      "package_manifest_sha256": "6d6a65b879cd7cd249a4367c0b57cce00e78c728de45056ac2a5ca1d1f528d1a",
+      "locked_integrity": "sha512-E8lTAYNB1KW+FH+VGJuZM1ioAx2E6oVlvQFRrf5P8ZZmsiJXYAD9vTFV7yyEURNzgh1dFqMZuO6tUwcARbqFCA=="
+    },
+    {
+      "package": "@babel/plugin-transform-react-jsx-self",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/plugin-transform-react-jsx-self",
+      "package_manifest_sha256": "f0924b0a894912d8a0a4d3d8e5d58180955d64816645a1f23d86efdf76531737",
+      "locked_integrity": "sha512-TL0hMc9xzy86VD31nUiwzd5otRAcyEPcsegCxolO0PvcXuH1v0kECe/UIznYFihpkvU5wg/jk4v0TTEFfm53fw=="
+    },
+    {
+      "package": "@babel/plugin-transform-react-jsx-source",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/plugin-transform-react-jsx-source",
+      "package_manifest_sha256": "30c834a7aa33625c91ced60574ee63683be157a0d7c5dc3df627b290dcb0f215",
+      "locked_integrity": "sha512-06IyK09H3wi4cGbhDBwp5gUGo0IKtnYa8tyTiephirPCK6fbobVGiXMMI5zLQ4aKEYP3wZ3ArU44o+8KMrSG/Q=="
+    },
+    {
+      "package": "@babel/template",
+      "version": "7.29.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/template",
+      "package_manifest_sha256": "82b96cbb7f576768c6298b816600c0cfb2d8487c963050406d2bd895e3724145",
+      "locked_integrity": "sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg=="
+    },
+    {
+      "package": "@babel/traverse",
+      "version": "7.29.8",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/traverse",
+      "package_manifest_sha256": "69e31c6d56543d4e7c7f0b8c3eed161ce2ffdbe4b2c2b4aef6524e3b77404517",
+      "locked_integrity": "sha512-I5z7H3bf/41ktsNVLtpN0wAa336HkqIHQ5BuPLEhTkt1jVSyZpeNKIzTgEWmlxjdg81R0IgUCcaE+Ok3NvrfZg=="
+    },
+    {
+      "package": "@babel/types",
+      "version": "7.29.8",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@babel/types",
+      "package_manifest_sha256": "f32460a35cc4649d81f10d4bc6dcfa1ade7a47f95df5db4bb4483f34d24b476e",
+      "locked_integrity": "sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg=="
+    },
+    {
+      "package": "@esbuild/linux-x64",
+      "version": "0.21.5",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@esbuild/linux-x64",
+      "package_manifest_sha256": "cfcc162c440e93cc43afbf1edc478f4fc286c6ad16b8b850f3adc3e045a27165",
+      "locked_integrity": "sha512-1rYdTpyv03iycF1+BhzrzQJCdOuAOtaqHTWJZCWvijKD2N5Xu0TtVC8/+1faWqcP9iBCWOmjmhoH94dH82BxPQ=="
+    },
+    {
+      "package": "@jridgewell/gen-mapping",
+      "version": "0.3.13",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@jridgewell/gen-mapping",
+      "package_manifest_sha256": "6264fca78382a9782f8e8d5e653e7bf43dc8aa6d469f3322a82e531093896a01",
+      "locked_integrity": "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA=="
+    },
+    {
+      "package": "@jridgewell/remapping",
+      "version": "2.3.5",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@jridgewell/remapping",
+      "package_manifest_sha256": "cc535fb0665977104146fb8fe6c81ff63d2c9ae7f7b783d86e7f7db064cde57a",
+      "locked_integrity": "sha512-LI9u/+laYG4Ds1TDKSJW2YPrIlcVYOwi2fUC6xB43lueCjgxV4lffOCZCtYFiH6TNOX+tQKXx97T4IKHbhyHEQ=="
+    },
+    {
+      "package": "@jridgewell/resolve-uri",
+      "version": "3.1.2",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@jridgewell/resolve-uri",
+      "package_manifest_sha256": "0793e722ffe08f3b4f1862c4dc96d920a62d6811a3648b4feb02f06c63227e8b",
+      "locked_integrity": "sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw=="
+    },
+    {
+      "package": "@jridgewell/sourcemap-codec",
+      "version": "1.6.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@jridgewell/sourcemap-codec",
+      "package_manifest_sha256": "ac7afd57294dbee1f891ca797e19e405340f2cd6031808e6d3845fec60a5b43f",
+      "locked_integrity": "sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw=="
+    },
+    {
+      "package": "@jridgewell/trace-mapping",
+      "version": "0.3.31",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@jridgewell/trace-mapping",
+      "package_manifest_sha256": "7f5eacc669d36013f9b792ab15721a97d48b26b093100122aa6c8691ebe656be",
+      "locked_integrity": "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="
+    },
+    {
+      "package": "@napi-rs/lzma-linux-x64-gnu",
+      "version": "1.5.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@napi-rs/lzma-linux-x64-gnu",
+      "package_manifest_sha256": "578e2a50ae69cd627c2953f8fa677efbf89f3087efeafff2db65aa31b81dc136",
+      "locked_integrity": "sha512-oTXEIha4SsuXdTA4Iyskj0kpdx2yVXdhd75c2v3xGrHFfVMsbhTPZU/nMPL4sWKo4pBHm3aucLaqGlF696dTyQ=="
+    },
+    {
+      "package": "@rolldown/pluginutils",
+      "version": "1.0.0-beta.27",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@rolldown/pluginutils",
+      "package_manifest_sha256": "23c10679297855f4f4269d28bee817c61878d09d983e91919b04c309b9db5b6a",
+      "locked_integrity": "sha512-+d0F4MKMCbeVUJwG96uQ4SgAznZNSq93I3V+9NHA4OpvqG8mRCpGdKmK8l/dl02h2CCDHwW2FqilnTyDcAnqjA=="
+    },
+    {
+      "package": "@rollup/rollup-linux-x64-gnu",
+      "version": "4.63.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@rollup/rollup-linux-x64-gnu",
+      "package_manifest_sha256": "2f3608a34d871e248a6c2cdf03b7c254b79417a18c3acac3b769abf3cf8f3758",
+      "locked_integrity": "sha512-gfI5T24WLLuFfSKw7Go/zDXjAAV0fny0swTaDv+WjK7vqcw4cRhFfdsyKL1n+ukI+ooBxn3bVQnyrn06WpI50w=="
+    },
+    {
+      "package": "@rollup/rollup-linux-x64-musl",
+      "version": "4.63.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@rollup/rollup-linux-x64-musl",
+      "package_manifest_sha256": "16cf955fa1579e8d69b31e0ba34d7ea23237ae1584f5123e8b5b55ed620e6433",
+      "locked_integrity": "sha512-4h6XqthmB4Hspji84wvgk+ElodTsGj+dbZqHJHHtKxj4mYq0ANSEEPX9ys3moJueqsRjwpaJYH7874Itwnj2ow=="
+    },
+    {
+      "package": "@types/babel__core",
+      "version": "7.20.5",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@types/babel__core",
+      "package_manifest_sha256": "0787d557e5f4f1dcd57b43e2ec1a6cb955e768801bab5cad3c5c36e2d13eca0b",
+      "locked_integrity": "sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA=="
+    },
+    {
+      "package": "@types/babel__generator",
+      "version": "7.27.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@types/babel__generator",
+      "package_manifest_sha256": "40436b147f93a5e56e69c5c0473e805ff17474c763875bdda598a977a6b824f4",
+      "locked_integrity": "sha512-ufFd2Xi92OAVPYsy+P4n7/U7e68fex0+Ee8gSG9KX7eo084CWiQ4sdxktvdl0bOPupXtVJPY19zk6EwWqUQ8lg=="
+    },
+    {
+      "package": "@types/babel__template",
+      "version": "7.4.4",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@types/babel__template",
+      "package_manifest_sha256": "51293405049986b206d68e5b08181710934be70a05ecbd5384adb4eabde2ab82",
+      "locked_integrity": "sha512-h/NUaSyG5EyxBIp8YRxo4RMe2/qQgvyowRwVMzhYhBCONbW8PUsg4lkFMrhgZhUe5z3L3MiLDuvyJ/CaPa2A8A=="
+    },
+    {
+      "package": "@types/babel__traverse",
+      "version": "7.28.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@types/babel__traverse",
+      "package_manifest_sha256": "44eeb69b60d092b2b6294defb488b61f754b36cf5dc4057af127a32a311c774d",
+      "locked_integrity": "sha512-8PvcXf70gTDZBgt9ptxJ8elBeBjcLOAcOtoO/mPJjtji1+CdGbHgm77om1GrsPxsiE+uXIpNSK64UYaIwQXd4Q=="
+    },
+    {
+      "package": "@types/estree",
+      "version": "1.0.9",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@types/estree",
+      "package_manifest_sha256": "3537a6a503f57901111d8a29df81962887653deb199b9a795c7fb50bbfdd1bdc",
+      "locked_integrity": "sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg=="
+    },
+    {
+      "package": "@types/prop-types",
+      "version": "15.7.15",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@types/prop-types",
+      "package_manifest_sha256": "ec2aa770e306720d83d14e146d2fa59df6bd2a379a206f9a492e4d5f87e12179",
+      "locked_integrity": "sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw=="
+    },
+    {
+      "package": "@types/react",
+      "version": "18.3.31",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@types/react",
+      "package_manifest_sha256": "7b5d39d90592ab340d44fecbf8d03afc0a0a197f3217259c3bb9ac881ff67a06",
+      "locked_integrity": "sha512-vfEqpXTvwT91yhmwdfouStN2hSKwTvyRs8qpLfADyrq/kxDw0hZM7Wk9Ug1FELj8hIby+S/+kQCSRFF32nv2Qw=="
+    },
+    {
+      "package": "@types/react-dom",
+      "version": "18.3.7",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@types/react-dom",
+      "package_manifest_sha256": "7e3ee716354deebd531059c294716eed6ab402bdf37721b5b011ea093f978f70",
+      "locked_integrity": "sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ=="
+    },
+    {
+      "package": "@vitejs/plugin-react",
+      "version": "4.7.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/@vitejs/plugin-react",
+      "package_manifest_sha256": "d608755568d9d654c34e9e2da06659df9122fa89d2604ee09cdeda457a20c035",
+      "locked_integrity": "sha512-gUu9hwfWvvEDBBmgtAowQCojwZmJ5mcLn3aufeCsitijs3+f2NsrPtlAWIR6OPiqljl96GVCUbLe0HyqIpVaoA=="
+    },
+    {
+      "package": "baseline-browser-mapping",
+      "version": "2.11.20",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/baseline-browser-mapping",
+      "package_manifest_sha256": "be0221a798bff3ba651036024952143cf7debc610fab2f2f77d8fb421fc87cb3",
+      "locked_integrity": "sha512-H0ulySigv6icDJ1F7SjtdCD6PrhTpdYCmP0CactWy1+ekh0AFd0o1Wn5T8b+hnTmdBx19u9yhL6wvCylXMY7zw=="
+    },
+    {
+      "package": "browserslist",
+      "version": "4.28.8",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/browserslist",
+      "package_manifest_sha256": "0c005ed8979c6befc03211f5e1d7ac605c685032cb7a441d463c5f43c4801a1f",
+      "locked_integrity": "sha512-V2NpofLblG64mfOtSgDhOJESZEGogzDMBv/q+W6oc4LXWP/q75eOXoOaaOu1EOadB9U4Bwx/e0yzbvwKH8zalA=="
+    },
+    {
+      "package": "caniuse-lite",
+      "version": "1.0.30001810",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/caniuse-lite",
+      "package_manifest_sha256": "85120c8ff297e58a955aa37713e6a843a05adf5e3a11dd37cd1aa696500feda5",
+      "locked_integrity": "sha512-TITQPUkaz+aVk5GL6NhOdwk1aEaNTSDPsGFWrTuhKGtjTF70jL/Oht2W4c6rXUe5fu7Ie19VIahAXHIIiWWNeg=="
+    },
+    {
+      "package": "convert-source-map",
+      "version": "2.0.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/convert-source-map",
+      "package_manifest_sha256": "e6bf802e6ee220d66321808ce3d619fbb85ff4d5729ea4f649bd65dfe9ee8956",
+      "locked_integrity": "sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg=="
+    },
+    {
+      "package": "csstype",
+      "version": "3.2.3",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/csstype",
+      "package_manifest_sha256": "c818b74a9bc1556488b7ec2a65399224738f6619228f9a6491c5c02ca91f849e",
+      "locked_integrity": "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="
+    },
+    {
+      "package": "debug",
+      "version": "4.4.3",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/debug",
+      "package_manifest_sha256": "ea8e33d63fe5f3a4c36609b6c3df8e2ef1f8b8ba2fc3a2e1e53cb27291f384af",
+      "locked_integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA=="
+    },
+    {
+      "package": "electron-to-chromium",
+      "version": "1.5.420",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/electron-to-chromium",
+      "package_manifest_sha256": "317aea5eba3385cdc0872376e095b9fd6cda177722b9880e60b2d95eb2320ef9",
+      "locked_integrity": "sha512-2yD6XreGusOfNV+dUcvipJEXc3n/n7fgr7996aszTG+YY5E4mqM4tOq/3uhP129cazL9YHbVWSpc79ePotWtPA=="
+    },
+    {
+      "package": "esbuild",
+      "version": "0.21.5",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/esbuild",
+      "package_manifest_sha256": "0f35e0d63bd60a43ed85879604a40f7e9688b321904cf28a95be5b1bc629559c",
+      "locked_integrity": "sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw=="
+    },
+    {
+      "package": "escalade",
+      "version": "3.2.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/escalade",
+      "package_manifest_sha256": "acd22b264ecbea162e320a360dab0ad0f3e5438fa4382288df844fa08b484e73",
+      "locked_integrity": "sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA=="
+    },
+    {
+      "package": "gensync",
+      "version": "1.0.0-beta.2",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/gensync",
+      "package_manifest_sha256": "80cddca71baa1ba0cf44f65585e1c1ed7576abdb759ed391007925c961ca6334",
+      "locked_integrity": "sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg=="
+    },
+    {
+      "package": "js-tokens",
+      "version": "4.0.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/js-tokens",
+      "package_manifest_sha256": "47345931827b3e26db9fe690abb81f856a0d040cbca8af1e69711a64cd58ce0d",
+      "locked_integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
+    },
+    {
+      "package": "jsesc",
+      "version": "3.1.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/jsesc",
+      "package_manifest_sha256": "6127ab2ccfbf576671dcfedcf2a8d97c9bbb3e5e4cff1274b3210b86a97a287c",
+      "locked_integrity": "sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA=="
+    },
+    {
+      "package": "json5",
+      "version": "2.2.3",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/json5",
+      "package_manifest_sha256": "1927c4592e3811cf9b8c86e568df1c41a373b628b4b322f88872395ef87e2ba5",
+      "locked_integrity": "sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg=="
+    },
+    {
+      "package": "loose-envify",
+      "version": "1.4.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/loose-envify",
+      "package_manifest_sha256": "8c2e27dae366396ced36fe0f7c6d35d71a1440fd8e82df5f2005a5297888a0d4",
+      "locked_integrity": "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q=="
+    },
+    {
+      "package": "lru-cache",
+      "version": "5.1.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/lru-cache",
+      "package_manifest_sha256": "f5a3379f52a453412f5d8551bf11fa0bef4316cc88645c9d190a017e1c58a4c2",
+      "locked_integrity": "sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w=="
+    },
+    {
+      "package": "ms",
+      "version": "2.1.3",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/ms",
+      "package_manifest_sha256": "1a6b4d9739790c0b94ab96c8cc0507e281c164c311ff4fbf5e57fb8d26290b40",
+      "locked_integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
+    },
+    {
+      "package": "nanoid",
+      "version": "3.3.18",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/nanoid",
+      "package_manifest_sha256": "18673eb0d7ed43dd871d59dc22a5670303f5d4eb9b17783b1f698f5840ce1fff",
+      "locked_integrity": "sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w=="
+    },
+    {
+      "package": "node-releases",
+      "version": "2.0.54",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/node-releases",
+      "package_manifest_sha256": "6fba3ba5de88b32be9e82e8f1392ff81f5ffcc0fe6c8dfd371dd64de8a85c0fd",
+      "locked_integrity": "sha512-YHs7BmmcsdAI5Ozuf8JZo6PT0mv2GIWC9vMfvUC3dp65M8hn7Ux8CPL+2oBI7juNuj9d0ndhTcznq2ODBps9cQ=="
+    },
+    {
+      "package": "picocolors",
+      "version": "1.1.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/picocolors",
+      "package_manifest_sha256": "ef2ac226c4811d312e12c64214c453878653e834482125ae475f27cea60de737",
+      "locked_integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="
+    },
+    {
+      "package": "playwright",
+      "version": "1.62.1",
+      "source": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright",
+      "package_manifest_sha256": "ca170ec143a88ed3043ac953eb3b2377b2b97304104f4e1e23316684ce2c35af",
+      "locked_integrity": "sha512-0M+L3LAD8/nm554LOla9Ayx0j0tmFZ0FBcoQ7F1VuVHpM/XpiC8RcDzBQB8W5+hA8L22THxELzeF+2WcUzvcLg=="
+    },
+    {
+      "package": "playwright-core",
+      "version": "1.62.1",
+      "source": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core",
+      "package_manifest_sha256": "07c47543631fef9508760365dee9fbe958c562093ec8d122543949ed231f233f",
+      "locked_integrity": "sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw=="
+    },
+    {
+      "package": "postcss",
+      "version": "8.5.26",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/postcss",
+      "package_manifest_sha256": "e0f23518d0e8fc0570ac68438eff7ecc7554774de3194af6f54f502e33f0c25b",
+      "locked_integrity": "sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ=="
+    },
+    {
+      "package": "react",
+      "version": "18.3.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/react",
+      "package_manifest_sha256": "d4e68a5c96babb20cad1daafea8b78822eae45b341552cf5418d06a5304fa64c",
+      "locked_integrity": "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ=="
+    },
+    {
+      "package": "react-dom",
+      "version": "18.3.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/react-dom",
+      "package_manifest_sha256": "d2f29e31bd48b833e48cd7bbf41f192e8ee4ff8da249fdbe10d4ac4114b8b12e",
+      "locked_integrity": "sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw=="
+    },
+    {
+      "package": "react-refresh",
+      "version": "0.17.0",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/react-refresh",
+      "package_manifest_sha256": "c042bac77d19e7de2c7afca47f6d833eba942da2501138b00e0ec74865f44001",
+      "locked_integrity": "sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ=="
+    },
+    {
+      "package": "rollup",
+      "version": "4.63.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/rollup",
+      "package_manifest_sha256": "21e36e65d4d5a80e4c9a271d4e1fc6cd1b5842eca46babba3e6fdf4ece5429b9",
+      "locked_integrity": "sha512-3Df9jsstwhccuEfmAMi9l8XUh/GOkVObmFTU7CCVBysEbcOZLl84jCtaAZMcPiMz2EGKsATzQcU+Xr3n/wU6cg=="
+    },
+    {
+      "package": "scheduler",
+      "version": "0.23.2",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/scheduler",
+      "package_manifest_sha256": "0893643a24576d727174e639586b8833a53f2a7b4a2199a719b9cfcebe9bae88",
+      "locked_integrity": "sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ=="
+    },
+    {
+      "package": "semver",
+      "version": "6.3.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/semver",
+      "package_manifest_sha256": "aa906c5bf8a2fa68683cae07d18553ae2538ed0d5a567911980b2ef25ee8b9ba",
+      "locked_integrity": "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="
+    },
+    {
+      "package": "source-map-js",
+      "version": "1.2.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/source-map-js",
+      "package_manifest_sha256": "58f8e94a461a5e461e0cb2bb2be681cbd89b9181989fd26fceb858e67711469a",
+      "locked_integrity": "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="
+    },
+    {
+      "package": "typescript",
+      "version": "5.9.3",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/typescript",
+      "package_manifest_sha256": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6",
+      "locked_integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="
+    },
+    {
+      "package": "update-browserslist-db",
+      "version": "1.3.2",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/update-browserslist-db",
+      "package_manifest_sha256": "62a17bfaf441cc0dd3e094e9b8b2ace0713ebee0eb16e22dc0621ba14fd73687",
+      "locked_integrity": "sha512-UQ+MSxlhRm1bzjhU+DcuXfjFO1FzNtqhK5+9Yvlp90ItDLk5vT932A0rFu619nf7RVS+Y/VeaUW1jaRDqZ8VJw=="
+    },
+    {
+      "package": "vite",
+      "version": "5.4.21",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/vite",
+      "package_manifest_sha256": "e9802045cdc313b6da55ec2e2dd79312074645816089d64f6021f567c10c0a03",
+      "locked_integrity": "sha512-o5a9xKjbtuhY6Bi5S3+HvbRERmouabWbyUcpXXUA1u+GNUKoROi9byOJ8M0nHbHYHkYICiMlqxkg1KkYmm25Sw=="
+    },
+    {
+      "package": "yallist",
+      "version": "3.1.1",
+      "source": "/workspace/scratch/acd057031fb2/agents/coordination/uma-current/packages/uma-sim-ui/node_modules/yallist",
+      "package_manifest_sha256": "27699a6415a43f128c0e8ddcd5bf6e265f6cf3a581a9d959c11b977244fadc34",
+      "locked_integrity": "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="
+    }
+  ],
+  "missing_optional": [
+    {
+      "package": "@esbuild/aix-ppc64",
+      "optional": true,
+      "os": [
+        "aix"
+      ],
+      "cpu": [
+        "ppc64"
+      ]
+    },
+    {
+      "package": "@esbuild/android-arm",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "cpu": [
+        "arm"
+      ]
+    },
+    {
+      "package": "@esbuild/android-arm64",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@esbuild/android-x64",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@esbuild/darwin-arm64",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@esbuild/darwin-x64",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@esbuild/freebsd-arm64",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@esbuild/freebsd-x64",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@esbuild/linux-arm",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "arm"
+      ]
+    },
+    {
+      "package": "@esbuild/linux-arm64",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@esbuild/linux-ia32",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "ia32"
+      ]
+    },
+    {
+      "package": "@esbuild/linux-loong64",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "loong64"
+      ]
+    },
+    {
+      "package": "@esbuild/linux-mips64el",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "mips64el"
+      ]
+    },
+    {
+      "package": "@esbuild/linux-ppc64",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "ppc64"
+      ]
+    },
+    {
+      "package": "@esbuild/linux-riscv64",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "riscv64"
+      ]
+    },
+    {
+      "package": "@esbuild/linux-s390x",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "s390x"
+      ]
+    },
+    {
+      "package": "@esbuild/netbsd-x64",
+      "optional": true,
+      "os": [
+        "netbsd"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@esbuild/openbsd-x64",
+      "optional": true,
+      "os": [
+        "openbsd"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@esbuild/sunos-x64",
+      "optional": true,
+      "os": [
+        "sunos"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@esbuild/win32-arm64",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@esbuild/win32-ia32",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "ia32"
+      ]
+    },
+    {
+      "package": "@esbuild/win32-x64",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-android-arm-eabi",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "cpu": [
+        "arm"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-android-arm64",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-darwin-arm64",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-darwin-x64",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-freebsd-arm64",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-freebsd-x64",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-arm-gnueabihf",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "arm"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-arm-musleabihf",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "arm"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-arm64-gnu",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-arm64-musl",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-loong64-gnu",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "loong64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-loong64-musl",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "loong64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-ppc64-gnu",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "ppc64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-ppc64-musl",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "ppc64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-riscv64-gnu",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "riscv64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-riscv64-musl",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "riscv64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-linux-s390x-gnu",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "s390x"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-openbsd-x64",
+      "optional": true,
+      "os": [
+        "openbsd"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-openharmony-arm64",
+      "optional": true,
+      "os": [
+        "openharmony"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-win32-arm64-msvc",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "arm64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-win32-ia32-msvc",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "ia32"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-win32-x64-gnu",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "@rollup/rollup-win32-x64-msvc",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    {
+      "package": "fsevents",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "cpu": null
+    },
+    {
+      "package": "playwright/node_modules/fsevents",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "cpu": null
+    }
+  ]
+}

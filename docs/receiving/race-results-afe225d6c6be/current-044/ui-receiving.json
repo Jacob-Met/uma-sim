@@ -1,0 +1,52 @@
+{
+  "base": "0442091d55c0f3901f5561882ecc1ff177fcc332",
+  "cacheBefore": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+  "cacheGenerated": "1eb3b7ca2205bc503b413daf3ba234138e52973a33bf8300b51c4ebb62079862",
+  "originalRestored": true,
+  "passed": true,
+  "results": [
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exitCode": 0,
+      "logSha256": "ef15632b1861498c3f5daf742fab610af59cc58c014fbb74b0be937a476db63a",
+      "name": "ui-tests"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "logSha256": "b30d8076fcced429fa96bb273249552af29b242ffd106bcf346172b082c4fd90",
+      "name": "ui-typecheck"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "logSha256": "ac7147f56069144f45ce6f1deb7cb199f3f1cd11271492f5db310e261aec0ea1",
+      "name": "ui-build"
+    }
+  ],
+  "sourceHead": "6fea74452fb3bf9a0bd490ccebdc28e68276a38e",
+  "testTail": [
+    "\u2714 unusual race IDs and unrecognized source text are rendered literally (1.453836ms)",
+    "\u2139 tests 73",
+    "\u2139 suites 0",
+    "\u2139 pass 73",
+    "\u2139 fail 0",
+    "\u2139 cancelled 0",
+    "\u2139 skipped 0",
+    "\u2139 todo 0",
+    "\u2139 duration_ms 821.086386",
+    "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+  ],
+  "tree": "69c09a577c40b59658de229636f496e63025d3bf"
+}
