@@ -35,32 +35,161 @@ function negotiateProtocolVersion(requested) {
 // -32603 stays reserved for genuine internal/backend failures.
 class InvalidParamsError extends Error {}
 
+class ApiError extends Error {
+  constructor(status, response) {
+    super(`Simulator HTTP ${status}: ${typeof response === "string" ? response : JSON.stringify(response)}`);
+    this.status = status;
+    this.response = response;
+  }
+}
+
 const RESOURCES = [
   { uri: "uma-sim://run/state", name: "Current run state", description: "Full career snapshot JSON", mimeType: "application/json" },
   { uri: "uma-sim://run/text", name: "Event log text", description: "Rendered career text", mimeType: "text/plain" },
   { uri: "uma-sim://run/telemetry", name: "Turn telemetry", description: "Telemetry JSON array", mimeType: "application/json" },
 ];
 
+const STRING = { type: "string" };
+const NONEMPTY = { type: "string", minLength: 1 };
+const POLICY = { type: "string", enum: ["bot", "default", "external"] };
+const NAMED_SESSION = {
+  ...NONEMPTY,
+  description: "Nonempty named career id. Omit to use the server's active session.",
+};
+
+function tool(name, description, properties = {}, required = []) {
+  return {
+    name,
+    description,
+    inputSchema: { type: "object", properties, required, additionalProperties: false },
+  };
+}
+
 const TOOLS = [
-  { name: "sim_start", description: "Start career run", inputSchema: { type: "object", properties: { seed: { type: "number" }, scenario: { type: "string" }, trainee: { type: "string" }, speed: { type: "number" }, deckSupports: { type: "string" }, legacyFactors: { type: "string" } } } },
-  { name: "sim_state", description: "Get run state JSON", inputSchema: { type: "object", properties: {} } },
-  { name: "sim_text", description: "Get rendered text", inputSchema: { type: "object", properties: {} } },
-  { name: "sim_choices", description: "List available actions", inputSchema: { type: "object", properties: {} } },
-  { name: "sim_act", description: "Perform action", inputSchema: { type: "object", properties: { action: { type: "string" } }, required: ["action"] } },
-  { name: "sim_auto", description: "One bot-policy step", inputSchema: { type: "object", properties: { policy: { type: "string" } } } },
-  { name: "sim_fast_forward", description: "Play to completion", inputSchema: { type: "object", properties: { multiplier: { type: "number" } } } },
-  { name: "sim_export_telemetry", description: "Export turn telemetry JSON", inputSchema: { type: "object", properties: {} } },
-  { name: "sim_load_content_pack", description: "Load events from content_packs/*.json", inputSchema: { type: "object", properties: { path: { type: "string" } }, required: ["path"] } },
-  { name: "sim_deck_place", description: "Reposition support card onto facility", inputSchema: { type: "object", properties: { supportId: { type: "string" }, facility: { type: "string" } }, required: ["supportId", "facility"] } },
+  tool("sim_start", "Start or replace a career and make it active. Omitted session starts the default main career.", {
+    seed: { type: "integer", minimum: Number.MIN_SAFE_INTEGER, maximum: Number.MAX_SAFE_INTEGER },
+    scenario: STRING, trainee: STRING,
+    speed: { type: "integer", minimum: 1, maximum: 100 },
+    deckSupports: STRING, legacyFactors: STRING, session: STRING, label: STRING,
+    policy: POLICY, raceModel: { type: "string", enum: ["physics", "stub"] },
+  }),
+  tool("sim_state", "Get run state JSON", { session: NAMED_SESSION }),
+  tool("sim_text", "Get rendered text", { session: NAMED_SESSION }),
+  tool("sim_choices", "List available actions", { session: NAMED_SESSION }),
+  tool("sim_act", "Perform an action in the target career", { action: NONEMPTY, session: NAMED_SESSION }, ["action"]),
+  tool("sim_auto", "One policy step in the target career", { policy: POLICY, session: NAMED_SESSION }),
+  tool("sim_fast_forward", "Play the target career to completion", {
+    multiplier: { type: "integer", minimum: 1, maximum: 100 }, policy: POLICY, session: NAMED_SESSION,
+  }),
+  tool("sim_export_telemetry", "Export target career turn telemetry JSON", { session: NAMED_SESSION }),
+  tool("sim_load_content_pack", "Load events from content_packs/*.json into the shared catalog for every session", { path: NONEMPTY }, ["path"]),
+  tool("sim_deck_place", "Reposition a support card onto a facility in the target career", {
+    supportId: NONEMPTY, facility: NONEMPTY, session: NAMED_SESSION,
+  }, ["supportId", "facility"]),
+  tool("sim_sessions", "List live careers and the server's active session id"),
+  tool("sim_session_fork", "Fork an independent live career and make it active. Use a checkpoint or a source session, never both; omit both for the active career. Source session may be empty for main.", {
+    checkpoint: NONEMPTY, session: STRING, id: NONEMPTY, label: STRING,
+  }),
+  tool("sim_session_activate", "Make an existing live career active; an empty session selects main", { session: STRING }, ["session"]),
+  tool("sim_session_close", "Discard a named live career. Save a checkpoint first to retain its progress.", { session: NONEMPTY }, ["session"]),
+  tool("sim_library_list", "List durable named career checkpoints and their compatibility fingerprints"),
+  tool("sim_library_save", "Save a durable checkpoint of the target career. Existing names are preserved unless overwrite is explicitly true.", {
+    name: NONEMPTY, label: STRING, note: STRING, overwrite: { type: "boolean" }, session: NAMED_SESSION,
+  }),
+  tool("sim_library_load", "Restore a checkpoint into a target career and make it active, replacing that career's current progress", {
+    name: NONEMPTY, session: NAMED_SESSION, label: STRING,
+  }, ["name"]),
+  tool("sim_library_delete", "Delete a durable checkpoint by name", { name: NONEMPTY }, ["name"]),
+  tool("sim_library_import", "Validate and import an exported snapshot object as a durable checkpoint. Existing names are preserved unless overwrite is explicitly true.", {
+    snapshot: { type: "object" }, name: NONEMPTY, overwrite: { type: "boolean" },
+  }, ["snapshot"]),
+  tool("sim_library_export", "Read a checkpoint's raw snapshot JSON for a portable backup or later import", { name: NONEMPTY }, ["name"]),
+  tool("sim_lab_branch", "Run an independent experiment from a checkpoint or session:<id> and retain its decisions and outcome. Source careers are unchanged. Different actions can diverge the RNG stream; one comparison does not establish policy superiority.", {
+    checkpoint: NONEMPTY, name: NONEMPTY,
+    policy: { type: "string", enum: ["bot", "default"] },
+    maxActions: { type: "integer", minimum: 1, maximum: 500 },
+    overrides: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          turn: { type: "integer", minimum: -2147483648, maximum: 2147483647 },
+          actionId: NONEMPTY,
+        },
+        required: ["turn", "actionId"],
+        additionalProperties: false,
+      },
+    },
+  }, ["checkpoint"]),
+  tool("sim_lab_branches", "List retained branch experiments and outcome summaries"),
+  tool("sim_lab_branch_get", "Read a retained branch's complete decision and outcome trace", { id: NONEMPTY }, ["id"]),
+  tool("sim_lab_branch_delete", "Delete one retained branch experiment by id", { id: NONEMPTY }, ["id"]),
+  tool("sim_lab_compare", "Compare two retained branch ids, including first divergence and outcome differences", { a: NONEMPTY, b: NONEMPTY }, ["a", "b"]),
+  tool("sim_lab_report", "Read a complete branch comparison report as Markdown (default) or JSON", {
+    a: NONEMPTY, b: NONEMPTY, format: { type: "string", enum: ["markdown", "json"] },
+  }, ["a", "b"]),
 ];
 
-async function api(method, path, body) {
+// Validate the schema features used above before dispatch. In particular,
+// REST intentionally coerces some fields and filters malformed overrides;
+// an MCP caller must not silently run a different experiment after a typo.
+function validate(value, schema, path = "arguments") {
+  const type = schema.type;
+  const validType = type === "object" ? value !== null && typeof value === "object" && !Array.isArray(value)
+    : type === "array" ? Array.isArray(value)
+    : type === "integer" ? Number.isSafeInteger(value)
+    : typeof value === type;
+  if (!validType) throw new InvalidParamsError(`${path} must be ${type}`);
+  if (schema.enum && !schema.enum.includes(value)) {
+    throw new InvalidParamsError(`${path} must be one of: ${schema.enum.join(", ")}`);
+  }
+  if (schema.minLength !== undefined && value.length < schema.minLength) {
+    throw new InvalidParamsError(`${path} must not be empty`);
+  }
+  if ((schema.minimum !== undefined && value < schema.minimum) || (schema.maximum !== undefined && value > schema.maximum)) {
+    throw new InvalidParamsError(`${path} must be between ${schema.minimum} and ${schema.maximum}`);
+  }
+  if (type === "object") {
+    for (const key of schema.required ?? []) {
+      if (!Object.hasOwn(value, key)) throw new InvalidParamsError(`Missing required argument: ${path}.${key}`);
+    }
+    for (const [key, child] of Object.entries(value)) {
+      if (Object.hasOwn(schema.properties ?? {}, key)) {
+        validate(child, schema.properties[key], `${path}.${key}`);
+      } else if (schema.additionalProperties === false) {
+        throw new InvalidParamsError(`Unknown argument: ${path}.${key}`);
+      }
+    }
+  } else if (type === "array") {
+    value.forEach((item, index) => validate(item, schema.items, `${path}[${index}]`));
+  }
+}
+
+function queryPath(path, params) {
+  const query = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined) query.set(key, value);
+  }
+  return query.size ? `${path}?${query}` : path;
+}
+
+async function api(method, path, body, format = "json") {
   const res = await fetch(`${API}${path}`, {
     method,
     headers: body ? { "Content-Type": "application/json" } : undefined,
     body: body ? JSON.stringify(body) : undefined,
   });
-  return res.json();
+  const text = await res.text();
+  let data = text;
+  if (format === "json" || !res.ok) {
+    try {
+      data = JSON.parse(text);
+    } catch {
+      if (res.ok) throw new Error(`Simulator HTTP ${res.status}: expected a JSON response`);
+    }
+  }
+  if (!res.ok) throw new ApiError(res.status, data);
+  return data;
 }
 
 async function readResource(uri) {
@@ -87,28 +216,70 @@ async function callTool(name, args) {
         deckSupports: args.deckSupports ?? "",
         legacyFactors: args.legacyFactors ?? "",
         traceTelemetry: "true",
+        session: args.session,
+        label: args.label,
+        policy: args.policy,
+        raceModel: args.raceModel,
       });
     case "sim_state":
-      return api("GET", "/v1/run/state");
+      return api("GET", queryPath("/v1/run/state", { session: args.session }));
     case "sim_text":
-      return api("GET", "/v1/run/text");
+      return api("GET", queryPath("/v1/run/text", { session: args.session }));
     case "sim_choices":
-      return api("GET", "/v1/run/choices");
+      return api("GET", queryPath("/v1/run/choices", { session: args.session }));
     case "sim_act":
-      return api("POST", "/v1/run/action", { action: args.action });
+      return api("POST", "/v1/run/action", { action: args.action, session: args.session });
     case "sim_auto":
-      return api("POST", "/v1/run/auto", { policy: args.policy ?? "bot" });
+      return api("POST", "/v1/run/auto", { policy: args.policy ?? "bot", session: args.session });
     case "sim_fast_forward":
-      return api("POST", "/v1/run/fast", { multiplier: String(args.multiplier ?? 100) });
+      return api("POST", "/v1/run/fast", { multiplier: String(args.multiplier ?? 100), policy: args.policy, session: args.session });
     case "sim_export_telemetry":
-      return api("GET", "/v1/run/telemetry");
+      return api("GET", queryPath("/v1/run/telemetry", { session: args.session }));
     case "sim_load_content_pack":
       return api("POST", "/v1/run/load_content_pack", { path: args.path });
     case "sim_deck_place":
       return api("POST", "/v1/run/deck/place", {
         supportId: args.supportId,
         facility: args.facility,
+        session: args.session,
       });
+    case "sim_sessions":
+      return api("GET", "/v1/sessions");
+    case "sim_session_fork":
+      if (args.checkpoint !== undefined && args.session !== undefined) {
+        throw new InvalidParamsError("Choose a checkpoint or source session, not both");
+      }
+      return api("POST", "/v1/session/fork", args);
+    case "sim_session_activate":
+      return api("POST", "/v1/session/activate", args);
+    case "sim_session_close":
+      return api("POST", "/v1/session/close", args);
+    case "sim_library_list":
+      return api("GET", "/v1/library");
+    case "sim_library_save":
+      return api("POST", "/v1/library/save", args);
+    case "sim_library_load":
+      return api("POST", "/v1/library/load", args);
+    case "sim_library_delete":
+      return api("POST", "/v1/library/delete", args);
+    case "sim_library_import":
+      return api("POST", "/v1/library/import", args);
+    case "sim_library_export":
+      return api("GET", queryPath("/v1/library/export", args));
+    case "sim_lab_branch":
+      return api("POST", "/v1/lab/branch", args);
+    case "sim_lab_branches":
+      return api("GET", "/v1/lab/branches");
+    case "sim_lab_branch_get":
+      return api("GET", queryPath("/v1/lab/branch", args));
+    case "sim_lab_branch_delete":
+      return api("POST", "/v1/lab/branch/delete", args);
+    case "sim_lab_compare":
+      return api("POST", "/v1/lab/compare", args);
+    case "sim_lab_report": {
+      const format = args.format ?? "markdown";
+      return api("GET", queryPath("/v1/lab/report", { ...args, format }), undefined, format === "json" ? "json" : "text");
+    }
     default:
       throw new InvalidParamsError(`Unknown tool: ${name}`);
   }
@@ -189,15 +360,23 @@ async function handle(req) {
   if (method === "tools/call") {
     const tool = TOOLS.find((t) => t.name === params?.name);
     if (!tool) throw new InvalidParamsError(`Unknown tool: ${params?.name}`);
-    const missing = (tool.inputSchema.required ?? []).filter((k) => params.arguments?.[k] === undefined);
-    if (missing.length) {
-      throw new InvalidParamsError(`Missing required argument(s): ${missing.join(", ")}`);
+    const args = params.arguments === undefined ? {} : params.arguments;
+    validate(args, tool.inputSchema);
+    let result;
+    try {
+      result = await callTool(params.name, args);
+    } catch (e) {
+      if (!(e instanceof ApiError)) throw e;
+      send({
+        jsonrpc: "2.0", id,
+        result: { isError: true, content: [{ type: "text", text: JSON.stringify({ status: e.status, response: e.response }, null, 2) }] },
+      });
+      return;
     }
-    const result = await callTool(params.name, params.arguments ?? {});
     send({
       jsonrpc: "2.0",
       id,
-      result: { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] },
+      result: { content: [{ type: "text", text: typeof result === "string" ? result : JSON.stringify(result, null, 2) }] },
     });
     return;
   }

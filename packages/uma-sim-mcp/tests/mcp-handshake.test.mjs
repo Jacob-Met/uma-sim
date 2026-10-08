@@ -103,7 +103,11 @@ test("conformant handshake with newline-delimited framing", async () => {
     const names = tools.result.tools.map((t) => t.name).sort();
     assert.deepEqual(names, [
       "sim_act", "sim_auto", "sim_choices", "sim_deck_place", "sim_export_telemetry",
-      "sim_fast_forward", "sim_load_content_pack", "sim_start", "sim_state", "sim_text",
+      "sim_fast_forward", "sim_lab_branch", "sim_lab_branch_delete", "sim_lab_branch_get",
+      "sim_lab_branches", "sim_lab_compare", "sim_lab_report", "sim_library_delete",
+      "sim_library_export", "sim_library_import", "sim_library_list", "sim_library_load",
+      "sim_library_save", "sim_load_content_pack", "sim_session_activate", "sim_session_close",
+      "sim_session_fork", "sim_sessions", "sim_start", "sim_state", "sim_text",
     ]);
 
     srv.send({ jsonrpc: "2.0", id: 4, method: "resources/list" });
