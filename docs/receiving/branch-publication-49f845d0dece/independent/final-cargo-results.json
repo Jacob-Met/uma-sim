@@ -1,0 +1,24 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "uma-sim-core",
+    "--test",
+    "career_lab_branch_publication",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "domain_sha256": "f12208e5796ac6ab42ba515d6d8e6734388810894b600420e4badfdeab250f08",
+  "exit_code": 0,
+  "failed": 0,
+  "format_exit": 0,
+  "ignored": 1,
+  "passed": 5,
+  "stderr": "   Compiling uma-sim-core v0.1.0 (/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/uma-sim-core)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.50s\n     Running tests/career_lab_branch_publication.rs (target/debug/deps/career_lab_branch_publication-7420b0b34c796d2e)\n",
+  "stderr_sha256": "67cc4575cae6a57aae69c391779ed74dd2f7d934d5c687694e6356347f839c7c",
+  "stdout": "\nrunning 6 tests\ntest changed_payload_cannot_replace_an_acknowledged_identity ... ok\ntest competing_processes_acknowledge_exactly_one_complete_result ... RECEIVING_PROCESSES {\"publishers\":[{\"member\":\"0\",\"pid\":32921,\"result\":\"conflict\"},{\"member\":\"1\",\"pid\":32922,\"result\":\"conflict\"},{\"member\":\"2\",\"pid\":32923,\"result\":\"conflict\"},{\"member\":\"3\",\"pid\":32924,\"result\":\"created\"}],\"readerPid\":32925,\"winner\":3}\nok\ntest dangling_destination_is_an_existing_identity_and_is_preserved ... ok\ntest distinct_results_reopen_without_changing_checkpoint_session_or_sibling ... ok\ntest identical_payload_repeated_save_is_still_a_creation_conflict ... ok\ntest subprocess_branch_store_worker ... ignored, invoked only by the bounded independent-process receiver\n\ntest result: ok. 5 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.10s\n\n",
+  "stdout_sha256": "c757dcbd9f66e2f88acea4392a9c27e319a7749b134e61bede1d282711259351",
+  "test_sha256": "7aae317e1e99944aa4c7709168ee8068c227865dc66c538f61f3d20b15140b21"
+}
