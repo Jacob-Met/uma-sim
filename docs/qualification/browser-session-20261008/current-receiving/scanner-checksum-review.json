@@ -1,0 +1,18 @@
+{
+  "kind": "single-exact-source-checksum-false-positive",
+  "reviewed_head": "63aca264ee8b47df14bcecf47cf1b390b244852f",
+  "failed_run": 37832423229,
+  "failed_job": 113500868761,
+  "historical_manifest_commit": "e561f5cb25c0986a21ede67e6343a434ec82bcb0",
+  "historical_manifest_blob": "f7ef6356893b562cf9798117bfd1bdb6f6f9b2b7",
+  "manifest_line": 12,
+  "source_path": "uma-sim-core/src/api.rs",
+  "source_bytes": 85692,
+  "source_git_blob": "5bdd8b1b4a609979230760e94c66b2a315d4faa2",
+  "algorithm": "sha256",
+  "computed_digest": "1bd4ae827fbbfe72d3c59f339bde09c4b2599039e48dfd75d17d49e85c61dcd9",
+  "verification": "Root Git-object hash and independently fetched historical source hash both equal the manifest value.",
+  "disposition": "Append only the exact scanner fingerprint, preserving all four existing entries and the unchanged scanner rule/path coverage.",
+  "fingerprint": "e561f5cb25c0986a21ede67e6343a434ec82bcb0:docs/qualification/browser-session-20261008/source-sha256.json:generic-api-key:12",
+  "gate": "A successful actual scanner run on the resulting commit is still required."
+}

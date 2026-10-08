@@ -1,0 +1,775 @@
+   Compiling uma-sim-core v0.1.0 (/Users/me/workspace/estate/production-69570d292200/uma-sim/uma-sim-core)
+   Compiling uma-race-core v0.1.0 (/Users/me/workspace/estate/production-69570d292200/uma-sim/uma-race-core)
+warning: unused import: `uma_sim_core::scenario::TrackblazerMechanics`
+ --> uma-sim-core/examples/tb_shop_dump.rs:1:5
+  |
+1 | use uma_sim_core::scenario::TrackblazerMechanics;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `uma-sim-core` (example "tb_shop_dump") generated 1 warning (run `cargo fix --example "tb_shop_dump" -p uma-sim-core` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.17s
+     Running unittests src/lib.rs (target/debug/deps/uma_race_core-743654b984ff2316)
+
+running 52 tests
+test compete_fight::tests::guts_bonuses_positive ... ok
+test compete_fight::tests::top_half_two_horse ... ok
+test condition::sample::tests::erlang_reconcile_keeps_right_k ... ok
+test condition::parser::tests::parses_basic_and_or ... ok
+test condition::parser::tests::or_binds_looser_than_and ... ok
+test condition::regions::tests::base_power_gate_uses_mood_adjusted_stats ... ok
+test condition::regions::tests::phase_random_2_on_1600_is_final_third ... ok
+test condition::regions::tests::season_spring_default_rejects_autumn_winter_greens ... ok
+test condition::regions::tests::finalcorner_empty_on_straight_course_10301 ... ok
+test condition::regions::tests::all_corner_random_intersects_corners_not_always ... ok
+test condition::skill::tests::activation_chance_kuromiak_examples ... ok
+test course::tests::course_10601_round_trips_slope_geometry ... ok
+test data::tests::exe_dir_is_a_candidate ... ok
+test data::tests::finds_course_data_in_source_checkout ... ok
+test field::tests::entrant_seed_index_zero_is_root ... ok
+test hp::tests::guts_modifier_example ... ok
+test hp::tests::hp_per_second_at_base_speed_is_20 ... ok
+test hp::tests::max_hp_formula ... ok
+test hp::tests::spurt_accept_threshold_matches_doc ... ok
+test hp::tests::status_modifiers_from_constants ... ok
+test course::tests::covers_all_89_career_course_ids ... ok
+test data::tests::missing_file_is_none ... ok
+test lead_comp::tests::guts_782_bonus_and_duration_positive ... ok
+test hp::tests::strategy_coefs_match_constants_file ... ok
+test physics::tests::base_speed_at_2000_is_20 ... ok
+test physics::tests::phase_fractions_match_constants_file ... ok
+test pos_keep::tests::senkou_min_threshold_ignores_course_factor ... ok
+test pos_keep::tests::course_factor_at_1000_is_one ... ok
+test pos_keep::tests::speed_coefs_match_research_json ... ok
+test rng::tests::prando_readme_seed_12345678 ... ok
+test rng::tests::seeded_streams_match_oracle_dump ... ok
+test solver::tests::activate_count_heal_gates_until_heal ... ok
+test condition::skill::tests::compiles_200701_phase_random_accel ... ok
+test solver::tests::case3_accel_skill_beats_no_skill ... ok
+test condition::skill::tests::gene_version_910391_is_catalogued ... ok
+test condition::skill::tests::evolution_does_not_skip_wisdom_unique_does ... ok
+test solver::tests::case1_finish_within_one_frame_of_oracle ... ok
+test field::tests::independent_field_orders_faster_horse_first ... ok
+test solver::tests::order_ge_noop_in_solo_enforced_in_pack ... ok
+test solver::tests::order_rate_enforced_only_for_multi_horse_fields ... ok
+test solver::tests::post_number_uses_gate_block ... ok
+test solver::tests::section_random_band_matches_kuromiak_examples ... ok
+test solver::tests::uphill_penalty_uses_power_not_sqrt500 ... ok
+test special_conditions::tests::blocked_side_starts_active ... ok
+test runner::tests::virtual_default_pacer_case1_within_one_frame ... ok
+test special_conditions::tests::condition_timer_ticks_once_per_second ... ok
+test special_conditions::tests::outer_lane_forces_off_on_tick ... ok
+test solver::tests::case3_skill_finish_within_one_frame_of_oracle ... ok
+test field::tests::synced_none_matches_independent_finish_order ... ok
+test field::tests::synced_virtual_can_change_order_vs_none ... ok
+test field::tests::synced_virtual_order_deterministic ... ok
+test condition::parser::tests::all_skill_condition_strings_parse ... ok
+
+test result: ok. 52 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/checkpoint_r85.rs (target/debug/deps/checkpoint_r85-8bc778fb4fff0592)
+
+running 1 test
+test r85_checkpoint_sample_triage ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/checkpoint_v3.rs (target/debug/deps/checkpoint_v3-419f852e04e0cf37)
+
+running 1 test
+test r85_v3_expanded_sample_soft_gate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/checkpoint_v3_1000.rs (target/debug/deps/checkpoint_v3_1000-e9d53a972388a7a6)
+
+running 1 test
+test r85_v3_expanded_1000_soft_gate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.71s
+
+     Running tests/checkpoint_v3_wide.rs (target/debug/deps/checkpoint_v3_wide-34a0a6b611ac06e6)
+
+running 1 test
+test r85_v3_wide_240_soft_gate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.17s
+
+     Running tests/condition_keywords.rs (target/debug/deps/condition_keywords-6b787cb696645634)
+
+running 3 tests
+test distance_rate_after_random_50_has_regions ... ok
+test corner_3_uses_oval_corner_indices ... ok
+test is_basis_distance_filters_non_core_course ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/probe_394_202662.rs (target/debug/deps/probe_394_202662-03a6bf18f01fb777)
+
+running 1 test
+test probe_394_202662 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/probe_394_pending.rs (target/debug/deps/probe_394_pending-8e9e9670dadd96a3)
+
+running 1 test
+test probe_394_pending ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/probe_534_procs.rs (target/debug/deps/probe_534_procs-7fe42b81df786bcc)
+
+running 1 test
+test probe_534_procs ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/probe_534_stats.rs (target/debug/deps/probe_534_stats-612f632680906de3)
+
+running 1 test
+test probe_534_stats ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/probe_last_two.rs (target/debug/deps/probe_last_two-2f1bb07c962525d5)
+
+running 1 test
+test probe_last_two_procs ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/probe_residual.rs (target/debug/deps/probe_residual-213779a0ec5a2608)
+
+running 2 tests
+test probe_590_pk ... ok
+test probe_590_pos ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/probe_residuals_bare.rs (target/debug/deps/probe_residuals_bare-c080ac7abe4a4ec4)
+
+running 1 test
+test probe_residuals_bare ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.17s
+
+     Running unittests src/lib.rs (target/debug/deps/uma_sim_core-4a975c4c4959576f)
+
+running 45 tests
+test api::tests::policy_external_without_policy_cmd_fails_loudly_not_silently ... ok
+test api::tests::health_and_catalogs_and_action_include_state ... ok
+test batch_analysis::tests::aggregates_known_values ... ok
+test batch_analysis::tests::compare_deltas ... ok
+test batch_analysis::tests::empty_input_is_error ... ok
+test batch_analysis::tests::malformed_lines_skipped_not_fatal ... ok
+test batch_analysis::tests::text_render_contains_key_sections ... ok
+test batch_analysis::tests::top_n_truncates ... ok
+test career_lab::unit_tests::action_choice_id_round_trips ... ok
+test career_lab::unit_tests::fingerprint_check_flags_schema_but_not_version ... ok
+test career_lab::unit_tests::name_validation ... ok
+test career_lab::unit_tests::rfc3339_formats_epoch ... ok
+test legacy::unit::aptitude_rise_caps_at_a ... ok
+test legacy::unit::blue_star_tables ... ok
+test legacy::unit::pink_rank_table_matches_planner ... ok
+test mid_run_inheritance::tests::april_dates_match_classic_and_senior ... ok
+test mid_run_inheritance::tests::blue_ranges_match_crazyfellow_table ... ok
+test mid_run_inheritance::tests::compatibility_grade_bands ... ok
+test mid_run_inheritance::tests::odds_scale_with_compatibility ... ok
+test api::tests::fast_503_leaves_speed_unchanged_success_sets_it ... ok
+test api::tests::policy_error_shape_contract ... ok
+test api::tests::run_endpoints_unaffected_by_policy_errors ... ok
+test race::tests::default_race_model_is_physics_since_r88 ... ok
+test race::tests::derive_race_seed_is_stable_and_nonzero ... ok
+test api::tests::session_usable_after_policy_503 ... ok
+test race::tests::course_id_lookup_from_canonical_race_json ... ok
+test race::tests::npc_count_uses_race_json_entries_when_present ... ok
+test race::tests::placement_bands ... ok
+test race::tests::placeholder_npcs_vary_aptitudes_moods_strategies_skills ... ok
+test race::tests::race_effective_stat_halves_above_soft_cap ... ok
+test race::tests::preferred_running_style_overrides_best_aptitude ... ok
+test rng::tests::raw_ints_match_kotlin ... ok
+test rng::tests::matches_kotlin_seed_42_fixture ... ok
+test scoring::terminal_utility::tests::evaluate_produces_nonzero_u ... ok
+test scoring::terminal_utility::tests::phi_matches_condor_allocations ... ok
+test scoring::terminal_utility::tests::skill_shop_converts_sp ... ok
+test race::tests::physics_debut_with_weak_stats_does_not_always_place_first ... ok
+test api::tests::policy_unknown_on_auto_and_fast ... ok
+test api::tests::start_rejects_unknown_policy ... ok
+test api::tests::policy_case_variants ... ok
+test api::tests::lab_library_fork_branch_compare_flow ... ok
+test api::tests::start_rejects_unknown_scenario_and_race_model ... ok
+test policy_external::tests::dead_policy_child_is_reaped_and_respawned ... ok
+test policy_external::tests::wedged_policy_server_times_out_loudly_and_respawns ... ok
+test api::tests::lab_library_import_failure_is_nondestructive ... ok
+
+test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.07s
+
+     Running unittests src/bin/uma-sim.rs (target/debug/deps/uma_sim-1aea171fa425a3a0)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/bin/uma-sim-api.rs (target/debug/deps/uma_sim_api-e8190d59c5065b78)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/bond_gain_config.rs (target/debug/deps/bond_gain_config-eed02befa49fee06)
+
+running 2 tests
+test training_increases_bond_on_facility_cards ... ok
+test rainbow_count_requires_bond_on_specialty ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/bot_parity.rs (target/debug/deps/bot_parity-3b913a458d5990b8)
+
+running 6 tests
+test external_policy_all_scenarios ... ok
+test external_policy_drives_career_self_consistent ... ok
+test event_low_energy_prefers_energy_option ... ok
+test training_picks_speed_when_prioritized ... ok
+test inheritance_event_at_turn_13 ... ok
+test lesson_scoring_prefers_song_near_concert_when_hype_not_ready ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/career_lab.rs (target/debug/deps/career_lab-a291c2f64aeda582)
+
+running 14 tests
+test rng_state_words_restore_is_exact ... ok
+test identical_branches_have_no_divergence ... ok
+test import_failure_preserves_last_good ... ok
+test stale_tmp_files_are_swept ... ok
+test checkpoint_restore_reproduces_state_and_rng ... ok
+test event_and_mandatory_race_checkpoints_all_scenarios ... ok
+test library_round_trip ... ok
+test library_name_rules_and_overwrite_protection ... ok
+test branch_run_is_deterministic ... ok
+test divergence_detected_on_first_decision_difference ... ok
+test branch_store_round_trip ... ok
+test comparison_report_renders ... ok
+test sibling_branch_cannot_mutate_checkpoint_or_sibling ... ok
+test snapshot_carries_rng_state_words ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.15s
+
+     Running tests/cli_policy.rs (target/debug/deps/cli_policy-b180c28452974581)
+
+running 2 tests
+test cli_policy_external_missing_cmd_names_env ... ok
+test cli_policy_unknown_runs_default ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.64s
+
+     Running tests/content_pack_loader.rs (target/debug/deps/content_pack_loader-788ae04610ed6444)
+
+running 1 test
+test example_pack_has_events ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/deck_placement.rs (target/debug/deps/deck_placement-e52d8dfecfaf95be)
+
+running 7 tests
+test deck_spec_parses_manual_placement ... ok
+test assigns_cards_to_specialty_facilities ... ok
+test manual_placement_stacks_cards_on_facility ... ok
+test grand_live_scenario_links_only_on_trained_facility ... ok
+test training_gain_uses_only_cards_on_facility ... ok
+test deck_increases_training_gain_vs_empty_deck ... ok
+test runtime_reassign_moves_card ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/deck_support_bridge.rs (target/debug/deps/deck_support_bridge-12aae5fdabd3a5e5)
+
+running 1 test
+test deck_increases_training_gain_vs_empty_deck ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/event_effect_applier.rs (target/debug/deps/event_effect_applier-1462e492aa37df71)
+
+running 2 tests
+test applies_stat_and_energy ... ok
+test applies_skill_points_and_hints ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/event_pool_gating.rs (target/debug/deps/event_pool_gating-2292e34986bca7a2)
+
+running 4 tests
+test support_events_require_deck_membership ... ok
+test scenario_events_match_active_scenario_only ... ok
+test scenario_owner_maps_engine_ids ... ok
+test file_catalog_ura_pool_excludes_other_scenarios_and_undecked_supports ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/event_probability_config.rs (target/debug/deps/event_probability_config-a68a88ca2e7a31e4)
+
+running 3 tests
+test matches_energy_variance_pattern ... ok
+test deck_raises_event_chance ... ok
+test energy_variance_picks_from_outcomes ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/facility_level_config.rs (target/debug/deps/facility_level_config-c8ca42f3b8bea248)
+
+running 3 tests
+test level_rises_every_four_trains ... ok
+test ura_uses_train_count_leveling_unity_does_not ... ok
+test successful_train_increments_level_after_fourth_use ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/golden_seed.rs (target/debug/deps/golden_seed-b9c7b89a8d66fe43)
+
+running 3 tests
+test golden_seed_42_ura ... ok
+test fixture_file_matches_engine ... ok
+test all_fifty_seeds_reproducible ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 25.28s
+
+     Running tests/golden_seeds.rs (target/debug/deps/golden_seeds-ca938cfbdbd25410)
+
+running 3 tests
+test kotlin_golden_fixture_seed_42_ura ... ok
+test seed_42_ura_reproducible ... ok
+test all_kotlin_golden_summaries ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.31s
+
+     Running tests/grand_live_bot_replay.rs (target/debug/deps/grand_live_bot_replay-d1fc079252ad9856)
+
+running 2 tests
+test gl_token_totals_wired_into_decision_context ... ok
+test gl_replay_fixtures_match_at_least_95_percent ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/grand_live_calibration_loader.rs (target/debug/deps/grand_live_calibration_loader-e3a14f0f546dd070)
+
+running 4 tests
+test load_from_path ... ok
+test loads_calibration_from_repo ... ok
+test calibration_row_totals_documented ... ok
+test deck_size_specific_row_preferred ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/grand_live_catalog_loader.rs (target/debug/deps/grand_live_catalog_loader-deb0227144523de5)
+
+running 1 test
+test loads_songs_from_knowledge_base ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/grand_live_formula_calibration.rs (target/debug/deps/grand_live_formula_calibration-489dfd6b778d00d9)
+
+running 4 tests
+test calibration_rows_match_uma_guide_formula_total ... ok
+test inheritance_choice_applies_skills ... ok
+test skill_factors_become_inherited_skills ... ok
+test split_sums_to_formula_total ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/grand_live_l1_training.rs (target/debug/deps/grand_live_l1_training-8a143c5aa6802d8d)
+
+running 3 tests
+test grand_concert_l1_wit_recovers_energy ... ok
+test grand_concert_l1_speed_matches_gametora_base ... ok
+test ura_l1_unchanged_by_gl_override ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/grand_live_r7.rs (target/debug/deps/grand_live_r7-95ecd9f77db9a658)
+
+running 18 tests
+test fan_scaled_unique_skill_power_multiply_fan_count ... ok
+test live_type_and_result_state_packet_mapping ... ok
+test concert_outcome_respects_race_result_flag ... ok
+test member_ready_count_tracks_deck_size ... ok
+test concert_failure_on_race_loss ... ok
+test concert_outcome_great_success_normal_and_failure ... ok
+test closer_together_fires_at_senior_nov_with_16_songs ... ok
+test normal_concert_path_without_great_success ... ok
+test consolation_unique_path_sets_power ... ok
+test dating_light_hello_event_can_fire_and_unlocks_pal_date ... ok
+test lesson_board_includes_unaffordable_and_song_when_unlocked ... ok
+test blocked_performance_types_zero_token_gains ... ok
+test lesson_board_three_slots_documents_next_square_approximation ... ok
+test reserve_square_id_prefers_board_slot ... ok
+test specialty_bonus_biases_roll_toward_specialty_facility ... ok
+test song_mastery_train_bonuses_apply_on_purchase ... ok
+test technique_tiers_gate_advanced_lessons_until_later_concerts ... ok
+test technique_pivot_skips_forced_song_slot_at_21_songs ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/grand_live_simulation.rs (target/debug/deps/grand_live_simulation-157a85b02769eaea)
+
+running 24 tests
+test all_six_concert_turns_mapped ... ok
+test days_to_concert_matches_scoring_shared ... ok
+test friendship_bonus_increases_training_multiplier ... ok
+test is_hype_maxed_when_cycle_meets_required ... ok
+test part_four_songs_unlock_in_senior_dec_late ... ok
+test cycle_max_blocks_song_when_full ... ok
+test light_hello_grants_least_owned_on_proc ... ok
+test performance_tokens_cap_at_200 ... ok
+test friendship_training_biases_secondary_to_least_owned ... ok
+test soft_cap_halves_gains_above_1200 ... ok
+test scenario_links_increase_formula_total ... ok
+test make_debut_song_grants_all_performance_tokens ... ok
+test debut_grants_no_tokens_make_debut_song_already_granted ... ok
+test debut_race_preserves_make_debut_cycle_hype ... ok
+test promo_concert_grants_stats_sp_and_raises_perf_cap ... ok
+test great_success_grand_concert_with_18_songs ... ok
+test career_starts_without_make_debut_until_grant_turn ... ok
+test uma_guide_performance_formula ... ok
+test lesson_board_has_at_most_three_slots ... ok
+test promo_concert_mandatory_at_turn_24 ... ok
+test technique_gate_blocks_song_purchase ... ok
+test song_purchase_increments_cycle_hype ... ok
+test training_applies_603010_token_split ... ok
+test full_career_completes_with_engine ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.42s
+
+     Running tests/grand_live_token_labels.rs (target/debug/deps/grand_live_token_labels-49911a610e15bdf5)
+
+running 1 test
+test facility_split_labels_match_gametora_condor ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/hint_progression_config.rs (target/debug/deps/hint_progression_config-ee88eb4c8abd9b57)
+
+running 4 tests
+test increments_below_max ... ok
+test event_options_include_bonus ... ok
+test roll_bonus_within_range ... ok
+test caps_at_max_level ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/knowledge_validate.rs (target/debug/deps/knowledge_validate-036f577205a75d2f)
+
+running 1 test
+test canonical_knowledge_base_passes_validate_script ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+
+     Running tests/legacy_applicator.rs (target/debug/deps/legacy_applicator-d8ebca9964903dcc)
+
+running 10 tests
+test blue_starting_bonuses_match_gametora_table ... ok
+test pink_preview_caps_at_a ... ok
+test skill_factors_become_inherited_skills ... ok
+test spark_caps_stack_per_star ... ok
+test spark_run_differs_from_ace_run ... ok
+test legacy_tree_preferred_over_flat_factors ... ok
+test inheritance_choice_1_boosts_spark_stats ... ok
+test effective_cap_raises_above_base ... ok
+test inheritance_choice_applies_skills ... ok
+test pink_and_race_factors_tracked ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s
+
+     Running tests/live_bot_telemetry.rs (target/debug/deps/live_bot_telemetry-c20ef8b1cc126dc1)
+
+running 1 test
+test live_bot_sample_match_rate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/live_telemetry_replay.rs (target/debug/deps/live_telemetry_replay-9b5f952125777615)
+
+running 1 test
+test jsonl_replay_match_rate_at_least_90_percent ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/mid_run_inspiration.rs (target/debug/deps/mid_run_inspiration-6aaaeada08747118)
+
+running 2 tests
+test career_start_calendar_is_not_april_inspiration ... ok
+test mid_run_inspiration_applies_blue_when_compat_guarantees_proc ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/parity.rs (target/debug/deps/parity-8c3a2f7d583f6d36)
+
+running 6 tests
+test rng_seed_42_fixture_present ... ok
+test parity_fixture_manifest_complete ... ok
+test scoring_vectors_fixture_loads ... ok
+test event_parse_vectors_fixture_loads ... ok
+test all_rng_trace_fixtures_match_kotlin ... ok
+test turn_traces_report_first_divergence ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+     Running tests/perf.rs (target/debug/deps/perf-78c9892950091678)
+
+running 2 tests
+test full_career_under_3s_at_x100 ... ok
+test full_career_under_10s_at_x20 ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+     Running tests/product_readiness.rs (target/debug/deps/product_readiness-8225027475e5eaa6)
+
+running 7 tests
+test speed_multiplier_clamps_1_to_100 ... ok
+test telemetry_replay_resources_present ... ok
+test golden_fixture_file_present ... ok
+test four_scenarios_complete_72_turns ... ok
+test deck_and_legacy_start_completes_career ... ok
+test full_career_under_ten_seconds_at_x20 ... ok
+test bot_policy_completes_all_four_scenarios ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.16s
+
+     Running tests/race_npc_r86.rs (target/debug/deps/race_npc_r86-729530ad4b59157c)
+
+running 1 test
+test r86_npc_win_rates_ordered_vs_telemetry_prior ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.51s
+
+     Running tests/race_outcomes.rs (target/debug/deps/race_outcomes-c60ef01d0a4ea26e)
+
+running 3 tests
+test mid_run_race_physics_documented_in_research ... ok
+test g1_and_climax_wins_grant_stub_epithets ... ok
+test place_and_show_fans_are_lower_than_win ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/race_perf_r89.rs (target/debug/deps/race_perf_r89-5108c6efd8996123)
+
+running 2 tests
+test physics_career_race_budget_under_250ms ... ok
+test eighteen_horse_2000m_under_10ms_p50 ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.13s
+
+     Running tests/race_physics_r87.rs (target/debug/deps/race_physics_r87-5eeae3ebf302ed9b)
+
+running 3 tests
+test stub_default_debut_still_places_first ... ok
+test physics_debut_race_returns_real_order_not_always_first ... ok
+test physics_full_career_completes_with_varied_or_non_first_places ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+     Running tests/race_scheduler.rs (target/debug/deps/race_scheduler-eccbf92699a2e364)
+
+running 4 tests
+test skips_early_turns ... ok
+test skips_when_fans_high ... ok
+test suggests_race_when_fans_low ... ok
+test skips_non_free_phase ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/race_v4_dist.rs (target/debug/deps/race_v4_dist-1b98f227b8037ad9)
+
+running 2 tests
+test r86_v4_career_physics_logs_emit_place_and_margins ... ok
+test r86_v4_place_margin_distribution_soft_gate ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.42s
+
+     Running tests/rest_policy_external_stub.rs (target/debug/deps/rest_policy_external_stub-4e2b29d70f7d7f9a)
+
+running 1 test
+test policy_external_positive_path_with_stub ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+
+     Running tests/scenario_depth.rs (target/debug/deps/scenario_depth-a163ea8859e867d0)
+
+running 4 tests
+test happy_meek_badge_rolls_on_turn_start ... ok
+test unity_extreme_burst_consumes_ready_flag ... ok
+test grand_concert_promo_mandatory_at_turn_36 ... ok
+test grand_concert_perfect_when_18_songs_and_great_success ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/session_targeting.rs (target/debug/deps/session_targeting-5902c33dab2b2fc2)
+
+running 5 tests
+test absent_explicit_main_never_falls_back_to_the_active_fork ... ok
+test explicit_main_reads_do_not_follow_an_active_fork ... ok
+test empty_body_session_precedes_query_and_empty_query_is_explicit ... ok
+test explicit_main_action_changes_only_main ... ok
+test explicit_main_fast_forward_keeps_active_fork_unchanged ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.61s
+
+     Running tests/sim_engine.rs (target/debug/deps/sim_engine-1f4dc298c75656e3)
+
+running 10 tests
+test turbo_suppresses_dialogue ... ok
+test speed_clamped_to_100 ... ok
+test training_uses_formula_gain ... ok
+test mandatory_debut_race_on_turn_1 ... ok
+test grand_concert_earns_performance_tokens ... ok
+test trackblazer_earns_coins_on_race ... ok
+test snapshot_round_trip_preserves_turn ... ok
+test event_choice_updates_stats ... ok
+test same_seed_same_outcome ... ok
+test completes_72_turn_career ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+     Running tests/sim_telemetry_export.rs (target/debug/deps/sim_telemetry_export-07ce3ff27085e3a8)
+
+running 2 tests
+test export_jsonl_matches_android_turn_shape ... ok
+test bot_run_produces_calibration_ready_training_records ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.62s
+
+     Running tests/skill_hint_routing.rs (target/debug/deps/skill_hint_routing-0f4dea998241fda2)
+
+running 2 tests
+test trainee_skills_event_loaded_for_special_week ... ok
+test skill_catalog_resolves_hydrate_or_loads ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+
+     Running tests/soft_cap.rs (target/debug/deps/soft_cap-b0353f868cbd34d7)
+
+running 2 tests
+test shared_multiplier_matches_scoring_shared ... ok
+test spark_cap_raises_hard_cap_before_soft_cap_blend ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/spark_generation.rs (target/debug/deps/spark_generation-2d347a44cc57e71d)
+
+running 5 tests
+test red_star_distribution_covers_1_2_3 ... ok
+test grade_quality_ue_can_roll_3star ... ok
+test blue_bands_never_roll_3star_below_600 ... ok
+test completed_career_emits_blue_and_green_sparks ... ok
+test spark_generation_does_not_change_career_rng_call_count ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.38s
+
+     Running tests/support_catalog.rs (target/debug/deps/support_catalog-44c17cdf652add51)
+
+running 1 test
+test loads_special_week_from_kb_when_available ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+     Running tests/telemetry_replay.rs (target/debug/deps/telemetry_replay-0c6498070741d90a)
+
+running 2 tests
+test event_fixtures_exact_match ... ok
+test replay_fixtures_match_at_least_90_percent ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/trainee_catalog.rs (target/debug/deps/trainee_catalog-01e88677ee12576d)
+
+running 3 tests
+test loads_special_week_growth_from_kb ... ok
+test list_all_excludes_staff_and_non_card_chars ... ok
+test growth_pct_boosts_training_gain ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/training_failure_config.rs (target/debug/deps/training_failure_config-08b303a68479c0c8)
+
+running 3 tests
+test low_energy_increases_failure ... ok
+test awful_mood_increases_failure ... ok
+test rainbow_activates_friendship_for_all_cards_on_facility ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/training_failure_penalty.rs (target/debug/deps/training_failure_penalty-71289a2fded9ac79)
+
+running 4 tests
+test certain_injury_chance_applies_injury_flag ... ok
+test wit_training_restores_energy ... ok
+test injured_trainee_blocked_from_training ... ok
+test rest_clears_injury ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/training_resolver.rs (target/debug/deps/training_resolver-541297f07c9e9f27)
+
+running 2 tests
+test power_training_secondary_is_stamina ... ok
+test tertiary_gain_is_twenty_percent_of_main ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/unity_trackblazer_mechanics.rs (target/debug/deps/unity_trackblazer_mechanics-b05087e2884e8d0e)
+
+running 20 tests
+test trackblazer_inventory_gap_documented ... ok
+test trackblazer_rival_gap_documented ... ok
+test trackblazer_epithet_gap_documented ... ok
+test unity_per_leg_gap_documented ... ok
+test trackblazer_climax2_gap_documented ... ok
+test trackblazer_megaphone_training_multiplier ... ok
+test trackblazer_shop_purchase_deducts_coins_and_applies_stats ... ok
+test trackblazer_shop_sale_reduces_purchase_cost ... ok
+test trackblazer_shop_opens_on_interval ... ok
+test trackblazer_climax_awards_victory_points ... ok
+test trackblazer_climax_pays_more_coins ... ok
+test unity_teammate_share_gap_documented ... ok
+test trackblazer_shop_roll_is_deterministic ... ok
+test trackblazer_speed_charm_effects_raise_speed ... ok
+test unity_extreme_burst_grants_ignited_spirit_hint ... ok
+test unity_plugin_syncs_facility_levels_from_rank ... ok
+test unity_spirit_burst_at_research_threshold ... ok
+test unity_spirit_burst_bumps_team_rank ... ok
+test unity_team_race_win_counts_five_legs_and_zenith ... ok
+test unity_team_rank_maps_to_facility_level ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests/ura_mechanics.rs (target/debug/deps/ura_mechanics-b372260dd18db201)
+
+running 9 tests
+test ura_finale_distance_gap_documented ... ok
+test choose_duel_falls_back_to_best_odds_when_no_good_target ... ok
+test duel_training_bias_boosts_badged_facility ... ok
+test duel_accepts_bad_odds_when_failure_within_pct ... ok
+test duel_win_grants_racing_spirit_hint ... ok
+test training_on_badged_facility_triggers_duel_event ... ok
+test choose_duel_prefers_good_odds_target_stat ... ok
+test duel_win_raises_cap_and_meek_level ... ok
+test max_level_meek_win_unlocks_past_my_limits ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests uma_race_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests uma_sim_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

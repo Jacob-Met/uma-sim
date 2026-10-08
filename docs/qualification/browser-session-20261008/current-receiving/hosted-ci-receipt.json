@@ -1,0 +1,50 @@
+{
+  "kind": "hosted-current-receiving",
+  "contribution_head": "63aca264ee8b47df14bcecf47cf1b390b244852f",
+  "actual_checkout": "1a5f06b48e49e9d6fe43583dea1b57cbd4d2f8e8",
+  "actual_checkout_tree": "ebf0e447639c24b30d364dea0c5a92a5f6d9966b",
+  "contribution_tree": "ebf0e447639c24b30d364dea0c5a92a5f6d9966b",
+  "tree_equality_verified": true,
+  "ci_run": 37832423264,
+  "jobs": [
+    {
+      "id": 113500868993,
+      "name": "ui",
+      "conclusion": "success"
+    },
+    {
+      "id": 113500869675,
+      "name": "mcp",
+      "conclusion": "success"
+    },
+    {
+      "id": 113501375128,
+      "name": "rust",
+      "conclusion": "success"
+    }
+  ],
+  "rust_workspace": {
+    "passed": 414,
+    "failed": 0,
+    "ignored": 1,
+    "summaries": 81
+  },
+  "native_mcp_test_count": 11,
+  "native_terminal_test_count": 11,
+  "ui_tests": 101,
+  "source_tree_preservation": {
+    "tree": "ebf0e447639c24b30d364dea0c5a92a5f6d9966b",
+    "receiving_parent": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+    "preserved_incoming_leaves": 1536,
+    "incoming_leaves": 1544,
+    "changed_or_added_leaves": 28,
+    "result_leaves": 1564,
+    "all_expected_leaves_verified": true
+  },
+  "scanner": {
+    "run": 37832423229,
+    "conclusion": "failure",
+    "single_finding": "e561f5cb25c0986a21ede67e6343a434ec82bcb0:docs/qualification/browser-session-20261008/source-sha256.json:generic-api-key:12",
+    "disposition": "independently verified source checksum; exact fingerprint follow-up pending"
+  }
+}
