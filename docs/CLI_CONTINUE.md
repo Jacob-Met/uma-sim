@@ -19,6 +19,8 @@ saved settings with CLI defaults, or select an external policy. Options such as
 `--seed`, `--scenario`, `--speed` and `--policy=external` are rejected before
 loading or writing a save. Exactly zero or one `--policy=default|bot` option is
 accepted. `continue --help` displays help without reading a career.
+`UMA_POLICY_CMD` does not override either local continuation policy, and
+`UMA_RACE_MODEL` does not replace the race model already saved in the career.
 
 | Command | Saved-career behavior |
 | --- | --- |
@@ -31,9 +33,10 @@ saves, inconsistent saved metadata and unknown saved scenarios return exit 1
 without replacing the file. An invalid command option returns exit 2.
 Successful completion and an already completed career return exit 0.
 
-Continuation uses the engine's existing bounded playback with a 500-action
-limit parameter and the saved speed multiplier. If the engine does not reach
-completion, the command reports failure and keeps the previous on-disk save.
+Continuation retains the existing playback bound: a 500-action limit checked
+between batches, using the saved speed multiplier clamped to 1–100. A final
+batch can cross that limit. If the engine does not reach completion, the
+command reports failure and keeps the previous on-disk save.
 A successfully completed run is published through the existing `RunSession`
 writer; ordinary success output appears only after publication succeeds. The
 writer preserves the previous save after handled write, sync or rename errors.

@@ -357,3 +357,50 @@ fn continue_keeps_existing_session_symlink_and_publishes_to_its_target() {
     );
     assert_continued(&before, &career.read());
 }
+
+#[cfg(unix)]
+#[test]
+fn inherited_external_policy_command_cannot_override_local_continuation() {
+    for policy in ["--policy=default", "--policy=bot"] {
+        let career = Career::new();
+        let before = career.partial("unity");
+        let marker = career.0.join("unexpected external policy.marker");
+        // ExternalPolicy splits this into sh, -c, and one shell argument.
+        // The quoted environment value preserves arbitrary temporary paths.
+        let output = career
+            .command()
+            .args(["continue", policy])
+            .env(
+                "UMA_POLICY_CMD",
+                "sh -c :>\"$UMA_CONTINUE_TEST_MARKER\";exit",
+            )
+            .env("UMA_CONTINUE_TEST_MARKER", &marker)
+            .env("UMA_RACE_MODEL", "physics")
+            .output()
+            .unwrap();
+        assert!(
+            !marker.exists(),
+            "local {policy} invoked the inherited external policy: {}",
+            String::from_utf8_lossy(&output.stderr)
+        );
+        succeeded(output);
+        assert_continued(&before, &career.read());
+    }
+}
+
+#[test]
+fn local_bot_nonprogress_preserves_the_existing_save() {
+    let career = Career::new();
+    let mut snapshot = career.partial("ura");
+    snapshot.state.phase = "EVENT".into();
+    snapshot.state.awaiting_choice = true;
+    snapshot.state.pending_event_options.clear();
+    career.write(&snapshot);
+    let bytes = fs::read(career.session()).unwrap();
+    failed(
+        career.run(&["continue", "--policy=bot"]),
+        1,
+        "did not complete within the action limit",
+    );
+    career.assert_unchanged(&bytes);
+}

@@ -1,5 +1,9 @@
 //! Continue the career already stored by RunSession; never start a new engine run.
+use uma_sim_core::bot::BotDecisionAdapter;
+use uma_sim_core::engine::SimEngine;
+use uma_sim_core::scenario::scenario_plugin_for;
 use uma_sim_core::session::RunSession;
+use uma_sim_core::training::TrainingResolver;
 
 const USAGE: &str = "Usage: uma-sim continue [--policy=default|bot]";
 
@@ -40,7 +44,9 @@ pub fn run(args: &[String]) -> i32 {
 
     let resumed_turn = engine.state().turn;
     match policy {
-        "bot" => engine.play_to_completion_scoring(500),
+        "bot" => {
+            play_to_completion_local_bot(&mut engine, 500, snapshot.settings.clamped_speed().max(1))
+        }
         _ => engine.play_to_completion(500),
     }
     if !engine.state().career_complete {
@@ -64,4 +70,32 @@ pub fn run(args: &[String]) -> i32 {
         summary.seed, summary.scenario, summary.fans, summary.speed, summary.sp
     );
     0
+}
+
+// RunSession::load restores a factory-created engine. Recreate its immutable
+// scenario/resolver context, then call the explicit local adapter: the engine's
+// scoring completion entry point honors UMA_POLICY_CMD for other consumers.
+fn play_to_completion_local_bot(engine: &mut SimEngine, max_actions: i32, batch_size: i32) {
+    let plugin = scenario_plugin_for(&engine.state().meta.scenario_id);
+    let resolver = TrainingResolver::from_installed_tables();
+    let mut actions = 0;
+    while !engine.state().career_complete && actions < max_actions {
+        for _ in 0..batch_size {
+            if engine.state().career_complete {
+                return;
+            }
+            let choices = engine.choices();
+            if choices.is_empty() {
+                return;
+            }
+            let action = BotDecisionAdapter::choose_action_local(
+                &choices,
+                engine.state(),
+                plugin.as_ref(),
+                &resolver,
+            );
+            engine.step(action);
+            actions += 1;
+        }
+    }
 }
