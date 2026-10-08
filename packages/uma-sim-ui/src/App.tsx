@@ -171,7 +171,7 @@ export default function App() {
               />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-              <LogPanel lines={state.textLines} />
+              <LogPanel lines={state.textLines} history={cs.log} />
               <RacePanel
                 lines={state.textLines}
                 mandatory={mandatory}
