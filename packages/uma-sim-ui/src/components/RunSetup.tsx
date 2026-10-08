@@ -13,6 +13,8 @@ import {
   type LegacyTree,
 } from "./LegacyPanel";
 import { previewLegacy } from "./legacyPreview";
+import { RunSetupFiles } from "./RunSetupFiles";
+import { validateSeedText, type RunSetupData } from "./runSetupFile";
 
 interface Props {
   scenarios: CatalogItem[];
@@ -31,7 +33,7 @@ export function RunSetup({
   busy,
   onStart,
 }: Props) {
-  const [seed, setSeed] = useState(42);
+  const [seed, setSeed] = useState("42");
   const [scenario, setScenario] = useState(scenarios[0]?.id ?? "ura");
   const [trainee, setTrainee] = useState(trainees[0]?.name ?? "Special Week");
   const [speed, setSpeed] = useState(1);
@@ -45,6 +47,32 @@ export function RunSetup({
   const [supportFilter, setSupportFilter] = useState("");
   const [traineeFilter, setTraineeFilter] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
+  const [revision, setRevision] = useState(0);
+  const setup = useMemo<RunSetupData>(() => ({
+    seed, scenario, trainee, speed, dialogue, raceModel, policy, deck,
+    legacyEnabled, legacyTree, compatibilityScore,
+  }), [seed, scenario, trainee, speed, dialogue, raceModel, policy, deck,
+    legacyEnabled, legacyTree, compatibilityScore]);
+  const catalogs = useMemo(() => ({ scenarios, trainees, supports, factors }),
+    [scenarios, trainees, supports, factors]);
+
+  function applySetup(next: RunSetupData) {
+    setRevision((value) => value + 1);
+    setSeed(next.seed);
+    setScenario(next.scenario);
+    setTrainee(next.trainee);
+    setSpeed(next.speed);
+    setDialogue(next.dialogue);
+    setRaceModel(next.raceModel);
+    setPolicy(next.policy);
+    setDeck(next.deck);
+    setLegacyEnabled(next.legacyEnabled);
+    setLegacyTree(next.legacyTree);
+    setCompatibilityScore(next.compatibilityScore);
+    setTraineeFilter("");
+    setSupportFilter("");
+    setFormError(null);
+  }
 
   const compatGrade = useMemo(
     () => compatibilityGrade(compatibilityScore),
@@ -95,6 +123,7 @@ export function RunSetup({
   }
 
   function selectTrainee(name: string) {
+    setRevision((value) => value + 1);
     setTrainee(name);
     setFormError(null);
     // Drop illegal supports matching the new trainee.
@@ -119,6 +148,12 @@ export function RunSetup({
   }
 
   function start() {
+    try {
+      validateSeedText(seed);
+    } catch (cause) {
+      setFormError(cause instanceof Error ? cause.message : "Seed is invalid.");
+      return;
+    }
     const traineeKey = trainee.toLowerCase();
     const supportChars = deck
       .map((id) => supports.find((s) => s.id === id)?.name ?? "")
@@ -156,8 +191,22 @@ export function RunSetup({
   }
 
   return (
-    <div className="card">
+    <div
+      className="card"
+      onChangeCapture={(event) => {
+        if (!(event.target as HTMLElement).closest("[data-setup-files]")) {
+          setRevision((value) => value + 1);
+        }
+      }}
+    >
       <h2>New career</h2>
+      <RunSetupFiles
+        setup={setup}
+        catalogs={catalogs}
+        revision={revision}
+        busy={busy}
+        onApply={applySetup}
+      />
       <div className="grid-setup">
         <div className="field">
           <label>Scenario</label>
@@ -209,11 +258,14 @@ export function RunSetup({
           </div>
         </div>
         <div className="field">
-          <label>Seed</label>
+          <label htmlFor="setup-seed">Seed</label>
           <input
-            type="number"
+            id="setup-seed"
+            type="text"
+            inputMode="numeric"
+            spellCheck={false}
             value={seed}
-            onChange={(e) => setSeed(Number(e.target.value))}
+            onChange={(e) => setSeed(e.target.value)}
           />
         </div>
         <div className="field">
