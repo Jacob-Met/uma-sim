@@ -191,7 +191,11 @@ fn malformed_seed_after_valid_duplicate_is_refused() {
 
 #[test]
 fn malformed_seed_is_refused_even_when_explicit_list_would_override_it() {
-    check_refused_batch("invalid-with-list", &["--seed=oops", "--seeds=10,5"], "oops");
+    check_refused_batch(
+        "invalid-with-list",
+        &["--seed=oops", "--seeds=10,5"],
+        "oops",
+    );
 }
 
 #[test]
