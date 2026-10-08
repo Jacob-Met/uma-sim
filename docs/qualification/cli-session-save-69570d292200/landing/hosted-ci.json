@@ -309,5 +309,9 @@
     "ui": "hosted-ui.log",
     "mcp": "hosted-mcp.log"
   },
-  "boundary": "Decoded complete hosted job logs. Rust count includes one ignored documentation example; native persistence tests all10 executed."
+  "boundary": "Decoded complete hosted job logs. Rust reports424passed,0failed,1ignored. The ignored test is subprocess_branch_store_worker, annotated 'invoked only by the bounded independent-process receiver'; it is not a documentation example. All ten new persistence tests execute and pass.",
+  "ignoredRustTest": {
+    "name": "subprocess_branch_store_worker",
+    "reason": "invoked only by the bounded independent-process receiver"
+  }
 }
