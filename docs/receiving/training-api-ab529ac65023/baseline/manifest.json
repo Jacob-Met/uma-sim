@@ -1,0 +1,410 @@
+{
+  "version": 1,
+  "issue": 115,
+  "pr": 117,
+  "head": "aa917c00e099ecd5e8342a443b289a4afb726d0d",
+  "actualCheckout": "b3759407a3f84eb6252c3d0dad06f8158d85e782",
+  "tree": "f4a6587637b5845d0305fb9024b3e16e324e8d22",
+  "base": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "run": 37833173081,
+  "attempt": 1,
+  "jobs": [
+    {
+      "id": 113503447694,
+      "name": "mcp",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 37833173081,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run node --test packages/uma-sim-mcp/tests/*.test.mjs",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 4
+        },
+        {
+          "name": "Run node --test packages/uma-sim-cli/tests/*.test.mjs",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5
+        },
+        {
+          "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        }
+      ]
+    },
+    {
+      "id": 113503448186,
+      "name": "ui",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 37833173081,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright install --with-deps chromium",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run test:browser",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run test:trace",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        }
+      ]
+    },
+    {
+      "id": 113504116716,
+      "name": "rust",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 37833173081,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run dtolnay/rust-toolchain@89b12181fb390509a0842a86cc55eeb8eb928c1d",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run cargo clippy --workspace --all-targets --locked",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run cargo test --workspace --locked",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run cargo build --locked --release --features embed-ui -p uma-sim-core",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Verify terminal checkpoint save and restart recovery",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Exercise the career laboratory through MCP and the native API",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 13
+        },
+        {
+          "name": "Retain MCP native comparison and receiving evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Smoke-test release layout (binary run away from the source tree)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15
+        },
+        {
+          "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 16
+        },
+        {
+          "name": "Run python scripts/calibrate_grand_live.py --strict",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 32
+        },
+        {
+          "name": "Post Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 33
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 34
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35
+        }
+      ]
+    }
+  ],
+  "logs": [
+    {
+      "path": "mcp.log",
+      "bytes": 66911,
+      "sha256": "2b5fe1476a7e1c31424f4bcde4d09b99b0250ce3e8375fe27dd7fa1a21bd8843"
+    },
+    {
+      "path": "rust.log",
+      "bytes": 198452,
+      "sha256": "12c374ece414a659d9fbd6de307d97eeb0cc373a7cb671f9bd274d03c48498f3"
+    },
+    {
+      "path": "ui.log",
+      "bytes": 79674,
+      "sha256": "fe9e2a90fafeef7ca7c9884402335608c718311bd0dd0021e87c0d72bbc69db1"
+    }
+  ],
+  "protocol": {
+    "pass": 135,
+    "fail": 4,
+    "skipped": 5,
+    "meaning": "Four new missing-tool failures; new malformed-argument control and established protocol controls pass. Native skip in protocol-only job is not qualification."
+  },
+  "native": {
+    "pass": 11,
+    "failedNewSubtests": 7,
+    "nodeFailuresIncludingParent": 8,
+    "skipped": 0,
+    "cliSha256": "4564311e58c9dff08f4ad144ecc297c09bdc5130ffcf6ee8b8033a451277877e",
+    "meaning": "All four scenario setups reached free training and the existing CLI oracle ran. Route returned static HTML; all seven new cases fail before complete candidate assertions. No successful inspection observations."
+  },
+  "ui": {
+    "nodePass": 88,
+    "careerLabBrowserPass": 23,
+    "traceBrowserPass": 15
+  },
+  "artifacts": [
+    {
+      "id": 11574730861,
+      "name": "uma-sim-ui-dist",
+      "size_in_bytes": 69830,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/artifacts/11574730861",
+      "archive_download_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/artifacts/11574730861/zip",
+      "expired": false,
+      "created_at": "2026-10-08T19:37:13Z",
+      "expires_at": "2027-01-06T19:36:06Z",
+      "updated_at": "2026-10-08T19:37:13Z",
+      "digest": "sha256:8081f16f17831b8f254fc88f849d8cf286a7bebb07ae40acc5f30777e7720ae5",
+      "workflow_run": {
+        "id": 37833173081,
+        "repository_id": 1355458147,
+        "head_repository_id": 1355458147,
+        "head_branch": "feat/training-api-ab529ac65023",
+        "head_sha": "aa917c00e099ecd5e8342a443b289a4afb726d0d"
+      }
+    },
+    {
+      "id": 11574159723,
+      "name": "uma-sim-mcp-native",
+      "size_in_bytes": 9851,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/artifacts/11574159723",
+      "archive_download_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/artifacts/11574159723/zip",
+      "expired": false,
+      "created_at": "2026-10-08T19:40:04Z",
+      "expires_at": "2027-01-06T19:36:06Z",
+      "updated_at": "2026-10-08T19:40:04Z",
+      "digest": "sha256:a24a3b2f970d77872e19426c7051596c03e22a07a320cdd946c8270e3011c1e4",
+      "workflow_run": {
+        "id": 37833173081,
+        "repository_id": 1355458147,
+        "head_repository_id": 1355458147,
+        "head_branch": "feat/training-api-ab529ac65023",
+        "head_sha": "aa917c00e099ecd5e8342a443b289a4afb726d0d"
+      }
+    },
+    {
+      "id": 11573719356,
+      "name": "uma-terminal-checkpoint-receiving",
+      "size_in_bytes": 21752,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/artifacts/11573719356",
+      "archive_download_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/artifacts/11573719356/zip",
+      "expired": false,
+      "created_at": "2026-10-08T19:40:01Z",
+      "expires_at": "2027-01-06T19:36:06Z",
+      "updated_at": "2026-10-08T19:40:01Z",
+      "digest": "sha256:167c3beb74d5c47a2473ddbf3a9bea32186e15858d6a32ae1962159b9879b4ef",
+      "workflow_run": {
+        "id": 37833173081,
+        "repository_id": 1355458147,
+        "head_repository_id": 1355458147,
+        "head_branch": "feat/training-api-ab529ac65023",
+        "head_sha": "aa917c00e099ecd5e8342a443b289a4afb726d0d"
+      }
+    }
+  ],
+  "artifactDownload": {
+    "connector": "GitHub download_workflow_artifact returned a reusable reference for native artifact11574159723.",
+    "receiving": "Python urllib request to the returned signed file URL failed HTTP403. ZIP bytes were not received, decoded or independently verified. No alternate URL/route retry.",
+    "rawFailure": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py\", line 521, in open\n    response = meth(req, response)\n               ^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py\", line 630, in http_response\n    response = self.parent.error(\n               ^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py\", line 559, in error\n    return self._call_chain(*args)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py\", line 639, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 403: Forbidden\n"
+  },
+  "source": {
+    "protocolBlob": "ffeee00e8cdcb5c2012bc9fff26e55090bfb77a9",
+    "nativeBlob": "9de14a0fa7bedb1a79701f580e5a562422d86ca4"
+  },
+  "limitations": [
+    "No native laptop build for this scope; tests executed by maintained repository CI.",
+    "Rust smoke release layout/calibration steps after native failure were not executed in this baseline.",
+    "Artifact identities above are service/upload-log metadata; raw job logs are the directly received complete evidence."
+  ]
+}
