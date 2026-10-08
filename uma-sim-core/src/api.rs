@@ -130,6 +130,7 @@ fn route(
         (Method::Get, "/v1/run/state") => handle_state(st, query),
         (Method::Get, "/v1/run/text") => handle_text(st, query),
         (Method::Get, "/v1/run/choices") => handle_choices(st, query),
+        (Method::Get, "/v1/run/training") => handle_training(st, query),
         (Method::Post, "/v1/run/action") => {
             with_json_body(body, |body| handle_action(st, body, query))
         }
@@ -201,6 +202,7 @@ fn is_known_path(path: &str) -> bool {
             | "/v1/run/state"
             | "/v1/run/text"
             | "/v1/run/choices"
+            | "/v1/run/training"
             | "/v1/run/action"
             | "/v1/run/auto"
             | "/v1/run/fast"
@@ -706,6 +708,14 @@ fn handle_choices(st: &ApiState, query: &HashMap<String, String>) -> Response<Cu
         Err(r) => return r,
     };
     json_response(200, json!({"choices": choices_json(&slot.engine)}))
+}
+
+fn handle_training(st: &ApiState, query: &HashMap<String, String>) -> Response<Cursor<Vec<u8>>> {
+    let slot = match resolve_session_ref(st, query) {
+        Ok(s) => s,
+        Err(r) => return r,
+    };
+    json_response(200, json!(slot.engine.training_inspection()))
 }
 
 fn handle_action(

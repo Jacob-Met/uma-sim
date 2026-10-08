@@ -80,6 +80,7 @@ const TOOLS = [
   tool("sim_state", "Get run state JSON", { session: NAMED_SESSION }),
   tool("sim_text", "Get rendered text", { session: NAMED_SESSION }),
   tool("sim_choices", "List available actions", { session: NAMED_SESSION }),
+  tool("sim_training", "Read-only native training samples, energy effects, failure chances and blockers; samples are not promised outcomes", { session: NAMED_SESSION }),
   tool("sim_act", "Perform an action in the target career", { action: NONEMPTY, session: NAMED_SESSION }, ["action"]),
   tool("sim_auto", "One policy step in the target career", { policy: POLICY, session: NAMED_SESSION }),
   tool("sim_fast_forward", "Play the target career to completion", {
@@ -222,6 +223,8 @@ async function callTool(name, args) {
       return api("GET", queryPath("/v1/run/text", { session: args.session }));
     case "sim_choices":
       return api("GET", queryPath("/v1/run/choices", { session: args.session }));
+    case "sim_training":
+      return api("GET", queryPath("/v1/run/training", { session: args.session }));
     case "sim_act":
       return api("POST", "/v1/run/action", { action: args.action, session: args.session });
     case "sim_auto":
