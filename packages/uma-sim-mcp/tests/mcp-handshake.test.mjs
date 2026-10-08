@@ -208,6 +208,7 @@ async function request(srv, message) {
 }
 
 test("HTTP failures are actionable tool errors, including non-JSON and empty bodies", { timeout: 10000 }, async (t) => {
+  // Authored bridge contract fixtures, not reproductions against the Rust API.
   const cases = [
     { name: "sim_act", args: { action: "bad" }, path: "/v1/run/action", status: 400, body: '{"error":"unknown action"}' },
     { name: "sim_state", args: {}, path: "/v1/run/state", status: 404, body: '{"error":"no active run"}' },
@@ -339,4 +340,79 @@ test("malformed parameters are rejected before any backend mutation", { timeout:
   const valid = await request(srv, { jsonrpc: "2.0", id: "valid", method: "tools/call", params: { name: "sim_act", arguments: { action: "rest" } } });
   assert.deepEqual(JSON.parse(valid.result.content[0].text), { ok: true });
   assert.deepEqual(backend.requests, [{ method: "POST", path: "/v1/run/action", body: { action: "rest" } }]);
+});
+
+test("MCP null, fractional, and nonfinite request IDs cannot execute a tool", { timeout: 10000 }, async (t) => {
+  const backend = await startBackend(t, (_req, res) => {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end('{"ok":true}');
+  });
+  const srv = startServer(backend.url);
+  t.after(() => srv.stop());
+  // MCP is stricter than base JSON-RPC: IDs are strings or integers, never null.
+  // Spell overflow as JSON text because JSON.stringify(Infinity) emits null.
+  for (const id of ["1.25", "-0.5", "null", "1e400", "-1e400", "true", "false", "[]", "{}"]) {
+    srv.sendRaw(`{"jsonrpc":"2.0","id":${id},"method":"tools/call","params":{"name":"sim_act","arguments":{"action":"rest"}}}`);
+    const response = await srv.recvTimeout(1500);
+    assert.notEqual(response, null, `invalid ID ${id} was ignored`);
+    assert.equal(response.jsonrpc, "2.0");
+    assert.equal(response.id, null);
+    assert.equal(response.result, undefined);
+    assert.equal(response.error.code, -32600, id);
+    assert.deepEqual(backend.requests, [], `invalid ID ${id} reached the REST backend`);
+  }
+  srv.send({ jsonrpc: "2.0", method: "notifications/initialized" });
+  assert.equal(await srv.recvTimeout(150), null, "an omitted ID remains a silent notification");
+  const valid = await request(srv, { jsonrpc: "2.0", id: 0, method: "tools/call", params: { name: "sim_act", arguments: { action: "rest" } } });
+  assert.equal(valid.id, 0);
+  assert.deepEqual(JSON.parse(valid.result.content[0].text), { ok: true });
+  assert.deepEqual(backend.requests, [{ method: "POST", path: "/v1/run/action", body: { action: "rest" } }]);
+});
+
+test("string and integer IDs preserve defaults, zero values, and allowed extra arguments", { timeout: 10000 }, async (t) => {
+  const backend = await startBackend(t, (_req, res) => {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end('{"ok":true}');
+  });
+  const srv = startServer(backend.url);
+  t.after(() => srv.stop());
+  const startDefaults = { seed: "42", scenario: "ura", trainee: "Special Week", speed: "1", deckSupports: "", legacyFactors: "", traceTelemetry: "true" };
+  const cases = [
+    { id: 0, name: "sim_start", path: "/v1/run/start", body: startDefaults },
+    { id: "0", name: "sim_start", args: { seed: 0, speed: 0, extra: { allowed: true } }, path: "/v1/run/start", body: { ...startDefaults, seed: "0", speed: "0" } },
+    { id: -3, name: "sim_auto", args: { extra: true }, path: "/v1/run/auto", body: { policy: "bot" } },
+    { id: "", name: "sim_fast_forward", args: {}, path: "/v1/run/fast", body: { multiplier: "100" } },
+    { id: "snow-雪", name: "sim_fast_forward", args: { multiplier: 0 }, path: "/v1/run/fast", body: { multiplier: "0" } },
+  ];
+  for (const item of cases) {
+    const response = await request(srv, { jsonrpc: "2.0", id: item.id, method: "tools/call", params: { name: item.name, arguments: item.args } });
+    assert.equal(response.id, item.id);
+    assert.equal(response.error, undefined);
+    assert.notEqual(response.result.isError, true);
+    assert.deepEqual(JSON.parse(response.result.content[0].text), { ok: true });
+  }
+  assert.deepEqual(backend.requests, cases.map((item) => ({ method: "POST", path: item.path, body: item.body })));
+});
+
+test("numeric overflow in valid JSON arguments is rejected before REST", { timeout: 10000 }, async (t) => {
+  const backend = await startBackend(t, (_req, res) => {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end('{"ok":true}');
+  });
+  const srv = startServer(backend.url);
+  t.after(() => srv.stop());
+  const cases = [
+    { name: "sim_start", args: '{"seed":1e400}' },
+    { name: "sim_start", args: '{"speed":-1e400}' },
+    { name: "sim_fast_forward", args: '{"multiplier":1e400}' },
+  ];
+  for (const [id, item] of cases.entries()) {
+    srv.sendRaw(`{"jsonrpc":"2.0","id":${id},"method":"tools/call","params":{"name":"${item.name}","arguments":${item.args}}}`);
+    const response = await srv.recvTimeout(1500);
+    assert.notEqual(response, null);
+    assert.equal(response.id, id);
+    assert.equal(response.result, undefined);
+    assert.equal(response.error.code, -32602);
+  }
+  assert.deepEqual(backend.requests, [], "nonfinite arguments reached REST");
 });

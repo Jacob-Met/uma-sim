@@ -174,15 +174,15 @@ process.stdin.on("data", (chunk) => {
 });
 
 async function handle(req) {
+  const hasId = isObject(req) && Object.hasOwn(req, "id");
   if (!isObject(req) || req.jsonrpc !== "2.0" || typeof req.method !== "string" ||
-      (req.id !== undefined && req.id !== null && typeof req.id !== "string" &&
-       !(typeof req.id === "number" && Number.isFinite(req.id)))) {
+      (hasId && typeof req.id !== "string" && !Number.isInteger(req.id))) {
     send({ jsonrpc: "2.0", id: null, error: { code: -32600, message: "Invalid Request" } });
     return;
   }
   const { id, method, params } = req;
-  // Notifications carry no id: accept them silently (MCP stdio spec).
-  if (id === undefined || id === null) return;
+  // MCP IDs are strings or integers. Only an omitted ID is a notification.
+  if (!hasId) return;
   if (params !== undefined && !isObject(params)) {
     throw new InvalidParamsError("params must be an object");
   }
