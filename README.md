@@ -111,6 +111,13 @@ uma-sim analyze --input=new.jsonl --compare=old.jsonl        # delta of new batc
 
 `fast` always starts a new career and replaces the saved one.
 
+`start`, `fast`, `batch`, and `export-telemetry` accept `--seed=<integer>`
+as a signed 64-bit seed; omitting it uses 42. These commands reject an empty,
+malformed, or out-of-range value with status 2 before a career or output file
+changes. Every supplied `--seed=` value must be valid, even when a later seed
+or batch's `--seeds=` list overrides it. The last valid `--seed=` wins; a valid
+`--seeds=` list still overrides `--seed` and `--count`.
+
 | Flag | Values |
 |------|--------|
 | `--scenario` | `ura` (default), `grand_concert`, `unity`, `trackblazer` |
