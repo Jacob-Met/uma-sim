@@ -39,7 +39,7 @@ async function req<T>(method: string, path: string, body?: unknown, jsonBody?: s
 
 /** Append ?session= for run endpoints when a non-default session is targeted. */
 function withSession(path: string, session?: string): string {
-  if (!session) return path;
+  if (session === undefined) return path;
   const sep = path.includes("?") ? "&" : "?";
   return `${path}${sep}session=${encodeURIComponent(session)}`;
 }

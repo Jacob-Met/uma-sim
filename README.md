@@ -193,6 +193,17 @@ endpoint accepts an explicit `"session"` field in its POST body (or
 missing session is a 404 (`no such session '<id>'`); with no active run at
 all it is a 404 `no active run`.
 
+The default `main` session has the empty ID. To target it while another
+session is active, send `"session":""` in a POST body or `?session=` on a
+GET. Only an omitted session field/query follows the active session. An
+explicit missing target returns 404 without switching to another career.
+
+The browser run view displays its session ID and keeps actions, follow-up
+reads and telemetry exports attached to that displayed career. Selecting a
+different session in the lab invalidates earlier view requests, including
+late errors; the old response cannot overwrite the selected career. Number
+shortcuts apply only on the Run tab and follow the visible choice numbers.
+
 ```bash
 # Start a run, then fork an independent continuation to try another policy
 curl -X POST localhost:8765/v1/run/start -d '{"seed":"7","scenario":"ura"}'

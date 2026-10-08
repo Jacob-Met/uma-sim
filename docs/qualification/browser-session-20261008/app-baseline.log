@@ -1,0 +1,86 @@
+✖ the displayed main session remains the action target after a fork activates (31.800573ms)
+✖ starting main hydrates main even when another client activates a fork (4.444559ms)
+✖ keyboard shortcuts operate only the visible run and its displayed choice numbers (49.886638ms)
+✖ telemetry export uses the displayed career even after external activation (7.450074ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1128.104399
+
+✖ failing tests:
+
+test at tests/run-session.test.mjs:222:1
+✖ the displayed main session remains the action target after a fork activates (31.800573ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert.ok(server.calls.every((call) => call.target === ""))
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:230:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:235:1
+✖ starting main hydrates main even when another client activates a fork (4.444559ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  undefined !== ''
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:242:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:289:1
+✖ keyboard shortcuts operate only the visible run and its displayed choice numbers (49.886638ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  1 !== 0
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:298:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:315:1
+✖ telemetry export uses the displayed career even after external activation (7.450074ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    {
+  +   session: 'b'
+  -   session: ''
+    }
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:329:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { session: 'b' },
+    expected: { session: '' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

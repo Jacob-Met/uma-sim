@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { RunSetup } from "./components/RunSetup";
 import { StatsPanel } from "./components/StatsPanel";
 import { ConditionsPanel } from "./components/ConditionsPanel";
@@ -33,6 +33,9 @@ export default function App() {
   } = useRunStore();
   const [policy, setPolicy] = useState("bot");
   const [tab, setTab] = useState<"run" | "lab">("run");
+  const visibleChoices = useMemo(() => state.choices.filter(
+    (choice) => !choice.id.startsWith("gl_song_") && !choice.id.startsWith("gl_tech_"),
+  ), [state.choices]);
 
   useEffect(() => {
     void bootstrap();
@@ -46,26 +49,32 @@ export default function App() {
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (state.busy || !state.snapshot) return;
-      const tag = (e.target as HTMLElement | null)?.tagName;
-      if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
+      if (tab !== "run" || state.busy || !state.snapshot || e.defaultPrevented ||
+          e.repeat || e.isComposing || e.ctrlKey || e.metaKey || e.altKey) return;
+      const target = e.target as HTMLElement | null;
+      const tag = target?.tagName;
+      if (target?.isContentEditable || tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
       const n = Number(e.key);
       if (n >= 1 && n <= 9) {
-        const choice = state.choices[n - 1];
-        if (choice) void act(choice.id);
+        const choice = visibleChoices[n - 1];
+        if (choice) {
+          e.preventDefault();
+          void act(choice.id);
+        }
       }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [act, state.busy, state.choices, state.snapshot]);
+  }, [act, state.busy, state.snapshot, tab, visibleChoices]);
 
   const cs = state.snapshot?.state;
   const phase = (cs?.phase ?? "").toUpperCase();
   const mandatory = phase === "MANDATORY_RACE";
 
   async function exportTelemetry() {
+    if (state.sessionId === null) return;
     try {
-      const data = await api.telemetry();
+      const data = await api.telemetry(state.sessionId);
       const blob = new Blob([JSON.stringify(data, null, 2)], {
         type: "application/json",
       });
@@ -90,6 +99,9 @@ export default function App() {
             Interactive career simulator
             {state.health?.version ? ` · v${state.health.version}` : ""}
           </div>
+          {tab === "run" && state.sessionId !== null && (
+            <div className="sub">Session: {state.sessionId || "main"}</div>
+          )}
         </div>
         <nav className="tabs">
           <button
@@ -191,10 +203,7 @@ export default function App() {
               />
             </div>
             <ChoicePanel
-              choices={state.choices.filter(
-                (c) =>
-                  !c.id.startsWith("gl_song_") && !c.id.startsWith("gl_tech_"),
-              )}
+              choices={visibleChoices}
               state={cs}
               busy={state.busy}
               onChoose={(id) => void act(id)}

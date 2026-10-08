@@ -1,0 +1,13 @@
+{
+  "baseline": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "verdict": "PASS",
+  "checks": 39,
+  "mcpChecks": 36,
+  "tuiChecks": 3,
+  "mcpHttpCalls": 26,
+  "totalHttpCalls": 60,
+  "mcpSha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+  "tuiSha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e",
+  "methodology": "Actual current wrappers executed unchanged via Node --eval against a private HTTP recorder using explicit-empty/main semantics. Captured wire omission/named values and pre-HTTP empty validation; no native Rust execution.",
+  "stderr": ""
+}

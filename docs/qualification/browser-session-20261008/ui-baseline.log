@@ -1,0 +1,276 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> uma-sim-ui@0.1.0 test
+> node --test tests/*.test.mjs
+
+✖ a delayed action cannot replace a newly selected session (26.230956ms)
+✖ a superseded refresh cannot restore the previous session (3.693105ms)
+✖ reset prevents a delayed action from resurrecting a career (3.126683ms)
+✖ late failures and cleanup cannot alter a newer pending refresh (2.171316ms)
+✖ failed session selection clears stale playable state (2.856317ms)
+✖ same-turn duplicate actions submit only once (2.483606ms)
+✖ run operations remain bound to the displayed session after external activation (3.47732ms)
+✖ explicit default session is preserved in read requests (5.457398ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 836.572095
+
+✖ failing tests:
+
+test at tests/run-session.test.mjs:90:1
+✖ a delayed action cannot replace a newly selected session (26.230956ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  'a' !== 'b'
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:99:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'a',
+    expected: 'b',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:103:1
+✖ a superseded refresh cannot restore the previous session (3.693105ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  'a' !== 'b'
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:111:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'a',
+    expected: 'b',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:115:1
+✖ reset prevents a delayed action from resurrecting a career (3.126683ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + {
+  +   meta: {
+  +     seed: 20
+  +   },
+  +   rngCalls: 3,
+  +   rngSeed: 1,
+  +   settings: {},
+  +   state: {
+  +     meta: {
+  +       traineeName: 'a'
+  +     },
+  +     turn: 3
+  +   }
+  + }
+  - null
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:123:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { meta: { seed: 20 }, settings: {}, rngSeed: 1, rngCalls: 3, state: { turn: 3, meta: [Object] } },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:127:1
+✖ late failures and cleanup cannot alter a newer pending refresh (2.171316ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:137:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:143:1
+✖ failed session selection clears stale playable state (2.856317ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + {
+  +   meta: {
+  +     seed: 20
+  +   },
+  +   rngCalls: 2,
+  +   rngSeed: 1,
+  +   settings: {},
+  +   state: {
+  +     meta: {
+  +       traineeName: 'a'
+  +     },
+  +     turn: 2
+  +   }
+  + }
+  - null
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:151:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { meta: { seed: 20 }, settings: {}, rngSeed: 1, rngCalls: 2, state: { turn: 2, meta: [Object] } },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:159:1
+✖ same-turn duplicate actions submit only once (2.483606ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  2 !== 1
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:167:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:170:1
+✖ run operations remain bound to the displayed session after external activation (3.47732ms)
+  AssertionError [ERR_ASSERTION]: [
+    {
+      "path": "/v1/run/action",
+      "query": "",
+      "method": "POST",
+      "body": {
+        "action": "rest"
+      },
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/text",
+      "query": "",
+      "method": "GET",
+      "body": {},
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/auto",
+      "query": "",
+      "method": "POST",
+      "body": {
+        "policy": "default"
+      },
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/text",
+      "query": "",
+      "method": "GET",
+      "body": {},
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/fast",
+      "query": "",
+      "method": "POST",
+      "body": {
+        "multiplier": 20,
+        "policy": "bot"
+      },
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/state",
+      "query": "",
+      "method": "GET",
+      "body": {},
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/choices",
+      "query": "",
+      "method": "GET",
+      "body": {},
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/text",
+      "query": "",
+      "method": "GET",
+      "body": {},
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/deck/place",
+      "query": "",
+      "method": "POST",
+      "body": {
+        "supportId": "support:1",
+        "facility": "speed"
+      },
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/choices",
+      "query": "",
+      "method": "GET",
+      "body": {},
+      "target": "b"
+    },
+    {
+      "path": "/v1/run/style",
+      "query": "",
+      "method": "POST",
+      "body": {
+        "style": "front"
+      },
+      "target": "b"
+    }
+  ]
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:183:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/run-session.test.mjs:188:1
+✖ explicit default session is preserved in read requests (5.457398ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert.ok(server.calls.every((call) => call.query === "?session="))
+
+      at TestContext.<anonymous> (file://<isolated-checkout>/packages/uma-sim-ui/tests/run-session.test.mjs:194:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
