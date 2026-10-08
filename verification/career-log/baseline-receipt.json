@@ -10,14 +10,31 @@
   "defect": "Event log contains current-state rendering, not the retained career log",
   "node": "v22.22.1",
   "browser": "Chromium 153.0.8010.47 snap",
-  "sourceSha256": {
-    "packages/uma-sim-ui/src/App.tsx": "13cef9b422c7fea38a041994a10a8b2b1e6eb475ca824c14edc83352c6d94fee",
-    "packages/uma-sim-ui/src/components/LogPanel.tsx": "9cbe26c6f648b07d5be61520fd257f6fdfcae35bd585063d66d2d43b85e633a1",
-    "packages/uma-sim-ui/src/state/runStore.ts": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922",
-    "packages/uma-sim-ui/src/api/client.ts": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee",
-    "uma-sim-core/src/api.rs": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
-  },
-  "apiBinarySha256": "1f182eb33d97d053db0e09ec910c1dae098d8e81ac518a1e0695049af6246b2b",
   "persistentUserCareerTouched": false,
-  "publicDeploymentClaimed": false
+  "publicDeploymentClaimed": false,
+  "sourceFiles": [
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "sha256": "13cef9b422c7fea38a041994a10a8b2b1e6eb475ca824c14edc83352c6d94fee"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LogPanel.tsx",
+      "sha256": "9cbe26c6f648b07d5be61520fd257f6fdfcae35bd585063d66d2d43b85e633a1"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/runStore.ts",
+      "sha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "sha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    }
+  ],
+  "apiBinary": {
+    "sha256": "1f182eb33d97d053db0e09ec910c1dae098d8e81ac518a1e0695049af6246b2b"
+  }
 }

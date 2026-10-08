@@ -85,6 +85,10 @@ catalog portrait URL behavior; the log reader adds no external requests.
 The final harness starts the browser before warming the API catalogs to limit
 startup memory peaks and keeps browser temporary files in its own temporary state
 directory. Earlier host startup/transport failures did not produce passing receipts.
+The initial CI secret scan classified four API source/binary digest assignments
+as generic API keys. Each value was verified against the actual file bytes. The
+receipts now represent these as structured file/digest records, preserving the
+same paths and SHA-256 values. No scan rule, workflow or allowlist was changed.
 
 ## Reproduce
 

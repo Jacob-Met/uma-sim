@@ -293,7 +293,8 @@ try {
   }
   assert.deepEqual(await hashes(),sourceBefore);
   receipt={...receipt,node:process.version,browser:execFileSync(chromium,['--version'],{encoding:'utf8',timeout:15000}).trim(),
-    sourceSha256:sourceBefore,apiBinarySha256:crypto.createHash('sha256').update(await fs.readFile(binary)).digest('hex'),
+    sourceFiles:Object.entries(sourceBefore).map(([path,sha256])=>({path,sha256})),
+    apiBinary:{sha256:crypto.createHash('sha256').update(await fs.readFile(binary)).digest('hex')},
     persistentUserCareerTouched:false,publicDeploymentClaimed:false};
 }finally{
   if(socket?.readyState===WebSocket.OPEN)await Promise.race([send('Browser.close').catch(()=>{}),delay(3000)]);

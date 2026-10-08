@@ -26,16 +26,39 @@
   "setupMayLoadExistingCatalogPortraitUrls": true,
   "node": "v22.22.1",
   "browser": "Chromium 153.0.8010.47 snap",
-  "sourceSha256": {
-    "packages/uma-sim-ui/src/App.tsx": "81b7a06c7dc3d6790166d04baed092dea69749265993173c228c426bcaeb2d66",
-    "packages/uma-sim-ui/src/components/LogPanel.tsx": "19d398a0d5f004da56d73d04233e14218ac6af798efeff2f5e85ddc3ce6bd10f",
-    "packages/uma-sim-ui/src/components/logView.ts": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2",
-    "packages/uma-sim-ui/src/components/logPanel.css": "17e85d1c63567265ea9fb330fea2472090cd72dde1d64c070f10833a5c8cc072",
-    "packages/uma-sim-ui/src/state/runStore.ts": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922",
-    "packages/uma-sim-ui/src/api/client.ts": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee",
-    "uma-sim-core/src/api.rs": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
-  },
-  "apiBinarySha256": "1f182eb33d97d053db0e09ec910c1dae098d8e81ac518a1e0695049af6246b2b",
   "persistentUserCareerTouched": false,
-  "publicDeploymentClaimed": false
+  "publicDeploymentClaimed": false,
+  "sourceFiles": [
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "sha256": "81b7a06c7dc3d6790166d04baed092dea69749265993173c228c426bcaeb2d66"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LogPanel.tsx",
+      "sha256": "19d398a0d5f004da56d73d04233e14218ac6af798efeff2f5e85ddc3ce6bd10f"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/logView.ts",
+      "sha256": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/logPanel.css",
+      "sha256": "17e85d1c63567265ea9fb330fea2472090cd72dde1d64c070f10833a5c8cc072"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/runStore.ts",
+      "sha256": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "sha256": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    }
+  ],
+  "apiBinary": {
+    "sha256": "1f182eb33d97d053db0e09ec910c1dae098d8e81ac518a1e0695049af6246b2b"
+  }
 }
