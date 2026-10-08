@@ -1,0 +1,88 @@
+{
+  "schema": "hamon.uma_continue.baseline_reset_control.v1",
+  "at": "2026-10-08T23:00:23.020Z",
+  "binary_sha256": "be6c7a256a67f40771fdad11dc642ed8cf75261c156db7ce026e6056c8db51d7",
+  "source_commit": "80a1aaa420dbb1b4683aad3b25732ba0897d8d28",
+  "only_authored_temporary_save": true,
+  "records": [
+    {
+      "name": "start",
+      "args": [
+        "start",
+        "--seed=73",
+        "--scenario=unity",
+        "--race-model=stub",
+        "--speed=3",
+        "--deck=support:10001@speed:85"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "name": "step",
+      "args": [
+        "step",
+        "event_0"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "name": "missing-continue",
+      "args": [
+        "continue"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "name": "fast-reset",
+      "args": [
+        "fast",
+        "--seed=99",
+        "--scenario=ura",
+        "--race-model=stub"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null
+    }
+  ],
+  "unsupported_continue_status": 0,
+  "unsupported_continue_preserved_bytes": true,
+  "unsupported_continue_output_contains_usage": false,
+  "before": {
+    "sha256": "7868c1b01711a150e96ad09a54e5e2d1120ce95d517c1fb153bdbbf28d222d5b",
+    "meta": {
+      "seed": 73,
+      "scenarioId": "unity",
+      "traineeName": "Special Week",
+      "objectiveProfile": "general",
+      "legacyFactors": [],
+      "parentNames": [],
+      "deckSupports": [
+        "support:10001@speed:85"
+      ],
+      "compatibilityScore": 0
+    },
+    "turn": 1
+  },
+  "after_fast": {
+    "sha256": "671b0a90af209b9b74459233dfe08725a99f7b95581d41144b9f4e2ec18dc6fe",
+    "meta": {
+      "seed": 99,
+      "scenarioId": "ura",
+      "traineeName": "Special Week",
+      "objectiveProfile": "general",
+      "legacyFactors": [],
+      "parentNames": [],
+      "deckSupports": [],
+      "compatibilityScore": 0
+    },
+    "turn": 72
+  },
+  "fast_replaced_saved_identity": true
+}

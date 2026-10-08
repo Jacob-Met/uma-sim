@@ -1,0 +1,51 @@
+{
+  "schema": "hamon.uma_continue.baseline_regression.v1",
+  "at": "2026-10-08T22:39:59.155Z",
+  "test_source_sha256": "e506dbb710500fdc28d6b9f8add216fe6136d9c066e1958a0348f0d886b9f7ab",
+  "baseline_binary_sha256": "be6c7a256a67f40771fdad11dc642ed8cf75261c156db7ce026e6056c8db51d7",
+  "compile": {
+    "argv": [
+      "--edition=2021",
+      "--test",
+      "/home/jacob/uma-continue-3dc74ef3b04d-candidate/uma-sim-core/tests/cli_continue.rs",
+      "-C",
+      "debuginfo=0",
+      "-L",
+      "dependency=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps",
+      "--extern",
+      "uma_sim_core=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+      "--extern",
+      "serde_json=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+      "-o",
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/baseline-continue-tests"
+    ],
+    "status": 0,
+    "stderr": ""
+  },
+  "cases": [
+    {
+      "name": "default_continues_partial_saved_career_without_reset",
+      "status": 101,
+      "signal": null,
+      "expected_failure": true
+    },
+    {
+      "name": "missing_session_fails_without_creating_state",
+      "status": 101,
+      "signal": null,
+      "expected_failure": true
+    },
+    {
+      "name": "invalid_options_fail_before_loading_or_creating_a_session",
+      "status": 101,
+      "signal": null,
+      "expected_failure": true
+    },
+    {
+      "name": "help_is_read_only_and_discoverable",
+      "status": 101,
+      "signal": null,
+      "expected_failure": true
+    }
+  ]
+}

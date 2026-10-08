@@ -1,0 +1,162 @@
+{
+  "schema": "hamon.uma_continue.scoped_native.v2",
+  "prior_attempt_receipt": "/home/jacob/uma-continue-3dc74ef3b04d-proof/candidate-scoped-native-receipt.json",
+  "method_correction": "Add required existing serde extern to native CLI linker invocation; no product source changes",
+  "started": "2026-10-08T22:59:18.281Z",
+  "finished": "2026-10-08T23:00:22.729Z",
+  "ok": true,
+  "method": "native rustc CLI and integration test builds linked against exact unchanged offline Cargo baseline dependency libraries; no library/API rebuild",
+  "cargo_candidate_preflight": {
+    "not_started": true,
+    "free_bytes": 218374144,
+    "required_bytes": 471859200
+  },
+  "baseline_source_commit": "80a1aaa420dbb1b4683aad3b25732ba0897d8d28",
+  "qualified_dependency": "248c62564bb816630d6983ec5f733b965a8e1e43",
+  "unchanged_component_files_verified": 301,
+  "libraries": [
+    {
+      "name": "uma_sim_core",
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+      "sha256": "d0dcf73a808cba8d53244463b94bd57e0c5b586cd11e7e7bfcd898ec86008f45"
+    },
+    {
+      "name": "serde_json",
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+      "sha256": "b34ce1716ba3be9f8ab8f325d53fd5101f00626bb5ab3b7edbdabf368d32a93b"
+    },
+    {
+      "name": "serde",
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde-132e5c206af072e5.rlib",
+      "sha256": "ebb1f58637a049c1a6a07b220b36ec9538276b903784fb65bcb25f2befee7585"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "sha256": "4201e9d1928177f9fa15ea72fcdadec0e4b2eb5750bfd02be11dbc32dcff14af"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/continue_run.rs",
+      "sha256": "26caa3ab1c6253f21a4ee4ea77c2a0e8df6de35c0635baf3f379c7a8d4feb17a"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_continue.rs",
+      "sha256": "cc6f6a63990c6464f3fc0903785eb28e1d0466346124aa687aa5429e135104e7"
+    },
+    {
+      "path": "docs/CLI_CONTINUE.md",
+      "sha256": "72a8ef899afaf4adec856361e9e75c73d80c1a4b547654b80cb3c116671f3e9a"
+    }
+  ],
+  "binary": {
+    "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+    "sha256": "db18c2878f4627ed14d247ed26e1e94327a3d14b6aadc600d407c3292f67ab4a",
+    "bytes": 25075392
+  },
+  "records": [
+    {
+      "label": "candidate-cli-compile",
+      "argv": [
+        "/usr/bin/rustc",
+        "--edition=2021",
+        "/home/jacob/uma-continue-3dc74ef3b04d-candidate/uma-sim-core/src/bin/uma-sim.rs",
+        "-C",
+        "debuginfo=0",
+        "-L",
+        "dependency=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps",
+        "--extern",
+        "uma_sim_core=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+        "--extern",
+        "serde_json=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+        "--extern",
+        "serde=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde-132e5c206af072e5.rlib",
+        "-o",
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "candidate-continue-compile",
+      "argv": [
+        "/usr/bin/rustc",
+        "--edition=2021",
+        "--test",
+        "/home/jacob/uma-continue-3dc74ef3b04d-candidate/uma-sim-core/tests/cli_continue.rs",
+        "-C",
+        "debuginfo=0",
+        "-L",
+        "dependency=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps",
+        "--extern",
+        "uma_sim_core=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+        "--extern",
+        "serde_json=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+        "--extern",
+        "serde=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde-132e5c206af072e5.rlib",
+        "-o",
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-continue-tests"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "candidate-writer-compile",
+      "argv": [
+        "/usr/bin/rustc",
+        "--edition=2021",
+        "--test",
+        "/home/jacob/uma-continue-3dc74ef3b04d-candidate/uma-sim-core/tests/cli_session_persistence.rs",
+        "-C",
+        "debuginfo=0",
+        "-L",
+        "dependency=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps",
+        "--extern",
+        "uma_sim_core=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+        "--extern",
+        "serde_json=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+        "--extern",
+        "serde=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde-132e5c206af072e5.rlib",
+        "-o",
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-writer-tests"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "candidate-continue-tests",
+      "argv": [
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-continue-tests",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "3c6a7c386076d51dbb38eea4b8e2053032906da2c4a75a577bc111852926456d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "candidate-writer-tests",
+      "argv": [
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-writer-tests",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "c19a8d74be2604dbece2a86a317c1fc7f2a0acd37a93e013a8f155db276590e4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

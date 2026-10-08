@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "seed": 99,
+    "scenarioId": "ura",
+    "traineeName": "Special Week",
+    "objectiveProfile": "general",
+    "legacyFactors": [],
+    "parentNames": [],
+    "deckSupports": [],
+    "compatibilityScore": 0
+  },
+  "settings": {
+    "dialogueMode": "CHOICES_ONLY",
+    "speedMultiplier": 20,
+    "allowDialogueAtHighSpeed": false,
+    "traceTelemetry": false,
+    "traceRng": false,
+    "raceModel": "stub"
+  },
+  "state": {
+    "meta": {
+      "seed": 99,
+      "scenarioId": "ura",
+      "traineeName": "Special Week",
+      "objectiveProfile": "general",
+      "legacyFactors": [],
+      "parentNames": [],
+      "deckSupports": [],
+      "compatibilityScore": 0
+    },
+    "date": {
+      "year": 4,
+      "month": 6,
+      "half": 1
+    },
+    "turn": 72,
+    "stats": {
+      "speed": 158,
+      "stamina": 128,
+      "power": 194,
+      "guts": 140,
+      "wit": 111
+    },
+    "energy": 0,
+    "maxEnergy": 100,
+    "mood": "GOOD",
+    "fans": 3821,
+    "skillPoints": 191,
+    "careerComplete": true,
+    "awaitingChoice": false,
+    "pendingEventTitle": null,
+    "pendingRaceId": null,
+    "phase": "COMPLETE",
+    "completedRaces": [
+      "debut",
+      "finale_qualifier",
+      "finale_semifinal",
+      "finale_finals"
+    ],
+    "facilityLevels": {
+      "stamina": 1,
+      "guts": 1,
+      "power": 1,
+      "wit": 1,
+      "speed": 2
+    },
+    "facilityTrainCounts": {
+      "speed": 5
+    },
+    "pendingEventOptions": [],
+    "hintLevels": {
+      "skill:201352": 1,
+      "skill:200732": 1,
+      "skill:201402": 1,
+      "skill:200361": 1,
+      "skill:200512": 2,
+      "speed": 1
+    },
+    "statuses": [
+      "practice perfect",
+      "epithet:sim_ura_finale_win"
+    ],
+    "performanceTokens": {},
+    "scenarioResources": {
+      "values": {
+        "happy_meek_badge": 3
+      }
+    },
+    "legacy": {
+      "parentNames": [],
+      "factorIds": [],
+      "inheritedSkillIds": [],
+      "sparkCaps": {},
+      "blueStartBonuses": {},
+      "pinkFactorIds": [],
+      "pinkAptitudeTags": [],
+      "pinkStarTotals": {},
+      "aptitudes": {
+        "late": "A",
+        "front": "G",
+        "sprint": "F",
+        "mile": "C",
+        "pace": "A",
+        "turf": "A",
+        "dirt": "G",
+        "long": "A",
+        "medium": "A",
+        "end": "C"
+      },
+      "raceFactorIds": [],
+      "inheritanceComplete": false,
+      "inspirationEventsDone": 0
+    },
+    "learnedSkillIds": [
+      "skill:100011"
+    ],
+    "deck": {
+      "slots": []
+    },
+    "log": [
+      "Career started: Special Week / ura / seed=99",
+      "Race debut +897 fans",
+      "Trained SPEED +11",
+      "Event: Etsuko's Exhaustive Coverage (Pre/OP)",
+      "Event 'Etsuko's Exhaustive Coverage (Pre/OP)' choice 0",
+      "Trained SPEED +11",
+      "Trained SPEED +10",
+      "Trained SPEED +10",
+      "Event: New Year's Shrine Visit",
+      "Event 'New Year's Shrine Visit' choice 0",
+      "Trained SPEED +13",
+      "Event: Acupuncture (Just an Acupuncturist, No Worries! ☆)",
+      "Event 'Acupuncture (Just an Acupuncturist, No Worries! ☆)' choice 0",
+      "Event: To My Dear Mama",
+      "Event 'To My Dear Mama' choice 0",
+      "Event: Best Foot Forward!",
+      "Event 'Best Foot Forward!' choice 0",
+      "Event: New Year's Resolutions",
+      "Event 'New Year's Resolutions' choice 0",
+      "Event: Exhilarating! What a Scoop!",
+      "Event 'Exhilarating! What a Scoop!' choice 0",
+      "Event: How Should I Pose?",
+      "Event 'How Should I Pose?' choice 0",
+      "Event: Karaoke Connoisseur ♪",
+      "Event 'Karaoke Connoisseur ♪' choice 0",
+      "Event: Karaoke Connoisseur ♪",
+      "Event 'Karaoke Connoisseur ♪' choice 0",
+      "Training failed at SPEED.",
+      "Epithet unlocked: epithet:sim_ura_finale_win",
+      "Race finale_qualifier +1035 fans",
+      "Race finale_semifinal +925 fans",
+      "Race finale_finals +964 fans",
+      "Event: The Days Past and the Days to Come",
+      "Event 'The Days Past and the Days to Come' choice 0",
+      "Career complete",
+      "Generated sparks: blue 1★ (wit blue), red 2★ (pace aptitude), green 1★ (unique skill)"
+    ],
+    "generatedSparks": [
+      {
+        "color": "blue",
+        "factorId": "factor:blue:5",
+        "stars": 1,
+        "label": "wit blue"
+      },
+      {
+        "color": "red",
+        "factorId": "factor:pink:pace",
+        "stars": 2,
+        "label": "pace aptitude"
+      },
+      {
+        "color": "green",
+        "factorId": "skill:100011",
+        "stars": 1,
+        "label": "unique skill"
+      }
+    ],
+    "baseAptitudes": {
+      "late": "A",
+      "front": "G",
+      "sprint": "F",
+      "mile": "C",
+      "pace": "A",
+      "turf": "A",
+      "dirt": "G",
+      "long": "A",
+      "medium": "A",
+      "end": "C"
+    }
+  },
+  "rngSeed": 99,
+  "rngCalls": 297,
+  "rngState": {
+    "x": 99363760,
+    "y": 597494824,
+    "z": -1895965223,
+    "w": 789781495,
+    "v": 1529523393,
+    "addend": 192192986
+  }
+}

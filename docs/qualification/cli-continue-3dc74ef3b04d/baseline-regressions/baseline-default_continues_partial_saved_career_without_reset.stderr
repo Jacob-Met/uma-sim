@@ -1,0 +1,5 @@
+
+thread 'default_continues_partial_saved_career_without_reset' (2491779) panicked at /home/jacob/uma-continue-3dc74ef3b04d-candidate/uma-sim-core/tests/cli_continue.rs:127:5:
+assertion failed: output.contains(&format!("Continued saved career from turn {}",
+            before.state.turn))
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,2129 @@
+{
+  "schema": "hamon.uma_continue.component_source.v1",
+  "at": "2026-10-08T22:31:51.397Z",
+  "repository": "Jacob-Met/uma-sim",
+  "dependency_commit": "248c62564bb816630d6983ec5f733b965a8e1e43",
+  "dependency_tree": "7cab649fb15bb8e7071d66eab329aba5f5cd68e9",
+  "read_only_donor": "/dev/shm/uma-root-69570d292200-merge-z8r1pr_w",
+  "lazy_fetch_disabled": true,
+  "component_projection_not_full_ancestry": true,
+  "current_main_known": "ac4a4c2d4b4159bea1012e66cb79e76b6bc25d56",
+  "current_main_compatibility_pending": true,
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "mode": "100644",
+      "git_blob": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "bytes": 9836,
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c"
+    },
+    {
+      "path": "Cargo.toml",
+      "mode": "100644",
+      "git_blob": "d55384b62968b2ada18d45aa4de2053e175579ea",
+      "bytes": 71,
+      "sha256": "818161c35c9828641c370cc3c6b50dfb1e8e4417210bd8fa486e87234e40b1d8"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "git_blob": "64d59960fad930c340d914fee75da2212ecd64fd",
+      "bytes": 721,
+      "sha256": "6200d8929718b2d04e2d26a1c58a900ed70ff4085bcccb5b60ef71ae3b8bc28e"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "git_blob": "ba2e8101303d8d82dcda560341d5102e57e38787",
+      "bytes": 14262,
+      "sha256": "2e32b40860acc71bd4f42fda44ba63bdf0a9ddbd2a4c07d92faf32ea6a8160ae"
+    },
+    {
+      "path": "docs/agent-operations.md",
+      "mode": "100644",
+      "git_blob": "4113412c01f73323cdbb80dfb2313f57c5d3b29e",
+      "bytes": 3171,
+      "sha256": "276bf2357e7c816867a3a3a99217922db041d109ede2d708fd607b6a8234dd32"
+    },
+    {
+      "path": "knowledge/README.md",
+      "mode": "100644",
+      "git_blob": "f2dead2d6968c92c26fc0197eb84a0feaf8928a4",
+      "bytes": 1358,
+      "sha256": "b399fc3fa9f0c577ce39adf18fb42ff8909071abcc9120350512b1d8cecd1c21"
+    },
+    {
+      "path": "knowledge/RELEASE.md",
+      "mode": "100644",
+      "git_blob": "1158f8298bcedeef324ee2ce47737fd41251561c",
+      "bytes": 532,
+      "sha256": "26312654ccca41e010b6377da09f9956fe69f64eb1a6031b9ea7d34d64a8c832"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/event_local.json",
+      "mode": "100644",
+      "git_blob": "51608bfc5a8591cb9084543d7f55bb11d0b74cdc",
+      "bytes": 1802470,
+      "sha256": "2d5fb029c8ebc8e54210d0bfe5273fa2a8f14888edd7b7b7ed77b9a83bd452ad"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/factor.json",
+      "mode": "100644",
+      "git_blob": "ba0b51f2294382ce2771acafffa5bb275430d2e1",
+      "bytes": 837378,
+      "sha256": "9305da3961c1ab2f783baf49d2c817018fa6877fd3c430320333349a3753f452"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/lesson.json",
+      "mode": "100644",
+      "git_blob": "84d6eb4ae5ba99e23924b66a7acd7caa174844ab",
+      "bytes": 137615,
+      "sha256": "c29c8a9f8da69c9d644dcdf0616a66af4d10f975eec50468462213e25a91db01"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/race.json",
+      "mode": "100644",
+      "git_blob": "db5d63a6f0f02f196d7382c0a09e30c470cbb913",
+      "bytes": 242997,
+      "sha256": "b57f1b3033887926d69e871153545920e9613caf809114583e08ed7ccad91ec8"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/skill.json",
+      "mode": "100644",
+      "git_blob": "8042a37684b9930fad6b4d5a033e8d358ac9b851",
+      "bytes": 2448889,
+      "sha256": "1317b0bfc80085e0cb1aa756a1b6dbea0b0258fb12583e884e7b6f516d9a7df2"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/song.json",
+      "mode": "100644",
+      "git_blob": "d4c6b997a22788319072aed3d6e408395e6cac88",
+      "bytes": 21321,
+      "sha256": "27bb6616675b0749ffd7b2df2a06b03b9f0a5d379bd3d0cb31056741bef89d13"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/support_card.json",
+      "mode": "100644",
+      "git_blob": "98299e33510804b2aeb0d2c23328ff1a6129d66e",
+      "bytes": 3400227,
+      "sha256": "399c936652486f8ed684039a93645b4a60f68b5c01942a323c1b6736f208af2d"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/trainee.json",
+      "mode": "100644",
+      "git_blob": "b1d0a4eafa6104a08b02e1e4f03b98066240e219",
+      "bytes": 617740,
+      "sha256": "f22144a37818b358b1ebf188ee948de751c46c01a97a2e77faf47c746a5f8b48"
+    },
+    {
+      "path": "knowledge/mechanics/champions_meeting.md",
+      "mode": "100644",
+      "git_blob": "740d480ec530f33fb3c7169db5e94ae9114bbfb6",
+      "bytes": 1806,
+      "sha256": "e09cd7c6ca433c11124106490b67eeae737da46a7b307fa0945ce5fb90c0d6ab"
+    },
+    {
+      "path": "knowledge/mechanics/grand_concert_policy.md",
+      "mode": "100644",
+      "git_blob": "ab412afbba55a9de7398dde1f9332c03f333a608",
+      "bytes": 1785,
+      "sha256": "84c20ca45a40fdf940b1f7718db90699b9a91630b2a079891268b5d841317fbd"
+    },
+    {
+      "path": "knowledge/mechanics/inheritance_planners.md",
+      "mode": "100644",
+      "git_blob": "3bfeb9b5052eddb6c225f51b7bae95a425c2ce79",
+      "bytes": 2809,
+      "sha256": "0e59b3fa02fd4d1bdda35f99257f91b071d92f43fdecb43e74b154a7c781aad2"
+    },
+    {
+      "path": "knowledge/mechanics/interaction_latency_research.md",
+      "mode": "100644",
+      "git_blob": "8952d7de035852947ed792e59b7f9445467a3297",
+      "bytes": 2106,
+      "sha256": "834f0935ebe0e137da40394d2595f7b627fd0675e417a9f34a9c4dcef9a947f6"
+    },
+    {
+      "path": "knowledge/mechanics/interaction_timing_audit.md",
+      "mode": "100644",
+      "git_blob": "c2f07056aae3b4ec81cfaf623f486817f0bfe3bd",
+      "bytes": 3927,
+      "sha256": "474c0c6a83c26873649a67c27abdf9595d0aed2485dd0f10754979e86e2f5364"
+    },
+    {
+      "path": "knowledge/mechanics/parent_farming_utility.md",
+      "mode": "100644",
+      "git_blob": "bf0eb285da91e3b02d42961332644216987c416b",
+      "bytes": 9449,
+      "sha256": "84194829fdeaa34fa0c8c31be4706b4ff7b07a613421d8a10d8cf3e0643205ad"
+    },
+    {
+      "path": "knowledge/mechanics/race_model.md",
+      "mode": "100644",
+      "git_blob": "002210766e20a666bb3d923c95c102059f28864d",
+      "bytes": 4297,
+      "sha256": "997c261299e7f403b83157b9a9657b7dd2614c529545bc9dbd1efa5678a455d2"
+    },
+    {
+      "path": "knowledge/mechanics/run_grade.md",
+      "mode": "100644",
+      "git_blob": "260159a164075ec950dc38223259ad8b5e36f924",
+      "bytes": 3003,
+      "sha256": "576e9e6a7ad19ad752654199ca430ab777dcf810035fbe67be98762897ebcd24"
+    },
+    {
+      "path": "knowledge/mechanics/skill_valuation.md",
+      "mode": "100644",
+      "git_blob": "f416f617c04f655a417f323ab9c87e6fd5ff2492",
+      "bytes": 3665,
+      "sha256": "836a321d5e31886abec7c82c2234ebe7c719107e3ed9df719beb6ba501049d20"
+    },
+    {
+      "path": "knowledge/mechanics/training_stat_gain.md",
+      "mode": "100644",
+      "git_blob": "b09dc11ef65482988b866c8f4fdbda1db1dab358",
+      "bytes": 1565,
+      "sha256": "04168b3216b8573b46ff5216600933f88b73b4ffa6bf5da8e79a828bca470dff"
+    },
+    {
+      "path": "knowledge/scenarios/grand_concert.md",
+      "mode": "100644",
+      "git_blob": "880ee117fc56bdbce11b5e44929956f1f6613d23",
+      "bytes": 9678,
+      "sha256": "b191cb7ffe8e172b7759e87ea12ea573cf85a1d303977ffe2e95380af8ad55fb"
+    },
+    {
+      "path": "knowledge/scenarios/trackblazer.md",
+      "mode": "100644",
+      "git_blob": "93de1a4084d78714701a59ef5e2f74470007356f",
+      "bytes": 947,
+      "sha256": "16413159a292b8f9b50f91748784e74ff7eb488b587287e24ccf004e91489a9f"
+    },
+    {
+      "path": "knowledge/scenarios/unity.md",
+      "mode": "100644",
+      "git_blob": "19e7a3487a0e4d8da14972bebb76120ce2912272",
+      "bytes": 1151,
+      "sha256": "fa2ebb908a9d66af5042b37d839b593fd0193e4f2f0dec8c4a1954ce14c6ae24"
+    },
+    {
+      "path": "knowledge/scenarios/ura.md",
+      "mode": "100644",
+      "git_blob": "b1aa402f3f76a7bc68799151fb7119968fee882b",
+      "bytes": 1009,
+      "sha256": "692f7d06d51f83606ee32ca54074592283ee7ab3bfd4bbc66dc44251f7330e7e"
+    },
+    {
+      "path": "knowledge/schema/entity.schema.json",
+      "mode": "100644",
+      "git_blob": "5863ff1cc81caef956362ad97a2db6071bd1d291",
+      "bytes": 1380,
+      "sha256": "99d93604557ff576cb701b87369951b3a97a6ae0fbde6d57245aff45fc20cb0f"
+    },
+    {
+      "path": "knowledge/schema/ids.json",
+      "mode": "100644",
+      "git_blob": "644679d025c58b93ed48e172d1b7c80f2c0b63e0",
+      "bytes": 1649,
+      "sha256": "2826e46fd100488fe06ac91405bd5f7838526b8a55bd0b8ad186392fd8337b0e"
+    },
+    {
+      "path": "knowledge/validate/validate.py",
+      "mode": "100644",
+      "git_blob": "16681d5b7ca8f708be4d444e4d1e24b50ce194ee",
+      "bytes": 4589,
+      "sha256": "b462ef95cc6bf245f0f4592e14f06d095903ed41cefbb5350de1af50a9926103"
+    },
+    {
+      "path": "research/R88_REFREEZE.md",
+      "mode": "100644",
+      "git_blob": "e42d3abd0a5a375bb3e4ae8e78cc7ea37052ab85",
+      "bytes": 883,
+      "sha256": "6dbfafdc4ac2a10399022ecfd445709abcfa9c70f75cbe1cf65cbb1c9faf4cea"
+    },
+    {
+      "path": "research/R8_DONE_CRITERIA_EVIDENCE.md",
+      "mode": "100644",
+      "git_blob": "c3383ab2bacfaefed163aefcee083f000eb93163",
+      "bytes": 4055,
+      "sha256": "63b876a5a87dd82aca26c878974e146e2c3a0ea0ff1da59c7411cdc71689d62a"
+    },
+    {
+      "path": "research/_check_skill_presence.py",
+      "mode": "100644",
+      "git_blob": "2f52b0d6e2580137e6f516bfb5b42583c93c20d3",
+      "bytes": 809,
+      "sha256": "bed485e8a431be7e6de3d7ae493df4fffa2a7d7c58f226b12df9e5739fa1a589"
+    },
+    {
+      "path": "research/_list_fails2.py",
+      "mode": "100644",
+      "git_blob": "03511179517425302f9ee74714fe705cadfcadd9",
+      "bytes": 552,
+      "sha256": "e736f8b440e0e7929ad4afe78b5e4bc834098d215ba54296252a835816d7e3e4"
+    },
+    {
+      "path": "research/_oracle_590_pk.txt",
+      "mode": "100644",
+      "git_blob": "bc7e53491643853428abc198ae06c25958a06693",
+      "bytes": 7903,
+      "sha256": "d2bc329bf765ad017ec58c57d2331749d21f509e6bb2d83047365b89ee36bc8c"
+    },
+    {
+      "path": "research/_oracle_590_pos.txt",
+      "mode": "100644",
+      "git_blob": "dfe2d31604a0e85d4d3843b84436bd7d957fed06",
+      "bytes": 1014,
+      "sha256": "05c6e50f60c84909103fcb7cb58cac5bd1ec1c93663277f4180f88dadf63cb11"
+    },
+    {
+      "path": "research/_skill_lookup.py",
+      "mode": "100644",
+      "git_blob": "4b3a2b185cf896c92e85196805399bf743ef2861",
+      "bytes": 1176,
+      "sha256": "5ff4d3042f3a589801a4aa8aea6391560ddbd60c23127c9fbe48d488b072f215"
+    },
+    {
+      "path": "research/bond_gain.json",
+      "mode": "100644",
+      "git_blob": "e1f60ed9e5fed4ec2d7af0e84d1694d9883aa309",
+      "bytes": 237,
+      "sha256": "15d92bc337bc71691073229d5af738368d1d1311d5631db668a5a5565c2e72c6"
+    },
+    {
+      "path": "research/crosscheck_course_fork.py",
+      "mode": "100644",
+      "git_blob": "d841647e2957fd66209a8bef19b23e15bdc8c0a6",
+      "bytes": 4064,
+      "sha256": "cdd4b044fcd1f44b5bcb27917dc4b6339f97d00dbd711976abd7c5d98b4032c2"
+    },
+    {
+      "path": "research/event_probabilities.json",
+      "mode": "100644",
+      "git_blob": "3f5cdfa21249de550011831dee1b6dc03fb58063",
+      "bytes": 1268,
+      "sha256": "4def2cc242364011ce1ccb5472295e4a8c449e3844e92391aaeb3f40d3fabf7c"
+    },
+    {
+      "path": "research/event_reward_schema.json",
+      "mode": "100644",
+      "git_blob": "943453197d71fc6c4d04eaba42a9da31c9c9d532",
+      "bytes": 539,
+      "sha256": "8e115a4cc6ee3c9c1e3c98b1ff5b0511c46550537a5ad5be20c9760f5fa46f4b"
+    },
+    {
+      "path": "research/grand_concert.json",
+      "mode": "100644",
+      "git_blob": "9b22ffc393398ce36a2bb5ca998a4e9ee960ff57",
+      "bytes": 11781,
+      "sha256": "a8aeb46e3610ad9667266199bc26a842a406fb83632e467bb36809a8b8bac00e"
+    },
+    {
+      "path": "research/grand_concert_calibration.json",
+      "mode": "100644",
+      "git_blob": "a946fdffbd75af8b91b8984a344ed8fe04755ac6",
+      "bytes": 2254,
+      "sha256": "4e080f2903f5130ac61f12759264fec6f445ef59217256ce126e4ca17431dcf7"
+    },
+    {
+      "path": "research/grand_concert_community.json",
+      "mode": "100644",
+      "git_blob": "7421208b21a7cd4bd7c631f92665287de38248fa",
+      "bytes": 4461,
+      "sha256": "7ba448fc42c3644468079d57d3a1d04aeeb68797c677d9dec1e5bce1ab9489da"
+    },
+    {
+      "path": "research/hint_progression.json",
+      "mode": "100644",
+      "git_blob": "43c740f36123b120ab1882567fad768da20e69c1",
+      "bytes": 154,
+      "sha256": "3025b3766b1156c4379c8a858ddb84e0ff85877d69d3b7362a2dcf910837160a"
+    },
+    {
+      "path": "research/inspiration.json",
+      "mode": "100644",
+      "git_blob": "4cb3d8ae7ed1e3ce4821f89a145134322901d092",
+      "bytes": 912,
+      "sha256": "1ecd87b697dffb8d8bf091b667a4007875be4babf25e054f51c6a094e41b57c4"
+    },
+    {
+      "path": "research/legacy_deck_schema.json",
+      "mode": "100644",
+      "git_blob": "ca4b6a7bc760cd00bd964d00137c76ae792f3692",
+      "bytes": 1030,
+      "sha256": "61a1a7ebc177dc03be2ae337aa48ff924cecd159002395ed4a33a0b350417fb0"
+    },
+    {
+      "path": "research/mood_energy.json",
+      "mode": "100644",
+      "git_blob": "30c56b454eb2aee07c2c46dc47f50cad7ec98d5c",
+      "bytes": 454,
+      "sha256": "1faaed041f0460d418c2429797197dd784ade0b8a25e0998abac716635c24f7a"
+    },
+    {
+      "path": "research/race_checkpoint_sample.json",
+      "mode": "100644",
+      "git_blob": "e22e5fff4d6c0ad5b5b5c64b9e5caa276c59cdd0",
+      "bytes": 17205,
+      "sha256": "9e0367f943ab013896477f0f0dbab041db42ad16b394fd23da30375bca634986"
+    },
+    {
+      "path": "research/race_checkpoint_triage.json",
+      "mode": "100644",
+      "git_blob": "fdc02b31d6cd37f14688b05a4341a0618937ba25",
+      "bytes": 5908,
+      "sha256": "830f2c9cfdaaa99587c35b6d8cbbc00d43d76babb34844888572823aeebeb607"
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample.json",
+      "mode": "100644",
+      "git_blob": "a5ec5199973c182671e5a96c13b9040b42a0f297",
+      "bytes": 120152,
+      "sha256": "df45a9a02f36f6548e0885c91ab6ed88751e00f07e62168f74f7a7b5eb433661"
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_1000.json",
+      "mode": "100644",
+      "git_blob": "6799a4a8633e12526e61b50fec3b1026deac1452",
+      "bytes": 854325,
+      "sha256": "0138c8d357eaeae33e8b49237117746af62729024642fe04a52fb311b7523fc0"
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_240.json",
+      "mode": "100644",
+      "git_blob": "4a32c984649a1cb1f2e9c1f512eac23169b5af70",
+      "bytes": 252408,
+      "sha256": "478948417960f6cdf0dd3ba91775262bee2daa54ee501c505f056354d4f7103a"
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_500.json",
+      "mode": "100644",
+      "git_blob": "59f2166e205470f04b93736175a1b31fa092822c",
+      "bytes": 302200,
+      "sha256": "dde51de26623fe7245d73b697284617d2a41086508b225c4806f519655ee5299"
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage.json",
+      "mode": "100644",
+      "git_blob": "394d651265c9da7515875711db3b04f228830321",
+      "bytes": 26916,
+      "sha256": "2f3c5d71e677acdd053e34f6b891936f502553e1a03e39d95d83ebca501c1808"
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage_1000.json",
+      "mode": "100644",
+      "git_blob": "6acef1c847cb9cde54431c728c985b6179a11d2d",
+      "bytes": 1185,
+      "sha256": "9ea9d20643135cc6a015200c1080142d0f0b66d0f3a716314c4a1aef4548c633"
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage_240.json",
+      "mode": "100644",
+      "git_blob": "ee2f8a43198753511572c18641becc3411103158",
+      "bytes": 162,
+      "sha256": "b6547102a6965dde9842c06a6ca2b8bb48872a1462cafecba6e54e42bb5f22b9"
+    },
+    {
+      "path": "research/race_compete_fight.json",
+      "mode": "100644",
+      "git_blob": "45ec50ded535b0c07e5934f34ad9b3d0b3348a66",
+      "bytes": 819,
+      "sha256": "d446e94596760ec1e49d8026dba44c5ed3d634af6ea80daaaa3413ae4bd108ee"
+    },
+    {
+      "path": "research/race_course_data.json",
+      "mode": "100644",
+      "git_blob": "5124f3cd0c8d22c5f010263c0a3dadcb359e2d3c",
+      "bytes": 115753,
+      "sha256": "85faef3864439a200f406249be78386fde3985388257de2a693ecee1b426b8c1"
+    },
+    {
+      "path": "research/race_course_fork_crosscheck.json",
+      "mode": "100644",
+      "git_blob": "f0d8337c9a9a32578c977a80b792a20c8bda563e",
+      "bytes": 880,
+      "sha256": "43a9afc6b314a68de6d811050030dc3e9fe988b8c6961d5df1e17637489ec124"
+    },
+    {
+      "path": "research/race_course_mdb_crosscheck.json",
+      "mode": "100644",
+      "git_blob": "e50e741b1a69370a6da92ce3b54cfc54707730fd",
+      "bytes": 228,
+      "sha256": "c86d60b9cb915ddffef173a6cd339580646c9ee531d5efea83ccba056cfeec2a"
+    },
+    {
+      "path": "research/race_field_npc.json",
+      "mode": "100644",
+      "git_blob": "2867e1854d59a8529bc835f9d564e91b1f86d083",
+      "bytes": 1887,
+      "sha256": "8478df955af337b32cf3bc75641db75cbea2f7326379a5d702ee53962e9c4cb3"
+    },
+    {
+      "path": "research/race_lead_competition.json",
+      "mode": "100644",
+      "git_blob": "98b14a9c15fb0f0bec762cb93912c3ba0b8b85f8",
+      "bytes": 1121,
+      "sha256": "79985d02cf3f5fae9208a4310743e6c0c5fabd47ff86e5ea401c7462bbdbbb1c"
+    },
+    {
+      "path": "research/race_model_constants.json",
+      "mode": "100644",
+      "git_blob": "3889506d4fd8956152e645f9511069cefc7650dd",
+      "bytes": 2549,
+      "sha256": "280d821a3d254b5b917e33339110e513f29db59f26c98d0b9b4070fda2967bad"
+    },
+    {
+      "path": "research/race_oracle_trace_case1.csv",
+      "mode": "100644",
+      "git_blob": "33dbc241f152ae3ba96b6ceee54cb4a477683ffc",
+      "bytes": 1046,
+      "sha256": "33a8330dac252c0147c48fa269a0b8379f4546a4da7e1455492844c8ee917c47"
+    },
+    {
+      "path": "research/race_outcomes.json",
+      "mode": "100644",
+      "git_blob": "2c595f9a9d366540e24d38249a2622a24b63e184",
+      "bytes": 599,
+      "sha256": "acb56b993b97b681b24ce2830d3e09d9175b4bc3bb45302884f520bf77c6d838"
+    },
+    {
+      "path": "research/race_position_keep.json",
+      "mode": "100644",
+      "git_blob": "6954bac9854b4260a7b139966a91e819c0b9212a",
+      "bytes": 1986,
+      "sha256": "b9b5fda6524637ac8cbfcf29ea210b9ae4494b73bf723f27400431a79c5bef5e"
+    },
+    {
+      "path": "research/race_prando_vectors.json",
+      "mode": "100644",
+      "git_blob": "52a02cd129fed89144063489175dc6623c3f2195",
+      "bytes": 979,
+      "sha256": "2cf06ec1602bfe24bc31e56fd5c7d99da4a415ce666b7f8ae8a35a4821c86d1d"
+    },
+    {
+      "path": "research/race_rushed.json",
+      "mode": "100644",
+      "git_blob": "208a9346933d06d955bd13cc98c0a058d4418558",
+      "bytes": 622,
+      "sha256": "404e35a0925cbbfb81e9681b71eee0d2512da42b70191994253e13c3e90cee61"
+    },
+    {
+      "path": "research/race_skill_condition_mismatches.json",
+      "mode": "100644",
+      "git_blob": "9fb5f4b31c14296ff5a5ae9fa1225384b06dc164",
+      "bytes": 1314,
+      "sha256": "43b249ab8c5616fc3414e020b54331eda8fcdfa6af4795dc50ae57f24a6a5643"
+    },
+    {
+      "path": "research/race_skill_condition_patch_note.json",
+      "mode": "100644",
+      "git_blob": "c16eae6129f321000053765538496259cecb0c67",
+      "bytes": 944,
+      "sha256": "5b708327daac9e6cb5ee14f3fa3a4009940f6f9f7208bcfe9fb0cea6ebf4c41b"
+    },
+    {
+      "path": "research/race_skill_effects.json",
+      "mode": "100644",
+      "git_blob": "123a392a483b5af779f4da611336be055febec72",
+      "bytes": 2363,
+      "sha256": "84752f4017ed4f28184a0d70433d07b978b45b33d09e738ec38decca777c289e"
+    },
+    {
+      "path": "research/race_telemetry_corpus.json",
+      "mode": "100644",
+      "git_blob": "dddc1ccafb57332cfe5e3c4833da0e95d9579f0b",
+      "bytes": 109849,
+      "sha256": "665232079d4a9a99f35aedd082d649c874c6132734c45725c5a31506e81d9987"
+    },
+    {
+      "path": "research/race_v4_career_place.json",
+      "mode": "100644",
+      "git_blob": "f96c422711257b078465b10bac61b30c4d05ed86",
+      "bytes": 5717,
+      "sha256": "3de31caf6012a6fb885ddecf15df7f2e643933596cf026c396ede89200b330b4"
+    },
+    {
+      "path": "research/race_v4_physics_dist.json",
+      "mode": "100644",
+      "git_blob": "c656a6623c77e5b6ef8709d0def5555d2016bb4e",
+      "bytes": 9284,
+      "sha256": "665770041ef436faf5c3526e6c931cbe23b9e270c932d2106e3b2fc3bf22ad56"
+    },
+    {
+      "path": "research/trackblazer.json",
+      "mode": "100644",
+      "git_blob": "7f7ee3553df79b67980bd53d23f7a61eab0bd678",
+      "bytes": 5766,
+      "sha256": "e8055b7df1d36d8a7326dd52b69bfd85f9821d60a3d658d9721f8b2f348e0d38"
+    },
+    {
+      "path": "research/training_failure.json",
+      "mode": "100644",
+      "git_blob": "a91664018b33a61e0de885b2106d690518097cb3",
+      "bytes": 684,
+      "sha256": "32ac94ba013fb060b4fb4c7e46e06491c03327b7a3b3b04937fb70ce42bb7245"
+    },
+    {
+      "path": "research/training_gain_tables.json",
+      "mode": "100644",
+      "git_blob": "d36f205d46022ba7dfa34a40897251072ec807d3",
+      "bytes": 4284,
+      "sha256": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60"
+    },
+    {
+      "path": "research/unity_cup.json",
+      "mode": "100644",
+      "git_blob": "5d864d65beb91d060d05bfdcf6dacf800825515c",
+      "bytes": 2590,
+      "sha256": "3aa56ace360f1d3c4c6eff379e891cc1ae874f8ad102d413c7e2f942a23b9c50"
+    },
+    {
+      "path": "research/ura_finale.json",
+      "mode": "100644",
+      "git_blob": "a123fcec93baaa3aa3f1323733ab881b115e0357",
+      "bytes": 1675,
+      "sha256": "90850730c9a041f4d1ae636cd7e9a3c8b650ce2f4e32ffab36485d70cd712d6e"
+    },
+    {
+      "path": "uma-race-core/Cargo.lock",
+      "mode": "100644",
+      "git_blob": "88923d293dbc1f75b705d8c37c8990c12e5b1819",
+      "bytes": 2670,
+      "sha256": "2b166d1a0ae1edc416fd6ca9dfbb95fee080f6a4f6c45d5ce699749527940c22"
+    },
+    {
+      "path": "uma-race-core/Cargo.toml",
+      "mode": "100644",
+      "git_blob": "43fe390326bf6d0df59c30aca77a444b9c8dfea6",
+      "bytes": 282,
+      "sha256": "c5ea8eae8e4f9703087fa43066f391b7f3656ac3b0f46c368fc88f8e1b6e73d4"
+    },
+    {
+      "path": "uma-race-core/LICENSE-APACHE",
+      "mode": "100644",
+      "git_blob": "a71ed7cda85093217136315c65fa39f8eda0e48c",
+      "bytes": 11350,
+      "sha256": "1a2195fb201ede22d67795b0e892d86145abfb3299b29bbe2599d4366b868098"
+    },
+    {
+      "path": "uma-race-core/LICENSE-MIT",
+      "mode": "100644",
+      "git_blob": "7485a528e5cf2815066fa31a934038b8fca4b740",
+      "bytes": 1077,
+      "sha256": "b7ad7ad5cccf6f269aa1798e1a03327fd0ac53a97b3debd88a9b80a631e0965f"
+    },
+    {
+      "path": "uma-race-core/src/compete_fight.rs",
+      "mode": "100644",
+      "git_blob": "30a834fc220979622269e4e903da9c4a09b483d6",
+      "bytes": 1713,
+      "sha256": "268b4ae82ad03416f5d75575009dc7abd9080efad11fc7d87bd4acbe1d3f56b4"
+    },
+    {
+      "path": "uma-race-core/src/condition/mod.rs",
+      "mode": "100644",
+      "git_blob": "89153931f8de8eeb8901944f2e29667b951f0af1",
+      "bytes": 391,
+      "sha256": "ec3812281503946ed0821721b10085dd473ba53345ae439cec1e717319f3795d"
+    },
+    {
+      "path": "uma-race-core/src/condition/parser.rs",
+      "mode": "100644",
+      "git_blob": "12cac1a7e84d201c0afa35af929700d56856d44d",
+      "bytes": 8454,
+      "sha256": "90b9890853fdd1f5c7c7a08c1867452f3d6e725e164a2f572953ab3d80967106"
+    },
+    {
+      "path": "uma-race-core/src/condition/region.rs",
+      "mode": "100644",
+      "git_blob": "775fab39cb6d56c887c886f9e428883151f122b5",
+      "bytes": 3416,
+      "sha256": "3720f5b8f852cbb39192c271a1102d760e7e8dec6a4cafd8bfcb9fcb59a349df"
+    },
+    {
+      "path": "uma-race-core/src/condition/regions.rs",
+      "mode": "100644",
+      "git_blob": "f5e096765638177298e7d0a3a706c306686dca48",
+      "bytes": 45225,
+      "sha256": "50a96e7b3f08934c9c76703d036e1cca0ab9a8bb8ae5ccc6cb56ae208e5a9683"
+    },
+    {
+      "path": "uma-race-core/src/condition/sample.rs",
+      "mode": "100644",
+      "git_blob": "22c38109586f01f88a11a08a18ebe6afbed23f59",
+      "bytes": 7021,
+      "sha256": "c95bede74e21fcfcaa6743451309e671ed6c3a6e138f59f75daa9c02a666a6b2"
+    },
+    {
+      "path": "uma-race-core/src/condition/skill.rs",
+      "mode": "100644",
+      "git_blob": "cabcbc950e6baf3b761d75f62211b3c6ca1fc444",
+      "bytes": 14409,
+      "sha256": "c76eceacada786f3e40f0618f1f05acc4b60bc964cfe12f158e2704d69d27927"
+    },
+    {
+      "path": "uma-race-core/src/course.rs",
+      "mode": "100644",
+      "git_blob": "6087eef93d32d4f5a601c280c7eda9e2753fddb8",
+      "bytes": 4053,
+      "sha256": "05745d3384a4ffbc8cef54c36b08d9aacaabfc9e7d31735d1554c1b09febae36"
+    },
+    {
+      "path": "uma-race-core/src/data.rs",
+      "mode": "100644",
+      "git_blob": "2e7bf06214aefe592246cea7cb4dd7b65fae19ab",
+      "bytes": 3250,
+      "sha256": "99a4adce8e48482c5cdb334862f8f7c4a1b8886495a9fa3dbffee1cd97d2838c"
+    },
+    {
+      "path": "uma-race-core/src/field.rs",
+      "mode": "100644",
+      "git_blob": "4602f098895c326b7a0eb8a2cc5bd031cf57b826",
+      "bytes": 12905,
+      "sha256": "78dd6971c3e2498a061bf9065e2425e6053f7bb06004c7d54937d95071f221fd"
+    },
+    {
+      "path": "uma-race-core/src/hp.rs",
+      "mode": "100644",
+      "git_blob": "7df8a62d54af929179fc6d6b17e2b1376873da83",
+      "bytes": 5861,
+      "sha256": "a60f5bfbe0eaef6593638333790b38a62238d9d0b5c6aad7e5e0cac5829fec50"
+    },
+    {
+      "path": "uma-race-core/src/lead_comp.rs",
+      "mode": "100644",
+      "git_blob": "24d7b9f13ba878f90d450ac2634b951c9d89535d",
+      "bytes": 2077,
+      "sha256": "5abb847011257e1bb54707acf7dced0094652e1e1f1a847b7839760959959f26"
+    },
+    {
+      "path": "uma-race-core/src/lib.rs",
+      "mode": "100644",
+      "git_blob": "42f450e7798ea65e5d219d838473472e5c934009",
+      "bytes": 1178,
+      "sha256": "4651a4ef63678ddc318f40dde89707f02f8d0ed290a5fb9b9db426ae894976e8"
+    },
+    {
+      "path": "uma-race-core/src/physics.rs",
+      "mode": "100644",
+      "git_blob": "4532ca7f8a09c3a5ba1ab31f770f646bc2acc7b6",
+      "bytes": 2429,
+      "sha256": "be5a50701b082b021b536e6db2105840aa1836ca350835511cf20bbe8cc95445"
+    },
+    {
+      "path": "uma-race-core/src/pos_keep.rs",
+      "mode": "100644",
+      "git_blob": "5af32c3b6dcf110c0e9f72c5df5b80eca0c60b40",
+      "bytes": 7472,
+      "sha256": "7d21115707dc4ba83927d5106b9b4af0aa0606afc75c11b9a9711ce756808959"
+    },
+    {
+      "path": "uma-race-core/src/rng.rs",
+      "mode": "100644",
+      "git_blob": "aa555a746cb460a7891e8bdba18bf13185f41f74",
+      "bytes": 4728,
+      "sha256": "f70b72f2f559fb436215d53d397febf0c6503e53f974999ae423401fd8187d4b"
+    },
+    {
+      "path": "uma-race-core/src/runner.rs",
+      "mode": "100644",
+      "git_blob": "28117f7f41076f603ee0af4de900c0fe36bc4ccc",
+      "bytes": 58779,
+      "sha256": "754fdd50370158c666e0404ba07a971311a6f18a1fa91467f9e09f41efbe80b4"
+    },
+    {
+      "path": "uma-race-core/src/solver.rs",
+      "mode": "100644",
+      "git_blob": "7e94878d9a78fe7bc9fb7de5cf56ec7fea014982",
+      "bytes": 29039,
+      "sha256": "7f80be845f974404658e49568bc1ebc6de3b1665dd893bb0b7e76daa58490995"
+    },
+    {
+      "path": "uma-race-core/src/special_conditions.rs",
+      "mode": "100644",
+      "git_blob": "11549ecec295600c4682b90639d6a19ac9fadd1c",
+      "bytes": 8143,
+      "sha256": "88d95c8f9118b76b38cb1c10e10ef5a2ffc90b1a705567862baa8806d4d80e80"
+    },
+    {
+      "path": "uma-race-core/tests/checkpoint_r85.rs",
+      "mode": "100644",
+      "git_blob": "6fe4f0ec42961e471204aaea0d80485abc6a03bc",
+      "bytes": 10383,
+      "sha256": "932e44c4f32cd498e156a56f13bfea71c8e9a53bbf8b4f025a0d26ed582fb14e"
+    },
+    {
+      "path": "uma-race-core/tests/checkpoint_v3.rs",
+      "mode": "100644",
+      "git_blob": "5d8a99da68ce4506fa73baaba1831071fd49ba4f",
+      "bytes": 6837,
+      "sha256": "b60e47fa4b7ecdfc2ed1c8fca24bbbb388c5112c49e5a77c6bd72fedb855cb9d"
+    },
+    {
+      "path": "uma-race-core/tests/checkpoint_v3_1000.rs",
+      "mode": "100644",
+      "git_blob": "89941c860fb334708ede37ea9e83ce4d452d5da5",
+      "bytes": 5532,
+      "sha256": "df7678a9a02f0372561a21abd3e289cb11642c679cabcd9c26c28525082db92f"
+    },
+    {
+      "path": "uma-race-core/tests/checkpoint_v3_wide.rs",
+      "mode": "100644",
+      "git_blob": "5bc47e124bfbce2fbfd81dfd2f332a852d4072d6",
+      "bytes": 5422,
+      "sha256": "e76586eda9d83907cd87a85efcc72a1af44c09b97cf9039c920dbd6ad6ebba7b"
+    },
+    {
+      "path": "uma-race-core/tests/condition_keywords.rs",
+      "mode": "100644",
+      "git_blob": "7e39580791d6c5465598d15e97563256c8077100",
+      "bytes": 2085,
+      "sha256": "23e75fc21c3c64cfd0f8839d3e800ffb6490ebe09e9db694aba2690e848d30f1"
+    },
+    {
+      "path": "uma-race-core/tests/probe_394_202662.rs",
+      "mode": "100644",
+      "git_blob": "3f165d374614e11dd9de19ea04be5e8f898ac52e",
+      "bytes": 2460,
+      "sha256": "9f39339420604af1f1a119cff609dfda03428577040c241f03a009636d4aa944"
+    },
+    {
+      "path": "uma-race-core/tests/probe_394_pending.rs",
+      "mode": "100644",
+      "git_blob": "87ad6978c5f93ef7a2eb3b43a431c12fc89fb7f1",
+      "bytes": 1622,
+      "sha256": "6990960df2d8a0eca3237d1e640fc9aca37f9bb931d80e74c96e1b43f28eb34d"
+    },
+    {
+      "path": "uma-race-core/tests/probe_534_procs.rs",
+      "mode": "100644",
+      "git_blob": "40bd8bd9386f6df812245d45e3c98f45d581cb4c",
+      "bytes": 3311,
+      "sha256": "fe682332f84d4710b788c949ded7157425c4af24876138f6822f420d952ad7c3"
+    },
+    {
+      "path": "uma-race-core/tests/probe_534_stats.rs",
+      "mode": "100644",
+      "git_blob": "2c53010d6987c6431eb7ae3cc835f4a03c171e59",
+      "bytes": 1792,
+      "sha256": "f91481ffade189df17cd0cef175ac6b0c3b3e747d6d34b87fad18c0a674b4c45"
+    },
+    {
+      "path": "uma-race-core/tests/probe_last_two.rs",
+      "mode": "100644",
+      "git_blob": "131c8b924ece8af654f75e5fb8e7647316b1963b",
+      "bytes": 4445,
+      "sha256": "fd90eef495725dd6de43875efa0831c97f1c253eaf3a66900336e77e4c9dda64"
+    },
+    {
+      "path": "uma-race-core/tests/probe_residual.rs",
+      "mode": "100644",
+      "git_blob": "f05bea40b95eff8bb6eb0660161c84b824cbf1ca",
+      "bytes": 6555,
+      "sha256": "917c13dec6ddf50b08f830a3d9f774f35d48d50e39643e9c6ca558059ad722fd"
+    },
+    {
+      "path": "uma-race-core/tests/probe_residuals_bare.rs",
+      "mode": "100644",
+      "git_blob": "4b3d1c5b9a4c99d648b51d3a61c57a31cdb2949f",
+      "bytes": 3208,
+      "sha256": "8b415bc0d150a916ee827fc3b2527a6160ca68fd99ed28786fec566d03eb9bda"
+    },
+    {
+      "path": "uma-sim-core/.gitignore",
+      "mode": "100644",
+      "git_blob": "25c874ba47f607bdbc1f5fd61347d5d6e456e9d1",
+      "bytes": 23,
+      "sha256": "f0be29b4ea90d8e7cd56978f9c8a2aa773779e3e029fc1290ec5567e8d22c1e6"
+    },
+    {
+      "path": "uma-sim-core/Cargo.lock",
+      "mode": "100644",
+      "git_blob": "0087a3260e58beb1547e5d795794144058a4b02a",
+      "bytes": 4686,
+      "sha256": "d3d54e7858c84a7e8694553d3936d44bd702727c1770dac0c7a3c4607bca9a6d"
+    },
+    {
+      "path": "uma-sim-core/Cargo.toml",
+      "mode": "100644",
+      "git_blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+      "bytes": 1098,
+      "sha256": "4f2415320bc4548fa59ad6c115ad05a8adcad59a2b50349cf44d78d52d12c5e0"
+    },
+    {
+      "path": "uma-sim-core/README.md",
+      "mode": "100644",
+      "git_blob": "ac17b361a9dc447bcdf0177de3e2261db3bca47b",
+      "bytes": 157,
+      "sha256": "cbf409705b08b46bd9af9e1bb699131f2d431396ec1b857f0fa95331d2cddbd5"
+    },
+    {
+      "path": "uma-sim-core/build.rs",
+      "mode": "100644",
+      "git_blob": "7cb1193f796ecd0ab6f4cbd52a48d9f9e740c374",
+      "bytes": 865,
+      "sha256": "658a88b6f8b51554de15951a3ce4fd46bccb8fc9179c4a4625deb54c14fe8ddb"
+    },
+    {
+      "path": "uma-sim-core/examples/gl_steps.rs",
+      "mode": "100644",
+      "git_blob": "bcbcae93200cf16a3ae17bac5792e67b717e4b5c",
+      "bytes": 805,
+      "sha256": "a8cdce888be75548577f80f374fc8c7176138aabe7a6d6848d8f71ed6ff9ee7a"
+    },
+    {
+      "path": "uma-sim-core/examples/golden_batch.rs",
+      "mode": "100644",
+      "git_blob": "8506a49b2c6bc9c5450ac2a5cc5514b2c541e8d4",
+      "bytes": 1651,
+      "sha256": "636dedd3b17972b218cf7290c0aa43ed92b89330cf4eae4cc79ac1897aa5e931"
+    },
+    {
+      "path": "uma-sim-core/examples/golden_refreeze_physics.rs",
+      "mode": "100644",
+      "git_blob": "8fdca1b5fcc4e8d4bb9a2fa6defb45099105cf91",
+      "bytes": 3321,
+      "sha256": "25a56ae385dc6ad60adfc05b44c928fb450c3a5f51140bfda977f67391430b60"
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches/baseline.jsonl",
+      "mode": "100644",
+      "git_blob": "147ff34d9184beac1e515cf833692c3f208664c3",
+      "bytes": 233,
+      "sha256": "b8713f82d84fcbf07822e30c9090ea6bfd48de426c298b540f153d09cd8cba9d"
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches/input.jsonl",
+      "mode": "100644",
+      "git_blob": "1fa747ea6e99a88762853e3ece69307e6265f49a",
+      "bytes": 233,
+      "sha256": "8475f38e962f68b05542c92203b4649adf94a471e7b7a363d068aab620dcf0b6"
+    },
+    {
+      "path": "uma-sim-core/examples/refreeze_parity_traces.rs",
+      "mode": "100644",
+      "git_blob": "bd8c973f306776ff2b34e7f38ea63ad56bacee27",
+      "bytes": 1567,
+      "sha256": "4d6e7540a0dda2a34f0a83ca61357b7b509530879f1fa1b97484e9b06a10f66c"
+    },
+    {
+      "path": "uma-sim-core/examples/summaries_check.rs",
+      "mode": "100644",
+      "git_blob": "72506a27a2287b1c169916e2aada53aed640dae1",
+      "bytes": 311,
+      "sha256": "cb40dd9639d73f5599c7fe53535b1d7640708b145ba95cfc685d25929c302677"
+    },
+    {
+      "path": "uma-sim-core/examples/tb_diverge.rs",
+      "mode": "100644",
+      "git_blob": "c0d46a50d5979824d455865cf3ed84680e9e0a90",
+      "bytes": 1576,
+      "sha256": "fe8bb02e800e7342272b6f3bb20edf5a131cd8c41dfaff93440b1abc643a03ef"
+    },
+    {
+      "path": "uma-sim-core/examples/tb_shop_dump.rs",
+      "mode": "100644",
+      "git_blob": "8b1af2ca14879076084e082890d6f21581ff075d",
+      "bytes": 1201,
+      "sha256": "e4e056a3cc6654f7ff318c0168b32e9fbf6599eb534f1967ee2ca13f34f1554c"
+    },
+    {
+      "path": "uma-sim-core/examples/tb_turns.rs",
+      "mode": "100644",
+      "git_blob": "14a4fd1ff6df559db6248ca90f251bc8dce279a1",
+      "bytes": 993,
+      "sha256": "52a6f186ca7e608440d8d3556e93f35b110ecbaee1d94c3eafe6c13e1c0ad3b8"
+    },
+    {
+      "path": "uma-sim-core/examples/trace_check.rs",
+      "mode": "100644",
+      "git_blob": "72ca1ef7b213f1096370ce7c6e07c41d00f35723",
+      "bytes": 1093,
+      "sha256": "91ec5efb4ec1712a3fab34c18d1c7916fb77b193b7ee34b2546df91ca985bded"
+    },
+    {
+      "path": "uma-sim-core/examples_tmp_bot.rs",
+      "mode": "100644",
+      "git_blob": "93e158ec902456b81be6a072f1ac9a3f55adda18",
+      "bytes": 942,
+      "sha256": "f0cd3835fd3020a26f1f1fa3a9f07ec57b8d41cb5068b3c067d233273f1c21df"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "mode": "100644",
+      "git_blob": "9123b4c2a6a62579cb2d4172eeec835cabaacc59",
+      "bytes": 87108,
+      "sha256": "c8b465c327e6945dc5e702d96e8aa5523f49372e0f6948ccbb90aceb6c844f3e"
+    },
+    {
+      "path": "uma-sim-core/src/batch_analysis.rs",
+      "mode": "100644",
+      "git_blob": "8169e3f115c4ee3a7cc2464190ced43fceb770dc",
+      "bytes": 13344,
+      "sha256": "062f2ad7b03b84d82dd4f87ccb2507f56405e0c878d4b7cfa70df11855fc584b"
+    },
+    {
+      "path": "uma-sim-core/src/batch_pairs.rs",
+      "mode": "100644",
+      "git_blob": "d083c65c64053a87da11a809de83d04184cc393b",
+      "bytes": 9822,
+      "sha256": "7484075434118852a7af9c121af478cf7dceb22d3f7559d46dc97a279b3ee770"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim-api.rs",
+      "mode": "100644",
+      "git_blob": "821ce29dc4dba0758e16392fb50d83ec5231e705",
+      "bytes": 230,
+      "sha256": "0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "mode": "100644",
+      "git_blob": "f54c2c50cdae8b78ed75c0eec89a0cdca9f36a37",
+      "bytes": 21562,
+      "sha256": "b6acab8c62d9dfee3779f9f1b282427062a21a6030bf8dfac68654bdf2a119ed"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/paired_batches.rs",
+      "mode": "100644",
+      "git_blob": "3fab6f9f8669d1cc3fa5cdae52099c0846d06da9",
+      "bytes": 3491,
+      "sha256": "2465e6a468d106bbf8beb481659ef32fe352a8cbb33e6d9161ef937a07c64379"
+    },
+    {
+      "path": "uma-sim-core/src/bot.rs",
+      "mode": "100644",
+      "git_blob": "68c2b3ed39ed39719dce0788afe9d7e776682624",
+      "bytes": 9706,
+      "sha256": "b2286220edfbbb171e06c4fd35118da988e7a9dfaf28b9a5aae2cb5116b37045"
+    },
+    {
+      "path": "uma-sim-core/src/calendar.rs",
+      "mode": "100644",
+      "git_blob": "85e251a9705ca092cfefbf3afef0e759c0be0e08",
+      "bytes": 1495,
+      "sha256": "6b47564bba1d826d644cfaa3389ec4faf0ef889f82b947be690ed45b7a4b8c6b"
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "mode": "100644",
+      "git_blob": "1220bfcaa03bec1584ad8273507ac5fdc4114c76",
+      "bytes": 58455,
+      "sha256": "5e38b81d75f14c3acb98dd842b6326f7b8c2eac9c5401c3fcee6474bdb2f2d06"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/event.rs",
+      "mode": "100644",
+      "git_blob": "a970065621ff85120d32c1eb1a88b70a8b852322",
+      "bytes": 7809,
+      "sha256": "be115bebc8288847a6416897e2a8550ac0944fd7bb9490cd39447ad473786f23"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/factor.rs",
+      "mode": "100644",
+      "git_blob": "15f723b2c6d8c12a2c68d11493e8bcef1be4c502",
+      "bytes": 9105,
+      "sha256": "c97c00886f4ddf85c3613c90a0c4d6cdf84be601c756d79cd430f6bcfdaed7cc"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/mod.rs",
+      "mode": "100644",
+      "git_blob": "8657d5680a880ffcc9f49aa47ee495067475f691",
+      "bytes": 80,
+      "sha256": "0d880c7e8fb880683686a5687020882bb5396520b651d020f3fb2f2199d419eb"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/skill.rs",
+      "mode": "100644",
+      "git_blob": "9b59270b62f45e68658aa2ae95528f6000bbeb1a",
+      "bytes": 6390,
+      "sha256": "5a8b3989a7f7734870a787a8165b4a952a1f55784d1a1f95970b2642b7a09341"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/support.rs",
+      "mode": "100644",
+      "git_blob": "80d49de483495516863e70ac65d0288a4b8949b5",
+      "bytes": 6683,
+      "sha256": "f677cfc2ed41f192e47eb1156f086e38e3d000e045ce466290b06ba8431b851c"
+    },
+    {
+      "path": "uma-sim-core/src/catalog/trainee.rs",
+      "mode": "100644",
+      "git_blob": "94d525f53f41f36e5411dc5439f25765a9b2496c",
+      "bytes": 15030,
+      "sha256": "1d7bfe9bbd481520566589c8dc6190b980580d96f970e51f97d43627f61b265f"
+    },
+    {
+      "path": "uma-sim-core/src/config.rs",
+      "mode": "100644",
+      "git_blob": "1e891335b87640cc838e7c3a92820af040c4df11",
+      "bytes": 30202,
+      "sha256": "5da9209669a971226c4ab1b24dadd462329962c3d15f2be041c96f5fa46933f4"
+    },
+    {
+      "path": "uma-sim-core/src/content.rs",
+      "mode": "100644",
+      "git_blob": "68437768525bf08645a0a09b52a59600d672471b",
+      "bytes": 4526,
+      "sha256": "32e5c18c844b0bea3940c7538eccb09addd2ecda15d34b1e3b955f3d98298a09"
+    },
+    {
+      "path": "uma-sim-core/src/deck.rs",
+      "mode": "100644",
+      "git_blob": "b52e7d6f8a64103e9af329d0cfee93a8886ae525",
+      "bytes": 15798,
+      "sha256": "0de21f528ad2b099052cc1683c10220d1e206f771e8e6b3e95e78c88c392c441"
+    },
+    {
+      "path": "uma-sim-core/src/engine.rs",
+      "mode": "100644",
+      "git_blob": "cf14926eccac7d127640d0e7af0e180e93c85420",
+      "bytes": 51212,
+      "sha256": "14e464e0abd84f171cc751396c47d939f794a348580a21927f1795b2e57fc928"
+    },
+    {
+      "path": "uma-sim-core/src/events.rs",
+      "mode": "100644",
+      "git_blob": "33bbd2235f08be53abcb45def4e055d71ff7b0cc",
+      "bytes": 6477,
+      "sha256": "4d8ea7cd9783487a5c162e9b4b8d7d8a7b467e9dc01c5f06dfd0189db12117a1"
+    },
+    {
+      "path": "uma-sim-core/src/factory.rs",
+      "mode": "100644",
+      "git_blob": "47d4853befc9ddfea2aea622a2d68bc57307ea5f",
+      "bytes": 8875,
+      "sha256": "067d5948755ba0f39bc8f980a1a4615fbdb8ca50da110b3657414d2d49ff5aac"
+    },
+    {
+      "path": "uma-sim-core/src/legacy.rs",
+      "mode": "100644",
+      "git_blob": "cd8485db5682509c5a60c217e1ccf1aa1fa0a725",
+      "bytes": 11184,
+      "sha256": "70fc0e91f7b18335d8b91011587664353bbc016985d7ec9230c2aa272c75e666"
+    },
+    {
+      "path": "uma-sim-core/src/lib.rs",
+      "mode": "100644",
+      "git_blob": "a1138e2300d731c710a822f79c7551b8bf3fc2e8",
+      "bytes": 3420,
+      "sha256": "e87da2e45991f235605a6e14bbeef5e61bb5db36613e173f498a5e6347184e5d"
+    },
+    {
+      "path": "uma-sim-core/src/mid_run_inheritance.rs",
+      "mode": "100644",
+      "git_blob": "b65e2b4c1cfd62d916e520a214e8fcfd2825e16d",
+      "bytes": 9467,
+      "sha256": "ca1536bcf8f37c88e41f5dc8a1f420af5cf04620b89a50091d83478a1828e35c"
+    },
+    {
+      "path": "uma-sim-core/src/policy.rs",
+      "mode": "100644",
+      "git_blob": "3fcd10d8da1d1df253f53dc3c9e8e93288098969",
+      "bytes": 1365,
+      "sha256": "8b9593d7ef9e65d1e7c906a44a850094791719c4b23c041c78385b08f5ff1d4a"
+    },
+    {
+      "path": "uma-sim-core/src/policy_external.rs",
+      "mode": "100644",
+      "git_blob": "99c43f3d83dc8965070f9ad1201a742a78bcc69d",
+      "bytes": 19923,
+      "sha256": "081382ca4d7f3fd1a0943e737a0f819c7c3f419c04a140113c15a204179f0221"
+    },
+    {
+      "path": "uma-sim-core/src/race.rs",
+      "mode": "100644",
+      "git_blob": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43",
+      "bytes": 24601,
+      "sha256": "1010b41f21af0083e7cb4fdd792456b077ad2e08b5e46530ca29031242198f27"
+    },
+    {
+      "path": "uma-sim-core/src/render.rs",
+      "mode": "100644",
+      "git_blob": "3f154753f700fa4a6faccf19faf8bfe320143137",
+      "bytes": 2595,
+      "sha256": "e5afaf59d6c2769c23f741583886137dbc7324f7766c97a39655277c591db1c0"
+    },
+    {
+      "path": "uma-sim-core/src/rng.rs",
+      "mode": "100644",
+      "git_blob": "553c9a5a56b5c7f9aa3025e2bc721f1a45d08b8d",
+      "bytes": 8307,
+      "sha256": "6926d2388464fff071f71dc37d80eea6d3306e9279d0cdb946da78fcd84e42cc"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live.rs",
+      "mode": "100644",
+      "git_blob": "284d305034db2e6bd03bed881a6dadd575207014",
+      "bytes": 37939,
+      "sha256": "7833d334dfc9405ba4d196d3b2fcf578908d4f376d2e84c1630ba93f9a1d29ea"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_catalog.rs",
+      "mode": "100644",
+      "git_blob": "07e285f032dfaa6d863be52d60348d11176c8030",
+      "bytes": 26836,
+      "sha256": "51bf12f1027b8cfe45e72d9c2deae5f36528ced0db181c3893b413032bc3f7ae"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_deck_support.rs",
+      "mode": "100644",
+      "git_blob": "0f6c6a16abab7ceb1009808d532cdb5874881522",
+      "bytes": 2526,
+      "sha256": "8eb06bc1f60d10ee228d57adffa27aab9d5d487dcde4b496ed8882b9187906a4"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_lesson_board.rs",
+      "mode": "100644",
+      "git_blob": "1d30acf645aa7fc94cb38276affc57087edb2c63",
+      "bytes": 9652,
+      "sha256": "b3a21cf2e4b9b275e935115a6917ffcd4b397eff5039cf1122876781d1a1743a"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/grand_live_lesson_scoring.rs",
+      "mode": "100644",
+      "git_blob": "20e3de216cd874d7726cda7f880f8d3d3671aef3",
+      "bytes": 4072,
+      "sha256": "a9ef6f18d43f317f335ad816b4f843b8cc246a14f3f7695ab91c14d7439fc0cf"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/mod.rs",
+      "mode": "100644",
+      "git_blob": "d7a8ac851358b77b7b1510fd590e34adc3056d8b",
+      "bytes": 39258,
+      "sha256": "212247478df1cc2211b8f428597bf7f33a1127af407a66a6d64d0c8004ee77ce"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/trackblazer.rs",
+      "mode": "100644",
+      "git_blob": "40011a2939bbd0e0658e1778717fbe381356294b",
+      "bytes": 19881,
+      "sha256": "36812c7c3c448002e23b6335524d314f5ed95af0bab302112dbd2e21da8fa412"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/unity.rs",
+      "mode": "100644",
+      "git_blob": "8518cca828a56e895a7f31959b3f1b00e972fb01",
+      "bytes": 8361,
+      "sha256": "f9c0fc3cf7241bfe2b56c25673e79f99fa91455af8e99b0657d3bb6896e49f33"
+    },
+    {
+      "path": "uma-sim-core/src/scenario/ura.rs",
+      "mode": "100644",
+      "git_blob": "4c191f91144bb59b7cb9775576886504a03c0d10",
+      "bytes": 17766,
+      "sha256": "005d64ab1e16d88e61ec7738ab439605e653f5cffe3df7dc814e0aad7f2718ed"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/decision_context.rs",
+      "mode": "100644",
+      "git_blob": "c55345c900d2378d2f842e19ecd96b30a4f5399c",
+      "bytes": 3235,
+      "sha256": "73e79e440cbaf2751ea5a8988bef0ed88ce9e82ea5e1c9a6ab13ef39b9f5cc5e"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/event_scoring.rs",
+      "mode": "100644",
+      "git_blob": "21a8e00926af18986ff81eefceb637c67ac91b56",
+      "bytes": 16664,
+      "sha256": "9e4ec5955424e0a6edb40d9ddb34f8f7d24fde30d6897358bf76cc77529f447e"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/formula_gain.rs",
+      "mode": "100644",
+      "git_blob": "8a559c1866f16841d8db0e55dfc637c18e713442",
+      "bytes": 2374,
+      "sha256": "47984fc96ac8ad11866d84498e573d6f316b77346e05a0d9dab0d0c1d27bc929"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/lesson_scoring.rs",
+      "mode": "100644",
+      "git_blob": "ca51d457a6c5bc86b9a4fee806f0af4928e7ca49",
+      "bytes": 3822,
+      "sha256": "e8e703257f7490c600248b842d94e352b14d7f059fbeeec22ae3629bb9217384"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/mod.rs",
+      "mode": "100644",
+      "git_blob": "021a3d1fc76e75bf0f014358852b297c99eb4089",
+      "bytes": 3782,
+      "sha256": "c21013faaae569ad633abde7023f9879e0a10e3640308d56c61c1cb04793db49"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/objective_profiles.rs",
+      "mode": "100644",
+      "git_blob": "22f118a98a47841efe99dc6201ff789abe366d80",
+      "bytes": 4130,
+      "sha256": "4071db5315b34199997cdf5b57e8ade1f3f1474d6c04a9b51cb830a2ce5e6cef"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/rank_estimate.rs",
+      "mode": "100644",
+      "git_blob": "90274e4131334f8e78f20c6cdbce7441e2798d84",
+      "bytes": 11467,
+      "sha256": "1fcc35506e640c159d233b3185ad7227a2a96f63246f820ebb79ced2583bb50e"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/scoring.rs",
+      "mode": "100644",
+      "git_blob": "3c11b985a2a3b5337051c09485651b3e707470bd",
+      "bytes": 20182,
+      "sha256": "e2bd2c4949f18db17e977843c1c79b336bdfc95b93b1368fe4c427767c98f790"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/skill_scoring.rs",
+      "mode": "100644",
+      "git_blob": "8f33392757d1fa347dfa4a871faa6384a2b1ed34",
+      "bytes": 11325,
+      "sha256": "6c9fa6d2ac85d06cc18f4a181f64111a6b8561e0b9bd30411ef0dcaeed73feb4"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/support_effects.rs",
+      "mode": "100644",
+      "git_blob": "d0925d2c642638c17e3fdc7ef8fb020c9d5aed93",
+      "bytes": 4846,
+      "sha256": "eefd1d65c50044a529d215da92cab915cfedc7930a19d91ae91802da29dc578b"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/terminal_utility.rs",
+      "mode": "100644",
+      "git_blob": "de504cca1bba34c33b22e6b8bb493e3d536ffe84",
+      "bytes": 6400,
+      "sha256": "8365116eac4f4ffce7e679b67edac1b95b2dad40b1067833c1d8fdefe30db409"
+    },
+    {
+      "path": "uma-sim-core/src/scoring/types.rs",
+      "mode": "100644",
+      "git_blob": "2a93aba017f5414d74b219021b7df320ff58c332",
+      "bytes": 9755,
+      "sha256": "864eb8a43187af43f0222ae59db883fc1418cc646bff3cff588e8bc76cd6bceb"
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "mode": "100644",
+      "git_blob": "8298731be4ee70a6338cc5d708c7c5f2f4549749",
+      "bytes": 6332,
+      "sha256": "95653ec2bc94c22598443c9e2e1c9d0301f2ec0183f0856d8c5baaa88098d637"
+    },
+    {
+      "path": "uma-sim-core/src/snapshot.rs",
+      "mode": "100644",
+      "git_blob": "a17d416cf5d9af0ce360de446852ecd4350b4be9",
+      "bytes": 1087,
+      "sha256": "95dcb1d92dacac6494a403cb9d39ef06b42e855aa22dfb3013f39c941c2f3e68"
+    },
+    {
+      "path": "uma-sim-core/src/spark_generation.rs",
+      "mode": "100644",
+      "git_blob": "a0bc10d245b56445d5bb6119d2c007d5d057561a",
+      "bytes": 5622,
+      "sha256": "11006d40bd461f7e2e1d92b866d90c8522b2f72968cffbbd4b4b5dc4e0720af2"
+    },
+    {
+      "path": "uma-sim-core/src/state.rs",
+      "mode": "100644",
+      "git_blob": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821",
+      "bytes": 21853,
+      "sha256": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833"
+    },
+    {
+      "path": "uma-sim-core/src/telemetry.rs",
+      "mode": "100644",
+      "git_blob": "66f4c7052806607e4bade83df105a9c0d9287fa7",
+      "bytes": 20894,
+      "sha256": "b9ceb28e08de1957e212addcf3dc958ec54fbb8c475691a3530725445e789548"
+    },
+    {
+      "path": "uma-sim-core/src/training.rs",
+      "mode": "100644",
+      "git_blob": "81dc53401e4a94bf0085bde7fcf40aff5fb77f71",
+      "bytes": 16914,
+      "sha256": "ffcba9a98219819d82d078ac117022afc677562de3512fb915b52c12762c4590"
+    },
+    {
+      "path": "uma-sim-core/src/training_inspection.rs",
+      "mode": "100644",
+      "git_blob": "0b5bfd83a9ba6bd0fd76fb4cc174b7e066df267d",
+      "bytes": 10248,
+      "sha256": "c646822748c816c3d50073dbcd52911c3804df0cf71056a3768541632314c9c4"
+    },
+    {
+      "path": "uma-sim-core/tests/api_body_admission.rs",
+      "mode": "100644",
+      "git_blob": "a54fb88b055d2e7ae79eb3623aa9002c52e775f1",
+      "bytes": 9489,
+      "sha256": "c58ac98b07ac43711260fea5581beb046b920897cba2496217b23c030ae240e1"
+    },
+    {
+      "path": "uma-sim-core/tests/batch_output_failures.rs",
+      "mode": "100644",
+      "git_blob": "f42a04bfbfdcee712999085feb29e99d7a3165fd",
+      "bytes": 6922,
+      "sha256": "8ce6126356fad3dc1cf26d9351d3c800919e9a0ad5feee0c5b6d31f5ddca523a"
+    },
+    {
+      "path": "uma-sim-core/tests/bond_gain_config.rs",
+      "mode": "100644",
+      "git_blob": "b7a251b0782b8bec7398faa8dbc07f5a56f76550",
+      "bytes": 2642,
+      "sha256": "b384bab9a374e6f95789f971472502683f768bc5d157c48e252116b7da30edf3"
+    },
+    {
+      "path": "uma-sim-core/tests/bot_parity.rs",
+      "mode": "100644",
+      "git_blob": "87b8401dfd3a59711f8a09126beb774d5bdc8a4b",
+      "bytes": 7259,
+      "sha256": "176b48da41ae5a0dc5de8576cbd02b2edd75e1bf3a6d31544e9be79c3eb05b5b"
+    },
+    {
+      "path": "uma-sim-core/tests/branch_publication.api.mjs",
+      "mode": "100644",
+      "git_blob": "ff367e9c5828856ed0fc37f370159886e51183a3",
+      "bytes": 9806,
+      "sha256": "d0dfc775ed80d91cbd38c33dc04dd234694a541fc27398cf0be018d60abec7ac"
+    },
+    {
+      "path": "uma-sim-core/tests/career_lab.rs",
+      "mode": "100644",
+      "git_blob": "ac10b74efd030fb6e1ac52bf32bcac46109f6bbc",
+      "bytes": 21288,
+      "sha256": "0006bf6b92c4a16985d7c6ba2f921410cc02e63c75d94a508bd30b13930d4c3e"
+    },
+    {
+      "path": "uma-sim-core/tests/career_lab_branch_publication.rs",
+      "mode": "100644",
+      "git_blob": "ed33ca046f6ca7d0d4f09a675179243c48cbd944",
+      "bytes": 11775,
+      "sha256": "7aae317e1e99944aa4c7709168ee8068c227865dc66c538f61f3d20b15140b21"
+    },
+    {
+      "path": "uma-sim-core/tests/career_lab_divergence.rs",
+      "mode": "100644",
+      "git_blob": "7a9e36ca4e04f259a4d80dff84295f0fd464afe3",
+      "bytes": 7184,
+      "sha256": "ba0f7da22a18f309bf3f220705a9c3e0b2527ed83bacfdbd4c8dcc69b162a980"
+    },
+    {
+      "path": "uma-sim-core/tests/career_lab_reports.rs",
+      "mode": "100644",
+      "git_blob": "d1c0e573cd0c9c08d4e91ba7063732f6b9dde8a4",
+      "bytes": 19653,
+      "sha256": "db0e1ee820ec99b621b7e29516fb85503b7176fa9051fa427816247740903a91"
+    },
+    {
+      "path": "uma-sim-core/tests/career_library_replacement.rs",
+      "mode": "100644",
+      "git_blob": "3d80ea5a58f1d6094b6f2233d3df8def1a8ea66d",
+      "bytes": 6695,
+      "sha256": "ffa04ab3389a29489cc49e5aa81138fbbf861b8b85691200ef2facdd14306f05"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_policy.rs",
+      "mode": "100644",
+      "git_blob": "4ba03fa9fab7aedada599b2b22d1ed66fbe845d6",
+      "bytes": 3140,
+      "sha256": "114bbf239ad47b680977b8f54576077addc06587cfe206f0ea6cd57b9657ed73"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_seed_admission.rs",
+      "mode": "100644",
+      "git_blob": "465bf36edb3752021bb09f0f3fd94e9891d7aadc",
+      "bytes": 10682,
+      "sha256": "7116ea1e5e7d9fe31c4b4bc109d4260006a9765b6314187b691a3c5785dc850e"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_session_persistence.rs",
+      "mode": "100644",
+      "git_blob": "ac3a6e11a293f153db49016c756555ad4fffdcd2",
+      "bytes": 7353,
+      "sha256": "655739ef4796c1b314b52387345acc8d14bc9ac27356e4da9619991bccde97f1"
+    },
+    {
+      "path": "uma-sim-core/tests/common/mod.rs",
+      "mode": "100644",
+      "git_blob": "c5b11a5aa306f9c9de7871e2e10e84b0054a41bb",
+      "bytes": 2942,
+      "sha256": "7ed7cbf3b99a0939660e479326de3e1b8c9a3da718231da2daf8e1fcd31bf85e"
+    },
+    {
+      "path": "uma-sim-core/tests/content_pack_loader.rs",
+      "mode": "100644",
+      "git_blob": "5139132ff956cc9c7efbb30a3ccc9e5f2dd5bd8e",
+      "bytes": 542,
+      "sha256": "6a3b0d48a8c1fbacca0c1943c89d41c99bf325eaae304a5b636a6115a5622841"
+    },
+    {
+      "path": "uma-sim-core/tests/deck_placement.rs",
+      "mode": "100644",
+      "git_blob": "a243b319e4d1c0967949dabe77e060d7dba50752",
+      "bytes": 4728,
+      "sha256": "bc59e32fa943f29351a8aa996863c57a6c2ec4ff187506dc2f62d6b1cb7f3299"
+    },
+    {
+      "path": "uma-sim-core/tests/deck_support_bridge.rs",
+      "mode": "100644",
+      "git_blob": "87d5aac4573ab219ea19e016bcdd2a6c32fde6bb",
+      "bytes": 2438,
+      "sha256": "91d895bbf49b2090a297b40a8a6ba624f20186c656cd610aa9d7d55d4bb67fb0"
+    },
+    {
+      "path": "uma-sim-core/tests/event_effect_applier.rs",
+      "mode": "100644",
+      "git_blob": "d830cf4e88eabfb70fe7740d22fcb25d3364e400",
+      "bytes": 2161,
+      "sha256": "52c7f3d0f0cda818f3b82ac383ffcb5f155086ccff87b5bd535abe596a928f36"
+    },
+    {
+      "path": "uma-sim-core/tests/event_pool_gating.rs",
+      "mode": "100644",
+      "git_blob": "3b8a4ffd1b9a4cb235a47ee8facf771e76865900",
+      "bytes": 2546,
+      "sha256": "f33d64ca55a4f356bbfaccfa7f583a3d6a0e032c4a3ed6a92b80a20b5f6ea849"
+    },
+    {
+      "path": "uma-sim-core/tests/event_probability_config.rs",
+      "mode": "100644",
+      "git_blob": "c13a349e2b2673bac262639df9093e07fc03781e",
+      "bytes": 2387,
+      "sha256": "862505c95121dd0314e3862250b92c15e9cce1baeb7e996c63f4d152834ffd4f"
+    },
+    {
+      "path": "uma-sim-core/tests/facility_level_config.rs",
+      "mode": "100644",
+      "git_blob": "b27e091f46c4a7be4163ffdb278e50e2047e14b7",
+      "bytes": 1580,
+      "sha256": "fb53029e9625272614ca3b736861a947e030bfea9be6d3077938d5291cc7ecf0"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/choices_42_ura.json",
+      "mode": "100644",
+      "git_blob": "d35ed88a26bf2c6f45a5d07045af350bd36f626d",
+      "bytes": 65,
+      "sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/cli_fast_42_ura.txt",
+      "mode": "100644",
+      "git_blob": "b7d96838cdfe60111861dea56f75d7c3fc4a437a",
+      "bytes": 256,
+      "sha256": "4ea0b64792db61f15f91e5a574a5bd74f11cc5b348a07b3c67be173d9781a027"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/fast_42_ura.json",
+      "mode": "100644",
+      "git_blob": "7552df051fb1ffcb7e8b9f7817a4c2614bf8a2c8",
+      "bytes": 42,
+      "sha256": "458a6092af24e452c0a2498ef724c3a8686c66c1b1562f7e436db8bd29a53fa5"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/fast_42_ura.txt",
+      "mode": "100644",
+      "git_blob": "ac721ace57443409d88c99f66db07ace7a4ff435",
+      "bytes": 78,
+      "sha256": "39dbee3bd09036fafdb3d7a368e1a432343e775cb0c22b43026e703d6cc93909"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_action_race_seed42_ura.json",
+      "mode": "100644",
+      "git_blob": "31d0855b172fa4528c3335a64b40218ff5536864",
+      "bytes": 260,
+      "sha256": "50af0c57aa68d18f7220c66735b2511efae623c40d3ec9d0a4546d099c802c8c"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_choices_seed42_ura.json",
+      "mode": "100644",
+      "git_blob": "d35ed88a26bf2c6f45a5d07045af350bd36f626d",
+      "bytes": 65,
+      "sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_fast_seed42_ura.json",
+      "mode": "100644",
+      "git_blob": "7552df051fb1ffcb7e8b9f7817a4c2614bf8a2c8",
+      "bytes": 42,
+      "sha256": "458a6092af24e452c0a2498ef724c3a8686c66c1b1562f7e436db8bd29a53fa5"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/rest_start_seed42_ura.json",
+      "mode": "100644",
+      "git_blob": "7acbd71077479d4be7d87d2684e780d1f6bdf199",
+      "bytes": 1820,
+      "sha256": "fefbdefc3a51d5f2f7c63949172aac26366aa35a32851a1c356f45fd0d993194"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/session_seed42_ura.json",
+      "mode": "100644",
+      "git_blob": "c3a40fe24bb624868c9d8ce3ce157d7d680b2bb4",
+      "bytes": 1820,
+      "sha256": "7a92506b61d5112c07161e4c13e324af9b35ba4310876cbbc7f60eb75f601e60"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/start_42_ura.json",
+      "mode": "100644",
+      "git_blob": "c3a40fe24bb624868c9d8ce3ce157d7d680b2bb4",
+      "bytes": 1820,
+      "sha256": "7a92506b61d5112c07161e4c13e324af9b35ba4310876cbbc7f60eb75f601e60"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/start_seed42_ura.txt",
+      "mode": "100644",
+      "git_blob": "7c3c9df5dbb812e67ecf36345fb5ea92c510bad5",
+      "bytes": 224,
+      "sha256": "71d20d05f9cc12fdf4cb34d22960ff54118528edb13fd7c65f274e70055a39b6"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest/state_seed42_ura.txt",
+      "mode": "100644",
+      "git_blob": "94fd72045f49f2ae670d38f1f9624e927d5fa92f",
+      "bytes": 174,
+      "sha256": "8f9a43b164d5cd3148f51208e0d3ce0b4c9d4d355b0e53c69c0e7bd14c4851a3"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/event_parse_vectors.json",
+      "mode": "100644",
+      "git_blob": "5353fcb194fd65add33e522c071432b365f01b89",
+      "bytes": 287242,
+      "sha256": "33ff404dcfc4fde569a566f4cdc5538e75796811ff9e34a8f5c79a180c2942f7"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/grand_live_replay/fixtures.json",
+      "mode": "100644",
+      "git_blob": "1bd3f9bb68a92e3266db7155e4a06af1d45eabc4",
+      "bytes": 3621,
+      "sha256": "9cc78c146dc949908daf3c5bc75aea77cf635088fb60e779575cac373b52eee1"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/golden/summaries.json",
+      "mode": "100644",
+      "git_blob": "71e7c5b3be3d06e2635177fcc772f3c5a7deb691",
+      "bytes": 23517,
+      "sha256": "dce854853abf88719fd3b5ca149e6f92b5e8c7bc564cb180faac870823954253"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/fixtures.json",
+      "mode": "100644",
+      "git_blob": "6d74b4b691df9e1be95552dca422448cf440b718",
+      "bytes": 1032,
+      "sha256": "a0fd2da3a664ffff757f951010fe66ba3ab1b15aa8ee31443cb87c350b4041fb"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/live_bot_sample.jsonl",
+      "mode": "100644",
+      "git_blob": "4fda253c111d60bd760c1bca8e33296cd216e080",
+      "bytes": 2289,
+      "sha256": "f05cc36cc213c6285d4eaa21678fcc06e9d187450e2b34d70bf455a7385ddead"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay/sample_run.jsonl",
+      "mode": "100644",
+      "git_blob": "da632bf29db84ece743ff3ecbd9d12736bb981f0",
+      "bytes": 860,
+      "sha256": "3a12a16427ccc13a1fec68b7d3c70e67137ef48677983c180b31756b17bb8d5d"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/policy_stub.sh",
+      "mode": "100755",
+      "git_blob": "6476895b26b607ef057edf450013f5d14e688b55",
+      "bytes": 1201,
+      "sha256": "de20a9c5f0a17651a329a038cbcb3f42c979d0bf1f772762700c66d3c1de9992"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_seed_42.json",
+      "mode": "100644",
+      "git_blob": "985078189490e71c83da6efa709dc6cd0479ae29",
+      "bytes": 651,
+      "sha256": "89de76ae2136b2dc17571386b193ee803f8425c5dc40510025084a9924ebd688"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_grand_concert.json",
+      "mode": "100644",
+      "git_blob": "01a9c8f05fed162bffd23507885266568a29d070",
+      "bytes": 10911,
+      "sha256": "eb83d61fb4204661a1ecd5f117d2e9113c178293669bfb4e342fce69e2c19455"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_trackblazer.json",
+      "mode": "100644",
+      "git_blob": "2a3d4fc71290e21680d9172c3580d7013d8357ba",
+      "bytes": 12215,
+      "sha256": "09c831b90f603cc31455164aa67bf15c3d4192223774e41994ec1dc09d805d17"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_unity.json",
+      "mode": "100644",
+      "git_blob": "ff033beb270317f68c3a673594ab3d38257daa62",
+      "bytes": 12296,
+      "sha256": "10484f634721f506a36edd5a8763791b93ead6019fca771a940675b20387bd12"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_1_ura.json",
+      "mode": "100644",
+      "git_blob": "9c4d311ef2c47768314581226c720bb44cff1bdf",
+      "bytes": 12115,
+      "sha256": "d1fd7ecb3ad53fdb5e879d5547b8c15bfc43e67813cd44a03d00d999b149e2c2"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_grand_concert.json",
+      "mode": "100644",
+      "git_blob": "2b7d715ba62584ceeacf5eddf126381474ccab2c",
+      "bytes": 9522,
+      "sha256": "7e5b2f02a9016b65f51fbe854ed08d1a23c715e31d5c45fe0d637decf08b3dc8"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_trackblazer.json",
+      "mode": "100644",
+      "git_blob": "17005c8ab3efc5b8ccbb0e39f937899b5ed2e908",
+      "bytes": 9772,
+      "sha256": "6836cff952ae089a8cb21153e39b22ae1db6cc39b78cf35636870303e2b5c899"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_unity.json",
+      "mode": "100644",
+      "git_blob": "9eb43120c0ed189629af76d4c4ac52a308347815",
+      "bytes": 9884,
+      "sha256": "543899dfc80314dc8c969bef65cd4d3a3273e5afd3010a92099b350923c05910"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_42_ura.json",
+      "mode": "100644",
+      "git_blob": "ed0c397f00a692606104c0c8e0e527af2e0ffd16",
+      "bytes": 9639,
+      "sha256": "0f727802477ab26f8e8f4848ef2fad48e49c9925e9756b23a01a4269d8504fb0"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_grand_concert.json",
+      "mode": "100644",
+      "git_blob": "e942f01166ecac91085ccca06eff2b8c57a8b038",
+      "bytes": 9075,
+      "sha256": "6b549b126488fb22e6c0ffdd4169f0b47e84071129cce555590b617477bd86b5"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_trackblazer.json",
+      "mode": "100644",
+      "git_blob": "e7b37e98d34448f6eacda5d03c4dc80f4c5c621c",
+      "bytes": 12029,
+      "sha256": "f3ca1659486d292a3bbda5439b0ed728e79d9cdbe0d5ab1d06fa061f6ebb522a"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_unity.json",
+      "mode": "100644",
+      "git_blob": "96d5319872b986d3b0df714932d4970a7a9cf237",
+      "bytes": 12433,
+      "sha256": "fdc8d40ce2aebc9f30bd853695ff019e0014b0330549f4e9583f698103f35b31"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/rng_trace_7_ura.json",
+      "mode": "100644",
+      "git_blob": "0a07fc1b7e2cd2c23c9ead7366ef10ca7236ea11",
+      "bytes": 11940,
+      "sha256": "19b53f54cc6e5ffc7c6def8afa76dde5289f43b023c8bfae965c1f045264537c"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/scoring_vectors.json",
+      "mode": "100644",
+      "git_blob": "713b5127a96ea7375ade546f9f10dfb83faecb46",
+      "bytes": 80634,
+      "sha256": "7211b43a896fa114cfe75b81c8df15a964692a62cf35024afcfa13c2e692d644"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_grand_concert.json",
+      "mode": "100644",
+      "git_blob": "c10193a5c374e0e24083c82480d31319961dc6af",
+      "bytes": 61901,
+      "sha256": "8ef22b79b79c95d32cce3e9551f2061fd3eef9523ca466a62ad37bd3221d10da"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_trackblazer.json",
+      "mode": "100644",
+      "git_blob": "42d7d6d25103641a266e50567f44a2d128efe621",
+      "bytes": 30043,
+      "sha256": "c270a2a89290777a14e4988371714d83bc25d00557741f50491331b68cacdfde"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_unity.json",
+      "mode": "100644",
+      "git_blob": "1d6061a79f1d1dc31607ae624358e9204fd3c83b",
+      "bytes": 46302,
+      "sha256": "ad356f9fb8209fc81d4b17d7f989471106e2056f61a9bfc2ea0714ebf8426794"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_1_ura.json",
+      "mode": "100644",
+      "git_blob": "c98149f2ea48db49e5d8c5a528f45b01e2edf385",
+      "bytes": 30601,
+      "sha256": "ea771f81b2595b0f215c2b2c321fc87cd815d93a32bd85e8f8797b04cb5a1c7f"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_grand_concert.json",
+      "mode": "100644",
+      "git_blob": "96f7bd306864e7ed8b8833791c877adecd7cf573",
+      "bytes": 61918,
+      "sha256": "fbb0da3e07288c8e66f46d5f8e76a6bd3844d0bf18f884f030099a92a4e4d628"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_trackblazer.json",
+      "mode": "100644",
+      "git_blob": "fab214a9e7d8c65c89979fa1494855761569426c",
+      "bytes": 30089,
+      "sha256": "67fc924e25364969df8d0969e88c0fa10887c968b060229c2bb704189630524a"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_unity.json",
+      "mode": "100644",
+      "git_blob": "5e3241a28bafe8af1a968c6dec755a92e3e7aecf",
+      "bytes": 44292,
+      "sha256": "6334f03248d48b8baab1a3449f77f52eec1e640933228e44cb019eeac7332a78"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_42_ura.json",
+      "mode": "100644",
+      "git_blob": "070c4b4640875ebe96d00f2341a7b4c42902958d",
+      "bytes": 30592,
+      "sha256": "a55c7b1183dcb7bb97b7caf7926e4f939ea18cc76f21733d624e4fefca5a0e82"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_grand_concert.json",
+      "mode": "100644",
+      "git_blob": "51cdd25b61ef3b2d98234f12cfc6580b7fd22c9c",
+      "bytes": 61824,
+      "sha256": "492f5611d9ff506e36ac0f25683a7b93103e0eb7e57e3fb2e5da7c04d0020577"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_trackblazer.json",
+      "mode": "100644",
+      "git_blob": "0f31f4d99d37beaf09316154fef820ecb14bf159",
+      "bytes": 30626,
+      "sha256": "c97fc60a2a0710fd86467f6b403a54681bbac44aa638546a0bbf40cc1d8a6726"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_unity.json",
+      "mode": "100644",
+      "git_blob": "2c5be349ad6d8228d92faf9b1230995932ae072b",
+      "bytes": 44325,
+      "sha256": "1d2367a109c1a6c6a69aa2a837d653553d819c88c0ad4af5d9a89927b420f7d7"
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/turn_trace_7_ura.json",
+      "mode": "100644",
+      "git_blob": "7f1346c1f3b94edc1d64d82ca9353044bb560a29",
+      "bytes": 30619,
+      "sha256": "2af18a8af182502cf680fca5645e52a72a3ab35c50f4283e5a644c377faf4f92"
+    },
+    {
+      "path": "uma-sim-core/tests/golden_seed.rs",
+      "mode": "100644",
+      "git_blob": "1e0aa10e7a71495e491400a3716254e8c8462b6c",
+      "bytes": 2143,
+      "sha256": "9a3f994f09dd0011eced215de519ea62c07c5f977b389abdf39907cb9864e27f"
+    },
+    {
+      "path": "uma-sim-core/tests/golden_seeds.rs",
+      "mode": "100644",
+      "git_blob": "e60ced66943584793e5941152b44664ef05f309c",
+      "bytes": 1878,
+      "sha256": "97e93956e871e5359d07bd2e3a2f0c5cc1c6e28116493d2dabba945d93c5f403"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_bot_replay.rs",
+      "mode": "100644",
+      "git_blob": "d81c4fc8f09c846bf88c57d224af496061e3cf9a",
+      "bytes": 8010,
+      "sha256": "de76be0c448b1c8aec703ec52ab663206740a1ed3f1a5f68b3b536580f8ade32"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_calibration_loader.rs",
+      "mode": "100644",
+      "git_blob": "e06e068360337727d6da55c2be0f9f27c5eb285b",
+      "bytes": 1853,
+      "sha256": "adf3a78cb53549584d6d38649b9c00c691a654729173b87d50ce3072c2e7a247"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_catalog_loader.rs",
+      "mode": "100644",
+      "git_blob": "4b4be0663b13b7e86d1d879b141a7fcb403d1bc6",
+      "bytes": 697,
+      "sha256": "5a2d479c838a6c115722b341392db56b27cfc311971fe7151f1d2c9a7fd85bfc"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_formula_calibration.rs",
+      "mode": "100644",
+      "git_blob": "d500ac3d0026a24a7e132892ff8e7e022de301fd",
+      "bytes": 3945,
+      "sha256": "0bb936cc6ae507d9f484f37a5c37824fce9cf4ddc3816263caf137048796b409"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_l1_training.rs",
+      "mode": "100644",
+      "git_blob": "7cb817d9749a0120329068fabd67b4b5fb35f904",
+      "bytes": 1409,
+      "sha256": "6fc58aa1f6900518819b3a435bb6b58641bf766602c829c83366ff480d70545d"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_r7.rs",
+      "mode": "100644",
+      "git_blob": "2aa73bfa34a39b964295ea346b1d7b4854f2d84f",
+      "bytes": 19641,
+      "sha256": "470e5de45dba0156562157bf65a8ed004edc0110a4358129165171c65ac108dd"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_simulation.rs",
+      "mode": "100644",
+      "git_blob": "8acfd7f72b84cc5238ff5dff63256383a82fc674",
+      "bytes": 16628,
+      "sha256": "cae538bdb0e9642d38b8df54c9ac6a7362c34ceb2b8344d9e480b7eb150903c2"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_token_labels.rs",
+      "mode": "100644",
+      "git_blob": "dd7473b5d38326973d455cca911e85a4802e8903",
+      "bytes": 844,
+      "sha256": "a3fe5fc9d14118fccd401fbe25aaf839b79a4a41d8e4c9b80ee4c980197febc4"
+    },
+    {
+      "path": "uma-sim-core/tests/hint_progression_config.rs",
+      "mode": "100644",
+      "git_blob": "6fc877e3de24c672b5f1ee4dc6ad86ef639867c3",
+      "bytes": 818,
+      "sha256": "0b1e0927d14883c2ca9628b5f6371bd3cfd30cd5e27c44dc180268ca93c07312"
+    },
+    {
+      "path": "uma-sim-core/tests/knowledge_validate.rs",
+      "mode": "100644",
+      "git_blob": "abd5d59582f6886005db26bea7b66c336a92224a",
+      "bytes": 1172,
+      "sha256": "4ad02a66b3fb1a298c79df4cee9620cf162e723086395911664abf7203ffdf2c"
+    },
+    {
+      "path": "uma-sim-core/tests/legacy_applicator.rs",
+      "mode": "100644",
+      "git_blob": "9bf6efd2465628d0ee3c40cd5370c92ef19c4c9a",
+      "bytes": 7423,
+      "sha256": "1b303b2c33fd8a040d04601d1464d076d110f72a29b9efb2f6f0cad54f75a1b8"
+    },
+    {
+      "path": "uma-sim-core/tests/live_bot_telemetry.rs",
+      "mode": "100644",
+      "git_blob": "78b55a73a99531428d513249b2cf188920343ce8",
+      "bytes": 854,
+      "sha256": "08858dda6a20d4bb741132e3e55d0bf369db8bc4f16f925f29a6254c2617be69"
+    },
+    {
+      "path": "uma-sim-core/tests/live_telemetry_replay.rs",
+      "mode": "100644",
+      "git_blob": "adf765a9423f6f1a63406405a70a5446e17b9bcf",
+      "bytes": 740,
+      "sha256": "fabd3a0b83e289ea6d68bdc3c0f8dd2e3a9c18086f64f4a898e333335aeaa04d"
+    },
+    {
+      "path": "uma-sim-core/tests/mid_run_inspiration.rs",
+      "mode": "100644",
+      "git_blob": "c04b00ac81d30badfec5eac63464de1584db2f25",
+      "bytes": 1602,
+      "sha256": "c86f4f1f85f2f0b266e13bbec885c85d5b896bf59a29d0bcf9747dcc46d3b9b9"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches.rs",
+      "mode": "100644",
+      "git_blob": "cb77d7dfe9354e6d1169321eaefcd4a382bede24",
+      "bytes": 7622,
+      "sha256": "1c031d01b811d4d31e67bcdb45e777560b50f77286fab0826ba249fc9c89c54b"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches_cli.rs",
+      "mode": "100644",
+      "git_blob": "bae14924d409470262b5880f5dfb9da11ac6405f",
+      "bytes": 6844,
+      "sha256": "793256047786ee6de7d97e5fcb85a39076f9eda1de91d2050a43c70a89e8af4d"
+    },
+    {
+      "path": "uma-sim-core/tests/parity.rs",
+      "mode": "100644",
+      "git_blob": "2e1f7cc53cda1272add035b637669116fac5d806",
+      "bytes": 17598,
+      "sha256": "545bc353edc38a0ed7754770e24fc8c7ae07d46210124871f6e8224dcbbe9da8"
+    },
+    {
+      "path": "uma-sim-core/tests/perf.rs",
+      "mode": "100644",
+      "git_blob": "300c88feca54afc7f0f81f10df08ca768018b7f4",
+      "bytes": 991,
+      "sha256": "3614f1e55c6cbf64d8bd58815028598fd67b5e4b1a430f4856c8ee6471cc4073"
+    },
+    {
+      "path": "uma-sim-core/tests/product_readiness.rs",
+      "mode": "100644",
+      "git_blob": "de96aacbd0fdd5320e93ddb35ce894f13972a087",
+      "bytes": 2969,
+      "sha256": "b845caab08262cdfd568f5ccce774ee7738048478c1ab710e9199ff299081c77"
+    },
+    {
+      "path": "uma-sim-core/tests/race_npc_r86.rs",
+      "mode": "100644",
+      "git_blob": "297053c1de379f61ea496e5c3851d1f1e803763f",
+      "bytes": 3497,
+      "sha256": "405e8c5af549173fd858f9ff6205fa7e1c8f27f58cb4422ba8d9e245e50b4f3d"
+    },
+    {
+      "path": "uma-sim-core/tests/race_outcomes.rs",
+      "mode": "100644",
+      "git_blob": "e4f336e05097e87b8582438527acc08463ad7674",
+      "bytes": 2682,
+      "sha256": "cf14c08ea72fcfa860bc45f70565ab0e0c9c1b8eaea236bae277690e6baa0dbe"
+    },
+    {
+      "path": "uma-sim-core/tests/race_perf_r89.rs",
+      "mode": "100644",
+      "git_blob": "1cb591b506a67b93eb3555626615bb50ebd1f0ec",
+      "bytes": 3043,
+      "sha256": "60832dba19f39226e64564d1c8551cd725dde0ff317031c6ff55cc5e95ff6a33"
+    },
+    {
+      "path": "uma-sim-core/tests/race_physics_r87.rs",
+      "mode": "100644",
+      "git_blob": "b87b248f26df883ca9f5d124d8d9af88f55b628f",
+      "bytes": 3697,
+      "sha256": "1bd4956260a28817e3307dc55bf1133d9439801b1ec7cb22191eddae1d81b6a8"
+    },
+    {
+      "path": "uma-sim-core/tests/race_scheduler.rs",
+      "mode": "100644",
+      "git_blob": "a8544e8a44e75d82c143952163ed6117e9faafdd",
+      "bytes": 835,
+      "sha256": "d37e7fb1cc0c00dd9a2d1457af245b6293f38c244e98043940567202e311c344"
+    },
+    {
+      "path": "uma-sim-core/tests/race_v4_dist.rs",
+      "mode": "100644",
+      "git_blob": "2a5620b6886f71668b5c15fe7e6d81c11edc66ac",
+      "bytes": 9575,
+      "sha256": "303c1b6fb180c9fbab0177f89a5c88788e637be1d2635c73310313ce48bb9f07"
+    },
+    {
+      "path": "uma-sim-core/tests/rest_policy_external_stub.rs",
+      "mode": "100644",
+      "git_blob": "45ec143a22d8ca10ca93124342e50a7a3dd118d0",
+      "bytes": 4549,
+      "sha256": "146339025f4d85103766ba83a3602378216a0ed274a82c557b90367bf3551d33"
+    },
+    {
+      "path": "uma-sim-core/tests/scenario_depth.rs",
+      "mode": "100644",
+      "git_blob": "b43418255accaec1b04ad1fb5372dbf3ed4cdd7b",
+      "bytes": 6233,
+      "sha256": "ffa1440606069c3ba1aacf345e594bbf4650ce6c2a4b8d263e01641d78a176b5"
+    },
+    {
+      "path": "uma-sim-core/tests/session_targeting.rs",
+      "mode": "100644",
+      "git_blob": "fbcb1b7a7859c509e4b4eee7addb5da427cbdb0c",
+      "bytes": 6209,
+      "sha256": "c42b468d8974a104a0f49df7dc94a551b2d19bc8d4b5ed5e18e172d08e78aee3"
+    },
+    {
+      "path": "uma-sim-core/tests/sim_engine.rs",
+      "mode": "100644",
+      "git_blob": "d9fafeafecfd4035ae0e0dff393303fe2e8aab43",
+      "bytes": 4986,
+      "sha256": "f7eba0aee1e9c1b60f5fe132fec5addf2ed92cab6682b34671fff8512ad783d2"
+    },
+    {
+      "path": "uma-sim-core/tests/sim_telemetry_export.rs",
+      "mode": "100644",
+      "git_blob": "516a2fdec838d0b8fc0e3cfdcbaed1c4fceff97b",
+      "bytes": 3955,
+      "sha256": "5cd58c555840dc558e76c9794516fbeca621a40b409895bb134f1211632e22c1"
+    },
+    {
+      "path": "uma-sim-core/tests/skill_catalog_display.rs",
+      "mode": "100644",
+      "git_blob": "394b9650a515f38672683d11bd027d363808a834",
+      "bytes": 2666,
+      "sha256": "52b0f6a1f6f6ff0b85b4dacce2c36067b4abf599b8ccd42de33cb564ac235cef"
+    },
+    {
+      "path": "uma-sim-core/tests/skill_hint_routing.rs",
+      "mode": "100644",
+      "git_blob": "04a5939f1e4b242970736df53d6c5232282d7947",
+      "bytes": 963,
+      "sha256": "f02ce1fd6d74344348feb137eb843352cceaadd940b0e412bf69a92cbd3b9f1f"
+    },
+    {
+      "path": "uma-sim-core/tests/soft_cap.rs",
+      "mode": "100644",
+      "git_blob": "5fbee9cd7954b1cef1fadc56ecc510293c8a64f5",
+      "bytes": 922,
+      "sha256": "d0f2f6b4fd2c76f18546461a6c8768e3e0d0f0b3c5d822e01cfb16badd4f58f7"
+    },
+    {
+      "path": "uma-sim-core/tests/spark_generation.rs",
+      "mode": "100644",
+      "git_blob": "5b23c69807d8897dad66a152aabb746818bc99bd",
+      "bytes": 2835,
+      "sha256": "8d97d915fb61f983db1b00cd6d6272e3c56a56e02818f2b1fda4561c85ed3e52"
+    },
+    {
+      "path": "uma-sim-core/tests/support_catalog.rs",
+      "mode": "100644",
+      "git_blob": "d8b7060e8657a4227cb8b901458b03de0ef220d3",
+      "bytes": 515,
+      "sha256": "493be4d55fb96a0ec5a25cb854fa596243848891bd0fd130c6b193708b280c70"
+    },
+    {
+      "path": "uma-sim-core/tests/telemetry_replay.rs",
+      "mode": "100644",
+      "git_blob": "0e3c1045d567e6d208a97649f547b316537c0762",
+      "bytes": 3765,
+      "sha256": "53a010ea3201193dab9e4b5f1bd91927435038d13a213e1ff8b9ff736d26b020"
+    },
+    {
+      "path": "uma-sim-core/tests/trainee_catalog.rs",
+      "mode": "100644",
+      "git_blob": "7a8dc55233663bfd7ba5c78dea962b70c361d1be",
+      "bytes": 3773,
+      "sha256": "186d89c9fcac7d71af2514d516ba0691eb3fbe75b921543f5f027c56167b7a3a"
+    },
+    {
+      "path": "uma-sim-core/tests/training_failure_config.rs",
+      "mode": "100644",
+      "git_blob": "446c66d88f4e2b05ca4670975b8cdd835c8ea13b",
+      "bytes": 3352,
+      "sha256": "3c3423b78ca6d638bf6f35a66fccbc07e3e12527780bc333ab401e79be566fa4"
+    },
+    {
+      "path": "uma-sim-core/tests/training_failure_penalty.rs",
+      "mode": "100644",
+      "git_blob": "1cff195443b2af85dff6bc91112b9bacb8e459f6",
+      "bytes": 2117,
+      "sha256": "b162d39f9d0522aeb04b0fd068c986c6b4bf03f847389068ce26d9d981c35fe7"
+    },
+    {
+      "path": "uma-sim-core/tests/training_inspection.rs",
+      "mode": "100644",
+      "git_blob": "46660009e8ff1b6d0f8c174ccbace9d979abc0b4",
+      "bytes": 12546,
+      "sha256": "57f8103461fd3467ecaa75f33ec42ecaed64617acf5048da75f7f7f5e7372a25"
+    },
+    {
+      "path": "uma-sim-core/tests/training_resolver.rs",
+      "mode": "100644",
+      "git_blob": "76d0dfe999fdc67c57c8c361f0ba5c8c68550d34",
+      "bytes": 2311,
+      "sha256": "a21e2ece035e444fb35de91f327bb6d1fd99f8ef0444a796678e80d34584ae46"
+    },
+    {
+      "path": "uma-sim-core/tests/unity_trackblazer_mechanics.rs",
+      "mode": "100644",
+      "git_blob": "eb0c1dbc8f83bfc4f3c9c8178b01f98b64dc56e3",
+      "bytes": 14564,
+      "sha256": "ac9a6d0a63eac7816148325e119ef42ca20ae74cc0d807f465db516227b4fc58"
+    },
+    {
+      "path": "uma-sim-core/tests/ura_mechanics.rs",
+      "mode": "100644",
+      "git_blob": "57a99479bf44bd5ba31235c74a815a0bb7d425f8",
+      "bytes": 9587,
+      "sha256": "422d43a9f53f6e610089630f09a1240fdb4292ff7ad7cae5a8216093bb20f891"
+    }
+  ],
+  "total_bytes": 13996909
+}

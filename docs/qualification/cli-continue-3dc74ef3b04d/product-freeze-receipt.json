@@ -1,0 +1,50 @@
+{
+  "schema": "hamon.uma_continue.product_freeze.v1",
+  "at": "2026-10-08T23:01:23.030Z",
+  "commit": "6f6c325445cb0f52b193dbddf7c379ad0c3ffa43",
+  "tree": "8d2c39d6d5b747c930d26efae030a1c3eee0ce43",
+  "branch": "feature/cli-continue-3dc74ef3b04d",
+  "baseline": "80a1aaa420dbb1b4683aad3b25732ba0897d8d28",
+  "qualified_dependency": "248c62564bb816630d6983ec5f733b965a8e1e43",
+  "component_projection_not_full_upstream_ancestry": true,
+  "current_main_compatibility_pending": true,
+  "files": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "bytes": 21724,
+      "git_blob": "c9a2008200e71f5e03088b25f0db1b0a775516cc",
+      "sha256": "4201e9d1928177f9fa15ea72fcdadec0e4b2eb5750bfd02be11dbc32dcff14af"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/continue_run.rs",
+      "bytes": 2347,
+      "git_blob": "fe8c53e72ffd3622dd7ab27fa340a3f2a5a53ff8",
+      "sha256": "26caa3ab1c6253f21a4ee4ea77c2a0e8df6de35c0635baf3f379c7a8d4feb17a"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_continue.rs",
+      "bytes": 11362,
+      "git_blob": "54852450131fccd283d45c7b8bb17b06de53595e",
+      "sha256": "cc6f6a63990c6464f3fc0903785eb28e1d0466346124aa687aa5429e135104e7"
+    },
+    {
+      "path": "docs/CLI_CONTINUE.md",
+      "bytes": 2577,
+      "git_blob": "b5899f354167605ac753aeafe1064438e4b0515e",
+      "sha256": "72a8ef899afaf4adec856361e9e75c73d80c1a4b547654b80cb3c116671f3e9a"
+    }
+  ],
+  "format": {
+    "status": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "binary": {
+    "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+    "sha256": "db18c2878f4627ed14d247ed26e1e94327a3d14b6aadc600d407c3292f67ab4a",
+    "bytes": 25075392
+  },
+  "source_status": "",
+  "prior_status": "M uma-sim-core/src/bin/uma-sim.rs\n?? docs/CLI_CONTINUE.md\n?? uma-sim-core/src/bin/uma_sim/continue_run.rs\n?? uma-sim-core/tests/cli_continue.rs",
+  "cli_diff": "diff --git a/uma-sim-core/src/bin/uma-sim.rs b/uma-sim-core/src/bin/uma-sim.rs\nindex f54c2c5..c9a2008 100644\n--- a/uma-sim-core/src/bin/uma-sim.rs\n+++ b/uma-sim-core/src/bin/uma-sim.rs\n@@ -1,5 +1,8 @@\n //! uma-sim CLI — parity with Kotlin `SimCliMain`.\n \n+#[path = \"uma_sim/continue_run.rs\"]\n+mod continue_run;\n+\n #[path = \"uma_sim/paired_batches.rs\"]\n mod paired_batches;\n \n@@ -24,6 +27,7 @@ fn main() {\n         \"training\" => cmd_training(&args[1..]),\n         \"step\" => cmd_step(&args[1..]),\n         \"fast\" => cmd_fast(&args[1..]),\n+        \"continue\" => std::process::exit(continue_run::run(&args[1..])),\n         \"batch\" => cmd_batch(&args[1..]),\n         \"analyze\" => cmd_analyze(&args[1..]),\n         \"compare-batches\" => std::process::exit(paired_batches::run(&args[1..])),\n@@ -606,6 +610,7 @@ uma-sim CLI v0.4 (Rust)\n   training [--format=text|json]\n   step [train_speed|rest|race|event_0|...]\n   fast [--seed=N] [--speed=20] [--policy=default|bot|external]\n+  continue [--policy=default|bot]\n   batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]\n   analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]\n   compare-batches --input=FILE --baseline=FILE [--format=text|json]"
+}

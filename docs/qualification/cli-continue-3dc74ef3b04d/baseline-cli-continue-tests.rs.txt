@@ -1,0 +1,284 @@
+//! Actual CLI processes operate only on authored temporary careers.
+use std::fs;
+use std::path::PathBuf;
+use std::process::{Command, Output};
+use std::sync::atomic::{AtomicU64, Ordering};
+use uma_sim_core::snapshot::{RunSnapshot, RunSnapshotCodec};
+
+const BIN: &str = env!("CARGO_BIN_EXE_uma-sim");
+
+struct Career(PathBuf);
+
+impl Career {
+    fn new() -> Self {
+        static NEXT: AtomicU64 = AtomicU64::new(0);
+        let root = std::env::temp_dir().join(format!(
+            "uma-continue-test-{}-{}",
+            std::process::id(),
+            NEXT.fetch_add(1, Ordering::Relaxed)
+        ));
+        fs::create_dir(&root).unwrap();
+        Self(root)
+    }
+
+    fn session(&self) -> PathBuf {
+        self.0.join(".uma-sim/session.json")
+    }
+
+    fn command(&self) -> Command {
+        let mut command = Command::new(BIN);
+        command
+            .current_dir(&self.0)
+            .env("UMA_REPO_ROOT", PathBuf::from(env!("CARGO_MANIFEST_DIR")).parent().unwrap())
+            .env_remove("UMA_POLICY_CMD")
+            .env_remove("UMA_RACE_MODEL")
+            .env_remove("LLVM_PROFILE_FILE");
+        command
+    }
+
+    fn run(&self, args: &[&str]) -> Output {
+        self.command().args(args).output().unwrap()
+    }
+
+    fn read(&self) -> RunSnapshot {
+        RunSnapshotCodec::decode(&fs::read_to_string(self.session()).unwrap()).unwrap()
+    }
+
+    fn write(&self, snapshot: &RunSnapshot) {
+        fs::write(self.session(), RunSnapshotCodec::encode(snapshot)).unwrap();
+    }
+
+    fn partial(&self, scenario: &str) -> RunSnapshot {
+        let scenario_arg = format!("--scenario={scenario}");
+        succeeded(self.run(&[
+            "start", "--seed=-734", &scenario_arg, "--trainee=Special Week",
+            "--speed=3", "--dialogue=off", "--race-model=stub",
+            "--deck=support:10001@speed:85", "--trace-rng",
+        ]));
+        // Resolve whichever ordinary turn/event/race the saved engine exposes.
+        for _ in 0..5 {
+            let snapshot = self.read();
+            let action = match snapshot.state.phase.as_str() {
+                "EVENT" => "event_0",
+                "MANDATORY_RACE" => "race",
+                _ => "rest",
+            };
+            succeeded(self.run(&["step", action]));
+        }
+        let snapshot = self.read();
+        assert!(snapshot.state.turn > 1);
+        assert!(!snapshot.state.career_complete);
+        assert!(!snapshot.state.meta.deck_supports.is_empty());
+        fs::write(self.0.join(".uma-sim/unrelated.keep"), b"keep").unwrap();
+        snapshot
+    }
+
+    fn assert_unchanged(&self, bytes: &[u8]) {
+        assert_eq!(fs::read(self.session()).unwrap(), bytes);
+        assert_eq!(fs::read(self.0.join(".uma-sim/unrelated.keep")).unwrap(), b"keep");
+        let mut names: Vec<_> = fs::read_dir(self.0.join(".uma-sim"))
+            .unwrap()
+            .map(|e| e.unwrap().file_name().into_string().unwrap())
+            .collect();
+        names.sort();
+        assert_eq!(names, ["session.json", "unrelated.keep"]);
+    }
+}
+
+impl Drop for Career {
+    fn drop(&mut self) {
+        let _ = fs::remove_dir_all(&self.0);
+    }
+}
+
+fn succeeded(output: Output) -> String {
+    assert_eq!(output.status.code(), Some(0), "{}", String::from_utf8_lossy(&output.stderr));
+    assert!(output.stderr.is_empty(), "{}", String::from_utf8_lossy(&output.stderr));
+    String::from_utf8(output.stdout).unwrap()
+}
+
+fn failed(output: Output, code: i32, message: &str) {
+    assert_eq!(output.status.code(), Some(code), "{}", String::from_utf8_lossy(&output.stdout));
+    assert!(output.stdout.is_empty(), "{}", String::from_utf8_lossy(&output.stdout));
+    assert!(String::from_utf8_lossy(&output.stderr).contains(message), "{}", String::from_utf8_lossy(&output.stderr));
+}
+
+fn assert_continued(before: &RunSnapshot, after: &RunSnapshot) {
+    assert_eq!(after.meta, before.meta);
+    assert_eq!(after.state.meta, before.state.meta);
+    assert_eq!(serde_json::to_value(&after.settings).unwrap(), serde_json::to_value(&before.settings).unwrap());
+    assert!(after.state.career_complete);
+    assert!(after.state.turn > before.state.turn);
+    assert!(after.state.log.starts_with(&before.state.log));
+    assert!(after.rng_calls > before.rng_calls);
+    assert_eq!(after.rng_seed, before.rng_seed);
+    assert!(after.rng_state.is_some());
+    assert_eq!(after.state.deck.slots.len(), before.state.deck.slots.len());
+    for (old, new) in before.state.deck.slots.iter().zip(&after.state.deck.slots) {
+        assert_eq!(old.support_id, new.support_id);
+    }
+}
+
+#[test]
+fn default_continues_partial_saved_career_without_reset() {
+    let career = Career::new();
+    let before = career.partial("unity");
+    let output = succeeded(career.run(&["continue"]));
+    assert!(output.contains(&format!("Continued saved career from turn {}", before.state.turn)));
+    assert!(output.contains("policy=default"));
+    assert_continued(&before, &career.read());
+    assert_eq!(fs::read(career.0.join(".uma-sim/unrelated.keep")).unwrap(), b"keep");
+}
+
+#[test]
+fn bot_continues_saved_career_with_its_existing_settings() {
+    let career = Career::new();
+    let before = career.partial("trackblazer");
+    let output = succeeded(career.run(&["continue", "--policy=bot"]));
+    assert!(output.contains("policy=bot"));
+    assert_continued(&before, &career.read());
+}
+
+#[test]
+fn terminal_session_is_an_exact_byte_preserving_noop() {
+    let career = Career::new();
+    career.partial("ura");
+    succeeded(career.run(&["continue", "--policy=default"]));
+    let bytes = fs::read(career.session()).unwrap();
+    let output = succeeded(career.run(&["continue", "--policy=bot"]));
+    assert!(output.contains("Saved career is already complete"));
+    career.assert_unchanged(&bytes);
+}
+
+#[test]
+fn missing_session_fails_without_creating_state() {
+    let career = Career::new();
+    failed(career.run(&["continue"]), 1, "No readable saved career");
+    assert!(!career.0.join(".uma-sim").exists());
+}
+
+#[test]
+fn corrupt_session_fails_without_replacing_evidence() {
+    let career = Career::new();
+    fs::create_dir(career.0.join(".uma-sim")).unwrap();
+    fs::write(career.session(), b"{broken saved career").unwrap();
+    fs::write(career.0.join(".uma-sim/unrelated.keep"), b"keep").unwrap();
+    failed(career.run(&["continue"]), 1, "No readable saved career");
+    career.assert_unchanged(b"{broken saved career");
+}
+
+#[test]
+fn invalid_options_fail_before_loading_or_creating_a_session() {
+    let career = Career::new();
+    for args in [
+        vec!["continue", "--seed=7"],
+        vec!["continue", "--scenario=ura"],
+        vec!["continue", "--speed=20"],
+        vec!["continue", "--policy=external"],
+        vec!["continue", "--policy=BOT"],
+        vec!["continue", "--policy="],
+        vec!["continue", "--policy", "bot"],
+        vec!["continue", "--policy=bot", "--policy=default"],
+        vec!["continue", "extra"],
+    ] {
+        failed(career.run(&args), 2, "Usage: uma-sim continue");
+        assert!(!career.0.join(".uma-sim").exists());
+    }
+}
+
+#[test]
+fn invalid_options_preserve_an_existing_career() {
+    let career = Career::new();
+    career.partial("ura");
+    let bytes = fs::read(career.session()).unwrap();
+    failed(career.run(&["continue", "--policy=external"]), 2, "Usage: uma-sim continue");
+    career.assert_unchanged(&bytes);
+}
+
+#[test]
+fn help_is_read_only_and_discoverable() {
+    let career = Career::new();
+    let output = succeeded(career.run(&["continue", "--help"]));
+    assert!(output.contains("Usage: uma-sim continue [--policy=default|bot]"));
+    assert!(!career.0.join(".uma-sim").exists());
+    assert!(succeeded(career.run(&[])).contains("continue [--policy=default|bot]"));
+}
+
+#[test]
+fn inconsistent_saved_identity_is_rejected_without_overwrite() {
+    let career = Career::new();
+    let mut snapshot = career.partial("ura");
+    snapshot.meta.seed += 1;
+    career.write(&snapshot);
+    let bytes = fs::read(career.session()).unwrap();
+    failed(career.run(&["continue"]), 1, "Saved career metadata is inconsistent");
+    career.assert_unchanged(&bytes);
+}
+
+#[test]
+fn unknown_saved_scenario_does_not_silently_fall_back() {
+    let career = Career::new();
+    let mut snapshot = career.partial("ura");
+    snapshot.meta.scenario_id = "not-a-scenario".into();
+    snapshot.state.meta.scenario_id = snapshot.meta.scenario_id.clone();
+    career.write(&snapshot);
+    let bytes = fs::read(career.session()).unwrap();
+    failed(career.run(&["continue"]), 1, "Saved career has an unknown scenario");
+    career.assert_unchanged(&bytes);
+}
+
+#[test]
+fn nonprogressing_saved_state_hits_bound_without_replacing_save() {
+    let career = Career::new();
+    let mut snapshot = career.partial("ura");
+    snapshot.state.phase = "EVENT".into();
+    snapshot.state.awaiting_choice = true;
+    snapshot.state.pending_event_options.clear();
+    career.write(&snapshot);
+    let bytes = fs::read(career.session()).unwrap();
+    failed(career.run(&["continue"]), 1, "did not complete within the action limit");
+    career.assert_unchanged(&bytes);
+}
+
+#[test]
+fn older_snapshot_without_rng_words_remains_loadable() {
+    let career = Career::new();
+    let mut before = career.partial("ura");
+    before.rng_state = None;
+    career.write(&before);
+    succeeded(career.run(&["continue"]));
+    assert_continued(&before, &career.read());
+}
+
+#[cfg(unix)]
+#[test]
+fn failed_publication_preserves_prior_save_without_success_output() {
+    let career = Career::new();
+    career.partial("ura");
+    let prior = fs::read(career.session()).unwrap();
+    let output = Command::new("bash")
+        .args(["-c", "trap '' XFSZ; ulimit -f 1; exec \"$@\"", "continue-test", BIN, "continue"])
+        .current_dir(&career.0)
+        .env("UMA_REPO_ROOT", PathBuf::from(env!("CARGO_MANIFEST_DIR")).parent().unwrap())
+        .env_remove("UMA_POLICY_CMD")
+        .env_remove("UMA_RACE_MODEL")
+        .env_remove("LLVM_PROFILE_FILE")
+        .output().unwrap();
+    failed(output, 1, "Failed to save continued career:");
+    career.assert_unchanged(&prior);
+}
+
+#[cfg(unix)]
+#[test]
+fn continue_keeps_existing_session_symlink_and_publishes_to_its_target() {
+    use std::os::unix::fs::symlink;
+    let career = Career::new();
+    let before = career.partial("ura");
+    let target = career.0.join("saved-career.json");
+    fs::rename(career.session(), &target).unwrap();
+    symlink("../saved-career.json", career.session()).unwrap();
+    succeeded(career.run(&["continue"]));
+    assert!(fs::symlink_metadata(career.session()).unwrap().file_type().is_symlink());
+    assert_eq!(fs::read(career.session()).unwrap(), fs::read(target).unwrap());
+    assert_continued(&before, &career.read());
+}

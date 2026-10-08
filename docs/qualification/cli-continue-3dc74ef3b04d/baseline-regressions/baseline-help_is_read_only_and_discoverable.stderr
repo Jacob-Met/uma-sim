@@ -1,0 +1,4 @@
+
+thread 'help_is_read_only_and_discoverable' (2492282) panicked at /home/jacob/uma-continue-3dc74ef3b04d-candidate/uma-sim-core/tests/cli_continue.rs:202:5:
+assertion failed: output.contains("Usage: uma-sim continue [--policy=default|bot]")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
