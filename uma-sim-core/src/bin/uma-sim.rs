@@ -88,8 +88,12 @@ fn parse_flags(args: &[String]) -> CliFlags {
     let mut f = CliFlags::default();
     for arg in args {
         if let Some(v) = arg.strip_prefix("--seed=") {
-            if let Ok(n) = v.parse() {
-                f.seed = n;
+            match v.parse::<i64>() {
+                Ok(seed) => f.seed = seed,
+                Err(_) => {
+                    eprintln!("Error: invalid seed '{v}'; expected a signed 64-bit integer");
+                    std::process::exit(2);
+                }
             }
         } else if let Some(v) = arg.strip_prefix("--scenario=") {
             // Reject unknown scenarios loudly: the engine silently falls back
