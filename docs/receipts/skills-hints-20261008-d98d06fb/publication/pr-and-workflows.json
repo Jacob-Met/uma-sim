@@ -1,0 +1,52 @@
+{
+  "schema": "uma.source-pr-final-observation.v1",
+  "recorded_at": "2026-10-08T15:16:29.506Z",
+  "pr_workflows_on_final_head": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "workflow_runs": [
+        {
+          "id": 37798167054,
+          "name": "gitleaks-secret-scan",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 145,
+          "jobs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37798167054/jobs",
+          "logs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37798167054/logs",
+          "workflow_id": 376958083
+        },
+        {
+          "id": 37798166871,
+          "name": "pr-test-gate",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 50,
+          "jobs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37798166871/jobs",
+          "logs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37798166871/logs",
+          "workflow_id": 377795279
+        },
+        {
+          "id": 37798166833,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 191,
+          "jobs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37798166833/jobs",
+          "logs_url": "https://api.github.com/repos/Jacob-Met/uma-sim/actions/runs/37798166833/logs",
+          "workflow_id": 348971533
+        }
+      ]
+    },
+    "isError": false
+  },
+  "provenance": "Normalized connector results; three workflow outcomes were queried for d4c208e46382b7f69f1ffea57474df46b38c7a8b. PR metadata was updated with final review and evidence. Root owns the actual merge.",
+  "shared_claim_update": {
+    "state": "pending native access",
+    "attempt": "One read-only RDC command; caller wait terminated without a returned observation. No claim write was attempted."
+  }
+}
