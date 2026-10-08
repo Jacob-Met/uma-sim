@@ -1,0 +1,708 @@
+{
+  "schema": "hamon.uma_tui.independent_receiving_artifacts.v1",
+  "candidate_commit": "379eee9707a224d14adb6c362d729b38f43dcf43",
+  "server_source_commit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "server_binary_sha256": "fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e",
+  "server_build": "Received prebuilt native Linux x86-64 binary with retained donor build provenance; not independently rebuilt by this reviewer",
+  "captured_utc": "2026-10-08T08:52:45.372Z",
+  "source_pins": [
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "sha256": "39d36f1ebba8c06823e57f2a5c9d49ab6a2b00d8ff0d67ff7afb6f5c5f1d17bb"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-session.test.mjs",
+      "sha256": "dda84a08192fc3c82c34e85f9e0e311bad4f5670b6ff7a2e3ee9580a91ab3c37"
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "sha256": "77b689ae3b5b86ed776690e7b3a644df5944eb8655a29413b0174202f1c29f96"
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "sha256": "72c1ec2e5d4c203e9c1c50136a8b030142f1f768fd3fc85fbfbc8120e38c7caa"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "fc0d2e66e95c1d1c870f29294b8bf8be7904cce6d3009cc03f11b1ebc2b6317d"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "sha256": "fdf226997b92edb49ba5e4993b5c0bcef3976fd4eec0386077d4f4c9072d1e52"
+    },
+    {
+      "path": "uma-sim-core/src/factory.rs",
+      "sha256": "067d5948755ba0f39bc8f980a1a4615fbdb8ca50da110b3657414d2d49ff5aac"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c"
+    }
+  ],
+  "files": [
+    {
+      "path": "drivers/native-tui-review.mjs",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/controls/native-tui-review.mjs",
+      "bytes": 19685,
+      "sha256": "1325cfe7a79ed65788d393ba8543f83b37440fd7c1d99c7d7ee483dcb8624f21"
+    },
+    {
+      "path": "drivers/tui-baseline.mjs",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/controls/tui-baseline.mjs",
+      "bytes": 4127,
+      "sha256": "3bacaa48bfaec4e10f76bfe936aab6b0a01a1b69ee7f30c1171d31a8384effd5"
+    },
+    {
+      "path": "server-build-provenance.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/server/baseline-build-provenance.json",
+      "bytes": 1407,
+      "sha256": "9cdf551f50e515158f7d780be48d00ca0ff8293c1b3c40c3f73fa4a76892216f"
+    },
+    {
+      "path": "baseline/fresh-session-preserves-real-main/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/fresh-session-preserves-real-main/clients.json",
+      "bytes": 927,
+      "sha256": "e1f9f92c0cee0597989a91131dab75f40bc6faa19dbc13aa8da357c69a824383"
+    },
+    {
+      "path": "baseline/fresh-session-preserves-real-main/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/fresh-session-preserves-real-main/control-http.json",
+      "bytes": 4169,
+      "sha256": "22a6079d255e1044b347fb26d52dbc2f33b0b446bce564d0e21a271e2ab8f7e2"
+    },
+    {
+      "path": "baseline/fresh-session-preserves-real-main/main-after-launch-0.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/fresh-session-preserves-real-main/main-after-launch-0.json",
+      "bytes": 2772,
+      "sha256": "e6365bf6142dd1aae123a63eaf4155dff263b599b5f0d51c6cb3059e2624b88c"
+    },
+    {
+      "path": "baseline/fresh-session-preserves-real-main/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/fresh-session-preserves-real-main/main-before.json",
+      "bytes": 3143,
+      "sha256": "bad3af9262e02e9f78b5f7092014c9de059329efe90707f1f84b2945b5702622"
+    },
+    {
+      "path": "baseline/fresh-session-preserves-real-main/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/fresh-session-preserves-real-main/native-process.json",
+      "bytes": 297,
+      "sha256": "34635c260bad6ff4ba753604695dfa70894eaa4dddc3316b094d2f31767a6c77"
+    },
+    {
+      "path": "baseline/fresh-session-preserves-real-main/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/fresh-session-preserves-real-main/other-before.json",
+      "bytes": 2781,
+      "sha256": "70cb440c88276ee3e47dcb401f72a2d9a743e72cf5eafd86794be28521f136c1"
+    },
+    {
+      "path": "baseline/fresh-session-preserves-real-main/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/fresh-session-preserves-real-main/saved-before.json",
+      "bytes": 3014,
+      "sha256": "b30f8d30e995858aa9c45032017fe9730eb228e8cc5f7c2c521e443103daf6b5"
+    },
+    {
+      "path": "baseline/fresh-session-preserves-real-main/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/fresh-session-preserves-real-main/terminal-http.json",
+      "bytes": 1226,
+      "sha256": "429e35fdb29409ac4c970e6a3f5999074abf7fa0621ac50fd074165f5306c067"
+    },
+    {
+      "path": "baseline/receipt.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-baseline-v1/receipt.json",
+      "bytes": 8035,
+      "sha256": "bccc98f33120dea51a6ff68f5ce26b2434128c388dc6572be83cd6956d5488e9"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/clients.json",
+      "bytes": 2090,
+      "sha256": "dfb7421e6bed2cb1073b5a095c1b92d85a220a96bfb9399e9974e01b8c70d529"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/control-http.json",
+      "bytes": 5504,
+      "sha256": "af62597675966364a76feb4ee308d6d2140fd04151358c39bd284e56b5eb4f59"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/exact-one-step-reference.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/exact-one-step-reference.json",
+      "bytes": 3043,
+      "sha256": "e25dcf0d60553ced4e18e4b522406255eef2d1d1c111d852a6a407c0d1606515"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/main-after.json",
+      "bytes": 3143,
+      "sha256": "e9f59ee37e18e1873f4e3aa1f9b11bcfb41492ab5989e24464f22f654b2775d3"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/main-before.json",
+      "bytes": 3143,
+      "sha256": "e9f59ee37e18e1873f4e3aa1f9b11bcfb41492ab5989e24464f22f654b2775d3"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/native-process.json",
+      "bytes": 298,
+      "sha256": "88adbcea69b13c35586379f0eb5efe3c3a9ce9f5a335b9ce4ac126a694f52ebb"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/other-before.json",
+      "bytes": 2781,
+      "sha256": "b1278a6255ab0e63bb57411ac2f5c766a5ae4fec0dc3208026654bddf8c09e2a"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/saved-before.json",
+      "bytes": 3014,
+      "sha256": "f0191ae67830b04cc45cf8cdd33a3236656a20c686c9632efeb4cb923835fd9b"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/selected-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/selected-after.json",
+      "bytes": 3043,
+      "sha256": "e25dcf0d60553ced4e18e4b522406255eef2d1d1c111d852a6a407c0d1606515"
+    },
+    {
+      "path": "candidate/committed-action-disconnect-is-never-replayed/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-disconnect-is-never-replayed/terminal-http.json",
+      "bytes": 2420,
+      "sha256": "584dd333080bc4f91af9369ef701f8a54a07d2e536d0c93888d272941234f5c9"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/clients.json",
+      "bytes": 2109,
+      "sha256": "bd8b3f1ebb9a0fc4861270e7b44c17cd25bb79d138ac4c18c4e24126ba9871ef"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/control-http.json",
+      "bytes": 5504,
+      "sha256": "31759474a02aaf20a1a841f0c293fe90d5f57e7cd160eedcc775f9202e645800"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/exact-one-step-reference.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/exact-one-step-reference.json",
+      "bytes": 3043,
+      "sha256": "6e4116a213b14ff7477722096b3f026361a030ca27122cbc0d38b674bc21623c"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/main-after.json",
+      "bytes": 3143,
+      "sha256": "2359063e091ecce24df77bd706600c3a43e97371ddd4dd2b8a449a44b7323ad5"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/main-before.json",
+      "bytes": 3143,
+      "sha256": "2359063e091ecce24df77bd706600c3a43e97371ddd4dd2b8a449a44b7323ad5"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/native-process.json",
+      "bytes": 298,
+      "sha256": "684850c3b2147b24000871eb55707797d398812603f4539874b1e416ee095487"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/other-before.json",
+      "bytes": 2781,
+      "sha256": "d45e05da9ebc123ff1f7770d1faa7daa12c86cfb994f03c42d63ada835568bd4"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/saved-before.json",
+      "bytes": 3014,
+      "sha256": "66cf5ebd122c63065c396788350e66a5c946d5321628303f3be06de85fb356cf"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/selected-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/selected-after.json",
+      "bytes": 3043,
+      "sha256": "6e4116a213b14ff7477722096b3f026361a030ca27122cbc0d38b674bc21623c"
+    },
+    {
+      "path": "candidate/committed-action-invalid-json-is-never-replayed/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/committed-action-invalid-json-is-never-replayed/terminal-http.json",
+      "bytes": 2420,
+      "sha256": "e24ad61c642f3bcecdd4f5cc5762b2d37b211b8e82c1f344fd00496720fc0125"
+    },
+    {
+      "path": "candidate/eof-during-committed-start-retains-resume-id/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-committed-start-retains-resume-id/clients.json",
+      "bytes": 560,
+      "sha256": "9fc0f8a5d405fd4bc93bf062f4a2b72c2493c21d04030b272a13d307d77c9482"
+    },
+    {
+      "path": "candidate/eof-during-committed-start-retains-resume-id/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-committed-start-retains-resume-id/control-http.json",
+      "bytes": 4863,
+      "sha256": "1e2e3494f882457332daf21c6c61d5ea1ee7b61a046054dbd8a3417da8135c2e"
+    },
+    {
+      "path": "candidate/eof-during-committed-start-retains-resume-id/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-committed-start-retains-resume-id/main-after.json",
+      "bytes": 3143,
+      "sha256": "d3f36b30a199728a36e95e4ccb92e70c9fb1c6dd2743591b3b789f4594a29389"
+    },
+    {
+      "path": "candidate/eof-during-committed-start-retains-resume-id/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-committed-start-retains-resume-id/main-before.json",
+      "bytes": 3143,
+      "sha256": "d3f36b30a199728a36e95e4ccb92e70c9fb1c6dd2743591b3b789f4594a29389"
+    },
+    {
+      "path": "candidate/eof-during-committed-start-retains-resume-id/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-committed-start-retains-resume-id/native-process.json",
+      "bytes": 298,
+      "sha256": "8d9fbd281555651addd5c16e2725be9f1cc5c4d18bdca7473f7b9d35f95359a2"
+    },
+    {
+      "path": "candidate/eof-during-committed-start-retains-resume-id/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-committed-start-retains-resume-id/other-before.json",
+      "bytes": 2781,
+      "sha256": "fbea6ca72294478cfd5e4bf3f15cdf1560bc36f64d3134739d7e159c6f15a40e"
+    },
+    {
+      "path": "candidate/eof-during-committed-start-retains-resume-id/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-committed-start-retains-resume-id/saved-before.json",
+      "bytes": 3014,
+      "sha256": "b8a6e137ae0112a9ba5eae5d9e852bcc59fcbabd2d88d9866808d0926da68786"
+    },
+    {
+      "path": "candidate/eof-during-committed-start-retains-resume-id/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-committed-start-retains-resume-id/terminal-http.json",
+      "bytes": 637,
+      "sha256": "12abf0b2024ddd0b02783c49b72a46461bfae86d433d373ec7f5bdb50516d2f3"
+    },
+    {
+      "path": "candidate/eof-during-initial-read-prevents-new-career/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-initial-read-prevents-new-career/clients.json",
+      "bytes": 320,
+      "sha256": "b5bcf45f2a2973a453f00713f67e826cbf8cf9e9e88991f38318096845403497"
+    },
+    {
+      "path": "candidate/eof-during-initial-read-prevents-new-career/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-initial-read-prevents-new-career/control-http.json",
+      "bytes": 4399,
+      "sha256": "01a6e506948c2e255129c5800133942dc984b1f0a3a2cb4d01c9ce4b5f0f8be7"
+    },
+    {
+      "path": "candidate/eof-during-initial-read-prevents-new-career/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-initial-read-prevents-new-career/main-after.json",
+      "bytes": 3143,
+      "sha256": "ff2651241ed877d4cd2571e1bd4cefcc3d6a133d9ed16193c23a5061d8f42ef2"
+    },
+    {
+      "path": "candidate/eof-during-initial-read-prevents-new-career/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-initial-read-prevents-new-career/main-before.json",
+      "bytes": 3143,
+      "sha256": "ff2651241ed877d4cd2571e1bd4cefcc3d6a133d9ed16193c23a5061d8f42ef2"
+    },
+    {
+      "path": "candidate/eof-during-initial-read-prevents-new-career/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-initial-read-prevents-new-career/native-process.json",
+      "bytes": 298,
+      "sha256": "161d5205b21335e1e36d6fb93923c7a06b6e9d08b0e52653b2afb4977c1cc65e"
+    },
+    {
+      "path": "candidate/eof-during-initial-read-prevents-new-career/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-initial-read-prevents-new-career/other-before.json",
+      "bytes": 2781,
+      "sha256": "eca40f2b184cf968e8db2defa72d0163b4d7892d94516665eafdc588ae4dd351"
+    },
+    {
+      "path": "candidate/eof-during-initial-read-prevents-new-career/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-initial-read-prevents-new-career/saved-before.json",
+      "bytes": 3014,
+      "sha256": "05a37fe1ccaa494c919e0b6cd4abd91f2843224956cf728c705a1b4d1e1b5d87"
+    },
+    {
+      "path": "candidate/eof-during-initial-read-prevents-new-career/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/eof-during-initial-read-prevents-new-career/terminal-http.json",
+      "bytes": 211,
+      "sha256": "bc1b7d610f13020c5d0b01f206fe9c0ccda560ea641a5387544f050bb59ad4ca"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/clients.json",
+      "bytes": 3354,
+      "sha256": "f511de7855fe405a62d26c9ccbe1322089ff880f341144e30bc17b273ab4a99b"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/control-http.json",
+      "bytes": 8006,
+      "sha256": "82a22b4a0ff5095ae0432c3c4f01aa6d6baac874bf448d47b047f05cabda650f"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/main-after-launch-0.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/main-after-launch-0.json",
+      "bytes": 3143,
+      "sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/main-after-launch-1.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/main-after-launch-1.json",
+      "bytes": 3143,
+      "sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/main-after-launch-2.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/main-after-launch-2.json",
+      "bytes": 3143,
+      "sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/main-after.json",
+      "bytes": 3143,
+      "sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/main-before.json",
+      "bytes": 3143,
+      "sha256": "27936d544f960763fe50019b1534f3b0f04e49b29222db10c00c694d98420336"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/native-process.json",
+      "bytes": 297,
+      "sha256": "303d62f2947d09f8d34d0d64a175bd21a964cc1f7d22e0bf0eb2548827da45ca"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/other-before.json",
+      "bytes": 2781,
+      "sha256": "e2a18371fc61537f0424da6a136f0aecc82098b856b21c94e4a3e52b9e0411c8"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/saved-before.json",
+      "bytes": 3014,
+      "sha256": "0b6395af8739ca1aa5b910c7b4351320b6546fc6dea5f28edc191014f1a72117"
+    },
+    {
+      "path": "candidate/fresh-session-preserves-real-main/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/fresh-session-preserves-real-main/terminal-http.json",
+      "bytes": 4867,
+      "sha256": "96bafa656fe620889d35611c519a93fc6a6708665b07391cffe302663fad3bca"
+    },
+    {
+      "path": "candidate/incomplete-read-is-visible-without-partial-state-or-mutation/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/incomplete-read-is-visible-without-partial-state-or-mutation/clients.json",
+      "bytes": 1326,
+      "sha256": "9c572b408a091f974e5c431c124cc0fb3ec7797905157e735dca7fc102bbb9ab"
+    },
+    {
+      "path": "candidate/incomplete-read-is-visible-without-partial-state-or-mutation/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/incomplete-read-is-visible-without-partial-state-or-mutation/control-http.json",
+      "bytes": 4589,
+      "sha256": "82978dd4de9d9dad30f86317639e137f74b65f303821fdb096837999e4229e5a"
+    },
+    {
+      "path": "candidate/incomplete-read-is-visible-without-partial-state-or-mutation/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/incomplete-read-is-visible-without-partial-state-or-mutation/main-after.json",
+      "bytes": 3143,
+      "sha256": "fec43aead5859eafd7d39d9cf7a8a5eca90e8dbdae1331649808ec0dbc62f936"
+    },
+    {
+      "path": "candidate/incomplete-read-is-visible-without-partial-state-or-mutation/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/incomplete-read-is-visible-without-partial-state-or-mutation/main-before.json",
+      "bytes": 3143,
+      "sha256": "fec43aead5859eafd7d39d9cf7a8a5eca90e8dbdae1331649808ec0dbc62f936"
+    },
+    {
+      "path": "candidate/incomplete-read-is-visible-without-partial-state-or-mutation/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/incomplete-read-is-visible-without-partial-state-or-mutation/native-process.json",
+      "bytes": 298,
+      "sha256": "be6e564c3504bf3d4ec82623696d0bac0eba65755bad5febc525e4e34d0b0c2e"
+    },
+    {
+      "path": "candidate/incomplete-read-is-visible-without-partial-state-or-mutation/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/incomplete-read-is-visible-without-partial-state-or-mutation/other-before.json",
+      "bytes": 2781,
+      "sha256": "451c619509bde6c5869b393078f53dba7d65bd1cda0c9e343c2d70df13d08d67"
+    },
+    {
+      "path": "candidate/incomplete-read-is-visible-without-partial-state-or-mutation/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/incomplete-read-is-visible-without-partial-state-or-mutation/saved-before.json",
+      "bytes": 3014,
+      "sha256": "964c8cfbc9c8c35078db3b0bae50812913321e4df0fddccfa08a5b77c5d8640a"
+    },
+    {
+      "path": "candidate/incomplete-read-is-visible-without-partial-state-or-mutation/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/incomplete-read-is-visible-without-partial-state-or-mutation/terminal-http.json",
+      "bytes": 1733,
+      "sha256": "681520216dc3215c5cbec22116fb6f220bab2b951190f48299449e9ec88cd51b"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/clients.json",
+      "bytes": 2779,
+      "sha256": "3c593c8c0c851dacfc0529a599a9f75284cc3bd48f1d258deb341d3ba846cc4b"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/control-http.json",
+      "bytes": 5083,
+      "sha256": "eb27aa0cadd6ef1351848a650d38f453cbd339880373669f7e2abda2c6f0325f"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/main-after.json",
+      "bytes": 3143,
+      "sha256": "ee66dce0246a305733de25ad2931e8342ffe6709ed13527b93a8f0925ce4bd34"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/main-before.json",
+      "bytes": 3143,
+      "sha256": "ee66dce0246a305733de25ad2931e8342ffe6709ed13527b93a8f0925ce4bd34"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/native-process.json",
+      "bytes": 298,
+      "sha256": "6c04d6788f1926f863b145445e3a055d7fe57b911eab3c2bcef4bd277efb84f2"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/other-before.json",
+      "bytes": 2781,
+      "sha256": "948295341aca923ccb5f40b22cd03e841dff295e165dbdaba5de0620bb8e5f87"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/saved-before.json",
+      "bytes": 3014,
+      "sha256": "ed353a8ba8ef68cbbd72d4929a2198e3f4372b65fa9bdacc7e30ffbe495c09a0"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/selected-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/selected-after.json",
+      "bytes": 3043,
+      "sha256": "fddb66fa1e5e8821d399631a79cee9dabe3e5ea6989ba1379a30b9ddbf077f5f"
+    },
+    {
+      "path": "candidate/native-external-policy-error-preserves-session-and-recovers/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/native-external-policy-error-preserves-session-and-recovers/terminal-http.json",
+      "bytes": 3519,
+      "sha256": "3c490f21a9838fb79fbf8a766a58333742541895342b23913d87428239ce8d53"
+    },
+    {
+      "path": "candidate/parser-readonly-discovery-and-native-rejections/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/parser-readonly-discovery-and-native-rejections/clients.json",
+      "bytes": 8372,
+      "sha256": "98ba16b63c5c12702b6ab3677c00bed1253050ae8393a2d0bfdb93e79a6d6b4b"
+    },
+    {
+      "path": "candidate/parser-readonly-discovery-and-native-rejections/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/parser-readonly-discovery-and-native-rejections/control-http.json",
+      "bytes": 4903,
+      "sha256": "0e15401a7ba988ad11d061131694873d805b983f7499d94492fe8ccb0585924c"
+    },
+    {
+      "path": "candidate/parser-readonly-discovery-and-native-rejections/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/parser-readonly-discovery-and-native-rejections/main-after.json",
+      "bytes": 3143,
+      "sha256": "449cbb280797ec647abea3caf2d00887751c9e84493f48eb26a15aa25f9a9292"
+    },
+    {
+      "path": "candidate/parser-readonly-discovery-and-native-rejections/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/parser-readonly-discovery-and-native-rejections/main-before.json",
+      "bytes": 3143,
+      "sha256": "449cbb280797ec647abea3caf2d00887751c9e84493f48eb26a15aa25f9a9292"
+    },
+    {
+      "path": "candidate/parser-readonly-discovery-and-native-rejections/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/parser-readonly-discovery-and-native-rejections/native-process.json",
+      "bytes": 297,
+      "sha256": "f0d4c89652d8b983d382d70403f50bd1597820355cb5526291df8cf91cf6f4b2"
+    },
+    {
+      "path": "candidate/parser-readonly-discovery-and-native-rejections/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/parser-readonly-discovery-and-native-rejections/other-before.json",
+      "bytes": 2781,
+      "sha256": "d938e138e21bd84a2c54b2b3ccd5a2ceb205115dcbc91993d8ea636484723999"
+    },
+    {
+      "path": "candidate/parser-readonly-discovery-and-native-rejections/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/parser-readonly-discovery-and-native-rejections/saved-before.json",
+      "bytes": 3014,
+      "sha256": "e6e6d5bd6f44454775f4e3c3330c02486eebfbc8c85b93c2b95fd83ddc8beb21"
+    },
+    {
+      "path": "candidate/parser-readonly-discovery-and-native-rejections/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/parser-readonly-discovery-and-native-rejections/terminal-http.json",
+      "bytes": 1566,
+      "sha256": "e5f043ef410e885a3170375b7a504140020ada5347488d22aa5657fa20e0acfc"
+    },
+    {
+      "path": "candidate/receipt.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/receipt.json",
+      "bytes": 18983,
+      "sha256": "921ac1f2daa821012f83c03752da034f36c75a06d13cfbf69c598446cb0329a2"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/clients.json",
+      "bytes": 13088,
+      "sha256": "6e43a89d780b3ccb30348c708f81db02930f6d4391d02278565fe423d24cf417"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/control-http.json",
+      "bytes": 9423,
+      "sha256": "2b8521c276e83f7710b04b547f10eb59502c20be7fa36cb19b1ae70cddcc06a2"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/main-after.json",
+      "bytes": 3143,
+      "sha256": "5631d839b51a5683915c593aabc72f93234bdcc7b7f35d5370e146fbfed78007"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/main-before.json",
+      "bytes": 3143,
+      "sha256": "5631d839b51a5683915c593aabc72f93234bdcc7b7f35d5370e146fbfed78007"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/native-process.json",
+      "bytes": 297,
+      "sha256": "e9bf5799b18ba82901cc081f05997a3c409117decc8cc84bdae7169b493d1142"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/other-before.json",
+      "bytes": 2781,
+      "sha256": "135c6c29d4d6fb9e59c3bf7155a195aab94de334613a9a8e8943a24e5f205caa"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/saved-before.json",
+      "bytes": 3014,
+      "sha256": "bc826ddbf511b1acb18515b834bdd93b3893d8133ecd816797b1c2ffc94aaa3d"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/selected-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/selected-after.json",
+      "bytes": 8818,
+      "sha256": "153f7ebb5732b37413b46b9ebae112059979133447fbd07bdf18b0f923304a01"
+    },
+    {
+      "path": "candidate/resume-survives-active-churn-for-every-operation/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/resume-survives-active-churn-for-every-operation/terminal-http.json",
+      "bytes": 5456,
+      "sha256": "12a8912139b0b31b0709c9c59c794dd9b7cd402099c2b6e8beccc464acf50ec0"
+    },
+    {
+      "path": "candidate/sigint-during-committed-start-retains-resume-id/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/sigint-during-committed-start-retains-resume-id/clients.json",
+      "bytes": 562,
+      "sha256": "35d7de2d1cbdb6f5e04b9c35bc6ee31c1cc8647e583175fed7150e4c9121cbd7"
+    },
+    {
+      "path": "candidate/sigint-during-committed-start-retains-resume-id/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/sigint-during-committed-start-retains-resume-id/control-http.json",
+      "bytes": 4863,
+      "sha256": "46c14eeaf09e931bb1074ed0d7866cf4ba495b43dfe80416e481f827286ca646"
+    },
+    {
+      "path": "candidate/sigint-during-committed-start-retains-resume-id/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/sigint-during-committed-start-retains-resume-id/main-after.json",
+      "bytes": 3143,
+      "sha256": "07bfa315bf52d41713ad70c91db631e83819d13c0168db93cd1e7a68f06d8583"
+    },
+    {
+      "path": "candidate/sigint-during-committed-start-retains-resume-id/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/sigint-during-committed-start-retains-resume-id/main-before.json",
+      "bytes": 3143,
+      "sha256": "07bfa315bf52d41713ad70c91db631e83819d13c0168db93cd1e7a68f06d8583"
+    },
+    {
+      "path": "candidate/sigint-during-committed-start-retains-resume-id/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/sigint-during-committed-start-retains-resume-id/native-process.json",
+      "bytes": 298,
+      "sha256": "79a263f7a7ce42c13227317b8aff45431b5e9eac4eade2200e464c9fff55f47c"
+    },
+    {
+      "path": "candidate/sigint-during-committed-start-retains-resume-id/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/sigint-during-committed-start-retains-resume-id/other-before.json",
+      "bytes": 2781,
+      "sha256": "552a221132de57b21e1165c99104021d7010cbcff353419cff6bf17f5190d22c"
+    },
+    {
+      "path": "candidate/sigint-during-committed-start-retains-resume-id/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/sigint-during-committed-start-retains-resume-id/saved-before.json",
+      "bytes": 3014,
+      "sha256": "d9a57b93dc803789293779d24990865203ef20dcaa9efae10789d15a0ecb9583"
+    },
+    {
+      "path": "candidate/sigint-during-committed-start-retains-resume-id/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/sigint-during-committed-start-retains-resume-id/terminal-http.json",
+      "bytes": 637,
+      "sha256": "37c1c70e313d404cc1ce361930cb455a6b7e04f5c18f1079dc574cbcd440846b"
+    },
+    {
+      "path": "candidate/signed-i64-seeds-reach-native-engine-exactly/clients.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/signed-i64-seeds-reach-native-engine-exactly/clients.json",
+      "bytes": 3257,
+      "sha256": "1a72f5ef2b0f6270b118e9ff2d126de5725ef6491027e140e5fdcd2fddce954a"
+    },
+    {
+      "path": "candidate/signed-i64-seeds-reach-native-engine-exactly/control-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/signed-i64-seeds-reach-native-engine-exactly/control-http.json",
+      "bytes": 5081,
+      "sha256": "615056f8ede08c9973c7213fd4eaf97cbefc6e3aac39f8e22837f979730946cb"
+    },
+    {
+      "path": "candidate/signed-i64-seeds-reach-native-engine-exactly/main-after.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/signed-i64-seeds-reach-native-engine-exactly/main-after.json",
+      "bytes": 3143,
+      "sha256": "f56cdadd2150a614806a4982217f7f18323e0a4f9ceac447adcb9810aafa736d"
+    },
+    {
+      "path": "candidate/signed-i64-seeds-reach-native-engine-exactly/main-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/signed-i64-seeds-reach-native-engine-exactly/main-before.json",
+      "bytes": 3143,
+      "sha256": "f56cdadd2150a614806a4982217f7f18323e0a4f9ceac447adcb9810aafa736d"
+    },
+    {
+      "path": "candidate/signed-i64-seeds-reach-native-engine-exactly/native-process.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/signed-i64-seeds-reach-native-engine-exactly/native-process.json",
+      "bytes": 298,
+      "sha256": "f0f7b2f67dce3c3337309be328018ed513ec3f7cfca53d7b5375d85a78325fd5"
+    },
+    {
+      "path": "candidate/signed-i64-seeds-reach-native-engine-exactly/other-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/signed-i64-seeds-reach-native-engine-exactly/other-before.json",
+      "bytes": 2781,
+      "sha256": "8777a6c5e0b06e65c05e6117dcb30a4c2958f09d4a98a57020024daee1d2a44a"
+    },
+    {
+      "path": "candidate/signed-i64-seeds-reach-native-engine-exactly/saved-before.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/signed-i64-seeds-reach-native-engine-exactly/saved-before.json",
+      "bytes": 3014,
+      "sha256": "048e0ea8603bd0943826b8421ec5cc0cc1246129d9816d32cdb8d0f70b9b1bef"
+    },
+    {
+      "path": "candidate/signed-i64-seeds-reach-native-engine-exactly/terminal-http.json",
+      "source_path": "/workspace/scratch/c6cc965b64c2/agents/tui-review/results-candidate-v1/signed-i64-seeds-reach-native-engine-exactly/terminal-http.json",
+      "bytes": 4898,
+      "sha256": "8e60cde945d0d20bfad360f07f95a40f6dd29787e1785474856f6a2c646b35f9"
+    }
+  ]
+}

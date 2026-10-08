@@ -1,0 +1,60 @@
+[
+  {
+    "method": "GET",
+    "url": "/v1/health",
+    "route": "/v1/health",
+    "query": {},
+    "status": 200,
+    "response_sha256": "5c1abce5be6fd8d78f1d9759052d712ac6c5fc007f5bdbd62c984776a192bdde"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/sessions",
+    "route": "/v1/sessions",
+    "query": {},
+    "status": 200,
+    "response_sha256": "df987f70ca846d150b439b8b0e46ba5daa305dd718d876a46456a4bd7d7d735e"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/health",
+    "route": "/v1/health",
+    "query": {},
+    "status": 200,
+    "response_sha256": "5c1abce5be6fd8d78f1d9759052d712ac6c5fc007f5bdbd62c984776a192bdde"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/state?session=unknown-native-career",
+    "route": "/v1/run/state",
+    "query": {
+      "session": "unknown-native-career"
+    },
+    "status": 404,
+    "response_sha256": "2724c8a4ef99991768fdcdb5cbe595b21e215ca3b874ebe772c66efec5a6c740"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/health",
+    "route": "/v1/health",
+    "query": {},
+    "status": 200,
+    "response_sha256": "5c1abce5be6fd8d78f1d9759052d712ac6c5fc007f5bdbd62c984776a192bdde"
+  },
+  {
+    "method": "POST",
+    "url": "/v1/run/start",
+    "route": "/v1/run/start",
+    "query": {},
+    "body": {
+      "seed": "43",
+      "scenario": "not-a-scenario",
+      "trainee": "Special Week",
+      "speed": "1",
+      "traceTelemetry": "true",
+      "session": "tui-aefdf6e7-89ee-4bc1-9237-afb33e4ebcca"
+    },
+    "status": 400,
+    "response_sha256": "9d3baa271525ae4cd524cf7a565cdbb199537435176d79683077da91963b11f2"
+  }
+]
