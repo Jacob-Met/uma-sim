@@ -1,0 +1,78 @@
+{
+  "sourceCommit": "b491eb0a91aa1aa30d929e1aa9c9fbfc7daaa324",
+  "sourceTree": "ae6757a78de4050f8413e6452a0dc311834176cd",
+  "mainParent": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "archive": {
+    "file": "composed-current-evidence.tar.gz",
+    "bytes": 109217,
+    "sha256": "e5aaa10c3c9d697a60537524fe6fb58af35b94acfee50742a0cc6d847e9e1c4b",
+    "gitBlob": "aebfd1492ee8da2858a04e2bd6b0e180ef42d035"
+  },
+  "fileCount": 151,
+  "rawPayloadBytes": 778230,
+  "authorFiles": [
+    "composed-fmt.log",
+    "composed-gates.json",
+    "composed-integration.log",
+    "composed-library.log",
+    "composed-source.json"
+  ],
+  "receiptKeys": [
+    "schema",
+    "sourceHead",
+    "reviewedBaselineHead",
+    "reviewedBaselineApiBlob",
+    "binary",
+    "binaryBefore",
+    "binaryAfter",
+    "dataRoot",
+    "receiverSha256",
+    "frozenContractSha256",
+    "node",
+    "platform",
+    "arch",
+    "passed",
+    "failed",
+    "results",
+    "fatal",
+    "scope"
+  ],
+  "receipt": {
+    "path": "candidate-b8-thinkpad/receipt.json",
+    "bytes": 49480,
+    "sha256": "76689c9a2d4568925fd5608168bb6dac03c97244fe0115c95734b4c4aaf42bb5",
+    "gitBlob": "76428f938fa905b778a658452069f87bc8919ce9"
+  },
+  "sourceBefore": {
+    "path": "candidate-b8-source-before.json",
+    "bytes": 85283,
+    "sha256": "927f8eb34975cf41ee442d67f75c4d81423e50268f84602404d93828c37e4613",
+    "gitBlob": "f4c4ed2ba580dfab3a54bd9b469027b17f44aeb8"
+  },
+  "sourceAfter": {
+    "path": "candidate-b8-source-after.json",
+    "bytes": 152,
+    "sha256": "d2a2e8ff4bd8081ce188c69bcb51e3ca152f622a70b16e3c5e0104bb297a74a9",
+    "gitBlob": "4a885672c5bdd76db08ef7018f18cbd8f08a1cd5"
+  },
+  "acceptance": {
+    "independentCases": 19,
+    "failures": [],
+    "fatal": null,
+    "processExit": 0,
+    "runtimeSeconds": 15.54,
+    "sourceInputsVerifiedBeforeAndAfter": 285,
+    "binaryUnchanged": true,
+    "binarySha256": "f9f4a3f639f2c8b0836a8eeb50b766088acbc7711d18479e76b2c9641c3eb904"
+  },
+  "nativeGates": {
+    "library": 45,
+    "admission": 5,
+    "careerLab": 14,
+    "branchPublication": 5,
+    "externalRest": 1,
+    "formatting": "pass",
+    "branchPublicationTopLevelIgnored": 1,
+    "ignoredRole": "subprocess_branch_store_worker is declared ignored at the top level and invoked by the passing bounded independent-process parent with --ignored --exact"
+  }
+}

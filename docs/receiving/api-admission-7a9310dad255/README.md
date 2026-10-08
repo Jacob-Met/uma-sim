@@ -48,3 +48,26 @@ node receiving.mjs /absolute/path/uma-sim-api /absolute/path/source /absolute/pa
 ```
 
 The output path must not exist. The final argument identifies the supplied source; it does not independently establish its provenance. Use the source and binary manifests alongside the observed execution. Candidate receiving, source review, fresh-head CI, source integration and deployment are separate states.
+
+## Current-main composition received on 8 October 2026
+
+Main advanced to `b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c` with a branch-publication repair in career_lab.rs and two new tests. The exact branch-storage source changed, so the earlier executable receipt alone was not used to qualify this composition.
+
+The candidate was rebuilt with those exact current-main bytes and the unchanged admission source/test. The root receiver independently hashed **285 source/data/format/test inputs before and after** the run. The unchanged frozen receiver passed **19/19 cases**, with no setup error, fatal error or source mismatch; its process exited zero in 15.54 seconds. The frozen executable remained byte-identical throughout.
+
+| Identity | Value |
+| --- | --- |
+| Composed source commit | `b491eb0a91aa1aa30d929e1aa9c9fbfc7daaa324` |
+| Composed source tree | `ae6757a78de4050f8413e6452a0dc311834176cd` |
+| Current main parent | `b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c` |
+| Composed executable SHA-256 | `f9f4a3f639f2c8b0836a8eeb50b766088acbc7711d18479e76b2c9641c3eb904` |
+| Composed raw receipt SHA-256 | `76689c9a2d4568925fd5608168bb6dac03c97244fe0115c95734b4c4aaf42bb5` |
+| Composed archive SHA-256 | `e5aaa10c3c9d697a60537524fe6fb58af35b94acfee50742a0cc6d847e9e1c4b` |
+
+The composed source commit preserves the original published source head and current-main ancestry as its two parents. Full tree readback verified all 536 leaves, including all 523 unrelated current-parent leaves/modes. The source-only admission blob and regression-test blob are unchanged from the first accepted candidate.
+
+The author's matching native run passed 45 library tests, 5 admission tests, 14 career-lab tests, 5 branch-publication tests and 1 external REST test, plus formatting. The branch suite reports one intentionally ignored top-level subprocess helper; its passing parent invokes that exact helper explicitly with --ignored --exact. The original result is preserved without presenting the helper as an additional independent case.
+
+[Composed index](composed-current-index.json), [complete raw archive](composed-current-evidence.tar.gz) and [source/composition review](composed-current-source-review.json) bind these results. The archive contains 151 files including its manifest, the complete per-case records and the author's composed source/gate logs. It includes no executable or build cache.
+
+The original hosted scan failed on four verified public source/executable digests in the source PR's qualification README. [Exact classification evidence](secret-scan-classification.json) preserves both failing jobs and the four commit/path/rule/line fingerprints. The forward correction keeps history and default scanning rules; fresh-head CI must still pass. This receiving packet records native/source acceptance, not a source merge or deployment.

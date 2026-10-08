@@ -1,0 +1,46 @@
+{
+  "repository": "Jacob-Met/uma-sim",
+  "pullRequest": 79,
+  "reviewer": "estate-7a9310dad255/root",
+  "scope": "Compose the independently received request-admission source with the new current-main branch-publication repair; preserve original receiving evidence.",
+  "originalPublishedHead": "ceb21443144eda376081768055ea162ff493458b",
+  "composedSourceCommit": "b491eb0a91aa1aa30d929e1aa9c9fbfc7daaa324",
+  "composedSourceTree": "ae6757a78de4050f8413e6452a0dc311834176cd",
+  "currentMain": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "mainDelta": {
+    "changedProductionFile": "uma-sim-core/src/career_lab.rs",
+    "previousBlob": "6f726976b0bbe448c1dd4d7f8e6427dfd547e199",
+    "currentBlob": "4360cd3dbca832a9a22be138ca13a5deb4dfeb0f",
+    "newTests": [
+      "uma-sim-core/tests/branch_publication.api.mjs",
+      "uma-sim-core/tests/career_lab_branch_publication.rs"
+    ],
+    "unrelatedNewEvidencePreserved": true
+  },
+  "sourceReview": "The new source gives branch identifiers process/time/counter components and publishes immutable branch results with a create-new temporary file, synced contents and a non-replacing hard link. It leaves admission source and session resolution unchanged. The changed error wording belongs to current main and is preserved.",
+  "treeVerification": {
+    "tree": "ae6757a78de4050f8413e6452a0dc311834176cd",
+    "actualLeaves": 536,
+    "expectedLeaves": 536,
+    "unrelatedParentLeavesPreserved": 523,
+    "scopePaths": 13,
+    "mismatches": [],
+    "extras": []
+  },
+  "nativeReceiving": {
+    "independentCases": 19,
+    "failures": [],
+    "fatal": null,
+    "processExit": 0,
+    "runtimeSeconds": 15.54,
+    "sourceInputsVerifiedBeforeAndAfter": 285,
+    "binaryUnchanged": true,
+    "binarySha256": "f9f4a3f639f2c8b0836a8eeb50b766088acbc7711d18479e76b2c9641c3eb904"
+  },
+  "unchangedProductionContribution": {
+    "sourceBlob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+    "sourceSha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55",
+    "regressionTestBlob": "a54fb88b055d2e7ae79eb3623aa9002c52e775f1"
+  },
+  "constraints": "A later documentation/classification commit will identify exact public-hash false positives. Full actual-head CI and fresh current-main ancestry remain required before source integration. No installed service or live user data is changed."
+}
