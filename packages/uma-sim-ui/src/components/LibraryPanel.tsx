@@ -134,7 +134,7 @@ export function LibraryPanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
       </p>
       <div className="field-row">
         <label>
-          Name (optional — defaults to the file&rsquo;s stored name)
+          Name (optional — generated from seed, turn, and scenario)
           <input
             value={importName}
             onChange={(e) => setImportName(e.target.value)}
