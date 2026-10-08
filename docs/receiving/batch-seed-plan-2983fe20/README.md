@@ -106,3 +106,18 @@ Initial GitHub issue creation was refused by a secondary content-creation
 rate limit; no claim was invented from that failed call. Normal publication
 follows current branch checks, independent review and the repository's
 CI-on-head requirement.
+
+## Current-main qualification
+
+The branch normally merges main
+`e1ca9baaa89036103d783c6eb02b98deed48c69f` at composition
+`2e6d1cb734e804a209db1fe3c392061e088ffb02`. Main adds the saved-career
+training inspection feature; the batch seed-plan implementation and its
+maintained tests remain exactly the original code input above. Against this
+composition the same native command, with `--test training_inspection`
+added, passes **46 tests** (39 prior plus seven inherited inspection tests).
+`current-native-tests.log` is the complete locked, offline author run.
+
+Independent receiving and hosted checks must qualify this current-main
+composition or its source-identical documentation descendants before merge.
+The original receipts keep their original input pins.
