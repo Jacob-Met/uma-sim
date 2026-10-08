@@ -1,0 +1,157 @@
+{
+  "all_1459_unowned_current_leaves_and_modes_exact": true,
+  "approved_scan_tree": "398f3bb087b1586ded1cc08b1e7acad4de347c40",
+  "at": "2026-10-08T17:33:36.091493+00:00",
+  "automatic_conflicts": [
+    ".gitleaks.toml",
+    "packages/uma-sim-ui/package.json"
+  ],
+  "automatic_merge_returncode": 1,
+  "canonical_current": "e1ca9baaa89036103d783c6eb02b98deed48c69f",
+  "canonical_current_tree": "7f41999d9cd4ffb227f1503b67b3725d4bd4f4f7",
+  "complete_current_tree_leaves_and_modes_exact": 1462,
+  "composed_tree_before_this_receiving_evidence": "7022f6931b5ff4a899fb8e805c05c1a223394122",
+  "equivalent_original_mac_scan_commit": "cd5d2c1ebdee2a1b5987d27f7ba912a6df39e04c",
+  "execution_scope": "No UI, Rust, process or browser tests rerun. Original 75 UI tests, native API build and 10 final browser cases retain their exact original source/binary pins. The retained Mac executable predates the new training-inspection module. Current repository CI remains the composed-source gate.",
+  "original_contribution": {
+    "2_composed": [
+      "packages/uma-sim-ui/package.json",
+      "packages/uma-sim-ui/src/App.tsx"
+    ],
+    "78_byte_exact": [
+      "docs/conditions-and-titles.md",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/README.md",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/baseline-career.png",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/conditions-rich-receiver.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/native-initial-snapshot.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/native-stderr.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/native-stdout.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/receipt.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/conditions-completed-receiver.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/conditions-desktop.png",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/conditions-empty-receiver.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/conditions-mobile-receiver.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/conditions-phone.png",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/conditions-rich-receiver.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-after-rest.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-before-injury-fixture.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-initial-snapshot.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-stderr.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-stdout.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-00.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-01.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-02.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-03.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-04.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-05.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-06.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-07.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-08.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-09.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/progress-10.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/receipt.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser/conditions-desktop.png",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser/conditions-rich-receiver.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser/native-initial-snapshot.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/api-build-cache-retirement.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/baseline-browser-process.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/baseline-ui-build.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/binary-current-blob-seed.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/browser-qualification.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-browser-fixed-process.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-browser-fixed-qualification.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-browser-process.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-browser-qualification.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-race-boundary-probe.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-ui-build.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/current-baseline-hydration.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/initial-implementation.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/initial-qualification.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/native-api-build.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/native-api-build.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/npm-ci-current-lock.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/npm-ci-offline.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/production-source-review-corrected.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/production-source-review.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/publication-log-admission-first.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/receiver-before-asset-scope.mjs",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/receiver-before-race-boundary.mjs",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/source-claim.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/source-freeze-v1.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/source-freeze-v2.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/source-freeze-v3.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/source-seed-clone.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/source-seed-clone.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/ui-qualification.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/ui-tests.log",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/visual-and-composition-review.json",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/scripts/candidate-race-boundary-probe.py",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/scripts/qualify-api.py",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/scripts/qualify-browser-candidate.py",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/scripts/qualify-browser-fixed.py",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/scripts/qualify-browser.py",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/scripts/qualify-initial.py",
+      "docs/receiving/conditions-and-titles-5f566b5ec8ef/scripts/qualify-ui.py",
+      "packages/uma-sim-ui/src/components/ConditionsPanel.tsx",
+      "packages/uma-sim-ui/src/components/conditionsView.ts",
+      "packages/uma-sim-ui/src/styles/conditions.css",
+      "packages/uma-sim-ui/test/conditions-view.test.mjs",
+      "packages/uma-sim-ui/tests/receiving/conditions-titles-receiver.mjs"
+    ]
+  },
+  "original_published_head": "3282156aeeb8be5618e18d3c57bd28a34380fdf7",
+  "policy": {
+    "all_prior_parsed_configuration_exact": true,
+    "entire_current_bytes_are_exact_prefix": true,
+    "single_appended_allowance": {
+      "condition": "AND",
+      "description": "Verified native API source digest in Conditions and titles browser receipts",
+      "paths": [
+        "^docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/receipt\\.json$",
+        "^docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/receipt\\.json$"
+      ],
+      "regexTarget": "secret",
+      "regexes": [
+        "^b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa$"
+      ]
+    }
+  },
+  "shared_paths": {
+    ".gitleaks.toml": {
+      "composed_git_blob": "2aa79ba99ac7a0e702998a75d7e05e71c3c250df",
+      "composed_sha256": "0d9afef47fae50e9aaba3062b4fc2333de150a5d81eb0a0c88280e4555155708",
+      "current_git_blob": "e2027e966078668e08a11e1735d1d27c33ce40e6",
+      "current_sha256": "ec94a66fd6c510f7a7fd3c8703a80b9c1afce760deb0b6858079c8222b08cdf1",
+      "removing_only_original_insertions_restores_current_bytes": true
+    },
+    "packages/uma-sim-ui/package.json": {
+      "composed_git_blob": "f789d67b739516861dc004be765aa20d21bfe42b",
+      "composed_sha256": "f004986a583c02ae90df2677503b2bdb7ebec5b06d032d9b31b41a3a54222523",
+      "current_git_blob": "bb3faaf7f301df0c2a28c899a068ca79807caff9",
+      "current_sha256": "60e23316be2cec83a622a9aeba6d251648eb9eb0b4125c2a29d97c5a6fed74d8",
+      "removing_only_original_insertions_restores_current_bytes": true
+    },
+    "packages/uma-sim-ui/src/App.tsx": {
+      "composed_git_blob": "04ba8ad9fc33fa9c360f8826a6275a50a44807be",
+      "composed_sha256": "59ac1086fe6aaa63ebf44b95314aa488bab99e4efe95ca54ac368b0ba670a09f",
+      "current_git_blob": "1a874713d213fefae1702dfe8dc437bcf7d79ab5",
+      "current_sha256": "8f6eb2129063e05a508ed1d4ad39997c22e4a168b5b971c8ff62bea4f20412fe",
+      "removing_only_original_insertions_restores_current_bytes": true
+    }
+  },
+  "thinkpad_scan_child": "2eb7ef3836e011f31a6df786200df37733928659",
+  "transport_scope": "Mac receiving-script transfer and one subsequent read-only metadata request both timed out. Neither executed a receiving command and neither was replayed. The separate ThinkPad source receiver uses exact public Git objects; original Mac source, builds, captures and custody remain retained.",
+  "unchanged_native_meanings": {
+    "api_source": true,
+    "complete_Rest_method": true,
+    "injury_training_guard": true,
+    "state_source": true
+  },
+  "upstream_changed_rust_paths": [
+    "uma-sim-core/src/bin/uma-sim.rs",
+    "uma-sim-core/src/engine.rs",
+    "uma-sim-core/src/lib.rs",
+    "uma-sim-core/src/training_inspection.rs",
+    "uma-sim-core/tests/training_inspection.rs"
+  ]
+}

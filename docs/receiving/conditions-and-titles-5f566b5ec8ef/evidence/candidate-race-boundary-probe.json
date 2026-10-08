@@ -1,0 +1,638 @@
+{
+  "purpose": "Diagnose the owned candidate receiver action timeout and terminate only its orphan API",
+  "owned_pid": 47181,
+  "binary": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/target/debug/uma-sim-api",
+  "binary_sha256": "283c46e2a698dd1e258ef726ffd3816536c2f1f8fec7240168a4b0063e16a69a",
+  "before": {
+    "meta": {
+      "seed": 421963,
+      "scenarioId": "ura",
+      "traineeName": "Special Week",
+      "objectiveProfile": "general",
+      "legacyFactors": [],
+      "parentNames": [],
+      "deckSupports": [],
+      "compatibilityScore": 0
+    },
+    "settings": {
+      "dialogueMode": "OFF",
+      "speedMultiplier": 1,
+      "allowDialogueAtHighSpeed": false,
+      "traceTelemetry": true,
+      "traceRng": false,
+      "raceModel": "physics"
+    },
+    "state": {
+      "meta": {
+        "seed": 421963,
+        "scenarioId": "ura",
+        "traineeName": "Special Week",
+        "objectiveProfile": "general",
+        "legacyFactors": [],
+        "parentNames": [],
+        "deckSupports": [],
+        "compatibilityScore": 0
+      },
+      "date": {
+        "year": 1,
+        "month": 6,
+        "half": 2
+      },
+      "turn": 1,
+      "stats": {
+        "speed": 83,
+        "stamina": 88,
+        "power": 98,
+        "guts": 90,
+        "wit": 91
+      },
+      "energy": 100,
+      "maxEnergy": 100,
+      "mood": "NORMAL",
+      "fans": 100123,
+      "skillPoints": 0,
+      "careerComplete": false,
+      "awaitingChoice": false,
+      "pendingEventTitle": null,
+      "pendingRaceId": "debut",
+      "phase": "MANDATORY_RACE",
+      "completedRaces": [],
+      "facilityLevels": {
+        "guts": 1,
+        "power": 1,
+        "stamina": 1,
+        "wit": 1,
+        "speed": 1
+      },
+      "facilityTrainCounts": {},
+      "pendingEventOptions": [],
+      "hintLevels": {
+        "skill:200512": 1,
+        "skill:200732": 1,
+        "skill:201352": 1
+      },
+      "statuses": [
+        "injured",
+        "LEFT-INJURY",
+        "epithet:future_injury_win",
+        "epithet:sim_g1_win",
+        "epithet:sim_climax_win",
+        "epithet:sim_ura_finale_win",
+        "steady",
+        "<img src=x onerror=\"window.statusExecuted=true\">",
+        "",
+        " \t",
+        "status:longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong",
+        "status:0",
+        "status:1",
+        "status:2",
+        "status:3",
+        "status:4",
+        "status:5",
+        "status:6",
+        "status:7",
+        "status:8",
+        "status:9",
+        "status:10",
+        "status:11",
+        "status:12",
+        "status:13",
+        "status:14",
+        "status:15",
+        "status:16",
+        "status:17",
+        "status:18",
+        "status:19",
+        "status:20",
+        "status:21",
+        "status:22",
+        "status:23",
+        "status:24",
+        "status:25",
+        "status:26",
+        "status:27",
+        "status:28",
+        "status:29",
+        "status:30",
+        "status:31",
+        "status:32",
+        "status:33",
+        "injured"
+      ],
+      "performanceTokens": {},
+      "scenarioResources": {
+        "values": {
+          "happy_meek_badge": 0
+        }
+      },
+      "legacy": {
+        "parentNames": [],
+        "factorIds": [],
+        "inheritedSkillIds": [],
+        "sparkCaps": {},
+        "blueStartBonuses": {},
+        "pinkFactorIds": [],
+        "pinkAptitudeTags": [],
+        "pinkStarTotals": {},
+        "aptitudes": {
+          "end": "C",
+          "turf": "A",
+          "medium": "A",
+          "pace": "A",
+          "dirt": "G",
+          "mile": "C",
+          "late": "A",
+          "long": "A",
+          "front": "G",
+          "sprint": "F"
+        },
+        "raceFactorIds": [],
+        "inheritanceComplete": false,
+        "inspirationEventsDone": 0
+      },
+      "learnedSkillIds": [
+        "skill:100011"
+      ],
+      "deck": {
+        "slots": []
+      },
+      "log": [
+        "Career started: Special Week / ura / seed=421963"
+      ],
+      "generatedSparks": [],
+      "baseAptitudes": {
+        "pace": "A",
+        "dirt": "G",
+        "late": "A",
+        "medium": "A",
+        "mile": "C",
+        "turf": "A",
+        "front": "G",
+        "end": "C",
+        "long": "A",
+        "sprint": "F"
+      }
+    },
+    "rngSeed": 421963,
+    "rngCalls": 0,
+    "rngState": {
+      "x": -1768034837,
+      "y": 250979183,
+      "z": 569980652,
+      "w": 739235945,
+      "v": 83635996,
+      "addend": 455286080
+    }
+  },
+  "choices_before": {
+    "choices": [
+      {
+        "id": "race",
+        "label": "Enter mandatory race: debut"
+      }
+    ]
+  },
+  "race_action": {
+    "careerEnded": false,
+    "choices": [
+      {
+        "id": "train_speed",
+        "label": "Train Speed"
+      },
+      {
+        "id": "train_stamina",
+        "label": "Train Stamina"
+      },
+      {
+        "id": "train_power",
+        "label": "Train Power"
+      },
+      {
+        "id": "train_guts",
+        "label": "Train Guts"
+      },
+      {
+        "id": "train_wit",
+        "label": "Train Wits"
+      },
+      {
+        "id": "rest",
+        "label": "Rest"
+      },
+      {
+        "id": "recreation",
+        "label": "Recreation"
+      },
+      {
+        "id": "race",
+        "label": "Race (optional)"
+      }
+    ],
+    "state": {
+      "meta": {
+        "compatibilityScore": 0,
+        "deckSupports": [],
+        "legacyFactors": [],
+        "objectiveProfile": "general",
+        "parentNames": [],
+        "scenarioId": "ura",
+        "seed": 421963,
+        "traineeName": "Special Week"
+      },
+      "rngCalls": 4,
+      "rngSeed": 421963,
+      "rngState": {
+        "addend": 457460702,
+        "v": -1610855330,
+        "w": -657348062,
+        "x": 1857974083,
+        "y": -3074422,
+        "z": 1809059007
+      },
+      "settings": {
+        "allowDialogueAtHighSpeed": false,
+        "dialogueMode": "OFF",
+        "raceModel": "physics",
+        "speedMultiplier": 1,
+        "traceRng": false,
+        "traceTelemetry": true
+      },
+      "state": {
+        "awaitingChoice": false,
+        "baseAptitudes": {
+          "dirt": "G",
+          "end": "C",
+          "front": "G",
+          "late": "A",
+          "long": "A",
+          "medium": "A",
+          "mile": "C",
+          "pace": "A",
+          "sprint": "F",
+          "turf": "A"
+        },
+        "careerComplete": false,
+        "completedRaces": [
+          "debut"
+        ],
+        "date": {
+          "half": 1,
+          "month": 7,
+          "year": 1
+        },
+        "deck": {
+          "slots": []
+        },
+        "energy": 100,
+        "facilityLevels": {
+          "guts": 1,
+          "power": 1,
+          "speed": 1,
+          "stamina": 1,
+          "wit": 1
+        },
+        "facilityTrainCounts": {},
+        "fans": 100390,
+        "generatedSparks": [],
+        "hintLevels": {
+          "skill:200512": 1,
+          "skill:200732": 1,
+          "skill:201352": 1
+        },
+        "learnedSkillIds": [
+          "skill:100011"
+        ],
+        "legacy": {
+          "aptitudes": {
+            "dirt": "G",
+            "end": "C",
+            "front": "G",
+            "late": "A",
+            "long": "A",
+            "medium": "A",
+            "mile": "C",
+            "pace": "A",
+            "sprint": "F",
+            "turf": "A"
+          },
+          "blueStartBonuses": {},
+          "factorIds": [],
+          "inheritanceComplete": false,
+          "inheritedSkillIds": [],
+          "inspirationEventsDone": 0,
+          "parentNames": [],
+          "pinkAptitudeTags": [],
+          "pinkFactorIds": [],
+          "pinkStarTotals": {},
+          "raceFactorIds": [],
+          "sparkCaps": {}
+        },
+        "log": [
+          "Career started: Special Week / ura / seed=421963",
+          "Race debut 9th +267 fans [physics t=75.400s course=10601 seed=1518762953 field=9 margin_win=8.533s margin_ahead=0.000s]"
+        ],
+        "maxEnergy": 100,
+        "meta": {
+          "compatibilityScore": 0,
+          "deckSupports": [],
+          "legacyFactors": [],
+          "objectiveProfile": "general",
+          "parentNames": [],
+          "scenarioId": "ura",
+          "seed": 421963,
+          "traineeName": "Special Week"
+        },
+        "mood": "NORMAL",
+        "pendingEventOptions": [],
+        "pendingEventTitle": null,
+        "pendingRaceId": null,
+        "performanceTokens": {},
+        "phase": "FREE",
+        "scenarioResources": {
+          "values": {
+            "happy_meek_badge": 0
+          }
+        },
+        "skillPoints": 20,
+        "stats": {
+          "guts": 90,
+          "power": 98,
+          "speed": 83,
+          "stamina": 88,
+          "wit": 91
+        },
+        "statuses": [
+          "injured",
+          "LEFT-INJURY",
+          "epithet:future_injury_win",
+          "epithet:sim_g1_win",
+          "epithet:sim_climax_win",
+          "epithet:sim_ura_finale_win",
+          "steady",
+          "<img src=x onerror=\"window.statusExecuted=true\">",
+          "",
+          " \t",
+          "status:longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong",
+          "status:0",
+          "status:1",
+          "status:2",
+          "status:3",
+          "status:4",
+          "status:5",
+          "status:6",
+          "status:7",
+          "status:8",
+          "status:9",
+          "status:10",
+          "status:11",
+          "status:12",
+          "status:13",
+          "status:14",
+          "status:15",
+          "status:16",
+          "status:17",
+          "status:18",
+          "status:19",
+          "status:20",
+          "status:21",
+          "status:22",
+          "status:23",
+          "status:24",
+          "status:25",
+          "status:26",
+          "status:27",
+          "status:28",
+          "status:29",
+          "status:30",
+          "status:31",
+          "status:32",
+          "status:33",
+          "injured"
+        ],
+        "turn": 2
+      }
+    },
+    "text": "--- State (turn 2) ---\nDate: Year 1, Month 7, Early\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 100390  SP: 20\nScenario: happy_meek_badge=0\n\u2192 Year 1 Jul (Early), turn 2"
+  },
+  "after": {
+    "meta": {
+      "seed": 421963,
+      "scenarioId": "ura",
+      "traineeName": "Special Week",
+      "objectiveProfile": "general",
+      "legacyFactors": [],
+      "parentNames": [],
+      "deckSupports": [],
+      "compatibilityScore": 0
+    },
+    "settings": {
+      "dialogueMode": "OFF",
+      "speedMultiplier": 1,
+      "allowDialogueAtHighSpeed": false,
+      "traceTelemetry": true,
+      "traceRng": false,
+      "raceModel": "physics"
+    },
+    "state": {
+      "meta": {
+        "seed": 421963,
+        "scenarioId": "ura",
+        "traineeName": "Special Week",
+        "objectiveProfile": "general",
+        "legacyFactors": [],
+        "parentNames": [],
+        "deckSupports": [],
+        "compatibilityScore": 0
+      },
+      "date": {
+        "year": 1,
+        "month": 7,
+        "half": 1
+      },
+      "turn": 2,
+      "stats": {
+        "speed": 83,
+        "stamina": 88,
+        "power": 98,
+        "guts": 90,
+        "wit": 91
+      },
+      "energy": 100,
+      "maxEnergy": 100,
+      "mood": "NORMAL",
+      "fans": 100390,
+      "skillPoints": 20,
+      "careerComplete": false,
+      "awaitingChoice": false,
+      "pendingEventTitle": null,
+      "pendingRaceId": null,
+      "phase": "FREE",
+      "completedRaces": [
+        "debut"
+      ],
+      "facilityLevels": {
+        "guts": 1,
+        "power": 1,
+        "stamina": 1,
+        "wit": 1,
+        "speed": 1
+      },
+      "facilityTrainCounts": {},
+      "pendingEventOptions": [],
+      "hintLevels": {
+        "skill:200512": 1,
+        "skill:200732": 1,
+        "skill:201352": 1
+      },
+      "statuses": [
+        "injured",
+        "LEFT-INJURY",
+        "epithet:future_injury_win",
+        "epithet:sim_g1_win",
+        "epithet:sim_climax_win",
+        "epithet:sim_ura_finale_win",
+        "steady",
+        "<img src=x onerror=\"window.statusExecuted=true\">",
+        "",
+        " \t",
+        "status:longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong",
+        "status:0",
+        "status:1",
+        "status:2",
+        "status:3",
+        "status:4",
+        "status:5",
+        "status:6",
+        "status:7",
+        "status:8",
+        "status:9",
+        "status:10",
+        "status:11",
+        "status:12",
+        "status:13",
+        "status:14",
+        "status:15",
+        "status:16",
+        "status:17",
+        "status:18",
+        "status:19",
+        "status:20",
+        "status:21",
+        "status:22",
+        "status:23",
+        "status:24",
+        "status:25",
+        "status:26",
+        "status:27",
+        "status:28",
+        "status:29",
+        "status:30",
+        "status:31",
+        "status:32",
+        "status:33",
+        "injured"
+      ],
+      "performanceTokens": {},
+      "scenarioResources": {
+        "values": {
+          "happy_meek_badge": 0
+        }
+      },
+      "legacy": {
+        "parentNames": [],
+        "factorIds": [],
+        "inheritedSkillIds": [],
+        "sparkCaps": {},
+        "blueStartBonuses": {},
+        "pinkFactorIds": [],
+        "pinkAptitudeTags": [],
+        "pinkStarTotals": {},
+        "aptitudes": {
+          "end": "C",
+          "turf": "A",
+          "medium": "A",
+          "pace": "A",
+          "dirt": "G",
+          "mile": "C",
+          "late": "A",
+          "long": "A",
+          "front": "G",
+          "sprint": "F"
+        },
+        "raceFactorIds": [],
+        "inheritanceComplete": false,
+        "inspirationEventsDone": 0
+      },
+      "learnedSkillIds": [
+        "skill:100011"
+      ],
+      "deck": {
+        "slots": []
+      },
+      "log": [
+        "Career started: Special Week / ura / seed=421963",
+        "Race debut 9th +267 fans [physics t=75.400s course=10601 seed=1518762953 field=9 margin_win=8.533s margin_ahead=0.000s]"
+      ],
+      "generatedSparks": [],
+      "baseAptitudes": {
+        "pace": "A",
+        "dirt": "G",
+        "late": "A",
+        "medium": "A",
+        "mile": "C",
+        "turf": "A",
+        "front": "G",
+        "end": "C",
+        "long": "A",
+        "sprint": "F"
+      }
+    },
+    "rngSeed": 421963,
+    "rngCalls": 4,
+    "rngState": {
+      "x": 1857974083,
+      "y": -3074422,
+      "z": 1809059007,
+      "w": -657348062,
+      "v": -1610855330,
+      "addend": 457460702
+    }
+  },
+  "choices_after": {
+    "choices": [
+      {
+        "id": "train_speed",
+        "label": "Train Speed"
+      },
+      {
+        "id": "train_stamina",
+        "label": "Train Stamina"
+      },
+      {
+        "id": "train_power",
+        "label": "Train Power"
+      },
+      {
+        "id": "train_guts",
+        "label": "Train Guts"
+      },
+      {
+        "id": "train_wit",
+        "label": "Train Wits"
+      },
+      {
+        "id": "rest",
+        "label": "Rest"
+      },
+      {
+        "id": "recreation",
+        "label": "Recreation"
+      },
+      {
+        "id": "race",
+        "label": "Race (optional)"
+      }
+    ]
+  },
+  "orphan_exited": true
+}

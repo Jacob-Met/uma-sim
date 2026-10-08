@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-10-08T16:31:36.955290+00:00",
+  "source_head": "7683f629a152be0b94249bf1527c3cd8e0f4e5e3",
+  "runner_sha256": "ee2b921ab9856f9e41fba9838a7e5785da5c32ad23c8cf92064be645f3361d08",
+  "phases": [
+    {
+      "name": "candidate",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "/Users/me/uma-conditions-20261008-5f566b5ec8ef/source/packages/uma-sim-ui/tests/receiving/conditions-titles-receiver.mjs",
+        "/Users/me/uma-conditions-20261008-5f566b5ec8ef/candidate-dist",
+        "/Users/me/uma-conditions-20261008-5f566b5ec8ef/candidate-browser-fixed",
+        "/Users/me/uma-conditions-20261008-5f566b5ec8ef/target/debug/uma-sim-api",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      ],
+      "exit_code": 0,
+      "seconds": 5.05,
+      "process_log_sha256": "ba0f0ea62a4677054bd6cff788a2fc308984b0746706491536a7ac7a0562e341",
+      "receipt_sha256": "ec4563c95aa22cb3447e9d01604424a562f5d58d470e0388f949db94fa27a8c6",
+      "cases": 10,
+      "error": null,
+      "source_unchanged": true,
+      "binary_unchanged": true
+    }
+  ]
+}

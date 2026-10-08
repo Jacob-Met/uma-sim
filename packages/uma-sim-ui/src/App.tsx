@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { RunSetup } from "./components/RunSetup";
 import { StatsPanel } from "./components/StatsPanel";
+import { ConditionsPanel } from "./components/ConditionsPanel";
 import { LogPanel } from "./components/LogPanel";
 import { ChoicePanel } from "./components/ChoicePanel";
 import { EventDialog } from "./components/EventDialog";
@@ -159,6 +160,7 @@ export default function App() {
           <div className="turn-layout">
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               <StatsPanel state={cs} />
+              <ConditionsPanel state={cs} />
               <DeckPanel
                 state={cs}
                 supports={state.catalogs.supports}

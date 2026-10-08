@@ -1,0 +1,95 @@
+.conditions-panel {
+  min-width: 0;
+}
+
+.conditions-panel h2 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.conditions-count {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.conditions-injury-note {
+  border-left: 3px solid var(--warn);
+  background: var(--bg);
+  border-radius: 4px;
+  padding: 0.55rem 0.65rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.82rem;
+}
+
+.conditions-injury-note strong {
+  color: var(--warn);
+}
+
+.conditions-injury-note p {
+  margin: 0.35rem 0 0;
+}
+
+.conditions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 17rem;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  scrollbar-gutter: stable;
+}
+
+.conditions-list:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.conditions-row {
+  border-bottom: 1px solid var(--border);
+  padding: 0.55rem 0;
+}
+
+.conditions-row:first-child {
+  padding-top: 0;
+}
+
+.conditions-row:last-child {
+  border-bottom: 0;
+}
+
+.conditions-row-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+}
+
+.conditions-row-heading strong {
+  min-width: 0;
+  white-space: pre-wrap;
+}
+
+.conditions-kind {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.conditions-row-title .conditions-kind {
+  color: var(--accent);
+}
+
+.conditions-id {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  white-space: pre-wrap;
+}
+
+.conditions-footnote {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
