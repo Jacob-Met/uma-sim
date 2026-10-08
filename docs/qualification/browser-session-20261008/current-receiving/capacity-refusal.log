@@ -1,0 +1,130 @@
+Initial current-source npm test in the shared filesystem. Eighty-eight existing tests passed; run-session compilation stopped before its tests with ENOSPC. The failure was environmental and was not converted to success. The same source later passed the full native npm run build in a private single-invocation copy; see native-ui-build.json.
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> uma-sim-ui@0.1.0 test
+> node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs tests/run-session.test.mjs
+
+✔ an empty collection is reported separately from absent or malformed data (1.380797ms)
+✔ injury matching follows the native exact injured or injury-substring predicate (0.208604ms)
+✔ similar words and whitespace do not widen the native injury predicate (0.185018ms)
+✔ only the three exact simulator epithet IDs receive title labels (0.124467ms)
+✔ unknown title-like IDs remain literal without invented names or effects (0.162514ms)
+✔ native injury admission takes precedence over a title-like namespace (0.106871ms)
+✔ every retained entry survives in order including duplicates and long collections (0.167942ms)
+✔ markup-like strings, whitespace and object-property names remain exact data (0.118218ms)
+✔ a later recovered snapshot removes the warning and retains unrelated titles and statuses (0.165078ms)
+✔ JSON preserves every original entry and explicit retained-history scope (1.716412ms)
+✔ a prepared file survives later append or replacement without taking a filtered subset (0.191848ms)
+✔ readable text retains ordered duplicate and empty numbered blocks (0.177658ms)
+✔ empty, single-entry and long histories have explicit complete counts (11.116402ms)
+✔ one local request delivers the actual JSON Blob and releases its URL after the click (13.665316ms)
+▶ preparation and dispatch failures propagate without another click or a leaked URL
+  ✔ url (3.067515ms)
+  ✔ create (2.749606ms)
+  ✔ append (3.132551ms)
+  ✔ click (3.029887ms)
+✔ preparation and dispatch failures propagate without another click or a leaked URL (13.471275ms)
+✔ native React rendering names the full count and disables only an empty log (8.809181ms)
+✔ the actual LogPanel exposes the full-history download beside preserved reader and summary (3.287556ms)
+✔ empty query exposes every retained entry verbatim, including empty and duplicate entries (1.780729ms)
+✔ matching entries and occurrences are counted separately without crossing entry boundaries (0.874065ms)
+✔ case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters (0.28598ms)
+✔ Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s (0.632922ms)
+✔ Japanese, astral symbols, combining characters, and isolated surrogates preserve original text (0.620344ms)
+✔ all regexp metacharacters, whitespace, and markup-like text remain literal search data (1.500317ms)
+✔ matches are non-overlapping and global matching restarts independently for each entry (0.338219ms)
+✔ 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle (133.526689ms)
+✔ history changes distinguish a strict prefix append from trimming, replacement, and reordering (0.528274ms)
+✔ 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input (23.719876ms)
+✔ learned names and descriptions use exact IDs with a literal unknown fallback (1.850594ms)
+✔ all retained learned entries survive in order, including duplicates beyond 24 (0.322845ms)
+✔ only skill namespace hints are skills; raw names and training keys remain separate (0.394474ms)
+✔ hint levels are retained values, with no cap, discount, or purchase inference (0.300051ms)
+✔ catalog failure and malformed entries do not manufacture names or accept an HTML fallback (0.462215ms)
+✔ markup-like text and object-property keys remain literal, without changing snapshot inputs (0.328134ms)
+✔ preserves the full authored order, blank lines, turn zero and colon action IDs (9.905731ms)
+✔ a policy-only run is valid with no override text (0.266841ms)
+✔ accepts only the exact representable integer boundary and allowed maximum budget (0.250377ms)
+✔ refuses the whole draft for missing colon (0.434464ms)
+✔ refuses the whole draft for missing turn (0.260311ms)
+✔ refuses the whole draft for negative turn (0.163396ms)
+✔ refuses the whole draft for fractional turn (0.451429ms)
+✔ refuses the whole draft for scientific notation (0.766032ms)
+✔ refuses the whole draft for hexadecimal notation (0.280862ms)
+✔ refuses the whole draft for non-number turn (0.320072ms)
+✔ refuses the whole draft for infinite turn (0.145629ms)
+✔ refuses the whole draft for signed integer overflow (1.703743ms)
+✔ refuses the whole draft for integer that would wrap to turn 8 (0.223196ms)
+✔ refuses the whole draft for unsafe integer (2.803838ms)
+✔ refuses the whole draft for empty action (0.095363ms)
+✔ duplicate turns report both source lines rather than picking the first silently (0.271638ms)
+✔ collects actionable line errors without discarding valid intervening input (0.30574ms)
+✔ refuses invalid action budget "" (0.207572ms)
+✔ refuses invalid action budget " " (0.103856ms)
+✔ refuses invalid action budget "0" (0.050085ms)
+✔ refuses invalid action budget "501" (0.042534ms)
+✔ refuses invalid action budget "1.5" (0.048293ms)
+✔ refuses invalid action budget "-1" (0.040631ms)
+✔ refuses invalid action budget "NaN" (0.039539ms)
+✔ refuses invalid action budget "Infinity" (0.035053ms)
+✔ refuses invalid action budget "1e2" (0.036976ms)
+✔ refuses invalid action budget "9007199254740993" (0.044176ms)
+✔ reports both budget and override errors in a single review (0.091788ms)
+✔ preserves literal action text for the existing simulator legality check (0.363697ms)
+✔ an unselected inspector explains how to read a saved trace (12.462506ms)
+✔ loading identifies the requested branch and exposes only a close action (0.608846ms)
+✔ an error identifies its branch, is announced and supports explicit retry (0.393962ms)
+✔ same-turn rejection and later application remain separate recorded steps (1.77568ms)
+✔ a configured but unobserved turn has no invented rejection outcome (0.634024ms)
+✔ a branch with no recorded steps has an explicit empty state (0.420703ms)
+✔ a policy-only timeline offers all steps when the override filter is empty (0.415025ms)
+✔ legacy duplicate configuration is retained without dropping either authored action (2.605419ms)
+✔ source text remains literal instead of becoming active markup (0.868407ms)
+✔ native physics record keeps the observed place, field, precision and source metadata (2.684158ms)
+✔ fan-only records retain zero and never invent missing race statistics (0.436617ms)
+✔ repeated race IDs and identical occurrences retain separate source positions (0.353131ms)
+✔ non-race entries and action narration are not retained race records (0.170907ms)
+✔ a newest unrecognized record stays latest even when a valid older result exists (0.28586ms)
+✔ invalid numeric fields or inconsistent place and field remain literal unknown records (0.389566ms)
+✔ native ordinal suffixes keep 11th to 13th distinct from 21st to 23rd (0.274183ms)
+✔ rendered physics facts show exact native values and the full original record (5.29163ms)
+✔ rendered fan-only facts state the missing details without inventing first place (0.788466ms)
+✔ unknown latest is visible while earlier recognized occurrences stay in history (1.845015ms)
+✔ mandatory entry remains explicit and disabled while busy (0.515456ms)
+✔ replacing the supplied history cannot retain an old result (0.998953ms)
+✔ unusual race IDs and unrecognized source text are rendered literally (0.808646ms)
+node:fs:1411
+  const result = binding.mkdir(
+                         ^
+
+Error: ENOSPC: no space left on device, mkdir '/workspace/scratch/69570d292200/root-receiving/packages/uma-sim-ui/.test-modules-5UYe9C/styles'
+    at mkdirSync (node:fs:1411:26)
+    at compile (file:///workspace/scratch/69570d292200/root-receiving/packages/uma-sim-ui/tests/compile-ui.mjs:36:7)
+    at compile (file:///workspace/scratch/69570d292200/root-receiving/packages/uma-sim-ui/tests/compile-ui.mjs:18:30)
+    at file:///workspace/scratch/69570d292200/root-receiving/packages/uma-sim-ui/tests/compile-ui.mjs:41:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  errno: -28,
+  code: 'ENOSPC',
+  syscall: 'mkdir',
+  path: '/workspace/scratch/69570d292200/root-receiving/packages/uma-sim-ui/.test-modules-5UYe9C/styles'
+}
+
+Node.js v24.19.0
+✖ tests/run-session.test.mjs (968.46179ms)
+ℹ tests 89
+ℹ suites 0
+ℹ pass 88
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1499.060907
+
+✖ failing tests:
+
+test at tests/run-session.test.mjs:1:1
+✖ tests/run-session.test.mjs (968.46179ms)
+  'test failed'

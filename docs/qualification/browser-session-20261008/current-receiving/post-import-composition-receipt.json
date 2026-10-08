@@ -1,0 +1,34 @@
+{
+  "schema": "uma-browser-session-import-composition-v1",
+  "receiving_parent": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+  "receiving_tree": "8457386cf41c5530b39dec1fa6be127dfc430d01",
+  "session_parent": "63aca264ee8b47df14bcecf47cf1b390b244852f",
+  "session_tree": "ebf0e447639c24b30d364dea0c5a92a5f6d9966b",
+  "shared_base": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "incoming_pr": 114,
+  "overlap": [
+    "packages/uma-sim-ui/src/api/client.ts",
+    "packages/uma-sim-ui/package.json"
+  ],
+  "resolution": {
+    "client": "All incoming bytes preserved except the sole withSession condition changes !session to session === undefined. Serialized import body helper, raw request body, import method, and transport remain incoming.",
+    "package": "Both complete incoming and session test lists are retained in original order; checkpoint-json precedes run-session. Existing current dependencies/browser commands are retained with the previously qualified renderer dependency and prebuild hook.",
+    "other_incoming": "Native checkpointJson.ts, labStore.ts, checkpoint-json.test.mjs, usage and original recovery evidence are preserved byte for byte.",
+    "other_session": "All prior qualified product/test changes remain byte for byte except the composed client and package command."
+  },
+  "actual_native_ui": {
+    "tests": 116,
+    "passed": 116,
+    "failed": 0,
+    "skipped": 0,
+    "typescript": "pass",
+    "vite": "pass",
+    "modules": 69,
+    "inputs": 65,
+    "inputs_preserved": true,
+    "receipt": "post-import-native-ui-build.json"
+  },
+  "capacity_refusal": "The first npm launch on identical source exited228 before tests because inherited cache/log configuration targeted the full shared filesystem. Only the child cache/log paths were redirected to its own ephemeral directory; source was unchanged. The actual refusal is retained separately.",
+  "hosted_ci": "The hosted logs in this folder qualify prior source63aca264 and exact treeebf0e447. Required current-head gates must pass after this composition; they are not inferred from prior CI.",
+  "scanner": "One reviewed historical SHA256 checksum fingerprint is appended to .gitleaksignore; the existing four exceptions and the scanner/rule configuration remain unchanged."
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "uma.browser-checkpoint.publication-plan.v1",
+  "repository": "Jacob-Met/uma-sim",
+  "branch": "work/astra-browser-checkpoint-json-d98d06fb-20261008",
+  "base_commit": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "base_tree": "8a77986dcacbdb137a31f4e438561153b38f8c06",
+  "base_leaf_count": 1544,
+  "scope": {
+    "existing_changed": [
+      "packages/uma-sim-ui/src/api/client.ts",
+      "packages/uma-sim-ui/src/state/labStore.ts",
+      "packages/uma-sim-ui/package.json"
+    ],
+    "new_product_test_usage": [
+      "packages/uma-sim-ui/src/api/checkpointJson.ts",
+      "packages/uma-sim-ui/tests/checkpoint-json.test.mjs",
+      "docs/browser-checkpoint-import.md"
+    ],
+    "new_evidence_directory": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/"
+  },
+  "expected_unchanged_incoming_leaves": 1541,
+  "publication": "normal new commit and branch; no force update",
+  "pr_state": "draft",
+  "receiving_pending": [
+    "exact-head required hosted gates",
+    "actual exported-checkpoint browser/native continuation receipt"
+  ],
+  "original_native_attempt_relaunched": false,
+  "original_issue107_comment_secondary403_retried": false
+}

@@ -1,0 +1,50 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> uma-sim-ui@0.1.0 typecheck
+> tsc --noEmit
+
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> uma-sim-ui@0.1.0 prebuild
+> npm test
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> uma-sim-ui@0.1.0 test
+> node --test tests/run-session.test.mjs
+
+✔ a delayed action cannot replace a newly selected session (27.581408ms)
+✔ bootstrap catalogs survive selection without releasing its pending request (3.600505ms)
+✔ a superseded refresh cannot restore the previous session (2.053198ms)
+✔ reset prevents a delayed action from resurrecting a career (1.37688ms)
+✔ late failures and cleanup cannot alter a newer pending refresh (2.625618ms)
+✔ failed session selection clears stale playable state (1.832386ms)
+✔ same-turn duplicate actions submit only once (1.458883ms)
+✔ run operations remain bound to the displayed session after external activation (2.99861ms)
+✔ explicit default session is preserved in read requests (0.81156ms)
+✔ the displayed main session remains the action target after a fork activates (1.898855ms)
+✔ starting main hydrates main even when another client activates a fork (1.105262ms)
+✔ keyboard shortcuts operate only the visible run and its displayed choice numbers (53.625986ms)
+✔ telemetry export uses the displayed career even after external activation (5.193751ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 879.000859
+
+> uma-sim-ui@0.1.0 build
+> tsc -b && vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 52 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.39 kB │ gzip:  0.26 kB
+dist/assets/index-C8rte7ax.css    8.25 kB │ gzip:  2.26 kB
+dist/assets/index-DYX_Fgro.js   193.49 kB │ gzip: 59.61 kB
+✓ built in 914ms
