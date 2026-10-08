@@ -1,0 +1,29 @@
+✔ a delayed action cannot replace a newly selected session (18.295641ms)
+✔ bootstrap catalogs survive selection without releasing its pending request (3.645203ms)
+✔ a superseded refresh cannot restore the previous session (5.922168ms)
+✔ reset prevents a delayed action from resurrecting a career (2.063604ms)
+✔ late failures and cleanup cannot alter a newer pending refresh (2.262448ms)
+✔ failed session selection clears stale playable state (1.83526ms)
+✔ same-turn duplicate actions submit only once (1.411824ms)
+✔ run operations remain bound to the displayed session after external activation (2.976797ms)
+✔ explicit default session is preserved in read requests (0.663378ms)
+✔ the displayed main session remains the action target after a fork activates (1.483832ms)
+✔ starting main hydrates main even when another client activates a fork (1.111242ms)
+✔ keyboard shortcuts operate only the visible run and its displayed choice numbers (358.330768ms)
+✔ telemetry export uses the displayed career even after external activation (5.47787ms)
+✔ independent receiver: delayed follow-up read is discarded for act (2.015622ms)
+✔ independent receiver: delayed follow-up read is discarded for autoStep (1.547138ms)
+✔ independent receiver: delayed follow-up read is discarded for fastForward (1.643743ms)
+✔ independent receiver: delayed follow-up read is discarded for placeDeck (1.631935ms)
+✔ independent receiver: unmount blocks follow-up reads from an accepted action (0.995898ms)
+✔ independent receiver: selection supersedes start before hydration (1.178212ms)
+✔ independent receiver: Lab selection preserves receiving panels and rejects an old action (17.351425ms)
+RECEIVING_REVIEW_SOURCE_RECEIPT {"baseline":"8d74413d7dbc3caf1745779c92d56b6eb7feea42","node":"v24.19.0","files":46,"sourceSetSha256":"86ef65c5a2eb8af347c2d2b79b7358c576db4a734332f6499744baa9e6a738bd","app":"9e6c183cdabba7259e799797f7ccdd486594b9b0d81594e734b42defe9992131","runStore":"5c470117c0c93656b849c9672b5a6f62606e4e14292a1c7b3ca9884e7ad53765","client":"db4deabeb0a61592c1e9c9f07ba4185cce1e13cd4c6bc51aff58c8c69f8b362f","labStore":"ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b","nativeApi":"c8b465c327e6945dc5e702d96e8aa5523f49372e0f6948ccbb90aceb6c844f3e","nativeTest":"c42b468d8974a104a0f49df7dc94a551b2d19bc8d4b5ed5e18e172d08e78aee3","changedDuringExecution":false,"nativeRerun":false,"cssContentIgnored":true}
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 443.221774

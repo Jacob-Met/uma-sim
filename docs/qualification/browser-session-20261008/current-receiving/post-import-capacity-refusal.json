@@ -1,0 +1,408 @@
+{
+  "kind": "uma-session-import-current-composition-native-ui",
+  "source_commit": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+  "session_parent": "63aca264ee8b47df14bcecf47cf1b390b244852f",
+  "started_at": "2026-10-08T19:55:04.939Z",
+  "completed_at": "2026-10-08T19:55:05.082Z",
+  "node": "v24.19.0",
+  "execution_root": "/dev/hamon-69570d292200-import-session.EKrYUV",
+  "command": "npm run build",
+  "exit_code": 228,
+  "signal": null,
+  "stdout": "",
+  "stderr": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\nnpm error code ENOSPC\nnpm error syscall write\nnpm error errno -28\nnpm error nospc ENOSPC: no space left on device, write\nnpm error nospc There appears to be insufficient space on your system to finish.\nnpm error nospc Clear up some disk space and try again.\nnpm error A complete log of this run can be found in: /root/.npm/_logs/2026-10-08T19_55_05_048Z-debug-0.log\n",
+  "input_manifest": [
+    {
+      "path": "packages/uma-sim-ui/README.md",
+      "bytes": 8403,
+      "sha256": "07c7c39912c5f080add258136a281a8d3af0806db35f8a9786b41e09d5a78408",
+      "git_blob": "fbf17dd278073c05ee0dfee46e624b45af5fdd8a"
+    },
+    {
+      "path": "packages/uma-sim-ui/index.html",
+      "bytes": 294,
+      "sha256": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10",
+      "git_blob": "1711cea1cf433f0deb7d72b647e97c3906fe5353"
+    },
+    {
+      "path": "packages/uma-sim-ui/package-lock.json",
+      "bytes": 62025,
+      "sha256": "f84f4691209fc9d044be87b188164dcad2508933845b2b36140c452b87a0712f",
+      "git_blob": "bb105e8d35007889dac0756e73c056ffe88a9e5e"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "bytes": 1130,
+      "sha256": "98221d5d310e3e70f8b02c7e4d6f744586a76c0ff54a898c81e18a4415f97c39",
+      "git_blob": "3e9a63b049a3616d797b7be49744e5e02a6a1c50"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "bytes": 7478,
+      "sha256": "9e6c183cdabba7259e799797f7ccdd486594b9b0d81594e734b42defe9992131",
+      "git_blob": "7b013659cd58ad3eead004d72a5501081fcef736"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/checkpointJson.ts",
+      "bytes": 751,
+      "sha256": "8a204b07413c0d2b41401f4aac54f884baf4bd55c548c0f2fd519de50e50df5d",
+      "git_blob": "7ffd6458667d05e7b8a46ac8e3d2b18dc5f44945"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "bytes": 5834,
+      "sha256": "1760e9c7c6e1ebb9ac4ef6fa21ae2fe91de82c2026f78d738b3b0fedaeaa8cf0",
+      "git_blob": "75f70723226ed971d5f98302991926e8b5c4cf16"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/types.ts",
+      "bytes": 8048,
+      "sha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92",
+      "git_blob": "18ea43a689f67043b9cdc872c8178e16728f4de5"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/AptitudePanel.tsx",
+      "bytes": 2504,
+      "sha256": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce",
+      "git_blob": "33733350d431c335c416a0100af47b592557f76a"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/BranchTracePanel.tsx",
+      "bytes": 7914,
+      "sha256": "bd71c1c794211021dde6ba038c5938cfcf81824d7d92e738ca807daa59e0c514",
+      "git_blob": "73f27dc0fc411080651473135f7fa7cc0445e202"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/CareerSummary.tsx",
+      "bytes": 2454,
+      "sha256": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29",
+      "git_blob": "5c9922e7d5e97a9902a4e0650bf49dbd42be56bd"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/ChoicePanel.tsx",
+      "bytes": 1384,
+      "sha256": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5",
+      "git_blob": "21463054689cfc3c2c19258c4a98eb1e57b33c0e"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/ComparePanel.tsx",
+      "bytes": 12329,
+      "sha256": "c35c5727d480a88e081eb955bfd6a95cb14e937ec42e833cb5971d92d1c611a0",
+      "git_blob": "589cd9d73b6994aa5b08c582332f721fd86b921d"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/ConditionsPanel.tsx",
+      "bytes": 2240,
+      "sha256": "60aff7f837acccc15063ba03f3cc86abd96528f7e8954c12c0e7aa75d10afd36",
+      "git_blob": "b9014f7445bcb9003a23b1c48e796feaebc30385"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/ControlsBar.tsx",
+      "bytes": 1204,
+      "sha256": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc",
+      "git_blob": "c2598345d8743d3dbe140c473db9346a05c2b10a"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/DeckPanel.tsx",
+      "bytes": 1749,
+      "sha256": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0",
+      "git_blob": "fdf915cc63ddc38625a6ea460f13951bdb4b6d47"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/EventDialog.tsx",
+      "bytes": 1018,
+      "sha256": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831",
+      "git_blob": "a991957ebc1848ba6d698f114542953668ea8389"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/GrandLivePanel.tsx",
+      "bytes": 2275,
+      "sha256": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd",
+      "git_blob": "a9c3e226755357ad12e037143e160a434454746f"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LabTab.tsx",
+      "bytes": 1876,
+      "sha256": "a59e06410115292b1f06a1106c3d67d3f57cc765dd1985e730afe1fbf2eec9c1",
+      "git_blob": "7dc46dbbcc83b04b99298936d5d4f8303fbda94a"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LegacyPanel.tsx",
+      "bytes": 10122,
+      "sha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3",
+      "git_blob": "e4ab6599bed4d2e1205324a8ec76b562cc310f8f"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LibraryPanel.tsx",
+      "bytes": 5436,
+      "sha256": "4ee64eea0e358402db5ac82ea20bd5567db00e0bba2f24efec32b31b6ff4664a",
+      "git_blob": "2bfeabf86df7693fcb20fc7bfbc8d0b2c6fc9acc"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LogDownload.tsx",
+      "bytes": 1079,
+      "sha256": "cf92740a422128141f242c449f120d6e0cae02b627792b8ff388ac270f12b1d6",
+      "git_blob": "6a7257b271c1776ed377037217eb8f259e848c98"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LogPanel.tsx",
+      "bytes": 4489,
+      "sha256": "2d23c9ad7932da56d434e08c8f20af490cd9f628d71dfaa92858f0269fa557a2",
+      "git_blob": "89ec2172c8925c6c564f08c7726c7cb4c56c248a"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/RacePanel.tsx",
+      "bytes": 3185,
+      "sha256": "6c25faa3da4f7700adfe5ff0d9d275effe9b3934e1930228335080f33559e197",
+      "git_blob": "bfcfb79e8d3a850b144d2af6c070a7b30409ffeb"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/RunSetup.tsx",
+      "bytes": 12089,
+      "sha256": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d",
+      "git_blob": "96d4f44c3c278a8416838a57d3c7bb0d45f42435"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/SessionPanel.tsx",
+      "bytes": 3075,
+      "sha256": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb",
+      "git_blob": "8c24fe8909724907c4b6193e469f44935aa832b9"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/SkillsPanel.tsx",
+      "bytes": 3275,
+      "sha256": "2819e889e028641c6497206967c09ecfa49d5406c34b4131521cfd5d8aa7c5a1",
+      "git_blob": "0ce451024e053c6dbac74c5ebd4633ed1824827a"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/StatsPanel.tsx",
+      "bytes": 1942,
+      "sha256": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a",
+      "git_blob": "4602576f5358f2daefc811cc773eec637f55f430"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/branch-trace.css",
+      "bytes": 1002,
+      "sha256": "de60a2bb970b9b3b012c0890f74bbc9519b0be46b1d14444b6222768319afae2",
+      "git_blob": "6838312c2743b5efae3162e4e7f9872ee4538436"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/branchInput.ts",
+      "bytes": 2285,
+      "sha256": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d",
+      "git_blob": "4f803d0899a5d8a2e8f37e1cf3cfddf6ba254f46"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/conditionsView.ts",
+      "bytes": 1299,
+      "sha256": "da99da41857a0d4285c1527d9b6e6fba48b70323480aa40b2d782d0eba890f5a",
+      "git_blob": "22a08103bf1bb3115887b1563bb6f79c5347cc20"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/legacyPreview.ts",
+      "bytes": 2826,
+      "sha256": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a",
+      "git_blob": "db272fc2d016961b5249ec41119bc0ddf8623385"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/logExport.ts",
+      "bytes": 2022,
+      "sha256": "7ea3a0b6066e926af6825397feb5115cebd82bbbba2923dbd900d41c09e7937c",
+      "git_blob": "67f09fbe1e860fc3bd2e0d64a7def450e7927060"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/logPanel.css",
+      "bytes": 2365,
+      "sha256": "afb5363f7aa6f9bcf089ffe755e679865b55c026bd50df1fbbcfe79efdbf7544",
+      "git_blob": "d711623e8b8b6957b61a440484f58e8edb7a0d26"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/logView.ts",
+      "bytes": 1886,
+      "sha256": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2",
+      "git_blob": "cfd4c454de6d3b822bf61d183a2f454f348201b7"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/race-results.css",
+      "bytes": 1279,
+      "sha256": "fcf111855fd7fb4911701aded6b4fa040d13b549f0892629a24078edd7b82e48",
+      "git_blob": "6dad1921d398fc2668058cc665c31580c4b4252b"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/raceResults.ts",
+      "bytes": 4020,
+      "sha256": "c7bf78335e57e8eaf538f9decd5ea0080d72fc0d877808400bec3389b6b3b8e7",
+      "git_blob": "9504a6157a7b28d972d5fd6bbd3c0f167e0fa181"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/skillsView.ts",
+      "bytes": 2564,
+      "sha256": "0b41f51bb55890f31c39d435411fe6d60b3178e84f58733b27deb4b21e30cfde",
+      "git_blob": "2be7dc6e879800afb6429497560ed28ada37d9fc"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/main.tsx",
+      "bytes": 236,
+      "sha256": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981",
+      "git_blob": "cf0a6b973e756f734d656f3c945e306889734545"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/branchTraceStore.ts",
+      "bytes": 2400,
+      "sha256": "3e76129407244fac596be4562af715dbbdff91a44fb6d9e0b28f3ce7c6261bc2",
+      "git_blob": "e35bab119fe33a3953af44f391a0218f2eb7c9d6"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "bytes": 7823,
+      "sha256": "42de971e46a746ae4b2aa051749e6e15b417de3c059c153e8aeb56ead8e3ffde",
+      "git_blob": "a8c6301c82e5edfe40754454320382cbc03afe16"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/runStore.ts",
+      "bytes": 9866,
+      "sha256": "5c470117c0c93656b849c9672b5a6f62606e4e14292a1c7b3ca9884e7ad53765",
+      "git_blob": "5f183bd271f1185ac08e6e6d470c31d2c96a8123"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/styles/app.css",
+      "bytes": 10243,
+      "sha256": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd",
+      "git_blob": "f28cbea6a9f577f6a5269341a7e5ad2a0eed1aa6"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/styles/conditions.css",
+      "bytes": 1530,
+      "sha256": "93d68cb87fa1df27a5fa9cbf058168df91f3bfc347eda4134522e428580a5964",
+      "git_blob": "3defd4dab3194ccfcbc41510b8a7a4a098f07a50"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/styles/skills.css",
+      "bytes": 1396,
+      "sha256": "0b3c997dcd5cc9248a487aab8738a86136f9aeec23a2a87e56dffd317689f065",
+      "git_blob": "7bb1b96278706891ecf01c0b9a89db856703085c"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/career-log-browser.mjs",
+      "bytes": 20142,
+      "sha256": "31ad15f4f28a23235dc8fbbc7d8b313a6a9734300f34e327af165602fb8dc3ab",
+      "git_blob": "7e745d926cf018103fe7619e7efeb344de899a47"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/conditions-view.test.mjs",
+      "bytes": 4007,
+      "sha256": "a693ad69f2a962f45a38f5a2e68f8e08737e6b2c2b6867ec0cd67bf29e030630",
+      "git_blob": "90a91f692ab0cddbe53f1c6fcfbd2561b6662cfa"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/log-export.test.mjs",
+      "bytes": 8550,
+      "sha256": "9ac6faa080f5e95f5b2a6302fb781e60cdc08dbb97d86960974aa19f536019f7",
+      "git_blob": "2d7fbc3fdb60a6646a606f115e8766d1adf8edf7"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/log-view.test.mjs",
+      "bytes": 9518,
+      "sha256": "13cfc75c020bea6ca536b07a6a385e350b577f646387638b178b69776c6bf255",
+      "git_blob": "9399d21dd1692e7444a32b17093e97b208ab85b2"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/skills-view.test.mjs",
+      "bytes": 3994,
+      "sha256": "094ddd2014d96f8621a34ee95ec7f7cc4e859cdb0be419c4dbcd937800e9b43e",
+      "git_blob": "7ca177e9686ed3e1e6baec0b870b4e1aa494434c"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/branch-input.test.mjs",
+      "bytes": 4232,
+      "sha256": "c3678c4cbe54629c3189a3f9c4191f8ed38b262f39fdecb06f34bbe30f97d14c",
+      "git_blob": "6eb6faf837c5057bd19c2b6a3707c1f417a1d0fa"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/branch-trace-panel.test.mjs",
+      "bytes": 6944,
+      "sha256": "8b83f6729bcbf23cb805429ac51d055af1daada712f2fad4ed0596931357b0ab",
+      "git_blob": "1988a45f8e17713e7348a4302fca2d54c32469e7"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/checkpoint-json.test.mjs",
+      "bytes": 6804,
+      "sha256": "5cb01aad7949c8118dd2804e1e86131965be8634dc685840a433d037359372af",
+      "git_blob": "eab213bc5029e3b7af72b74bf4a29e5b37ba8584"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/checkpoint-portability.browser.mjs",
+      "bytes": 15289,
+      "sha256": "a48784b6c94410eb7d1ac0e3178a8ebf17926ea3a5a63c6a35745ec82c0e8ae9",
+      "git_blob": "3db86c96f03cf81edbff4a409c839456505204f2"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/compile-ui.mjs",
+      "bytes": 2341,
+      "sha256": "37f5cdac3524f26b4c937d3a64d3a882111ccb7676b1d988f1abdba0fa046002",
+      "git_blob": "18c07ee8671bf66d14507abdca594a69f37a25b5"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/lab-comparison.browser.mjs",
+      "bytes": 17345,
+      "sha256": "9c47dda7fb4b1d0223db6ae09b3600652cf0ad1be4080585fcd07cb1a8d21dee",
+      "git_blob": "75b9277a90858b7a602d6940884a8d5081c25835"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/race-results.test.mjs",
+      "bytes": 8191,
+      "sha256": "909531728fe54cb913ee5c3e8145d93abd62e02b55542c75e1f869b32f94caa9",
+      "git_blob": "cb992b455f1125911ae9f1aea1d958730f99917b"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/TRACE-RECEIVER-CONTRACT.md",
+      "bytes": 2998,
+      "sha256": "b5e5e8e670576a8f2c3a220543eebcc2e636f55876d195d354e6b942b592756d",
+      "git_blob": "78eeef7d31adead3b54d7d965da01863b2f10727"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/conditions-titles-receiver.mjs",
+      "bytes": 20446,
+      "sha256": "ee2b921ab9856f9e41fba9838a7e5785da5c32ad23c8cf92064be645f3361d08",
+      "git_blob": "8ce8d0c2d5540a0a9411c38c636c4f29341923d4"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs",
+      "bytes": 17811,
+      "sha256": "c84764b19e2f74f9fcdd29ac7a35a7a9a12bc6e0e7fe6ce0aa2b7c0686bf2255",
+      "git_blob": "6e44b127f271d410ff443870b6475df307fd517a"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/uma-lab-receiver.mjs",
+      "bytes": 20297,
+      "sha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d",
+      "git_blob": "dc663e89de976965f9b50ee3d2affbc27d877484"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/uma-trace-receiver.mjs",
+      "bytes": 21519,
+      "sha256": "3d96af883b3af297826160adf9e5e49e806d2dd29d3fa8c64f2db46da4a4a531",
+      "git_blob": "24e67bd55940bf76e7c99b3f13f8ec58f74d1511"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/run-session.test.mjs",
+      "bytes": 15805,
+      "sha256": "45124a80d4982749aa9ede170c1facceafae6afe3d19f43b107c378963029143",
+      "git_blob": "fc9b80d266f9b3b8ab7d53ddfcf46a79e1578824"
+    },
+    {
+      "path": "packages/uma-sim-ui/tsconfig.json",
+      "bytes": 540,
+      "sha256": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a",
+      "git_blob": "5cf465a006e1f120a00a325f6b151b1b0a1ddd3b"
+    },
+    {
+      "path": "packages/uma-sim-ui/vite.config.ts",
+      "bytes": 300,
+      "sha256": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd",
+      "git_blob": "e866f63ce5213a4f2e9aa1feab9a2252ab468f27"
+    }
+  ],
+  "input_preserved": true,
+  "dist_manifest": []
+}

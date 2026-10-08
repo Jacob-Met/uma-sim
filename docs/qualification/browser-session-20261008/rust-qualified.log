@@ -1,0 +1,32 @@
+   Compiling uma-sim-core v0.1.0 (<isolated-checkout>/uma-sim-core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.33s
+     Running tests/session_targeting.rs (target/debug/deps/session_targeting-5902c33dab2b2fc2)
+
+running 5 tests
+test absent_explicit_main_never_falls_back_to_the_active_fork ... ok
+test empty_body_session_precedes_query_and_empty_query_is_explicit ... ok
+test explicit_main_reads_do_not_follow_an_active_fork ... ok
+test explicit_main_action_changes_only_main ... ok
+test explicit_main_fast_forward_keeps_active_fork_unchanged ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.48s
+
+   Compiling uma-sim-core v0.1.0 (<isolated-checkout>/uma-sim-core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.37s
+     Running unittests src/lib.rs (target/debug/deps/uma_sim_core-4a975c4c4959576f)
+
+running 12 tests
+test api::tests::fast_503_leaves_speed_unchanged_success_sets_it ... ok
+test api::tests::health_and_catalogs_and_action_include_state ... ok
+test api::tests::lab_library_fork_branch_compare_flow ... ok
+test api::tests::lab_library_import_failure_is_nondestructive ... ok
+test api::tests::policy_case_variants ... ok
+test api::tests::policy_error_shape_contract ... ok
+test api::tests::policy_external_without_policy_cmd_fails_loudly_not_silently ... ok
+test api::tests::policy_unknown_on_auto_and_fast ... ok
+test api::tests::run_endpoints_unaffected_by_policy_errors ... ok
+test api::tests::session_usable_after_policy_503 ... ok
+test api::tests::start_rejects_unknown_policy ... ok
+test api::tests::start_rejects_unknown_scenario_and_race_model ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.74s

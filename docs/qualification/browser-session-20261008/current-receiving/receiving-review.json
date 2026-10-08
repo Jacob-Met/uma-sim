@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/integration_lane",
+  "review_time_utc": "2026-10-08 19:09:41 UTC",
+  "repository": "Jacob-Met/uma-sim",
+  "receiving_base": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "verdict": "APPROVE source composition; no blocking findings",
+  "published_head": null,
+  "verification": {
+    "runtime": "Node v24.19.0; installed React/react-test-renderer 18.3.1",
+    "original_session_regressions": {
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0
+    },
+    "independent_additional_checks": {
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "checks": [
+        "Delayed action follow-up read discarded after selection",
+        "Delayed auto-step follow-up read discarded after selection",
+        "Delayed fast-forward follow-up read discarded after selection",
+        "Delayed deck-placement follow-up read discarded after selection",
+        "Accepted action completion and stale callbacks after unmount issue no new reads",
+        "Selection supersedes start before hydration",
+        "Actual App/Lab session activation preserves Conditions, Skills, retained log and Race history while discarding an old action; keyboard suppressed in Lab and search input"
+      ]
+    },
+    "total": {
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "methodology": "Actual receiving TypeScript compiled in memory with installed TypeScript and exercised through actual React/test-renderer. Only the test compiler import was replaced with a no-write module loader. Current side-effect CSS modules resolved from the receiving source and had their content ignored. The existing App test helper exposed its renderer for the additional integration assertion; product source was not changed.",
+    "source_stability": "All 46 measured files hashed before execution, checked unchanged at suite completion, and rechecked after execution."
+  },
+  "composition_checks": {
+    "native_api": "Byte-for-byte canonical receiving API outside the three selector functions; selector block exactly equals the previously qualified correction. Current JSON validation and all other receiving routes preserved.",
+    "app": "Exact canonical receiving App plus the six intended session/keyboard/export changes. Conditions, Skills, retained event-log history and race-history wiring preserved.",
+    "lab_store": "Byte-for-byte canonical receiving main, including newer comparison/deletion state protection.",
+    "run_store_and_client": "Exactly equal to previously qualified session-correction source.",
+    "harness": "Current CSS imports were inspected. Copied CSS assets plus temporary no-op CSS loader/restoration correctly support the published temporary compiler.",
+    "package": "Existing seven test files and Playwright retained; session regressions appended; prebuild runs the composed suite."
+  },
+  "canonical_blob_ids": {
+    "uma-sim-core/src/api.rs": "60a02556b3707918e57cac775f723e0c8f67b30d",
+    "packages/uma-sim-ui/src/App.tsx": "04ba8ad9fc33fa9c360f8826a6275a50a44807be",
+    "packages/uma-sim-ui/src/state/labStore.ts": "6cc39e49150ab6774cb78aac1b89676b704418f8",
+    "packages/uma-sim-ui/src/state/runStore.ts": "b178fee21385237163e41cdad2881397678f133b",
+    "packages/uma-sim-ui/src/api/client.ts": "bed38774d5dcd48af5b964d97472a76db92f78e7"
+  },
+  "limits": [
+    "Rust execution was not rerun for this composition. Earlier native results apply to the earlier qualified tree and are not represented as execution of this receiving API.",
+    "This is independent source/React-fixture qualification, not exact-head CI, current-base merge acceptance, actual browser DOM/CSS acceptance or live deployment evidence.",
+    "Parent owns publication and final current PR/base/CI gates."
+  ],
+  "source_set_sha256": "86ef65c5a2eb8af347c2d2b79b7358c576db4a734332f6499744baa9e6a738bd",
+  "source_set_digest_method": "SHA-256 of sorted repository-relative path + one ASCII space + file SHA-256 rows, joined by LF with no trailing LF.",
+  "source_sha256": {
+    "packages/uma-sim-ui/package-lock.json": "f84f4691209fc9d044be87b188164dcad2508933845b2b36140c452b87a0712f",
+    "packages/uma-sim-ui/package.json": "255d10a8f4012b6a5a1dbadb9f03c120a43bc45e683354a7cfcaf715b19f6ce0",
+    "packages/uma-sim-ui/src/App.tsx": "9e6c183cdabba7259e799797f7ccdd486594b9b0d81594e734b42defe9992131",
+    "packages/uma-sim-ui/src/api/client.ts": "db4deabeb0a61592c1e9c9f07ba4185cce1e13cd4c6bc51aff58c8c69f8b362f",
+    "packages/uma-sim-ui/src/api/types.ts": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92",
+    "packages/uma-sim-ui/src/components/AptitudePanel.tsx": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce",
+    "packages/uma-sim-ui/src/components/BranchTracePanel.tsx": "bd71c1c794211021dde6ba038c5938cfcf81824d7d92e738ca807daa59e0c514",
+    "packages/uma-sim-ui/src/components/CareerSummary.tsx": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29",
+    "packages/uma-sim-ui/src/components/ChoicePanel.tsx": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5",
+    "packages/uma-sim-ui/src/components/ComparePanel.tsx": "c35c5727d480a88e081eb955bfd6a95cb14e937ec42e833cb5971d92d1c611a0",
+    "packages/uma-sim-ui/src/components/ConditionsPanel.tsx": "60aff7f837acccc15063ba03f3cc86abd96528f7e8954c12c0e7aa75d10afd36",
+    "packages/uma-sim-ui/src/components/ControlsBar.tsx": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc",
+    "packages/uma-sim-ui/src/components/DeckPanel.tsx": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0",
+    "packages/uma-sim-ui/src/components/EventDialog.tsx": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831",
+    "packages/uma-sim-ui/src/components/GrandLivePanel.tsx": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd",
+    "packages/uma-sim-ui/src/components/LabTab.tsx": "a59e06410115292b1f06a1106c3d67d3f57cc765dd1985e730afe1fbf2eec9c1",
+    "packages/uma-sim-ui/src/components/LegacyPanel.tsx": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3",
+    "packages/uma-sim-ui/src/components/LibraryPanel.tsx": "4ee64eea0e358402db5ac82ea20bd5567db00e0bba2f24efec32b31b6ff4664a",
+    "packages/uma-sim-ui/src/components/LogDownload.tsx": "cf92740a422128141f242c449f120d6e0cae02b627792b8ff388ac270f12b1d6",
+    "packages/uma-sim-ui/src/components/LogPanel.tsx": "2d23c9ad7932da56d434e08c8f20af490cd9f628d71dfaa92858f0269fa557a2",
+    "packages/uma-sim-ui/src/components/RacePanel.tsx": "6c25faa3da4f7700adfe5ff0d9d275effe9b3934e1930228335080f33559e197",
+    "packages/uma-sim-ui/src/components/RunSetup.tsx": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d",
+    "packages/uma-sim-ui/src/components/SessionPanel.tsx": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb",
+    "packages/uma-sim-ui/src/components/SkillsPanel.tsx": "2819e889e028641c6497206967c09ecfa49d5406c34b4131521cfd5d8aa7c5a1",
+    "packages/uma-sim-ui/src/components/StatsPanel.tsx": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a",
+    "packages/uma-sim-ui/src/components/branch-trace.css": "de60a2bb970b9b3b012c0890f74bbc9519b0be46b1d14444b6222768319afae2",
+    "packages/uma-sim-ui/src/components/branchInput.ts": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d",
+    "packages/uma-sim-ui/src/components/conditionsView.ts": "da99da41857a0d4285c1527d9b6e6fba48b70323480aa40b2d782d0eba890f5a",
+    "packages/uma-sim-ui/src/components/legacyPreview.ts": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a",
+    "packages/uma-sim-ui/src/components/logExport.ts": "7ea3a0b6066e926af6825397feb5115cebd82bbbba2923dbd900d41c09e7937c",
+    "packages/uma-sim-ui/src/components/logPanel.css": "afb5363f7aa6f9bcf089ffe755e679865b55c026bd50df1fbbcfe79efdbf7544",
+    "packages/uma-sim-ui/src/components/logView.ts": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2",
+    "packages/uma-sim-ui/src/components/race-results.css": "fcf111855fd7fb4911701aded6b4fa040d13b549f0892629a24078edd7b82e48",
+    "packages/uma-sim-ui/src/components/raceResults.ts": "c7bf78335e57e8eaf538f9decd5ea0080d72fc0d877808400bec3389b6b3b8e7",
+    "packages/uma-sim-ui/src/components/skillsView.ts": "0b41f51bb55890f31c39d435411fe6d60b3178e84f58733b27deb4b21e30cfde",
+    "packages/uma-sim-ui/src/main.tsx": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981",
+    "packages/uma-sim-ui/src/state/branchTraceStore.ts": "3e76129407244fac596be4562af715dbbdff91a44fb6d9e0b28f3ce7c6261bc2",
+    "packages/uma-sim-ui/src/state/labStore.ts": "ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b",
+    "packages/uma-sim-ui/src/state/runStore.ts": "5c470117c0c93656b849c9672b5a6f62606e4e14292a1c7b3ca9884e7ad53765",
+    "packages/uma-sim-ui/src/styles/app.css": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd",
+    "packages/uma-sim-ui/src/styles/conditions.css": "93d68cb87fa1df27a5fa9cbf058168df91f3bfc347eda4134522e428580a5964",
+    "packages/uma-sim-ui/src/styles/skills.css": "0b3c997dcd5cc9248a487aab8738a86136f9aeec23a2a87e56dffd317689f065",
+    "packages/uma-sim-ui/tests/compile-ui.mjs": "37f5cdac3524f26b4c937d3a64d3a882111ccb7676b1d988f1abdba0fa046002",
+    "packages/uma-sim-ui/tests/run-session.test.mjs": "45124a80d4982749aa9ede170c1facceafae6afe3d19f43b107c378963029143",
+    "uma-sim-core/src/api.rs": "c8b465c327e6945dc5e702d96e8aa5523f49372e0f6948ccbb90aceb6c844f3e",
+    "uma-sim-core/tests/session_targeting.rs": "c42b468d8974a104a0f49df7dc94a551b2d19bc8d4b5ed5e18e172d08e78aee3"
+  }
+}
