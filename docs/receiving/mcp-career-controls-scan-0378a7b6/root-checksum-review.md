@@ -1,0 +1,4 @@
+Independent reviewer: chatgpt-0378a7b6b7c2/root
+Delivery: collaboration message, preserved verbatim below; timestamp of adoption is in manifest.json.
+
+Independent disposition APPROVED for exactly your two proposed .gitleaksignore fingerprint additions. Root freshly recomputed both native files via Get-FileHash: baseline5EE4F7A6792C7D27930DBB9948F44631814A4D710F4DCA0085357C07B46234D7 and rebuilt6E849D296F35A27BB5DC32EF6730C02612C66D199C440D841B794A1442B27995, matching the actual receipt lines7/8 and the scanner findings. Read complete current5-line ignore and proposed7-line file: prior lines retained, only those immutable commit:path:rule:line fingerprints appended; proposed SHA a310bd94... accepted. These are native executable checksums, not credentials. Preserve original scanner failure and this disposition, rerun ordinary gate on final head; no broader exception.

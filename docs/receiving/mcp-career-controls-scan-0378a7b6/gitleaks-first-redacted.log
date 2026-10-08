@@ -1,0 +1,266 @@
+﻿2026-10-08T20:41:32.3006352Z Current runner version: '2.337.0'
+2026-10-08T20:41:32.3024012Z ##[group]Runner Image Provisioner
+2026-10-08T20:41:32.3024620Z Hosted Compute Agent
+2026-10-08T20:41:32.3024988Z Version: 20261002.596
+2026-10-08T20:41:32.3025430Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T20:41:32.3025871Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T20:41:32.3026293Z Worker ID: {6dcbfea8-a333-47ba-9514-01f4a8f47811}
+2026-10-08T20:41:32.3026755Z Region: westus2
+2026-10-08T20:41:32.3027092Z Cloud: Azure
+2026-10-08T20:41:32.3027479Z ##[endgroup]
+2026-10-08T20:41:32.3028456Z ##[group]Operating System
+2026-10-08T20:41:32.3028824Z Ubuntu
+2026-10-08T20:41:32.3029189Z 24.04.5
+2026-10-08T20:41:32.3029505Z LTS
+2026-10-08T20:41:32.3029836Z ##[endgroup]
+2026-10-08T20:41:32.3030214Z ##[group]Runner Image
+2026-10-08T20:41:32.3030730Z Image: ubuntu-24.04
+2026-10-08T20:41:32.3031108Z Version: 20261004.327.1
+2026-10-08T20:41:32.3031884Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T20:41:32.3032759Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T20:41:32.3033344Z ##[endgroup]
+2026-10-08T20:41:32.3034014Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T20:41:32.3035385Z Contents: read
+2026-10-08T20:41:32.3035884Z Metadata: read
+2026-10-08T20:41:32.3036224Z ##[endgroup]
+2026-10-08T20:41:32.3037542Z Secret source: Actions
+2026-10-08T20:41:32.3038180Z Cache mode: write
+2026-10-08T20:41:32.3038591Z Prepare workflow directory
+2026-10-08T20:41:32.3241159Z Prepare all required actions
+2026-10-08T20:41:32.3272302Z Getting action download info
+2026-10-08T20:41:32.6837438Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-08T20:41:32.7633597Z Download action repository 'gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7' (SHA:ff98106e4c7b2bc287b24eaf42907196329070c7)
+2026-10-08T20:41:33.0818174Z Complete job name: Secret scan
+2026-10-08T20:41:33.1283537Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-08T20:41:33.1284055Z with:
+2026-10-08T20:41:33.1284295Z   fetch-depth: 0
+2026-10-08T20:41:33.1284556Z   repository: Jacob-Met/uma-sim
+2026-10-08T20:41:33.1286611Z   token: ***
+2026-10-08T20:41:33.1286852Z   ssh-strict: true
+2026-10-08T20:41:33.1287098Z   ssh-user: git
+2026-10-08T20:41:33.1287348Z   persist-credentials: true
+2026-10-08T20:41:33.1287621Z   clean: true
+2026-10-08T20:41:33.1287874Z   sparse-checkout-cone-mode: true
+2026-10-08T20:41:33.1288166Z   fetch-tags: false
+2026-10-08T20:41:33.1288418Z   show-progress: true
+2026-10-08T20:41:33.1288668Z   lfs: false
+2026-10-08T20:41:33.1288908Z   submodules: false
+2026-10-08T20:41:33.1289161Z   set-safe-directory: true
+2026-10-08T20:41:33.1289452Z   allow-unsafe-pr-checkout: false
+2026-10-08T20:41:33.1289809Z ##[endgroup]
+2026-10-08T20:41:33.1946147Z Syncing repository: Jacob-Met/uma-sim
+2026-10-08T20:41:33.1947531Z ##[group]Getting Git version info
+2026-10-08T20:41:33.1948012Z Working directory is '/home/runner/work/uma-sim/uma-sim'
+2026-10-08T20:41:33.1948676Z [command]/usr/bin/git version
+2026-10-08T20:41:33.2031482Z git version 2.55.0
+2026-10-08T20:41:33.2045816Z ##[endgroup]
+2026-10-08T20:41:33.2056579Z Temporarily overriding HOME='/home/runner/work/_temp/1b47d707-0022-4b77-a108-5b3f5c8f8f57' before making global git config changes
+2026-10-08T20:41:33.2057899Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T20:41:33.2060223Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:41:33.2107050Z Deleting the contents of '/home/runner/work/uma-sim/uma-sim'
+2026-10-08T20:41:33.2114239Z ##[group]Initializing the repository
+2026-10-08T20:41:33.2121220Z [command]/usr/bin/git init /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:41:33.2216221Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T20:41:33.2217200Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T20:41:33.2217717Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T20:41:33.2218120Z hint: call:
+2026-10-08T20:41:33.2218348Z hint:
+2026-10-08T20:41:33.2218657Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T20:41:33.2218999Z hint:
+2026-10-08T20:41:33.2219317Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T20:41:33.2219824Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T20:41:33.2220222Z hint:
+2026-10-08T20:41:33.2220461Z hint: 	git branch -m <name>
+2026-10-08T20:41:33.2220831Z hint:
+2026-10-08T20:41:33.2221175Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T20:41:33.2225979Z Initialized empty Git repository in /home/runner/work/uma-sim/uma-sim/.git/
+2026-10-08T20:41:33.2234355Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/uma-sim
+2026-10-08T20:41:33.2285386Z ##[endgroup]
+2026-10-08T20:41:33.2286072Z ##[group]Disabling automatic garbage collection
+2026-10-08T20:41:33.2288490Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T20:41:33.2317782Z ##[endgroup]
+2026-10-08T20:41:33.2318419Z ##[group]Setting up auth
+2026-10-08T20:41:33.2323803Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T20:41:33.2353348Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T20:41:33.2658495Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T20:41:33.2688724Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T20:41:33.2871515Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T20:41:33.2900332Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T20:41:33.3075815Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T20:41:33.3109167Z ##[endgroup]
+2026-10-08T20:41:33.3109876Z ##[group]Fetching the repository
+2026-10-08T20:41:33.3116866Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* +d082269ba810586a46d2e87a7141890648d98c08:refs/remotes/pull/121/merge
+2026-10-08T20:41:34.7963775Z From https://github.com/Jacob-Met/uma-sim
+2026-10-08T20:41:34.7966125Z  * [new branch]      astra/uma-browser-checkpoint-review-d98d06fb-20261008 -> origin/astra/uma-browser-checkpoint-review-d98d06fb-20261008
+2026-10-08T20:41:34.7968570Z  * [new branch]      d2/harness-503-regression                -> origin/d2/harness-503-regression
+2026-10-08T20:41:34.7970878Z  * [new branch]      estate/49f845d0dece-pr91-current-receiving -> origin/estate/49f845d0dece-pr91-current-receiving
+2026-10-08T20:41:34.7973194Z  * [new branch]      estate/49f845d0dece-pr91-report-oracle   -> origin/estate/49f845d0dece-pr91-report-oracle
+2026-10-08T20:41:34.7975463Z  * [new branch]      estate/58d79b68-uma-mcp-exact-json       -> origin/estate/58d79b68-uma-mcp-exact-json
+2026-10-08T20:41:34.7977993Z  * [new branch]      estate/ac386303dce2-checkpoint-replacement -> origin/estate/ac386303dce2-checkpoint-replacement
+2026-10-08T20:41:34.7980409Z  * [new branch]      estate/umasim-docs-fixes                 -> origin/estate/umasim-docs-fixes
+2026-10-08T20:41:34.7983132Z  * [new branch]      evidence/uma75-receiving-31a349052b90    -> origin/evidence/uma75-receiving-31a349052b90
+2026-10-08T20:41:34.7986073Z  * [new branch]      feat/career-setup-files-b0e250296538-20261008 -> origin/feat/career-setup-files-b0e250296538-20261008
+2026-10-08T20:41:34.7989260Z  * [new branch]      feat/training-api-ab529ac65023           -> origin/feat/training-api-ab529ac65023
+2026-10-08T20:41:34.7991896Z  * [new branch]      fix/batch-seed-plan-2983fe20             -> origin/fix/batch-seed-plan-2983fe20
+2026-10-08T20:41:34.7993584Z  * [new branch]      fix/gpl-or-later                         -> origin/fix/gpl-or-later
+2026-10-08T20:41:34.7995250Z  * [new branch]      fix/npm-license-gpl30-only-39            -> origin/fix/npm-license-gpl30-only-39
+2026-10-08T20:41:34.7997109Z  * [new branch]      fix/npm-license-spdx-only                -> origin/fix/npm-license-spdx-only
+2026-10-08T20:41:34.7999320Z  * [new branch]      fix/restore-503-speed-rollback-after-42  -> origin/fix/restore-503-speed-rollback-after-42
+2026-10-08T20:41:34.8001818Z  * [new branch]      fix/uma-sim-issue-39-spdx-only           -> origin/fix/uma-sim-issue-39-spdx-only
+2026-10-08T20:41:34.8003600Z  * [new branch]      fix/umasim-mcp-handshake-test            -> origin/fix/umasim-mcp-handshake-test
+2026-10-08T20:41:34.8005247Z  * [new branch]      lab/t100-branch-compare                  -> origin/lab/t100-branch-compare
+2026-10-08T20:41:34.8006879Z  * [new branch]      lab/t100-career-branch-compare           -> origin/lab/t100-career-branch-compare
+2026-10-08T20:41:34.8008287Z  * [new branch]      main                                     -> origin/main
+2026-10-08T20:41:34.8009810Z  * [new branch]      otama/issue4-ci-workflow-hardening       -> origin/otama/issue4-ci-workflow-hardening
+2026-10-08T20:41:34.8012052Z  * [new branch]      otama/issue6-rest-policy-fail-closed     -> origin/otama/issue6-rest-policy-fail-closed
+2026-10-08T20:41:34.8014198Z  * [new branch]      production/cli-session-save-69570d292200 -> origin/production/cli-session-save-69570d292200
+2026-10-08T20:41:34.8016574Z  * [new branch]      production/cli-session-save-evidence-69570d292200 -> origin/production/cli-session-save-evidence-69570d292200
+2026-10-08T20:41:34.8020143Z  * [new branch]      production/session-ui-evidence-69570d292200 -> origin/production/session-ui-evidence-69570d292200
+2026-10-08T20:41:34.8023125Z  * [new branch]      production/session-ui-landed-69570d292200 -> origin/production/session-ui-landed-69570d292200
+2026-10-08T20:41:34.8026310Z  * [new branch]      receiving/branch-result-package-evidence-49f845d0dece -> origin/receiving/branch-result-package-evidence-49f845d0dece
+2026-10-08T20:41:34.8029016Z  * [new branch]      receiving/branch-result-release-49f845d0dece -> origin/receiving/branch-result-release-49f845d0dece
+2026-10-08T20:41:34.8032267Z  * [new branch]      receiving/cli-seed-admission-7879c2abc07f-20261008 -> origin/receiving/cli-seed-admission-7879c2abc07f-20261008
+2026-10-08T20:41:34.8035111Z  * [new branch]      receiving/issue64-evidence-45d4289ccf6c  -> origin/receiving/issue64-evidence-45d4289ccf6c
+2026-10-08T20:41:34.8037451Z  * [new branch]      receiving/mcp-exact-json-scan-failure-58d79b68 -> origin/receiving/mcp-exact-json-scan-failure-58d79b68
+2026-10-08T20:41:34.8039782Z  * [new branch]      receiving/pr37-process-history-49f845d0dece -> origin/receiving/pr37-process-history-49f845d0dece
+2026-10-08T20:41:34.8042366Z  * [new branch]      receiving/uma-api-admission-7a9310dad255 -> origin/receiving/uma-api-admission-7a9310dad255
+2026-10-08T20:41:34.8044452Z  * [new branch]      review/mcp-exact-json-58d79b68c9e4       -> origin/review/mcp-exact-json-58d79b68c9e4
+2026-10-08T20:41:34.8046680Z  * [new branch]      review/session-import-69570d292200-evaluation -> origin/review/session-import-69570d292200-evaluation
+2026-10-08T20:41:34.8048971Z  * [new branch]      review/setup-chooser-context-c77045b4    -> origin/review/setup-chooser-context-c77045b4
+2026-10-08T20:41:34.8051342Z  * [new branch]      t162/umasim-demo-no-test                 -> origin/t162/umasim-demo-no-test
+2026-10-08T20:41:34.8053441Z  * [new branch]      t162/umasim-demo-with-test               -> origin/t162/umasim-demo-with-test
+2026-10-08T20:41:34.8056534Z  * [new branch]      togishi/uma-sim-issue6-rest-policy-reject -> origin/togishi/uma-sim-issue6-rest-policy-reject
+2026-10-08T20:41:34.8059684Z  * [new branch]      work/0378a7b6-mcp-career-controls        -> origin/work/0378a7b6-mcp-career-controls
+2026-10-08T20:41:34.8063505Z  * [new branch]      work/astra-browser-checkpoint-json-receipts-d98d06fb-20261008 -> origin/work/astra-browser-checkpoint-json-receipts-d98d06fb-20261008
+2026-10-08T20:41:34.8066919Z  * [new branch]      work/astra-uma-skills-hints-receipts-d98d06fb-20261008 -> origin/work/astra-uma-skills-hints-receipts-d98d06fb-20261008
+2026-10-08T20:41:34.8069215Z  * [new branch]      work/career-log-e652aa-20261008          -> origin/work/career-log-e652aa-20261008
+2026-10-08T20:41:34.8071117Z  * [new tag]         v0.1.0                                   -> v0.1.0
+2026-10-08T20:41:34.8072242Z  * [new tag]         v0.2.0                                   -> v0.2.0
+2026-10-08T20:41:34.8073368Z  * [new tag]         v0.2.1                                   -> v0.2.1
+2026-10-08T20:41:34.8074562Z  * [new tag]         v0.2.2                                   -> v0.2.2
+2026-10-08T20:41:34.8075856Z  * [new ref]         d082269ba810586a46d2e87a7141890648d98c08 -> pull/121/merge
+2026-10-08T20:41:34.8078903Z ##[endgroup]
+2026-10-08T20:41:34.8079968Z ##[group]Determining the checkout info
+2026-10-08T20:41:34.8081315Z ##[endgroup]
+2026-10-08T20:41:34.8081998Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T20:41:34.8084020Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T20:41:34.8086352Z ##[group]Checking out the ref
+2026-10-08T20:41:34.8087402Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/121/merge
+2026-10-08T20:41:34.9285162Z Note: switching to 'refs/remotes/pull/121/merge'.
+2026-10-08T20:41:34.9285933Z 
+2026-10-08T20:41:34.9286523Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T20:41:34.9287873Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T20:41:34.9289500Z state without impacting any branches by switching back to a branch.
+2026-10-08T20:41:34.9290266Z 
+2026-10-08T20:41:34.9291000Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T20:41:34.9292683Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T20:41:34.9293392Z 
+2026-10-08T20:41:34.9293711Z   git switch -c <new-branch-name>
+2026-10-08T20:41:34.9294204Z 
+2026-10-08T20:41:34.9294504Z Or undo this operation with:
+2026-10-08T20:41:34.9294950Z 
+2026-10-08T20:41:34.9295218Z   git switch -
+2026-10-08T20:41:34.9295562Z 
+2026-10-08T20:41:34.9296219Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T20:41:34.9297057Z 
+2026-10-08T20:41:34.9297986Z HEAD is now at d082269 Merge 0ef6460cb516ac5f2bf78d173e7f87b30f0538bf into 38291c1aaf915da17229eca0afbbd58d9b3ce453
+2026-10-08T20:41:34.9301410Z ##[endgroup]
+2026-10-08T20:41:34.9341179Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T20:41:34.9363506Z d082269ba810586a46d2e87a7141890648d98c08
+2026-10-08T20:41:34.9557648Z ##[warning]Unexpected input(s) 'args', valid inputs are ['']
+2026-10-08T20:41:34.9573956Z ##[group]Run gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7
+2026-10-08T20:41:34.9574960Z with:
+2026-10-08T20:41:34.9575549Z   args: detect --redact --verbose --no-git -v
+2026-10-08T20:41:34.9576284Z env:
+2026-10-08T20:41:34.9581923Z   GITHUB_TOKEN: ***
+2026-10-08T20:41:34.9582492Z ##[endgroup]
+2026-10-08T20:41:35.0713112Z (node:2088) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T20:41:35.0714962Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T20:41:35.0794009Z (node:2088) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T20:41:35.2627261Z [Jacob-Met] is an individual user. No license key is required.
+2026-10-08T20:41:35.2627695Z gitleaks version: 8.24.3
+2026-10-08T20:41:35.2627928Z Version to install: 8.24.3 (target directory: /tmp/gitleaks-8.24.3)
+2026-10-08T20:41:35.5195839Z Cache hit for: gitleaks-cache-8.24.3-linux-x64
+2026-10-08T20:41:36.7608965Z Received 5713639 of 5713639 (100.0%), 5.8 MBs/sec
+2026-10-08T20:41:36.7609747Z Cache Size: ~5 MB (5713639 B)
+2026-10-08T20:41:36.7633749Z [command]/usr/bin/tar -xf /home/runner/work/_temp/25edd92a-3d36-47be-a305-a6fb0bfa00c9/cache.tzst -P -C /home/runner/work/uma-sim/uma-sim --use-compress-program unzstd
+2026-10-08T20:41:36.7873261Z Cache restored successfully
+2026-10-08T20:41:36.7878531Z Gitleaks restored from cache
+2026-10-08T20:41:36.7881542Z event type: pull_request
+2026-10-08T20:41:37.1288997Z gitleaks cmd: gitleaks detect --redact -v --exit-code=2 --report-format=sarif --report-path=results.sarif --log-level=debug --log-opts=--no-merges --first-parent aff7450bb97f3ba85e0c637d3c31363282596a57^..0ef6460cb516ac5f2bf78d173e7f87b30f0538bf
+2026-10-08T20:41:37.1302074Z [command]/tmp/gitleaks-8.24.3/gitleaks detect --redact -v --exit-code=2 --report-format=sarif --report-path=results.sarif --log-level=debug --log-opts=--no-merges --first-parent aff7450bb97f3ba85e0c637d3c31363282596a57^..0ef6460cb516ac5f2bf78d173e7f87b30f0538bf
+2026-10-08T20:41:37.2934946Z 
+2026-10-08T20:41:37.2935699Z     ○
+2026-10-08T20:41:37.2936018Z     │╲
+2026-10-08T20:41:37.2936164Z     │ ○
+2026-10-08T20:41:37.2936304Z     ○ ░
+2026-10-08T20:41:37.2936447Z     ░    gitleaks
+2026-10-08T20:41:37.2936616Z 
+2026-10-08T20:41:37.2937054Z [90m8:41PM[0m DBG using github.com/wasilibs/go-re2 regex engine
+2026-10-08T20:41:37.2937459Z [90m8:41PM[0m DBG using existing gitleaks config .gitleaks.toml from `(--source)/.gitleaks.toml`
+2026-10-08T20:41:37.3696554Z [90m8:41PM[0m DBG extending config with default config
+2026-10-08T20:41:37.3707815Z [90m8:41PM[0m DBG found .gitleaksignore file: .gitleaksignore
+2026-10-08T20:41:37.3708459Z [90m8:41PM[0m DBG found .gitleaksignore file: .gitleaksignore
+2026-10-08T20:41:37.3711088Z [90m8:41PM[0m DBG executing: /usr/bin/git -C . log -p -U0 --no-merges --first-parent aff7450bb97f3ba85e0c637d3c31363282596a57^..0ef6460cb516ac5f2bf78d173e7f87b30f0538bf
+2026-10-08T20:41:37.3757780Z [90m8:41PM[0m DBG SCM platform parsed from host [36mhost=[0mgithub.com [36mplatform=[0mgithub
+2026-10-08T20:41:37.4042620Z Finding:     "apiSha256": "[1;3;mREDACTED[0m"
+2026-10-08T20:41:37.4043114Z Secret:      [1;3;mREDACTED[0m
+2026-10-08T20:41:37.4051778Z RuleID:      generic-api-key
+2026-10-08T20:41:37.4052038Z Entropy:     3.863611
+2026-10-08T20:41:37.4052349Z File:        docs/receiving/mcp-career-controls-0378a7b6/build-composed.json
+2026-10-08T20:41:37.4052711Z Line:        8
+2026-10-08T20:41:37.4052970Z Commit:      0ef6460cb516ac5f2bf78d173e7f87b30f0538bf
+2026-10-08T20:41:37.4053303Z Author:      Jacob Metoyer
+2026-10-08T20:41:37.4053599Z Email:       150724801+Jacob-Met@users.noreply.github.com
+2026-10-08T20:41:37.4053981Z Date:        2026-10-08T20:40:15Z
+2026-10-08T20:41:37.4055089Z Fingerprint: 0ef6460cb516ac5f2bf78d173e7f87b30f0538bf:docs/receiving/mcp-career-controls-0378a7b6/build-composed.json:generic-api-key:8
+2026-10-08T20:41:37.4056101Z Link:        https://github.com/Jacob-Met/uma-sim/blob/0ef6460cb516ac5f2bf78d173e7f87b30f0538bf/docs/receiving/mcp-career-controls-0378a7b6/build-composed.json#L8
+2026-10-08T20:41:37.4056607Z 
+2026-10-08T20:41:37.4057707Z Finding:     "nativeApiSha256": "[1;3;mREDACTED[0m"
+2026-10-08T20:41:37.4058163Z Secret:      [1;3;mREDACTED[0m
+2026-10-08T20:41:37.4058405Z RuleID:      generic-api-key
+2026-10-08T20:41:37.4058706Z Entropy:     3.866522
+2026-10-08T20:41:37.4059102Z File:        docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z/receipt.json
+2026-10-08T20:41:37.4059536Z Line:        7
+2026-10-08T20:41:37.4059760Z Commit:      0ef6460cb516ac5f2bf78d173e7f87b30f0538bf
+2026-10-08T20:41:37.4060049Z Author:      Jacob Metoyer
+2026-10-08T20:41:37.4060522Z Email:       150724801+Jacob-Met@users.noreply.github.com
+2026-10-08T20:41:37.4060947Z Date:        2026-10-08T20:40:15Z
+2026-10-08T20:41:37.4061617Z Fingerprint: 0ef6460cb516ac5f2bf78d173e7f87b30f0538bf:docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z/receipt.json:generic-api-key:7
+2026-10-08T20:41:37.4062812Z Link:        https://github.com/Jacob-Met/uma-sim/blob/0ef6460cb516ac5f2bf78d173e7f87b30f0538bf/docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z/receipt.json#L7
+2026-10-08T20:41:37.4063455Z 
+2026-10-08T20:41:37.4093825Z [90m8:41PM[0m [32mINF[0m [1m2 commits scanned.[0m
+2026-10-08T20:41:37.4094562Z [90m8:41PM[0m DBG Note: this number might be smaller than expected due to commits with no additions
+2026-10-08T20:41:37.4095275Z [90m8:41PM[0m [32mINF[0m [1mscanned ~186972 bytes (186.97 KB) in 116ms[0m
+2026-10-08T20:41:37.4095781Z [90m8:41PM[0m [33mWRN[0m [1mleaks found: 2[0m
+2026-10-08T20:41:37.4119841Z Artifact name is valid!
+2026-10-08T20:41:37.4120981Z Root directory input is valid!
+2026-10-08T20:41:37.7529397Z Beginning upload of artifact content to blob storage
+2026-10-08T20:41:38.0511428Z Uploaded bytes 7236
+2026-10-08T20:41:38.1375423Z Finished uploading artifact content to blob storage!
+2026-10-08T20:41:38.1375904Z SHA256 digest of uploaded artifact zip is 5a9d75d0e4d92a13a0eb80c0b2c66cff3977c5399ed995cb59d9ff6facfb1f3e
+2026-10-08T20:41:38.1381341Z Finalizing artifact upload
+2026-10-08T20:41:38.5931575Z Artifact gitleaks-results.sarif.zip successfully finalized. Artifact ID 11578195826
+2026-10-08T20:41:39.0284243Z ##[warning]Error encountered when attempting to write a comment on PR #121: HttpError: Resource not accessible by integration
+Likely an issue with too large of a diff for the comment to be written.
+All secrets that have been leaked will be reported in the summary and job artifact.
+2026-10-08T20:41:39.4965542Z ##[warning]Error encountered when attempting to write a comment on PR #121: HttpError: Resource not accessible by integration
+Likely an issue with too large of a diff for the comment to be written.
+All secrets that have been leaked will be reported in the summary and job artifact.
+2026-10-08T20:41:39.4978175Z ##[warning]🛑 Leaks detected, see job summary for details
+2026-10-08T20:41:39.5171641Z Post job cleanup.
+2026-10-08T20:41:39.5763850Z [command]/usr/bin/git version
+2026-10-08T20:41:39.5798691Z git version 2.55.0
+2026-10-08T20:41:39.5824705Z Temporarily overriding HOME='/home/runner/work/_temp/08dc3ce2-8e66-44a8-90dc-fb951d74757b' before making global git config changes
+2026-10-08T20:41:39.5825527Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T20:41:39.5829089Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:41:39.5871818Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T20:41:39.5903332Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T20:41:39.6134950Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T20:41:39.6163954Z http.https://github.com/.extraheader
+2026-10-08T20:41:39.6173255Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T20:41:39.6206672Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T20:41:39.6414100Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T20:41:39.6444958Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T20:41:39.6751667Z Cleaning up orphan processes
+2026-10-08T20:41:39.6965217Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

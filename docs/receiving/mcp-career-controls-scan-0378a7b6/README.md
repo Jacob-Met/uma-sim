@@ -1,0 +1,5 @@
+# Native checksum scanner disposition
+
+The first PR121 scanner run37841328293 (job113531135856) flagged two native executable SHA-256 receipt fields under generic-api-key. Their complete original redacted job log is retained. Fresh author and independent root native hash computations match the referenced binaries and receipt values exactly. The independent disposition permits only two immutable commit:path:rule:line fingerprints in .gitleaksignore. The previous five entries, scanner rules, workflow, source, tests and original receiving packet remain unchanged.
+
+The same first head passed complete CI37841328434 and pr-test-gate37841328333. Its final replacement head still requires normal hosted gates before merge. The original packet accidentally omitted eleven files because inherited ignore rules exclude logs and generated checkpoint paths; tracked-packet-receipt.json records the exact files subsequently added and verifies all48 original manifest entries against committed bytes. No original failure or independent artifact was discarded.
