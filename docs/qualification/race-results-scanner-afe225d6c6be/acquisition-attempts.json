@@ -10,7 +10,7 @@
   "first_thinkpad_attempt": {
     "device": "d55b2499-5e82-4805-819a-d0d7ddea1efe",
     "pid": 3209884,
-    "owned_directory": "/tmp/hamon-gitleaks-afe225d6c6be-jpro187m",
+    "owned_directory": "[redacted]",
     "status": "archive write failed with OSError errno 122 Disk quota exceeded",
     "checksum_file_bytes": 1099,
     "checksum_file_sha256": "eefa9ab1ee69571248a6fa070a2a7de0837dd9eb72745d131f8766206aac8ac2",
@@ -22,7 +22,7 @@
     "mount": "tmpfs with usrquota"
   },
   "successful_recovery": {
-    "owned_directory": "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g",
+    "owned_directory": "[redacted]",
     "mount": "existing ext4 filesystem",
     "capacity_floor_bytes": 1073741824,
     "detail": "See scanner-acquisition.json. A new owned directory was used without changing mounts, dependencies, runtimes, PATH, services, or another owner's files."
