@@ -17,7 +17,7 @@ function SkillList({ title, rows, empty }: { title: string; rows: SkillRow[]; em
               </div>
               {row.name && row.name !== row.id && <code className="skills-id">{row.id}</code>}
               {row.kind === "skill" && !row.name && (
-                <span className="skills-missing-name">Name not in catalog</span>
+                <span className="skills-missing-name">Name unavailable</span>
               )}
               {row.description && <p className="skills-description">{row.description}</p>}
             </li>
