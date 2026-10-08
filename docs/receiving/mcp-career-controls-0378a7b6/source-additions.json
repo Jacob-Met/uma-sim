@@ -1,0 +1,8 @@
+{
+  "path": "packages/uma-sim-mcp/mcp-stdio.js",
+  "originalSha256": "6682c71c9d4bfd91a52dc2266bd2748fa0406bde44f47c754147aecf26736fd3",
+  "candidateSha256": "d8354f11aaf2bd6ec52e47c1dbc4371b7a0820efea079d8db716cd48ace1c553",
+  "rows": "  tool(\"sim_catalog\", \"List the existing native catalog so you can choose exact career identities. Does not start or change a career.\", {\r\n    kind: { type: \"string\", enum: [\"scenarios\", \"trainees\", \"supports\", \"factors\", \"skills\"] },\r\n  }, [\"kind\"]),\r\n  tool(\"sim_style\", \"Set the target career\\'s preferred race style without taking a turn. Auto restores the engine\\'s best-aptitude choice; it does not promise a better outcome.\", {\r\n    style: { type: \"string\", enum: [\"auto\", \"front\", \"pace\", \"late\", \"end\"] },\r\n    session: NAMED_SESSION,\r\n  }, [\"style\"]),\r\n",
+  "cases": "    case \"sim_catalog\":\r\n      return api(\"GET\", `/v1/catalog/${args.kind}`);\r\n    case \"sim_style\":\r\n      return api(\"POST\", \"/v1/run/style\", {\r\n        style: args.style === \"auto\" ? \"\" : args.style, session: args.session,\r\n      });\r\n",
+  "removedAdditionsRecoverOriginal": true
+}

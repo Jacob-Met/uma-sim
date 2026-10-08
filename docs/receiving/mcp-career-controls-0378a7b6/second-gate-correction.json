@@ -1,0 +1,5 @@
+{
+  "at": "2026-10-08T20:10:51.777Z",
+  "reason": "Native snapshot omits the optional preferredRunningStyle key when Auto clears it. The receiver had incorrectly expected a present null; corrected Auto expectation to equal the entire original snapshot, preserving the absent-key distinction.",
+  "productionSourceUnchanged": true
+}
