@@ -1,0 +1,122 @@
+{
+  "recordedAt": "2026-10-08T19:19:02.712Z",
+  "runtime": "v22.22.1",
+  "binary": "/home/jacob/estate-production-2983fe20/baseline-target/debug/uma-sim",
+  "binarySha256": "eb1fc0410dc86362af577d302ff06a27091ebc233999590ffe816a7145923551",
+  "binaryUnchanged": true,
+  "provenance": {
+    "retainedBaseline": "6245d48132df3f07aaa314f5faa9cb31536449b1",
+    "currentSource": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+    "sessionAndAffectedCallerSpansByteIdentical": true,
+    "entireCurrentMainBuild": false
+  },
+  "receipts": [
+    {
+      "name": "healthy-start",
+      "args": [
+        "start",
+        "--seed=42",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub"
+      ],
+      "limited": false,
+      "obstructed": false,
+      "exit": 0,
+      "signal": null,
+      "stdoutBytes": 216,
+      "stderr": "",
+      "afterBytes": 2761,
+      "priorSha256": null,
+      "afterSha256": "7431e30feb1d253dbd372cbdee2b4256a53aea65ec46a59779c19ba31ce1ef91",
+      "priorPreserved": null,
+      "afterJson": true,
+      "obstructionPreserved": null
+    },
+    {
+      "name": "obstructed-start",
+      "args": [
+        "start",
+        "--seed=42",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub"
+      ],
+      "limited": false,
+      "obstructed": true,
+      "exit": 0,
+      "signal": null,
+      "stdoutBytes": 216,
+      "stderr": "Failed to save session: File exists (os error 17)\n",
+      "priorSha256": null,
+      "afterSha256": null,
+      "priorPreserved": null,
+      "afterJson": null,
+      "obstructionPreserved": true
+    },
+    {
+      "name": "obstructed-fast",
+      "args": [
+        "fast",
+        "--seed=42",
+        "--scenario=ura",
+        "--dialogue=off",
+        "--race-model=stub",
+        "--policy=default"
+      ],
+      "limited": false,
+      "obstructed": true,
+      "exit": 0,
+      "signal": null,
+      "stdoutBytes": 321,
+      "stderr": "Failed to save session: File exists (os error 17)\n",
+      "priorSha256": null,
+      "afterSha256": null,
+      "priorPreserved": null,
+      "afterJson": null,
+      "obstructionPreserved": true
+    },
+    {
+      "name": "limited-step",
+      "args": [
+        "step",
+        "rest"
+      ],
+      "limited": true,
+      "obstructed": false,
+      "exit": 0,
+      "signal": null,
+      "stdoutBytes": 234,
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "afterBytes": 1024,
+      "priorSha256": "0547a4317be512a15bfa4463ba12fbde0893e1c85861a09081064c237b84a8ea",
+      "afterSha256": "d3752ba751dc6b52608afe9672fd40f47f2d4e01f3029ba075ba2e6576f79089",
+      "priorPreserved": false,
+      "afterJson": false,
+      "obstructionPreserved": null
+    },
+    {
+      "name": "limited-deck",
+      "args": [
+        "deck",
+        "place",
+        "10001",
+        "speed"
+      ],
+      "limited": true,
+      "obstructed": false,
+      "exit": 0,
+      "signal": null,
+      "stdoutBytes": 22,
+      "stderr": "Failed to save session: File too large (os error 27)\n",
+      "priorBytes": 2954,
+      "afterBytes": 1024,
+      "priorSha256": "0e0a5607e212b59a8e715c51ce23eae854ef29fb13e253d32396a5ccc0f252e4",
+      "afterSha256": "d3752ba751dc6b52608afe9672fd40f47f2d4e01f3029ba075ba2e6576f79089",
+      "priorPreserved": false,
+      "afterJson": false,
+      "obstructionPreserved": null
+    }
+  ]
+}
