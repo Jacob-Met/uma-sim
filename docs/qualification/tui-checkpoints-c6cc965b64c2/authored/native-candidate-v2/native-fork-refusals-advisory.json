@@ -1,0 +1,20 @@
+{
+  "missing": {
+    "code": 1,
+    "signal": null,
+    "stdout": "Opening checkpoint 'missing' as session: tui-e78e4f84-bbd4-4f0e-a83f-cf7e7976f9d0\n",
+    "stderr": "POST /v1/session/fork: HTTP 404: no checkpoint named 'missing'\n"
+  },
+  "incompatible": {
+    "code": 1,
+    "signal": null,
+    "stdout": "Opening checkpoint 'keep' as session: tui-99117a2c-0c5e-4ee2-a5d4-46c258c79796\n",
+    "stderr": "POST /v1/session/fork: HTTP 422: incompatible snapshot: snapshot schema v999 is not readable by this build (expects v1)\n"
+  },
+  "terminal": {
+    "code": 0,
+    "signal": null,
+    "stdout": "Opening checkpoint 'keep' as session: tui-88088017-4b29-4c50-80b4-b63f220f92a2\nOpened checkpoint 'keep' as session: tui-88088017-4b29-4c50-80b4-b63f220f92a2\nResume this career with --session=tui-88088017-4b29-4c50-80b4-b63f220f92a2\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 7  Y1 M9\nSPD 103 STA 88 POW 107\nGUT 93 WIT 91\nE 40  Mood BAD  Fans 309  SP 21\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 7) ---\nDate: Year 1, Month 9, Late\nStats: SPD 103 STA 88 POW 107 GUT 93 WIT 91\nEnergy: 40/100  Mood: Bad  Fans: 309  SP: 21\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+    "stderr": "Checkpoint advisory: checkpoint was saved by uma-sim-core fixture-earlier-build; this build is 0.1.0\n"
+  }
+}

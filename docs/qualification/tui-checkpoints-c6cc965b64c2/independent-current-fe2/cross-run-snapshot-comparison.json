@@ -1,0 +1,59 @@
+{
+  "schema": "hamon.uma.terminal_durable.current_api_snapshot_comparison.v1",
+  "prior_receipt_sha256": "b217ca32937cbd8d7a488886799ce69950cece3ea69164973c298ae855afa199",
+  "current_receipt_sha256": "eead9cca60504baff1e936a56564900b9a5397fd09bde122d7eb380eecd2b64e",
+  "normalization": "Only object key order is ignored. Array order and every JSON numeric source token and all other values are compared exactly.",
+  "excluded_metadata": "Checkpoint metadata savedAt depends on this separate run's actual wall time; each run independently proves saved metadata bytes remain unchanged through its restart/action/failure checks.",
+  "comparisons": [
+    {
+      "path": "run-v1/artifacts/baseline-after.json",
+      "old_sha256": "5243994968a845711c310c3c0f3187c7c852417404edfc6912bc92538a9a7ec7",
+      "current_sha256": "2fefd37e08adb6e0222afa27aff384980c6f940b246ec5b2c42d45e757780963",
+      "byte_identical": false,
+      "full_state_equal_ignoring_only_object_key_order": true
+    },
+    {
+      "path": "run-v1/artifacts/baseline-before.json",
+      "old_sha256": "0105925241940855fc736e39436d828d0c78eb0d9507f54e178ba7294d65973d",
+      "current_sha256": "6d6da903f9017ac50f62ef9804f7f64251f96285a7cb3d3a442224334fc14762",
+      "byte_identical": false,
+      "full_state_equal_ignoring_only_object_key_order": true
+    },
+    {
+      "path": "run-v1/artifacts/checkpoint-original.snapshot.json",
+      "old_sha256": "0822c2053cb2cb1e8bc9010ba73a0f8d9159bd4dd2c61b79388680b669d60132",
+      "current_sha256": "462c16a5848eff495ad8a75254d0f30399b3c4f589bc7c82e04d82e1bc44c88a",
+      "byte_identical": false,
+      "full_state_equal_ignoring_only_object_key_order": true
+    },
+    {
+      "path": "run-v1/artifacts/primary-after-auto.json",
+      "old_sha256": "2634e86bd7a17bb7cd69cdb1b89de875c0ea55649a9bb71096beade12eec3724",
+      "current_sha256": "e8c2cbadd6f1c31cfdb0d78d90b6ee8cc17ac7a24e25297d05caa42dda1eb61d",
+      "byte_identical": false,
+      "full_state_equal_ignoring_only_object_key_order": true
+    },
+    {
+      "path": "run-v1/artifacts/primary-before-auto.json",
+      "old_sha256": "0822c2053cb2cb1e8bc9010ba73a0f8d9159bd4dd2c61b79388680b669d60132",
+      "current_sha256": "462c16a5848eff495ad8a75254d0f30399b3c4f589bc7c82e04d82e1bc44c88a",
+      "byte_identical": false,
+      "full_state_equal_ignoring_only_object_key_order": true
+    },
+    {
+      "path": "run-v1/artifacts/restart-step-0.json",
+      "old_sha256": "5d575bb8de37778907fed9325a03ba4ae3481259003ccc80f33e1ea1f3a36484",
+      "current_sha256": "b47fc07dac86eb09484e515b27243ed31a952639acffe95ac6bb6d7e576a1b80",
+      "byte_identical": false,
+      "full_state_equal_ignoring_only_object_key_order": true
+    },
+    {
+      "path": "run-v1/artifacts/restart-step-1.json",
+      "old_sha256": "c44c58a7a83a6f8a906f6ba9c8ed8848a3ca6ef4fb825072a87cfe45101ce535",
+      "current_sha256": "99d5fadda6adefe9be22bf4299d6148d6ce0a85bbc5da8a991fee8536754e332",
+      "byte_identical": false,
+      "full_state_equal_ignoring_only_object_key_order": true
+    }
+  ],
+  "all_full_state_snapshots_equal": true
+}

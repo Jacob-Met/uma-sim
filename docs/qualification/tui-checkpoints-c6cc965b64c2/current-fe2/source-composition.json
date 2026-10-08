@@ -1,0 +1,569 @@
+{
+  "schema": 1,
+  "createdAt": "2026-10-08T11:35:54.112Z",
+  "base": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "current": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "qualified": "6181efdfba50653fd86f295d0ccbfc1e478f086d",
+  "head": "92db1618cc014924e43a69b2dfe4d5891680b176",
+  "tree": "4ee456989b96c3557f0c167f6d53ccc6631b6cd2",
+  "currentTree": "6ee572f7ef9a3623a8f2bd192235787fb9fbecb9",
+  "changedPaths": 76,
+  "frozenExactPaths": 75,
+  "currentLeaves": 562,
+  "preservedUnownedLeaves": 558,
+  "ci": {
+    "path": ".github/workflows/ci.yml",
+    "before": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "247b92e6b0f2a4e6242435e228cf057bdf724ebd"
+    },
+    "after": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a657f548d8a5bb2a7662e697c5f7555fc4b64582"
+    },
+    "insertedLines": 13,
+    "currentBytesPreserved": true
+  },
+  "api": {
+    "path": "uma-sim-core/src/api.rs",
+    "binary": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc/target/debug/uma-sim-api",
+    "binarySha256": "b5f4c2c7af89751b38a2be4a646c6a2b0a183d376002394e80b485f9c81709a4",
+    "before": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eab9ccf7082ffc96c446f434bd76f313aff14bc9"
+    },
+    "after": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eab9ccf7082ffc96c446f434bd76f313aff14bc9"
+    }
+  },
+  "library": {
+    "path": "uma-sim-core/src/career_lab.rs",
+    "before": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4360cd3dbca832a9a22be138ca13a5deb4dfeb0f"
+    },
+    "after": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4360cd3dbca832a9a22be138ca13a5deb4dfeb0f"
+    }
+  },
+  "cargoLock": {
+    "before": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f99851c45524f129e8544a2d779b3c21594d816"
+    },
+    "after": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f99851c45524f129e8544a2d779b3c21594d816"
+    }
+  },
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a657f548d8a5bb2a7662e697c5f7555fc4b64582"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f23ba0b0c18ecb8766427e1c64bce5138fb6099f"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/http-baseline.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f5ae35b9481efd80d80107f1b9efc23552c5917"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/http-candidate.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b02bead656886c2202c060323e58efec01a8c290"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline-v2.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99f0fbfadb4be44f95c652a3bf678f7c5fe4588c"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline-v2/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "daab5f8486c9519df8d060d10a7445d0c19c132c"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline-v2/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34fd691c579f11c1ccb0c2409b6cd7e8c58e54c1"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a78bfa280d9f6f29cf1c015a3851e4a89aca0ac"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6208bb5eddafdb4c1609915e984d969a31857dd7"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "76a49d11303bd1fa718d775b9a11ae3026a3e159"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-build.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2cf30b804e0dd37469aaf4f46d0ea4199a49d195"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbcc6f1f0a97e6c167ce5b0c9b2482c75a41b873"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d77af4c42cb5b443f0564688ea3378ec9c111af"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fce552fbd1839c5a908e081ee3585bcdea46f970"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fdc67a9235de684416e34daa5ccd0fa72780ef9"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64c7d4faadcc1e804e1b2c08b77ab9362f1a0a6a"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-refusals-advisory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ba2d20634b7b00146eecf21d0ec41983e0e531b"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-save-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a453159c38db7177ec1ef8deaa5b72859e98f606"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-save-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54f3818c10a20d60c43861d652b45b74e0ae6cb5"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-save-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "905ea08138f220744acdccfd6b6ffede9278c5c2"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-save-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86d90c51ac8b10e039e4877b873c3392812bd658"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a704f3f85ebc0a334efbce3410fb12aa607df9b"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c6c0c6ebbfbf364dc0bdb46b379bc3b0317f7e5"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "951967a1827e1d54187f05d168778e8ace9b455d"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "825b3b85a13b3b1903c231939384ffc6a2677b32"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ce1e6c7f60e3bc4468a4bf7d53dd907667d7c50"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e560bc9175faed92be151f0ca577e95f2d613dde"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22bfd9716d9759c357ad670b6adc1dbd5281ef2a"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-refusals-advisory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf6015b606e8d23cf9a926363eb251bef2eb6e8a"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa247cea41d5ab644192b5e964defa9e0ef97a6f"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f333478c81bea68eaa39715235a5f29ccb189bc"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77502ee3e1f1c95e6e499fb0fb335b748b26b633"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcb6cf769a723a8e1541dd5ac01014a9c810e42e"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-refusals.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92ada088a66c177aa09f7b6fad9b73940706420f"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef010822ad3b0428dd01375690d3f160b82b586d"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85dcf338aa9cfb4c122b2a351ec3e76f9ef53c10"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1547f09f55c643a45b6fbb2a195f943f0d539530"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f78ad1ad09dcb42c170d9ced02bb7b8087671af"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1831d2c36946a8fe212dbc8c18f8d1d98bf523f"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71d7fc68c72285f76a099c7f6cbb9baa63bc65ef"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b18c45dfe1e4fb0313d27ff56d5877da6196a0d"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-refusals-advisory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02a7ecb04c93b0707318af7192ebb34486f23cc8"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77a441d8359bcc936f759ae14692e7bae237bf63"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9068d82ead079b51592c7c3e2676cede2e2f1096"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58611122b4e0e10b7a52370b58555e1f8cee2c9a"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbb2ebbae0cffa1c46f4762421dc0006baa35e68"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-refusals.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b087fabc80268a15d1afc08096a5f65b25b8d262"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e8fc9343de4fd1807e9119f35e8b5ed7921558f"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f204d0743de290763027b6f3bd820c5ef4de342d"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/receiver-attempt-v1.native.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8623ade6af82225cd020af384cb8dc0a044e697d"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/receiver-attempt-v2.native.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6fee547fb94895ea4979235e6721de73523a5c1b"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/tui-baseline.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3fad690acbe62f43cf9eeab421da3c7b3b5818d"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/REVIEW.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6520a4e04b850fbdb3d2631f3301ea99c6e3284"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/driver-preparation-negative.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "344dbda59497757bda040975827e0475a0f4e0d1"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/evidence-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e092515198f6f5c6b38ed8b6b5e9fbc522187a1d"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/exact-address-analysis.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dceb3c2b0e1229614fc8db9a0a018e96f356767e"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/receive-v1.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c63dff86afd96f5f633c2f1acba9b42eb920d2d"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8fc7327c24ba53f40b410e553960da8a8218fc3"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/baseline-after.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af6c1f740d9882a867a66de12f2a47d5cd8c650c"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/baseline-before.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32d3baf5e64ca72cb89a344ae5f25d3a26abe578"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/checkpoint-original.meta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26d5d1f009b2dcab6f5744a67130c354445cc7e5"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/checkpoint-original.snapshot.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b06f372ed2ecb4bbb097488d4ef407c50baba90"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/primary-after-auto.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9be29843f80cf4bd573fae12aed148fbe6d75ad0"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/primary-before-auto.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b06f372ed2ecb4bbb097488d4ef407c50baba90"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/restart-step-0.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "164936c7d9124343d9e1d577ea44d67a76f06734"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/restart-step-1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61a3e3fd91ce144c0078413fb726d75a1ce408bc"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6efb2e43572ed855eec86778b130f8a4a98b0cef"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/source-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08498a89e0838deaece89d7772fa57094a393a61"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/staging-helper-negative.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "517d33405fd622569f555383c84d0641cfa0f535"
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2abcb128c954660fd9ff9967a58f1f07c1681154"
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c4c4f7b0fc1ec056ee99a034acfc5b1d2abc324"
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccf608c0f5ef3c23ab55c38c2f56ff4f7b8c024e"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoint-harness.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f71607eb4fcfe6ac0c580558b4f83cd1a222c519"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoints.native.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fdc14954d7798eeee7a9614581249baadcab798"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoints.test.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7e641a5fffe1c893c22856591d710a1e67d96cc"
+    },
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfeed47234f1660acd175fa61a3290327a741aa1"
+    }
+  ],
+  "status": "",
+  "sourcePins": [
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "gitBlob": "dfeed47234f1660acd175fa61a3290327a741aa1",
+      "sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e"
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "gitBlob": "ccf608c0f5ef3c23ab55c38c2f56ff4f7b8c024e",
+      "sha256": "174bbaf954859841492a08359aabddbd0e23eba7f5b68b753da9e27919456419"
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "gitBlob": "2c4c4f7b0fc1ec056ee99a034acfc5b1d2abc324",
+      "sha256": "f2d06e66eed260eb907a3b579261b41ebce92871b67361c87c357c4737591640"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoints.native.mjs",
+      "gitBlob": "7fdc14954d7798eeee7a9614581249baadcab798",
+      "sha256": "0e3041de58c6d3c657801539127bd2cfd2f5e1c0a911dd506864a1db4a019854"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "gitBlob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+      "sha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55"
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "gitBlob": "4360cd3dbca832a9a22be138ca13a5deb4dfeb0f",
+      "sha256": "f12208e5796ac6ab42ba515d6d8e6734388810894b600420e4badfdeab250f08"
+    },
+    {
+      "path": "Cargo.lock",
+      "gitBlob": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c"
+    }
+  ],
+  "previousApi": {
+    "path": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/target/debug/uma-sim-api",
+    "sha256": "6f94216933f76a08caeade29087f50e0e49da46dabdea8d98d89a200d4835754"
+  }
+}

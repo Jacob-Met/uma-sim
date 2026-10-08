@@ -1,0 +1,43 @@
+✔ checkpoint opens an independent named career, preserves existing state, and shows advisories (162.795708ms)
+✔ save is explicitly create-only and selected-session bound; checkpoint listing never advances play (154.064292ms)
+✔ standalone list is read-only, exits with closed stdin, and supports an empty library (284.920083ms)
+✔ checkpoint argument conflicts and malformed names fail before HTTP (1478.583ms)
+✔ malformed save commands are refused locally rather than sent as game choices (154.704917ms)
+✔ fork refusal never falls back to start, load, or another career (534.47475ms)
+✔ save storage or session refusal stays visible and permits later play (266.9105ms)
+✔ save with disconnect after commit retains recovery identity and never retries (129.020125ms)
+✔ save with invalid JSON after commit retains recovery identity and never retries (130.680292ms)
+✔ save with wrong identity after commit retains recovery identity and never retries (150.034416ms)
+✔ fork with disconnect after commit retains recovery identity and never retries (115.937834ms)
+✔ fork with invalid JSON after commit retains recovery identity and never retries (104.245042ms)
+✔ fork with wrong identity after commit retains recovery identity and never retries (127.598291ms)
+✔ EOF during pending save preserves identity without replay (125.806333ms)
+✔ SIGINT during pending save preserves identity without replay (122.020875ms)
+✔ EOF during pending fork preserves identity without replay (109.592792ms)
+✔ SIGINT during pending fork preserves identity without replay (108.072292ms)
+✔ invalid library response reports failure without mutating a session (262.353791ms)
+✔ ordinary seed/scenario creates a fresh named career and every operation stays on it (175.421333ms)
+✔ --new always creates another unique session while existing careers survive (278.43875ms)
+✔ resume never starts, activates or closes a career and remains explicit when active changes (151.033208ms)
+✔ listing sessions is read-only and includes the legacy main label (127.395917ms)
+✔ a missing resume target fails without starting or falling back to active (126.957209ms)
+✔ rejected new career is reported before entering the prompt (126.810584ms)
+✔ rejected actions and unavailable external fast policy leave an interactive prompt (134.915958ms)
+✔ disconnect after an action reports uncertainty and never retries the action (125.653833ms)
+✔ invalid JSON after an action reports uncertainty and never retries the action (123.437334ms)
+✔ a read failure discards the incomplete display and can recover without a mutation (133.662ms)
+✔ EOF at the prompt exits without changing the career (131.916708ms)
+✔ EOF while an action is pending cancels waiting, keeps its identity and does not replay (134.120625ms)
+✔ SIGINT at the prompt exits without changing the career (128.376333ms)
+✔ SIGINT while an action is pending cancels waiting, keeps its identity and does not replay (128.272542ms)
+✔ empty, whitespace, unsafe and conflicting session arguments fail before HTTP (952.318792ms)
+✔ a failing health response is fatal and never treated as permission to create a career (112.201292ms)
+✔ help and invalid seeds finish without contacting the server (299.797416ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4670.21125

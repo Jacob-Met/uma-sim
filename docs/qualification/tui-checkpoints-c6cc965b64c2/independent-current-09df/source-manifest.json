@@ -1,0 +1,139 @@
+{
+  "source_commit": null,
+  "source_parent": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+  "source_repo": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/source-composition",
+  "binary": {
+    "path": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+    "sha256": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6"
+  },
+  "files": [
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e",
+      "git_blob": "dfeed47234f1660acd175fa61a3290327a741aa1",
+      "bytes": 14580
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "sha256": "174bbaf954859841492a08359aabddbd0e23eba7f5b68b753da9e27919456419",
+      "git_blob": "ccf608c0f5ef3c23ab55c38c2f56ff4f7b8c024e",
+      "bytes": 671
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "sha256": "f2d06e66eed260eb907a3b579261b41ebce92871b67361c87c357c4737591640",
+      "git_blob": "2c4c4f7b0fc1ec056ee99a034acfc5b1d2abc324",
+      "bytes": 7059
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "sha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55",
+      "git_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+      "bytes": 86803
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "sha256": "937f9663b85a5809160b92071f7065760872756346d3f4919054586855c29dd3",
+      "git_blob": "83025a33775d3559c54c56c0183badd1c919cc50",
+      "bytes": 56404
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "bebae3609517d53d709d9c273a33c8595bc354d535b4ee4cf851b9c144e84904",
+      "git_blob": "c561d939a123d508bd9a5dd73daa20da4800d0aa",
+      "bytes": 4416
+    },
+    {
+      "path": "uma-sim-core/tests/api_body_admission.rs",
+      "sha256": "c58ac98b07ac43711260fea5581beb046b920897cba2496217b23c030ae240e1",
+      "git_blob": "a54fb88b055d2e7ae79eb3623aa9002c52e775f1",
+      "bytes": 9489
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+      "git_blob": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "bytes": 9836
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "818161c35c9828641c370cc3c6b50dfb1e8e4417210bd8fa486e87234e40b1d8",
+      "git_blob": "d55384b62968b2ada18d45aa4de2053e175579ea",
+      "bytes": 71
+    },
+    {
+      "path": "uma-sim-core/Cargo.toml",
+      "sha256": "4f2415320bc4548fa59ad6c115ad05a8adcad59a2b50349cf44d78d52d12c5e0",
+      "git_blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+      "bytes": 1098
+    },
+    {
+      "path": "uma-sim-core/tests/career_library_replacement.rs",
+      "git_blob": "3d80ea5a58f1d6094b6f2233d3df8def1a8ea66d",
+      "sha256": "ffa04ab3389a29489cc49e5aa81138fbbf861b8b85691200ef2facdd14306f05",
+      "bytes": 6695
+    }
+  ],
+  "baseline_tui": {
+    "git_blob": "e3fad690acbe62f43cf9eeab421da3c7b3b5818d",
+    "sha256": "39d36f1ebba8c06823e57f2a5c9d49ab6a2b00d8ff0d67ff7afb6f5c5f1d17bb",
+    "path": "packages/uma-sim-cli/tui.js",
+    "commit": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c"
+  },
+  "review_scope": "Unchanged independent 16 terminal groups plus 3 admission groups against the exact current checkpoint-replacement API. Source_repo is an explicit reviewer-local runtime/TUI composition, not a named full engine Git commit; no source mutation or build of the donor.",
+  "composition": {
+    "native_main": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+    "native_main_tree": "8352de08ded783d6d23030b312c36c5b9a4b0fe1",
+    "native_donor_root": "/workspace/scratch/ac386303dce2/product-checkpoint-recovery",
+    "native_donor_git_head": "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+    "native_working_source_and_catalog_match_current_main": true,
+    "native_input_files": 120,
+    "terminal_frozen_source": "3077775807c1eb5c2af6937038bd26cf5f00c75b",
+    "terminal_current_composition": "f419b9e03db811777d2dea6dfaf830b7bb259dc2",
+    "terminal_sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e",
+    "workflow_source": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+    "api_body_admission_source_unchanged": true,
+    "library_source_changed": true,
+    "build_performed_by_receiver": false
+  },
+  "prior_receipt_sha256": "eead9cca60504baff1e936a56564900b9a5397fd09bde122d7eb380eecd2b64e",
+  "driver_portability": {
+    "node": "v24.19.0 Linux x64 with JSON source context",
+    "changes": [
+      {
+        "path": "receive-v1.mjs",
+        "before_sha256": "6588974a3182048930512a8142731aaa37ae3b9559257766bfe0c763632f2e35",
+        "after_sha256": "9ddf704208836f284d9f22767eeeada0873096b1844c7968cecfc8dbf06fd4c7",
+        "changes": [
+          {
+            "before": "const root=\"/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-fe2e6fdc-v1\";",
+            "after": "const root=\"/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2\";"
+          },
+          {
+            "before": "cp.spawn(\"/opt/homebrew/bin/node\",",
+            "after": "cp.spawn(process.execPath,"
+          }
+        ],
+        "all_other_bytes_preserved": true
+      },
+      {
+        "path": "admission-boundary-v1.mjs",
+        "before_sha256": "2b5c45b3d77d3cfd843feeb24e1ec15727ab05e2ae54ebe61d723cea9921f8f5",
+        "after_sha256": "33cc5a7cad8ea599766f8f0070a70b3c893f719ef6fe2e5e6e3e57ebac418fdf",
+        "changes": [
+          {
+            "before": "const root=\"/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-fe2e6fdc-v1\";",
+            "after": "const root=\"/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2\";"
+          },
+          {
+            "before": "cp.spawn(\"/opt/homebrew/bin/node\",",
+            "after": "cp.spawn(process.execPath,"
+          }
+        ],
+        "all_other_bytes_preserved": true
+      }
+    ],
+    "unchanged_behavioral_controls": true,
+    "original_mac_path_failure_preserved_at": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1"
+  }
+}

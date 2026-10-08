@@ -1,0 +1,28 @@
+✖ native checkpoint survives an actual process restart and resumes the exact next RNG step (838.275333ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 979.851625
+
+✖ failing tests:
+
+test at packages/uma-sim-cli/tests/tui-checkpoints.native.mjs:139:1
+✖ native checkpoint survives an actual process restart and resumes the exact next RNG step (838.275333ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.native.mjs:167:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

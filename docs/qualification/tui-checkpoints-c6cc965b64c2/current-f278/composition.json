@@ -1,0 +1,2149 @@
+{
+  "schema": "hamon.uma.terminal-checkpoints.current-f278-composition.v1",
+  "repository": "Jacob-Met/uma-sim",
+  "proposal": "Append merge; published branch history is retained, with actual current main as an additional parent.",
+  "parents": {
+    "first": "78fa80ee0102ef46af1a3e46908fd41d227ee53c",
+    "additional": [
+      "f27829a266bb39fb1a4f298e2c2b3b32f380af0f"
+    ]
+  },
+  "current_main": {
+    "sha": "f27829a266bb39fb1a4f298e2c2b3b32f380af0f",
+    "tree": "7ce4a2c5f68898de6256745d119a061c852b444c",
+    "leaves": 679
+  },
+  "prior_published": {
+    "sha": "78fa80ee0102ef46af1a3e46908fd41d227ee53c",
+    "tree": "cf0ee8e6a7c20199a51b701b78a58b0a619b12af",
+    "leaves": 781
+  },
+  "receiving": {
+    "source": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+    "tree": "8352de08ded783d6d23030b312c36c5b9a4b0fe1",
+    "packet_sha256": "676678b649d426360ac83dcfd144b223d78c304ce5e721517e8072609ba6d0a2",
+    "packet_bytes": 623722,
+    "files": 36,
+    "decoded_bytes": 565850,
+    "prefix": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-09df",
+    "terminal_groups": 16,
+    "admission_groups": 3,
+    "terminal_processes": 34,
+    "api_processes": 3,
+    "http_requests": 395,
+    "api_sha256": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6",
+    "api_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+    "library_blob": "83025a33775d3559c54c56c0183badd1c919cc50",
+    "terminal_blob": "dfeed47234f1660acd175fa61a3290327a741aa1"
+  },
+  "preservation": {
+    "existing_qualified_paths": 140,
+    "existing_qualified_paths_preserved_exact": 140,
+    "owned_beforeimages_unchanged_since_original_publication": 140,
+    "existing_main_leaves_changed_by_owned_overlay": 5,
+    "current_main_leaves_preserved_exact": 674,
+    "new_receiving_files": 36,
+    "new_composition_files": 2,
+    "expected_final_leaves": 852,
+    "deletions": 0
+  },
+  "input_review": {
+    "received_manifest_files": 120,
+    "files_unchanged_on_current_main": 119,
+    "sole_changed_recorded_file": {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "received": "2df06c16c8cb4bffe711b37e1afb3a8a57ebd528",
+      "current": "5f028f91b8dc3420af36940471035412264b160a"
+    },
+    "explanation": "The original receiving inventory includes both native binaries. The sole changed recorded input is uma-sim-core/src/bin/uma-sim.rs. Cargo.toml explicitly declares separate uma-sim and uma-sim-api targets. The unchanged API target calls uma_sim_core::api::serve; the unchanged library module root contains no CLI-binary module. The current commit changes only that separate CLI seed parser, its tests and the root README. API/library/Cargo/catalog inputs are identical to the independently exercised 09df subject; this receipt does not claim all 120 inventory files are unchanged at f737. A subsequent f278 main advance changes only four packages/training-demo paths. Those input/output validation and receiving changes do not alter the API target, terminal, CI or scanner config and are also preserved.",
+    "sources": {
+      "cargo_manifest": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+      "library_root": "5a72c106af2af92e3f8968b5136d6d465ec336c7",
+      "api_entry": "821ce29dc4dba0758e16392fb50d83ec5231e705"
+    },
+    "changes_since_received_main": [
+      {
+        "path": "README.md",
+        "before": {
+          "path": "README.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "2163937330c9b7040c01d7cf42c4044dc851ba47"
+        },
+        "after": {
+          "path": "README.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "64c0d4de47d98fcb132ae280305876f72f338ecd"
+        }
+      },
+      {
+        "path": "uma-sim-core/src/bin/uma-sim.rs",
+        "before": {
+          "path": "uma-sim-core/src/bin/uma-sim.rs",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "2df06c16c8cb4bffe711b37e1afb3a8a57ebd528"
+        },
+        "after": {
+          "path": "uma-sim-core/src/bin/uma-sim.rs",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "5f028f91b8dc3420af36940471035412264b160a"
+        }
+      },
+      {
+        "path": "uma-sim-core/tests/cli_seed_admission.rs",
+        "before": null,
+        "after": {
+          "path": "uma-sim-core/tests/cli_seed_admission.rs",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "465bf36edb3752021bb09f0f3fd94e9891d7aadc"
+        }
+      },
+      {
+        "path": "packages/training-demo/README.md",
+        "before": {
+          "path": "packages/training-demo/README.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "9b06d2d2098813e32cd4b379849c145dc0792111"
+        },
+        "after": {
+          "path": "packages/training-demo/README.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "cd257e96070a4a273909350fc1bd5c0246ca8e2e"
+        }
+      },
+      {
+        "path": "packages/training-demo/build.mjs",
+        "before": {
+          "path": "packages/training-demo/build.mjs",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "0fa482ddaf58ebb41d2968080f371c9391dc33d8"
+        },
+        "after": {
+          "path": "packages/training-demo/build.mjs",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "2164cc315041269db6c675bda08d0051aecd08fd"
+        }
+      },
+      {
+        "path": "packages/training-demo/out/build-receipt.json",
+        "before": {
+          "path": "packages/training-demo/out/build-receipt.json",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "c5331a7b93fca9981a979d3187fa49cce7e5dc7f"
+        },
+        "after": {
+          "path": "packages/training-demo/out/build-receipt.json",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3c7b9a50765b07669323707ff50861a48711abe3"
+        }
+      },
+      {
+        "path": "packages/training-demo/tests/receive-build.mjs",
+        "before": null,
+        "after": {
+          "path": "packages/training-demo/tests/receive-build.mjs",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "d088664ab715ce264cfb385007f7202a7047b383"
+        }
+      }
+    ],
+    "runtime_rerun_performed": false,
+    "native_build_performed": false,
+    "inventory": [
+      {
+        "path": "Cargo.lock",
+        "received_git_blob": "1f99851c45524f129e8544a2d779b3c21594d816",
+        "current_git_blob": "1f99851c45524f129e8544a2d779b3c21594d816",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "Cargo.toml",
+        "received_git_blob": "d55384b62968b2ada18d45aa4de2053e175579ea",
+        "current_git_blob": "d55384b62968b2ada18d45aa4de2053e175579ea",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "content_packs/example.json",
+        "received_git_blob": "c30b5bd6cf7fb8d0ea0ab8161d58318ab35cc2cc",
+        "current_git_blob": "c30b5bd6cf7fb8d0ea0ab8161d58318ab35cc2cc",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/README.md",
+        "received_git_blob": "f2dead2d6968c92c26fc0197eb84a0feaf8928a4",
+        "current_git_blob": "f2dead2d6968c92c26fc0197eb84a0feaf8928a4",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/RELEASE.md",
+        "received_git_blob": "1158f8298bcedeef324ee2ce47737fd41251561c",
+        "current_git_blob": "1158f8298bcedeef324ee2ce47737fd41251561c",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/canonical/by_kind/event_local.json",
+        "received_git_blob": "51608bfc5a8591cb9084543d7f55bb11d0b74cdc",
+        "current_git_blob": "51608bfc5a8591cb9084543d7f55bb11d0b74cdc",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/canonical/by_kind/factor.json",
+        "received_git_blob": "ba0b51f2294382ce2771acafffa5bb275430d2e1",
+        "current_git_blob": "ba0b51f2294382ce2771acafffa5bb275430d2e1",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/canonical/by_kind/lesson.json",
+        "received_git_blob": "84d6eb4ae5ba99e23924b66a7acd7caa174844ab",
+        "current_git_blob": "84d6eb4ae5ba99e23924b66a7acd7caa174844ab",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/canonical/by_kind/race.json",
+        "received_git_blob": "db5d63a6f0f02f196d7382c0a09e30c470cbb913",
+        "current_git_blob": "db5d63a6f0f02f196d7382c0a09e30c470cbb913",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/canonical/by_kind/skill.json",
+        "received_git_blob": "8042a37684b9930fad6b4d5a033e8d358ac9b851",
+        "current_git_blob": "8042a37684b9930fad6b4d5a033e8d358ac9b851",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/canonical/by_kind/song.json",
+        "received_git_blob": "d4c6b997a22788319072aed3d6e408395e6cac88",
+        "current_git_blob": "d4c6b997a22788319072aed3d6e408395e6cac88",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/canonical/by_kind/support_card.json",
+        "received_git_blob": "98299e33510804b2aeb0d2c23328ff1a6129d66e",
+        "current_git_blob": "98299e33510804b2aeb0d2c23328ff1a6129d66e",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/canonical/by_kind/trainee.json",
+        "received_git_blob": "b1d0a4eafa6104a08b02e1e4f03b98066240e219",
+        "current_git_blob": "b1d0a4eafa6104a08b02e1e4f03b98066240e219",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/champions_meeting.md",
+        "received_git_blob": "740d480ec530f33fb3c7169db5e94ae9114bbfb6",
+        "current_git_blob": "740d480ec530f33fb3c7169db5e94ae9114bbfb6",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/grand_concert_policy.md",
+        "received_git_blob": "ab412afbba55a9de7398dde1f9332c03f333a608",
+        "current_git_blob": "ab412afbba55a9de7398dde1f9332c03f333a608",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/inheritance_planners.md",
+        "received_git_blob": "3bfeb9b5052eddb6c225f51b7bae95a425c2ce79",
+        "current_git_blob": "3bfeb9b5052eddb6c225f51b7bae95a425c2ce79",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/interaction_latency_research.md",
+        "received_git_blob": "8952d7de035852947ed792e59b7f9445467a3297",
+        "current_git_blob": "8952d7de035852947ed792e59b7f9445467a3297",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/interaction_timing_audit.md",
+        "received_git_blob": "c2f07056aae3b4ec81cfaf623f486817f0bfe3bd",
+        "current_git_blob": "c2f07056aae3b4ec81cfaf623f486817f0bfe3bd",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/parent_farming_utility.md",
+        "received_git_blob": "bf0eb285da91e3b02d42961332644216987c416b",
+        "current_git_blob": "bf0eb285da91e3b02d42961332644216987c416b",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/race_model.md",
+        "received_git_blob": "002210766e20a666bb3d923c95c102059f28864d",
+        "current_git_blob": "002210766e20a666bb3d923c95c102059f28864d",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/run_grade.md",
+        "received_git_blob": "260159a164075ec950dc38223259ad8b5e36f924",
+        "current_git_blob": "260159a164075ec950dc38223259ad8b5e36f924",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/skill_valuation.md",
+        "received_git_blob": "f416f617c04f655a417f323ab9c87e6fd5ff2492",
+        "current_git_blob": "f416f617c04f655a417f323ab9c87e6fd5ff2492",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/mechanics/training_stat_gain.md",
+        "received_git_blob": "b09dc11ef65482988b866c8f4fdbda1db1dab358",
+        "current_git_blob": "b09dc11ef65482988b866c8f4fdbda1db1dab358",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/scenarios/grand_concert.md",
+        "received_git_blob": "880ee117fc56bdbce11b5e44929956f1f6613d23",
+        "current_git_blob": "880ee117fc56bdbce11b5e44929956f1f6613d23",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/scenarios/trackblazer.md",
+        "received_git_blob": "93de1a4084d78714701a59ef5e2f74470007356f",
+        "current_git_blob": "93de1a4084d78714701a59ef5e2f74470007356f",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/scenarios/unity.md",
+        "received_git_blob": "19e7a3487a0e4d8da14972bebb76120ce2912272",
+        "current_git_blob": "19e7a3487a0e4d8da14972bebb76120ce2912272",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/scenarios/ura.md",
+        "received_git_blob": "b1aa402f3f76a7bc68799151fb7119968fee882b",
+        "current_git_blob": "b1aa402f3f76a7bc68799151fb7119968fee882b",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/schema/entity.schema.json",
+        "received_git_blob": "5863ff1cc81caef956362ad97a2db6071bd1d291",
+        "current_git_blob": "5863ff1cc81caef956362ad97a2db6071bd1d291",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/schema/ids.json",
+        "received_git_blob": "644679d025c58b93ed48e172d1b7c80f2c0b63e0",
+        "current_git_blob": "644679d025c58b93ed48e172d1b7c80f2c0b63e0",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "knowledge/validate/validate.py",
+        "received_git_blob": "16681d5b7ca8f708be4d444e4d1e24b50ce194ee",
+        "current_git_blob": "16681d5b7ca8f708be4d444e4d1e24b50ce194ee",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/Cargo.lock",
+        "received_git_blob": "88923d293dbc1f75b705d8c37c8990c12e5b1819",
+        "current_git_blob": "88923d293dbc1f75b705d8c37c8990c12e5b1819",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/Cargo.toml",
+        "received_git_blob": "43fe390326bf6d0df59c30aca77a444b9c8dfea6",
+        "current_git_blob": "43fe390326bf6d0df59c30aca77a444b9c8dfea6",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/LICENSE-APACHE",
+        "received_git_blob": "a71ed7cda85093217136315c65fa39f8eda0e48c",
+        "current_git_blob": "a71ed7cda85093217136315c65fa39f8eda0e48c",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/LICENSE-MIT",
+        "received_git_blob": "7485a528e5cf2815066fa31a934038b8fca4b740",
+        "current_git_blob": "7485a528e5cf2815066fa31a934038b8fca4b740",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/compete_fight.rs",
+        "received_git_blob": "30a834fc220979622269e4e903da9c4a09b483d6",
+        "current_git_blob": "30a834fc220979622269e4e903da9c4a09b483d6",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/condition/mod.rs",
+        "received_git_blob": "89153931f8de8eeb8901944f2e29667b951f0af1",
+        "current_git_blob": "89153931f8de8eeb8901944f2e29667b951f0af1",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/condition/parser.rs",
+        "received_git_blob": "12cac1a7e84d201c0afa35af929700d56856d44d",
+        "current_git_blob": "12cac1a7e84d201c0afa35af929700d56856d44d",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/condition/region.rs",
+        "received_git_blob": "775fab39cb6d56c887c886f9e428883151f122b5",
+        "current_git_blob": "775fab39cb6d56c887c886f9e428883151f122b5",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/condition/regions.rs",
+        "received_git_blob": "f5e096765638177298e7d0a3a706c306686dca48",
+        "current_git_blob": "f5e096765638177298e7d0a3a706c306686dca48",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/condition/sample.rs",
+        "received_git_blob": "22c38109586f01f88a11a08a18ebe6afbed23f59",
+        "current_git_blob": "22c38109586f01f88a11a08a18ebe6afbed23f59",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/condition/skill.rs",
+        "received_git_blob": "cabcbc950e6baf3b761d75f62211b3c6ca1fc444",
+        "current_git_blob": "cabcbc950e6baf3b761d75f62211b3c6ca1fc444",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/course.rs",
+        "received_git_blob": "6087eef93d32d4f5a601c280c7eda9e2753fddb8",
+        "current_git_blob": "6087eef93d32d4f5a601c280c7eda9e2753fddb8",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/data.rs",
+        "received_git_blob": "2e7bf06214aefe592246cea7cb4dd7b65fae19ab",
+        "current_git_blob": "2e7bf06214aefe592246cea7cb4dd7b65fae19ab",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/field.rs",
+        "received_git_blob": "4602f098895c326b7a0eb8a2cc5bd031cf57b826",
+        "current_git_blob": "4602f098895c326b7a0eb8a2cc5bd031cf57b826",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/hp.rs",
+        "received_git_blob": "7df8a62d54af929179fc6d6b17e2b1376873da83",
+        "current_git_blob": "7df8a62d54af929179fc6d6b17e2b1376873da83",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/lead_comp.rs",
+        "received_git_blob": "24d7b9f13ba878f90d450ac2634b951c9d89535d",
+        "current_git_blob": "24d7b9f13ba878f90d450ac2634b951c9d89535d",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/lib.rs",
+        "received_git_blob": "42f450e7798ea65e5d219d838473472e5c934009",
+        "current_git_blob": "42f450e7798ea65e5d219d838473472e5c934009",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/physics.rs",
+        "received_git_blob": "4532ca7f8a09c3a5ba1ab31f770f646bc2acc7b6",
+        "current_git_blob": "4532ca7f8a09c3a5ba1ab31f770f646bc2acc7b6",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/pos_keep.rs",
+        "received_git_blob": "5af32c3b6dcf110c0e9f72c5df5b80eca0c60b40",
+        "current_git_blob": "5af32c3b6dcf110c0e9f72c5df5b80eca0c60b40",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/rng.rs",
+        "received_git_blob": "aa555a746cb460a7891e8bdba18bf13185f41f74",
+        "current_git_blob": "aa555a746cb460a7891e8bdba18bf13185f41f74",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/runner.rs",
+        "received_git_blob": "28117f7f41076f603ee0af4de900c0fe36bc4ccc",
+        "current_git_blob": "28117f7f41076f603ee0af4de900c0fe36bc4ccc",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/solver.rs",
+        "received_git_blob": "7e94878d9a78fe7bc9fb7de5cf56ec7fea014982",
+        "current_git_blob": "7e94878d9a78fe7bc9fb7de5cf56ec7fea014982",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-race-core/src/special_conditions.rs",
+        "received_git_blob": "11549ecec295600c4682b90639d6a19ac9fadd1c",
+        "current_git_blob": "11549ecec295600c4682b90639d6a19ac9fadd1c",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/Cargo.lock",
+        "received_git_blob": "0087a3260e58beb1547e5d795794144058a4b02a",
+        "current_git_blob": "0087a3260e58beb1547e5d795794144058a4b02a",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/Cargo.toml",
+        "received_git_blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+        "current_git_blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/build.rs",
+        "received_git_blob": "7cb1193f796ecd0ab6f4cbd52a48d9f9e740c374",
+        "current_git_blob": "7cb1193f796ecd0ab6f4cbd52a48d9f9e740c374",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/gl_steps.rs",
+        "received_git_blob": "bcbcae93200cf16a3ae17bac5792e67b717e4b5c",
+        "current_git_blob": "bcbcae93200cf16a3ae17bac5792e67b717e4b5c",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/golden_batch.rs",
+        "received_git_blob": "8506a49b2c6bc9c5450ac2a5cc5514b2c541e8d4",
+        "current_git_blob": "8506a49b2c6bc9c5450ac2a5cc5514b2c541e8d4",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/golden_refreeze_physics.rs",
+        "received_git_blob": "8fdca1b5fcc4e8d4bb9a2fa6defb45099105cf91",
+        "current_git_blob": "8fdca1b5fcc4e8d4bb9a2fa6defb45099105cf91",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/refreeze_parity_traces.rs",
+        "received_git_blob": "bd8c973f306776ff2b34e7f38ea63ad56bacee27",
+        "current_git_blob": "bd8c973f306776ff2b34e7f38ea63ad56bacee27",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/summaries_check.rs",
+        "received_git_blob": "72506a27a2287b1c169916e2aada53aed640dae1",
+        "current_git_blob": "72506a27a2287b1c169916e2aada53aed640dae1",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/tb_diverge.rs",
+        "received_git_blob": "c0d46a50d5979824d455865cf3ed84680e9e0a90",
+        "current_git_blob": "c0d46a50d5979824d455865cf3ed84680e9e0a90",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/tb_shop_dump.rs",
+        "received_git_blob": "8b1af2ca14879076084e082890d6f21581ff075d",
+        "current_git_blob": "8b1af2ca14879076084e082890d6f21581ff075d",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/tb_turns.rs",
+        "received_git_blob": "14a4fd1ff6df559db6248ca90f251bc8dce279a1",
+        "current_git_blob": "14a4fd1ff6df559db6248ca90f251bc8dce279a1",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples/trace_check.rs",
+        "received_git_blob": "72ca1ef7b213f1096370ce7c6e07c41d00f35723",
+        "current_git_blob": "72ca1ef7b213f1096370ce7c6e07c41d00f35723",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/examples_tmp_bot.rs",
+        "received_git_blob": "93e158ec902456b81be6a072f1ac9a3f55adda18",
+        "current_git_blob": "93e158ec902456b81be6a072f1ac9a3f55adda18",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/api.rs",
+        "received_git_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+        "current_git_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/batch_analysis.rs",
+        "received_git_blob": "8169e3f115c4ee3a7cc2464190ced43fceb770dc",
+        "current_git_blob": "8169e3f115c4ee3a7cc2464190ced43fceb770dc",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/bin/uma-sim-api.rs",
+        "received_git_blob": "821ce29dc4dba0758e16392fb50d83ec5231e705",
+        "current_git_blob": "821ce29dc4dba0758e16392fb50d83ec5231e705",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/bin/uma-sim.rs",
+        "received_git_blob": "2df06c16c8cb4bffe711b37e1afb3a8a57ebd528",
+        "current_git_blob": "5f028f91b8dc3420af36940471035412264b160a",
+        "current_mode": "100644",
+        "unchanged": false
+      },
+      {
+        "path": "uma-sim-core/src/bot.rs",
+        "received_git_blob": "68c2b3ed39ed39719dce0788afe9d7e776682624",
+        "current_git_blob": "68c2b3ed39ed39719dce0788afe9d7e776682624",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/calendar.rs",
+        "received_git_blob": "85e251a9705ca092cfefbf3afef0e759c0be0e08",
+        "current_git_blob": "85e251a9705ca092cfefbf3afef0e759c0be0e08",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/career_lab.rs",
+        "received_git_blob": "83025a33775d3559c54c56c0183badd1c919cc50",
+        "current_git_blob": "83025a33775d3559c54c56c0183badd1c919cc50",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/catalog/event.rs",
+        "received_git_blob": "a970065621ff85120d32c1eb1a88b70a8b852322",
+        "current_git_blob": "a970065621ff85120d32c1eb1a88b70a8b852322",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/catalog/factor.rs",
+        "received_git_blob": "15f723b2c6d8c12a2c68d11493e8bcef1be4c502",
+        "current_git_blob": "15f723b2c6d8c12a2c68d11493e8bcef1be4c502",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/catalog/mod.rs",
+        "received_git_blob": "8657d5680a880ffcc9f49aa47ee495067475f691",
+        "current_git_blob": "8657d5680a880ffcc9f49aa47ee495067475f691",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/catalog/skill.rs",
+        "received_git_blob": "931badcdf44e0828f79cf4d7ec50fe4574ba0a74",
+        "current_git_blob": "931badcdf44e0828f79cf4d7ec50fe4574ba0a74",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/catalog/support.rs",
+        "received_git_blob": "80d49de483495516863e70ac65d0288a4b8949b5",
+        "current_git_blob": "80d49de483495516863e70ac65d0288a4b8949b5",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/catalog/trainee.rs",
+        "received_git_blob": "94d525f53f41f36e5411dc5439f25765a9b2496c",
+        "current_git_blob": "94d525f53f41f36e5411dc5439f25765a9b2496c",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/config.rs",
+        "received_git_blob": "1e891335b87640cc838e7c3a92820af040c4df11",
+        "current_git_blob": "1e891335b87640cc838e7c3a92820af040c4df11",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/content.rs",
+        "received_git_blob": "68437768525bf08645a0a09b52a59600d672471b",
+        "current_git_blob": "68437768525bf08645a0a09b52a59600d672471b",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/deck.rs",
+        "received_git_blob": "b52e7d6f8a64103e9af329d0cfee93a8886ae525",
+        "current_git_blob": "b52e7d6f8a64103e9af329d0cfee93a8886ae525",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/engine.rs",
+        "received_git_blob": "7ece3123aea3ba3f17326ceb033fc53e796b3566",
+        "current_git_blob": "7ece3123aea3ba3f17326ceb033fc53e796b3566",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/events.rs",
+        "received_git_blob": "33bbd2235f08be53abcb45def4e055d71ff7b0cc",
+        "current_git_blob": "33bbd2235f08be53abcb45def4e055d71ff7b0cc",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/factory.rs",
+        "received_git_blob": "47d4853befc9ddfea2aea622a2d68bc57307ea5f",
+        "current_git_blob": "47d4853befc9ddfea2aea622a2d68bc57307ea5f",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/legacy.rs",
+        "received_git_blob": "cd8485db5682509c5a60c217e1ccf1aa1fa0a725",
+        "current_git_blob": "cd8485db5682509c5a60c217e1ccf1aa1fa0a725",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/lib.rs",
+        "received_git_blob": "5a72c106af2af92e3f8968b5136d6d465ec336c7",
+        "current_git_blob": "5a72c106af2af92e3f8968b5136d6d465ec336c7",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/mid_run_inheritance.rs",
+        "received_git_blob": "b65e2b4c1cfd62d916e520a214e8fcfd2825e16d",
+        "current_git_blob": "b65e2b4c1cfd62d916e520a214e8fcfd2825e16d",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/policy.rs",
+        "received_git_blob": "3fcd10d8da1d1df253f53dc3c9e8e93288098969",
+        "current_git_blob": "3fcd10d8da1d1df253f53dc3c9e8e93288098969",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/policy_external.rs",
+        "received_git_blob": "99c43f3d83dc8965070f9ad1201a742a78bcc69d",
+        "current_git_blob": "99c43f3d83dc8965070f9ad1201a742a78bcc69d",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/race.rs",
+        "received_git_blob": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43",
+        "current_git_blob": "0a4587f5dc7f50aff3005ebd46abc01ef3756c43",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/render.rs",
+        "received_git_blob": "3f154753f700fa4a6faccf19faf8bfe320143137",
+        "current_git_blob": "3f154753f700fa4a6faccf19faf8bfe320143137",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/rng.rs",
+        "received_git_blob": "553c9a5a56b5c7f9aa3025e2bc721f1a45d08b8d",
+        "current_git_blob": "553c9a5a56b5c7f9aa3025e2bc721f1a45d08b8d",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/grand_live.rs",
+        "received_git_blob": "284d305034db2e6bd03bed881a6dadd575207014",
+        "current_git_blob": "284d305034db2e6bd03bed881a6dadd575207014",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/grand_live_catalog.rs",
+        "received_git_blob": "07e285f032dfaa6d863be52d60348d11176c8030",
+        "current_git_blob": "07e285f032dfaa6d863be52d60348d11176c8030",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/grand_live_deck_support.rs",
+        "received_git_blob": "0f6c6a16abab7ceb1009808d532cdb5874881522",
+        "current_git_blob": "0f6c6a16abab7ceb1009808d532cdb5874881522",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/grand_live_lesson_board.rs",
+        "received_git_blob": "1d30acf645aa7fc94cb38276affc57087edb2c63",
+        "current_git_blob": "1d30acf645aa7fc94cb38276affc57087edb2c63",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/grand_live_lesson_scoring.rs",
+        "received_git_blob": "20e3de216cd874d7726cda7f880f8d3d3671aef3",
+        "current_git_blob": "20e3de216cd874d7726cda7f880f8d3d3671aef3",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/mod.rs",
+        "received_git_blob": "d7a8ac851358b77b7b1510fd590e34adc3056d8b",
+        "current_git_blob": "d7a8ac851358b77b7b1510fd590e34adc3056d8b",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/trackblazer.rs",
+        "received_git_blob": "40011a2939bbd0e0658e1778717fbe381356294b",
+        "current_git_blob": "40011a2939bbd0e0658e1778717fbe381356294b",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/unity.rs",
+        "received_git_blob": "8518cca828a56e895a7f31959b3f1b00e972fb01",
+        "current_git_blob": "8518cca828a56e895a7f31959b3f1b00e972fb01",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scenario/ura.rs",
+        "received_git_blob": "4c191f91144bb59b7cb9775576886504a03c0d10",
+        "current_git_blob": "4c191f91144bb59b7cb9775576886504a03c0d10",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/decision_context.rs",
+        "received_git_blob": "c55345c900d2378d2f842e19ecd96b30a4f5399c",
+        "current_git_blob": "c55345c900d2378d2f842e19ecd96b30a4f5399c",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/event_scoring.rs",
+        "received_git_blob": "21a8e00926af18986ff81eefceb637c67ac91b56",
+        "current_git_blob": "21a8e00926af18986ff81eefceb637c67ac91b56",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/formula_gain.rs",
+        "received_git_blob": "8a559c1866f16841d8db0e55dfc637c18e713442",
+        "current_git_blob": "8a559c1866f16841d8db0e55dfc637c18e713442",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/lesson_scoring.rs",
+        "received_git_blob": "ca51d457a6c5bc86b9a4fee806f0af4928e7ca49",
+        "current_git_blob": "ca51d457a6c5bc86b9a4fee806f0af4928e7ca49",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/mod.rs",
+        "received_git_blob": "021a3d1fc76e75bf0f014358852b297c99eb4089",
+        "current_git_blob": "021a3d1fc76e75bf0f014358852b297c99eb4089",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/objective_profiles.rs",
+        "received_git_blob": "22f118a98a47841efe99dc6201ff789abe366d80",
+        "current_git_blob": "22f118a98a47841efe99dc6201ff789abe366d80",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/rank_estimate.rs",
+        "received_git_blob": "90274e4131334f8e78f20c6cdbce7441e2798d84",
+        "current_git_blob": "90274e4131334f8e78f20c6cdbce7441e2798d84",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/scoring.rs",
+        "received_git_blob": "3c11b985a2a3b5337051c09485651b3e707470bd",
+        "current_git_blob": "3c11b985a2a3b5337051c09485651b3e707470bd",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/skill_scoring.rs",
+        "received_git_blob": "8f33392757d1fa347dfa4a871faa6384a2b1ed34",
+        "current_git_blob": "8f33392757d1fa347dfa4a871faa6384a2b1ed34",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/support_effects.rs",
+        "received_git_blob": "d0925d2c642638c17e3fdc7ef8fb020c9d5aed93",
+        "current_git_blob": "d0925d2c642638c17e3fdc7ef8fb020c9d5aed93",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/terminal_utility.rs",
+        "received_git_blob": "de504cca1bba34c33b22e6b8bb493e3d536ffe84",
+        "current_git_blob": "de504cca1bba34c33b22e6b8bb493e3d536ffe84",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/scoring/types.rs",
+        "received_git_blob": "2a93aba017f5414d74b219021b7df320ff58c332",
+        "current_git_blob": "2a93aba017f5414d74b219021b7df320ff58c332",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/session.rs",
+        "received_git_blob": "c407f70093b955801126d1f3c93af79a279d2346",
+        "current_git_blob": "c407f70093b955801126d1f3c93af79a279d2346",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/snapshot.rs",
+        "received_git_blob": "a17d416cf5d9af0ce360de446852ecd4350b4be9",
+        "current_git_blob": "a17d416cf5d9af0ce360de446852ecd4350b4be9",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/spark_generation.rs",
+        "received_git_blob": "a0bc10d245b56445d5bb6119d2c007d5d057561a",
+        "current_git_blob": "a0bc10d245b56445d5bb6119d2c007d5d057561a",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/state.rs",
+        "received_git_blob": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821",
+        "current_git_blob": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/telemetry.rs",
+        "received_git_blob": "66f4c7052806607e4bade83df105a9c0d9287fa7",
+        "current_git_blob": "66f4c7052806607e4bade83df105a9c0d9287fa7",
+        "current_mode": "100644",
+        "unchanged": true
+      },
+      {
+        "path": "uma-sim-core/src/training.rs",
+        "received_git_blob": "81dc53401e4a94bf0085bde7fcf40aff5fb77f71",
+        "current_git_blob": "81dc53401e4a94bf0085bde7fcf40aff5fb77f71",
+        "current_mode": "100644",
+        "unchanged": true
+      }
+    ],
+    "separate_cli_source_advance": "f7378bc1f60a0132d703aee9a1c36d6fef913217",
+    "subsequent_training_demo_source_advance": "f27829a266bb39fb1a4f298e2c2b3b32f380af0f"
+  },
+  "ci": {
+    "current_owner_blob": "c561d939a123d508bd9a5dd73daa20da4800d0aa",
+    "qualified_blob": "e1c912fa665c94995c2b73c3b7f4fb9c1bd757d3",
+    "preserved_existing_qualified_blob": true,
+    "terminal_hook_lines": 10,
+    "description": "The existing reviewed ten-line terminal native gate and artifact receipt insertion are retained. Removing those lines recovers the owner workflow byte-for-byte, including its existing Node 20 setup and current Rust/UI/MCP steps."
+  },
+  "scanner": {
+    "config_blob": "a23640b909b35f001fac2680b53d752a5c3f9e49",
+    "config_changed": false,
+    "new_exceptions": 0,
+    "new_evidence_assessment": "Existing scanner binary is on a full native filesystem; no cloud scanner was installed. Actual hosted exact-head scanning gates the new evidence. Existing reviewed exact-path/value exceptions and all default rules remain unchanged."
+  },
+  "limitations": [
+    "This composition receives the existing checkpoint replacement implementation; it does not add or claim terminal overwrite/delete behavior.",
+    "The receiver reuses the owner's exact executable with current working-source and catalog pins; the donor's earlier Git HEAD is recorded as metadata, not mislabeled as current source.",
+    "The new checkpoint source owner's returned-I/O recovery contract does not establish cross-process writer exclusion or two-file power-loss atomicity.",
+    "Hosted checks and root merge gates remain separate from this preparation receipt. No deployment is claimed."
+  ],
+  "qualified_paths": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1c912fa665c94995c2b73c3b7f4fb9c1bd757d3",
+      "sha256": "9657948fde9a1813b3c94e48292299382d7ec8d596ccd8d5718ea475f01122f8",
+      "bytes": 4949
+    },
+    {
+      "path": ".gitleaks.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a23640b909b35f001fac2680b53d752a5c3f9e49",
+      "sha256": "be90780c4abd7335b0a81e95005a012c8a67a08bf53914d2688bedbd4dfcc19e",
+      "bytes": 1789
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc3e1390e7d6325b6dd7312a0756615b66c7bafe",
+      "sha256": "48dfa9d845d0e0c140e15566e368677b7a9cd59cdd37cc7d3a9675cd15a205ca",
+      "bytes": 9814
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/http-baseline.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f5ae35b9481efd80d80107f1b9efc23552c5917",
+      "sha256": "4a9807e27fa05eecddb11017783b2c338b5f4995a2bd62707fa7d0c237f7b4a0",
+      "bytes": 4087
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/http-candidate.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b02bead656886c2202c060323e58efec01a8c290",
+      "sha256": "637afc79becba3065ce240e2b6ceb2e4da2f3998b74d3efb83eed813c94ce01f",
+      "bytes": 3384
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline-v2.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99f0fbfadb4be44f95c652a3bf678f7c5fe4588c",
+      "sha256": "546f947e2f79a3121b02746945bf4097e9ebb5a1ee02a3b8e43d9cdcff044b62",
+      "bytes": 954
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline-v2/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "daab5f8486c9519df8d060d10a7445d0c19c132c",
+      "sha256": "84ab6def33fa9f690db616d2f7d15cde526ceb84b385c00d43eb97edfce4873d",
+      "bytes": 956
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline-v2/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34fd691c579f11c1ccb0c2409b6cd7e8c58e54c1",
+      "sha256": "cc65669a731b655c5258040c0c4405f27e875611bb5f524b7c784971cb9a74c2",
+      "bytes": 33292
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a78bfa280d9f6f29cf1c015a3851e4a89aca0ac",
+      "sha256": "4bf53f02276f45e0d1c9fcc6023e10d874d38d655535268a532d0a8d3fd61153",
+      "bytes": 953
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6208bb5eddafdb4c1609915e984d969a31857dd7",
+      "sha256": "3cf1cfdf827d454f7105aebf2c618e3ba3a1757caf50048c9e6fdbca5ba5578f",
+      "bytes": 956
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "76a49d11303bd1fa718d775b9a11ae3026a3e159",
+      "sha256": "58717195f2730e7b1222c76d3c2beaceda99935509132c5b8649f349f3bfe363",
+      "bytes": 17615
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-build.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2cf30b804e0dd37469aaf4f46d0ea4199a49d195",
+      "sha256": "baee6bc07243bc21751e0c6ac243cc7df0ef170868e077c212ecf0f243bde02c",
+      "bytes": 873
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbcc6f1f0a97e6c167ce5b0c9b2482c75a41b873",
+      "sha256": "7c986245e8a6b7cb4ec83914f6f89e7c93e01901b543ff46717057f835741f95",
+      "bytes": 2248
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d77af4c42cb5b443f0564688ea3378ec9c111af",
+      "sha256": "0b8a3425b659c37f64e93881d36406fbeca8b2830e735aa5896e92ebe93dc794",
+      "bytes": 1344
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fce552fbd1839c5a908e081ee3585bcdea46f970",
+      "sha256": "1f458d71955f0f79091678a002dfddb31d6d56163684b2628ad56abe9fda0da3",
+      "bytes": 1346
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fdc67a9235de684416e34daa5ccd0fa72780ef9",
+      "sha256": "ccdcf1ae4016752bfb0a5bf0a2c8d4ace50dcca152913c262b5ff2c89d6b0677",
+      "bytes": 1330
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64c7d4faadcc1e804e1b2c08b77ab9362f1a0a6a",
+      "sha256": "65e568ba09fdc8cb7590115f59ea3bd40b66736e3db46b07ecb4211529d3172a",
+      "bytes": 1349
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-fork-refusals-advisory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ba2d20634b7b00146eecf21d0ec41983e0e531b",
+      "sha256": "e0e6473697d5462adbcb9d175d9b9eee0714344fe6f17d1aa45be378e754cbcb",
+      "bytes": 1590
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-save-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a453159c38db7177ec1ef8deaa5b72859e98f606",
+      "sha256": "9aba88987be20287df4a6e66966f1bcc0a6ea75da3c12da91fb8afcea1122dfc",
+      "bytes": 10351
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-save-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54f3818c10a20d60c43861d652b45b74e0ae6cb5",
+      "sha256": "ad1b5ebf507784fa0d6979230a521a18ce910a72bb934dae8a10511174a8602f",
+      "bytes": 10353
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-save-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "905ea08138f220744acdccfd6b6ffede9278c5c2",
+      "sha256": "c56b0ad5795dd0b7c27f1f7014254966e9bcbd26f50d01eada1ac6c09ae211ad",
+      "bytes": 15188
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/native-save-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86d90c51ac8b10e039e4877b873c3392812bd658",
+      "sha256": "f7ee1a9f7bc57e9d2d4b92a3c426412de314974f15349364b9a493184818f47b",
+      "bytes": 15207
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a704f3f85ebc0a334efbce3410fb12aa607df9b",
+      "sha256": "e14f12a692e4a5199b45fe86c432282b10674bb20afa625b6ed39aedb1247538",
+      "bytes": 932
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c6c0c6ebbfbf364dc0bdb46b379bc3b0317f7e5",
+      "sha256": "0b181ae438ec82246c71cc263d72f5f0e35c7874fde4cac75754a0217908c0b5",
+      "bytes": 37267
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "951967a1827e1d54187f05d168778e8ace9b455d",
+      "sha256": "fd234c7fbbdb0f59f2b4fd4bacf9b654f577ad6d300fbe27264241b5a31c0eef",
+      "bytes": 1231
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "825b3b85a13b3b1903c231939384ffc6a2677b32",
+      "sha256": "de8041865034b3af8697f90a96cb38bf130061b1736477b7449e2a2e1ea41ca3",
+      "bytes": 1334
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ce1e6c7f60e3bc4468a4bf7d53dd907667d7c50",
+      "sha256": "046cae8e8ee96bfe79b58962a09eae143f0af89a77543fae5fbeeaf43005fbb7",
+      "bytes": 1336
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e560bc9175faed92be151f0ca577e95f2d613dde",
+      "sha256": "9fe7d46393569277b286389b2901748f6be053fc6c72a92942d6baceea105984",
+      "bytes": 1320
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22bfd9716d9759c357ad670b6adc1dbd5281ef2a",
+      "sha256": "f1e2b602b89825710256005833bbb5d388135cc43ac4594b06882c4cfb1226ea",
+      "bytes": 1339
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-fork-refusals-advisory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf6015b606e8d23cf9a926363eb251bef2eb6e8a",
+      "sha256": "5e642ec88d14b631dfddd1a784bc1679ce0528857368521e24a2685c05b75aa2",
+      "bytes": 1749
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa247cea41d5ab644192b5e964defa9e0ef97a6f",
+      "sha256": "1a9c2c6ad5e3aca1ca8d0e850eafe7cd094721dc38ed0dc26357139a61e0baab",
+      "bytes": 11918
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f333478c81bea68eaa39715235a5f29ccb189bc",
+      "sha256": "f07d94a85792651d6e642fd20ede3d1d70501cf7f8c126c0b106bfb078107246",
+      "bytes": 11920
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77502ee3e1f1c95e6e499fb0fb335b748b26b633",
+      "sha256": "49edc0367b5c19a62cf85099fcf5d2ccecaff5562748a9fda7a092bfe1de7473",
+      "bytes": 17934
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcb6cf769a723a8e1541dd5ac01014a9c810e42e",
+      "sha256": "e1663e24af798491c015defbf8762cb33f86a5099a816e62230b9913627d2093",
+      "bytes": 17953
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/native-save-refusals.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92ada088a66c177aa09f7b6fad9b73940706420f",
+      "sha256": "465a4bbafa867b2e80493bbcd84e5fd06753036ed9ed4d53330a4990d8f628bb",
+      "bytes": 10815
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef010822ad3b0428dd01375690d3f160b82b586d",
+      "sha256": "29129aa293a9e54554648b7a16c5b61a035b21cf5585a9e6a1edddc7c19f2ad6",
+      "bytes": 932
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85dcf338aa9cfb4c122b2a351ec3e76f9ef53c10",
+      "sha256": "cca97300a0c4b64b3efdd65eb6067c2f492ee0cfd7b3697432f0e800791e4ab5",
+      "bytes": 56486
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1547f09f55c643a45b6fbb2a195f943f0d539530",
+      "sha256": "5a5bf345d63945fb4fe9237d9a20be16dc5db846f22ef8753c990727b18b04a0",
+      "bytes": 1317
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f78ad1ad09dcb42c170d9ced02bb7b8087671af",
+      "sha256": "40e1e6a3bddba552de8c27a5286b5b244723aa78374f30f9cf32a3357bb6aa46",
+      "bytes": 1334
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1831d2c36946a8fe212dbc8c18f8d1d98bf523f",
+      "sha256": "ace180626fc7fafe3ed0af5c6d59498b91840a7d53d842852af77e208c73b2c5",
+      "bytes": 1336
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71d7fc68c72285f76a099c7f6cbb9baa63bc65ef",
+      "sha256": "84d067bb76a263073ce122c164b5c0ba46dad2c822db21c8e1abe7247f908ea6",
+      "bytes": 1320
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b18c45dfe1e4fb0313d27ff56d5877da6196a0d",
+      "sha256": "e2766a11b7032edf3861dd3064ec64011f7f889ecb4d91ee469fd8ca819e6e92",
+      "bytes": 1339
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-fork-refusals-advisory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02a7ecb04c93b0707318af7192ebb34486f23cc8",
+      "sha256": "b9b7c11f62351697441910f1e7a1f34ac1a73e4291fa2d79c35e8e626d08724a",
+      "bytes": 1749
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77a441d8359bcc936f759ae14692e7bae237bf63",
+      "sha256": "713c0378e398fe12f4cd2c233909a6016af71c52347d5327c0850d12acd71265",
+      "bytes": 11918
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9068d82ead079b51592c7c3e2676cede2e2f1096",
+      "sha256": "419446d690bd86d9e76f88824fe7029dee11b40a85f86faf92c8d0f55fb8293e",
+      "bytes": 11920
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58611122b4e0e10b7a52370b58555e1f8cee2c9a",
+      "sha256": "1c7ed42172e08aac70f375557fdfb20ce6ec085736a8db1ae7a3fbdafa6bb07d",
+      "bytes": 17934
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbb2ebbae0cffa1c46f4762421dc0006baa35e68",
+      "sha256": "2594c82162f6fe7be9989aae5651f7e97e7b6b6b7b15f1b52134ca3be24ef471",
+      "bytes": 17953
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/native-save-refusals.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b087fabc80268a15d1afc08096a5f65b25b8d262",
+      "sha256": "9ba702f2105fa605c224bada30833fe3dcadb24e8eaf97a47c61448598198304",
+      "bytes": 10815
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e8fc9343de4fd1807e9119f35e8b5ed7921558f",
+      "sha256": "67a11d42cc4bbf7036b8f0356ecd2e5a783b2095469a760931c57b1854e318f7",
+      "bytes": 932
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f204d0743de290763027b6f3bd820c5ef4de342d",
+      "sha256": "a3b6c3f8eb9c38e74082855bdd4875135c4fc53ed218db50c6f894290e08741e",
+      "bytes": 56486
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/receiver-attempt-v1.native.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8623ade6af82225cd020af384cb8dc0a044e697d",
+      "sha256": "43a6c86f4bc702f3bae5ec23a9080b45ac45ec28d8bc42db77ea0b7fb6c43d97",
+      "bytes": 17280
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/receiver-attempt-v2.native.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6fee547fb94895ea4979235e6721de73523a5c1b",
+      "sha256": "bc0f5bd98a64c0b21ec54191bc84218728a70036cb5023a43d5ae2a2b82c72fd",
+      "bytes": 18049
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/tui-baseline.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3fad690acbe62f43cf9eeab421da3c7b3b5818d",
+      "sha256": "39d36f1ebba8c06823e57f2a5c9d49ab6a2b00d8ff0d67ff7afb6f5c5f1d17bb",
+      "bytes": 10662
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-a3/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "659285d031792c55b2f5176506546b931675918a",
+      "sha256": "dab9403fbe1b7c2ad744b6392d4da1a3309946215046cd7d23e20e248680ae62",
+      "bytes": 2031
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-a3/ci.diff",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d690acb459f71de1a78671e983bf95c90696bae",
+      "sha256": "0a5c9bd6bb770c44c414d701a74945bd8a6a56cfc0b6b955ae27b5caddd28cae",
+      "bytes": 1029
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-a3/composition.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1aa59a5dbb1c05b6998d4391d2933e073b16c350",
+      "sha256": "182a99d874fdc425a1083f944dce8a68daafd99b744ff36c3dd1f21dc746a352",
+      "bytes": 36724
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-a3/ownership.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afa0898b9a9a73fcba271106abf5e111cfb2503b",
+      "sha256": "3e75c37792857ddbd0b7a3723ef4492cb33259d1efe5680d2ee6954047620472",
+      "bytes": 1959
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "602b8b8f3e99414d5fe616fb5f602a2f391b6867",
+      "sha256": "f56f5348b48429181cb220d8ce94c2d1a0d53ab224e57b2ed4bb841004b4fc13",
+      "bytes": 2178
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/build-provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f103f3dc6c7c8e246ed055c6c45b41b435a7eeb",
+      "sha256": "950503974073f06280fc48e5f8a5c9af0cd86a7f6c656779f5d091745b1f1f28",
+      "bytes": 3203
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fc88713d6fda149f99a9b7676650033006e5b26",
+      "sha256": "3d97c95ce1999752ec298e69b770a453a2e0ce5d0bb9c0940919001d355258b9",
+      "bytes": 8223
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native-build.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7afe05ebeba29213a863f313ca7eab1d49d829e",
+      "sha256": "2de212da5ed7357fe2c6e3f8632fb2b6f410cca38065048d68866d175c433907",
+      "bytes": 927
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91667ec8c1745ab69cbf586f70f7ea7760806c0c",
+      "sha256": "360de79550802bc56cdaee7e8a0cfcbf4d1fdbfba5e8d3e58c7fd5c9fdd0e728",
+      "bytes": 1310
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-fork-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97fa70f20d5b032a351f2cd9ae08d9e441333b13",
+      "sha256": "53b3fdd92a1140d57a75df67e4c34cf93787a1d230246b16c0af5fec67a45f0f",
+      "bytes": 1361
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-fork-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b31ed766ce46e94768a44ce850504337dfa53508",
+      "sha256": "fe55ae4b5b9dfd83ce1526c6bef8695ae6091fad4cf65c8371dc68ca09c76d8a",
+      "bytes": 1363
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-fork-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53591862b3d93148ad3e21a7053ce842a0b5b516",
+      "sha256": "4b06cab2430b5e103cdf8721787ab9e7c6d40a5a4dd234b3a2fffd1fd9402a36",
+      "bytes": 1347
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-fork-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b7d72ba5fd3832302e2d2f6d25fe78d4a838d1f",
+      "sha256": "d9b82113bdc23cc9e48838a4c39e2000f2f1d0aedad55c6545e5c34fe82bd710",
+      "bytes": 1366
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-fork-refusals-advisory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2609a4da2068ffd94a4a229ea62f42138f647519",
+      "sha256": "48a2a7d03dd221c1e93403c078d3fb8a21822fdaa4a34cbfb74d05518a928c49",
+      "bytes": 1749
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-save-EOF.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "960c54faf70eb9ecb59e8136bfe0febeafaddb73",
+      "sha256": "bec45b14c4c0e7f676862ea4ecbdf8766dc42f83419bb460d511b9d3515a39ca",
+      "bytes": 11945
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-save-SIGINT.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1ca106c89145cdf8a1e61046f110fe9a06ddcf1",
+      "sha256": "23c0c64503d73a949b4230747d5bd14d4d3946fd14ae603fc1ebde18d40266da",
+      "bytes": 11947
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-save-disconnect.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c64d7cf82f99d8ec6af9b77323a6ea259f2648b",
+      "sha256": "4d33fc323ae8bfcacc595da025ecff582297054f3e27dd6519646be8b7bf2075",
+      "bytes": 17961
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-save-invalid-JSON.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9062e15532e0d4188a5b6a35ffcfa6a2d622d1e2",
+      "sha256": "ce311add721866bcde8f19abf46f104cc2fbc9381aee5808a4de9e733d1b0364",
+      "bytes": 17980
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/native-save-refusals.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fd902a001fa019662364d9cb73a415114c678ee",
+      "sha256": "e8bf33d160c70d85a6eecc36c69c37572690d64fbd29cbed0ce05609bfb4d27e",
+      "bytes": 10815
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cac04b2b055f59c12fa69103a4ef134868460190",
+      "sha256": "0da192d6914dfedd455126d2893e8ba2587d33aead8895a11464dd0406c6f3c8",
+      "bytes": 1013
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native/restart.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "580ca6b4e812f6bbc11355c7c80f3ffe01d7ba37",
+      "sha256": "e32881fba142ea5123058f8cecfa747c19f65e4da3acdb09a88a13d88a3058ce",
+      "bytes": 56486
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/source-composition.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e444c1c6dc2a8bd6b7296a07ce6da6037b0143b0",
+      "sha256": "8fea8b91c175f4a9ed323c12558dce991f53ec8ffee4827d07fda2178d1f3a77",
+      "bytes": 20318
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/REVIEW.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7407c44d2896fd8348421b708a5f86000da60fb2",
+      "sha256": "8fc7c1ab0fa3624837fca874c16e93749be025ac005aa037feb89d8a791a1ba5",
+      "bytes": 8950
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/admission-boundary-v1.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ebc716ce942677bc34703e3e2024d63bf65bda8",
+      "sha256": "1f8b8c7195d071a28c23d86afc471db8e59556f39735feea85e3274103eb8a32",
+      "bytes": 1434
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/admission-boundary-v1.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8d9daca1a79ee0fa287bbcc30f89b2f9a281db8",
+      "sha256": "2b5c45b3d77d3cfd843feeb24e1ec15727ab05e2ae54ebe61d723cea9921f8f5",
+      "bytes": 18914
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/admission-boundary-v1/receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50be04bb309fc0f054b714dab3aa6e0846d3b6be",
+      "sha256": "df2c1038820b737b7f24f4555cbbdc06a95ccec81d374f4daa3b56c9984fc4ad",
+      "bytes": 48808
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/api-admission-owner.diff",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcad050ffcc1b35430a707c4b7312247bdb922d1",
+      "sha256": "bc74a5c0e0dfc86f8116734581549524bd699d156bcb25cfdc57996854f01c91",
+      "bytes": 28100
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/api-current-impact.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10c4475f80019bdd2b9a0e9ac4703fc27940b321",
+      "sha256": "a2f89259c38c627c952e31dd93dc3cf2a7bb35ebb2c408c52b22737c8dce96e8",
+      "bytes": 2803
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/compare-snapshots.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f4f0e1491cb77c6ffac165e2e3fee11f5c4b82f",
+      "sha256": "91fa4398ae7b509f854e636b0addfc38664f916359c2e333c6675b46d7874a95",
+      "bytes": 2361
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/composition-ci.diff",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e4c76351d1a910ee9c7350eea9e7bcf207c2902",
+      "sha256": "db36dfb3736619e9dc7ed3e26e09cb1af5ea40dc8cdf34167ae6dd59bf597924",
+      "bytes": 1179
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/cross-run-snapshot-comparison.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2e09ae1aaa4d319f90a9f543d5541cf4e84a37f",
+      "sha256": "2a2e862e590f5340c7774116a433428adb5c0bb244fa04d7a8f0854a9a87e219",
+      "bytes": 3100
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/evidence-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77839c864b281f442881ea71a1c12373a0edef42",
+      "sha256": "9fd678aeebdab24c708876810bd26da22197d6a0980d01eaa15592f8e6a68ef2",
+      "bytes": 11446
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/exact-address-analysis.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34259a05418384caf2ab05eb4db7e8c891128efd",
+      "sha256": "96a3a8609fbf9491327fc66e90ca4d507ea3d2efd7fe37d1fa28a51c42c12436",
+      "bytes": 36383
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/receive-v1.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3a158b09355da45177cbb2c45c50f589ab2ddbb",
+      "sha256": "6588974a3182048930512a8142731aaa37ae3b9559257766bfe0c763632f2e35",
+      "bytes": 29450
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/replay-driver-delta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "293149d49122e1624c26b9cdade0d6f60151df0b",
+      "sha256": "caff134eabce773d32b7a4490a2ef5dd38489bf4206a5dcb32ce8ab4027d2744",
+      "bytes": 1078
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1a12780480071bf98e7ce0eb1bd6e1860dbb571",
+      "sha256": "f63528c0b02fe38ab483f54868f9f4c232dc0994d4ab6622149614fe456d92b9",
+      "bytes": 5561
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts/baseline-after.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0615436a1842c68c35e4522eeafbe00e97dcd030",
+      "sha256": "2fefd37e08adb6e0222afa27aff384980c6f940b246ec5b2c42d45e757780963",
+      "bytes": 3055
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts/baseline-before.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06c3abeeff79c78ca107a7ebc6a1507d70b47c70",
+      "sha256": "6d6da903f9017ac50f62ef9804f7f64251f96285a7cb3d3a442224334fc14762",
+      "bytes": 3044
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts/checkpoint-original.meta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d81fedc54be146ba1778dbdd490148db4b5379db",
+      "sha256": "777831bcac179737845c4232ff3f19d3b220ad7e89427edab68ce21677efe66b",
+      "bytes": 579
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts/checkpoint-original.snapshot.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0aa273125c4f50dbf5ba6deaad00032c1485cde",
+      "sha256": "462c16a5848eff495ad8a75254d0f30399b3c4f589bc7c82e04d82e1bc44c88a",
+      "bytes": 3172
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts/primary-after-auto.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4f237bde2781691acf1a3cddf2c5ca026799809",
+      "sha256": "e8c2cbadd6f1c31cfdb0d78d90b6ee8cc17ac7a24e25297d05caa42dda1eb61d",
+      "bytes": 3305
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts/primary-before-auto.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0aa273125c4f50dbf5ba6deaad00032c1485cde",
+      "sha256": "462c16a5848eff495ad8a75254d0f30399b3c4f589bc7c82e04d82e1bc44c88a",
+      "bytes": 3172
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts/restart-step-0.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb810c088c9e6d8290da04701bda90e87bb7d1b7",
+      "sha256": "b47fc07dac86eb09484e515b27243ed31a952639acffe95ac6bb6d7e576a1b80",
+      "bytes": 3305
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts/restart-step-1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78b2dcb56911162be8ef9fa076cd58ea9305133a",
+      "sha256": "99d5fadda6adefe9be22bf4299d6148d6ce0a85bbc5da8a991fee8536754e332",
+      "bytes": 3439
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bacff5a62e10d9ca09966cdb6d3808f35393db66",
+      "sha256": "eead9cca60504baff1e936a56564900b9a5397fd09bde122d7eb380eecd2b64e",
+      "bytes": 189513
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0567a304c4e13399a822e6dce969340714353fc",
+      "sha256": "e9d7edc1fb089677390869c36af5df315a5a3b0fe42d9c7d89761786ca59f9db",
+      "bytes": 3562
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-pin-read.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1766f1d521ee51c19b477a3edf2e445825795c6",
+      "sha256": "22b96cba23736dfe5f4528d09b10ad44abe9e2b56269fbc9490cce728ceffced",
+      "bytes": 1925
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-pin-readback.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a425f8b92bf44e13538a3f0776752a9fb5eb0293",
+      "sha256": "8807dcf2f8c01b777b156a71374a3943a2a8f74935b6e1711915fba6ccba55de",
+      "bytes": 27490
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/REVIEW.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6520a4e04b850fbdb3d2631f3301ea99c6e3284",
+      "sha256": "46c36ce94506947023a4eadddb0e6785af9efc69875ff617b8bea4cd9003fe79",
+      "bytes": 5852
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/driver-preparation-negative.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "344dbda59497757bda040975827e0475a0f4e0d1",
+      "sha256": "26551d0bb5f02b0a8d6aa16946d2cbe0817374c8b7465e46384f273b11dc8ed5",
+      "bytes": 318
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/evidence-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e092515198f6f5c6b38ed8b6b5e9fbc522187a1d",
+      "sha256": "2a490717e3489c0b6ba5b056836dd66d3c246107d67e94e2c677b83e4660b9f6",
+      "bytes": 7348
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/exact-address-analysis.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dceb3c2b0e1229614fc8db9a0a018e96f356767e",
+      "sha256": "175dcc90cd6678ced6c3a6646ca25ac1a5c063bea4de14abbb6bc5e0b077e6ac",
+      "bytes": 36383
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/receive-v1.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c63dff86afd96f5f633c2f1acba9b42eb920d2d",
+      "sha256": "b5c79ba9e8aa53ded1c6cadf650ef2e99908e277fe92e49438ade74a9504ef50",
+      "bytes": 29441
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8fc7327c24ba53f40b410e553960da8a8218fc3",
+      "sha256": "4bd77349c536ec7bf7dcfc50490d3608c3dee05426e0baed84c864ffd4ad064e",
+      "bytes": 5534
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/baseline-after.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af6c1f740d9882a867a66de12f2a47d5cd8c650c",
+      "sha256": "5243994968a845711c310c3c0f3187c7c852417404edfc6912bc92538a9a7ec7",
+      "bytes": 3055
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/baseline-before.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32d3baf5e64ca72cb89a344ae5f25d3a26abe578",
+      "sha256": "0105925241940855fc736e39436d828d0c78eb0d9507f54e178ba7294d65973d",
+      "bytes": 3044
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/checkpoint-original.meta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26d5d1f009b2dcab6f5744a67130c354445cc7e5",
+      "sha256": "78626073977d2e28d36b4a846433340081b5bb61e7c61ca47c76a514e1b519ee",
+      "bytes": 579
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/checkpoint-original.snapshot.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b06f372ed2ecb4bbb097488d4ef407c50baba90",
+      "sha256": "0822c2053cb2cb1e8bc9010ba73a0f8d9159bd4dd2c61b79388680b669d60132",
+      "bytes": 3172
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/primary-after-auto.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9be29843f80cf4bd573fae12aed148fbe6d75ad0",
+      "sha256": "2634e86bd7a17bb7cd69cdb1b89de875c0ea55649a9bb71096beade12eec3724",
+      "bytes": 3305
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/primary-before-auto.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b06f372ed2ecb4bbb097488d4ef407c50baba90",
+      "sha256": "0822c2053cb2cb1e8bc9010ba73a0f8d9159bd4dd2c61b79388680b669d60132",
+      "bytes": 3172
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/restart-step-0.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "164936c7d9124343d9e1d577ea44d67a76f06734",
+      "sha256": "5d575bb8de37778907fed9325a03ba4ae3481259003ccc80f33e1ea1f3a36484",
+      "bytes": 3305
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts/restart-step-1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61a3e3fd91ce144c0078413fb726d75a1ce408bc",
+      "sha256": "c44c58a7a83a6f8a906f6ba9c8ed8848a3ca6ef4fb825072a87cfe45101ce535",
+      "bytes": 3439
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6efb2e43572ed855eec86778b130f8a4a98b0cef",
+      "sha256": "b217ca32937cbd8d7a488886799ce69950cece3ea69164973c298ae855afa199",
+      "bytes": 188783
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/source-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08498a89e0838deaece89d7772fa57094a393a61",
+      "sha256": "e1bcf69a6c60f8256f979c30b4fc712ceea16b4982c213394d5512ba5721519e",
+      "bytes": 1981
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/staging-helper-negative.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "517d33405fd622569f555383c84d0641cfa0f535",
+      "sha256": "5b377bfb3623c25526760aa1dfc38f5d11d8c1f1b4f227a0f5caf97cae2d772d",
+      "bytes": 397
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2abcb128c954660fd9ff9967a58f1f07c1681154",
+      "sha256": "0e4d1b9122194a8a525f3b6506a0dc002a6b34e3291514493870e0eebb20b197",
+      "bytes": 13026
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "365209830a5fbec9abb5da3eda83c788d62d0b6a",
+      "sha256": "5641ffb12e8bd2257907ff26f2ea8e0ca6e488b164316f29e094cb4dd75b56bb",
+      "bytes": 2768
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/assess.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c47208d05fc780a0a63b69234369870bee2fa25",
+      "sha256": "cb397f1182681043ec0385ee1e4475e6f467788a0dac93fa1e437fb119ec807e",
+      "bytes": 5857
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/assessment.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a88b8b755dc50fc32e43ec52e82f5e4b0be8a72",
+      "sha256": "a09f41b3cbcdd5831b8967d3fb40223b506a8f3481fae3b6753bf1b2bdf3ee63",
+      "bytes": 4328
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/config-append.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32619b29968ceeac22eb6f1fbc78688dfec80c5f",
+      "sha256": "5a012859b3fe4d56a3844ac10067ae9ae15bb53fa435cc45219ff31d69fcea15",
+      "bytes": 1163
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/controls-exact.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/controls-exact.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81ada511d4cf96f12db5855f9b71c9cca7ee0dbf",
+      "sha256": "9eda4e6a2e13ecc963d17bb054e46d10880a984189eab685722cf95bd467d8da",
+      "bytes": 185
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/controls-negative.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20d575f51c16c1a5d68e675c0a575a6cb4ccb5cd",
+      "sha256": "a95acb6c6a72591e5c43ac2d181eae1fb1434ed168e04a538d831a4b2e27c15a",
+      "bytes": 4279
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/controls-negative.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d33f5dac392521acc29f0d412dee751f954419ae",
+      "sha256": "4cdff153303570b0a13daaf570f53fda3623246409bb25c57334353d186308ec",
+      "bytes": 185
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/current-fe2-classified.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/current-fe2-classified.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10f2bbc43e8755d1a8bc62e6d62a8b47d542f9f0",
+      "sha256": "7586254c493fb4aa83ff4a910393d87ea157a2cd3015c6a5820065e763cf2476",
+      "bytes": 187
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/current-fe2-initial.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1096a09b0967d62a72aff1e229eb572679828c6",
+      "sha256": "9ad7893c53b14c48b2f65f03e1ac4f0efce2a92b6b3aee04c6fe5233c9ffee3a",
+      "bytes": 5173
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/current-fe2-initial.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07f75cea4388f3f77c475cb47d65d56fd4d129bf",
+      "sha256": "62189c114d6118022ee3e7c786dfb4f8c5b38f8741aaf5c1f2b46b60ff4aa705",
+      "bytes": 187
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/gitleaks_8.24.3_checksums.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0bfbb889e7d74594cbe84f8ee21ff53711a0a104",
+      "sha256": "eefa9ab1ee69571248a6fa070a2a7de0837dd9eb72745d131f8766206aac8ac2",
+      "bytes": 1099
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "170f6c6468b852b6ad48c5cf7f00d9ab9f58dc09",
+      "sha256": "c788cd4c9ecf3e01ea32f86d7d70df30a7cf4163f05fd20dd05437fca1b4575d",
+      "bytes": 2250
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner/provenance.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f62825517de15e1b9e485c04d318dfd5d5b50d0",
+      "sha256": "798eb50bd464d44d874807d60a93a6d70810a5e8a68a73e2b61f5ab15904bfa7",
+      "bytes": 596
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c4c4f7b0fc1ec056ee99a034acfc5b1d2abc324",
+      "sha256": "f2d06e66eed260eb907a3b579261b41ebce92871b67361c87c357c4737591640",
+      "bytes": 7059
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccf608c0f5ef3c23ab55c38c2f56ff4f7b8c024e",
+      "sha256": "174bbaf954859841492a08359aabddbd0e23eba7f5b68b753da9e27919456419",
+      "bytes": 671
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoint-harness.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f71607eb4fcfe6ac0c580558b4f83cd1a222c519",
+      "sha256": "3a461a3b15cabe3f6b66887d812730af00b0b2c613bc1b22f726fc67da23f1bc",
+      "bytes": 1686
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoints.native.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fdc14954d7798eeee7a9614581249baadcab798",
+      "sha256": "0e3041de58c6d3c657801539127bd2cfd2f5e1c0a911dd506864a1db4a019854",
+      "bytes": 18118
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoints.test.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7e641a5fffe1c893c22856591d710a1e67d96cc",
+      "sha256": "1d625e08330be37d39893fd6c6e4f111fbb9f86fa706597dd9164954e1aae880",
+      "bytes": 13179
+    },
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfeed47234f1660acd175fa61a3290327a741aa1",
+      "sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e",
+      "bytes": 14580
+    }
+  ]
+}

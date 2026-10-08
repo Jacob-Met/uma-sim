@@ -1,0 +1,44 @@
+{
+  "terminal": {
+    "code": 1,
+    "signal": null,
+    "stdout": "Opening checkpoint 'keep' as session: tui-7ad38b56-e7e4-4e89-aed0-91058a3a3d20\n",
+    "stderr": "POST /v1/session/fork: HTTP 200, invalid JSON response\nThe request may have reached the server. Resume with --session=tui-7ad38b56-e7e4-4e89-aed0-91058a3a3d20 and inspect state before retrying; no action was retried automatically.\n"
+  },
+  "traffic": [
+    {
+      "method": "GET",
+      "route": "/v1/health",
+      "nativeStatus": 200,
+      "nativeResponse": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/",
+        "version": "0.1.0"
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "keep",
+        "id": "tui-7ad38b56-e7e4-4e89-aed0-91058a3a3d20"
+      },
+      "nativeStatus": 200,
+      "nativeResponse": {
+        "compatAdvisories": [],
+        "session": {
+          "careerComplete": false,
+          "id": "tui-7ad38b56-e7e4-4e89-aed0-91058a3a3d20",
+          "label": "tui-7ad38b56-e7e4-4e89-aed0-91058a3a3d20",
+          "phase": "MANDATORY_RACE",
+          "scenarioId": "ura",
+          "seed": 42,
+          "traineeName": "Special Week",
+          "turn": 1
+        }
+      },
+      "committed": true
+    }
+  ]
+}

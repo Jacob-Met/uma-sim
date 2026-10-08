@@ -1,0 +1,196 @@
+{
+  "schema": "hamon.uma.replacement.independent_manifest.v1",
+  "created_utc": "2026-10-08T12:58:16Z",
+  "current_main": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+  "binary": {
+    "path": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+    "sha256": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6"
+  },
+  "results": {
+    "terminal_groups": 16,
+    "admission_groups": 3,
+    "terminal_processes": 34,
+    "native_api_processes": 3,
+    "http_requests": 395,
+    "full_state_comparisons": 7
+  },
+  "donor_source_files": 120,
+  "staged_source_files": 11,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5642,
+      "sha256": "bf9cb45207d34ae376f5fca5fefa6e95f5a560bafebb5d0b855943a70a842bd5"
+    },
+    {
+      "path": "source-manifest.json",
+      "bytes": 6010,
+      "sha256": "ddbb356e55f808cf3111a4c79f862e062db072a04730f2f9a14f4cf0a1e6147d"
+    },
+    {
+      "path": "native-input-readback-after.json",
+      "bytes": 28141,
+      "sha256": "c7b56f628c02d7c95ec72fb5438b94110b6f88cd35adcbcdec67471a758139f0"
+    },
+    {
+      "path": "driver-port-v2.json",
+      "bytes": 1270,
+      "sha256": "9674e9bf80f0d92c01805670315ad200e6edf0fd2e2dcdf42e77c3d6012a7ea5"
+    },
+    {
+      "path": "receive-v1.mjs",
+      "bytes": 29403,
+      "sha256": "9ddf704208836f284d9f22767eeeada0873096b1844c7968cecfc8dbf06fd4c7"
+    },
+    {
+      "path": "admission-boundary-v1.mjs",
+      "bytes": 18867,
+      "sha256": "33cc5a7cad8ea599766f8f0070a70b3c893f719ef6fe2e5e6e3e57ebac418fdf"
+    },
+    {
+      "path": "run-v1/receipt.json",
+      "bytes": 186729,
+      "sha256": "7473a0e835b873dae983b1f97151aa13654a52ef83ffeb907b1cf3064b71b82b"
+    },
+    {
+      "path": "run-v1.log",
+      "bytes": 5435,
+      "sha256": "cbae678ca585c5575571095c4a13e26ee78a6d6709321d0db8e1360f6ddc54a0"
+    },
+    {
+      "path": "admission-boundary-v1/receipt.json",
+      "bytes": 48430,
+      "sha256": "1b3b295538d45c0b416ef74c3dae8edec97e5e8e84cfc2eee06b085be02c7e7a"
+    },
+    {
+      "path": "admission-boundary-v1.log",
+      "bytes": 1395,
+      "sha256": "76c845ccdcad20d9c93f690b6e86875aeab6d7264ba3195f8b54d3d9f1fa4410"
+    },
+    {
+      "path": "career-library-current.diff",
+      "bytes": 7436,
+      "sha256": "a869b0f23b75d88f541c20c2cb5f4b5c080cdcb8c5e993cf2322e9a00526cd10"
+    },
+    {
+      "path": "compare-snapshots.cjs",
+      "bytes": 1668,
+      "sha256": "1a676976dff98e36f8ad52dbc753dda0e65577835aac268508c9bbc5a14435a1"
+    },
+    {
+      "path": "cross-platform-snapshot-comparison.json",
+      "bytes": 3069,
+      "sha256": "6ccb5d5f37062152ca9aeaa2d3b8cd2f65621a71679a68810f3f0787cbbf6df2"
+    },
+    {
+      "path": "prior-mac-snapshots.json",
+      "bytes": 26644,
+      "sha256": "7d21f56af331ffeb45f7afaef08b4f6814ae6d235daa3847697939273d54bca7"
+    },
+    {
+      "path": "freeze-receiving-v1.py",
+      "bytes": 4681,
+      "sha256": "1aab106ca512968889d6412b40b5adb395693fea3c044e440c7c80f337113de0"
+    },
+    {
+      "path": "run-v1/artifacts/baseline-after.json",
+      "bytes": 3055,
+      "sha256": "d32d88890ff2d9f251a9a1ceb3532f4187617a34ad517292bff9c450b2cc5521"
+    },
+    {
+      "path": "run-v1/artifacts/baseline-before.json",
+      "bytes": 3044,
+      "sha256": "59979e914ef5c27ffd35e8db55c49b45cce3238fbf2d4c4be3545a8fa4c63cae"
+    },
+    {
+      "path": "run-v1/artifacts/checkpoint-original.meta.json",
+      "bytes": 579,
+      "sha256": "478156cf7802fb9b910d1ca96aa609903d59246d92093e356ddb10c02e6c6dc6"
+    },
+    {
+      "path": "run-v1/artifacts/checkpoint-original.snapshot.json",
+      "bytes": 3172,
+      "sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5"
+    },
+    {
+      "path": "run-v1/artifacts/primary-after-auto.json",
+      "bytes": 3305,
+      "sha256": "e773afdfafdfbfab755a68441f29a2d3c1d18e34e01c4b2ea49c1db560174344"
+    },
+    {
+      "path": "run-v1/artifacts/primary-before-auto.json",
+      "bytes": 3172,
+      "sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5"
+    },
+    {
+      "path": "run-v1/artifacts/restart-step-0.json",
+      "bytes": 3305,
+      "sha256": "0b62286068bcc9d4e3be48232769848080ed2367e31818dde17de52811b40e4b"
+    },
+    {
+      "path": "run-v1/artifacts/restart-step-1.json",
+      "bytes": 3439,
+      "sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f"
+    },
+    {
+      "path": "native-input-readback-before.json",
+      "bytes": 39850,
+      "sha256": "0ee6e8caefc0997cb360f3ef3b195dce291eb06ab5153c6b0143104339412598"
+    },
+    {
+      "path": "preparation/staging-receipt.json",
+      "bytes": 1509,
+      "sha256": "8d64ee46fa76782d9d78272c2c8c0002503bec27fc5cd2339541cfb5a5214f98"
+    },
+    {
+      "path": "preparation/driver-staging-correction.json",
+      "bytes": 876,
+      "sha256": "bbfa7c084c0e496bafac1211bc07dbacab7219aec5fcf594ab9016fa1c9e60f8"
+    },
+    {
+      "path": "preparation/stage-v1.py",
+      "bytes": 2651,
+      "sha256": "5e60e5195621db0a6d10dd507c72084cc207183f60a3520676530c8dde52fb12"
+    },
+    {
+      "path": "preparation/run-v1/receipt.json",
+      "bytes": 6362,
+      "sha256": "370d8513a4a83f4ed32ca2f09411f443ff8b3e5d2502eb676aef03d720ba5114"
+    },
+    {
+      "path": "preparation/run-v1.log",
+      "bytes": 361,
+      "sha256": "57bb21ce52661d7fd970bc5477f93cf3731f1e9cb439e9ca2d7b560fed308849"
+    },
+    {
+      "path": "preparation/admission-boundary-v1/receipt.json",
+      "bytes": 12892,
+      "sha256": "29fd8c76dcfce9343a8cdb6edcacba173ddd831daf2e8490ac1f090f91587c7b"
+    },
+    {
+      "path": "preparation/admission-boundary-v1.log",
+      "bytes": 409,
+      "sha256": "e00665e7d6c2c16a856ad20ca26b7ca72be7d8d52aa6f70d73a241d0502d0d5c"
+    },
+    {
+      "path": "preparation/receive-v1.mjs",
+      "bytes": 29411,
+      "sha256": "94e3137aeebe9897a2c31a6d66192ff328255bd59340f44726c0687539ece7e1"
+    },
+    {
+      "path": "preparation/admission-boundary-v1.mjs",
+      "bytes": 18875,
+      "sha256": "3439fbb28474b811278c52ead69711226ba136c795773bcbceaa055d3df4f27c"
+    },
+    {
+      "path": "preparation/receive-v1.mjs.preparation-extra-newline",
+      "bytes": 29412,
+      "sha256": "d858559684ac066c4a14f68c734e6e3c4debcbf3b9fb62f724a375fc351e9999"
+    },
+    {
+      "path": "preparation/admission-boundary-v1.mjs.preparation-extra-newline",
+      "bytes": 18876,
+      "sha256": "77f4aaf05664d60eac59cdd94a1c402cb34bf5271e774884945724aac58d57e1"
+    }
+  ]
+}
