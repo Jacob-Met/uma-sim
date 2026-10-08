@@ -1,0 +1,80 @@
+{
+  "create": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "issue": {
+        "url": "https://github.com/Jacob-Met/uma-sim/issues/119",
+        "title": "Choose native catalog identities and race styles through MCP",
+        "issue_number": 119,
+        "body": "Owner: `chatgpt-0378a7b6b7c2/msi_product`, under Jacob's standing HAMON execution mandate.\n\nCurrent main `0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa` exposes catalog discovery and preferred race-style changes through Rust REST/browser controls, but neither is available to an MCP career player. Actual native MSI receiving confirms the two intended tools are absent and calls refuse, while all five existing catalogs work and the existing style route changes only a fork's preferredRunningStyle. The independently built current-source API and exact original MCP hashes are recorded.\n\nAdd two small native API integrations:\n- `sim_catalog({kind})`, with required enum scenarios/trainees/supports/factors/skills, returns the existing GET catalog response through unchanged transport. No local catalog cache, filtering or inferred identities.\n- `sim_style({style, session?})`, with required enum auto/front/pace/late/end, uses existing POST /v1/run/style. Auto maps to the native empty style; a named session uses the existing nonempty guard, omission targets the current active session. This changes a preference without taking a turn, consuming RNG or claiming improved outcomes.\n\nFence: two additive schema rows and dispatch cases in `packages/uma-sim-mcp/mcp-stdio.js`; dedicated maintained protocol/native tests; the existing discovery assertion's two-name addition; a narrow README tool-count/table addition and usage section; unique `docs/receiving/mcp-career-controls-0378a7b6/` evidence. Preserve every existing helper and handler, all Rust/API/UI/engine/RNG/persistence/catalog source, dependencies, lockfiles and workflows. The existing wildcard workflow already receives the new tests.\n\n#102's seed/JSON transport and #115's training hooks keep their full ownership; compose their current accepted bytes unchanged. #63's session semantics and all setup, inheritance, validation and CLI persistence scopes remain outside this contribution. This is a distinct capability, not a new transport or session correction.\n\nNative actual stdio/API qualification will cover all five catalog kinds, existing selected identities through sim_start, explicit named and omitted-active targets, every style/Auto, complete target-state remainder and RNG preservation, sibling/checkpoint preservation, absent/missing target errors and zero-dispatch argument refusal. Baseline already passed before production edits. Exact current-parent composition, independent source/behavior review, pinned hosted gates and normal integration remain required.\n\nCoordination: current public open issues and current source were read; the existing 17:41 native coordination snapshot showed no catalog/style owner but has explicit coverage limitations, and a newer parent-owned native scan is pending. No native lease or central directory write is claimed. Isolated MSI checkout `D:\\Hamon\\worktrees\\uma-sim-discovery-0378a7b6`, branch `work/0378a7b6-mcp-career-controls`; native proof sibling `uma-sim-career-controls-0378a7b6-proof`. Source remained clean at claim time; receiving-contract.json was frozen before candidate code.",
+        "state": "open",
+        "user": {
+          "login": "Jacob-Met",
+          "name": "Jacob-Met",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/150724801?v=4",
+          "id": 150724801
+        },
+        "assignees": null,
+        "labels": null,
+        "milestone": null,
+        "state_reason": null,
+        "comments": 0,
+        "created_at": "2026-10-08T20:02:56Z",
+        "updated_at": "2026-10-08T20:02:56Z",
+        "closed_at": null,
+        "display_url": "https://github.com/Jacob-Met/uma-sim/issues/119",
+        "display_title": "Choose native catalog identities and race styles through MCP"
+      },
+      "url": "https://github.com/Jacob-Met/uma-sim/issues/119",
+      "title": "Choose native catalog identities and race styles through MCP",
+      "display_url": "https://github.com/Jacob-Met/uma-sim/issues/119",
+      "display_title": "Choose native catalog identities and race styles through MCP"
+    },
+    "isError": false
+  },
+  "readback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "issue": {
+        "url": "https://github.com/Jacob-Met/uma-sim/issues/119",
+        "title": "Choose native catalog identities and race styles through MCP",
+        "issue_number": 119,
+        "body": "Owner: `chatgpt-0378a7b6b7c2/msi_product`, under Jacob's standing HAMON execution mandate.\n\nCurrent main `0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa` exposes catalog discovery and preferred race-style changes through Rust REST/browser controls, but neither is available to an MCP career player. Actual native MSI receiving confirms the two intended tools are absent and calls refuse, while all five existing catalogs work and the existing style route changes only a fork's preferredRunningStyle. The independently built current-source API and exact original MCP hashes are recorded.\n\nAdd two small native API integrations:\n- `sim_catalog({kind})`, with required enum scenarios/trainees/supports/factors/skills, returns the existing GET catalog response through unchanged transport. No local catalog cache, filtering or inferred identities.\n- `sim_style({style, session?})`, with required enum auto/front/pace/late/end, uses existing POST /v1/run/style. Auto maps to the native empty style; a named session uses the existing nonempty guard, omission targets the current active session. This changes a preference without taking a turn, consuming RNG or claiming improved outcomes.\n\nFence: two additive schema rows and dispatch cases in `packages/uma-sim-mcp/mcp-stdio.js`; dedicated maintained protocol/native tests; the existing discovery assertion's two-name addition; a narrow README tool-count/table addition and usage section; unique `docs/receiving/mcp-career-controls-0378a7b6/` evidence. Preserve every existing helper and handler, all Rust/API/UI/engine/RNG/persistence/catalog source, dependencies, lockfiles and workflows. The existing wildcard workflow already receives the new tests.\n\n#102's seed/JSON transport and #115's training hooks keep their full ownership; compose their current accepted bytes unchanged. #63's session semantics and all setup, inheritance, validation and CLI persistence scopes remain outside this contribution. This is a distinct capability, not a new transport or session correction.\n\nNative actual stdio/API qualification will cover all five catalog kinds, existing selected identities through sim_start, explicit named and omitted-active targets, every style/Auto, complete target-state remainder and RNG preservation, sibling/checkpoint preservation, absent/missing target errors and zero-dispatch argument refusal. Baseline already passed before production edits. Exact current-parent composition, independent source/behavior review, pinned hosted gates and normal integration remain required.\n\nCoordination: current public open issues and current source were read; the existing 17:41 native coordination snapshot showed no catalog/style owner but has explicit coverage limitations, and a newer parent-owned native scan is pending. No native lease or central directory write is claimed. Isolated MSI checkout `D:\\Hamon\\worktrees\\uma-sim-discovery-0378a7b6`, branch `work/0378a7b6-mcp-career-controls`; native proof sibling `uma-sim-career-controls-0378a7b6-proof`. Source remained clean at claim time; receiving-contract.json was frozen before candidate code.",
+        "state": "open",
+        "user": {
+          "login": "Jacob-Met",
+          "name": "Jacob-Met",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/150724801?v=4",
+          "id": 150724801
+        },
+        "assignees": null,
+        "labels": null,
+        "milestone": null,
+        "state_reason": null,
+        "comments": 0,
+        "created_at": "2026-10-08T20:02:56Z",
+        "updated_at": "2026-10-08T20:02:56Z",
+        "closed_at": null,
+        "display_url": "https://github.com/Jacob-Met/uma-sim/issues/119",
+        "display_title": "Choose native catalog identities and race styles through MCP"
+      },
+      "url": "https://github.com/Jacob-Met/uma-sim/issues/119",
+      "title": "Choose native catalog identities and race styles through MCP",
+      "display_url": "https://github.com/Jacob-Met/uma-sim/issues/119",
+      "display_title": "Choose native catalog identities and race styles through MCP"
+    },
+    "isError": false
+  }
+}

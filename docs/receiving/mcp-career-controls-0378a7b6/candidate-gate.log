@@ -1,0 +1,253 @@
+▶ MCP catalog selection and race style use the real native career without advancing it
+  ✔ all five catalogs are available before a career and equal native records (262.765ms)
+✖ MCP catalog selection and race style use the real native career without advancing it (980.4061ms)
+✔ catalog and style discovery states their required enums and dispatches nothing (89.9811ms)
+✔ all catalog kinds use their existing GET and preserve returned values (178.9156ms)
+✔ style dispatch keeps explicit named identity and maps only Auto to the native empty key (168.961ms)
+✔ invalid catalog/style inputs and empty session never dispatch HTTP (75.2064ms)
+✔ native HTTP refusals remain unsuccessful tool results without automatic retries (125.7227ms)
+▶ native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+  ✔ save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes (138.6354ms)
+  ✔ forking and named actions do not mutate the source, sibling or saved checkpoint (216.2753ms)
+  ✔ incompatible checkpoint metadata returns real 422 and preserves the target session (94.9035ms)
+  ✔ known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics (274.0123ms)
+  ✔ external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged (67.3831ms)
+  ✔ branches compare actual decisions while preserving live sessions and checkpoint bytes (285.355ms)
+  ✔ invalid branch/import operations and deletions preserve unrelated native state (150.0844ms)
+✔ native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports (1986.6231ms)
+✔ discovery preserves existing tool and resource identities and publishes the full lab boundary (84.7453ms)
+▶ named run calls and the process-wide content operation retain REST identities
+  ✔ sim_state (96.3694ms)
+  ✔ sim_text (10.8353ms)
+  ✔ sim_choices (16.1595ms)
+  ✔ sim_export_telemetry (15.8285ms)
+  ✔ sim_act (6.4993ms)
+  ✔ sim_auto (8.4727ms)
+  ✔ sim_fast_forward (15.3117ms)
+  ✔ sim_deck_place (4.95ms)
+  ✔ sim_load_content_pack (9.6568ms)
+✔ named run calls and the process-wide content operation retain REST identities (202.1876ms)
+✔ start preserves default-session creation and explicit configuration (140.9083ms)
+▶ all added operations preserve their method, route, selectors and payload values
+  ✔ sim_sessions (91.2555ms)
+  ✔ sim_session_fork (19.8914ms)
+  ✔ sim_session_fork (13.1819ms)
+  ✔ sim_session_activate (14.1549ms)
+  ✔ sim_session_close (15.4586ms)
+  ✔ sim_library_list (13.5343ms)
+  ✔ sim_library_save (17.779ms)
+  ✔ sim_library_load (2.0491ms)
+  ✔ sim_library_delete (13.3917ms)
+  ✔ sim_library_import (15.7105ms)
+  ✔ sim_library_export (14.8169ms)
+  ✔ sim_lab_branch (15.9425ms)
+  ✔ sim_lab_branches (15.7774ms)
+  ✔ sim_lab_branch_get (15.4484ms)
+  ✔ sim_lab_branch_delete (15.4913ms)
+  ✔ sim_lab_compare (2.5342ms)
+  ✔ sim_lab_report (11.8042ms)
+✔ all added operations preserve their method, route, selectors and payload values (329.2196ms)
+▶ empty default-session selectors are permitted only on endpoints with correct native semantics
+  ✔ sim_state (64.3014ms)
+  ✔ sim_text (0.4528ms)
+  ✔ sim_choices (0.3876ms)
+  ✔ sim_export_telemetry (0.4222ms)
+  ✔ sim_act (0.4413ms)
+  ✔ sim_auto (0.3858ms)
+  ✔ sim_fast_forward (0.6353ms)
+  ✔ sim_deck_place (0.4594ms)
+  ✔ sim_library_save (0.456ms)
+  ✔ sim_library_load (0.3346ms)
+  ✔ sim_session_close (0.3232ms)
+  ✔ sim_start explicit default (43.4067ms)
+  ✔ sim_session_activate explicit default (15.4874ms)
+  ✔ sim_session_fork explicit default (15.9779ms)
+✔ empty default-session selectors are permitted only on endpoints with correct native semantics (162.3076ms)
+▶ query values cannot inject a second selector or change the endpoint
+  ✔ sim_state (89.1236ms)
+  ✔ sim_library_export (12.3218ms)
+  ✔ sim_lab_branch_get (14.8515ms)
+  ✔ sim_lab_report (2.4224ms)
+✔ query values cannot inject a second selector or change the endpoint (133.166ms)
+▶ invalid containers and mutation arguments fail before HTTP dispatch
+  ✔ 1: sim_state null (52.0518ms)
+  ✔ 2: sim_state [] (0.4697ms)
+  ✔ 3: sim_state false (0.3429ms)
+  ✔ 4: sim_state "text" (0.3882ms)
+  ✔ 5: sim_state 4 (0.4065ms)
+  ✔ 6: sim_act {} (0.4028ms)
+  ✔ 7: sim_act {"action":1} (0.4094ms)
+  ✔ 8: sim_act {"action":"rest","session":null} (0.3682ms)
+  ✔ 9: sim_act {"action":"rest","sessionId":"sibling"} (0.4533ms)
+  ✔ 10: sim_start {"seed":"7"} (0.4502ms)
+  ✔ 11: sim_start {"seed":9007199254740992} (0.3326ms)
+  ✔ 12: sim_start {"speed":0} (0.3238ms)
+  ✔ 13: sim_fast_forward {"multiplier":101} (0.3117ms)
+  ✔ 14: sim_start {"raceModel":false} (0.3818ms)
+  ✔ 15: sim_library_save {"name":"mid","__proto__":{"overwrite":true}} (0.4784ms)
+  ✔ 16: sim_library_save {"name":"mid","constructor":true} (0.4021ms)
+  ✔ 17: sim_start {"session":false} (0.4102ms)
+  ✔ 18: sim_fast_forward {"multiplier":"3"} (0.5075ms)
+  ✔ 19: sim_load_content_pack {"path":"pack.json","session":"sibling"} (0.4154ms)
+  ✔ 20: sim_session_fork {"id":5} (0.3935ms)
+  ✔ 21: sim_session_fork {"checkpoint":"mid","session":"source"} (0.6085ms)
+  ✔ 22: sim_session_activate {} (0.4023ms)
+  ✔ 23: sim_session_close {"session":5} (0.3286ms)
+  ✔ 24: sim_library_save {"overwrite":"true"} (0.3305ms)
+  ✔ 25: sim_library_save {"overwrite":null} (0.2976ms)
+  ✔ 26: sim_library_save {"name":"mid","overwritee":true} (0.3522ms)
+  ✔ 27: sim_library_load {} (0.3198ms)
+  ✔ 28: sim_library_import {} (0.3271ms)
+  ✔ 29: sim_library_import {"snapshot":[]} (0.6587ms)
+  ✔ 30: sim_library_import {"snapshot":"raw"} (0.4925ms)
+  ✔ 31: sim_library_import {"snapshot":{},"overwrite":1} (0.3699ms)
+  ✔ 32: sim_library_export {"name":4} (0.3162ms)
+  ✔ 33: sim_lab_compare {"a":"a"} (0.3651ms)
+  ✔ 34: sim_lab_compare {"a":"a","b":false} (0.3894ms)
+  ✔ 35: sim_lab_report {"a":"a","b":"b","format":"html"} (0.4162ms)
+  ✔ 36: sim_lab_branch_delete {"id":null} (0.61ms)
+  ✔ 37: sim_lab_branch {"checkpoint":"mid","policy":"external"} (1.9554ms)
+  ✔ 38: sim_lab_branch {"checkpoint":"mid","maxActions":0} (0.9373ms)
+  ✔ 39: sim_lab_branch {"checkpoint":"mid","maxActions":501} (0.4433ms)
+  ✔ 40: sim_lab_branch {"checkpoint":"mid","maxActions":1.5} (0.4301ms)
+  ✔ 41: sim_lab_branch {"checkpoint":"mid","maxActions":"2"} (0.3917ms)
+  ✔ 42: sim_lab_branch {"checkpoint":"mid","maxActions":null} (0.3281ms)
+  ✔ 43: sim_lab_branch {"checkpoint":"mid","overrides":{}} (0.3425ms)
+  ✔ 44: sim_lab_branch {"checkpoint":"mid","overrides":"rest"} (0.3357ms)
+  ✔ 45: sim_lab_branch {"checkpoint":"mid","overrides":[null]} (0.4273ms)
+  ✔ 46: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1}]} (0.3312ms)
+  ✔ 47: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":"1","actionId":"rest"}]} (0.6098ms)
+  ✔ 48: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1.5,"actionId":"rest"}]} (0.4345ms)
+  ✔ 49: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":4294967297,"actionId":"rest"}]} (0.4001ms)
+  ✔ 50: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":3}]} (0.3999ms)
+  ✔ 51: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":"rest","typo":true}]} (0.4518ms)
+✔ invalid containers and mutation arguments fail before HTTP dispatch (93.114ms)
+✔ valid numeric edges survive validation without changing the requested experiment (157.722ms)
+▶ HTTP failures retain the native diagnostic and never retry the mutation
+  ✔ 400 (93.4917ms)
+  ✔ 404 (7.1417ms)
+  ✔ 409 (17.4771ms)
+  ✔ 422 (15.4839ms)
+  ✔ 503 (15.6655ms)
+✔ HTTP failures retain the native diagnostic and never retry the mutation (169.6568ms)
+✔ non-JSON HTTP errors and Markdown reports preserve readable text (126.6694ms)
+✔ connection loss after a mutation is not automatically replayed and stdio stays usable (107.9616ms)
+✔ malformed JSON successes remain internal failures, including resource reads (124.8196ms)
+✔ concurrent response IDs, fragmented UTF-8, notifications and parse errors preserve the protocol boundary (155.8054ms)
+✖ conformant handshake with newline-delimited framing (374.1772ms)
+✔ protocol negotiation, -32602 error mapping, and argument validation (91.1333ms)
+✔ HTTP failures are actionable tool errors, including non-JSON and empty bodies (189.9573ms)
+✔ failed resource reads return RPC errors without advertising resource contents (107.1157ms)
+✔ successful HTTP payloads and run setup arguments keep their existing shape (193.6039ms)
+✔ invalid JSON-RPC frames are rejected and the stdio connection stays usable (215.4976ms)
+✔ malformed parameters are rejected before any backend mutation (112.5044ms)
+✔ MCP invalid or unsafe numeric request IDs cannot execute a tool (274.9583ms)
+✔ string and safe integer IDs preserve accepted career-lab arguments and zero seeds (176.8694ms)
+✔ numeric overflow in valid JSON arguments is rejected before REST (64.3993ms)
+✔ report receiving: HTTP errors retain raw bodies before format decoding and healthy text remains text (207.499ms)
+ℹ {"case":"report-format-composition","statuses":[503,409,404,200,200],"requests":5,"healthyMarkdownBytes":43,"jsonReport":{"a":"left","b":"right","firstDivergence":{"kind":"decision"}}}
+✔ preserve the current fully escaped whole-second timestamp format (3.4833ms)
+✔ normalize only the whole generated line and retain identical text inside data (0.2323ms)
+✔ wrong branch identity, counts, retained dates and escape bytes remain distinguishable (0.3998ms)
+✔ invalid timestamp syntax and unknown escape sequences refuse (0.7378ms)
+✔ the escaped shape cannot admit unparseable month, day or hour values (5.9846ms)
+✔ missing or duplicate generated lines cannot disappear as timestamp variance (1.074ms)
+✔ the JSON helper keeps its existing raw UTC and experiment identity contract (1.7671ms)
+✔ valid Gregorian leap days remain accepted in the current escaped format (0.1952ms)
+✔ finite Date.parse normalization cannot hide day or midnight rollover (0.7539ms)
+✔ native receiving: fork contention has one winner and closing it without main preserves surviving careers (888.6782ms)
+ℹ {"case":"concurrent-fork-and-no-main","winner":"receiving-fork-a","surviving":["receiving-a","receiving-b"],"a":"f46a2f33690339575d7344cc0cf0570062d8718a7bf692db190b78ccd93cbe44","b":"068891245fc32251dbad90d13bec943f1a1a5d553c03353beccd3e6cc7fb452c"}
+✔ native receiving: external-policy refusal fully restores a non-active target and permits later continuation (910.5728ms)
+ℹ {"case":"non-active-503-rollback-and-continuation","unchangedTarget":"7cbf8a5ba008ddd890c818f7a7129386ffc532c26642dae09d04aa5cc7b846e8","unchangedActive":"2d879ebc30c72a2231a2dbb7a651cf3032e42866d522cf9ed8617d4c536add2d","targetSpeed":3,"activeSpeed":7}
+✔ native receiving: global content reaches both existing careers and differs from an unloaded API control (1562.2663ms)
+ℹ {"case":"global-content-native-control","loaded":500,"step":2,"turn":3,"a":"6cf936632233d32d928bbf75bfd8e638457295705e4cb2a20143732a2869c3a3","b":"6cf936632233d32d928bbf75bfd8e638457295705e4cb2a20143732a2869c3a3","unloaded":"d0d4efce05e3428189a954a419f7f2eef30340b629c09ee1307b1eb0f785b673","active":"pack-b"}
+✔ success payload receiving: legacy JSON strings stay encoded while default Markdown reports stay literal (166.0626ms)
+ℹ {"case":"success-payload-owner-contract","requests":3,"modes":["legacy JSON string","default raw Markdown","JSON report string"]}
+ℹ tests 152
+ℹ suites 0
+ℹ pass 150
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7135.3403
+
+✖ failing tests:
+
+test at packages\uma-sim-mcp\tests\career-controls-native.test.mjs:7:1
+✖ MCP catalog selection and race style use the real native career without advancing it (980.4061ms)
+  AssertionError [ERR_ASSERTION]: Unexpected tool execution error: {"jsonrpc":"2.0","id":9,"result":{"content":[{"type":"text","text":"uma-sim API returned HTTP 400: {\"error\":\"invalid checkpoint name: only ASCII letters, digits, '-', '_' and '.' are allowed\"}"}],"isError":true}}
+      at toolJson (file:///D:/Hamon/worktrees/uma-sim-discovery-0378a7b6/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs:124:10)
+      at TestContext.<anonymous> (file:///D:/Hamon/worktrees/uma-sim-discovery-0378a7b6/packages/uma-sim-mcp/tests/career-controls-native.test.mjs:43:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: true,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at packages\uma-sim-mcp\tests\mcp-handshake.test.mjs:68:1
+✖ conformant handshake with newline-delimited framing (374.1772ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      'sim_act',
+      'sim_auto',
+  +   'sim_catalog',
+      'sim_choices',
+      'sim_deck_place',
+      'sim_export_telemetry',
+      'sim_fast_forward',
+      'sim_lab_branch',
+  ...
+      'sim_state',
+  +   'sim_style',
+      'sim_text'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/Hamon/worktrees/uma-sim-discovery-0378a7b6/packages/uma-sim-mcp/tests/mcp-handshake.test.mjs:105:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [
+      'sim_act',               'sim_auto',
+      'sim_catalog',           'sim_choices',
+      'sim_deck_place',        'sim_export_telemetry',
+      'sim_fast_forward',      'sim_lab_branch',
+      'sim_lab_branch_delete', 'sim_lab_branch_get',
+      'sim_lab_branches',      'sim_lab_compare',
+      'sim_lab_report',        'sim_library_delete',
+      'sim_library_export',    'sim_library_import',
+      'sim_library_list',      'sim_library_load',
+      'sim_library_save',      'sim_load_content_pack',
+      'sim_session_activate',  'sim_session_close',
+      'sim_session_fork',      'sim_sessions',
+      'sim_start',             'sim_state',
+      'sim_style',             'sim_text'
+    ],
+    expected: [
+      'sim_act',               'sim_auto',
+      'sim_choices',           'sim_deck_place',
+      'sim_export_telemetry',  'sim_fast_forward',
+      'sim_lab_branch',        'sim_lab_branch_delete',
+      'sim_lab_branch_get',    'sim_lab_branches',
+      'sim_lab_compare',       'sim_lab_report',
+      'sim_library_delete',    'sim_library_export',
+      'sim_library_import',    'sim_library_list',
+      'sim_library_load',      'sim_library_save',
+      'sim_load_content_pack', 'sim_session_activate',
+      'sim_session_close',     'sim_session_fork',
+      'sim_sessions',          'sim_start',
+      'sim_state',             'sim_text'
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

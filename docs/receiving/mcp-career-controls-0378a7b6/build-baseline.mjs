@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import {spawn,execFileSync} from 'node:child_process';
+const root='D:/Hamon/worktrees/uma-sim-discovery-0378a7b6';
+const out='D:/Hamon/worktrees/uma-sim-career-controls-0378a7b6-proof';
+fs.mkdirSync(out+'/temp',{recursive:true});
+const startedAt=new Date().toISOString();
+const head=execFileSync('git',['-C',root,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
+const log=fs.createWriteStream(out+'/build-baseline.log',{flags:'wx'});
+const args=['/d','/s','/c','cargo build --locked -p uma-sim-core --bin uma-sim-api'];
+const child=spawn('cmd.exe',args,{cwd:root,env:{...process.env,CARGO_TARGET_DIR:out+'/target',CARGO_BUILD_JOBS:'2',TEMP:out+'/temp',TMP:out+'/temp'},stdio:['ignore','pipe','pipe']});
+child.stdout.pipe(log,{end:false});child.stderr.pipe(log,{end:false});
+child.on('error',error=>{fs.writeFileSync(out+'/build-baseline-error.json',JSON.stringify({startedAt,error:String(error)}));process.exitCode=1;});
+child.on('exit',(code,signal)=>{log.end();const result={startedAt,completedAt:new Date().toISOString(),head,command:args.at(-1),code,signal};fs.writeFileSync(out+'/build-baseline.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));process.exitCode=code??1;});

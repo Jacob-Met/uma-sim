@@ -1,0 +1,20 @@
+▶ MCP catalog selection and race style use the real native career without advancing it
+  ✔ all five catalogs are available before a career and equal native records (250.9994ms)
+  ✔ catalog-chosen identities create a native career and further catalog reads preserve it (188.8918ms)
+  ✔ every explicit style and Auto change only the named target preference (280.7791ms)
+  ✔ omitted session uses active target while a named request ignores a different active career (108.3813ms)
+  ✔ missing target refusal leaves complete careers, checkpoint and active session unchanged (92.3594ms)
+✔ MCP catalog selection and race style use the real native career without advancing it (1659.2302ms)
+✔ catalog and style discovery states their required enums and dispatches nothing (74.6824ms)
+✔ all catalog kinds use their existing GET and preserve returned values (138.2272ms)
+✔ style dispatch keeps explicit named identity and maps only Auto to the native empty key (157.246ms)
+✔ invalid catalog/style inputs and empty session never dispatch HTTP (70.5358ms)
+✔ native HTTP refusals remain unsuccessful tool results without automatic retries (116.5371ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1778.9464

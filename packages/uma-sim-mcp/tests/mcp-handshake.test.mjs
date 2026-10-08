@@ -105,6 +105,7 @@ test("conformant handshake with newline-delimited framing", async () => {
     assert.deepEqual(names, [
       "sim_act",
       "sim_auto",
+      "sim_catalog",
       "sim_choices",
       "sim_deck_place",
       "sim_export_telemetry",
@@ -128,6 +129,7 @@ test("conformant handshake with newline-delimited framing", async () => {
       "sim_sessions",
       "sim_start",
       "sim_state",
+      "sim_style",
       "sim_text"
     ]);
 
