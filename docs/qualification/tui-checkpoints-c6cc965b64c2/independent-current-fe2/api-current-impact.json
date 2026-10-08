@@ -1,0 +1,109 @@
+{
+  "schema": "hamon.uma.terminal_durable.api_composition_impact.v1",
+  "original_api_source_commit": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "current_api_source_commit": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "changed_post_handlers": [
+    {
+      "name": "handle_start",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_action",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_auto",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_fast",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_load_content_pack",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_deck_place",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_set_style",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_session_fork",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_session_close",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_session_activate",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_library_save",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_library_load",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_library_delete",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_library_import",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_lab_branch",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_lab_branch_delete",
+      "mechanical_only": true
+    },
+    {
+      "name": "handle_lab_compare",
+      "mechanical_only": true
+    }
+  ],
+  "unchanged_handlers": [
+    "handle_health",
+    "handle_catalog_scenarios",
+    "handle_catalog_trainees",
+    "handle_catalog_supports",
+    "handle_catalog_factors",
+    "handle_state",
+    "handle_text",
+    "handle_choices",
+    "handle_telemetry",
+    "handle_sessions",
+    "handle_library_list",
+    "handle_library_export",
+    "handle_lab_branches",
+    "handle_lab_branch_get",
+    "handle_lab_report"
+  ],
+  "mechanical_normalization": [
+    "raw: &str -> body: &Value",
+    "remove one local let body = parse_body(raw)",
+    "&body -> body at handler calls",
+    "ignore formatting whitespace"
+  ],
+  "admission_semantics": {
+    "known_post_route_only": true,
+    "invalid_utf8_or_body_read_error": 400,
+    "malformed_json": 400,
+    "nonobject_json": 400,
+    "empty_whitespace_body": "preserved shorthand for {}",
+    "valid_object_fields": "unchanged per-endpoint defaults/coercion/validation",
+    "unsupported_route_method_precedence": "preserved",
+    "new_body_size_limit": false
+  },
+  "expected_existing_16_group_effect": "All terminal and oracle POST bodies are valid JSON objects; original assertions must remain unchanged. New error behavior should be classified separately."
+}

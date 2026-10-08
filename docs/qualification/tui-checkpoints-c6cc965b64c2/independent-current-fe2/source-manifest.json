@@ -1,0 +1,83 @@
+{
+  "source_commit": "92db1618cc014924e43a69b2dfe4d5891680b176",
+  "source_parent": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "source_tree": "4ee456989b96c3557f0c167f6d53ccc6631b6cd2",
+  "source_repo": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc",
+  "binary": {
+    "path": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc/target/debug/uma-sim-api",
+    "sha256": "b5f4c2c7af89751b38a2be4a646c6a2b0a183d376002394e80b485f9c81709a4"
+  },
+  "review_scope": "Unchanged independent 16-group real-native durable terminal replay on fe2 request-body admission plus 3 separate terminal/API admission-boundary controls",
+  "prior_receipt_sha256": "b217ca32937cbd8d7a488886799ce69950cece3ea69164973c298ae855afa199",
+  "owner_api_source_commit": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "owner_rust_source_and_cargo_exact_from_parent": true,
+  "owner_ci_preservation": "All fe2 CI bytes preserved; only the explicit 13-line terminal native receipt hook was inserted after release build.",
+  "files": [
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e",
+      "git_blob": "dfeed47234f1660acd175fa61a3290327a741aa1",
+      "bytes": 14580
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "sha256": "174bbaf954859841492a08359aabddbd0e23eba7f5b68b753da9e27919456419",
+      "git_blob": "ccf608c0f5ef3c23ab55c38c2f56ff4f7b8c024e",
+      "bytes": 671
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "sha256": "f2d06e66eed260eb907a3b579261b41ebce92871b67361c87c357c4737591640",
+      "git_blob": "2c4c4f7b0fc1ec056ee99a034acfc5b1d2abc324",
+      "bytes": 7059
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "sha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55",
+      "git_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+      "bytes": 86803
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "sha256": "f12208e5796ac6ab42ba515d6d8e6734388810894b600420e4badfdeab250f08",
+      "git_blob": "4360cd3dbca832a9a22be138ca13a5deb4dfeb0f",
+      "bytes": 51737
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "fd0b04451df1264bd56581eb221bfbc7e68063b6ee3f925df08f8f9960b8059c",
+      "git_blob": "a657f548d8a5bb2a7662e697c5f7555fc4b64582",
+      "bytes": 4309
+    },
+    {
+      "path": "uma-sim-core/tests/api_body_admission.rs",
+      "sha256": "c58ac98b07ac43711260fea5581beb046b920897cba2496217b23c030ae240e1",
+      "git_blob": "a54fb88b055d2e7ae79eb3623aa9002c52e775f1",
+      "bytes": 9489
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+      "git_blob": "1f99851c45524f129e8544a2d779b3c21594d816",
+      "bytes": 9836
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "818161c35c9828641c370cc3c6b50dfb1e8e4417210bd8fa486e87234e40b1d8",
+      "git_blob": "d55384b62968b2ada18d45aa4de2053e175579ea",
+      "bytes": 71
+    },
+    {
+      "path": "uma-sim-core/Cargo.toml",
+      "sha256": "4f2415320bc4548fa59ad6c115ad05a8adcad59a2b50349cf44d78d52d12c5e0",
+      "git_blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+      "bytes": 1098
+    }
+  ],
+  "baseline_tui": {
+    "git_blob": "e3fad690acbe62f43cf9eeab421da3c7b3b5818d",
+    "sha256": "39d36f1ebba8c06823e57f2a5c9d49ab6a2b00d8ff0d67ff7afb6f5c5f1d17bb",
+    "path": "packages/uma-sim-cli/tui.js",
+    "commit": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c"
+  }
+}

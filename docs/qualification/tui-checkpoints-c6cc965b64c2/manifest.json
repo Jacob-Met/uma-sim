@@ -1,0 +1,374 @@
+{
+  "schema": "uma.terminal-checkpoint-authored-receiving.v1",
+  "base": {
+    "commit": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+    "tree": "619519ef197ff8bc75bd76273bf48fd1531f2377"
+  },
+  "implementation": {
+    "commit": "3077775807c1eb5c2af6937038bd26cf5f00c75b",
+    "tree": "ba3791a6a8a2e89a052f209687d482d553bfeb04"
+  },
+  "sourceFiles": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "gitBlob": "0eb8c20ebf880e9ea93bc3db179ef108fa9421ad",
+      "sha256": "ed11059ef0f0daa000d843d9107ed5c8c5b5b3707f4c2c98584bf2896a43378d"
+    },
+    {
+      "path": "packages/uma-sim-cli/README.md",
+      "gitBlob": "2c4c4f7b0fc1ec056ee99a034acfc5b1d2abc324",
+      "sha256": "f2d06e66eed260eb907a3b579261b41ebce92871b67361c87c357c4737591640"
+    },
+    {
+      "path": "packages/uma-sim-cli/package.json",
+      "gitBlob": "ccf608c0f5ef3c23ab55c38c2f56ff4f7b8c024e",
+      "sha256": "174bbaf954859841492a08359aabddbd0e23eba7f5b68b753da9e27919456419"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoint-harness.mjs",
+      "gitBlob": "f71607eb4fcfe6ac0c580558b4f83cd1a222c519",
+      "sha256": "3a461a3b15cabe3f6b66887d812730af00b0b2c613bc1b22f726fc67da23f1bc"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoints.native.mjs",
+      "gitBlob": "7fdc14954d7798eeee7a9614581249baadcab798",
+      "sha256": "0e3041de58c6d3c657801539127bd2cfd2f5e1c0a911dd506864a1db4a019854"
+    },
+    {
+      "path": "packages/uma-sim-cli/tests/tui-checkpoints.test.mjs",
+      "gitBlob": "c7e641a5fffe1c893c22856591d710a1e67d96cc",
+      "sha256": "1d625e08330be37d39893fd6c6e4f111fbb9f86fa706597dd9164954e1aae880"
+    },
+    {
+      "path": "packages/uma-sim-cli/tui.js",
+      "gitBlob": "dfeed47234f1660acd175fa61a3290327a741aa1",
+      "sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e"
+    }
+  ],
+  "preservation": {
+    "baseLeaves": 524,
+    "implementationLeaves": 527,
+    "changedPaths": 7,
+    "added": 3,
+    "modified": 4,
+    "removed": 0,
+    "unchangedBaseLeaves": 520
+  },
+  "nativeBuild": {
+    "command": "CARGO_BUILD_JOBS=1 CARGO_PROFILE_DEV_DEBUG=0 cargo build --offline --locked -p uma-sim-core --bin uma-sim-api",
+    "node": "v26.3.0",
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)",
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27) (Homebrew)",
+    "files": [
+      {
+        "path": "target/debug/uma-sim-api",
+        "sha256": "6f94216933f76a08caeade29087f50e0e49da46dabdea8d98d89a200d4835754"
+      },
+      {
+        "path": "uma-sim-core/src/api.rs",
+        "gitBlob": "4ff7034bc5701d793cd93d645d89d40d73fc3273"
+      },
+      {
+        "path": "uma-sim-core/src/career_lab.rs",
+        "gitBlob": "4360cd3dbca832a9a22be138ca13a5deb4dfeb0f"
+      },
+      {
+        "path": "Cargo.lock",
+        "gitBlob": "1f99851c45524f129e8544a2d779b3c21594d816"
+      }
+    ],
+    "compilerCache": "Only completed reproducible cache directories were reclaimed after tests; exact executable, source and build log retained."
+  },
+  "qualification": {
+    "httpBaseline": {
+      "selected": 4,
+      "pass": 0,
+      "fail": 4
+    },
+    "httpCandidate": {
+      "pass": 35,
+      "fail": 0,
+      "skip": 0,
+      "originalSessionTestsPreserved": 17,
+      "newCheckpointTests": 18
+    },
+    "nativeMeaningfulBaseline": {
+      "selected": 1,
+      "pass": 0,
+      "fail": 1
+    },
+    "nativeFinal": {
+      "pass": 11,
+      "fail": 0,
+      "skip": 0
+    },
+    "nativeStatuses": [
+      404,
+      409,
+      422,
+      500
+    ],
+    "localValidationBeforeMutation": true,
+    "firstAttemptDisposition": "Inadequate no-op continuation setup plus temporary-directory observer error; raw results excluded from final qualification and preserved.",
+    "hostedNode20AndReleaseCI": "pending",
+    "independentReview": "pending",
+    "deployment": "not claimed"
+  },
+  "files": [
+    {
+      "path": "authored/http-baseline.log",
+      "bytes": 4087,
+      "sha256": "4a9807e27fa05eecddb11017783b2c338b5f4995a2bd62707fa7d0c237f7b4a0"
+    },
+    {
+      "path": "authored/http-candidate.log",
+      "bytes": 3384,
+      "sha256": "637afc79becba3065ce240e2b6ceb2e4da2f3998b74d3efb83eed813c94ce01f"
+    },
+    {
+      "path": "authored/native-baseline/provenance.json",
+      "bytes": 956,
+      "sha256": "3cf1cfdf827d454f7105aebf2c618e3ba3a1757caf50048c9e6fdbca5ba5578f"
+    },
+    {
+      "path": "authored/native-baseline/restart.json",
+      "bytes": 17615,
+      "sha256": "58717195f2730e7b1222c76d3c2beaceda99935509132c5b8649f349f3bfe363"
+    },
+    {
+      "path": "authored/native-baseline-v2/provenance.json",
+      "bytes": 956,
+      "sha256": "84ab6def33fa9f690db616d2f7d15cde526ceb84b385c00d43eb97edfce4873d"
+    },
+    {
+      "path": "authored/native-baseline-v2/restart.json",
+      "bytes": 33292,
+      "sha256": "cc65669a731b655c5258040c0c4405f27e875611bb5f524b7c784971cb9a74c2"
+    },
+    {
+      "path": "authored/native-baseline-v2.log",
+      "bytes": 954,
+      "sha256": "546f947e2f79a3121b02746945bf4097e9ebb5a1ee02a3b8e43d9cdcff044b62"
+    },
+    {
+      "path": "authored/native-baseline.log",
+      "bytes": 953,
+      "sha256": "4bf53f02276f45e0d1c9fcc6023e10d874d38d655535268a532d0a8d3fd61153"
+    },
+    {
+      "path": "authored/native-build.log",
+      "bytes": 873,
+      "sha256": "baee6bc07243bc21751e0c6ac243cc7df0ef170868e077c212ecf0f243bde02c"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-fork-disconnect.json",
+      "bytes": 1330,
+      "sha256": "ccdcf1ae4016752bfb0a5bf0a2c8d4ace50dcca152913c262b5ff2c89d6b0677"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-fork-EOF.json",
+      "bytes": 1344,
+      "sha256": "0b8a3425b659c37f64e93881d36406fbeca8b2830e735aa5896e92ebe93dc794"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-fork-invalid-JSON.json",
+      "bytes": 1349,
+      "sha256": "65e568ba09fdc8cb7590115f59ea3bd40b66736e3db46b07ecb4211529d3172a"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-fork-refusals-advisory.json",
+      "bytes": 1590,
+      "sha256": "e0e6473697d5462adbcb9d175d9b9eee0714344fe6f17d1aa45be378e754cbcb"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-fork-SIGINT.json",
+      "bytes": 1346,
+      "sha256": "1f458d71955f0f79091678a002dfddb31d6d56163684b2628ad56abe9fda0da3"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-save-disconnect.json",
+      "bytes": 15188,
+      "sha256": "c56b0ad5795dd0b7c27f1f7014254966e9bcbd26f50d01eada1ac6c09ae211ad"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-save-EOF.json",
+      "bytes": 10351,
+      "sha256": "9aba88987be20287df4a6e66966f1bcc0a6ea75da3c12da91fb8afcea1122dfc"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-save-invalid-JSON.json",
+      "bytes": 15207,
+      "sha256": "f7ee1a9f7bc57e9d2d4b92a3c426412de314974f15349364b9a493184818f47b"
+    },
+    {
+      "path": "authored/native-candidate-v1/native-save-SIGINT.json",
+      "bytes": 10353,
+      "sha256": "ad1b5ebf507784fa0d6979230a521a18ce910a72bb934dae8a10511174a8602f"
+    },
+    {
+      "path": "authored/native-candidate-v1/provenance.json",
+      "bytes": 932,
+      "sha256": "e14f12a692e4a5199b45fe86c432282b10674bb20afa625b6ed39aedb1247538"
+    },
+    {
+      "path": "authored/native-candidate-v1/restart.json",
+      "bytes": 37267,
+      "sha256": "0b181ae438ec82246c71cc263d72f5f0e35c7874fde4cac75754a0217908c0b5"
+    },
+    {
+      "path": "authored/native-candidate-v1.log",
+      "bytes": 2248,
+      "sha256": "7c986245e8a6b7cb4ec83914f6f89e7c93e01901b543ff46717057f835741f95"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-fork-disconnect.json",
+      "bytes": 1320,
+      "sha256": "9fe7d46393569277b286389b2901748f6be053fc6c72a92942d6baceea105984"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-fork-EOF.json",
+      "bytes": 1334,
+      "sha256": "de8041865034b3af8697f90a96cb38bf130061b1736477b7449e2a2e1ea41ca3"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-fork-invalid-JSON.json",
+      "bytes": 1339,
+      "sha256": "f1e2b602b89825710256005833bbb5d388135cc43ac4594b06882c4cfb1226ea"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-fork-refusals-advisory.json",
+      "bytes": 1749,
+      "sha256": "5e642ec88d14b631dfddd1a784bc1679ce0528857368521e24a2685c05b75aa2"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-fork-SIGINT.json",
+      "bytes": 1336,
+      "sha256": "046cae8e8ee96bfe79b58962a09eae143f0af89a77543fae5fbeeaf43005fbb7"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-save-disconnect.json",
+      "bytes": 17934,
+      "sha256": "49edc0367b5c19a62cf85099fcf5d2ccecaff5562748a9fda7a092bfe1de7473"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-save-EOF.json",
+      "bytes": 11918,
+      "sha256": "1a9c2c6ad5e3aca1ca8d0e850eafe7cd094721dc38ed0dc26357139a61e0baab"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-save-invalid-JSON.json",
+      "bytes": 17953,
+      "sha256": "e1663e24af798491c015defbf8762cb33f86a5099a816e62230b9913627d2093"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-save-refusals.json",
+      "bytes": 10815,
+      "sha256": "465a4bbafa867b2e80493bbcd84e5fd06753036ed9ed4d53330a4990d8f628bb"
+    },
+    {
+      "path": "authored/native-candidate-v2/native-save-SIGINT.json",
+      "bytes": 11920,
+      "sha256": "f07d94a85792651d6e642fd20ede3d1d70501cf7f8c126c0b106bfb078107246"
+    },
+    {
+      "path": "authored/native-candidate-v2/provenance.json",
+      "bytes": 932,
+      "sha256": "29129aa293a9e54554648b7a16c5b61a035b21cf5585a9e6a1edddc7c19f2ad6"
+    },
+    {
+      "path": "authored/native-candidate-v2/restart.json",
+      "bytes": 56486,
+      "sha256": "cca97300a0c4b64b3efdd65eb6067c2f492ee0cfd7b3697432f0e800791e4ab5"
+    },
+    {
+      "path": "authored/native-candidate-v2.log",
+      "bytes": 1231,
+      "sha256": "fd234c7fbbdb0f59f2b4fd4bacf9b654f577ad6d300fbe27264241b5a31c0eef"
+    },
+    {
+      "path": "authored/native-final/native-fork-disconnect.json",
+      "bytes": 1320,
+      "sha256": "84d067bb76a263073ce122c164b5c0ba46dad2c822db21c8e1abe7247f908ea6"
+    },
+    {
+      "path": "authored/native-final/native-fork-EOF.json",
+      "bytes": 1334,
+      "sha256": "40e1e6a3bddba552de8c27a5286b5b244723aa78374f30f9cf32a3357bb6aa46"
+    },
+    {
+      "path": "authored/native-final/native-fork-invalid-JSON.json",
+      "bytes": 1339,
+      "sha256": "e2766a11b7032edf3861dd3064ec64011f7f889ecb4d91ee469fd8ca819e6e92"
+    },
+    {
+      "path": "authored/native-final/native-fork-refusals-advisory.json",
+      "bytes": 1749,
+      "sha256": "b9b7c11f62351697441910f1e7a1f34ac1a73e4291fa2d79c35e8e626d08724a"
+    },
+    {
+      "path": "authored/native-final/native-fork-SIGINT.json",
+      "bytes": 1336,
+      "sha256": "ace180626fc7fafe3ed0af5c6d59498b91840a7d53d842852af77e208c73b2c5"
+    },
+    {
+      "path": "authored/native-final/native-save-disconnect.json",
+      "bytes": 17934,
+      "sha256": "1c7ed42172e08aac70f375557fdfb20ce6ec085736a8db1ae7a3fbdafa6bb07d"
+    },
+    {
+      "path": "authored/native-final/native-save-EOF.json",
+      "bytes": 11918,
+      "sha256": "713c0378e398fe12f4cd2c233909a6016af71c52347d5327c0850d12acd71265"
+    },
+    {
+      "path": "authored/native-final/native-save-invalid-JSON.json",
+      "bytes": 17953,
+      "sha256": "2594c82162f6fe7be9989aae5651f7e97e7b6b6b7b15f1b52134ca3be24ef471"
+    },
+    {
+      "path": "authored/native-final/native-save-refusals.json",
+      "bytes": 10815,
+      "sha256": "9ba702f2105fa605c224bada30833fe3dcadb24e8eaf97a47c61448598198304"
+    },
+    {
+      "path": "authored/native-final/native-save-SIGINT.json",
+      "bytes": 11920,
+      "sha256": "419446d690bd86d9e76f88824fe7029dee11b40a85f86faf92c8d0f55fb8293e"
+    },
+    {
+      "path": "authored/native-final/provenance.json",
+      "bytes": 932,
+      "sha256": "67a11d42cc4bbf7036b8f0356ecd2e5a783b2095469a760931c57b1854e318f7"
+    },
+    {
+      "path": "authored/native-final/restart.json",
+      "bytes": 56486,
+      "sha256": "a3b6c3f8eb9c38e74082855bdd4875135c4fc53ed218db50c6f894290e08741e"
+    },
+    {
+      "path": "authored/native-final.log",
+      "bytes": 1317,
+      "sha256": "5a5bf345d63945fb4fe9237d9a20be16dc5db846f22ef8753c990727b18b04a0"
+    },
+    {
+      "path": "authored/receiver-attempt-v1.native.mjs",
+      "bytes": 17280,
+      "sha256": "43a6c86f4bc702f3bae5ec23a9080b45ac45ec28d8bc42db77ea0b7fb6c43d97"
+    },
+    {
+      "path": "authored/receiver-attempt-v2.native.mjs",
+      "bytes": 18049,
+      "sha256": "bc0f5bd98a64c0b21ec54191bc84218728a70036cb5023a43d5ae2a2b82c72fd"
+    },
+    {
+      "path": "authored/tui-baseline.mjs",
+      "bytes": 10662,
+      "sha256": "39d36f1ebba8c06823e57f2a5c9d49ab6a2b00d8ff0d67ff7afb6f5c5f1d17bb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8038,
+      "sha256": "3833f2359115512dfd8c819c8b2d3e5db0b33f52773d10a0fd9f8f1a98f07d42"
+    }
+  ]
+}

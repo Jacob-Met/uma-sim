@@ -1,0 +1,173 @@
+--- fe2/uma-sim-core/src/career_lab.rs
++++ 09df/uma-sim-core/src/career_lab.rs
+@@ -7,7 +7,7 @@
+ //! * a **durable named checkpoint library** (`.uma-sim/library/`): save, list,
+ //!   load, delete, import and export named career checkpoints with visible
+ //!   seed/scenario/turn, a content fingerprint for compatibility disclosure,
+-//!   and atomic (crash-safe) writes;
++//!   atomic individual-file writes, and restoration after failed saves;
+ //! * **branch runs**: play a checkpoint forward to completion with one of the
+ //!   built-in policies (or per-turn action overrides), recording a full
+ //!   decision/timeline/outcome trace per branch with its own isolated
+@@ -294,6 +294,72 @@
+     Ok(())
+ }
+ 
++/// Preserve the prior snapshot before replacing either part of a checkpoint.
++/// The recovery name deliberately avoids `.tmp-`: a failed restoration must
++/// not let the ordinary stale-temp sweep delete the remaining saved career.
++fn preserve_snapshot(path: &Path) -> Result<Option<PathBuf>, LabError> {
++    let mut source = match fs::File::open(path) {
++        Ok(file) => file,
++        Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
++        Err(error) => return Err(LabError::Io(error.to_string())),
++    };
++    static BACKUP_COUNTER: AtomicU64 = AtomicU64::new(0);
++    let backup_path = path.with_file_name(format!(
++        ".rollback-{}-{}-{}",
++        std::process::id(),
++        BACKUP_COUNTER.fetch_add(1, Ordering::Relaxed),
++        path.file_name().unwrap_or_default().to_string_lossy()
++    ));
++    let mut backup = fs::OpenOptions::new()
++        .write(true)
++        .create_new(true)
++        .open(&backup_path)
++        .map_err(|error| {
++            LabError::Io(format!(
++                "could not preserve prior snapshot at {}: {error}",
++                backup_path.display()
++            ))
++        })?;
++    if let Err(error) = std::io::copy(&mut source, &mut backup).and_then(|_| backup.sync_all()) {
++        drop(backup);
++        let _ = fs::remove_file(&backup_path);
++        return Err(LabError::Io(format!(
++            "could not preserve prior snapshot: {error}"
++        )));
++    }
++    Ok(Some(backup_path))
++}
++
++fn discard_snapshot_backup(backup: Option<&Path>) {
++    if let Some(path) = backup {
++        let _ = fs::remove_file(path);
++    }
++}
++
++/// Return the original save error after restoration. If restoration itself is
++/// refused, retain the complete backup and identify it in the returned error.
++fn rollback_snapshot(path: &Path, backup: Option<&Path>, save_error: LabError) -> LabError {
++    let restored = match backup {
++        Some(previous) => fs::rename(previous, path),
++        None => fs::remove_file(path),
++    };
++    match restored {
++        Ok(()) => save_error,
++        Err(error) if backup.is_none() && error.kind() == std::io::ErrorKind::NotFound => {
++            save_error
++        }
++        Err(error) => {
++            let recovery = match backup {
++                Some(previous) => format!("prior snapshot retained at {}", previous.display()),
++                None => format!("incomplete new snapshot remains at {}", path.display()),
++            };
++            LabError::Io(format!(
++                "{save_error}; snapshot restoration failed: {error}; {recovery}"
++            ))
++        }
++    }
++}
++
+ /// Durable named checkpoint library under `.uma-sim/library/` (cwd-relative,
+ /// same convention as the CLI session file).
+ pub struct CareerLibrary {
+@@ -334,7 +400,9 @@
+     }
+ 
+     /// Save `snapshot` as a named checkpoint. `overwrite=false` (the default)
+-    /// refuses to clobber an existing entry; nothing is half-written.
++    /// refuses to clobber existing metadata or an orphan snapshot. A returned
++    /// metadata-write failure restores the prior snapshot; a refused restore
++    /// retains its recovery copy and reports that path.
+     pub fn save(
+         &self,
+         name: &str,
+@@ -345,7 +413,8 @@
+     ) -> Result<LibraryEntry, LabError> {
+         validate_name(name)?;
+         let meta_path = self.meta_path(name);
+-        if !overwrite && meta_path.exists() {
++        let snapshot_path = self.snapshot_path(name);
++        if !overwrite && (meta_path.exists() || snapshot_path.exists()) {
+             return Err(LabError::AlreadyExists(name.to_string()));
+         }
+         let saved_at_unix = now_unix();
+@@ -371,13 +440,18 @@
+             serde_json::to_string_pretty(snapshot).map_err(|e| LabError::Io(e.to_string()))?;
+         let meta_bytes =
+             serde_json::to_string_pretty(&entry).map_err(|e| LabError::Io(e.to_string()))?;
+-        // Snapshot first; if the meta write fails afterwards, remove the
+-        // orphan snapshot so the library never holds half an entry.
+-        atomic_write(&self.snapshot_path(name), snap_bytes.as_bytes())?;
++        // Retain the old bytes before publishing the replacement. Restoring
++        // uses a rename, so a metadata write failure (including exhausted
++        // space) does not need another full snapshot allocation to recover.
++        let previous = preserve_snapshot(&snapshot_path)?;
++        if let Err(error) = atomic_write(&snapshot_path, snap_bytes.as_bytes()) {
++            discard_snapshot_backup(previous.as_deref());
++            return Err(error);
++        }
+         if let Err(e) = atomic_write(&meta_path, meta_bytes.as_bytes()) {
+-            let _ = fs::remove_file(self.snapshot_path(name));
+-            return Err(e);
+-        }
++            return Err(rollback_snapshot(&snapshot_path, previous.as_deref(), e));
++        }
++        discard_snapshot_backup(previous.as_deref());
+         Ok(entry)
+     }
+ 
+@@ -1408,6 +1482,42 @@
+     use super::*;
+ 
+     #[test]
++    fn refused_snapshot_restoration_retains_recoverable_bytes() {
++        let dir = std::env::temp_dir().join(format!(
++            "uma-refused-rollback-{}-{}",
++            std::process::id(),
++            SystemTime::now()
++                .duration_since(UNIX_EPOCH)
++                .unwrap()
++                .as_nanos()
++        ));
++        fs::create_dir(&dir).unwrap();
++        let target = dir.join("keep.snapshot.json");
++        fs::create_dir(&target).unwrap();
++        fs::write(target.join("unrelated"), b"preserve").unwrap();
++        let backup = dir.join(".rollback-previous.snapshot.json");
++        let previous = br#"{"previous":"saved career"}"#;
++        fs::write(&backup, previous).unwrap();
++
++        let error = rollback_snapshot(
++            &target,
++            Some(&backup),
++            LabError::Io("metadata publication was refused".into()),
++        );
++        assert!(matches!(error, LabError::Io(_)));
++        let message = error.to_string();
++        assert!(message.contains("metadata publication was refused"));
++        assert!(message.contains("snapshot restoration failed"));
++        assert!(message.contains(&backup.display().to_string()));
++        assert_eq!(fs::read(&backup).unwrap(), previous);
++        assert_eq!(fs::read(target.join("unrelated")).unwrap(), b"preserve");
++        fs::write(dir.join(".tmp-stale"), b"partial").unwrap();
++        assert_eq!(sweep_stale_tmp(&dir), 1);
++        assert_eq!(fs::read(&backup).unwrap(), previous);
++        fs::remove_dir_all(dir).unwrap();
++    }
++
++    #[test]
+     fn rfc3339_formats_epoch() {
+         assert_eq!(rfc3339_utc(0), "1970-01-01T00:00:00Z");
+         // 2026-10-03T00:00:00Z

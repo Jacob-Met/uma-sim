@@ -1,0 +1,21 @@
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index c561d93..e1c912f 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -70,6 +70,16 @@ jobs:
+       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+         with:
+           node-version: "20"
++      - name: Verify terminal checkpoint save and restart recovery
++        env:
++          UMA_SIM_NATIVE_API: ${{ github.workspace }}/target/release/uma-sim-api
++          UMA_TUI_RECEIPTS: ${{ runner.temp }}/uma-terminal-checkpoints
++        run: npm --prefix packages/uma-sim-cli run test:tui:native
++      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
++        if: always()
++        with:
++          name: uma-terminal-checkpoint-receiving
++          path: ${{ runner.temp }}/uma-terminal-checkpoints
+       - name: Exercise the career laboratory through MCP and the native API
+         env:
+           UMA_SIM_TEST_API_BIN: ${{ github.workspace }}/target/release/uma-sim-api

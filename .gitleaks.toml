@@ -13,6 +13,30 @@ paths = ['''^docs/qualification/tui-sessions-c6cc965b64c2/independent/server-bui
 regexTarget = "secret"
 regexes = ['''^(3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95|fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e)$''']
 
+
+# Durable terminal receiving: these are verified Git object identities, not credentials.
+# Each exception is limited to one exact provenance path and the observed whole value.
+[[rules.allowlists]]
+description = "Verified original API blob in the durable terminal receiving guide"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/README\.md$''']
+regexTarget = "secret"
+regexes = ['''^4ff7034bc5701d793cd93d645d89d40d73fc3273$''']
+
+[[rules.allowlists]]
+description = "Verified current owner commit in the independent terminal source manifest"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-manifest\.json$''']
+regexTarget = "secret"
+regexes = ['''^fe2e6fdcdf7625cb5beac0e0062ace0360288a02$''']
+
+[[rules.allowlists]]
+description = "Verified original and current owner commits in the independent API comparison"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/api-current-impact\.json$''']
+regexTarget = "secret"
+regexes = ['''^(b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c|fe2e6fdcdf7625cb5beac0e0062ace0360288a02)$''']
+
 # PR #91: immutable source-file SHA-256 digests verified against Git blobs.
 # Match only the exact receiving paths AND the four verified digest values.
 [[rules.allowlists]]

@@ -1,0 +1,912 @@
+{
+  "schema": "hamon.uma.terminal_durable.exact_address.v1",
+  "source_receipt_sha256": "eead9cca60504baff1e936a56564900b9a5397fd09bde122d7eb380eecd2b64e",
+  "checked_run_and_save_requests": 123,
+  "all_match_expected_group_sessions": true,
+  "expected_sessions": {
+    "baseline-command-is-not-a-durable-save": [
+      "baseline-receiving"
+    ],
+    "64-byte-checkpoint-name-and-exact-i64-save": [
+      "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    ],
+    "duplicate-local-validation-and-read-only-listing": [
+      "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    ],
+    "live-targeting-and-frozen-checkpoint-after-action": [
+      "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    ],
+    "two-concurrent-checkpoint-forks-and-divergent-create-only-save": [
+      "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    ],
+    "actual-api-restart-and-lost-live-session": [
+      "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    ],
+    "restart-fork-retains-full-state-and-two-step-rng-replay": [
+      "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    ],
+    "default-new-career-preserves-main-and-named-careers": [
+      "tui-add4334e-6bb2-4b21-bf21-6d1005199bd6"
+    ],
+    "native-meta-write-failure-rolls-back-new-snapshot": [
+      "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    ],
+    "lost-save-response-retains-name-without-automatic-replay": [
+      "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    ],
+    "eof-during-held-save-retains-committed-checkpoint": [
+      "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    ],
+    "interrupt-after-native-fork-keeps-recoverable-proposed-id": [
+      "tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4"
+    ],
+    "lost-action-response-applies-once-to-bound-session": [
+      "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    ]
+  },
+  "requests": [
+    {
+      "sequence": 10,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "session": "baseline-receiving"
+    },
+    {
+      "sequence": 11,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "session": "baseline-receiving"
+    },
+    {
+      "sequence": 12,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=baseline-receiving",
+      "session": "baseline-receiving"
+    },
+    {
+      "sequence": 13,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=baseline-receiving",
+      "session": "baseline-receiving"
+    },
+    {
+      "sequence": 14,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "method": "POST",
+      "route": "/v1/run/action",
+      "session": "baseline-receiving"
+    },
+    {
+      "sequence": 15,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "session": "baseline-receiving"
+    },
+    {
+      "sequence": 16,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=baseline-receiving",
+      "session": "baseline-receiving"
+    },
+    {
+      "sequence": 17,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=baseline-receiving",
+      "session": "baseline-receiving"
+    },
+    {
+      "sequence": 38,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 39,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 40,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 41,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 43,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 44,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 45,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 46,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 54,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 55,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 56,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 57,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 60,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 61,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 62,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 63,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 64,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 65,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 66,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 67,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 68,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 69,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 70,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 71,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 72,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 73,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 74,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 75,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 76,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 77,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 78,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 80,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 81,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 82,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 93,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 94,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 95,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 96,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 98,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 99,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 100,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 101,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 112,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 113,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 114,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 115,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 116,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 117,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 121,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 122,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 123,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 124,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 125,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 126,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 127,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 134,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 135,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 136,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 137,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 138,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 139,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 140,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e",
+      "session": "tui-e023f09c-89b5-4a8c-ba85-e3e6a213107e"
+    },
+    {
+      "sequence": 141,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-487d3534-5954-41ee-bd4e-4580c5f4a23a",
+      "session": "tui-487d3534-5954-41ee-bd4e-4580c5f4a23a"
+    },
+    {
+      "sequence": 152,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    },
+    {
+      "sequence": 162,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 163,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 164,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 169,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 170,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 171,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 172,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 178,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 179,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 180,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 181,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 192,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "session": "tui-add4334e-6bb2-4b21-bf21-6d1005199bd6"
+    },
+    {
+      "sequence": 193,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-add4334e-6bb2-4b21-bf21-6d1005199bd6",
+      "session": "tui-add4334e-6bb2-4b21-bf21-6d1005199bd6"
+    },
+    {
+      "sequence": 194,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-add4334e-6bb2-4b21-bf21-6d1005199bd6",
+      "session": "tui-add4334e-6bb2-4b21-bf21-6d1005199bd6"
+    },
+    {
+      "sequence": 195,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-add4334e-6bb2-4b21-bf21-6d1005199bd6",
+      "session": "tui-add4334e-6bb2-4b21-bf21-6d1005199bd6"
+    },
+    {
+      "sequence": 219,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 220,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 221,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 222,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 223,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 224,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 225,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 226,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 235,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 236,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 237,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 238,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 239,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 240,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 241,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 242,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 244,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 245,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 246,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 254,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 255,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 256,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 257,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 259,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 271,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4",
+      "session": "tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4"
+    },
+    {
+      "sequence": 272,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4",
+      "session": "tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4"
+    },
+    {
+      "sequence": 273,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4",
+      "session": "tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4"
+    },
+    {
+      "sequence": 274,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4",
+      "session": "tui-16fc3b57-f688-4edf-9e19-adc1484c3ba4"
+    },
+    {
+      "sequence": 286,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 287,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 288,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 289,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 291,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 292,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 293,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    },
+    {
+      "sequence": 294,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171",
+      "session": "tui-47a7f03d-43fa-42c1-b087-5ea2aedc2171"
+    }
+  ],
+  "scope": "Single-client groups bind to one exact expected ID. The two-client concurrent-fork group permits exactly its two independently returned UUID IDs; source review verifies each client closes over its own one ID."
+}
