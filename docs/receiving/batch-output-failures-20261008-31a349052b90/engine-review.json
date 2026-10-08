@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "reviewer": "/root/engine_execution",
+  "reviewed_at_utc": "2026-10-08 11:22:49 UTC",
+  "repository": "Jacob-Met/uma-sim",
+  "disposition": "ACCEPT exact two-exit correction and scoped native receiving evidence; no source blocker found",
+  "baseline_commit": "0bc58cb83e89f07c6af3056dd7c37436906d994f",
+  "baseline_cli_blob": "2df06c16c8cb4bffe711b37e1afb3a8a57ebd528",
+  "baseline_cli_sha256": "921bc4758384e7a01d5b10c3aecba888e3e25ced8c00843f36c33b8657614ad0",
+  "independent_remote_baseline_read": "https://github.com/Jacob-Met/uma-sim/blob/0bc58cb83e89f07c6af3056dd7c37436906d994f/uma-sim-core/src/bin/uma-sim.rs",
+  "files": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "git_blob": "fc10bfc7ea9efff3a20b9af6354c75cd6d8acbb7",
+      "sha256": "b302179aa77eadad1480c93de58202416d93bd9b0081c8557de11087deab155e",
+      "bytes": 20047
+    },
+    {
+      "path": "uma-sim-core/tests/batch_output_failures.rs",
+      "git_blob": "f42a04bfbfdcee712999085feb29e99d7a3165fd",
+      "sha256": "8ce6126356fad3dc1cf26d9351d3c800919e9a0ad5feee0c5b6d31f5ddca523a",
+      "bytes": 6922
+    },
+    {
+      "path": "docs/batch-output-failures.md",
+      "git_blob": "0b6269a8628e8abbbdfd47a8d04bafe60e37032a",
+      "sha256": "072496ec60fbb14e592aa4ac6d525ed9a20c7b6f2ded50792c5ac7ca720bd15b",
+      "bytes": 2257
+    }
+  ],
+  "source_reasoning": [
+    "main returns unit and directly dispatches cmd_batch, so each original return from an observed File::create or writeln! error produces process exit 0.",
+    "The complete production delta is exactly the existing error returns at lines 374 and 397 replaced with std::process::exit(1), consistent with neighboring CLI error branches.",
+    "The diagnostic text, successful output path, record serialization, policy selection, seed ordering, and analysis code are byte-preserved.",
+    "File output remains direct creation/truncation with partial data retained after a failed write. There is no atomic replacement, sync, rollback, or durability claim.",
+    "The tests launch CARGO_BIN_EXE_uma-sim with absolute isolated output paths, fixed seeds, explicit physics/default policy and the selected read-only data root.",
+    "The Linux x86-64 child-only pre_exec setup ignores SIGXFSZ and applies RLIMIT_FSIZE. This yields an actual EFBIG observed by writeln!; signal termination cannot masquerade as the requested exit 1.",
+    "Workspace and crate manifests admit the new integration-test path automatically; Cargo supplies the actual binary binding."
+  ],
+  "independent_evidence_inspection": {
+    "manifested_files_hashed": 73,
+    "publication_source_files_hashed": 3,
+    "both_retained_cli_binaries_match_receipts": true,
+    "final_test_identical_between_versions": true,
+    "recorded_compiler_and_library_identities_same": true,
+    "baseline": {
+      "cli_build": 0,
+      "test_build": 0,
+      "test_process": 101,
+      "passed_methods": 1,
+      "failed_methods": 2,
+      "ignored": 0
+    },
+    "candidate": {
+      "cli_build": 0,
+      "test_build": 0,
+      "test_process": 0,
+      "passed_methods": 3,
+      "failed_methods": 0,
+      "ignored": 0
+    },
+    "actual_processes": [
+      {
+        "case": "existing output directory",
+        "baseline_exit": 0,
+        "candidate_exit": 1,
+        "stderr": "Failed to open ...: Is a directory (os error 21)",
+        "preservation": "The directory contains only the same 30-byte keep.txt sentinel; no successful Batch wrote summary."
+      },
+      {
+        "case": "second-career write reaches RLIMIT_FSIZE",
+        "baseline_exit": 0,
+        "candidate_exit": 1,
+        "stderr": "write error: File too large (os error 27)",
+        "preservation": "Identical 311-byte output: one 294-byte complete record plus 17 bytes of the next; exact successful-reference prefix; no successful Batch wrote summary."
+      },
+      {
+        "case": "three requested careers complete",
+        "baseline_exit": 0,
+        "candidate_exit": 0,
+        "preservation": "Identical 884-byte JSONL, three parsed records with seeds 42/43/44, final newline, and successful Batch wrote 3/3 summary."
+      }
+    ],
+    "partial_sha256": "6c1a58613bde24b8d908131d23d2e5f0b932a5c49752f97b210b370b247211e7",
+    "successful_jsonl_sha256": "8ff79c0da90f34b2f828ed4c6ecfba0764a668ac90bef93e541c719d766e16f6",
+    "native_execution_attribution": "Product worker executed the native builds and processes. This reviewer read source, receipts and retained bytes; no native runtime or suite was repeated."
+  },
+  "receiving_gate": {
+    "source_tree_complete": true,
+    "agent_instruction_files_found": 0,
+    "workspace_manifest_blob": "d55384b62968b2ada18d45aa4de2053e175579ea",
+    "crate_manifest_blob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083",
+    "ci_blob": "6355e324a5336ab5a8bcd4cdc34b5105fc787ade",
+    "bugfix_test_gate_blob": "dac5f66df41e5f24db186002c57b5f107f65863f",
+    "commands": [
+      "cargo fmt --all -- --check",
+      "cargo clippy --workspace --all-targets --locked",
+      "cargo test --workspace --locked",
+      "cargo build --locked --release --features embed-ui -p uma-sim-core",
+      "scripts/smoke_release_layout.sh \"$STAGE\" uma-sim"
+    ],
+    "integration_test_discovery": true,
+    "bugfix_test_filename_gate_satisfied_by_scope": true,
+    "automatic_pr_ci": true,
+    "remaining": "Parent owns publication, final base/collision checks, normal exact-head PR gates and integration; this review makes no GitHub writes."
+  },
+  "limits": [
+    "Native qualification directly rebuilds the exact CLI against three pinned borrowed library inputs, rather than rebuilding the full current-main Cargo workspace.",
+    "Source-intake records 76 matching source/manifests and one separately owned career_lab.rs difference; source equality alone is not compilation-custody proof.",
+    "The observed EFBIG method is Linux x86-64; other platforms receive the open-error and successful-output methods.",
+    "The result covers observed output open/write failures. Existing missing-terminal, serialization, late filesystem durability and unrelated CLI behavior are outside this correction.",
+    "No merge, deployment, full-workspace CI pass, or new runtime execution is claimed by this review."
+  ],
+  "packet_root": "/dev/shm/hamon-31a349052b90/uma-batch-output-31a349052b90",
+  "independent_byte_proof": "/workspace/scratch/31a349052b90/engine-execution/uma-batch-independent-byte-review.json",
+  "blockers": []
+}
