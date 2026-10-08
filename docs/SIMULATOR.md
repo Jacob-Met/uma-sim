@@ -211,7 +211,7 @@ cargo test --manifest-path uma-sim-core/Cargo.toml --test grand_live_r7 --test g
 |----------|--------|----------|
 | **Trackblazer** VP + shop sales + consumable effects | **true** (climax_2 / rivals / epithets / inventory still `not_modeled` + parity tests) | `tests/unity_trackblazer_mechanics.rs` (`trackblazer_climax_awards_victory_points`, `trackblazer_shop_sale_*`, `trackblazer_speed_charm_*`); `research/trackblazer.json` |
 | **Unity Cup** abstracted 5-leg wins + Zenith + Ignited Spirit hints | **true** (per-leg sim / teammate share still `not_modeled` + parity tests) | `unity_team_race_win_counts_five_legs_and_zenith`, `unity_extreme_burst_grants_ignited_spirit_hint`; `research/unity_cup.json` |
-| **URA** Racing Spirit hints, bad-odds accept, Past My Limits | **true** (finale distance/surface still `not_modeled` + parity test) | `duel_win_grants_racing_spirit_hint`, `duel_accepts_bad_odds_when_failure_within_pct`, `max_level_meek_win_unlocks_past_my_limits`; `research/ura_finale.json` |
+| **URA** Racing Spirit hints, bad-odds accept, Past My Limits | **true**; new-career finale participation class is modeled with explicit legacy fallback ([policy](URA_FINALE_HISTORY.md)) | `duel_win_grants_racing_spirit_hint`, `duel_accepts_bad_odds_when_failure_within_pct`, `max_level_meek_win_unlocks_past_my_limits`; `research/ura_finale.json` |
 
 ### Legacies / race outcomes (R7.6–R7.7)
 
@@ -248,7 +248,7 @@ Other scenario tests: `ura_mechanics.rs`, `unity_trackblazer_mechanics.rs`. Full
 | 9 | Product-ready checklist complete with citations | **true** | this document |
 | 10 | Kotlin→Rust test map, 0 missing | **true** | [SIMULATOR_RUST_PARITY.md](SIMULATOR_RUST_PARITY.md) (133 / 0 missing) |
 
-Remaining intentional gaps (parity-covered, not blockers): R8.5 full V3 checkpoint + R8.6 telemetry NPC V4 still open; TB rivals / epithet catalog / inventory / climax_2; Unity per-leg + teammate share; URA finale distance from history.
+Remaining intentional gaps (parity-covered, not blockers): R8.5 full V3 checkpoint + R8.6 telemetry NPC V4 still open; TB rivals / epithet catalog / inventory / climax_2; Unity per-leg + teammate share; URA full game finale venue/calendar parity and legacy-history reconstruction (the bounded new-career participation-class policy is [implemented](URA_FINALE_HISTORY.md)).
 
 ## Architecture
 
