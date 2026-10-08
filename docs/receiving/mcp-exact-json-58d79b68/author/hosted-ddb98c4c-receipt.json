@@ -1,0 +1,139 @@
+{
+  "kind": "qualified_hosted_current_tree_not_future_head",
+  "pr": 106,
+  "head": "ddb98c4c2914af91e230b248d48031bc715f5aa0",
+  "tree": "d58437c5f1b567074a6f75d912e59b2da5388988",
+  "mergeCommit": "ed5ff74c0c18939c781d414906cd8171d35a800c",
+  "mergeTree": "d58437c5f1b567074a6f75d912e59b2da5388988",
+  "nodeVersion": "20.20.2",
+  "ciRun": 37808895868,
+  "completedSuccessfulJobs": [
+    {
+      "name": "mcp",
+      "id": 113420310623
+    },
+    {
+      "name": "ui",
+      "id": 113420310989
+    },
+    {
+      "name": "rust",
+      "id": 113420824189
+    }
+  ],
+  "completedSuccessfulChecks": 7,
+  "protocolOnlyMcp": {
+    "tests": 147,
+    "pass": 142,
+    "fail": 0,
+    "skippedNative": 5
+  },
+  "cliProtocol": {
+    "tests": 35,
+    "pass": 35,
+    "fail": 0,
+    "skipped": 0
+  },
+  "nativeTerminal": {
+    "tests": 11,
+    "pass": 11,
+    "fail": 0,
+    "skipped": 0
+  },
+  "nativeMcp": {
+    "tests": 17,
+    "pass": 17,
+    "fail": 0,
+    "skipped": 0,
+    "exactSeedSubtests": [
+      "9223372036854775807",
+      "-9223372036854775808",
+      "9007199254740993",
+      "-9007199254740993"
+    ]
+  },
+  "rawLogs": [
+    {
+      "path": "hosted-ddb98c4c-mcp.log",
+      "bytes": 75317,
+      "sha256": "2c350ee965e389b5c9ecb2d4d1dc30ae6bcd757fc3f52ee48484e977aa12f512",
+      "counts": {
+        "tests": [
+          147,
+          35
+        ],
+        "pass": [
+          142,
+          35
+        ],
+        "fail": [
+          0,
+          0
+        ],
+        "cancelled": [
+          0,
+          0
+        ],
+        "skipped": [
+          5,
+          0
+        ]
+      }
+    },
+    {
+      "path": "hosted-ddb98c4c-rust.log",
+      "bytes": 185081,
+      "sha256": "67eb4a1ce7a8bd05620719433c389fb7cf0c23f1f9baffc535c21c015ec93652",
+      "counts": {
+        "tests": [
+          11,
+          17
+        ],
+        "pass": [
+          11,
+          17
+        ],
+        "fail": [
+          0,
+          0
+        ],
+        "cancelled": [
+          0,
+          0
+        ],
+        "skipped": [
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11564885677,
+      "name": "uma-sim-mcp-native",
+      "size_in_bytes": 25403,
+      "digest": "sha256:4e8daa4885402540b4b57a09a982f0f08d210927a7272621c6de09b3bc57e633",
+      "expired": false,
+      "expires_at": "2027-01-06T16:27:15Z"
+    },
+    {
+      "id": 11564006896,
+      "name": "uma-sim-ui-dist",
+      "size_in_bytes": 68069,
+      "digest": "sha256:9f022c959cc4039b21a1837e95f0f900d45b395c38046e17696ad935e0b76de0",
+      "expired": false,
+      "expires_at": "2027-01-06T16:27:15Z"
+    },
+    {
+      "id": 11563952592,
+      "name": "uma-terminal-checkpoint-receiving",
+      "size_in_bytes": 21770,
+      "digest": "sha256:6d97125ffcb78e09004ecedf9cbddc69343d21a15c55543337335aa6606ba6b5",
+      "expired": false,
+      "expires_at": "2027-01-06T16:27:15Z"
+    }
+  ],
+  "artifactByteCustody": "Metadata only; archive bytes not downloaded by this reviewer.",
+  "limits": "Original Mac independent 107/45 receipt remains at b026 API/ec96217 source. This is a later hosted current-tree authored-test gate; it does not rewrite the original capsule. No native Mac current composition was claimed after the producer's pre-Node ENOSPC. Future evidence-only successor must be bound separately."
+}

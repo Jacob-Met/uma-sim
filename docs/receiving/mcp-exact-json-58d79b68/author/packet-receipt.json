@@ -1,0 +1,37 @@
+{
+  "schema": "uma.mcp.exact-json.author-packet-receipt.v1",
+  "createdAt": "2026-10-08T16:47:53.878Z",
+  "proofRoot": "/Users/me/uma-mcp-exact-json-proof-58d79b68",
+  "publicationDirectory": "/Users/me/uma-mcp-exact-json-publication-58d79b68",
+  "manifest": {
+    "bytes": 34600,
+    "sha256": "e020203308e9e3a769736591ff1315f89a3ce0fc2bbf5d5d1fe3d595fe159daa",
+    "gitBlob": "a6fcfb24196240ac5a609c9494217456bec3281e"
+  },
+  "archive": {
+    "path": "native-author.json.gz",
+    "bytes": 238601,
+    "sha256": "bb24d0471a940ca011772f9ec4ef7aebc03e734b004a204a0f4c899c1b0a9321",
+    "gitBlob": "c42f1e20923323bec646d323f0b27ae875eef5e4",
+    "base64Chars": 318136
+  },
+  "verifiedFiles": 118,
+  "verifiedBytes": 855356,
+  "excludedBinary": {
+    "path": "native-api/uma-sim-api",
+    "nativePath": "/Users/me/uma-mcp-exact-json-proof-58d79b68/native-api/uma-sim-api",
+    "mode": 493,
+    "bytes": 14182432,
+    "sha256": "149620074b6fb756d1dc9c8775e2afbb68d82791e12d6a2870cd90e546f02c17",
+    "reason": "Retained executable; source and build/native receiving receipts are archived."
+  },
+  "verification": {
+    "verified": true,
+    "files": 118,
+    "bytes": 855356,
+    "manifestSha256": "e020203308e9e3a769736591ff1315f89a3ce0fc2bbf5d5d1fe3d595fe159daa",
+    "destination": null
+  },
+  "sourceUnchanged": true,
+  "negativeEvidencePreserved": true
+}

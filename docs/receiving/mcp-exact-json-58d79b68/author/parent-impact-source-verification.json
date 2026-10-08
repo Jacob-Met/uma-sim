@@ -1,0 +1,440 @@
+{
+  "kind": "independent_read_only_current_parent_source_comparison",
+  "baseline": "b026a21f437789d7a7cd04c5074258302e36814e",
+  "baseline_tree": "359cc10294331337e200c433d95d170ea439e087",
+  "current": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "current_tree": "a0458be13b0a43575361e2fb8f9385f222683971",
+  "counts": {
+    "baseline": 1310,
+    "current": 1346,
+    "changed": 6,
+    "added": 36,
+    "removed": 0,
+    "preserved": 1304
+  },
+  "changed": [
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "before": {
+        "path": "packages/uma-sim-ui/package.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "f7fa8dd7242dfd9346e4e8d19d7c67655c64ed2d"
+      },
+      "after": {
+        "path": "packages/uma-sim-ui/package.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "d3012d7add792545fa83e1532b89e7b7bacbf899"
+      }
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "before": {
+        "path": "packages/uma-sim-ui/src/App.tsx",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "8c947e513601c4cac8af53ad14e572eb663e4ee3"
+      },
+      "after": {
+        "path": "packages/uma-sim-ui/src/App.tsx",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "790fa1c7d980c205617f59260820b84a53703b27"
+      }
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "before": {
+        "path": "uma-sim-core/src/api.rs",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "814853d34d818130bcaaae68cd5462e752e8bfcf"
+      },
+      "after": {
+        "path": "uma-sim-core/src/api.rs",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "60a02556b3707918e57cac775f723e0c8f67b30d"
+      }
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "before": {
+        "path": "uma-sim-core/src/bin/uma-sim.rs",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "d9b963978919dd1a8776bf066f5a27689adbb498"
+      },
+      "after": {
+        "path": "uma-sim-core/src/bin/uma-sim.rs",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "3219cab93a8a7c1234f69e6ca0bea9958de177a1"
+      }
+    },
+    {
+      "path": "uma-sim-core/src/catalog/skill.rs",
+      "before": {
+        "path": "uma-sim-core/src/catalog/skill.rs",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "931badcdf44e0828f79cf4d7ec50fe4574ba0a74"
+      },
+      "after": {
+        "path": "uma-sim-core/src/catalog/skill.rs",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "9b59270b62f45e68658aa2ae95528f6000bbeb1a"
+      }
+    },
+    {
+      "path": "uma-sim-core/src/lib.rs",
+      "before": {
+        "path": "uma-sim-core/src/lib.rs",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "5a72c106af2af92e3f8968b5136d6d465ec336c7"
+      },
+      "after": {
+        "path": "uma-sim-core/src/lib.rs",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "e815f361d1e927f5b8fc9a0a53b317fa38917ee4"
+      }
+    }
+  ],
+  "added": [
+    {
+      "path": "docs/PAIRED_BATCHES.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dca48b548b0b78fae5e8ea12332c7392567faa8b"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2e6b64fac65d0c34f0891e9c4d0de14198ef359"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d96cdfd25f8155dd72c0b831e669e4eb7a79261f"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-current-README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "930e6ebb7ace838a35757b0ec0dda58200ab88e1"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-current-packet-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "947ee3a70f17343e67af276e3b1144f9c7a901cc"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-current-packet.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d99aeba5a328a47ca2c9a40aa370536619c775dc"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-current-qualified.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b8207b7b0d8bbbe39bdcbb390a5a7bbdf9619d1"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-packet-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ecfd03c35c55632d636b40366e9afb7dc15703d"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-packet.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc2506f062cd23b2f47ae3678aa3074c710f2442"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-verifier-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4139552023f30d2055deeb8aa1ca9b55251e9d8e"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa38c1232f3d399b1bbec64e1a898df8c081403a"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-current-custody-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ec9c1ee689650f41abcbeecb7ebe6e53ba4795f"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-current-packet-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f87125580cfd87b3a5c526fdc755212e87cb2303"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-current-packet.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd63741c239818c54085096228f737f16c72dc4a"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-current-receiving-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78440540d0bafbd6ff99ce66dfa2b1cbf634c9e1"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-current-source-review.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e71ad8ae963df87492c6cd96ed97741266d15530"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-custody-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13a6c811308b07c08ae0f88e8d897b3c2be02476"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-packet-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ff9e20eec0540b8c43d6eacbd0055319ed2af08"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-packet.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38efc984b36eb61202e953f2844a2f2d094fca41"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-receiving-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18329ba45025efc60746b5027814c1af473cf409"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-source-review.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3275c49148dd2f124d869e7bc334b03c5b3695a0"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/publication.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a07ec97ba3eafed73d0554ed01a9bee75fdbd3f"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/source-freeze.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "732be2c9e4cfb27e16de1fe559e7e9714854129a"
+    },
+    {
+      "path": "docs/skills-and-hints.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f49d7e151ead54d8b0031a0c8670ff9772a1c4b"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/SkillsPanel.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ce451024e053c6dbac74c5ebd4633ed1824827a"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/skillsView.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2be7dc6e879800afb6429497560ed28ada37d9fc"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/styles/skills.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bb1b96278706891ecf01c0b9a89db856703085c"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/skills-view.test.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ca177e9686ed3e1e6baec0b870b4e1aa494434c"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/skills-hints-receiver.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e44b127f271d410ff443870b6475df307fd517a"
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches/baseline.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "147ff34d9184beac1e515cf833692c3f208664c3"
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches/input.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fa747ea6e99a88762853e3ece69307e6265f49a"
+    },
+    {
+      "path": "uma-sim-core/src/batch_pairs.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d083c65c64053a87da11a809de83d04184cc393b"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/paired_batches.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fab6f9f8669d1cc3fa5cdae52099c0846d06da9"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb77d7dfe9354e6d1169321eaefcd4a382bede24"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches_cli.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bae14924d409470262b5880f5dfb9da11ac6405f"
+    },
+    {
+      "path": "uma-sim-core/tests/skill_catalog_display.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "394b9650a515f38672683d11bd027d363808a834"
+    }
+  ],
+  "dependencies_preserved": [
+    {
+      "path": "Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d55384b62968b2ada18d45aa4de2053e175579ea"
+    },
+    {
+      "path": "Cargo.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f99851c45524f129e8544a2d779b3c21594d816"
+    },
+    {
+      "path": "uma-sim-core/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim-api.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "821ce29dc4dba0758e16392fb50d83ec5231e705"
+    },
+    {
+      "path": "uma-sim-core/src/snapshot.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a17d416cf5d9af0ce360de446852ecd4350b4be9"
+    },
+    {
+      "path": "uma-sim-core/src/rng.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "553c9a5a56b5c7f9aa3025e2bc721f1a45d08b8d"
+    },
+    {
+      "path": "uma-sim-core/src/state.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821"
+    },
+    {
+      "path": "uma-sim-core/src/factory.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47d4853befc9ddfea2aea622a2d68bc57307ea5f"
+    },
+    {
+      "path": "uma-sim-core/src/engine.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ece3123aea3ba3f17326ceb033fc53e796b3566"
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c407f70093b955801126d1f3c93af79a279d2346"
+    },
+    {
+      "path": "uma-sim-core/src/career_lab.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1220bfcaa03bec1584ad8273507ac5fdc4114c76"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/skill.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8042a37684b9930fad6b4d5a033e8d358ac9b851"
+    },
+    {
+      "path": "packages/uma-sim-mcp/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d2aaf8942be2908ac2380204dcb32d9bb8e73fc"
+    },
+    {
+      "path": "packages/uma-sim-mcp/mcp-stdio.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24d5384c0a14fbdd07c4dd838b6a0d56b6d92ceb"
+    }
+  ],
+  "exact_source_copies_verified": 10,
+  "byte_identical_regions": [
+    {
+      "label": "API entire handle_start-to-EOF tail, including seed parsing, all remaining run/session/library routes and helpers",
+      "bytes": 67782,
+      "sha256": "f4a296d87e350f370430c634af4ba967c8f5c16957d3daccd2c020f022f1fb05"
+    },
+    {
+      "label": "Skill name normalization",
+      "bytes": 377,
+      "sha256": "cdbe8a0244d72b733cbf60a51d081fe0442e627db1cc6b0d7d3c97e2dee142e8"
+    },
+    {
+      "label": "Skill catalog path and file readers",
+      "bytes": 424,
+      "sha256": "9799e60e46cf5ebdba7b515e606d4c5e924b9749a88978b861cbf7de8760b123"
+    },
+    {
+      "label": "Skill name and alias insertion loops",
+      "bytes": 767,
+      "sha256": "ddabfc6adec3a9ee3843a2c7096a2b4b115a5a41346e7de1b41028c7757dc841"
+    },
+    {
+      "label": "Complete hint resolver and RNG-pick tail",
+      "bytes": 1176,
+      "sha256": "abeb3ee83fc7291191e34a473a10468f4d774270816c1fd54adfdb0c0ab84674"
+    }
+  ],
+  "limits": "Static source/identity receiving only. No current-parent build or dynamic career replay; original 107 protocol and 45 native controls remain frozen at their documented b026 native API and ec96217 MCP source."
+}
