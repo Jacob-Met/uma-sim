@@ -2276,4 +2276,206 @@ mod tests {
         assert_eq!(status, 200, "got {status}: {body}");
         assert_eq!(speed_and_turn(port).0, 7);
     }
+
+    /// Write a stub external-policy shell script that answers the ping,
+    /// answers `answers` choose requests with a rest action, then dies
+    /// (simulating a policy server that fails mid-run, not just at config).
+    /// Caller must hold EXTERNAL_TEST_LOCK.
+    fn write_midrun_kill_stub(answers: usize) -> std::path::PathBuf {
+        use std::os::unix::fs::PermissionsExt;
+        let dir = std::env::temp_dir().join(format!("umasim-midrun-stub-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        let script = format!(
+            "#!/bin/sh\nn=0\nwhile IFS= read -r line; do\n  case \"$line\" in\n    *ping*) echo '{{\"ok\":true}}' ;;\n    *quit*) exit 0 ;;\n    *) n=$((n+1)); if [ \"$n\" -gt {answers} ]; then exit 0; fi; echo '{{\"kind\":\"rest\",\"payload\":null}}' ;;\n  esac\ndone\n"
+        );
+        let path = dir.join("midkill.sh");
+        std::fs::write(&path, script).unwrap();
+        let mut perms = std::fs::metadata(&path).unwrap().permissions();
+        perms.set_mode(0o755);
+        std::fs::set_permissions(&path, perms).unwrap();
+        path
+    }
+
+    /// A 503 that arrives MID-RUN (policy server dies after N successful
+    /// steps, not at config time) must roll the engine back to its
+    /// pre-request snapshot: partial steps are undone and the speed
+    /// multiplier is restored. The existing 503 tests only pin the
+    /// immediate-failure (no-config) case; this covers the
+    /// `play_to_completion_external_checked` fallible-step loop.
+    #[test]
+    fn fast_503_midrun_failure_rolls_back_engine() {
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
+        let old_cmd = std::env::var("UMA_POLICY_CMD").ok();
+        crate::policy_external::reset_external_for_tests();
+
+        let stub = write_midrun_kill_stub(2);
+        std::env::set_var("UMA_POLICY_CMD", stub.to_string_lossy().into_owned());
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, body) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","speed":"3"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        let (speed0, turn0) = speed_and_turn(port);
+        assert_eq!(speed0, 3);
+
+        // The stub dies after 2 successful chooses: the request must fail
+        // loudly, and the 2 partial steps must be rolled back.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"policy":"external","multiplier":"50"}"#,
+        );
+        assert_eq!(
+            status, 503,
+            "mid-run policy death must 503, not silently complete; got {status}: {body}"
+        );
+        assert!(
+            body.contains("external policy"),
+            "error should name the external-policy layer; got: {body}"
+        );
+        assert_eq!(
+            speed_and_turn(port),
+            (speed0, turn0),
+            "mid-run 503 must undo partial steps AND restore the speed multiplier"
+        );
+
+        // Server-level default untouched, and the session is still usable.
+        let (status, body) = http_post(port, "/v1/run/fast", r#"{"policy":"default"}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert_eq!(speed_and_turn(port).0, 3);
+        let (status, body) = http_post(port, "/v1/run/auto", r#"{"policy":"default"}"#);
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert!(body.contains("\"careerEnded\""), "got: {body}");
+
+        std::env::set_var("UMA_POLICY_CMD", old_cmd.as_deref().unwrap_or(""));
+        if old_cmd.is_none() {
+            std::env::remove_var("UMA_POLICY_CMD");
+        }
+        crate::policy_external::reset_external_for_tests();
+    }
+
+    /// /v1/run/fast with an omitted `policy` inherits the session's default
+    /// policy. When that default is "external" and no policy server is
+    /// configured, the request must fail loudly (503), not silently run a
+    /// full default-heuristic career — the fast-side analog of the /auto
+    /// inheritance test.
+    #[test]
+    fn fast_inherits_session_default_external_policy() {
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, body) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","policy":"external"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        let before = speed_and_turn(port);
+
+        // No `policy` field: the session default ("external") applies.
+        let (status, body) = http_post(port, "/v1/run/fast", r#"{}"#);
+        assert_eq!(
+            status, 503,
+            "fast inheriting policy=external must not silently 200; got {status}: {body}"
+        );
+        assert!(body.contains("UMA_POLICY_CMD"), "got: {body}");
+        assert_eq!(
+            speed_and_turn(port),
+            before,
+            "inherited-policy 503 must leave speed and turn unchanged"
+        );
+    }
+
+    /// /v1/run/fast for an unknown session id is a 404 before any mutation:
+    /// neither the engine nor the API-level speed setting may change, and the
+    /// error body must name the missing session.
+    #[test]
+    fn fast_404_unknown_session_leaves_speed_unchanged() {
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, body) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","speed":"3"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        let before = speed_and_turn(port);
+
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"session":"no-such-session","policy":"default","multiplier":"50"}"#,
+        );
+        assert_eq!(status, 404, "got {status}: {body}");
+        assert_json_error(&body, "no-such-session");
+        assert_eq!(
+            speed_and_turn(port),
+            before,
+            "404 fast must leave speed and turn unchanged"
+        );
+    }
+
+    /// Multiplier parsing on the success path: out-of-range values clamp to
+    /// [1, 100] (not an error), and a non-numeric value falls back to the
+    /// current server default. Pins the parsing surface adjacent to the
+    /// 503 speed-rollback regression.
+    #[test]
+    fn fast_multiplier_clamp_and_fallback() {
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
+        std::env::remove_var("UMA_POLICY_CMD");
+
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        let (status, body) = http_post(
+            port,
+            "/v1/run/start",
+            r#"{"seed":7,"scenario":"ura","trainee":"Special Week","raceModel":"stub","speed":"3"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+
+        // 500 clamps to 100.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"policy":"default","multiplier":"500"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert_eq!(speed_and_turn(port).0, 100, "multiplier must clamp to 100");
+
+        // -5 clamps to 1.
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"policy":"default","multiplier":"-5"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert_eq!(speed_and_turn(port).0, 1, "multiplier must clamp to 1");
+
+        // Non-numeric falls back to the current server default (1 here).
+        let (status, body) = http_post(
+            port,
+            "/v1/run/fast",
+            r#"{"policy":"default","multiplier":"abc"}"#,
+        );
+        assert_eq!(status, 200, "got {status}: {body}");
+        assert_eq!(
+            speed_and_turn(port).0,
+            1,
+            "non-numeric multiplier must fall back to the server default"
+        );
+    }
 }
