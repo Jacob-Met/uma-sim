@@ -1,0 +1,22 @@
+
+thread 'manual_branches_report_their_first_different_action' (45569439) panicked at /Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/career_lab_process_history.rs:141:5:
+different first manual actions must remain visible after a shared Rest; cwd=/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/tmp/uma-lab-process-history-96949-0-manual-compare
+Compare 'speed_branch' vs 'stamina_branch'
+  origin: shared
+  related branches: true
+  turns: 4 vs 4 | complete: false vs false | fans: 1033 vs 1033
+  terminal: not complete on both sides — no outcome delta
+  shared action prefix: 1 steps
+  action sequences identical for the compared span
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'manual_steps_keep_the_previous_process_history' (45571470) panicked at /Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/career_lab_process_history.rs:96:5:
+earlier manual action was lost across CLI processes; cwd=/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/tmp/uma-lab-process-history-96949-1-manual-prefix
+first=[Object {"action": String("Train:speed"), "choice_ids": Array [String("train_speed"), String("train_stamina"), String("train_power"), String("train_guts"), String("train_wit"), String("rest"), String("recreation"), String("race")], "energy": Number(80), "fans": Number(1033), "mood": String("NORMAL"), "phase": String("FREE"), "speed": Number(94), "turn": Number(3)}]
+second=[Object {"action": String("Rest"), "choice_ids": Array [String("train_speed"), String("train_stamina"), String("train_power"), String("train_guts"), String("train_wit"), String("rest"), String("recreation"), String("race")], "energy": Number(100), "fans": Number(1033), "mood": String("NORMAL"), "phase": String("FREE"), "speed": Number(94), "turn": Number(4)}]
+
+thread 'manual_then_play_keeps_the_manual_prefix' (45571516) panicked at /Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/career_lab_process_history.rs:160:5:
+lab play discarded a prior manual action; cwd=/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/tmp/uma-lab-process-history-96949-2-manual-play
+manual=[Object {"action": String("Train:power"), "choice_ids": Array [String("train_speed"), String("train_stamina"), String("train_power"), String("train_guts"), String("train_wit"), String("rest"), String("recreation"), String("race")], "energy": Number(80), "fans": Number(1033), "mood": String("NORMAL"), "phase": String("FREE"), "speed": Number(85), "turn": Number(3)}]
+continued_first=Some(Object {"action": String("Train:speed"), "choice_ids": Array [String("train_speed"), String("train_stamina"), String("train_power"), String("train_guts"), String("train_wit"), String("rest"), String("recreation"), String("race")], "energy": Number(45), "fans": Number(1033), "mood": String("BAD"), "phase": String("FREE"), "speed": Number(85), "turn": Number(4)})

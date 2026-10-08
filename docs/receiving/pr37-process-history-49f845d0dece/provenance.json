@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "kind": "test-only PR37 expected-failure receiving",
+  "base_head": "ef2b26729fd20231b47715bba904cc67c4f88649",
+  "base_tree": "99b25142b3fb358ba0f6e5898300333fbf5c7c3c",
+  "baseline": {
+    "startedAt": "2026-10-08T09:43:59.329747+00:00",
+    "source_pr37_head": "ef2b26729fd20231b47715bba904cc67c4f88649",
+    "current_core_source_ref": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+    "hybrid_boundary": "Unchanged PR37 lab/CLI source linked through a receiving-only shim to cached current native core. This baseline is not an untouched historical PR37 tree build. Only new test source is compiled here.",
+    "native_binary": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/uma-sim-pr37",
+      "bytes": 17805328,
+      "sha256": "ee9401204c9bd257fc0f4326328935e0511a70d475ddd2925eebcf7e7bf66229",
+      "git_blob_sha1": "48bbaa26197442b2b3c88fac6e28f0e0534abab0"
+    },
+    "environment": {
+      "TMPDIR": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/tmp",
+      "TMP": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/tmp",
+      "TEMP": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/tmp",
+      "UMA_REPO_ROOT": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim",
+      "UMA_RACE_MODEL": "stub",
+      "CARGO_BIN_EXE_uma-sim": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/uma-sim-pr37"
+    },
+    "commands": [
+      {
+        "name": "rustc-version",
+        "argv": [
+          "/opt/homebrew/bin/rustc",
+          "--version",
+          "--verbose"
+        ],
+        "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline",
+        "status": 0,
+        "duration_seconds": 0.164028,
+        "stdout": "rustc-version.stdout.txt",
+        "stderr": "rustc-version.stderr.txt"
+      },
+      {
+        "name": "format",
+        "argv": [
+          "/opt/homebrew/bin/rustfmt",
+          "--edition",
+          "2021",
+          "--config-path",
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/rustfmt.toml",
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/career_lab_process_history.rs"
+        ],
+        "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline",
+        "status": 0,
+        "duration_seconds": 0.054001,
+        "stdout": "format.stdout.txt",
+        "stderr": "format.stderr.txt"
+      },
+      {
+        "name": "compile",
+        "argv": [
+          "/opt/homebrew/bin/rustc",
+          "--edition=2021",
+          "--crate-name",
+          "career_lab_process_history",
+          "--test",
+          "-C",
+          "debuginfo=0",
+          "-L",
+          "dependency=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps",
+          "--extern",
+          "serde_json=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde_json-70c5caf873f5c0c3.rlib",
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/career_lab_process_history.rs",
+          "-o",
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/career_lab_process_history_tests"
+        ],
+        "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline",
+        "status": 0,
+        "duration_seconds": 0.973634,
+        "stdout": "compile.stdout.txt",
+        "stderr": "compile.stderr.txt"
+      },
+      {
+        "name": "baseline",
+        "argv": [
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/career_lab_process_history_tests",
+          "--test-threads=1",
+          "--nocapture"
+        ],
+        "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline",
+        "status": 101,
+        "duration_seconds": 4.895409,
+        "stdout": "baseline.stdout.txt",
+        "stderr": "baseline.stderr.txt"
+      }
+    ],
+    "regression_source": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/career_lab_process_history.rs",
+      "bytes": 5961,
+      "sha256": "9f44f15862953d9549d1caf0c686068fc0c4f1b44aec50e278e725bcec252190",
+      "git_blob_sha1": "b6130d81d4effc39026eeb9818ef057b3e183fe8"
+    },
+    "source_before_format": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/source-before-format.rs",
+      "bytes": 5862,
+      "sha256": "ed8083d4de285e6a32287d3b2b1b0b660af4ac459bab52f5d6ef7b9155e828a0",
+      "git_blob_sha1": "2292072349e6ea9cd4faac8bb013270ed352ba34"
+    },
+    "serde_json_cache": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde_json-70c5caf873f5c0c3.rlib",
+      "bytes": 3539496,
+      "sha256": "56d60d07ddec1732e8baf2eb79c2d95b8d8b0b7dc901928dc241b3df21952674",
+      "git_blob_sha1": "20d26c50ec594ddb04df574492304fc0a82e889a"
+    },
+    "test_binary": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37-regression-baseline/career_lab_process_history_tests",
+      "bytes": 1538640,
+      "sha256": "371e1adde94f87ed4404d611f854053888abb1fef6cf50096c1222451a085e1a",
+      "git_blob_sha1": "3c7e4bfddae118a1df236bd3bb39a4f4f6628e62"
+    },
+    "summary": "test result: FAILED. 0 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.89s",
+    "native_binary_after": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/uma-sim-pr37",
+      "bytes": 17805328,
+      "sha256": "ee9401204c9bd257fc0f4326328935e0511a70d475ddd2925eebcf7e7bf66229",
+      "git_blob_sha1": "48bbaa26197442b2b3c88fac6e28f0e0534abab0"
+    },
+    "regression_source_after": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/career_lab_process_history.rs",
+      "bytes": 5961,
+      "sha256": "9f44f15862953d9549d1caf0c686068fc0c4f1b44aec50e278e725bcec252190",
+      "git_blob_sha1": "b6130d81d4effc39026eeb9818ef057b3e183fe8"
+    },
+    "finishedAt": "2026-10-08T09:44:05.461906+00:00",
+    "expected_failure_observed": true
+  },
+  "compiler": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: aarch64-apple-darwin\nrelease: 1.99.0\nLLVM version: 23.1.2\n",
+  "original_source_files": [
+    {
+      "repository_path": "uma-sim-core/src/career_lab.rs",
+      "source_ref": "ef2b26729fd20231b47715bba904cc67c4f88649",
+      "git_blob_sha1": "1cb4d93260135ab4cc271cf181b732563f5f00f0",
+      "sha256": "ec44bec19d28a4e7ae569e913bdd9ca692cfc9d6b52b20f521a3f2ee31902601"
+    },
+    {
+      "repository_path": "uma-sim-core/src/bin/uma-sim.rs",
+      "source_ref": "ef2b26729fd20231b47715bba904cc67c4f88649",
+      "git_blob_sha1": "fe6a82f970c99fe9e30b969cd2d8f5f8eb674722",
+      "sha256": "29895cb674800a16df39430a61117612474ac34d443d50dea2aa23a42326d5d4"
+    },
+    {
+      "repository_path": "uma-sim-core/tests/career_lab.rs",
+      "source_ref": "ef2b26729fd20231b47715bba904cc67c4f88649",
+      "git_blob_sha1": "3ff18fbe51956fc8228b8ddf52fc8537bfdfe7fe",
+      "sha256": "a79ea9d8ebd5ed9b6e84f1203002e92621edb260180a95c332641ab5a22673da"
+    }
+  ],
+  "original_native_construction": {
+    "shim": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/pr37_receiver_core.rs",
+      "bytes": 128,
+      "sha256": "26eb5075c5e5d470ffa4583459983deb1fb97b7f8b16a3b1cd65b78cc4e26586",
+      "git_blob_sha1": "a02c37461058ae18664f5aba52e8b523c3870e29"
+    },
+    "shim_library": {
+      "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/libpr37_receiver_core.rlib",
+      "bytes": 1288240,
+      "sha256": "e2be0f1ace6a47b1f7d1ce702df6a6d364c9fe84358ba5748121223c2beafc62",
+      "git_blob_sha1": "ddd3dd1d534b694998cea88d31d929659bfd52fd"
+    },
+    "commands": [
+      {
+        "name": "compile-shim",
+        "argv": [
+          "/opt/homebrew/bin/rustc",
+          "--edition=2021",
+          "-C",
+          "debuginfo=0",
+          "-L",
+          "dependency=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps",
+          "--crate-name",
+          "pr37_receiver_core",
+          "--crate-type",
+          "rlib",
+          "--extern",
+          "uma_sim_core=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libuma_sim_core-8744fe8d52c199c4.rlib",
+          "--extern",
+          "serde=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde-7426881e9f38a0ac.rlib",
+          "--extern",
+          "serde_json=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde_json-70c5caf873f5c0c3.rlib",
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/pr37_receiver_core.rs",
+          "-o",
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/libpr37_receiver_core.rlib"
+        ],
+        "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37",
+        "started_at": "2026-10-08T09:35:28.250453+00:00",
+        "exit_code": 0,
+        "completed_at": "2026-10-08T09:35:29.976064+00:00",
+        "duration_seconds": 1.725454,
+        "stdout": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/logs/compile-shim.stdout.txt",
+        "stderr": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/logs/compile-shim.stderr.txt"
+      },
+      {
+        "name": "compile-cli",
+        "argv": [
+          "/opt/homebrew/bin/rustc",
+          "--edition=2021",
+          "-C",
+          "debuginfo=0",
+          "-L",
+          "dependency=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps",
+          "--crate-name",
+          "pr37_uma_sim_receiver",
+          "--extern",
+          "uma_sim_core=/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/libpr37_receiver_core.rlib",
+          "--extern",
+          "serde=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde-7426881e9f38a0ac.rlib",
+          "--extern",
+          "serde_json=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde_json-70c5caf873f5c0c3.rlib",
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/source/exact-uma-sim.rs",
+          "-o",
+          "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/uma-sim-pr37"
+        ],
+        "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37",
+        "started_at": "2026-10-08T09:35:29.978389+00:00",
+        "exit_code": 0,
+        "completed_at": "2026-10-08T09:35:30.420542+00:00",
+        "duration_seconds": 0.441993,
+        "stdout": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/logs/compile-cli.stdout.txt",
+        "stderr": "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/pr37/logs/compile-cli.stderr.txt"
+      }
+    ],
+    "cached_dependencies": [
+      {
+        "crate": "uma_sim_core",
+        "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libuma_sim_core-8744fe8d52c199c4.rlib",
+        "bytes": 40793568,
+        "sha256": "a51e7bf3889b6060ba2931d288e0776cefe93661bef251c723c48f509495c1ce",
+        "git_blob_sha1": "81b1d8f73a270a1571a2f63273277d72001b7f2e"
+      },
+      {
+        "crate": "serde",
+        "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde-7426881e9f38a0ac.rlib",
+        "bytes": 1091664,
+        "sha256": "efe74ea370ee7ad04c8da4139845661920c01b2475c6bbac398b518f6430550d",
+        "git_blob_sha1": "17f2db3da55bc152cc6c44b90fec345787b0bf8d"
+      },
+      {
+        "crate": "serde_json",
+        "path": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde_json-70c5caf873f5c0c3.rlib",
+        "bytes": 3539496,
+        "sha256": "56d60d07ddec1732e8baf2eb79c2d95b8d8b0b7dc901928dc241b3df21952674",
+        "git_blob_sha1": "20d26c50ec594ddb04df574492304fc0a82e889a"
+      }
+    ]
+  },
+  "limitations": [
+    "The native receiver preserves the original PR37 lab and CLI source, linked through a receiving-only shim to cached current core.",
+    "The unchanged historical PR37 repository tree was not built; the original cached core build was not reproduced.",
+    "This contribution adds three integration tests and compact expected-failure receiving evidence only. No product correction or architecture disposition is included.",
+    "The original six-test receiving and these three new regression tests are distinct runs with explicitly recorded physics and stub models, respectively.",
+    "Every new regression failed at its intended history or comparison assertion. Assertions after those failures remain prospective checks for corrected behavior."
+  ]
+}
