@@ -1,0 +1,45 @@
+{
+  "error": "Error: Chromium private debugging port timed out \n    at deadline (file:///home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/receive-native-inheritance.mjs:19:171)\n    at async file:///home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/receive-native-inheritance.mjs:74:20",
+  "checks": [
+    {
+      "name": "native catalog root matches exact owned source",
+      "pass": true,
+      "actual": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source",
+      "expected": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source"
+    },
+    {
+      "name": "native start retains original tree stars rather than editor normalization",
+      "pass": true,
+      "actual": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "expected": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "native flat career omits structured tree",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "native structured retained duplicate factors",
+      "pass": true,
+      "actual": 6,
+      "expected": 6
+    }
+  ],
+  "apiTraffic": [],
+  "runtimeErrors": []
+}

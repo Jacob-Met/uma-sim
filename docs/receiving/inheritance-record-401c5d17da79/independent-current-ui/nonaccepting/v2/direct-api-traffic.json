@@ -1,0 +1,563 @@
+[
+  {
+    "route": "/v1/health",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "c5cd7a37b79c3b53e7c1cd7bd5d61706ae48955738dcd944e870e3dac1c14fa7"
+  },
+  {
+    "route": "/v1/catalog/factors",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "2061463442018a96c02a081d597083ca3cc67b6e04a2fbbf9f930d3e552b797d"
+  },
+  {
+    "route": "/v1/run/start",
+    "method": "POST",
+    "body": {
+      "seed": "112",
+      "scenario": "ura",
+      "trainee": "Special Week",
+      "raceModel": "stub",
+      "dialogue": "choices",
+      "legacyFactors": "factor:blue:1@2,factor:blue:1@1",
+      "parentNames": "Native parent A,Native parent B",
+      "session": "origin",
+      "label": "Checkpoint origin"
+    },
+    "status": 200,
+    "response_sha256": "3dcd08298a25179f6423f0f8c0ca2476fc1f38bddc10f8c51de35209c902a6d2"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "race"
+    },
+    "status": 200,
+    "response_sha256": "9216ed392e9653a3f4eb1168b4184f9a34d05209109a05cdc7e295bba3be37c9"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "8f0251fdf227fb8a9d2875e166b1138a72a07b0d026239f90fb5eb68a9714823"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "ed962f1179a4538dadf2d31942bfc2d16184300327948cc9bcfcf2885923392e"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "5de5b171be67429610a3994ca4a0cf3af7d294541fb1743ca74283ad8c0bac0b"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "7e0d8423be1fd3beac6c8c73c1853ae9dc6de000aaa43ea29453cedd8b071825"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "4300bf63d25fbf5a6d4b46e9dc076ac614860086f4abe11848acb7dd49ec31ae"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "3551d91acf888d24a50224dcd725f57be76a173cabd8d49ff469248247f35f11"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "dba96be1c15b475c9ee74db02389d4056f15e65b81cdd561e7281c72e8ff5925"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "dec7af3d0facab6454f7aaf6942eb287efcac7ba0815d6f439adb4cf57b163bd"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "b286e9a65fc7d5b9e7856f99c86f0c2e53f92e0b0096aff1ff52412194b822b5"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "f9d3efe93573705d020d29314c18e88c94c244da5aa803ff3bd7da80ceeac397"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "7751b382a1cddd5f27856f422a51b79c37175163bb50e2d39307200dcdf111e6"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "d76bf072694a622bfce71f010447263315cbc81b14bc74ea660b6efe30217bab"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "be4c4ce38aa623caff9c7f1813da62a9786d1a1debe32ac17564f35b7603bde5"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "89425bed32d00da21055c5faa9ee13c47433365106209423687367889f6a1242"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "338a74171f56d0f5d24ce0f0fd2e854a4dcfcbe9f2a0520b0b9307fa6ad5d3bd"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "bb4d742ceda127490896aa1c5415d9939e4d2d2972cde93cce1ec0f6d59d5d7f"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "38f789a3b04cc423906272e04d8a6989d1363190154e7456f7952d5fe60eeaa4"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "d8fd6c28b6cfd1b4ecfacdd81890273dc5d63f7085bcaa8eded05dea1d94ab17"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "110d53ab4b62bd05fe187ad6c266f0d4b5f3d915273f935b3b9c1a6d3e8cab13"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "38d0bd291e99f535663ef4073ee9ed87491911c83d055315511613ff375c1442"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "5541c23cc760fcb064f15ed3ad8ae394b4b169540eac5e752e9a604c63219085"
+  },
+  {
+    "route": "/v1/run/choices?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572"
+  },
+  {
+    "route": "/v1/run/action",
+    "method": "POST",
+    "body": {
+      "session": "origin",
+      "action": "rest"
+    },
+    "status": 200,
+    "response_sha256": "a9279a941ee57855ea4982dc0dd84f33df9db8aae94b533a20e6870ee6f16610"
+  },
+  {
+    "route": "/v1/run/state?session=origin",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "063bf1ec15215a7baa269dc38a2bedd3cb552ae635d4d8a5616aa788ab334bba"
+  },
+  {
+    "route": "/v1/library/import",
+    "method": "POST",
+    "body": {
+      "snapshot": {
+        "meta": {
+          "seed": 112,
+          "scenarioId": "ura",
+          "traineeName": "Special Week",
+          "objectiveProfile": "general",
+          "legacyFactors": [
+            "factor:blue:1@2",
+            "factor:blue:1@1"
+          ],
+          "parentNames": [
+            "Native parent A",
+            "Native parent B"
+          ],
+          "deckSupports": [],
+          "legacyTree": {
+            "parentA": {
+              "uma": "Restored <Parent> & record",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 0
+              }
+            },
+            "gpA1": {
+              "uma": "Name-only grandparent"
+            },
+            "parentB": {
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 4
+              },
+              "white": {
+                "factorId": "unknown:<checkpoint>&",
+                "stars": -1
+              }
+            }
+          }
+        },
+        "settings": {
+          "dialogueMode": "CHOICES_ONLY",
+          "speedMultiplier": 1,
+          "allowDialogueAtHighSpeed": false,
+          "traceTelemetry": false,
+          "traceRng": false,
+          "raceModel": "stub"
+        },
+        "state": {
+          "meta": {
+            "seed": 112,
+            "scenarioId": "ura",
+            "traineeName": "Special Week",
+            "objectiveProfile": "general",
+            "legacyFactors": [
+              "factor:blue:1@2",
+              "factor:blue:1@1"
+            ],
+            "parentNames": [
+              "Native parent A",
+              "Native parent B"
+            ],
+            "deckSupports": [],
+            "legacyTree": {
+              "parentA": {
+                "uma": "Restored <Parent> & record",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 0
+                }
+              },
+              "gpA1": {
+                "uma": "Name-only grandparent"
+              },
+              "parentB": {
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 4
+                },
+                "white": {
+                  "factorId": "unknown:<checkpoint>&",
+                  "stars": -1
+                }
+              }
+            }
+          },
+          "date": {
+            "year": 1,
+            "month": 12,
+            "half": 2
+          },
+          "turn": 13,
+          "stats": {
+            "speed": 100,
+            "stamina": 88,
+            "power": 98,
+            "guts": 90,
+            "wit": 91
+          },
+          "energy": 100,
+          "maxEnergy": 100,
+          "mood": "GREAT",
+          "fans": 865,
+          "skillPoints": 45,
+          "careerComplete": false,
+          "awaitingChoice": true,
+          "pendingEventTitle": "Inheritance",
+          "pendingRaceId": null,
+          "phase": "EVENT",
+          "completedRaces": [
+            "debut"
+          ],
+          "facilityLevels": {
+            "wit": 1,
+            "power": 1,
+            "stamina": 1,
+            "speed": 1,
+            "guts": 1
+          },
+          "facilityTrainCounts": {},
+          "pendingEventOptions": [
+            "Accept inherited skills\nSkill points +30",
+            "Focus on spark stats\nSpeed +20\nStamina +20"
+          ],
+          "hintLevels": {
+            "skill:200732": 1,
+            "skill:201352": 1,
+            "skill:200512": 1
+          },
+          "statuses": [],
+          "performanceTokens": {},
+          "scenarioResources": {
+            "values": {
+              "happy_meek_badge": 0
+            }
+          },
+          "legacy": {
+            "parentNames": [
+              "Native parent A",
+              "Native parent B"
+            ],
+            "factorIds": [
+              "factor:blue:1",
+              "factor:blue:1"
+            ],
+            "inheritedSkillIds": [],
+            "sparkCaps": {
+              "speed": 13
+            },
+            "pinkFactorIds": [],
+            "pinkAptitudeTags": [],
+            "pinkStarTotals": {},
+            "aptitudes": {
+              "medium": "A",
+              "late": "A",
+              "long": "A",
+              "end": "C",
+              "turf": "A",
+              "mile": "C",
+              "pace": "A",
+              "sprint": "F",
+              "dirt": "G",
+              "front": "G"
+            },
+            "raceFactorIds": [],
+            "inheritanceComplete": false
+          },
+          "learnedSkillIds": [
+            "skill:100011"
+          ],
+          "deck": {
+            "slots": []
+          },
+          "log": [
+            "Career started: Special Week / ura / seed=112",
+            "Race debut +865 fans",
+            "Rested",
+            "Rested",
+            "Rested",
+            "Rested",
+            "Rested",
+            "Rested",
+            "Rested",
+            "Rested",
+            "Rested",
+            "Rested",
+            "Rested"
+          ],
+          "generatedSparks": [],
+          "baseAptitudes": {
+            "medium": "A",
+            "late": "A",
+            "long": "A",
+            "end": "C",
+            "turf": "A",
+            "mile": "C",
+            "pace": "A",
+            "sprint": "F",
+            "dirt": "G",
+            "front": "G"
+          }
+        },
+        "rngSeed": 112,
+        "rngCalls": 45,
+        "rngState": {
+          "x": 1061855405,
+          "y": -882026809,
+          "z": 1944787088,
+          "w": -27242278,
+          "v": -277985072,
+          "addend": 51580742
+        }
+      },
+      "name": "pending-partial"
+    },
+    "status": 200,
+    "response_sha256": "bf61e3f1e78dc5d357f569f7bca461401ae8dcb601a2e331e6b856d6ee90bffa"
+  },
+  {
+    "route": "/v1/library/load",
+    "method": "POST",
+    "body": {
+      "name": "pending-partial",
+      "session": "pending-ui",
+      "label": "Pending checkpoint"
+    },
+    "status": 200,
+    "response_sha256": "b324fe1432794829f9dfadf8ae6fd784f182d9ad53d59fea957d70edb493f027"
+  },
+  {
+    "route": "/v1/library/load",
+    "method": "POST",
+    "body": {
+      "name": "pending-partial",
+      "session": "pending-control",
+      "label": "Pending control"
+    },
+    "status": 200,
+    "response_sha256": "b324fe1432794829f9dfadf8ae6fd784f182d9ad53d59fea957d70edb493f027"
+  },
+  {
+    "route": "/v1/run/state?session=pending-ui",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "24ddc54692cb31bfa6db492b24d577f00ee3f98b6d94c6dda397a3d929f3e52b"
+  },
+  {
+    "route": "/v1/run/state?session=pending-control",
+    "method": "GET",
+    "status": 200,
+    "response_sha256": "6876e79a840a015442fa929b13d09fbd3aa2717996f1c2c3c004b2e3fa05b46f"
+  },
+  {
+    "route": "/v1/run/start",
+    "method": "POST",
+    "body": {
+      "seed": "114",
+      "scenario": "ura",
+      "trainee": "Special Week",
+      "raceModel": "stub",
+      "session": "parking",
+      "label": "Receiver parking"
+    },
+    "status": 200,
+    "response_sha256": "f7f13a649086ae67a1be820b78a2074815f0f54c53836e57916265c888930635"
+  }
+]

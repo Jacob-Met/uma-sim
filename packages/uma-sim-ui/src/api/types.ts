@@ -63,12 +63,16 @@ export interface LegacyState {
   factorIds: string[];
   inheritedSkillIds: string[];
   sparkCaps: Record<string, number>;
+  /** Native-retained starting-stat bonuses; absent in older snapshots. */
+  blueStartBonuses?: Record<string, number>;
   pinkFactorIds: string[];
   pinkAptitudeTags: string[];
   /** Effective aptitudes after pink inheritance. */
   aptitudes?: Record<string, string>;
   raceFactorIds: string[];
   inheritanceComplete: boolean;
+  /** Completed mid-run inspirations; this is a retained count, not a forecast. */
+  inspirationEventsDone?: number;
 }
 
 export interface RunMeta {
@@ -77,6 +81,9 @@ export interface RunMeta {
   traineeName: string;
   objectiveProfile: string;
   legacyFactors: string[];
+  /** Recorded structured lineage, omitted when the native snapshot has none. */
+  legacyTree?: LegacyTree | null;
+  compatibilityScore?: number;
   parentNames: string[];
   deckSupports: string[];
 }

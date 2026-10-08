@@ -1,0 +1,64 @@
+diff --git a/packages/uma-sim-ui/package.json b/packages/uma-sim-ui/package.json
+index f789d67..3db1eaf 100644
+--- a/packages/uma-sim-ui/package.json
++++ b/packages/uma-sim-ui/package.json
+@@ -6,7 +6,7 @@
+   "license": "GPL-3.0-only",
+   "description": "Browser UI for uma-sim career simulator",
+   "scripts": {
+-    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs",
++    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs test/inheritance-view.test.mjs",
+     "test:browser": "node tests/receiving/uma-lab-receiver.mjs dist test-results/career-lab",
+     "test:trace": "node tests/receiving/uma-trace-receiver.mjs dist test-results/trace",
+     "dev": "vite",
+diff --git a/packages/uma-sim-ui/src/App.tsx b/packages/uma-sim-ui/src/App.tsx
+index 04ba8ad..88a1f4d 100644
+--- a/packages/uma-sim-ui/src/App.tsx
++++ b/packages/uma-sim-ui/src/App.tsx
+@@ -9,6 +9,7 @@ import { RacePanel } from "./components/RacePanel";
+ import { GrandLivePanel } from "./components/GrandLivePanel";
+ import { DeckPanel } from "./components/DeckPanel";
+ import { AptitudePanel } from "./components/AptitudePanel";
++import { InheritancePanel } from "./components/InheritancePanel";
+ import { SkillsPanel } from "./components/SkillsPanel";
+ import { CareerSummary } from "./components/CareerSummary";
+ import { ControlsBar } from "./components/ControlsBar";
+@@ -172,6 +173,7 @@ export default function App() {
+                 busy={state.busy}
+                 onStyle={(style) => void setStyle(style)}
+               />
++              <InheritancePanel state={cs} factors={state.catalogs.factors} />
+               <SkillsPanel state={cs} />
+             </div>
+             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+diff --git a/packages/uma-sim-ui/src/api/types.ts b/packages/uma-sim-ui/src/api/types.ts
+index 18ea43a..a84ece2 100644
+--- a/packages/uma-sim-ui/src/api/types.ts
++++ b/packages/uma-sim-ui/src/api/types.ts
+@@ -63,12 +63,16 @@ export interface LegacyState {
+   factorIds: string[];
+   inheritedSkillIds: string[];
+   sparkCaps: Record<string, number>;
++  /** Native-retained starting-stat bonuses; absent in older snapshots. */
++  blueStartBonuses?: Record<string, number>;
+   pinkFactorIds: string[];
+   pinkAptitudeTags: string[];
+   /** Effective aptitudes after pink inheritance. */
+   aptitudes?: Record<string, string>;
+   raceFactorIds: string[];
+   inheritanceComplete: boolean;
++  /** Completed mid-run inspirations; this is a retained count, not a forecast. */
++  inspirationEventsDone?: number;
+ }
+ 
+ export interface RunMeta {
+@@ -77,6 +81,9 @@ export interface RunMeta {
+   traineeName: string;
+   objectiveProfile: string;
+   legacyFactors: string[];
++  /** Recorded structured lineage, omitted when the native snapshot has none. */
++  legacyTree?: LegacyTree | null;
++  compatibilityScore?: number;
+   parentNames: string[];
+   deckSupports: string[];
+ }

@@ -1,0 +1,591 @@
+
+> uma-sim-ui@0.1.0 test
+> node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs test/inheritance-view.test.mjs
+
+TAP version 13
+# Subtest: an empty collection is reported separately from absent or malformed data
+ok 1 - an empty collection is reported separately from absent or malformed data
+  ---
+  duration_ms: 27.813847
+  type: 'test'
+  ...
+# Subtest: injury matching follows the native exact injured or injury-substring predicate
+ok 2 - injury matching follows the native exact injured or injury-substring predicate
+  ---
+  duration_ms: 3.044911
+  type: 'test'
+  ...
+# Subtest: similar words and whitespace do not widen the native injury predicate
+ok 3 - similar words and whitespace do not widen the native injury predicate
+  ---
+  duration_ms: 0.642895
+  type: 'test'
+  ...
+# Subtest: only the three exact simulator epithet IDs receive title labels
+ok 4 - only the three exact simulator epithet IDs receive title labels
+  ---
+  duration_ms: 0.443372
+  type: 'test'
+  ...
+# Subtest: unknown title-like IDs remain literal without invented names or effects
+ok 5 - unknown title-like IDs remain literal without invented names or effects
+  ---
+  duration_ms: 0.683783
+  type: 'test'
+  ...
+# Subtest: native injury admission takes precedence over a title-like namespace
+ok 6 - native injury admission takes precedence over a title-like namespace
+  ---
+  duration_ms: 7.513003
+  type: 'test'
+  ...
+# Subtest: every retained entry survives in order including duplicates and long collections
+ok 7 - every retained entry survives in order including duplicates and long collections
+  ---
+  duration_ms: 0.923045
+  type: 'test'
+  ...
+# Subtest: markup-like strings, whitespace and object-property names remain exact data
+ok 8 - markup-like strings, whitespace and object-property names remain exact data
+  ---
+  duration_ms: 0.424237
+  type: 'test'
+  ...
+# Subtest: a later recovered snapshot removes the warning and retains unrelated titles and statuses
+ok 9 - a later recovered snapshot removes the warning and retains unrelated titles and statuses
+  ---
+  duration_ms: 7.190284
+  type: 'test'
+  ...
+# Subtest: all six recorded positions and repeated sparks survive without star normalization
+ok 10 - all six recorded positions and repeated sparks survive without star normalization
+  ---
+  duration_ms: 10.911144
+  type: 'test'
+  ...
+# Subtest: flat-only input remains literal and has no invented ancestor or star rows
+ok 11 - flat-only input remains literal and has no invented ancestor or star rows
+  ---
+  duration_ms: 0.507739
+  type: 'test'
+  ...
+# Subtest: retained bonuses and progress are displayed directly even when factor inputs differ
+ok 12 - retained bonuses and progress are displayed directly even when factor inputs differ
+  ---
+  duration_ms: 1.211113
+  type: 'test'
+  ...
+# Subtest: missing data stays distinct from a recorded empty inheritance
+ok 13 - missing data stays distinct from a recorded empty inheritance
+  ---
+  duration_ms: 2.325577
+  type: 'test'
+  ...
+# Subtest: recorded empty nodes and unavailable slots are not treated as a missing tree
+ok 14 - recorded empty nodes and unavailable slots are not treated as a missing tree
+  ---
+  duration_ms: 0.586901
+  type: 'test'
+  ...
+# Subtest: catalog labels require exact IDs and preserve literal unknowns and first entries
+ok 15 - catalog labels require exact IDs and preserve literal unknowns and first entries
+  ---
+  duration_ms: 0.544704
+  type: 'test'
+  ...
+# Subtest: replacing a career and catalogs replaces the record without mutating either input
+ok 16 - replacing a career and catalogs replaces the record without mutating either input
+  ---
+  duration_ms: 2.10369
+  type: 'test'
+  ...
+# Subtest: unavailable scalar and collection values never become invented zeroes or bonuses
+ok 17 - unavailable scalar and collection values never become invented zeroes or bonuses
+  ---
+  duration_ms: 0.529383
+  type: 'test'
+  ...
+# Subtest: JSON preserves every original entry and explicit retained-history scope
+ok 18 - JSON preserves every original entry and explicit retained-history scope
+  ---
+  duration_ms: 29.184542
+  type: 'test'
+  ...
+# Subtest: a prepared file survives later append or replacement without taking a filtered subset
+ok 19 - a prepared file survives later append or replacement without taking a filtered subset
+  ---
+  duration_ms: 2.140376
+  type: 'test'
+  ...
+# Subtest: readable text retains ordered duplicate and empty numbered blocks
+ok 20 - readable text retains ordered duplicate and empty numbered blocks
+  ---
+  duration_ms: 1.735641
+  type: 'test'
+  ...
+# Subtest: empty, single-entry and long histories have explicit complete counts
+ok 21 - empty, single-entry and long histories have explicit complete counts
+  ---
+  duration_ms: 34.142584
+  type: 'test'
+  ...
+# Subtest: one local request delivers the actual JSON Blob and releases its URL after the click
+ok 22 - one local request delivers the actual JSON Blob and releases its URL after the click
+  ---
+  duration_ms: 37.423255
+  type: 'test'
+  ...
+# Subtest: preparation and dispatch failures propagate without another click or a leaked URL
+    # Subtest: url
+    ok 1 - url
+      ---
+      duration_ms: 10.464319
+      type: 'test'
+      ...
+    # Subtest: create
+    ok 2 - create
+      ---
+      duration_ms: 5.401134
+      type: 'test'
+      ...
+    # Subtest: append
+    ok 3 - append
+      ---
+      duration_ms: 26.245593
+      type: 'test'
+      ...
+    # Subtest: click
+    ok 4 - click
+      ---
+      duration_ms: 6.854783
+      type: 'test'
+      ...
+    1..4
+ok 23 - preparation and dispatch failures propagate without another click or a leaked URL
+  ---
+  duration_ms: 54.060685
+  type: 'test'
+  ...
+# Subtest: native React rendering names the full count and disables only an empty log
+ok 24 - native React rendering names the full count and disables only an empty log
+  ---
+  duration_ms: 25.28044
+  type: 'test'
+  ...
+# Subtest: the actual LogPanel exposes the full-history download beside preserved reader and summary
+ok 25 - the actual LogPanel exposes the full-history download beside preserved reader and summary
+  ---
+  duration_ms: 9.465902
+  type: 'test'
+  ...
+# Subtest: empty query exposes every retained entry verbatim, including empty and duplicate entries
+ok 26 - empty query exposes every retained entry verbatim, including empty and duplicate entries
+  ---
+  duration_ms: 32.24171
+  type: 'test'
+  ...
+# Subtest: matching entries and occurrences are counted separately without crossing entry boundaries
+ok 27 - matching entries and occurrences are counted separately without crossing entry boundaries
+  ---
+  duration_ms: 183.916987
+  type: 'test'
+  ...
+# Subtest: case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters
+ok 28 - case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters
+  ---
+  duration_ms: 0.944674
+  type: 'test'
+  ...
+# Subtest: Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s
+ok 29 - Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s
+  ---
+  duration_ms: 38.737253
+  type: 'test'
+  ...
+# Subtest: Japanese, astral symbols, combining characters, and isolated surrogates preserve original text
+ok 30 - Japanese, astral symbols, combining characters, and isolated surrogates preserve original text
+  ---
+  duration_ms: 34.738375
+  type: 'test'
+  ...
+# Subtest: all regexp metacharacters, whitespace, and markup-like text remain literal search data
+ok 31 - all regexp metacharacters, whitespace, and markup-like text remain literal search data
+  ---
+  duration_ms: 25.608995
+  type: 'test'
+  ...
+# Subtest: matches are non-overlapping and global matching restarts independently for each entry
+ok 32 - matches are non-overlapping and global matching restarts independently for each entry
+  ---
+  duration_ms: 0.631474
+  type: 'test'
+  ...
+# Subtest: 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle
+ok 33 - 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle
+  ---
+  duration_ms: 1240.716421
+  type: 'test'
+  ...
+# Subtest: history changes distinguish a strict prefix append from trimming, replacement, and reordering
+ok 34 - history changes distinguish a strict prefix append from trimming, replacement, and reordering
+  ---
+  duration_ms: 1.594702
+  type: 'test'
+  ...
+# Subtest: 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input
+ok 35 - 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input
+  ---
+  duration_ms: 158.942522
+  type: 'test'
+  ...
+# Subtest: learned names and descriptions use exact IDs with a literal unknown fallback
+ok 36 - learned names and descriptions use exact IDs with a literal unknown fallback
+  ---
+  duration_ms: 13.678768
+  type: 'test'
+  ...
+# Subtest: all retained learned entries survive in order, including duplicates beyond 24
+ok 37 - all retained learned entries survive in order, including duplicates beyond 24
+  ---
+  duration_ms: 0.796003
+  type: 'test'
+  ...
+# Subtest: only skill namespace hints are skills; raw names and training keys remain separate
+ok 38 - only skill namespace hints are skills; raw names and training keys remain separate
+  ---
+  duration_ms: 0.809514
+  type: 'test'
+  ...
+# Subtest: hint levels are retained values, with no cap, discount, or purchase inference
+ok 39 - hint levels are retained values, with no cap, discount, or purchase inference
+  ---
+  duration_ms: 0.586517
+  type: 'test'
+  ...
+# Subtest: catalog failure and malformed entries do not manufacture names or accept an HTML fallback
+ok 40 - catalog failure and malformed entries do not manufacture names or accept an HTML fallback
+  ---
+  duration_ms: 0.960469
+  type: 'test'
+  ...
+# Subtest: markup-like text and object-property keys remain literal, without changing snapshot inputs
+ok 41 - markup-like text and object-property keys remain literal, without changing snapshot inputs
+  ---
+  duration_ms: 0.587917
+  type: 'test'
+  ...
+# Subtest: preserves the full authored order, blank lines, turn zero and colon action IDs
+ok 42 - preserves the full authored order, blank lines, turn zero and colon action IDs
+  ---
+  duration_ms: 11.02122
+  type: 'test'
+  ...
+# Subtest: a policy-only run is valid with no override text
+ok 43 - a policy-only run is valid with no override text
+  ---
+  duration_ms: 0.625959
+  type: 'test'
+  ...
+# Subtest: accepts only the exact representable integer boundary and allowed maximum budget
+ok 44 - accepts only the exact representable integer boundary and allowed maximum budget
+  ---
+  duration_ms: 0.570614
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for missing colon
+ok 45 - refuses the whole draft for missing colon
+  ---
+  duration_ms: 0.840036
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for missing turn
+ok 46 - refuses the whole draft for missing turn
+  ---
+  duration_ms: 0.346273
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for negative turn
+ok 47 - refuses the whole draft for negative turn
+  ---
+  duration_ms: 0.247907
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for fractional turn
+ok 48 - refuses the whole draft for fractional turn
+  ---
+  duration_ms: 0.452602
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for scientific notation
+ok 49 - refuses the whole draft for scientific notation
+  ---
+  duration_ms: 0.231937
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for hexadecimal notation
+ok 50 - refuses the whole draft for hexadecimal notation
+  ---
+  duration_ms: 1.018047
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for non-number turn
+ok 51 - refuses the whole draft for non-number turn
+  ---
+  duration_ms: 1.03106
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for infinite turn
+ok 52 - refuses the whole draft for infinite turn
+  ---
+  duration_ms: 0.418102
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for signed integer overflow
+ok 53 - refuses the whole draft for signed integer overflow
+  ---
+  duration_ms: 0.210841
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for integer that would wrap to turn 8
+ok 54 - refuses the whole draft for integer that would wrap to turn 8
+  ---
+  duration_ms: 0.290002
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for unsafe integer
+ok 55 - refuses the whole draft for unsafe integer
+  ---
+  duration_ms: 0.180268
+  type: 'test'
+  ...
+# Subtest: refuses the whole draft for empty action
+ok 56 - refuses the whole draft for empty action
+  ---
+  duration_ms: 0.198542
+  type: 'test'
+  ...
+# Subtest: duplicate turns report both source lines rather than picking the first silently
+ok 57 - duplicate turns report both source lines rather than picking the first silently
+  ---
+  duration_ms: 0.401876
+  type: 'test'
+  ...
+# Subtest: collects actionable line errors without discarding valid intervening input
+ok 58 - collects actionable line errors without discarding valid intervening input
+  ---
+  duration_ms: 0.33538
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget ""
+ok 59 - refuses invalid action budget ""
+  ---
+  duration_ms: 0.353967
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget " "
+ok 60 - refuses invalid action budget " "
+  ---
+  duration_ms: 0.205265
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget "0"
+ok 61 - refuses invalid action budget "0"
+  ---
+  duration_ms: 0.148608
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget "501"
+ok 62 - refuses invalid action budget "501"
+  ---
+  duration_ms: 0.442991
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget "1.5"
+ok 63 - refuses invalid action budget "1.5"
+  ---
+  duration_ms: 0.178698
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget "-1"
+ok 64 - refuses invalid action budget "-1"
+  ---
+  duration_ms: 0.200054
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget "NaN"
+ok 65 - refuses invalid action budget "NaN"
+  ---
+  duration_ms: 0.162162
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget "Infinity"
+ok 66 - refuses invalid action budget "Infinity"
+  ---
+  duration_ms: 0.165154
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget "1e2"
+ok 67 - refuses invalid action budget "1e2"
+  ---
+  duration_ms: 0.174159
+  type: 'test'
+  ...
+# Subtest: refuses invalid action budget "9007199254740993"
+ok 68 - refuses invalid action budget "9007199254740993"
+  ---
+  duration_ms: 0.18646
+  type: 'test'
+  ...
+# Subtest: reports both budget and override errors in a single review
+ok 69 - reports both budget and override errors in a single review
+  ---
+  duration_ms: 0.361378
+  type: 'test'
+  ...
+# Subtest: preserves literal action text for the existing simulator legality check
+ok 70 - preserves literal action text for the existing simulator legality check
+  ---
+  duration_ms: 0.314283
+  type: 'test'
+  ...
+# Subtest: an unselected inspector explains how to read a saved trace
+ok 71 - an unselected inspector explains how to read a saved trace
+  ---
+  duration_ms: 22.300109
+  type: 'test'
+  ...
+# Subtest: loading identifies the requested branch and exposes only a close action
+ok 72 - loading identifies the requested branch and exposes only a close action
+  ---
+  duration_ms: 9.522408
+  type: 'test'
+  ...
+# Subtest: an error identifies its branch, is announced and supports explicit retry
+ok 73 - an error identifies its branch, is announced and supports explicit retry
+  ---
+  duration_ms: 1.482616
+  type: 'test'
+  ...
+# Subtest: same-turn rejection and later application remain separate recorded steps
+ok 74 - same-turn rejection and later application remain separate recorded steps
+  ---
+  duration_ms: 24.823226
+  type: 'test'
+  ...
+# Subtest: a configured but unobserved turn has no invented rejection outcome
+ok 75 - a configured but unobserved turn has no invented rejection outcome
+  ---
+  duration_ms: 16.222441
+  type: 'test'
+  ...
+# Subtest: a branch with no recorded steps has an explicit empty state
+ok 76 - a branch with no recorded steps has an explicit empty state
+  ---
+  duration_ms: 8.398238
+  type: 'test'
+  ...
+# Subtest: a policy-only timeline offers all steps when the override filter is empty
+ok 77 - a policy-only timeline offers all steps when the override filter is empty
+  ---
+  duration_ms: 1.746186
+  type: 'test'
+  ...
+# Subtest: legacy duplicate configuration is retained without dropping either authored action
+ok 78 - legacy duplicate configuration is retained without dropping either authored action
+  ---
+  duration_ms: 7.608589
+  type: 'test'
+  ...
+# Subtest: source text remains literal instead of becoming active markup
+ok 79 - source text remains literal instead of becoming active markup
+  ---
+  duration_ms: 11.740729
+  type: 'test'
+  ...
+# Subtest: native physics record keeps the observed place, field, precision and source metadata
+ok 80 - native physics record keeps the observed place, field, precision and source metadata
+  ---
+  duration_ms: 8.954635
+  type: 'test'
+  ...
+# Subtest: fan-only records retain zero and never invent missing race statistics
+ok 81 - fan-only records retain zero and never invent missing race statistics
+  ---
+  duration_ms: 1.379235
+  type: 'test'
+  ...
+# Subtest: repeated race IDs and identical occurrences retain separate source positions
+ok 82 - repeated race IDs and identical occurrences retain separate source positions
+  ---
+  duration_ms: 1.172128
+  type: 'test'
+  ...
+# Subtest: non-race entries and action narration are not retained race records
+ok 83 - non-race entries and action narration are not retained race records
+  ---
+  duration_ms: 0.332858
+  type: 'test'
+  ...
+# Subtest: a newest unrecognized record stays latest even when a valid older result exists
+ok 84 - a newest unrecognized record stays latest even when a valid older result exists
+  ---
+  duration_ms: 0.834323
+  type: 'test'
+  ...
+# Subtest: invalid numeric fields or inconsistent place and field remain literal unknown records
+ok 85 - invalid numeric fields or inconsistent place and field remain literal unknown records
+  ---
+  duration_ms: 0.884383
+  type: 'test'
+  ...
+# Subtest: native ordinal suffixes keep 11th to 13th distinct from 21st to 23rd
+ok 86 - native ordinal suffixes keep 11th to 13th distinct from 21st to 23rd
+  ---
+  duration_ms: 0.453754
+  type: 'test'
+  ...
+# Subtest: rendered physics facts show exact native values and the full original record
+ok 87 - rendered physics facts show exact native values and the full original record
+  ---
+  duration_ms: 17.180018
+  type: 'test'
+  ...
+# Subtest: rendered fan-only facts state the missing details without inventing first place
+ok 88 - rendered fan-only facts state the missing details without inventing first place
+  ---
+  duration_ms: 1.919784
+  type: 'test'
+  ...
+# Subtest: unknown latest is visible while earlier recognized occurrences stay in history
+ok 89 - unknown latest is visible while earlier recognized occurrences stay in history
+  ---
+  duration_ms: 3.867685
+  type: 'test'
+  ...
+# Subtest: mandatory entry remains explicit and disabled while busy
+ok 90 - mandatory entry remains explicit and disabled while busy
+  ---
+  duration_ms: 3.17488
+  type: 'test'
+  ...
+# Subtest: replacing the supplied history cannot retain an old result
+ok 91 - replacing the supplied history cannot retain an old result
+  ---
+  duration_ms: 2.642368
+  type: 'test'
+  ...
+# Subtest: unusual race IDs and unrecognized source text are rendered literally
+ok 92 - unusual race IDs and unrecognized source text are rendered literally
+  ---
+  duration_ms: 1.833248
+  type: 'test'
+  ...
+1..92
+# tests 96
+# suites 0
+# pass 96
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8039.415172

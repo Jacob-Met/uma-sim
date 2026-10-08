@@ -1,0 +1,105 @@
+.inheritance-record {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.inheritance-record > .hint {
+  margin: 0.25rem 0 0.7rem;
+}
+
+.inheritance-record dl {
+  margin: 0;
+}
+
+.inheritance-overview > div,
+.inheritance-bonuses dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.3rem 0;
+}
+
+.inheritance-record dt {
+  color: #a9bad1;
+  font-size: 0.85rem;
+}
+
+.inheritance-record dd {
+  margin: 0;
+  min-width: 0;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.inheritance-disclosure {
+  border-top: 1px solid #2b3e59;
+  margin-top: 0.65rem;
+  padding-top: 0.15rem;
+}
+
+.inheritance-disclosure > summary {
+  cursor: pointer;
+  padding: 0.65rem 0.1rem;
+  font-weight: 600;
+}
+
+.inheritance-disclosure > summary:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.inheritance-ancestors,
+.inheritance-bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  gap: 0.65rem;
+  margin: 0.5rem 0 0.8rem;
+}
+
+.inheritance-ancestor {
+  min-width: 0;
+  padding: 0.65rem;
+  border: 1px solid #2b3e59;
+  border-radius: 0.5rem;
+}
+
+.inheritance-record h3 {
+  margin: 0.45rem 0;
+  font-size: 0.9rem;
+}
+
+.inheritance-name {
+  margin: 0.35rem 0 0.55rem;
+}
+
+.inheritance-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0.75rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.inheritance-list > li {
+  min-width: 0;
+}
+
+.inheritance-factor {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.inheritance-record code {
+  font-size: 0.79rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.inheritance-spark-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+}

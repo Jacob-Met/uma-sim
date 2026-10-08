@@ -1,0 +1,194 @@
+{
+  "error": "Error: failed predicate: keyboard Enter opens lineage disclosure\n    at check (file:///home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/receive-native-inheritance-v3.mjs:28:181)\n    at file:///home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/receive-native-inheritance-v3.mjs:92:2",
+  "checks": [
+    {
+      "name": "native catalog root matches exact owned source",
+      "pass": true,
+      "actual": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source",
+      "expected": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source"
+    },
+    {
+      "name": "native start retains original tree stars rather than editor normalization",
+      "pass": true,
+      "actual": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "expected": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "native flat career omits structured tree",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "native structured retained duplicate factors",
+      "pass": true,
+      "actual": 6,
+      "expected": 6
+    },
+    {
+      "name": "baseline running career has no inheritance inspection",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "new panel sits directly after aptitude",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "keyboard Enter opens lineage disclosure",
+      "pass": false,
+      "actual": false,
+      "expected": true
+    }
+  ],
+  "apiTraffic": [
+    {
+      "method": "GET",
+      "path": "/v1/health",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": ""
+    },
+    {
+      "method": "POST",
+      "path": "/v1/session/activate",
+      "body": "{\"session\":\"record-tree\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/health",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": ""
+    },
+    {
+      "method": "POST",
+      "path": "/v1/session/activate",
+      "body": "{\"session\":\"record-tree\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "body": ""
+    }
+  ],
+  "runtimeErrors": []
+}

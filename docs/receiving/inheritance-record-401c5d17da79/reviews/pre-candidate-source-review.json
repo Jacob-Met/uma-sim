@@ -1,0 +1,72 @@
+{
+  "schema": "hamon.uma.inheritance.independent-precandidate-source-review.v1",
+  "reviewer": "estate-401c5d17da79 / integration_discovery",
+  "canonical_commit": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "scope": "Source-only review of the frozen producer and existing type/editor contracts before exposure to candidate implementation. No runtime invocation, source edit or candidate acceptance.",
+  "findings": [
+    {
+      "status": "supports_contract",
+      "subject": "Exact six-node lineage",
+      "detail": "LegacyTree.ancestors explicitly orders parentA, gpA1, gpA2, parentB, gpB1, gpB2. Only parentA.uma and parentB.uma supply tree parent names."
+    },
+    {
+      "status": "supports_contract",
+      "subject": "Repeated occurrences and recorded bonuses",
+      "detail": "LegacyApplicator.build_legacy pushes each factor ID occurrence and adds native cap/starting bonus contributions. The display must show stored maps and occurrences without deduplicating, recalculating or assigning the current stat total to inheritance."
+    },
+    {
+      "status": "implementation_constraint",
+      "subject": "Completion is not a selected-choice record",
+      "detail": "LegacyState.inheritanceComplete records completion and inspirationEventsDone records a count; neither stores the chosen inheritance option index. Present completion/progress without inventing the selected choice or its effects."
+    },
+    {
+      "status": "implementation_constraint",
+      "subject": "Do not transform recorded lineage through an editor helper",
+      "detail": "LegacyPanel.flattenLegacyFactors and native LegacyTree.flatten_factors clamp/default stars for effective input. A record viewer should display the supplied node factorId/stars literally and distinguish missing values."
+    },
+    {
+      "status": "supports_contract",
+      "subject": "Absent, empty and flat-only records",
+      "detail": "RunMeta.legacyTree is optional and skipped when absent. Native factor resolution uses nonempty structured sparks, otherwise the flat list; parent-name resolution is independent. An empty/name-only tree must not falsely imply the flat entries had a structured ancestry."
+    },
+    {
+      "status": "supports_contract",
+      "subject": "Optional snapshot mirror fields",
+      "detail": "The current TypeScript snapshot mirrors omit legacyTree, compatibilityScore, blueStartBonuses, pinkStarTotals and inspirationEventsDone. Optional mirrors permit honest old-snapshot absence while retaining current serialized facts."
+    }
+  ],
+  "conclusion": "No blocking mismatch in the frozen nine-group contract. Preserve the two implementation constraints and the empty/name-only versus flat fallback distinction. This review qualifies source assumptions only.",
+  "reviewed_at": "2026-10-08T17:31:57.338096+00:00",
+  "inputs": [
+    {
+      "path": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/PRE-CANDIDATE-CONTRACT.json",
+      "sha256": "725dcdb211373861cd8bb26b16c3abbd0dbbf61da6dde3a0a646668a08f3946b",
+      "git_blob": "47052b42fc557751a81a9b25e1be5150523b69ae",
+      "bytes": 2507
+    },
+    {
+      "path": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/producer-source/uma-sim-core/src/state.rs",
+      "sha256": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833",
+      "git_blob": "9ce33047ba1a9f5a68643ef61c3c2bfb8e430821",
+      "bytes": 21853
+    },
+    {
+      "path": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/producer-source/uma-sim-core/src/legacy.rs",
+      "sha256": "70fc0e91f7b18335d8b91011587664353bbc016985d7ec9230c2aa272c75e666",
+      "git_blob": "cd8485db5682509c5a60c217e1ccf1aa1fa0a725",
+      "bytes": 11184
+    },
+    {
+      "path": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/baseline/packages/uma-sim-ui/src/api/types.ts",
+      "sha256": "7e0875e1077c62c6a392db2bcbcabbf2d30836b6f3a1b5a0249ed2346be17c92",
+      "git_blob": "18ea43a689f67043b9cdc872c8178e16728f4de5",
+      "bytes": 8048
+    },
+    {
+      "path": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/baseline/packages/uma-sim-ui/src/components/LegacyPanel.tsx",
+      "sha256": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3",
+      "git_blob": "e4ab6599bed4d2e1205324a8ec76b562cc310f8f",
+      "bytes": 10122
+    }
+  ]
+}

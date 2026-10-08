@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: all six recorded positions and repeated sparks survive without star normalization
+ok 1 - all six recorded positions and repeated sparks survive without star normalization
+  ---
+  duration_ms: 34.901578
+  type: 'test'
+  ...
+# Subtest: flat-only input remains literal and has no invented ancestor or star rows
+ok 2 - flat-only input remains literal and has no invented ancestor or star rows
+  ---
+  duration_ms: 2.519328
+  type: 'test'
+  ...
+# Subtest: retained bonuses and progress are displayed directly even when factor inputs differ
+ok 3 - retained bonuses and progress are displayed directly even when factor inputs differ
+  ---
+  duration_ms: 5.268452
+  type: 'test'
+  ...
+# Subtest: missing data stays distinct from a recorded empty inheritance
+ok 4 - missing data stays distinct from a recorded empty inheritance
+  ---
+  duration_ms: 2.702396
+  type: 'test'
+  ...
+# Subtest: recorded empty nodes and unavailable slots are not treated as a missing tree
+ok 5 - recorded empty nodes and unavailable slots are not treated as a missing tree
+  ---
+  duration_ms: 1.26435
+  type: 'test'
+  ...
+# Subtest: catalog labels require exact IDs and preserve literal unknowns and first entries
+ok 6 - catalog labels require exact IDs and preserve literal unknowns and first entries
+  ---
+  duration_ms: 1.651819
+  type: 'test'
+  ...
+# Subtest: replacing a career and catalogs replaces the record without mutating either input
+ok 7 - replacing a career and catalogs replaces the record without mutating either input
+  ---
+  duration_ms: 16.728711
+  type: 'test'
+  ...
+# Subtest: unavailable scalar and collection values never become invented zeroes or bonuses
+ok 8 - unavailable scalar and collection values never become invented zeroes or bonuses
+  ---
+  duration_ms: 0.743169
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6107.474773

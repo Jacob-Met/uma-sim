@@ -1,0 +1,150 @@
+{
+  "canonical": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "files": [
+    {
+      "path": "packages/uma-sim-ui/src/components/inheritanceView.ts",
+      "bytes": 4695,
+      "sha256": "46c1db2b7f685100933a9ccf13b6749a1421d4c4a668e6d09ce07c6e28715dce",
+      "gitBlob": "917144dc8335f9d05d2f83cf153f2166981797f9"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/InheritancePanel.tsx",
+      "bytes": 6437,
+      "sha256": "25fa356320b89b23a0f990dd0793a28e79e4a7c67889c3a65468b53d40fb1b49",
+      "gitBlob": "0ed2978307418a7f77b38756cda614f98eaa5eb0"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/inheritance-record.css",
+      "bytes": 1737,
+      "sha256": "cfb4563c11a9a9c7499efcea3491b8ec4e7b2fcb199c7964bd132c70ef06f68a",
+      "gitBlob": "2f943a5ae3615cb59a60843c411a9bb6521f1797"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "bytes": 7033,
+      "sha256": "11c9a13f87c7803740bfdf483436535f5a3d77c6ef0128e23f36faee0b0b6737",
+      "gitBlob": "08d69e007314cc62ff7c46b24e6a6b664278e6c0"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/types.ts",
+      "bytes": 8431,
+      "sha256": "244906b9d133c795142e07924daaa9d6b9feca209d9e7c2dfba9e88f0505467f",
+      "gitBlob": "a84ece2452919f9b73da76a1435fd3fad1944d23"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/inheritance-view.test.mjs",
+      "bytes": 7801,
+      "sha256": "47609ebbc0e4fff1452ee6015a16a2cdf683fbd1e63daa8839a05d05652db4b8",
+      "gitBlob": "c0dcbc9aaaca0a13ceedd75abd761dbf1762bde3"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "bytes": 980,
+      "sha256": "2fa1147a4bb92eb601ecf991867b325c5ea2850ed77d6495a6e942f98ed6101d",
+      "gitBlob": "1de69e26646ee11fe235b837899c34e928274325"
+    }
+  ],
+  "builds": {
+    "baseline": {
+      "ok": true,
+      "operation": "build",
+      "label": "baseline",
+      "outputs": [
+        {
+          "key": "baseline/assets/index-3PVdm4ey.js",
+          "path": "assets/index-3PVdm4ey.js",
+          "bytes": 209598,
+          "sha256": "1328d613876be914048997dbc69388d54aca89e3c9323b2c483454fc44d15b9a"
+        },
+        {
+          "key": "baseline/assets/index-D1W1Qb1i.css",
+          "path": "assets/index-D1W1Qb1i.css",
+          "bytes": 12175,
+          "sha256": "701ac3ebdd9ebf6b351ab3d639e5e1b392af0bd2ce70d23ab25a77f4be96a7e3"
+        },
+        {
+          "key": "baseline/index.html",
+          "path": "index.html",
+          "bytes": 394,
+          "sha256": "142f36b7df8d2cf9d8f9f6e4cdeb6f0ba61da0a5d49d4a32496b02cb34b7a106"
+        }
+      ],
+      "write": false,
+      "node": "v24.19.0",
+      "vite": "5.4.21"
+    },
+    "candidate": {
+      "ok": true,
+      "operation": "build",
+      "label": "candidate",
+      "outputs": [
+        {
+          "key": "candidate/assets/index-pz_ttYRu.js",
+          "path": "assets/index-pz_ttYRu.js",
+          "bytes": 216304,
+          "sha256": "8d190f83788018b153aac17263dd59342c5c1cb1a280f22199cdb5f4273941a8"
+        },
+        {
+          "key": "candidate/assets/index-DAzecNID.css",
+          "path": "assets/index-DAzecNID.css",
+          "bytes": 13578,
+          "sha256": "d4bc3c79e470d7dedf4f93b481158146fd060eadba334208ee9dac5021ff0132"
+        },
+        {
+          "key": "candidate/index.html",
+          "path": "index.html",
+          "bytes": 394,
+          "sha256": "6803a8160f4a18625bae3f35d3fc9928f6a47360a3921f186cb62d1c6e6e68cf"
+        }
+      ],
+      "loadedSource": [
+        "index.html",
+        "src/main.tsx",
+        "src/App.tsx",
+        "src/styles/app.css",
+        "src/components/RunSetup.tsx",
+        "src/components/StatsPanel.tsx",
+        "src/components/LogPanel.tsx",
+        "src/components/ChoicePanel.tsx",
+        "src/components/EventDialog.tsx",
+        "src/components/RacePanel.tsx",
+        "src/components/GrandLivePanel.tsx",
+        "src/components/DeckPanel.tsx",
+        "src/components/AptitudePanel.tsx",
+        "src/components/InheritancePanel.tsx",
+        "src/components/SkillsPanel.tsx",
+        "src/components/CareerSummary.tsx",
+        "src/components/ControlsBar.tsx",
+        "src/api/client.ts",
+        "src/state/runStore.ts",
+        "src/components/LabTab.tsx",
+        "src/api/types.ts",
+        "src/components/LegacyPanel.tsx",
+        "src/components/legacyPreview.ts",
+        "src/components/logView.ts",
+        "src/components/LogDownload.tsx",
+        "src/components/logPanel.css",
+        "src/components/skillsView.ts",
+        "src/styles/skills.css",
+        "src/components/ComparePanel.tsx",
+        "src/components/LibraryPanel.tsx",
+        "src/components/SessionPanel.tsx",
+        "src/state/labStore.ts",
+        "src/state/branchTraceStore.ts",
+        "src/components/BranchTracePanel.tsx",
+        "src/components/inheritanceView.ts",
+        "src/components/inheritance-record.css",
+        "src/components/logExport.ts",
+        "src/components/branchInput.ts",
+        "src/components/branch-trace.css"
+      ],
+      "logs": [
+        "vite v5.4.21 building for production...",
+        "✓ built in 663ms"
+      ],
+      "write": false,
+      "node": "v24.19.0",
+      "vite": "5.4.21"
+    }
+  }
+}

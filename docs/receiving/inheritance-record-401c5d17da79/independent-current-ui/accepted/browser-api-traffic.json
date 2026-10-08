@@ -1,0 +1,107 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/health",
+    "body": "",
+    "status": 200,
+    "response_sha256": "c5cd7a37b79c3b53e7c1cd7bd5d61706ae48955738dcd944e870e3dac1c14fa7"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/catalog/scenarios",
+    "body": "",
+    "status": 200,
+    "response_sha256": "2643167742d42dbfbeb0734880f478514ff05d011f186bd707bbde4d84bd203c"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/catalog/trainees",
+    "body": "",
+    "status": 200,
+    "response_sha256": "dbe3641378f5833c2a992bf4528345707efbfd0ac804842a4911e742cbdb9bb6"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/catalog/supports",
+    "body": "",
+    "status": 200,
+    "response_sha256": "18fdf6f8fb7c413cc8d537530048db23fa3e0ea67939a1142dacb5d8c504b982"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/catalog/factors",
+    "body": "",
+    "status": 200,
+    "response_sha256": "2061463442018a96c02a081d597083ca3cc67b6e04a2fbbf9f930d3e552b797d"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/sessions",
+    "body": "",
+    "status": 200,
+    "response_sha256": "ed771ceff6b36b2b7e6c6fc1c24e6ec22b408c03952e753f0dba6a4b81f5b08e"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/library",
+    "body": "",
+    "status": 200,
+    "response_sha256": "8f93c0cac7db5ffcb26f0a0362d0e07c20b77ebed9f93e1e0bf01d19580a6af0"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/lab/branches",
+    "body": "",
+    "status": 200,
+    "response_sha256": "60c8fb6398a072658d36adb896d48633e3cf753e194774fbe46dbd0b482f21e5"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/session/activate",
+    "body": "{\"session\":\"pending-ui\"}",
+    "status": 200,
+    "response_sha256": "ad7c669da9a632d71040ec9e84aaa0c328ffc3cb0298943d45e215abdbbef24a"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/run/state",
+    "body": "",
+    "status": 200,
+    "response_sha256": "4af57188eef75091d59ac79b4579e43d1a76e9daaec891b3d34b54210869bdb9"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/run/choices",
+    "body": "",
+    "status": 200,
+    "response_sha256": "defb0421f780bc5c929fe08e52a5ba1349f05f26da7bf3da573e7ed0fe63531e"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/run/text",
+    "body": "",
+    "status": 200,
+    "response_sha256": "c9a2d2e83b2d1e355357426a281ea30b8483d485cb86a42d14c6da86860f71c6"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/catalog/skills",
+    "body": "",
+    "status": 200,
+    "response_sha256": "b6cca924b923cf784d3848dda2fe3c133ccceb8aa6289bf01f9ce77d8ac4a08f"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/run/action",
+    "body": "{\"action\":\"event_0\"}",
+    "status": 200,
+    "response_sha256": "43c4c3118f970bf47ebbe80b3e137bf8e6ffdd8fe87076928bca8c3995a1450a"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/run/text",
+    "body": "",
+    "status": 200,
+    "response_sha256": "7c21c4c5ccfcaaf1ea014c2132104041063c5991b26099ee99f217d5ff52870c"
+  }
+]

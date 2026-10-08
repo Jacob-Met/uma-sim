@@ -1,0 +1,1735 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "name": "native catalog root matches exact owned source",
+      "pass": true,
+      "actual": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source",
+      "expected": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source"
+    },
+    {
+      "name": "native start retains original tree stars rather than editor normalization",
+      "pass": true,
+      "actual": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "expected": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "native flat career omits structured tree",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "native structured retained duplicate factors",
+      "pass": true,
+      "actual": 6,
+      "expected": 6
+    },
+    {
+      "name": "baseline running career has no inheritance inspection",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "new panel sits directly after aptitude",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "keyboard Enter opens lineage disclosure",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "all six explicit positions are rendered",
+      "pass": true,
+      "actual": [
+        "parentA",
+        "gpA1",
+        "gpA2",
+        "parentB",
+        "gpB1",
+        "gpB2"
+      ],
+      "expected": [
+        "parentA",
+        "gpA1",
+        "gpA2",
+        "parentB",
+        "gpB1",
+        "gpB2"
+      ]
+    },
+    {
+      "name": "recorded zero and out-of-range stars remain literal",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "duplicate tree factors remain separate occurrences",
+      "pass": true,
+      "actual": 6,
+      "expected": 6
+    },
+    {
+      "name": "known factor catalog label is visible",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "unknown markup-like factor is literal text",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "recorded compatibility appears without calculated grade",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "cap values are native retained amounts",
+      "pass": true,
+      "actual": {
+        "Speed": "56"
+      },
+      "expected": {
+        "Speed": "56"
+      }
+    },
+    {
+      "name": "starting values are native retained amounts",
+      "pass": true,
+      "actual": {
+        "Speed": "74"
+      },
+      "expected": {
+        "Speed": "74"
+      }
+    },
+    {
+      "name": "candidate skills are not labelled as learned",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "panel and long recorded identifiers fit 390px",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "reading and toggling trigger zero additional API requests",
+      "pass": true,
+      "actual": 26,
+      "expected": 26
+    },
+    {
+      "name": "reading preserves exact native session snapshot",
+      "pass": true,
+      "actual": {
+        "meta": {
+          "seed": 112,
+          "scenarioId": "ura",
+          "traineeName": "Special Week",
+          "objectiveProfile": "general",
+          "legacyFactors": [
+            "flat-entry-kept-literal@9"
+          ],
+          "legacyTree": {
+            "parentA": {
+              "uma": "Silence Suzuka",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 0
+              },
+              "pink": {
+                "factorId": "factor:pink:11",
+                "stars": 2
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "gpA1": {
+              "uma": "Mejiro McQueen",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 4
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "gpA2": {
+              "uma": "Gold Ship",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 2
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "parentB": {
+              "uma": "Tokai Teio",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 2
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "gpB1": {
+              "uma": "Symboli Rudolf",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 2
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "gpB2": {
+              "uma": "Air Groove",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 2
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-",
+                "stars": -1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            }
+          },
+          "parentNames": [],
+          "deckSupports": [],
+          "compatibilityScore": 67
+        },
+        "settings": {
+          "dialogueMode": "CHOICES_ONLY",
+          "speedMultiplier": 1,
+          "allowDialogueAtHighSpeed": false,
+          "traceTelemetry": false,
+          "traceRng": false,
+          "raceModel": "stub"
+        },
+        "state": {
+          "meta": {
+            "seed": 112,
+            "scenarioId": "ura",
+            "traineeName": "Special Week",
+            "objectiveProfile": "general",
+            "legacyFactors": [
+              "flat-entry-kept-literal@9"
+            ],
+            "legacyTree": {
+              "parentA": {
+                "uma": "Silence Suzuka",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 0
+                },
+                "pink": {
+                  "factorId": "factor:pink:11",
+                  "stars": 2
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "gpA1": {
+                "uma": "Mejiro McQueen",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 4
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "gpA2": {
+                "uma": "Gold Ship",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 2
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "parentB": {
+                "uma": "Tokai Teio",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 2
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "gpB1": {
+                "uma": "Symboli Rudolf",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 2
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "gpB2": {
+                "uma": "Air Groove",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 2
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-",
+                  "stars": -1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              }
+            },
+            "parentNames": [],
+            "deckSupports": [],
+            "compatibilityScore": 67
+          },
+          "date": {
+            "year": 1,
+            "month": 6,
+            "half": 2
+          },
+          "turn": 1,
+          "stats": {
+            "speed": 157,
+            "stamina": 88,
+            "power": 98,
+            "guts": 90,
+            "wit": 91
+          },
+          "energy": 100,
+          "maxEnergy": 100,
+          "mood": "NORMAL",
+          "fans": 0,
+          "skillPoints": 0,
+          "careerComplete": false,
+          "awaitingChoice": false,
+          "pendingEventTitle": null,
+          "pendingRaceId": "debut",
+          "phase": "MANDATORY_RACE",
+          "completedRaces": [],
+          "facilityLevels": {
+            "speed": 1,
+            "stamina": 1,
+            "wit": 1,
+            "power": 1,
+            "guts": 1
+          },
+          "facilityTrainCounts": {},
+          "pendingEventOptions": [],
+          "hintLevels": {
+            "skill:201352": 1,
+            "skill:200512": 1,
+            "skill:200732": 1
+          },
+          "statuses": [],
+          "performanceTokens": {},
+          "scenarioResources": {
+            "values": {
+              "happy_meek_badge": 0
+            }
+          },
+          "legacy": {
+            "parentNames": [
+              "Silence Suzuka",
+              "Tokai Teio"
+            ],
+            "factorIds": [
+              "factor:blue:1",
+              "factor:pink:11",
+              "factor:blue:1",
+              "factor:blue:1",
+              "factor:blue:1",
+              "factor:blue:1",
+              "factor:blue:1",
+              "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-"
+            ],
+            "inheritedSkillIds": [],
+            "sparkCaps": {
+              "speed": 56
+            },
+            "blueStartBonuses": {
+              "speed": 74
+            },
+            "pinkFactorIds": [
+              "factor:pink:11"
+            ],
+            "pinkAptitudeTags": [
+              "turf"
+            ],
+            "pinkStarTotals": {
+              "turf": 2
+            },
+            "aptitudes": {
+              "turf": "A",
+              "dirt": "G",
+              "mile": "C",
+              "late": "A",
+              "end": "C",
+              "medium": "A",
+              "pace": "A",
+              "front": "G",
+              "sprint": "F",
+              "long": "A"
+            },
+            "raceFactorIds": [],
+            "inheritanceComplete": false,
+            "inspirationEventsDone": 0
+          },
+          "learnedSkillIds": [
+            "skill:100011"
+          ],
+          "deck": {
+            "slots": []
+          },
+          "log": [
+            "Career started: Special Week / ura / seed=112"
+          ],
+          "generatedSparks": [],
+          "baseAptitudes": {
+            "turf": "A",
+            "dirt": "G",
+            "mile": "C",
+            "late": "A",
+            "end": "C",
+            "medium": "A",
+            "pace": "A",
+            "front": "G",
+            "sprint": "F",
+            "long": "A"
+          }
+        },
+        "rngSeed": 112,
+        "rngCalls": 0,
+        "rngState": {
+          "x": 602884725,
+          "y": 335273345,
+          "z": 1867222943,
+          "w": 908731564,
+          "v": -1585161954,
+          "addend": 23310656
+        }
+      },
+      "expected": {
+        "meta": {
+          "seed": 112,
+          "scenarioId": "ura",
+          "traineeName": "Special Week",
+          "objectiveProfile": "general",
+          "legacyFactors": [
+            "flat-entry-kept-literal@9"
+          ],
+          "legacyTree": {
+            "parentA": {
+              "uma": "Silence Suzuka",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 0
+              },
+              "pink": {
+                "factorId": "factor:pink:11",
+                "stars": 2
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "gpA1": {
+              "uma": "Mejiro McQueen",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 4
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "gpA2": {
+              "uma": "Gold Ship",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 2
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "parentB": {
+              "uma": "Tokai Teio",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 2
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "gpB1": {
+              "uma": "Symboli Rudolf",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 2
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "",
+                "stars": 1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            },
+            "gpB2": {
+              "uma": "Air Groove",
+              "blue": {
+                "factorId": "factor:blue:1",
+                "stars": 2
+              },
+              "pink": {
+                "factorId": "",
+                "stars": 1
+              },
+              "white": {
+                "factorId": "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-",
+                "stars": -1
+              },
+              "green": {
+                "factorId": "",
+                "stars": 1
+              },
+              "race": {
+                "factorId": "",
+                "stars": 1
+              }
+            }
+          },
+          "parentNames": [],
+          "deckSupports": [],
+          "compatibilityScore": 67
+        },
+        "settings": {
+          "dialogueMode": "CHOICES_ONLY",
+          "speedMultiplier": 1,
+          "allowDialogueAtHighSpeed": false,
+          "traceTelemetry": false,
+          "traceRng": false,
+          "raceModel": "stub"
+        },
+        "state": {
+          "meta": {
+            "seed": 112,
+            "scenarioId": "ura",
+            "traineeName": "Special Week",
+            "objectiveProfile": "general",
+            "legacyFactors": [
+              "flat-entry-kept-literal@9"
+            ],
+            "legacyTree": {
+              "parentA": {
+                "uma": "Silence Suzuka",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 0
+                },
+                "pink": {
+                  "factorId": "factor:pink:11",
+                  "stars": 2
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "gpA1": {
+                "uma": "Mejiro McQueen",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 4
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "gpA2": {
+                "uma": "Gold Ship",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 2
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "parentB": {
+                "uma": "Tokai Teio",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 2
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "gpB1": {
+                "uma": "Symboli Rudolf",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 2
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              },
+              "gpB2": {
+                "uma": "Air Groove",
+                "blue": {
+                  "factorId": "factor:blue:1",
+                  "stars": 2
+                },
+                "pink": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "white": {
+                  "factorId": "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-",
+                  "stars": -1
+                },
+                "green": {
+                  "factorId": "",
+                  "stars": 1
+                },
+                "race": {
+                  "factorId": "",
+                  "stars": 1
+                }
+              }
+            },
+            "parentNames": [],
+            "deckSupports": [],
+            "compatibilityScore": 67
+          },
+          "date": {
+            "year": 1,
+            "month": 6,
+            "half": 2
+          },
+          "turn": 1,
+          "stats": {
+            "speed": 157,
+            "stamina": 88,
+            "power": 98,
+            "guts": 90,
+            "wit": 91
+          },
+          "energy": 100,
+          "maxEnergy": 100,
+          "mood": "NORMAL",
+          "fans": 0,
+          "skillPoints": 0,
+          "careerComplete": false,
+          "awaitingChoice": false,
+          "pendingEventTitle": null,
+          "pendingRaceId": "debut",
+          "phase": "MANDATORY_RACE",
+          "completedRaces": [],
+          "facilityLevels": {
+            "speed": 1,
+            "stamina": 1,
+            "wit": 1,
+            "power": 1,
+            "guts": 1
+          },
+          "facilityTrainCounts": {},
+          "pendingEventOptions": [],
+          "hintLevels": {
+            "skill:201352": 1,
+            "skill:200512": 1,
+            "skill:200732": 1
+          },
+          "statuses": [],
+          "performanceTokens": {},
+          "scenarioResources": {
+            "values": {
+              "happy_meek_badge": 0
+            }
+          },
+          "legacy": {
+            "parentNames": [
+              "Silence Suzuka",
+              "Tokai Teio"
+            ],
+            "factorIds": [
+              "factor:blue:1",
+              "factor:pink:11",
+              "factor:blue:1",
+              "factor:blue:1",
+              "factor:blue:1",
+              "factor:blue:1",
+              "factor:blue:1",
+              "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-"
+            ],
+            "inheritedSkillIds": [],
+            "sparkCaps": {
+              "speed": 56
+            },
+            "blueStartBonuses": {
+              "speed": 74
+            },
+            "pinkFactorIds": [
+              "factor:pink:11"
+            ],
+            "pinkAptitudeTags": [
+              "turf"
+            ],
+            "pinkStarTotals": {
+              "turf": 2
+            },
+            "aptitudes": {
+              "turf": "A",
+              "dirt": "G",
+              "mile": "C",
+              "late": "A",
+              "end": "C",
+              "medium": "A",
+              "pace": "A",
+              "front": "G",
+              "sprint": "F",
+              "long": "A"
+            },
+            "raceFactorIds": [],
+            "inheritanceComplete": false,
+            "inspirationEventsDone": 0
+          },
+          "learnedSkillIds": [
+            "skill:100011"
+          ],
+          "deck": {
+            "slots": []
+          },
+          "log": [
+            "Career started: Special Week / ura / seed=112"
+          ],
+          "generatedSparks": [],
+          "baseAptitudes": {
+            "turf": "A",
+            "dirt": "G",
+            "mile": "C",
+            "late": "A",
+            "end": "C",
+            "medium": "A",
+            "pace": "A",
+            "front": "G",
+            "sprint": "F",
+            "long": "A"
+          }
+        },
+        "rngSeed": 112,
+        "rngCalls": 0,
+        "rngState": {
+          "x": 602884725,
+          "y": 335273345,
+          "z": 1867222943,
+          "w": 908731564,
+          "v": -1585161954,
+          "addend": 23310656
+        }
+      }
+    },
+    {
+      "name": "reading preserves all saved file hashes",
+      "pass": true,
+      "actual": {
+        ".uma-sim/library/record-flat-saved.meta.json": "9512788048e99769f349ebd2d7112136094e68805bcea4e3d20d3ad2f2cd91e6",
+        ".uma-sim/library/record-flat-saved.snapshot.json": "22160ff3f75453c883733deb400054d44e977e40a354cf8394b0339c629ce220",
+        ".uma-sim/library/record-tree-saved.meta.json": "8cecd617075d0a8a415cb4e32b3ecd2d4ceeea544fbea56efe74168681a403dc",
+        ".uma-sim/library/record-tree-saved.snapshot.json": "70189056d066dc3c1c7bdc7df493b22b45de0079fd031c1ad348ace68e2a09c5"
+      },
+      "expected": {
+        ".uma-sim/library/record-flat-saved.meta.json": "9512788048e99769f349ebd2d7112136094e68805bcea4e3d20d3ad2f2cd91e6",
+        ".uma-sim/library/record-flat-saved.snapshot.json": "22160ff3f75453c883733deb400054d44e977e40a354cf8394b0339c629ce220",
+        ".uma-sim/library/record-tree-saved.meta.json": "8cecd617075d0a8a415cb4e32b3ecd2d4ceeea544fbea56efe74168681a403dc",
+        ".uma-sim/library/record-tree-saved.snapshot.json": "70189056d066dc3c1c7bdc7df493b22b45de0079fd031c1ad348ace68e2a09c5"
+      }
+    },
+    {
+      "name": "completion wording mirrors the native state after continuation",
+      "pass": true,
+      "actual": "Not completed",
+      "expected": "Not completed"
+    },
+    {
+      "name": "continuing retains exact recorded tree",
+      "pass": true,
+      "actual": {
+        "parentA": {
+          "uma": "Silence Suzuka",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 0
+          },
+          "pink": {
+            "factorId": "factor:pink:11",
+            "stars": 2
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpA1": {
+          "uma": "Mejiro McQueen",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 4
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpA2": {
+          "uma": "Gold Ship",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "parentB": {
+          "uma": "Tokai Teio",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpB1": {
+          "uma": "Symboli Rudolf",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpB2": {
+          "uma": "Air Groove",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-",
+            "stars": -1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        }
+      },
+      "expected": {
+        "parentA": {
+          "uma": "Silence Suzuka",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 0
+          },
+          "pink": {
+            "factorId": "factor:pink:11",
+            "stars": 2
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpA1": {
+          "uma": "Mejiro McQueen",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 4
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpA2": {
+          "uma": "Gold Ship",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "parentB": {
+          "uma": "Tokai Teio",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpB1": {
+          "uma": "Symboli Rudolf",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpB2": {
+          "uma": "Air Groove",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-",
+            "stars": -1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "real continuation evolves career state",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "progressed lineage remains the recorded native tree",
+      "pass": true,
+      "actual": {
+        "parentA": {
+          "uma": "Silence Suzuka",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 0
+          },
+          "pink": {
+            "factorId": "factor:pink:11",
+            "stars": 2
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpA1": {
+          "uma": "Mejiro McQueen",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 4
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpA2": {
+          "uma": "Gold Ship",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "parentB": {
+          "uma": "Tokai Teio",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpB1": {
+          "uma": "Symboli Rudolf",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpB2": {
+          "uma": "Air Groove",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-",
+            "stars": -1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        }
+      },
+      "expected": {
+        "parentA": {
+          "uma": "Silence Suzuka",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 0
+          },
+          "pink": {
+            "factorId": "factor:pink:11",
+            "stars": 2
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpA1": {
+          "uma": "Mejiro McQueen",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 4
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpA2": {
+          "uma": "Gold Ship",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "parentB": {
+          "uma": "Tokai Teio",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpB1": {
+          "uma": "Symboli Rudolf",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "",
+            "stars": 1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        },
+        "gpB2": {
+          "uma": "Air Groove",
+          "blue": {
+            "factorId": "factor:blue:1",
+            "stars": 2
+          },
+          "pink": {
+            "factorId": "",
+            "stars": 1
+          },
+          "white": {
+            "factorId": "unknown:<record-only>&long-record-long-record-long-record-long-record-long-record-long-record-long-record-",
+            "stars": -1
+          },
+          "green": {
+            "factorId": "",
+            "stars": 1
+          },
+          "race": {
+            "factorId": "",
+            "stars": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "switching career replaces structured rows with explicit flat-only state",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "flat factors are displayed literally without inferred stars",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "changed career replaces parent names without stale tree names",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "recorded empty inheritance remains distinct from missing",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "private saved checkpoints remain unchanged after progression and switching",
+      "pass": true,
+      "actual": {
+        ".uma-sim/library/record-flat-saved.meta.json": "9512788048e99769f349ebd2d7112136094e68805bcea4e3d20d3ad2f2cd91e6",
+        ".uma-sim/library/record-flat-saved.snapshot.json": "22160ff3f75453c883733deb400054d44e977e40a354cf8394b0339c629ce220",
+        ".uma-sim/library/record-tree-saved.meta.json": "8cecd617075d0a8a415cb4e32b3ecd2d4ceeea544fbea56efe74168681a403dc",
+        ".uma-sim/library/record-tree-saved.snapshot.json": "70189056d066dc3c1c7bdc7df493b22b45de0079fd031c1ad348ace68e2a09c5"
+      },
+      "expected": {
+        ".uma-sim/library/record-flat-saved.meta.json": "9512788048e99769f349ebd2d7112136094e68805bcea4e3d20d3ad2f2cd91e6",
+        ".uma-sim/library/record-flat-saved.snapshot.json": "22160ff3f75453c883733deb400054d44e977e40a354cf8394b0339c629ce220",
+        ".uma-sim/library/record-tree-saved.meta.json": "8cecd617075d0a8a415cb4e32b3ecd2d4ceeea544fbea56efe74168681a403dc",
+        ".uma-sim/library/record-tree-saved.snapshot.json": "70189056d066dc3c1c7bdc7df493b22b45de0079fd031c1ad348ace68e2a09c5"
+      }
+    },
+    {
+      "name": "no browser runtime exceptions",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    }
+  ],
+  "canonical": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "source": [
+    {
+      "path": "packages/uma-sim-ui/src/components/inheritanceView.ts",
+      "bytes": 4695,
+      "sha256": "46c1db2b7f685100933a9ccf13b6749a1421d4c4a668e6d09ce07c6e28715dce",
+      "gitBlob": "917144dc8335f9d05d2f83cf153f2166981797f9"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/InheritancePanel.tsx",
+      "bytes": 6437,
+      "sha256": "25fa356320b89b23a0f990dd0793a28e79e4a7c67889c3a65468b53d40fb1b49",
+      "gitBlob": "0ed2978307418a7f77b38756cda614f98eaa5eb0"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/inheritance-record.css",
+      "bytes": 1737,
+      "sha256": "cfb4563c11a9a9c7499efcea3491b8ec4e7b2fcb199c7964bd132c70ef06f68a",
+      "gitBlob": "2f943a5ae3615cb59a60843c411a9bb6521f1797"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "bytes": 7033,
+      "sha256": "11c9a13f87c7803740bfdf483436535f5a3d77c6ef0128e23f36faee0b0b6737",
+      "gitBlob": "08d69e007314cc62ff7c46b24e6a6b664278e6c0"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/types.ts",
+      "bytes": 8431,
+      "sha256": "244906b9d133c795142e07924daaa9d6b9feca209d9e7c2dfba9e88f0505467f",
+      "gitBlob": "a84ece2452919f9b73da76a1435fd3fad1944d23"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/inheritance-view.test.mjs",
+      "bytes": 7801,
+      "sha256": "47609ebbc0e4fff1452ee6015a16a2cdf683fbd1e63daa8839a05d05652db4b8",
+      "gitBlob": "c0dcbc9aaaca0a13ceedd75abd761dbf1762bde3"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "bytes": 980,
+      "sha256": "2fa1147a4bb92eb601ecf991867b325c5ea2850ed77d6495a6e942f98ed6101d",
+      "gitBlob": "1de69e26646ee11fe235b837899c34e928274325"
+    }
+  ],
+  "apiBinarySha256": "3b210a6d7f5885b54b281f3d7dca658a71d695a836346efd7daf1cd52b7d2c23",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.47",
+    "revision": "@73934a44f61e6b3878d1943064c141a5a820f5f7",
+    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.12"
+  },
+  "profile": "/home/jacob/uma-inheritance-profiles-401c5d17da79/inheritance-X4Aetu",
+  "privateCwd": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/receiving-native-v6/private-careers",
+  "realNativeApi": true,
+  "realBrowserInput": true,
+  "noMockedApi": true,
+  "fixtureBoundary": "Native current schema structured, flat-only and empty records. Missing/partial fields are covered by separately pinned view-helper tests, not by this native runtime.",
+  "savedHashesUnchanged": true
+}
