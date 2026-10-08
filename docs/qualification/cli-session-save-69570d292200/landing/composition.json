@@ -1,0 +1,58 @@
+{
+  "base": "38291c1aaf915da17229eca0afbbd58d9b3ce453",
+  "baseTree": "8220492e07834480ab9fc0823358c9ad3aa9f24b",
+  "reviewedSource": "acbe58aeface82d7e3cac1134c6d7126a910bb15",
+  "tree": "7cab649fb15bb8e7071d66eab329aba5f5cd68e9",
+  "baseLeaves": 1586,
+  "composedLeaves": 1590,
+  "changed": [
+    {
+      "path": "README.md",
+      "base": "82c3d9ff4d875688606f19b84913986e8ee1cc91",
+      "composed": "ba2e8101303d8d82dcda560341d5102e57e38787"
+    },
+    {
+      "path": "docs/qualification/cli-session-save-69570d292200/README.md",
+      "base": null,
+      "composed": "3fb57c1381156a1aab11920123103ef27d36addd"
+    },
+    {
+      "path": "docs/qualification/cli-session-save-69570d292200/baseline-probe.mjs",
+      "base": null,
+      "composed": "59a87054176581d2fabdf9158df4fcd99b44ea35"
+    },
+    {
+      "path": "docs/qualification/cli-session-save-69570d292200/baseline-v1/receipt.json",
+      "base": null,
+      "composed": "5c86cffe36a4b77841fce9f1d590640bf9bf8424"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "base": "a4d95cada08bc44e8d8916fd6c1b21348b2bd63f",
+      "composed": "f54c2c50cdae8b78ed75c0eec89a0cdca9f36a37"
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "base": "c407f70093b955801126d1f3c93af79a279d2346",
+      "composed": "8298731be4ee70a6338cc5d708c7c5f2f4549749"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_session_persistence.rs",
+      "base": null,
+      "composed": "ac3a6e11a293f153db49016c756555ad4fffdcd2"
+    }
+  ],
+  "deleted": [],
+  "incomingLeaves": 39,
+  "preservedIncomingExceptReadmeInsertion": true,
+  "readmeInsertionCharacters": 393,
+  "readmeRemainderExact": true,
+  "reviewedRustBlobsUnchanged": true,
+  "nativeBuildRepeated": false,
+  "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+  "parents": [
+    "acbe58aeface82d7e3cac1134c6d7126a910bb15",
+    "38291c1aaf915da17229eca0afbbd58d9b3ce453"
+  ],
+  "observedAt": "2026-10-08 20:37:39 UTC"
+}
