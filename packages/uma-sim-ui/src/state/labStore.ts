@@ -210,14 +210,19 @@ export function useLabStore(refreshRun: () => Promise<void>) {
     async (id: string) => {
       const ok = await withBusy(() => api.labBranchDelete(id));
       if (ok) {
-        patch({ branches: await api.labBranches() });
         setState((s) => ({
           ...s,
-          comparison: s.comparison && (s.compareA === id || s.compareB === id) ? null : s.comparison,
+          comparison:
+            s.comparison && (s.comparison.aId === id || s.comparison.bId === id)
+              ? null
+              : s.comparison,
+          compareA: s.compareA === id ? "" : s.compareA,
+          compareB: s.compareB === id ? "" : s.compareB,
         }));
+        patch({ branches: await api.labBranches() });
       }
     },
-    [withBusy],
+    [patch, withBusy],
   );
 
   const compare = useCallback(
@@ -227,7 +232,8 @@ export function useLabStore(refreshRun: () => Promise<void>) {
         return;
       }
       const c = await withBusy(() => api.labCompare(a, b));
-      if (c) patch({ comparison: c, compareA: a, compareB: b });
+      // A completed result must not replace a newer draft selection.
+      if (c) patch({ comparison: c });
     },
     [patch, withBusy],
   );

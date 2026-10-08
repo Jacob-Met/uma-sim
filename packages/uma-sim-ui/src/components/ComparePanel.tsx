@@ -227,14 +227,14 @@ export function ComparePanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
           <>
             <a
               className="link-button"
-              href={api.labReportUrl(state.compareA, state.compareB, "markdown")}
+              href={api.labReportUrl(c.aId, c.bId, "markdown")}
               download
             >
               Download markdown report
             </a>
             <a
               className="link-button"
-              href={api.labReportUrl(state.compareA, state.compareB, "json")}
+              href={api.labReportUrl(c.aId, c.bId, "json")}
               download
             >
               Download JSON report
