@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: preserve the current fully escaped whole-second timestamp format
+ok 1 - preserve the current fully escaped whole-second timestamp format
+  ---
+  duration_ms: 5.524406
+  type: 'test'
+  ...
+# Subtest: normalize only the whole generated line and retain identical text inside data
+ok 2 - normalize only the whole generated line and retain identical text inside data
+  ---
+  duration_ms: 0.241193
+  type: 'test'
+  ...
+# Subtest: wrong branch identity, counts, retained dates and escape bytes remain distinguishable
+ok 3 - wrong branch identity, counts, retained dates and escape bytes remain distinguishable
+  ---
+  duration_ms: 0.586089
+  type: 'test'
+  ...
+# Subtest: invalid timestamp syntax and unknown escape sequences refuse
+ok 4 - invalid timestamp syntax and unknown escape sequences refuse
+  ---
+  duration_ms: 1.166914
+  type: 'test'
+  ...
+# Subtest: the escaped shape cannot admit unparseable month, day or hour values
+ok 5 - the escaped shape cannot admit unparseable month, day or hour values
+  ---
+  duration_ms: 11.301686
+  type: 'test'
+  ...
+# Subtest: missing or duplicate generated lines cannot disappear as timestamp variance
+ok 6 - missing or duplicate generated lines cannot disappear as timestamp variance
+  ---
+  duration_ms: 1.26807
+  type: 'test'
+  ...
+# Subtest: the JSON helper keeps its existing raw UTC and experiment identity contract
+ok 7 - the JSON helper keeps its existing raw UTC and experiment identity contract
+  ---
+  duration_ms: 3.775583
+  type: 'test'
+  ...
+# Subtest: valid Gregorian leap days remain accepted in the current escaped format
+ok 8 - valid Gregorian leap days remain accepted in the current escaped format
+  ---
+  duration_ms: 0.280151
+  type: 'test'
+  ...
+# Subtest: finite Date.parse normalization cannot hide day or midnight rollover
+ok 9 - finite Date.parse normalization cannot hide day or midnight rollover
+  ---
+  duration_ms: 1.274018
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 279.404452

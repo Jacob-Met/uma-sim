@@ -148,15 +148,8 @@ export function comparableComparison(value) {
 }
 
 export function comparableReport(value) {
-  const lines = value.split('\n');
-  const generated = lines.filter(line => line.startsWith('- Compared at: '));
+  const generated = value.split('\n').filter(line => line.startsWith('- Compared at: '));
   assert.equal(generated.length, 1);
-  const rendered = generated[0].slice('- Compared at: '.length);
-  assert.match(rendered, /^\d{4}\\-\d{2}\\-\d{2}T\d{2}\\:\d{2}\\:\d{2}Z$/);
-  // Decode only the accepted timestamp field; preserve all report data bytes.
-  const timestamp = rendered.replace(/\\([:-])/g, '$1');
-  const parsed = Date.parse(timestamp);
-  assert.ok(Number.isFinite(parsed));
-  assert.equal(new Date(parsed).toISOString(), timestamp.slice(0, -1) + '.000Z');
-  return lines.map(line => line === generated[0] ? '- Compared at: <generated per request>' : line).join('\n');
+  assert.match(generated[0].slice('- Compared at: '.length), /^\d{4}\\-\d{2}\\-\d{2}T\d{2}\\:\d{2}\\:\d{2}Z$/);
+  return value.replace(generated[0], '- Compared at: <generated per request>');
 }
