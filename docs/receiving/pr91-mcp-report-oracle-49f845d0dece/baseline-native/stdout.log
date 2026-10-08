@@ -1,0 +1,83 @@
+TAP version 13
+# Subtest: native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+    # Subtest: save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes
+    ok 1 - save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes
+      ---
+      duration_ms: 164.880113
+      type: 'test'
+      ...
+    # Subtest: forking and named actions do not mutate the source, sibling or saved checkpoint
+    ok 2 - forking and named actions do not mutate the source, sibling or saved checkpoint
+      ---
+      duration_ms: 221.327502
+      type: 'test'
+      ...
+    # Subtest: incompatible checkpoint metadata returns real 422 and preserves the target session
+    ok 3 - incompatible checkpoint metadata returns real 422 and preserves the target session
+      ---
+      duration_ms: 138.078351
+      type: 'test'
+      ...
+    # Subtest: known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics
+    ok 4 - known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics
+      ---
+      duration_ms: 353.123997
+      type: 'test'
+      ...
+    # Subtest: external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged
+    ok 5 - external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged
+      ---
+      duration_ms: 108.505935
+      type: 'test'
+      ...
+    # Subtest: branches compare actual decisions while preserving live sessions and checkpoint bytes
+    not ok 6 - branches compare actual decisions while preserving live sessions and checkpoint bytes
+      ---
+      duration_ms: 308.251701
+      type: 'test'
+      location: '/home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/career-lab-native.test.mjs:123:11'
+      failureType: 'testCodeFailure'
+      error: |-
+        The input did not match the regular expression /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/. Input:
+        
+        '2026\\-10\\-08T13\\:30\\:30Z'
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+      actual: '2026\\-10\\-08T13\\:30\\:30Z'
+      operator: 'match'
+      stack: |-
+        comparableReport (file:///home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs:153:10)
+        TestContext.<anonymous> (file:///home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/career-lab-native.test.mjs:146:18)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async TestContext.<anonymous> (file:///home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/career-lab-native.test.mjs:123:3)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+      ...
+    # Subtest: invalid branch/import operations and deletions preserve unrelated native state
+    ok 7 - invalid branch/import operations and deletions preserve unrelated native state
+      ---
+      duration_ms: 153.628047
+      type: 'test'
+      ...
+    1..7
+not ok 1 - native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+  ---
+  duration_ms: 2420.970044
+  type: 'test'
+  location: '/home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/career-lab-native.test.mjs:7:1'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 8
+# suites 0
+# pass 6
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2889.160726

@@ -1,0 +1,59 @@
+TAP version 13
+# Subtest: native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+    # Subtest: save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes
+    ok 1 - save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes
+      ---
+      duration_ms: 147.319111
+      type: 'test'
+      ...
+    # Subtest: forking and named actions do not mutate the source, sibling or saved checkpoint
+    ok 2 - forking and named actions do not mutate the source, sibling or saved checkpoint
+      ---
+      duration_ms: 190.364457
+      type: 'test'
+      ...
+    # Subtest: incompatible checkpoint metadata returns real 422 and preserves the target session
+    ok 3 - incompatible checkpoint metadata returns real 422 and preserves the target session
+      ---
+      duration_ms: 134.25164
+      type: 'test'
+      ...
+    # Subtest: known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics
+    ok 4 - known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics
+      ---
+      duration_ms: 314.880764
+      type: 'test'
+      ...
+    # Subtest: external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged
+    ok 5 - external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged
+      ---
+      duration_ms: 92.384123
+      type: 'test'
+      ...
+    # Subtest: branches compare actual decisions while preserving live sessions and checkpoint bytes
+    ok 6 - branches compare actual decisions while preserving live sessions and checkpoint bytes
+      ---
+      duration_ms: 312.159923
+      type: 'test'
+      ...
+    # Subtest: invalid branch/import operations and deletions preserve unrelated native state
+    ok 7 - invalid branch/import operations and deletions preserve unrelated native state
+      ---
+      duration_ms: 146.621594
+      type: 'test'
+      ...
+    1..7
+ok 1 - native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+  ---
+  duration_ms: 1942.969132
+  type: 'test'
+  ...
+1..1
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2226.25535

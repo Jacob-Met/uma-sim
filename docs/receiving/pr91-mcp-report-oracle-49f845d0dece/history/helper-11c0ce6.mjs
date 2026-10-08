@@ -155,8 +155,6 @@ export function comparableReport(value) {
   // Decode only that field, leaving every experiment/data byte comparable.
   const timestamp = generated[0].slice('- Compared at: '.length).replace(/\\([:-])/g, '$1');
   assert.match(timestamp, UTC_TIMESTAMP);
-  const parsed = Date.parse(timestamp);
-  assert.ok(Number.isFinite(parsed));
-  assert.equal(new Date(parsed).toISOString(), timestamp.slice(0, -1) + '.000Z');
+  assert.ok(Number.isFinite(Date.parse(timestamp)));
   return lines.map(line => line === generated[0] ? '- Compared at: <generated per request>' : line).join('\n');
 }

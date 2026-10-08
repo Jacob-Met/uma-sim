@@ -1,0 +1,21 @@
+diff --git a/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs b/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs
+index 2b55f95..cf7b3d3 100644
+--- a/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs
++++ b/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs
+@@ -148,8 +148,13 @@ export function comparableComparison(value) {
+ }
+ 
+ export function comparableReport(value) {
+-  const generated = value.split('\n').filter(line => line.startsWith('- Compared at: '));
++  const lines = value.split('\n');
++  const generated = lines.filter(line => line.startsWith('- Compared at: '));
+   assert.equal(generated.length, 1);
+-  assert.match(generated[0].slice('- Compared at: '.length), UTC_TIMESTAMP);
+-  return value.replace(generated[0], '- Compared at: <generated per request>');
++  // Markdown escapes timestamp punctuation; JSON keeps the raw UTC value.
++  // Decode only that field, leaving every experiment/data byte comparable.
++  const timestamp = generated[0].slice('- Compared at: '.length).replace(/\\([:-])/g, '$1');
++  assert.match(timestamp, UTC_TIMESTAMP);
++  assert.ok(Number.isFinite(Date.parse(timestamp)));
++  return lines.map(line => line === generated[0] ? '- Compared at: <generated per request>' : line).join('\n');
+ }

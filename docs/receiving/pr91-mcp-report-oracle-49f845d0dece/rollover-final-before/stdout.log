@@ -1,0 +1,78 @@
+TAP version 13
+# Subtest: report comparison admits plain and Markdown-escaped generated UTC timestamps
+ok 1 - report comparison admits plain and Markdown-escaped generated UTC timestamps
+  ---
+  duration_ms: 2.772716
+  type: 'test'
+  ...
+# Subtest: normalization changes only the complete generated line, not identical text in data
+ok 2 - normalization changes only the complete generated line, not identical text in data
+  ---
+  duration_ms: 0.317186
+  type: 'test'
+  ...
+# Subtest: wrong branch identity, counts, retained dates and escape bytes stay distinguishable
+ok 3 - wrong branch identity, counts, retained dates and escape bytes stay distinguishable
+  ---
+  duration_ms: 0.487031
+  type: 'test'
+  ...
+# Subtest: timestamp decoding refuses invalid syntax and escapes outside punctuation
+ok 4 - timestamp decoding refuses invalid syntax and escapes outside punctuation
+  ---
+  duration_ms: 3.620803
+  type: 'test'
+  ...
+# Subtest: timestamp decoding refuses invalid dates accepted by the old shape-only oracle
+ok 5 - timestamp decoding refuses invalid dates accepted by the old shape-only oracle
+  ---
+  duration_ms: 13.899959
+  type: 'test'
+  ...
+# Subtest: missing or duplicate generated lines are never discarded as timestamp variance
+ok 6 - missing or duplicate generated lines are never discarded as timestamp variance
+  ---
+  duration_ms: 1.131847
+  type: 'test'
+  ...
+# Subtest: JSON comparison remains raw UTC and preserves all experiment data
+ok 7 - JSON comparison remains raw UTC and preserves all experiment data
+  ---
+  duration_ms: 2.767225
+  type: 'test'
+  ...
+# Subtest: real Gregorian leap days retain the whole-second UTC contract
+ok 8 - real Gregorian leap days retain the whole-second UTC contract
+  ---
+  duration_ms: 0.522921
+  type: 'test'
+  ...
+# Subtest: calendar normalization cannot hide a nonexistent generated date
+not ok 9 - calendar normalization cannot hide a nonexistent generated date
+  ---
+  duration_ms: 1.088844
+  type: 'test'
+  location: '/home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/report-comparison.test.mjs:95:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception: 2026-02-30T12:34:29Z'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/report-comparison.test.mjs:104:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 8
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 287.310265

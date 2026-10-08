@@ -1,0 +1,27 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "c5b0dd43c25272c1c7482fd1aedb26a095360e96"
+    ],
+    "exitCode": 2,
+    "stdout": "evidence/baseline-controls/stdout.log:11: trailing whitespace.\n+    \nevidence/baseline-controls/stdout.log:13: trailing whitespace.\n+    \nevidence/baseline-controls/stdout.log:37: trailing whitespace.\n+    \nevidence/baseline-controls/stdout.log:49: trailing whitespace.\n+    \nevidence/baseline-controls/stdout.log:58: trailing whitespace.\n+    \nevidence/baseline-controls/stdout.log:62: trailing whitespace.\n+    \nevidence/baseline-controls/stdout.log:69: trailing whitespace.\n+    \nevidence/baseline-controls/stdout.log:73: trailing whitespace.\n+    \nevidence/baseline-native/stdout.log:42: trailing whitespace.\n+        \nevidence/baseline-native/stdout.log:44: trailing whitespace.\n+        \nevidence/final-helper.patch:7: trailing whitespace.\n+ \nevidence/helper.patch:7: trailing whitespace.\n+ \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "c5b0dd43c25272c1c7482fd1aedb26a095360e96",
+      "--",
+      "packages/uma-sim-mcp/tests/helpers/mcp-client.mjs",
+      "packages/uma-sim-mcp/tests/report-comparison.test.mjs"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

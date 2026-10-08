@@ -1,0 +1,92 @@
+{
+  "publishedSource": "bcd1df70c0681e7f9ae3a5a0bac75d9d4984ef84",
+  "files": {
+    "packages/uma-sim-mcp/tests/helpers/mcp-client.mjs": {
+      "sha256": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+      "git_blob": "2b55f958e850b5af5e5ea3d877ce2659e251b818"
+    },
+    "packages/uma-sim-mcp/tests/helpers/native-api.mjs": {
+      "sha256": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44",
+      "git_blob": "cb5d6750d68fbf43a04d5d26eed4d00b2d8c9f63"
+    },
+    "packages/uma-sim-mcp/tests/career-lab-native.test.mjs": {
+      "sha256": "11dc0c9b6ab22556eb71a404ed2a98bbf6cd7eec2ee133e9d08d37b72013356e",
+      "git_blob": "57242cfcf6e183b4e195a2065f119328f48c1fb0"
+    },
+    "packages/uma-sim-mcp/mcp-stdio.js": {
+      "sha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+      "git_blob": "24d5384c0a14fbdd07c4dd838b6a0d56b6d92ceb"
+    },
+    "packages/uma-sim-mcp/package.json": {
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72",
+      "git_blob": "9d2aaf8942be2908ac2380204dcb32d9bb8e73fc"
+    }
+  },
+  "nativeArtifact": {
+    "path": "/srv/hamon-estate/artifacts/chatgpt-acd057031fb2/release-receiving-fe0ff870/stage/uma-sim-api",
+    "sha256": "4bfb35d2c595daaa2afcd624e5e2cc8539f7c10bd33d018187039e7468d57f89",
+    "source": "fe0ff870ee10f21e1a7cfa9264ef3196bc417854",
+    "declaredBoundary": "Existing qualified release artifact; this narrow MCP helper replay is not a new build or runtime qualification of the later PR91/current-main composition."
+  },
+  "stagedData": {
+    "content_packs/example.json": "7dfc0268758b63b6669d9a985871dcc4036b851711e614d0c595b8020bdbdc91",
+    "knowledge/canonical/by_kind/event_local.json": "2d5fb029c8ebc8e54210d0bfe5273fa2a8f14888edd7b7b7ed77b9a83bd452ad",
+    "knowledge/canonical/by_kind/factor.json": "9305da3961c1ab2f783baf49d2c817018fa6877fd3c430320333349a3753f452",
+    "knowledge/canonical/by_kind/lesson.json": "c29c8a9f8da69c9d644dcdf0616a66af4d10f975eec50468462213e25a91db01",
+    "knowledge/canonical/by_kind/race.json": "b57f1b3033887926d69e871153545920e9613caf809114583e08ed7ccad91ec8",
+    "knowledge/canonical/by_kind/skill.json": "1317b0bfc80085e0cb1aa756a1b6dbea0b0258fb12583e884e7b6f516d9a7df2",
+    "knowledge/canonical/by_kind/song.json": "27bb6616675b0749ffd7b2df2a06b03b9f0a5d379bd3d0cb31056741bef89d13",
+    "knowledge/canonical/by_kind/support_card.json": "399c936652486f8ed684039a93645b4a60f68b5c01942a323c1b6736f208af2d",
+    "knowledge/canonical/by_kind/trainee.json": "f22144a37818b358b1ebf188ee948de751c46c01a97a2e77faf47c746a5f8b48",
+    "research/R88_REFREEZE.md": "6dbfafdc4ac2a10399022ecfd445709abcfa9c70f75cbe1cf65cbb1c9faf4cea",
+    "research/R8_DONE_CRITERIA_EVIDENCE.md": "63b876a5a87dd82aca26c878974e146e2c3a0ea0ff1da59c7411cdc71689d62a",
+    "research/_check_skill_presence.py": "bed485e8a431be7e6de3d7ae493df4fffa2a7d7c58f226b12df9e5739fa1a589",
+    "research/_list_fails2.py": "e736f8b440e0e7929ad4afe78b5e4bc834098d215ba54296252a835816d7e3e4",
+    "research/_oracle_590_pk.txt": "d2bc329bf765ad017ec58c57d2331749d21f509e6bb2d83047365b89ee36bc8c",
+    "research/_oracle_590_pos.txt": "05c6e50f60c84909103fcb7cb58cac5bd1ec1c93663277f4180f88dadf63cb11",
+    "research/_skill_lookup.py": "5ff4d3042f3a589801a4aa8aea6391560ddbd60c23127c9fbe48d488b072f215",
+    "research/bond_gain.json": "15d92bc337bc71691073229d5af738368d1d1311d5631db668a5a5565c2e72c6",
+    "research/crosscheck_course_fork.py": "cdd4b044fcd1f44b5bcb27917dc4b6339f97d00dbd711976abd7c5d98b4032c2",
+    "research/event_probabilities.json": "4def2cc242364011ce1ccb5472295e4a8c449e3844e92391aaeb3f40d3fabf7c",
+    "research/event_reward_schema.json": "8e115a4cc6ee3c9c1e3c98b1ff5b0511c46550537a5ad5be20c9760f5fa46f4b",
+    "research/grand_concert.json": "a8aeb46e3610ad9667266199bc26a842a406fb83632e467bb36809a8b8bac00e",
+    "research/grand_concert_calibration.json": "4e080f2903f5130ac61f12759264fec6f445ef59217256ce126e4ca17431dcf7",
+    "research/grand_concert_community.json": "7ba448fc42c3644468079d57d3a1d04aeeb68797c677d9dec1e5bce1ab9489da",
+    "research/hint_progression.json": "3025b3766b1156c4379c8a858ddb84e0ff85877d69d3b7362a2dcf910837160a",
+    "research/inspiration.json": "1ecd87b697dffb8d8bf091b667a4007875be4babf25e054f51c6a094e41b57c4",
+    "research/legacy_deck_schema.json": "61a1a7ebc177dc03be2ae337aa48ff924cecd159002395ed4a33a0b350417fb0",
+    "research/mood_energy.json": "1faaed041f0460d418c2429797197dd784ade0b8a25e0998abac716635c24f7a",
+    "research/race_checkpoint_sample.json": "9e0367f943ab013896477f0f0dbab041db42ad16b394fd23da30375bca634986",
+    "research/race_checkpoint_triage.json": "830f2c9cfdaaa99587c35b6d8cbbc00d43d76babb34844888572823aeebeb607",
+    "research/race_checkpoint_v3_sample.json": "df45a9a02f36f6548e0885c91ab6ed88751e00f07e62168f74f7a7b5eb433661",
+    "research/race_checkpoint_v3_sample_1000.json": "0138c8d357eaeae33e8b49237117746af62729024642fe04a52fb311b7523fc0",
+    "research/race_checkpoint_v3_sample_240.json": "478948417960f6cdf0dd3ba91775262bee2daa54ee501c505f056354d4f7103a",
+    "research/race_checkpoint_v3_sample_500.json": "dde51de26623fe7245d73b697284617d2a41086508b225c4806f519655ee5299",
+    "research/race_checkpoint_v3_triage.json": "2f3c5d71e677acdd053e34f6b891936f502553e1a03e39d95d83ebca501c1808",
+    "research/race_checkpoint_v3_triage_1000.json": "9ea9d20643135cc6a015200c1080142d0f0b66d0f3a716314c4a1aef4548c633",
+    "research/race_checkpoint_v3_triage_240.json": "b6547102a6965dde9842c06a6ca2b8bb48872a1462cafecba6e54e42bb5f22b9",
+    "research/race_compete_fight.json": "d446e94596760ec1e49d8026dba44c5ed3d634af6ea80daaaa3413ae4bd108ee",
+    "research/race_course_data.json": "85faef3864439a200f406249be78386fde3985388257de2a693ecee1b426b8c1",
+    "research/race_course_fork_crosscheck.json": "43a9afc6b314a68de6d811050030dc3e9fe988b8c6961d5df1e17637489ec124",
+    "research/race_course_mdb_crosscheck.json": "c86d60b9cb915ddffef173a6cd339580646c9ee531d5efea83ccba056cfeec2a",
+    "research/race_field_npc.json": "8478df955af337b32cf3bc75641db75cbea2f7326379a5d702ee53962e9c4cb3",
+    "research/race_lead_competition.json": "79985d02cf3f5fae9208a4310743e6c0c5fabd47ff86e5ea401c7462bbdbbb1c",
+    "research/race_model_constants.json": "280d821a3d254b5b917e33339110e513f29db59f26c98d0b9b4070fda2967bad",
+    "research/race_oracle_trace_case1.csv": "33a8330dac252c0147c48fa269a0b8379f4546a4da7e1455492844c8ee917c47",
+    "research/race_outcomes.json": "acb56b993b97b681b24ce2830d3e09d9175b4bc3bb45302884f520bf77c6d838",
+    "research/race_position_keep.json": "b9b5fda6524637ac8cbfcf29ea210b9ae4494b73bf723f27400431a79c5bef5e",
+    "research/race_prando_vectors.json": "2cf06ec1602bfe24bc31e56fd5c7d99da4a415ce666b7f8ae8a35a4821c86d1d",
+    "research/race_rushed.json": "404e35a0925cbbfb81e9681b71eee0d2512da42b70191994253e13c3e90cee61",
+    "research/race_skill_condition_mismatches.json": "43b249ab8c5616fc3414e020b54331eda8fcdfa6af4795dc50ae57f24a6a5643",
+    "research/race_skill_condition_patch_note.json": "5b708327daac9e6cb5ee14f3fa3a4009940f6f9f7208bcfe9fb0cea6ebf4c41b",
+    "research/race_skill_effects.json": "84752f4017ed4f28184a0d70433d07b978b45b33d09e738ec38decca777c289e",
+    "research/race_telemetry_corpus.json": "665232079d4a9a99f35aedd082d649c874c6132734c45725c5a31506e81d9987",
+    "research/race_v4_career_place.json": "3de31caf6012a6fb885ddecf15df7f2e643933596cf026c396ede89200b330b4",
+    "research/race_v4_physics_dist.json": "665770041ef436faf5c3526e6c931cbe23b9e270c932d2106e3b2fc3bf22ad56",
+    "research/trackblazer.json": "e8055b7df1d36d8a7326dd52b69bfd85f9821d60a3d658d9721f8b2f348e0d38",
+    "research/training_failure.json": "32ac94ba013fb060b4fb4c7e46e06491c03327b7a3b3b04937fb70ce42bb7245",
+    "research/training_gain_tables.json": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60",
+    "research/unity_cup.json": "3aa56ace360f1d3c4c6eff379e891cc1ae874f8ad102d413c7e2f942a23b9c50",
+    "research/ura_finale.json": "90850730c9a041f4d1ae636cd7e9a3c8b650ce2f4e32ffab36485d70cd712d6e"
+  }
+}

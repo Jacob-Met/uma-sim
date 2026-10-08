@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: report comparison admits plain and Markdown-escaped generated UTC timestamps
+ok 1 - report comparison admits plain and Markdown-escaped generated UTC timestamps
+  ---
+  duration_ms: 3.353837
+  type: 'test'
+  ...
+# Subtest: normalization changes only the complete generated line, not identical text in data
+ok 2 - normalization changes only the complete generated line, not identical text in data
+  ---
+  duration_ms: 0.281454
+  type: 'test'
+  ...
+# Subtest: wrong branch identity, counts, retained dates and escape bytes stay distinguishable
+ok 3 - wrong branch identity, counts, retained dates and escape bytes stay distinguishable
+  ---
+  duration_ms: 0.612789
+  type: 'test'
+  ...
+# Subtest: timestamp decoding refuses invalid syntax and escapes outside punctuation
+ok 4 - timestamp decoding refuses invalid syntax and escapes outside punctuation
+  ---
+  duration_ms: 4.424085
+  type: 'test'
+  ...
+# Subtest: timestamp decoding refuses invalid dates accepted by the old shape-only oracle
+ok 5 - timestamp decoding refuses invalid dates accepted by the old shape-only oracle
+  ---
+  duration_ms: 17.044847
+  type: 'test'
+  ...
+# Subtest: missing or duplicate generated lines are never discarded as timestamp variance
+ok 6 - missing or duplicate generated lines are never discarded as timestamp variance
+  ---
+  duration_ms: 1.915669
+  type: 'test'
+  ...
+# Subtest: JSON comparison remains raw UTC and preserves all experiment data
+ok 7 - JSON comparison remains raw UTC and preserves all experiment data
+  ---
+  duration_ms: 4.703147
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 475.752937

@@ -1,0 +1,136 @@
+TAP version 13
+# Subtest: report comparison admits plain and Markdown-escaped generated UTC timestamps
+not ok 1 - report comparison admits plain and Markdown-escaped generated UTC timestamps
+  ---
+  duration_ms: 4.693794
+  type: 'test'
+  location: '/home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/report-comparison.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/. Input:
+    
+    '2026\\-10\\-08T13\\:30\\:30Z'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '2026\\-10\\-08T13\\:30\\:30Z'
+  operator: 'match'
+  stack: |-
+    comparableReport (file:///home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs:153:10)
+    TestContext.<anonymous> (file:///home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/report-comparison.test.mjs:24:16)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: normalization changes only the complete generated line, not identical text in data
+not ok 2 - normalization changes only the complete generated line, not identical text in data
+  ---
+  duration_ms: 1.347626
+  type: 'test'
+  location: '/home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/report-comparison.test.mjs:28:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'Literal code: `- Compared at: <generated per request>`\n' +
+    - 'Literal code: `- Compared at: 2026-10-08T13:30:30Z`\n' +
+        '# Branch comparison: literal A vs literal B\n' +
+        '- Checkpoint: `saved-checkpoint` (seed 7, turn 4)\n' +
+        '- Same checkpoint: true\n' +
+    +   '- Compared at: 2026-10-08T13:30:30Z\n' +
+    -   '- Compared at: <generated per request>\n' +
+        '\n' +
+        '| Branch | literal A | literal B |\n' +
+        '| Steps | 2 | 3 |\n' +
+        'Literal retained date: 2026-10-08T00:00:00Z\n'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: |-
+    Literal code: `- Compared at: 2026-10-08T13:30:30Z`
+    # Branch comparison: literal A vs literal B
+    - Checkpoint: `saved-checkpoint` (seed 7, turn 4)
+    - Same checkpoint: true
+    - Compared at: <generated per request>
+    
+    | Branch | literal A | literal B |
+    | Steps | 2 | 3 |
+    Literal retained date: 2026-10-08T00:00:00Z
+    
+  actual: |-
+    Literal code: `- Compared at: <generated per request>`
+    # Branch comparison: literal A vs literal B
+    - Checkpoint: `saved-checkpoint` (seed 7, turn 4)
+    - Same checkpoint: true
+    - Compared at: 2026-10-08T13:30:30Z
+    
+    | Branch | literal A | literal B |
+    | Steps | 2 | 3 |
+    Literal retained date: 2026-10-08T00:00:00Z
+    
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/report-comparison.test.mjs:32:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: wrong branch identity, counts, retained dates and escape bytes stay distinguishable
+ok 3 - wrong branch identity, counts, retained dates and escape bytes stay distinguishable
+  ---
+  duration_ms: 0.54527
+  type: 'test'
+  ...
+# Subtest: timestamp decoding refuses invalid syntax and escapes outside punctuation
+ok 4 - timestamp decoding refuses invalid syntax and escapes outside punctuation
+  ---
+  duration_ms: 1.530426
+  type: 'test'
+  ...
+# Subtest: timestamp decoding refuses invalid dates accepted by the old shape-only oracle
+not ok 5 - timestamp decoding refuses invalid dates accepted by the old shape-only oracle
+  ---
+  duration_ms: 0.373731
+  type: 'test'
+  location: '/home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/report-comparison.test.mjs:61:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception: 2026-13-08T13:30:30Z'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///home/jacob/uma-report-oracle-receiving-49f845d0dece/packages/uma-sim-mcp/tests/report-comparison.test.mjs:66:13)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: missing or duplicate generated lines are never discarded as timestamp variance
+ok 6 - missing or duplicate generated lines are never discarded as timestamp variance
+  ---
+  duration_ms: 0.701244
+  type: 'test'
+  ...
+# Subtest: JSON comparison remains raw UTC and preserves all experiment data
+ok 7 - JSON comparison remains raw UTC and preserves all experiment data
+  ---
+  duration_ms: 11.83834
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 4
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 260.914915

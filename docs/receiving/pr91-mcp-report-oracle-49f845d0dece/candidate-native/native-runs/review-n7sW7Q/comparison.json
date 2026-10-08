@@ -1,0 +1,126 @@
+{
+  "aId": "br-1791466448-0000",
+  "aName": "review-rest",
+  "bId": "br-1791466448-0001",
+  "bName": "review-train",
+  "checkpointName": "review-mid",
+  "checkpointTurn": 5,
+  "seed": 7,
+  "sameCheckpoint": true,
+  "comparedAt": "2026-10-08T13:34:08Z",
+  "firstDivergence": {
+    "stepIndex": 0,
+    "turn": 5,
+    "dateLabel": "Y1 Aug · 2nd half",
+    "phase": "FREE",
+    "kind": "decision",
+    "actionA": "rest",
+    "actionB": "train_speed",
+    "labelA": "Rest",
+    "labelB": "Train Speed",
+    "rngCallsAAfter": 24,
+    "rngCallsBAfter": 26,
+    "note": "A chose 'Rest' while B chose 'Train Speed' on turn 5 (Y1 Aug · 2nd half). RNG positions after the step: A=24 calls, B=26 calls."
+  },
+  "aligned": [
+    {
+      "stepIndex": 0,
+      "turnA": 5,
+      "turnB": 5,
+      "actionA": "rest",
+      "actionB": "train_speed",
+      "labelA": "Rest",
+      "labelB": "Train Speed",
+      "sameAction": false,
+      "energyA": 100,
+      "energyB": 40,
+      "moodA": "GOOD",
+      "moodB": "NORMAL",
+      "fansA": 886,
+      "fansB": 886,
+      "skillPointsA": 45,
+      "skillPointsB": 46,
+      "sameOutcome": false
+    },
+    {
+      "stepIndex": 1,
+      "turnA": 6,
+      "turnB": 6,
+      "actionA": "train_speed",
+      "actionB": "event_3",
+      "labelA": "Train Speed",
+      "labelB": "Randomly either",
+      "sameAction": false,
+      "energyA": 80,
+      "energyB": 45,
+      "moodA": "GOOD",
+      "moodB": "NORMAL",
+      "fansA": 886,
+      "fansB": 886,
+      "skillPointsA": 45,
+      "skillPointsB": 46,
+      "sameOutcome": false
+    }
+  ],
+  "outcomeA": {
+    "steps": 2,
+    "finalTurn": 7,
+    "careerComplete": false,
+    "completedRaces": [
+      "debut"
+    ],
+    "stats": {
+      "speed": 135,
+      "stamina": 88,
+      "power": 114,
+      "guts": 96,
+      "wit": 91
+    },
+    "energy": 80,
+    "mood": "GOOD",
+    "fans": 886,
+    "skillPoints": 45,
+    "learnedSkills": [
+      "skill:100011"
+    ],
+    "sparks": [],
+    "scenarioResources": {
+      "happy_meek_badge": 3
+    },
+    "totalRngCalls": 30,
+    "telemetryRecords": 2
+  },
+  "outcomeB": {
+    "steps": 2,
+    "finalTurn": 7,
+    "careerComplete": false,
+    "completedRaces": [
+      "debut"
+    ],
+    "stats": {
+      "speed": 132,
+      "stamina": 88,
+      "power": 113,
+      "guts": 96,
+      "wit": 91
+    },
+    "energy": 45,
+    "mood": "NORMAL",
+    "fans": 886,
+    "skillPoints": 46,
+    "learnedSkills": [
+      "skill:100011"
+    ],
+    "sparks": [],
+    "scenarioResources": {
+      "happy_meek_badge": 3
+    },
+    "totalRngCalls": 31,
+    "telemetryRecords": 2
+  },
+  "caveats": [
+    "Both branches share the checkpoint's seed and RNG position, but RNG streams diverge the moment actions differ; later randomness is NOT matched between branches.",
+    "This comparison describes observed divergence only. It does not establish that one branch's decisions caused its outcome, nor that either branch is superior.",
+    "Action overrides that were not legal on their turn were rejected and fell back to the branch policy (flagged per step as overrideRejected)."
+  ]
+}

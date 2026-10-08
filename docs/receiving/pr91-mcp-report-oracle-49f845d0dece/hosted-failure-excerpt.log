@@ -1,0 +1,31 @@
+2026-10-08T12:34:29.7258285Z     # Subtest: branches compare actual decisions while preserving live sessions and checkpoint bytes
+2026-10-08T12:34:29.7267949Z     not ok 6 - branches compare actual decisions while preserving live sessions and checkpoint bytes
+2026-10-08T12:34:29.7269396Z       ---
+2026-10-08T12:34:29.7270326Z       duration_ms: 290.691484
+2026-10-08T12:34:29.7271627Z       location: '/home/runner/work/uma-sim/uma-sim/packages/uma-sim-mcp/tests/career-lab-native.test.mjs:123:11'
+2026-10-08T12:34:29.7277441Z       failureType: 'testCodeFailure'
+2026-10-08T12:34:29.7278258Z       error: |-
+2026-10-08T12:34:29.7279124Z         The input did not match the regular expression /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/. Input:
+2026-10-08T12:34:29.7279993Z         
+2026-10-08T12:34:29.7280404Z         '2026\\-10\\-08T12\\:34\\:29Z'
+2026-10-08T12:34:29.7280862Z         
+2026-10-08T12:34:29.7281219Z       code: 'ERR_ASSERTION'
+2026-10-08T12:34:29.7281668Z       name: 'AssertionError'
+2026-10-08T12:34:29.7282488Z       expected:
+2026-10-08T12:34:29.7282970Z       actual: '2026\\-10\\-08T12\\:34\\:29Z'
+2026-10-08T12:34:29.7283476Z       operator: 'match'
+2026-10-08T12:34:29.7283888Z       stack: |-
+2026-10-08T12:34:29.7284952Z         comparableReport (file:///home/runner/work/uma-sim/uma-sim/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs:153:10)
+2026-10-08T12:34:29.7287036Z         TestContext.<anonymous> (file:///home/runner/work/uma-sim/uma-sim/packages/uma-sim-mcp/tests/career-lab-native.test.mjs:146:18)
+2026-10-08T12:34:29.7288567Z         process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-10-08T12:34:29.7289570Z         async Test.run (node:internal/test_runner/test:797:9)
+2026-10-08T12:34:29.7290932Z         async TestContext.<anonymous> (file:///home/runner/work/uma-sim/uma-sim/packages/uma-sim-mcp/tests/career-lab-native.test.mjs:123:3)
+2026-10-08T12:34:29.7292233Z         async Test.run (node:internal/test_runner/test:797:9)
+2026-10-08T12:34:29.7293167Z         async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+2026-10-08T12:34:29.7293936Z       ...
+2026-10-08T12:34:29.8647398Z     # Subtest: invalid branch/import operations and deletions preserve unrelated native state
+2026-10-08T12:34:29.8676984Z     ok 7 - invalid branch/import operations and deletions preserve unrelated native state
+2026-10-08T12:34:29.8677564Z       ---
+2026-10-08T12:34:29.8677799Z       duration_ms: 140.314339
+2026-10-08T12:34:29.8678095Z       ...
+2026-10-08T12:34:29.8845028Z     1..7
