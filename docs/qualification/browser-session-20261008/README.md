@@ -28,7 +28,10 @@ selector too.
   errors and cleanup. Selection, reset and unmount invalidate earlier view
   requests. Clear the old playable state while a selection loads; failure
   leaves no stale action target. A synchronous guard prevents duplicate run
-  operations before React updates the controls.
+  operations before React updates the controls. Initial catalogs and health
+  remain tied to the mounted app while their busy cleanup stays fenced, so
+  selecting a career during initialization neither drops the catalogs nor
+  releases the selection's pending state.
 - Limit numeric shortcuts to the visible Run tab, respect editing/modifier/
   repeat/composition events, and use the same numbered choices as the UI.
 - Preserve explicit empty session IDs through the browser client and both
@@ -42,6 +45,7 @@ selector too.
 | --- | --- | --- |
 | Initial real-React store/client regressions | 8 failed | 8 passed |
 | Additional main/start/keyboard/export regressions | 4 failed | 4 passed |
+| Initialization overlapping a pending selection | 1 failed | 1 passed |
 | Native TCP API session-targeting regressions | 5 failed | 5 passed |
 | Existing API unit suite | 12 passed | 12 passed |
 | UI typecheck and production build | Not repeated for baseline | Passed |

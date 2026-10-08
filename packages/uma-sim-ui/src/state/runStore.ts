@@ -149,7 +149,7 @@ export function useRunStore() {
   }, []);
 
   const bootstrap = useCallback(async () => {
-    await withBusy(async (isCurrent) => {
+    await withBusy(async () => {
       const [health, scenarios, trainees, supports, factors] = await Promise.all([
         api.health(),
         api.catalogScenarios(),
@@ -157,7 +157,9 @@ export function useRunStore() {
         api.catalogSupports(),
         api.catalogFactors(),
       ]);
-      if (!isCurrent()) return;
+      // Catalogs and health belong to the mounted app, independently of a
+      // career selection. withBusy still fences this request's busy cleanup.
+      if (!mounted.current) return;
       dispatch({ type: "setHealth", health });
       dispatch({
         type: "setCatalogs",

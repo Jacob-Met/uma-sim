@@ -20,6 +20,7 @@ function fixtureServer() {
   const turns = { "": 1, a: 2, b: 3 };
   let active = "a";
   let offered = null;
+  let catalogItems = [];
   const meta = (id) => ({
     seed: id === "" ? 10 : id === "a" ? 20 : 30,
     traineeName: id || "main", scenarioId: "ura", objectiveProfile: "default",
@@ -50,7 +51,7 @@ function fixtureServer() {
     calls.push(call);
     let result;
     if (url.pathname === "/v1/health") result = { ok: true, version: "fixture", repoRoot: true };
-    else if (url.pathname.startsWith("/v1/catalog/")) result = { items: [] };
+    else if (url.pathname.startsWith("/v1/catalog/")) result = { items: catalogItems };
     else if (url.pathname === "/v1/library") result = { entries: [] };
     else if (url.pathname === "/v1/lab/branches") result = { branches: [] };
     else if (url.pathname === "/v1/sessions") {
@@ -79,6 +80,7 @@ function fixtureServer() {
     calls, fetch, turns,
     setActive(id) { active = id; },
     setChoices(value) { offered = value; },
+    setCatalogItems(value) { catalogItems = value; },
     hold(method, path) { const gate = deferred(); holds.push({ method, path, gate }); return gate; },
   };
 }
@@ -118,6 +120,24 @@ test("a delayed action cannot replace a newly selected session", async (t) => {
   await pending.finish(gate);
   assert.equal(store.value.state.snapshot.state.meta.traineeName, "b");
   assert.deepEqual(store.value.state.textLines, ["Career b"]);
+});
+
+test("bootstrap catalogs survive selection without releasing its pending request", async (t) => {
+  const server = fixtureServer();
+  server.setCatalogItems([{ id: "fixture", name: "Fixture" }]);
+  const store = await mountStore(t, server);
+  const bootstrapGate = server.hold("GET", "/v1/health");
+  const bootstrap = await store.begin("bootstrap");
+  server.setActive("b");
+  const selectionGate = server.hold("GET", "/v1/run/state");
+  const selection = await store.begin("refreshActive");
+  await bootstrap.finish(bootstrapGate);
+  assert.equal(store.value.state.health?.version, "fixture", "initial metadata is independent of career selection");
+  assert.deepEqual(store.value.state.catalogs.scenarios, [{ id: "fixture", name: "Fixture" }]);
+  assert.equal(store.value.state.busy, true, "bootstrap cleanup must not release selection");
+  await selection.finish(selectionGate);
+  assert.equal(store.value.state.snapshot.state.meta.traineeName, "b");
+  assert.equal(store.value.state.busy, false);
 });
 
 test("a superseded refresh cannot restore the previous session", async (t) => {
