@@ -1,0 +1,85 @@
+{
+  "node": "v20.19.0",
+  "platform": "linux",
+  "architecture": "x64",
+  "receiverIdentity": "qualified",
+  "receipts": [
+    {
+      "name": "reservation-collision",
+      "binarySha256": "bb9768847308f943b298d28a6afefd6575092fcd0ebad21b115ee0284622977d",
+      "identity": {
+        "uid": 0,
+        "gid": 0
+      },
+      "previousSha256": {
+        "snapshot": "0b00f5bf7a8fe3a77d2a0db992daa1f7cdf70ca017bca7102b747f03bf9ff573",
+        "metadata": "4129440a43f034fc2abb807a6215f9ce861a2888e5e3626e65d6d6d4ef0409e1"
+      },
+      "failure": {
+        "status": 500,
+        "body": {
+          "error": "storage error: could not preserve prior snapshot at /dev/shm/checkpoint-review-ac386303dce2/qualified/reservation-collision-6YtH9x/.uma-sim/library/.rollback-83-0-keep.snapshot.json: File exists (os error 17)"
+        }
+      },
+      "retry": {
+        "status": 200,
+        "seed": 91
+      },
+      "passed": true,
+      "serverLog": "uma-sim REST API on http://127.0.0.1:35753\nWeb UI: http://127.0.0.1:35753/\n"
+    },
+    {
+      "name": "partial-backup-write",
+      "binarySha256": "bb9768847308f943b298d28a6afefd6575092fcd0ebad21b115ee0284622977d",
+      "identity": {
+        "uid": 0,
+        "gid": 0
+      },
+      "previousSha256": {
+        "snapshot": "cc323dae04bf466479364531fe96562a1a8cb2f7ed55b1eff8a8cc354ceb1e58",
+        "metadata": "673ff598869a2d3d14c5ec9830f5b80150cf43e6011e30dee7de5af5b77188e9"
+      },
+      "failure": {
+        "status": 500,
+        "body": {
+          "error": "storage error: could not preserve prior snapshot: File too large (os error 27)"
+        }
+      },
+      "restoredStatus": 200,
+      "passed": true,
+      "serverLog": "uma-sim REST API on http://127.0.0.1:44045\nWeb UI: http://127.0.0.1:44045/\n"
+    },
+    {
+      "name": "refused-rollback",
+      "binarySha256": "bb9768847308f943b298d28a6afefd6575092fcd0ebad21b115ee0284622977d",
+      "identity": {
+        "uid": 0,
+        "gid": 0
+      },
+      "previousSha256": {
+        "snapshot": "9dabc39c2c11284f4aef777c87f6ff9a10bb9774d26be04259569a74e8e1449a",
+        "metadata": "673ff598869a2d3d14c5ec9830f5b80150cf43e6011e30dee7de5af5b77188e9"
+      },
+      "failure": {
+        "status": 500,
+        "body": {
+          "error": "storage error: storage error: rename failed: Permission denied (os error 13); snapshot restoration failed: Permission denied (os error 13); prior snapshot retained at /dev/shm/checkpoint-review-ac386303dce2/qualified/refused-rollback-LKN687/.uma-sim/library/.rollback-107-0-keep.snapshot.json"
+        }
+      },
+      "afterFailure": {
+        "snapshotMatchesPrior": false,
+        "metadataMatchesPrior": true,
+        "recoveryFiles": [
+          ".rollback-107-0-keep.snapshot.json"
+        ]
+      },
+      "manualRecovery": {
+        "status": 200,
+        "snapshotSha256": "9dabc39c2c11284f4aef777c87f6ff9a10bb9774d26be04259569a74e8e1449a",
+        "metadataSha256": "673ff598869a2d3d14c5ec9830f5b80150cf43e6011e30dee7de5af5b77188e9"
+      },
+      "passed": true,
+      "serverLog": "uma-sim REST API on http://127.0.0.1:42519\nWeb UI: http://127.0.0.1:42519/\n"
+    }
+  ]
+}
