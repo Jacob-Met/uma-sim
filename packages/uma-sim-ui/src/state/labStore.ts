@@ -133,15 +133,8 @@ export function useLabStore(refreshRun: () => Promise<void>) {
 
   const importCheckpoint = useCallback(
     async (raw: string, name: string) => {
-      let snapshot: unknown;
-      try {
-        snapshot = JSON.parse(raw);
-      } catch {
-        patch({ error: "Import: not valid JSON" });
-        return;
-      }
       const entry = await withBusy(() =>
-        api.libraryImport({ snapshot, name: name.trim() || undefined }),
+        api.libraryImportJson(raw, name.trim() || undefined),
       );
       if (entry) patch({ library: await api.library() });
     },
