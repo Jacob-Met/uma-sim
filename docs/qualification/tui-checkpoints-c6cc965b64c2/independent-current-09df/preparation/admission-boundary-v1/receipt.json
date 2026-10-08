@@ -1,0 +1,382 @@
+{
+  "schema": "hamon.uma.terminal_durable.admission_boundary.v1",
+  "source_commit": null,
+  "source_parent": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+  "source_manifest_sha256": "77e1394a5f033fa72b02e2d59a34b03ef9e9bf294c665db303618384c68a1027",
+  "binary": {
+    "path": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+    "sha256": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6"
+  },
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "source_before": {
+    "owner_and_received_files": 11,
+    "baseline_tui_exact": true,
+    "binary_exact": true
+  },
+  "cases": [
+    {
+      "name": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "status": "failure",
+      "elapsed_ms": 132,
+      "error": "expected prompt: ",
+      "stack": "AssertionError [ERR_ASSERTION]: expected prompt: \n    at Object.ready (file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1.mjs:65:120)\n    at async file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1.mjs:103:76\n    at async group (file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1.mjs:70:114)\n    at async file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1.mjs:99:2"
+    }
+  ],
+  "clients": [
+    {
+      "number": 1,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "args": [
+        "--session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "",
+      "exit": null,
+      "error": "spawn /opt/homebrew/bin/node ENOENT"
+    }
+  ],
+  "http_requests": [
+    {
+      "sequence": 1,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "",
+        "seed": "-9007199254740993",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "490c5f029460c10f779d3b44d83d14a33423047bd7205f47959ff6c51a41563c",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 2,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "351ea5ace055e6a77d644c9532168cb4b059113a6735ad85c7e65fb9ba9fff98",
+      "response_bytes": 181
+    },
+    {
+      "sequence": 3,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 4,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "490c5f029460c10f779d3b44d83d14a33423047bd7205f47959ff6c51a41563c",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 5,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "seed": "-9223372036854775807",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "2d0a7f4981b5ce515bfe5561e96db984dee23f98b52051b1155071c4d2a3bd1c",
+      "response_bytes": 2843
+    },
+    {
+      "sequence": 6,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "2d0a7f4981b5ce515bfe5561e96db984dee23f98b52051b1155071c4d2a3bd1c",
+      "response_bytes": 2843
+    },
+    {
+      "sequence": 7,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "4072442e05493e3463dd2019c2f1e20c6b58dabf5afa3b050e1745a78e178800",
+      "response_bytes": 2776
+    },
+    {
+      "sequence": 8,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "ad5ea0402aca5b112b4c03c7dea24115605f82df2f022e45a8f1ef3b69c3e998",
+      "response_bytes": 2708
+    },
+    {
+      "sequence": 9,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "ef3bbc5d2591de0ca55e8a7ebf265989a06e6211b7f0ac8d13ad4bc46aed3411",
+      "response_bytes": 2734
+    },
+    {
+      "sequence": 10,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "78928e8c6cfb587ec4ef5434638beea0b2017624b4f90a68023f19137189e7e2",
+      "response_bytes": 2750
+    },
+    {
+      "sequence": 11,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "fe657314d1a1b6013a8fcd876a78c101933d1642fa12ba2aeb9dcb7ca8a35cd2",
+      "response_bytes": 2751
+    },
+    {
+      "sequence": 12,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "5eb2e4b7fbaacb4db3a64b69ae3d7f2fd70d08039e8f6f850a1c01865c579e09",
+      "response_bytes": 2786
+    },
+    {
+      "sequence": 13,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "3caa33b7768b7f241d0f8fb98b798e9764d8c3b3aea4938b372c57affd0b212c",
+      "response_bytes": 2808
+    },
+    {
+      "sequence": 14,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "35e4ca8946e32b3ec8d0198412d0a5db4dc4c91daf85e0e92de99e637084e2f1",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 15,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "bystander",
+        "seed": "9007199254740993",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "5aa611bae813cff970435c2ff12204013ec6804690e8bf14916b40deefc9d9bf",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 16,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "5aa611bae813cff970435c2ff12204013ec6804690e8bf14916b40deefc9d9bf",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 17,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "overwrite": false
+      },
+      "status": 200,
+      "response_sha256": "27352728da3cf6a615287caccd9983a53fe6577cc2cf48c0a57b643c24aacf7e",
+      "response_bytes": 503
+    },
+    {
+      "sequence": 18,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "35e4ca8946e32b3ec8d0198412d0a5db4dc4c91daf85e0e92de99e637084e2f1",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 19,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "id": "admission-action-oracle"
+      },
+      "status": 200,
+      "response_sha256": "5afb2810b19dca37dcd30e56e5b1ff760dca4b218bce9e6e260598f218ef76e5",
+      "response_bytes": 223
+    },
+    {
+      "sequence": 20,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "admission-action-oracle",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "056a26f9dfb560b2e9219d567a740ef85996a861f91adc68ad240e0229b21d9a",
+      "response_bytes": 3022
+    },
+    {
+      "sequence": 21,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=admission-action-oracle",
+      "status": 200,
+      "response_sha256": "11838a023082759156142104c01a70a0ebd4bcacc02c64effb2df25e151739e1",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 22,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 23,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6153dfc8ac95091bd0accac249b3c7b5b2e37b8c4523cd986e35f59432594605",
+      "response_bytes": 820
+    }
+  ],
+  "native_processes": [
+    {
+      "pid": 13,
+      "port": 43595,
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1/api-cwd",
+      "binary": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+      "args": [
+        "43595"
+      ],
+      "environment": {
+        "UMA_REPO_ROOT": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/source-composition",
+        "UMA_POLICY_CMD": "omitted"
+      },
+      "stdout": "uma-sim REST API on http://127.0.0.1:43595\nWeb UI: http://127.0.0.1:43595/\n",
+      "stderr": "",
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM"
+      }
+    }
+  ],
+  "status": "failure",
+  "qualified": false,
+  "error": "expected prompt: ",
+  "stack": "AssertionError [ERR_ASSERTION]: expected prompt: \n    at Object.ready (file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1.mjs:65:120)\n    at async file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1.mjs:103:76\n    at async group (file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1.mjs:70:114)\n    at async file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/admission-boundary-v1.mjs:99:2",
+  "finished_utc": "2026-10-08T12:50:53.730Z",
+  "summary": {
+    "groups": 1,
+    "passed": 0,
+    "failures": 1,
+    "terminal_processes": 1,
+    "native_api_processes": 1,
+    "http_requests": 23
+  }
+}

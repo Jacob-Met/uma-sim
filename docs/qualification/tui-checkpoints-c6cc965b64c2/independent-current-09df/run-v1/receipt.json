@@ -1,0 +1,4397 @@
+{
+  "schema": "hamon.uma.terminal_durable.independent.v1",
+  "source_commit": null,
+  "source_parent": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+  "source_manifest_sha256": "ddbb356e55f808cf3111a4c79f862e062db072a04730f2f9a14f4cf0a1e6147d",
+  "binary": {
+    "path": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+    "sha256": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6"
+  },
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "source_before": {
+    "owner_and_received_files": 11,
+    "baseline_tui_exact": true,
+    "binary_exact": true
+  },
+  "cases": [
+    {
+      "name": "baseline-command-is-not-a-durable-save",
+      "status": "pass",
+      "elapsed_ms": 710,
+      "http_requests": 19,
+      "details": {
+        "before": {
+          "path": "artifacts/baseline-before.json",
+          "bytes": 3044,
+          "sha256": "59979e914ef5c27ffd35e8db55c49b45cce3238fbf2d4c4be3545a8fa4c63cae"
+        },
+        "after": {
+          "path": "artifacts/baseline-after.json",
+          "bytes": 3055,
+          "sha256": "d32d88890ff2d9f251a9a1ceb3532f4187617a34ad517292bff9c450b2cc5521"
+        },
+        "state_changed": true,
+        "baseline_post_went_to_action": true,
+        "no_checkpoint_created": true
+      }
+    },
+    {
+      "name": "64-byte-checkpoint-name-and-exact-i64-save",
+      "status": "pass",
+      "elapsed_ms": 466,
+      "http_requests": 17,
+      "details": {
+        "name_length": 64,
+        "session_length": 64,
+        "exact_seed": "-9223372036854775807",
+        "saved_snapshot": {
+          "path": "artifacts/checkpoint-original.snapshot.json",
+          "bytes": 3172,
+          "sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5"
+        },
+        "saved_meta": {
+          "path": "artifacts/checkpoint-original.meta.json",
+          "bytes": 579,
+          "sha256": "478156cf7802fb9b910d1ca96aa609903d59246d92093e356ddb10c02e6c6dc6"
+        },
+        "checkpoint_hashes": {
+          "snapshot": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+          "meta": "478156cf7802fb9b910d1ca96aa609903d59246d92093e356ddb10c02e6c6dc6"
+        }
+      }
+    },
+    {
+      "name": "duplicate-local-validation-and-read-only-listing",
+      "status": "pass",
+      "elapsed_ms": 1018,
+      "http_requests": 39,
+      "details": {
+        "invalid_names": 5,
+        "native_conflict_status": 409,
+        "only_post_is_explicit_duplicate_save": true,
+        "active_unchanged": true,
+        "checkpoint_bytes_unchanged": true
+      }
+    },
+    {
+      "name": "live-targeting-and-frozen-checkpoint-after-action",
+      "status": "pass",
+      "elapsed_ms": 480,
+      "http_requests": 16,
+      "details": {
+        "before": {
+          "path": "artifacts/primary-before-auto.json",
+          "bytes": 3172,
+          "sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5"
+        },
+        "after": {
+          "path": "artifacts/primary-after-auto.json",
+          "bytes": 3305,
+          "sha256": "e773afdfafdfbfab755a68441f29a2d3c1d18e34e01c4b2ea49c1db560174344"
+        },
+        "checkpoint_remains_old_snapshot": true
+      }
+    },
+    {
+      "name": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "status": "pass",
+      "elapsed_ms": 755,
+      "http_requests": 40,
+      "details": {
+        "forks": [
+          "tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+          "tui-916943f8-6e00-463d-a6ee-4f659ed9eaad"
+        ],
+        "exact_frozen_initial_data": true,
+        "one_real_bot_step_matches_independent_native_oracle": true,
+        "race_save_winner": "tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+        "one_save_success_one_conflict": true
+      }
+    },
+    {
+      "name": "actual-api-restart-and-lost-live-session",
+      "status": "pass",
+      "elapsed_ms": 734,
+      "http_requests": 6,
+      "details": {
+        "api_pids": [
+          13,
+          75
+        ],
+        "same_cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/api-cwd",
+        "checkpoint_bytes_survive": true,
+        "live_sessions_do_not_survive": true,
+        "list_and_dead_resume_are_reads_only": true
+      }
+    },
+    {
+      "name": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "status": "pass",
+      "elapsed_ms": 1057,
+      "http_requests": 30,
+      "details": {
+        "recovered_id": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+        "equals_form_required_for_leading_dashes": true,
+        "steps": [
+          {
+            "turn": 9,
+            "rng_calls": 44,
+            "snapshot": {
+              "path": "artifacts/restart-step-0.json",
+              "bytes": 3305,
+              "sha256": "0b62286068bcc9d4e3be48232769848080ed2367e31818dde17de52811b40e4b"
+            }
+          },
+          {
+            "turn": 10,
+            "rng_calls": 48,
+            "snapshot": {
+              "path": "artifacts/restart-step-1.json",
+              "bytes": 3439,
+              "sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f"
+            }
+          }
+        ],
+        "original_checkpoint_exact": true
+      }
+    },
+    {
+      "name": "default-new-career-preserves-main-and-named-careers",
+      "status": "pass",
+      "elapsed_ms": 387,
+      "http_requests": 12,
+      "details": {
+        "new_id": "tui-c6781297-49a1-40b7-9abc-62f61f507b47",
+        "main_and_named_preserved": true
+      }
+    },
+    {
+      "name": "native-checkpoint-errors-never-create-fallback-careers",
+      "status": "pass",
+      "elapsed_ms": 934,
+      "http_requests": 15,
+      "details": {
+        "native_statuses": [
+          {
+            "name": "missing-receiving",
+            "status": 404
+          },
+          {
+            "name": "bad-meta",
+            "status": 500
+          },
+          {
+            "name": "bad-snapshot",
+            "status": 400
+          },
+          {
+            "name": "future-schema",
+            "status": 422
+          }
+        ],
+        "no_replacement_start_or_new_session": true,
+        "malformed_inputs_retained": true
+      }
+    },
+    {
+      "name": "native-meta-write-failure-rolls-back-new-snapshot",
+      "status": "pass",
+      "elapsed_ms": 499,
+      "http_requests": 16,
+      "details": {
+        "native_status": 500,
+        "blocked_meta_temporary_path": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/api-cwd/.uma-sim/library/.tmp-75-meta-write-blocked.meta.json",
+        "first_written_snapshot_removed": true,
+        "no_partial_checkpoint": true,
+        "session_and_existing_checkpoint_unchanged": true
+      }
+    },
+    {
+      "name": "lost-save-response-retains-name-without-automatic-replay",
+      "status": "pass",
+      "elapsed_ms": 583,
+      "http_requests": 20,
+      "details": {
+        "native_commit_status": 200,
+        "post_commit_transport_fault": true,
+        "save_requests": 1,
+        "checkpoint_available_on_explicit_list": true,
+        "recovery_names_checkpoint_and_session": true
+      }
+    },
+    {
+      "name": "eof-during-held-save-retains-committed-checkpoint",
+      "status": "pass",
+      "elapsed_ms": 427,
+      "http_requests": 12,
+      "details": {
+        "exit_code": 0,
+        "native_commit_status": 200,
+        "save_requests": 1,
+        "no_implicit_retry": true,
+        "checkpoint_retained": true
+      }
+    },
+    {
+      "name": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "status": "pass",
+      "elapsed_ms": 563,
+      "http_requests": 16,
+      "details": {
+        "exit_code": 130,
+        "recoverable_id": "tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a",
+        "fork_requests": 1,
+        "created_sessions": 1,
+        "explicit_live_resume_succeeded": true
+      }
+    },
+    {
+      "name": "lost-action-response-applies-once-to-bound-session",
+      "status": "pass",
+      "elapsed_ms": 587,
+      "http_requests": 20,
+      "details": {
+        "native_commit_status": 200,
+        "auto_requests": 1,
+        "exact_independent_one_step_result": true,
+        "active_bystander_unchanged": true
+      }
+    },
+    {
+      "name": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "status": "pass",
+      "elapsed_ms": 902,
+      "http_requests": 5,
+      "details": {
+        "parser_cases": 9,
+        "http_requests": 0
+      }
+    },
+    {
+      "name": "all-terminal-routes-remain-explicit-and-never-reset",
+      "status": "pass",
+      "elapsed_ms": 4,
+      "http_requests": 0,
+      "details": {
+        "terminal_requests": 156,
+        "explicitly_addressed_run_and_save_requests": 123,
+        "every_save_is_create_only": true,
+        "no_load_activate_close_delete_route": true
+      }
+    }
+  ],
+  "clients": [
+    {
+      "number": 1,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "args": [
+        "--session=baseline-receiving"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/baseline/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: baseline-receiving\nResume this career with --session=baseline-receiving\numa-sim TUI — [choice] | auto | fast | state | quit\n\n\n┌─ State ─────────────────────\nTurn 5  Y1 M8\nSPD 104 STA 88 POW 108\nGUT 94 WIT 91\nE 25  Mood NORMAL  Fans 301  SP 21\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 5) ---\nDate: Year 1, Month 8, Late\nStats: SPD 104 STA 88 POW 108 GUT 94 WIT 91\nEnergy: 25/100  Mood: Normal  Fans: 301  SP: 21\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 6  Y1 M9\nSPD 104 STA 88 POW 108\nGUT 94 WIT 91\nE 75  Mood GOOD  Fans 301  SP 21\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 6) ---\nDate: Year 1, Month 9, Early\nStats: SPD 104 STA 88 POW 108 GUT 94 WIT 91\nEnergy: 75/100  Mood: Good  Fans: 301  SP: 21\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 19
+    },
+    {
+      "number": 2,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "args": [
+        "--session",
+        "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\nResume this career with --session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> Saved checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' from session 'edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'. Reopen with --checkpoint=--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 27
+    },
+    {
+      "number": 3,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "args": [
+        "--session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\nResume this career with --session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> --KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\tturn 8\tura\tSpecial Week\tsaved 2026-10-08T12:52:16Z\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "POST /v1/library/save: HTTP 409: entry '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' already exists and was not replaced\nUse save NAME: 1–64 letters, digits, '.', '_' or '-'; '.' and '..' are reserved. Existing checkpoints are never overwritten.\nUse save NAME: 1–64 letters, digits, '.', '_' or '-'; '.' and '..' are reserved. Existing checkpoints are never overwritten.\nUse save NAME: 1–64 letters, digits, '.', '_' or '-'; '.' and '..' are reserved. Existing checkpoints are never overwritten.\nUse save NAME: 1–64 letters, digits, '.', '_' or '-'; '.' and '..' are reserved. Existing checkpoints are never overwritten.\nUse save NAME: 1–64 letters, digits, '.', '_' or '-'; '.' and '..' are reserved. Existing checkpoints are never overwritten.\n",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 35
+    },
+    {
+      "number": 4,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "args": [
+        "--list-checkpoints"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\tturn 8\tura\tSpecial Week\tsaved 2026-10-08T12:52:16Z\n",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 43
+    },
+    {
+      "number": 5,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "args": [
+        "--session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\nResume this career with --session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 9  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 425  SP 40\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 9) ---\nDate: Year 1, Month 10, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 425  SP: 40\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 51
+    },
+    {
+      "number": 6,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "args": [
+        "--checkpoint=--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Opening checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' as session: tui-531dd38d-a972-4af7-b9bf-da33c5b537ea\nOpened checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' as session: tui-531dd38d-a972-4af7-b9bf-da33c5b537ea\nResume this career with --session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 9  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 425  SP 40\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 9) ---\nDate: Year 1, Month 10, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 425  SP: 40\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 9  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 425  SP 40\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 9) ---\nDate: Year 1, Month 10, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 425  SP: 40\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "POST /v1/library/save: HTTP 409: entry 'race-save' already exists and was not replaced\n",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 59
+    },
+    {
+      "number": 7,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "args": [
+        "--checkpoint=--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Opening checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' as session: tui-916943f8-6e00-463d-a6ee-4f659ed9eaad\nOpened checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' as session: tui-916943f8-6e00-463d-a6ee-4f659ed9eaad\nResume this career with --session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> {\n  \"meta\": {\n    \"seed\": -9223372036854776000,\n    \"scenarioId\": \"ura\",\n    \"traineeName\": \"Special Week\",\n    \"objectiveProfile\": \"general\",\n    \"legacyFactors\": [],\n    \"parentNames\": [],\n    \"deckSupports\": [],\n    \"compatibilityScore\": 0\n  },\n  \"settings\": {\n    \"dialogueMode\": \"CHOICES_ONLY\",\n    \"speedMultiplier\": 1,\n    \"allowDialogueAtHighSpeed\": false,\n    \"traceTelemetry\": true,\n    \"traceRng\": true,\n    \"raceModel\": \"physics\"\n  },\n  \"state\": {\n    \"meta\": {\n      \"seed\": -9223372036854776000,\n      \"scenarioId\": \"ura\",\n      \"traineeName\": \"Special Week\",\n      \"objectiveProfile\": \"general\",\n      \"legacyFactors\": [],\n      \"parentNames\": [],\n      \"deckSupports\": [],\n      \"compatibilityScore\": 0\n    },\n    \"date\": {\n      \"year\": 1,\n      \"month\": 10,\n      \"half\": 1\n    },\n    \"turn\": 8,\n    \"stats\": {\n      \"speed\": 116,\n      \"stamina\": 88,\n      \"power\": 114,\n      \"guts\": 96,\n      \"wit\": 91\n    },\n    \"energy\": 20,\n    \"maxEnergy\": 100,\n    \"mood\": \"NORMAL\",\n    \"fans\": 248,\n    \"skillPoints\": 20,\n    \"careerComplete\": false,\n    \"awaitingChoice\": false,\n    \"pendingEventTitle\": null,\n    \"pendingRaceId\": null,\n    \"phase\": \"FREE\",\n    \"completedRaces\": [\n      \"debut\"\n    ],\n    \"facilityLevels\": {\n      \"guts\": 1,\n      \"wit\": 1,\n      \"stamina\": 1,\n      \"power\": 1,\n      \"speed\": 1\n    },\n    \"facilityTrainCounts\": {\n      \"speed\": 3\n    },\n    \"pendingEventOptions\": [],\n    \"hintLevels\": {\n      \"skill:200732\": 1,\n      \"skill:200512\": 1,\n      \"skill:201352\": 1\n    },\n    \"statuses\": [],\n    \"performanceTokens\": {},\n    \"scenarioResources\": {\n      \"values\": {\n        \"happy_meek_badge\": 0\n      }\n    },\n    \"legacy\": {\n      \"parentNames\": [],\n      \"factorIds\": [],\n      \"inheritedSkillIds\": [],\n      \"sparkCaps\": {},\n      \"blueStartBonuses\": {},\n      \"pinkFactorIds\": [],\n      \"pinkAptitudeTags\": [],\n      \"pinkStarTotals\": {},\n      \"aptitudes\": {\n        \"front\": \"G\",\n        \"mile\": \"C\",\n        \"dirt\": \"G\",\n        \"end\": \"C\",\n        \"medium\": \"A\",\n        \"pace\": \"A\",\n        \"late\": \"A\",\n        \"turf\": \"A\",\n        \"sprint\": \"F\",\n        \"long\": \"A\"\n      },\n      \"raceFactorIds\": [],\n      \"inheritanceComplete\": false,\n      \"inspirationEventsDone\": 0\n    },\n    \"learnedSkillIds\": [\n      \"skill:100011\"\n    ],\n    \"deck\": {\n      \"slots\": []\n    },\n    \"log\": [\n      \"Career started: Special Week / ura / seed=-9223372036854775807\",\n      \"Race debut 9th +248 fans [physics t=75.867s course=10601 seed=1440217154 field=9 margin_win=8.733s margin_ahead=0.000s]\",\n      \"Trained SPEED +10\",\n      \"Trained SPEED +11\",\n      \"Training failed at SPEED.\",\n      \"Rested\",\n      \"Trained SPEED +12\",\n      \"Training failed at SPEED.\"\n    ],\n    \"generatedSparks\": [],\n    \"baseAptitudes\": {\n      \"late\": \"A\",\n      \"mile\": \"C\",\n      \"dirt\": \"G\",\n      \"turf\": \"A\",\n      \"sprint\": \"F\",\n      \"long\": \"A\",\n      \"medium\": \"A\",\n      \"front\": \"G\",\n      \"pace\": \"A\",\n      \"end\": \"C\"\n    }\n  },\n  \"rngSeed\": -9223372036854776000,\n  \"rngCalls\": 40,\n  \"rngState\": {\n    \"x\": 284352852,\n    \"y\": -218083729,\n    \"z\": 2121050703,\n    \"w\": -1634070740,\n    \"v\": 600915102,\n    \"addend\": 181697999\n  }\n}\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> Saved checkpoint 'race-save' from session 'tui-916943f8-6e00-463d-a6ee-4f659ed9eaad'. Reopen with --checkpoint=race-save\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 60
+    },
+    {
+      "number": 8,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "args": [
+        "--list-checkpoints"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "race-save\tturn 8\tura\tSpecial Week\tsaved 2026-10-08T12:52:19Z\n--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\tturn 8\tura\tSpecial Week\tsaved 2026-10-08T12:52:16Z\n",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 81
+    },
+    {
+      "number": 9,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "args": [
+        "--session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "GET /v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN: HTTP 404: no such session 'edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 89
+    },
+    {
+      "number": 10,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "args": [
+        "--checkpoint",
+        "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--checkpoint needs a saved name: 1–64 letters, digits, '.', '_' or '-'. Use --list-checkpoints to find one.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 97
+    },
+    {
+      "number": 11,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "args": [
+        "--checkpoint=--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Opening checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' as session: tui-36f813c8-68e4-486e-bbb0-641a0582bb31\nOpened checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' as session: tui-36f813c8-68e4-486e-bbb0-641a0582bb31\nResume this career with --session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 9  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 425  SP 40\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 9) ---\nDate: Year 1, Month 10, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 425  SP: 40\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 10  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 560  SP 60\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 10) ---\nDate: Year 1, Month 11, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 560  SP: 60\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 105
+    },
+    {
+      "number": 12,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "args": [],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "New session: tui-c6781297-49a1-40b7-9abc-62f61f507b47\nResume this career with --session=tui-c6781297-49a1-40b7-9abc-62f61f507b47\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 1  Y1 M6\nSPD 83 STA 88 POW 98\nGUT 90 WIT 91\nE 100  Mood NORMAL  Fans 0  SP 0\nPhase: MANDATORY_RACE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: happy_meek_badge=0\n\nChoices: race (Enter mandatory race: debut)\n\n> ",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 113
+    },
+    {
+      "number": 13,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "args": [
+        "--checkpoint=missing-receiving"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Opening checkpoint 'missing-receiving' as session: tui-730273c8-541b-4aef-9ea2-23189048ec4e\n",
+      "stderr": "POST /v1/session/fork: HTTP 404: no checkpoint named 'missing-receiving'\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 121
+    },
+    {
+      "number": 14,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "args": [
+        "--checkpoint=bad-meta"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Opening checkpoint 'bad-meta' as session: tui-bcf41699-a722-4e49-a31f-afa594ef0a2a\n",
+      "stderr": "POST /v1/session/fork: HTTP 500: storage error: EOF while parsing an object at line 1 column 1\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 129
+    },
+    {
+      "number": 15,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "args": [
+        "--checkpoint=bad-snapshot"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Opening checkpoint 'bad-snapshot' as session: tui-5290d858-2974-46f5-bb06-f5d2dea2c263\n",
+      "stderr": "POST /v1/session/fork: HTTP 400: snapshot failed validation and was not imported: EOF while parsing an object at line 1 column 1\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 137
+    },
+    {
+      "number": 16,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "args": [
+        "--checkpoint=future-schema"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Opening checkpoint 'future-schema' as session: tui-00284fb4-b04c-4d87-8030-f95c8207e6fb\n",
+      "stderr": "POST /v1/session/fork: HTTP 422: incompatible snapshot: snapshot schema v999 is not readable by this build (expects v1)\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 145
+    },
+    {
+      "number": 17,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "args": [
+        "--session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: tui-36f813c8-68e4-486e-bbb0-641a0582bb31\nResume this career with --session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 10  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 560  SP 60\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 10) ---\nDate: Year 1, Month 11, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 560  SP: 60\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 10  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 560  SP 60\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 10) ---\nDate: Year 1, Month 11, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 560  SP: 60\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "POST /v1/library/save: HTTP 500: storage error: Is a directory (os error 21)\n",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 153
+    },
+    {
+      "number": 18,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "args": [
+        "--session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: tui-36f813c8-68e4-486e-bbb0-641a0582bb31\nResume this career with --session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 10  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 560  SP 60\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 10) ---\nDate: Year 1, Month 11, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 560  SP: 60\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 10  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 560  SP 60\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 10) ---\nDate: Year 1, Month 11, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 560  SP: 60\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> lost-save\tturn 10\tura\tSpecial Week\tsaved 2026-10-08T12:52:23Z\nrace-save\tturn 8\tura\tSpecial Week\tsaved 2026-10-08T12:52:19Z\n--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\tturn 8\tura\tSpecial Week\tsaved 2026-10-08T12:52:16Z\nbad-snapshot\tturn 8\tura\tSpecial Week\tsaved 2026-10-08T12:52:16Z\nfuture-schema\tturn 8\tura\tSpecial Week\tsaved 2026-10-08T12:52:16Z\n\n┌─ State ─────────────────────\nTurn 10  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 560  SP 60\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 10) ---\nDate: Year 1, Month 11, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 560  SP: 60\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "POST /v1/library/save: fetch failed\nCheckpoint 'lost-save' may have been saved. Use checkpoints or --list-checkpoints to inspect the library before trying another save.\nThe request may have reached the server. Resume with --session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31 and inspect state before retrying; no action was retried automatically.\n",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 161
+    },
+    {
+      "number": 19,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "args": [
+        "--session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: tui-36f813c8-68e4-486e-bbb0-641a0582bb31\nResume this career with --session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 10  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 560  SP 60\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 10) ---\nDate: Year 1, Month 11, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 560  SP: 60\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "POST /v1/library/save: This operation was aborted\nCheckpoint 'eof-save' may have been saved. Use checkpoints or --list-checkpoints to inspect the library before trying another save.\nThe request may have reached the server. Resume with --session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31 and inspect state before retrying; no action was retried automatically.\n",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 169
+    },
+    {
+      "number": 20,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "args": [
+        "--checkpoint=--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Opening checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' as session: tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a\n",
+      "stderr": "POST /v1/session/fork: This operation was aborted\nThe request may have reached the server. Resume with --session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a and inspect state before retrying; no action was retried automatically.\n",
+      "exit": {
+        "code": 130,
+        "signal": null
+      },
+      "pid": 177
+    },
+    {
+      "number": 21,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "args": [
+        "--session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a\nResume this career with --session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 185
+    },
+    {
+      "number": 22,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "args": [
+        "--session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "Resuming session: tui-36f813c8-68e4-486e-bbb0-641a0582bb31\nResume this career with --session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 10  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 560  SP 60\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 10) ---\nDate: Year 1, Month 11, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 560  SP: 60\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 11  Y1 M11\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 691  SP 80\nPhase: EVENT\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 11) ---\nDate: Year 1, Month 11, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 691  SP: 80\nScenario: happy_meek_badge=0\n\nChoices: event_0 (Energy -5) | event_1 (Energy +5)\n\n> ",
+      "stderr": "POST /v1/run/auto: fetch failed\nThe request may have reached the server. Resume with --session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31 and inspect state before retrying; no action was retried automatically.\n",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 193
+    },
+    {
+      "number": 23,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--checkpoint="
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--checkpoint needs a saved name: 1–64 letters, digits, '.', '_' or '-'. Use --list-checkpoints to find one.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 201
+    },
+    {
+      "number": 24,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--checkpoint",
+        "--new"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--checkpoint needs a saved name: 1–64 letters, digits, '.', '_' or '-'. Use --list-checkpoints to find one.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 209
+    },
+    {
+      "number": 25,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--checkpoint=--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "--session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--session resumes a live career; do not combine it with another mode, a seed or a scenario.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 217
+    },
+    {
+      "number": 26,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--checkpoint=x",
+        "43"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--checkpoint resumes a saved career; do not combine it with another mode, a seed or a scenario.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 225
+    },
+    {
+      "number": 27,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--checkpoint=x",
+        "--list-checkpoints"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--checkpoint resumes a saved career; do not combine it with another mode, a seed or a scenario.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 233
+    },
+    {
+      "number": 28,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--checkpoint=ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--checkpoint needs a saved name: 1–64 letters, digits, '.', '_' or '-'. Use --list-checkpoints to find one.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 241
+    },
+    {
+      "number": 29,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--checkpoint=../escape"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--checkpoint needs a saved name: 1–64 letters, digits, '.', '_' or '-'. Use --list-checkpoints to find one.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 249
+    },
+    {
+      "number": 30,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--checkpoint=界"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "--checkpoint needs a saved name: 1–64 letters, digits, '.', '_' or '-'. Use --list-checkpoints to find one.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 257
+    },
+    {
+      "number": 31,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "args": [
+        "--list-checkpoints",
+        "--list-sessions"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "List options cannot be combined with each other or career creation options.\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 265
+    }
+  ],
+  "http_requests": [
+    {
+      "sequence": 1,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "baseline-receiving",
+        "seed": "123",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "602c5f1c722c1d190ba417d4d813a2f95760b972da93674589a7d070858f8cac",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 2,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "status": 200,
+      "response_sha256": "602c5f1c722c1d190ba417d4d813a2f95760b972da93674589a7d070858f8cac",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 3,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "baseline-receiving",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "22b0f197deffd55874aa05a539780aeda8abdac724f1cdf4b0a688e6ae8c6c64",
+      "response_bytes": 2706
+    },
+    {
+      "sequence": 4,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "baseline-receiving",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "e1f49e4aedfd8663428d9de8aee36a40d2388012770a2937aa9966aef93338c5",
+      "response_bytes": 2650
+    },
+    {
+      "sequence": 5,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "baseline-receiving",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "30520e0713fb679b43a7440554755a19ac8884acf27ecac8bf8088ad068d8e5f",
+      "response_bytes": 2669
+    },
+    {
+      "sequence": 6,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "baseline-receiving",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "f4b16cf5ee07c3660f062c59cfc5de170970fbec62cef27b0f49d4a68fd9c8ac",
+      "response_bytes": 2701
+    },
+    {
+      "sequence": 7,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "status": 200,
+      "response_sha256": "59979e914ef5c27ffd35e8db55c49b45cce3238fbf2d4c4be3545a8fa4c63cae",
+      "response_bytes": 3044
+    },
+    {
+      "sequence": 8,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "status": 200,
+      "response_sha256": "59979e914ef5c27ffd35e8db55c49b45cce3238fbf2d4c4be3545a8fa4c63cae",
+      "response_bytes": 3044
+    },
+    {
+      "sequence": 9,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 10,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "59979e914ef5c27ffd35e8db55c49b45cce3238fbf2d4c4be3545a8fa4c63cae",
+      "response_bytes": 3044
+    },
+    {
+      "sequence": 11,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "59979e914ef5c27ffd35e8db55c49b45cce3238fbf2d4c4be3545a8fa4c63cae",
+      "response_bytes": 3044
+    },
+    {
+      "sequence": 12,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=baseline-receiving",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e5606511a506982d1a98c98f183de329c5c646e17199ebae87d6516d0f0fa39c",
+      "response_bytes": 186
+    },
+    {
+      "sequence": 13,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=baseline-receiving",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 14,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/action",
+      "body": {
+        "action": "save baseline-sentinel",
+        "session": "baseline-receiving"
+      },
+      "request_raw": "{\"action\":\"save baseline-sentinel\",\"session\":\"baseline-receiving\"}",
+      "status": 200,
+      "response_sha256": "8510844aa6098c0f38f5904972242d3e0727adac453d279636741bff369c0058",
+      "response_bytes": 2687
+    },
+    {
+      "sequence": 15,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "d32d88890ff2d9f251a9a1ceb3532f4187617a34ad517292bff9c450b2cc5521",
+      "response_bytes": 3055
+    },
+    {
+      "sequence": 16,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=baseline-receiving",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "c8c910b61631fc95214f04a422cce80b9959dcf681b70b811442683f16eba682",
+      "response_bytes": 185
+    },
+    {
+      "sequence": 17,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=baseline-receiving",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 18,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "status": 200,
+      "response_sha256": "d32d88890ff2d9f251a9a1ceb3532f4187617a34ad517292bff9c450b2cc5521",
+      "response_bytes": 3055
+    },
+    {
+      "sequence": 19,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/library",
+      "status": 200,
+      "response_sha256": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "response_bytes": 14
+    },
+    {
+      "sequence": 20,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "",
+        "seed": "-9007199254740993",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "87abf962b5b01f8ced32962c3f7d3082421f42790066e5c7d1c062ddfd94fbbf",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 21,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "ae6352991ecb8a6217f273b66460167f977147f279a479c6d321254db9734a43",
+      "response_bytes": 344
+    },
+    {
+      "sequence": 22,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 23,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "87abf962b5b01f8ced32962c3f7d3082421f42790066e5c7d1c062ddfd94fbbf",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 24,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "seed": "-9223372036854775807",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "631bcedd892f89162f92c538de02e444e0ff2c1b8ffe223569d17784cf7648c5",
+      "response_bytes": 2843
+    },
+    {
+      "sequence": 25,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "631bcedd892f89162f92c538de02e444e0ff2c1b8ffe223569d17784cf7648c5",
+      "response_bytes": 2843
+    },
+    {
+      "sequence": 26,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "4072442e05493e3463dd2019c2f1e20c6b58dabf5afa3b050e1745a78e178800",
+      "response_bytes": 2776
+    },
+    {
+      "sequence": 27,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "ad5ea0402aca5b112b4c03c7dea24115605f82df2f022e45a8f1ef3b69c3e998",
+      "response_bytes": 2708
+    },
+    {
+      "sequence": 28,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "ef3bbc5d2591de0ca55e8a7ebf265989a06e6211b7f0ac8d13ad4bc46aed3411",
+      "response_bytes": 2734
+    },
+    {
+      "sequence": 29,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "78928e8c6cfb587ec4ef5434638beea0b2017624b4f90a68023f19137189e7e2",
+      "response_bytes": 2750
+    },
+    {
+      "sequence": 30,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "fe657314d1a1b6013a8fcd876a78c101933d1642fa12ba2aeb9dcb7ca8a35cd2",
+      "response_bytes": 2751
+    },
+    {
+      "sequence": 31,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "5eb2e4b7fbaacb4db3a64b69ae3d7f2fd70d08039e8f6f850a1c01865c579e09",
+      "response_bytes": 2786
+    },
+    {
+      "sequence": 32,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "3caa33b7768b7f241d0f8fb98b798e9764d8c3b3aea4938b372c57affd0b212c",
+      "response_bytes": 2808
+    },
+    {
+      "sequence": 33,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 34,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "bystander",
+        "seed": "9007199254740993",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "82215355d69727f104c6b57293ac98d43e46f17742d67f8216804ca31bd264e2",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 35,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "82215355d69727f104c6b57293ac98d43e46f17742d67f8216804ca31bd264e2",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 36,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 37,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 38,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 39,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 40,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 41,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 42,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 43,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "overwrite": false,
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      },
+      "request_raw": "{\"name\":\"--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\",\"overwrite\":false,\"session\":\"edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\"}",
+      "status": 200,
+      "response_sha256": "aad4c3fe5c5fc524abd8f88caf30b824819a076390adc0ce73c333b029c12283",
+      "response_bytes": 503
+    },
+    {
+      "sequence": 44,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 45,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 46,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 47,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 48,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6a099f83a43abfbc4abacc8dd6cc9bc2c2fdacebbd4f9b13a1697eb40ef769c1",
+      "response_bytes": 793
+    },
+    {
+      "sequence": 49,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 50,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "87abf962b5b01f8ced32962c3f7d3082421f42790066e5c7d1c062ddfd94fbbf",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 51,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 52,
+      "phase": "64-byte-checkpoint-name-and-exact-i64-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "82215355d69727f104c6b57293ac98d43e46f17742d67f8216804ca31bd264e2",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 53,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 54,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 55,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 56,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 57,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 58,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 59,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6a099f83a43abfbc4abacc8dd6cc9bc2c2fdacebbd4f9b13a1697eb40ef769c1",
+      "response_bytes": 793
+    },
+    {
+      "sequence": 60,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "overwrite": false,
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      },
+      "request_raw": "{\"name\":\"--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\",\"overwrite\":false,\"session\":\"edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\"}",
+      "status": 409,
+      "response_sha256": "c6e39bfb193d83e4bdc03544e9b82fa64252c0f5b1030cc6fe8f0f007b9f7bef",
+      "response_bytes": 120,
+      "error": "entry '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' already exists and was not replaced"
+    },
+    {
+      "sequence": 61,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 62,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 63,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 64,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 65,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 66,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 67,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 68,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 69,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 70,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 71,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 72,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 73,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 74,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 75,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 76,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 77,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 78,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 79,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/library",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5226f1b75578d59c6509787db56fd7e82207d898ae0b9d8044d1d39ee268d6c3",
+      "response_bytes": 507
+    },
+    {
+      "sequence": 80,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 81,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 82,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 83,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 84,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/library",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5226f1b75578d59c6509787db56fd7e82207d898ae0b9d8044d1d39ee268d6c3",
+      "response_bytes": 507
+    },
+    {
+      "sequence": 85,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6a099f83a43abfbc4abacc8dd6cc9bc2c2fdacebbd4f9b13a1697eb40ef769c1",
+      "response_bytes": 793
+    },
+    {
+      "sequence": 86,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 87,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6a099f83a43abfbc4abacc8dd6cc9bc2c2fdacebbd4f9b13a1697eb40ef769c1",
+      "response_bytes": 793
+    },
+    {
+      "sequence": 88,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 89,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "87abf962b5b01f8ced32962c3f7d3082421f42790066e5c7d1c062ddfd94fbbf",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 90,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 91,
+      "phase": "duplicate-local-validation-and-read-only-listing",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "82215355d69727f104c6b57293ac98d43e46f17742d67f8216804ca31bd264e2",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 92,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 93,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 94,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "a1ee5f362e5b7622d9bdf8a9682895613a0795f53f3cfcf8fbff4c3c931428b5",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 95,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 96,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 97,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 98,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "policy": "bot",
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      },
+      "request_raw": "{\"policy\":\"bot\",\"session\":\"edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\"}",
+      "status": 200,
+      "response_sha256": "056a26f9dfb560b2e9219d567a740ef85996a861f91adc68ad240e0229b21d9a",
+      "response_bytes": 3022
+    },
+    {
+      "sequence": 99,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e773afdfafdfbfab755a68441f29a2d3c1d18e34e01c4b2ea49c1db560174344",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 100,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "884fe3e566eef0e6310ddb808b94adfaa398b5c32ef701ba60fc33b92498163b",
+      "response_bytes": 187
+    },
+    {
+      "sequence": 101,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 102,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "e773afdfafdfbfab755a68441f29a2d3c1d18e34e01c4b2ea49c1db560174344",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 103,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "54887d5f20b67a9d41d08dbee732cbc6825f9b5d316322d93a2265dabedb8724",
+      "response_bytes": 793
+    },
+    {
+      "sequence": 104,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 105,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "87abf962b5b01f8ced32962c3f7d3082421f42790066e5c7d1c062ddfd94fbbf",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 106,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 107,
+      "phase": "live-targeting-and-frozen-checkpoint-after-action",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "82215355d69727f104c6b57293ac98d43e46f17742d67f8216804ca31bd264e2",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 108,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 109,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 110,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "id": "tui-916943f8-6e00-463d-a6ee-4f659ed9eaad"
+      },
+      "request_raw": "{\"checkpoint\":\"--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\",\"id\":\"tui-916943f8-6e00-463d-a6ee-4f659ed9eaad\"}",
+      "status": 200,
+      "response_sha256": "ab81d8e7f89457067288cda810ceaf7d679e44816a1fc44aa3ea40cd74819a3b",
+      "response_bytes": 257
+    },
+    {
+      "sequence": 111,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "id": "tui-531dd38d-a972-4af7-b9bf-da33c5b537ea"
+      },
+      "request_raw": "{\"checkpoint\":\"--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\",\"id\":\"tui-531dd38d-a972-4af7-b9bf-da33c5b537ea\"}",
+      "status": 200,
+      "response_sha256": "923a14f628954d5b04330027264fd497edae94e97a73ca3315b661822ccff6a4",
+      "response_bytes": 257
+    },
+    {
+      "sequence": 112,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "c9b764b08f07ab33ea647932fc9275d709bf499cc9525ce67bb4d23e67dd5893",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 113,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "fe8b36eca89594c6b8239c71f1150855c73824e9793be1cd9c8ffa7d65831f6d",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 114,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 115,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 116,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 117,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 118,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "status": 200,
+      "response_sha256": "fe8b36eca89594c6b8239c71f1150855c73824e9793be1cd9c8ffa7d65831f6d",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 119,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "status": 200,
+      "response_sha256": "c9b764b08f07ab33ea647932fc9275d709bf499cc9525ce67bb4d23e67dd5893",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 120,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 121,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "policy": "bot",
+        "session": "tui-531dd38d-a972-4af7-b9bf-da33c5b537ea"
+      },
+      "request_raw": "{\"policy\":\"bot\",\"session\":\"tui-531dd38d-a972-4af7-b9bf-da33c5b537ea\"}",
+      "status": 200,
+      "response_sha256": "056a26f9dfb560b2e9219d567a740ef85996a861f91adc68ad240e0229b21d9a",
+      "response_bytes": 3022
+    },
+    {
+      "sequence": 122,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "92f9886359e849e22894b3e60580671d0309490ba66fb99ac041b0d1f6a7d9e5",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 123,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "884fe3e566eef0e6310ddb808b94adfaa398b5c32ef701ba60fc33b92498163b",
+      "response_bytes": 187
+    },
+    {
+      "sequence": 124,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 125,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "c9b764b08f07ab33ea647932fc9275d709bf499cc9525ce67bb4d23e67dd5893",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 126,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 127,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 128,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "status": 200,
+      "response_sha256": "92f9886359e849e22894b3e60580671d0309490ba66fb99ac041b0d1f6a7d9e5",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 129,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "status": 200,
+      "response_sha256": "c9b764b08f07ab33ea647932fc9275d709bf499cc9525ce67bb4d23e67dd5893",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 130,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "id": "independent-step-oracle"
+      },
+      "status": 200,
+      "response_sha256": "3626a39673d46b09953d73746a36ed545baa8110c4ee37c7c1b9ecd85e436983",
+      "response_bytes": 223
+    },
+    {
+      "sequence": 131,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "independent-step-oracle",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "056a26f9dfb560b2e9219d567a740ef85996a861f91adc68ad240e0229b21d9a",
+      "response_bytes": 3022
+    },
+    {
+      "sequence": 132,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=independent-step-oracle",
+      "status": 200,
+      "response_sha256": "ae68728055cbcabc57432163f9f1caed1f3d96a583209cccc01b99de2d8eacc3",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 133,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 134,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "race-save",
+        "overwrite": false,
+        "session": "tui-916943f8-6e00-463d-a6ee-4f659ed9eaad"
+      },
+      "request_raw": "{\"name\":\"race-save\",\"overwrite\":false,\"session\":\"tui-916943f8-6e00-463d-a6ee-4f659ed9eaad\"}",
+      "status": 200,
+      "response_sha256": "ce34117eed6fe1c34fe712f0bee2ef936b7754a061185eb09d9e524ecab3d751",
+      "response_bytes": 393
+    },
+    {
+      "sequence": 135,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "race-save",
+        "overwrite": false,
+        "session": "tui-531dd38d-a972-4af7-b9bf-da33c5b537ea"
+      },
+      "request_raw": "{\"name\":\"race-save\",\"overwrite\":false,\"session\":\"tui-531dd38d-a972-4af7-b9bf-da33c5b537ea\"}",
+      "status": 409,
+      "response_sha256": "760306a4212844aea7e85cb2e5e368a5b3551a1db8ca411f9c9a073af7f8c213",
+      "response_bytes": 65,
+      "error": "entry 'race-save' already exists and was not replaced"
+    },
+    {
+      "sequence": 136,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "c9b764b08f07ab33ea647932fc9275d709bf499cc9525ce67bb4d23e67dd5893",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 137,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "92f9886359e849e22894b3e60580671d0309490ba66fb99ac041b0d1f6a7d9e5",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 138,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "884fe3e566eef0e6310ddb808b94adfaa398b5c32ef701ba60fc33b92498163b",
+      "response_bytes": 187
+    },
+    {
+      "sequence": 139,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 140,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-531dd38d-a972-4af7-b9bf-da33c5b537ea",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 141,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-916943f8-6e00-463d-a6ee-4f659ed9eaad",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 142,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "e773afdfafdfbfab755a68441f29a2d3c1d18e34e01c4b2ea49c1db560174344",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 143,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "2a27f578ac7abbf7c13adc4ccbea7bbf6e8f56700940d67c5b899fb109ae6c70",
+      "response_bytes": 1431
+    },
+    {
+      "sequence": 144,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 145,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "87abf962b5b01f8ced32962c3f7d3082421f42790066e5c7d1c062ddfd94fbbf",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 146,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 147,
+      "phase": "two-concurrent-checkpoint-forks-and-divergent-create-only-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "82215355d69727f104c6b57293ac98d43e46f17742d67f8216804ca31bd264e2",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 148,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6968c25eeba994c996289c75b236c398c518c254658a7f18acb2cb05eb421f7c",
+      "response_bytes": 27
+    },
+    {
+      "sequence": 149,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 150,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/library",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "f7bef6bc7902f21087e76e5996d0d170561b2b2c999a9b7e0e8889f3d143ccd4",
+      "response_bytes": 891
+    },
+    {
+      "sequence": 151,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 152,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 404,
+      "response_sha256": "bc5414446d683c1d750b1894b83e4ce8f8d8e41dc3e12cfdf5156a6d31b9a942",
+      "response_bytes": 94,
+      "error": "no such session 'edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'"
+    },
+    {
+      "sequence": 153,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6968c25eeba994c996289c75b236c398c518c254658a7f18acb2cb05eb421f7c",
+      "response_bytes": 27
+    },
+    {
+      "sequence": 154,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "",
+        "seed": "271828",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 155,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "ba1197080f93620e07df626378e0708626b077b9e06d7f96b445a4c9d4070aaf",
+      "response_bytes": 170
+    },
+    {
+      "sequence": 156,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 157,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 158,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "bystander",
+        "seed": "17",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 159,
+      "phase": "actual-api-restart-and-lost-live-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 160,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 161,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "id": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      },
+      "request_raw": "{\"checkpoint\":\"--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\",\"id\":\"tui-36f813c8-68e4-486e-bbb0-641a0582bb31\"}",
+      "status": 200,
+      "response_sha256": "91dd1ebd31540136c513ecbd3fa03e27042a9a6f22ea29b6266b8c9697b9234b",
+      "response_bytes": 257
+    },
+    {
+      "sequence": 162,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "f9c87fc9960ef59b89b34b02ee21379911c2cf0ed7557b9aca026d10569fe0d2",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 163,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 164,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 165,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "f9c87fc9960ef59b89b34b02ee21379911c2cf0ed7557b9aca026d10569fe0d2",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 166,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "id": "restart-oracle"
+      },
+      "status": 200,
+      "response_sha256": "aba1771937a42da3f88ed89a82900f4e560808840abe023bae57ee7f3da4158f",
+      "response_bytes": 205
+    },
+    {
+      "sequence": 167,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "c41d9f89d6dae8f7f95fb1fbfebceb7c5289959eea001a1799fd5591037dcacf",
+      "response_bytes": 165
+    },
+    {
+      "sequence": 168,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "f9c87fc9960ef59b89b34b02ee21379911c2cf0ed7557b9aca026d10569fe0d2",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 169,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "policy": "bot",
+        "session": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      },
+      "request_raw": "{\"policy\":\"bot\",\"session\":\"tui-36f813c8-68e4-486e-bbb0-641a0582bb31\"}",
+      "status": 200,
+      "response_sha256": "056a26f9dfb560b2e9219d567a740ef85996a861f91adc68ad240e0229b21d9a",
+      "response_bytes": 3022
+    },
+    {
+      "sequence": 170,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "0b62286068bcc9d4e3be48232769848080ed2367e31818dde17de52811b40e4b",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 171,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "884fe3e566eef0e6310ddb808b94adfaa398b5c32ef701ba60fc33b92498163b",
+      "response_bytes": 187
+    },
+    {
+      "sequence": 172,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 173,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "restart-oracle",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "056a26f9dfb560b2e9219d567a740ef85996a861f91adc68ad240e0229b21d9a",
+      "response_bytes": 3022
+    },
+    {
+      "sequence": 174,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "0b62286068bcc9d4e3be48232769848080ed2367e31818dde17de52811b40e4b",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 175,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=restart-oracle",
+      "status": 200,
+      "response_sha256": "390677a29f5fffe1cda694a6538a08fada4489a7704c915dc9abdbe1d8991519",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 176,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "c41d9f89d6dae8f7f95fb1fbfebceb7c5289959eea001a1799fd5591037dcacf",
+      "response_bytes": 165
+    },
+    {
+      "sequence": 177,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "0b62286068bcc9d4e3be48232769848080ed2367e31818dde17de52811b40e4b",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 178,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "policy": "bot",
+        "session": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      },
+      "request_raw": "{\"policy\":\"bot\",\"session\":\"tui-36f813c8-68e4-486e-bbb0-641a0582bb31\"}",
+      "status": 200,
+      "response_sha256": "73e1c121db01f8ee7f85c6c2bb4112e81547e89ca05ba5fcc3e7fa3696bf3282",
+      "response_bytes": 3153
+    },
+    {
+      "sequence": 179,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 180,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "eebaa86c39bf4a8534ce3195918e5f0e50a1efaaba83e8c56b19e0d5e894e9ab",
+      "response_bytes": 189
+    },
+    {
+      "sequence": 181,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 182,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "restart-oracle",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "73e1c121db01f8ee7f85c6c2bb4112e81547e89ca05ba5fcc3e7fa3696bf3282",
+      "response_bytes": 3153
+    },
+    {
+      "sequence": 183,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 184,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=restart-oracle",
+      "status": 200,
+      "response_sha256": "a119c0819124000ec2ac25e96a6774e07baa05fbae634db0008a08841f909295",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 185,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "a41b84a80c809f35cefd3f180aecc7d475a826f73f0a3da5c5036abaca4f50fb",
+      "response_bytes": 731
+    },
+    {
+      "sequence": 186,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 187,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 188,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "c41d9f89d6dae8f7f95fb1fbfebceb7c5289959eea001a1799fd5591037dcacf",
+      "response_bytes": 165
+    },
+    {
+      "sequence": 189,
+      "phase": "restart-fork-retains-full-state-and-two-step-rng-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 190,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 191,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 192,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "seed": "42",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "session": "tui-c6781297-49a1-40b7-9abc-62f61f507b47"
+      },
+      "request_raw": "{\"seed\":\"42\",\"scenario\":\"ura\",\"trainee\":\"Special Week\",\"speed\":\"1\",\"traceTelemetry\":\"true\",\"session\":\"tui-c6781297-49a1-40b7-9abc-62f61f507b47\"}",
+      "status": 200,
+      "response_sha256": "ef8b5722028980d0ecb0cc15a33248cb131bb7cd9f6351e101982dad6a2bca38",
+      "response_bytes": 2772
+    },
+    {
+      "sequence": 193,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-c6781297-49a1-40b7-9abc-62f61f507b47",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "ef8b5722028980d0ecb0cc15a33248cb131bb7cd9f6351e101982dad6a2bca38",
+      "response_bytes": 2772
+    },
+    {
+      "sequence": 194,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-c6781297-49a1-40b7-9abc-62f61f507b47",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "10617495620251f6d3f61847547c1879df806955e15bda3092d429616c7593b0",
+      "response_bytes": 182
+    },
+    {
+      "sequence": 195,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-c6781297-49a1-40b7-9abc-62f61f507b47",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db",
+      "response_bytes": 65
+    },
+    {
+      "sequence": 196,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 197,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "1caa87ed727e6953175d0e1377620f9a63055345b667ae94ff31d2b7f9d98209",
+      "response_bytes": 978
+    },
+    {
+      "sequence": 198,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 199,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 200,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "tui-c6781297-49a1-40b7-9abc-62f61f507b47"
+      },
+      "status": 200,
+      "response_sha256": "6e7e4b5c6f88867fc67a34bd50d4985ef491683c1edb4ba09d4f62d26809b942",
+      "response_bytes": 227
+    },
+    {
+      "sequence": 201,
+      "phase": "default-new-career-preserves-main-and-named-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 202,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "1caa87ed727e6953175d0e1377620f9a63055345b667ae94ff31d2b7f9d98209",
+      "response_bytes": 978
+    },
+    {
+      "sequence": 203,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 204,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "missing-receiving",
+        "id": "tui-730273c8-541b-4aef-9ea2-23189048ec4e"
+      },
+      "request_raw": "{\"checkpoint\":\"missing-receiving\",\"id\":\"tui-730273c8-541b-4aef-9ea2-23189048ec4e\"}",
+      "status": 404,
+      "response_sha256": "937ba56c9ac294b7ee0b59310f0264f7623eda051870acd77c81b9dd41f519c9",
+      "response_bytes": 51,
+      "error": "no checkpoint named 'missing-receiving'"
+    },
+    {
+      "sequence": 205,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 206,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "bad-meta",
+        "id": "tui-bcf41699-a722-4e49-a31f-afa594ef0a2a"
+      },
+      "request_raw": "{\"checkpoint\":\"bad-meta\",\"id\":\"tui-bcf41699-a722-4e49-a31f-afa594ef0a2a\"}",
+      "status": 500,
+      "response_sha256": "0a7295eefeec7d949028d522ac1295c3db36a1e5ddf429383e8dc803902fcf6d",
+      "response_bytes": 73,
+      "error": "storage error: EOF while parsing an object at line 1 column 1"
+    },
+    {
+      "sequence": 207,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 208,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "bad-snapshot",
+        "id": "tui-5290d858-2974-46f5-bb06-f5d2dea2c263"
+      },
+      "request_raw": "{\"checkpoint\":\"bad-snapshot\",\"id\":\"tui-5290d858-2974-46f5-bb06-f5d2dea2c263\"}",
+      "status": 400,
+      "response_sha256": "661bd41e764308f0a950c625a609e678e50b5949aec983655f5fcbebe7dd380d",
+      "response_bytes": 107,
+      "error": "snapshot failed validation and was not imported: EOF while parsing an object at line 1 column 1"
+    },
+    {
+      "sequence": 209,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 210,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "future-schema",
+        "id": "tui-00284fb4-b04c-4d87-8030-f95c8207e6fb"
+      },
+      "request_raw": "{\"checkpoint\":\"future-schema\",\"id\":\"tui-00284fb4-b04c-4d87-8030-f95c8207e6fb\"}",
+      "status": 422,
+      "response_sha256": "46d2671bc4d6ed90e1c744454663914d83c81a68d005184f7724c7b2528f8e55",
+      "response_bytes": 98,
+      "error": "incompatible snapshot: snapshot schema v999 is not readable by this build (expects v1)"
+    },
+    {
+      "sequence": 211,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "1caa87ed727e6953175d0e1377620f9a63055345b667ae94ff31d2b7f9d98209",
+      "response_bytes": 978
+    },
+    {
+      "sequence": 212,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "1caa87ed727e6953175d0e1377620f9a63055345b667ae94ff31d2b7f9d98209",
+      "response_bytes": 978
+    },
+    {
+      "sequence": 213,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 214,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 215,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "tui-c6781297-49a1-40b7-9abc-62f61f507b47"
+      },
+      "status": 200,
+      "response_sha256": "6e7e4b5c6f88867fc67a34bd50d4985ef491683c1edb4ba09d4f62d26809b942",
+      "response_bytes": 227
+    },
+    {
+      "sequence": 216,
+      "phase": "native-checkpoint-errors-never-create-fallback-careers",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 217,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 218,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 219,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 220,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 221,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "eebaa86c39bf4a8534ce3195918e5f0e50a1efaaba83e8c56b19e0d5e894e9ab",
+      "response_bytes": 189
+    },
+    {
+      "sequence": 222,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 223,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "meta-write-blocked",
+        "overwrite": false,
+        "session": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      },
+      "request_raw": "{\"name\":\"meta-write-blocked\",\"overwrite\":false,\"session\":\"tui-36f813c8-68e4-486e-bbb0-641a0582bb31\"}",
+      "status": 500,
+      "response_sha256": "b599a1c6b57e97082b7fbf1db39c0c845f5a5357fb3bdafc42f290bbe48d8744",
+      "response_bytes": 55,
+      "error": "storage error: Is a directory (os error 21)"
+    },
+    {
+      "sequence": 224,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 225,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "eebaa86c39bf4a8534ce3195918e5f0e50a1efaaba83e8c56b19e0d5e894e9ab",
+      "response_bytes": 189
+    },
+    {
+      "sequence": 226,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 227,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 228,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "1caa87ed727e6953175d0e1377620f9a63055345b667ae94ff31d2b7f9d98209",
+      "response_bytes": 978
+    },
+    {
+      "sequence": 229,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 230,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 231,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "tui-c6781297-49a1-40b7-9abc-62f61f507b47"
+      },
+      "status": 200,
+      "response_sha256": "6e7e4b5c6f88867fc67a34bd50d4985ef491683c1edb4ba09d4f62d26809b942",
+      "response_bytes": 227
+    },
+    {
+      "sequence": 232,
+      "phase": "native-meta-write-failure-rolls-back-new-snapshot",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 233,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 234,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 235,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 236,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 237,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "eebaa86c39bf4a8534ce3195918e5f0e50a1efaaba83e8c56b19e0d5e894e9ab",
+      "response_bytes": 189
+    },
+    {
+      "sequence": 238,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 239,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "lost-save",
+        "overwrite": false,
+        "session": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      },
+      "request_raw": "{\"name\":\"lost-save\",\"overwrite\":false,\"session\":\"tui-36f813c8-68e4-486e-bbb0-641a0582bb31\"}",
+      "injected_fault": "drop-after-native-response",
+      "status": 200,
+      "response_sha256": "7d6dff612b06ced9a43c81fe3044dceef0688b78bedb7a94b0d7113473ee8cb8",
+      "response_bytes": 394
+    },
+    {
+      "sequence": 240,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 241,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "eebaa86c39bf4a8534ce3195918e5f0e50a1efaaba83e8c56b19e0d5e894e9ab",
+      "response_bytes": 189
+    },
+    {
+      "sequence": 242,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 243,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/library",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "ea42cc13bcd7ee050b2d8bd8de9b2d474c9740b4f731cfc59c0771854ecb2ff8",
+      "response_bytes": 2163
+    },
+    {
+      "sequence": 244,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 245,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "eebaa86c39bf4a8534ce3195918e5f0e50a1efaaba83e8c56b19e0d5e894e9ab",
+      "response_bytes": 189
+    },
+    {
+      "sequence": 246,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 247,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 248,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "1caa87ed727e6953175d0e1377620f9a63055345b667ae94ff31d2b7f9d98209",
+      "response_bytes": 978
+    },
+    {
+      "sequence": 249,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 250,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 251,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "tui-c6781297-49a1-40b7-9abc-62f61f507b47"
+      },
+      "status": 200,
+      "response_sha256": "6e7e4b5c6f88867fc67a34bd50d4985ef491683c1edb4ba09d4f62d26809b942",
+      "response_bytes": 227
+    },
+    {
+      "sequence": 252,
+      "phase": "lost-save-response-retains-name-without-automatic-replay",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 253,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 254,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 255,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 256,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "eebaa86c39bf4a8534ce3195918e5f0e50a1efaaba83e8c56b19e0d5e894e9ab",
+      "response_bytes": 189
+    },
+    {
+      "sequence": 257,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 258,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 259,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "eof-save",
+        "overwrite": false,
+        "session": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      },
+      "request_raw": "{\"name\":\"eof-save\",\"overwrite\":false,\"session\":\"tui-36f813c8-68e4-486e-bbb0-641a0582bb31\"}",
+      "injected_fault": "hold-after-native-response",
+      "status": 200,
+      "response_sha256": "8ab7ebc5aa110b490af261694327939bbce4d44f486566569922abf43f33f8bf",
+      "response_bytes": 392
+    },
+    {
+      "sequence": 260,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "1caa87ed727e6953175d0e1377620f9a63055345b667ae94ff31d2b7f9d98209",
+      "response_bytes": 978
+    },
+    {
+      "sequence": 261,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 262,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 263,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "tui-c6781297-49a1-40b7-9abc-62f61f507b47"
+      },
+      "status": 200,
+      "response_sha256": "6e7e4b5c6f88867fc67a34bd50d4985ef491683c1edb4ba09d4f62d26809b942",
+      "response_bytes": 227
+    },
+    {
+      "sequence": 264,
+      "phase": "eof-during-held-save-retains-committed-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 265,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "1caa87ed727e6953175d0e1377620f9a63055345b667ae94ff31d2b7f9d98209",
+      "response_bytes": 978
+    },
+    {
+      "sequence": 266,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 267,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "id": "tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a"
+      },
+      "request_raw": "{\"checkpoint\":\"--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\",\"id\":\"tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a\"}",
+      "injected_fault": "hold-after-native-response",
+      "status": 200,
+      "response_sha256": "11df49bebc3de4b5af0ba1db3c6bf449fca2110113f9533475cac45f57a5c921",
+      "response_bytes": 257
+    },
+    {
+      "sequence": 268,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "7a7185fdc7c3808c51fab195957baa70745b32b7cf18d431b8b3abbe03599953",
+      "response_bytes": 1202
+    },
+    {
+      "sequence": 269,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a",
+      "status": 200,
+      "response_sha256": "0d0dbf1b53b0ed05d40a21bd9bf12f788bff1ddd6e4b25f0fd3c5a4064e935ee",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 270,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 271,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "0d0dbf1b53b0ed05d40a21bd9bf12f788bff1ddd6e4b25f0fd3c5a4064e935ee",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 272,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "0d0dbf1b53b0ed05d40a21bd9bf12f788bff1ddd6e4b25f0fd3c5a4064e935ee",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 273,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 274,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 275,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a",
+      "status": 200,
+      "response_sha256": "0d0dbf1b53b0ed05d40a21bd9bf12f788bff1ddd6e4b25f0fd3c5a4064e935ee",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 276,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "7a7185fdc7c3808c51fab195957baa70745b32b7cf18d431b8b3abbe03599953",
+      "response_bytes": 1202
+    },
+    {
+      "sequence": 277,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 278,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 279,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "tui-b72cc7e4-8c89-4436-b59d-6d6c739e937a"
+      },
+      "status": 200,
+      "response_sha256": "9d7cfa66cd9fad79377a7ab90f2b51cb41dda7a9bc1b400946f76a8b305b9b84",
+      "response_bytes": 235
+    },
+    {
+      "sequence": 280,
+      "phase": "interrupt-after-native-fork-keeps-recoverable-proposed-id",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 281,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 282,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "session": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+        "id": "loss-action-oracle"
+      },
+      "status": 200,
+      "response_sha256": "0b79d0ec7484a71de121d83dae14ea8fde7015eb3d86429ba6f70abc9952b144",
+      "response_bytes": 214
+    },
+    {
+      "sequence": 283,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "loss-action-oracle",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "ecd0feaf6bfe29f4054c9103bfcd96591b137cbb6ea43e37201dc2a67eb6d49c",
+      "response_bytes": 3168
+    },
+    {
+      "sequence": 284,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=loss-action-oracle",
+      "status": 200,
+      "response_sha256": "d552aefeae8c0623fa8538292175f5cdc95bf105bbfba033e0c39bb3c3920c78",
+      "response_bytes": 3739
+    },
+    {
+      "sequence": 285,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 286,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 287,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "e47b03cfd3372c55b32e1d6f294e209eefc0b8d10234f3548255daffee331a5f",
+      "response_bytes": 3439
+    },
+    {
+      "sequence": 288,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "eebaa86c39bf4a8534ce3195918e5f0e50a1efaaba83e8c56b19e0d5e894e9ab",
+      "response_bytes": 189
+    },
+    {
+      "sequence": 289,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 290,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "c41d9f89d6dae8f7f95fb1fbfebceb7c5289959eea001a1799fd5591037dcacf",
+      "response_bytes": 165
+    },
+    {
+      "sequence": 291,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "policy": "bot",
+        "session": "tui-36f813c8-68e4-486e-bbb0-641a0582bb31"
+      },
+      "request_raw": "{\"policy\":\"bot\",\"session\":\"tui-36f813c8-68e4-486e-bbb0-641a0582bb31\"}",
+      "injected_fault": "drop-after-native-response",
+      "status": 200,
+      "response_sha256": "ecd0feaf6bfe29f4054c9103bfcd96591b137cbb6ea43e37201dc2a67eb6d49c",
+      "response_bytes": 3168
+    },
+    {
+      "sequence": 292,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "d552aefeae8c0623fa8538292175f5cdc95bf105bbfba033e0c39bb3c3920c78",
+      "response_bytes": 3739
+    },
+    {
+      "sequence": 293,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "d0013ae946ad778762d3aa5c2e4b5ec62af1f54bf43f12f3665d8db949c3a519",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 294,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "b8d5cdb90230ad78c483476473023f5bbfe705aa9c964c995bbb3fd2119d86e4",
+      "response_bytes": 87
+    },
+    {
+      "sequence": 295,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=tui-36f813c8-68e4-486e-bbb0-641a0582bb31",
+      "status": 200,
+      "response_sha256": "d552aefeae8c0623fa8538292175f5cdc95bf105bbfba033e0c39bb3c3920c78",
+      "response_bytes": 3739
+    },
+    {
+      "sequence": 296,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "c661912b003c64b5aa13d3083bfb5e1b3e28b7500164e871d473404126fcef9b",
+      "response_bytes": 1354
+    },
+    {
+      "sequence": 297,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 298,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 299,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "c41d9f89d6dae8f7f95fb1fbfebceb7c5289959eea001a1799fd5591037dcacf",
+      "response_bytes": 165
+    },
+    {
+      "sequence": 300,
+      "phase": "lost-action-response-applies-once-to-bound-session",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 301,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "c661912b003c64b5aa13d3083bfb5e1b3e28b7500164e871d473404126fcef9b",
+      "response_bytes": 1354
+    },
+    {
+      "sequence": 302,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "7311a078d404cba12fa2096dfc00ea2f526ed48fd8742f20521e8102b82321db",
+      "response_bytes": 155
+    },
+    {
+      "sequence": 303,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "2677a7c1454a6aa1f675f1d1fb4f6db9968e87c7284590f6395d30307ddc2577",
+      "response_bytes": 2789
+    },
+    {
+      "sequence": 304,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "c41d9f89d6dae8f7f95fb1fbfebceb7c5289959eea001a1799fd5591037dcacf",
+      "response_bytes": 165
+    },
+    {
+      "sequence": 305,
+      "phase": "invalid-checkpoint-mode-combinations-make-no-http-request",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "8383e6fedf87b63df483a363abff019c8d686e87171502ab4a0deb8ebf3ef2b6",
+      "response_bytes": 2773
+    }
+  ],
+  "native_processes": [
+    {
+      "pid": 13,
+      "port": 42303,
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/api-cwd",
+      "binary": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+      "args": [
+        "42303"
+      ],
+      "environment": {
+        "UMA_REPO_ROOT": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/source-composition",
+        "UMA_POLICY_CMD": "omitted"
+      },
+      "stdout": "uma-sim REST API on http://127.0.0.1:42303\nWeb UI: http://127.0.0.1:42303/\n",
+      "stderr": "",
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM"
+      }
+    },
+    {
+      "pid": 75,
+      "port": 34751,
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/run-v1/api-cwd",
+      "binary": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+      "args": [
+        "34751"
+      ],
+      "environment": {
+        "UMA_REPO_ROOT": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/source-composition",
+        "UMA_POLICY_CMD": "omitted"
+      },
+      "stdout": "uma-sim REST API on http://127.0.0.1:34751\nWeb UI: http://127.0.0.1:34751/\n",
+      "stderr": "",
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM"
+      }
+    }
+  ],
+  "status": "passed",
+  "qualified": true,
+  "source_after": {
+    "owner_and_received_files": 11,
+    "baseline_tui_exact": true,
+    "binary_exact": true
+  },
+  "finished_utc": "2026-10-08T12:52:26.133Z",
+  "summary": {
+    "groups": 16,
+    "passed": 16,
+    "failures": 0,
+    "terminal_processes": 31,
+    "native_api_processes": 2,
+    "http_requests": 305
+  }
+}

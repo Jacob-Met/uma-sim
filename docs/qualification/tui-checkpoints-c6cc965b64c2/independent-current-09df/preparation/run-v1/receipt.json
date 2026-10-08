@@ -1,0 +1,183 @@
+{
+  "schema": "hamon.uma.terminal_durable.independent.v1",
+  "source_commit": null,
+  "source_parent": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+  "source_manifest_sha256": "77e1394a5f033fa72b02e2d59a34b03ef9e9bf294c665db303618384c68a1027",
+  "binary": {
+    "path": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+    "sha256": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6"
+  },
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "source_before": {
+    "owner_and_received_files": 11,
+    "baseline_tui_exact": true,
+    "binary_exact": true
+  },
+  "cases": [
+    {
+      "name": "baseline-command-is-not-a-durable-save",
+      "status": "failure",
+      "elapsed_ms": 271,
+      "error": "expected prompt: ",
+      "stack": "AssertionError [ERR_ASSERTION]: expected prompt: \n    at Object.ready (file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/receive-v1.mjs:64:120)\n    at async file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/receive-v1.mjs:90:136\n    at async group (file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/receive-v1.mjs:69:114)\n    at async file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/receive-v1.mjs:88:2"
+    }
+  ],
+  "clients": [
+    {
+      "number": 1,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "args": [
+        "--session=baseline-receiving"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/baseline/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/run-v1/terminal-cwd",
+      "stdout": "",
+      "stderr": "",
+      "exit": null,
+      "error": "spawn /opt/homebrew/bin/node ENOENT"
+    }
+  ],
+  "http_requests": [
+    {
+      "sequence": 1,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "baseline-receiving",
+        "seed": "123",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "7c4eb3d66067d6be230e37e5ee66b06f08ab2d62e7b0150df96736a598f848eb",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 2,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "status": 200,
+      "response_sha256": "7c4eb3d66067d6be230e37e5ee66b06f08ab2d62e7b0150df96736a598f848eb",
+      "response_bytes": 2773
+    },
+    {
+      "sequence": 3,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "baseline-receiving",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "22b0f197deffd55874aa05a539780aeda8abdac724f1cdf4b0a688e6ae8c6c64",
+      "response_bytes": 2706
+    },
+    {
+      "sequence": 4,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "baseline-receiving",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "e1f49e4aedfd8663428d9de8aee36a40d2388012770a2937aa9966aef93338c5",
+      "response_bytes": 2650
+    },
+    {
+      "sequence": 5,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "baseline-receiving",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "30520e0713fb679b43a7440554755a19ac8884acf27ecac8bf8088ad068d8e5f",
+      "response_bytes": 2669
+    },
+    {
+      "sequence": 6,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "baseline-receiving",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "f4b16cf5ee07c3660f062c59cfc5de170970fbec62cef27b0f49d4a68fd9c8ac",
+      "response_bytes": 2701
+    },
+    {
+      "sequence": 7,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "status": 200,
+      "response_sha256": "06c78b4a530e2d7d7a1ae0d24e816dfd94302ec9c13d1875571f50df4cbd434e",
+      "response_bytes": 3044
+    },
+    {
+      "sequence": 8,
+      "phase": "baseline-command-is-not-a-durable-save",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=baseline-receiving",
+      "status": 200,
+      "response_sha256": "06c78b4a530e2d7d7a1ae0d24e816dfd94302ec9c13d1875571f50df4cbd434e",
+      "response_bytes": 3044
+    }
+  ],
+  "native_processes": [
+    {
+      "pid": 13,
+      "port": 33853,
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/run-v1/api-cwd",
+      "binary": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+      "args": [
+        "33853"
+      ],
+      "environment": {
+        "UMA_REPO_ROOT": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/source-composition",
+        "UMA_POLICY_CMD": "omitted"
+      },
+      "stdout": "uma-sim REST API on http://127.0.0.1:33853\nWeb UI: http://127.0.0.1:33853/\n",
+      "stderr": "",
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM"
+      }
+    }
+  ],
+  "status": "failure",
+  "qualified": false,
+  "error": "expected prompt: ",
+  "stack": "AssertionError [ERR_ASSERTION]: expected prompt: \n    at Object.ready (file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/receive-v1.mjs:64:120)\n    at async file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/receive-v1.mjs:90:136\n    at async group (file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/receive-v1.mjs:69:114)\n    at async file:///dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/receive-v1.mjs:88:2",
+  "finished_utc": "2026-10-08T12:50:53.442Z",
+  "summary": {
+    "groups": 1,
+    "passed": 0,
+    "failures": 1,
+    "terminal_processes": 1,
+    "native_api_processes": 1,
+    "http_requests": 8
+  }
+}
