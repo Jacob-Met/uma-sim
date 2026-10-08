@@ -1,0 +1,930 @@
+{
+  "startedAt": "2026-10-08T16:31:37.329Z",
+  "expectation": "received conditions and titles",
+  "sourceWorktreeStatus": "",
+  "sourceHead": "7683f629a152be0b94249bf1527c3cd8e0f4e5e3",
+  "workingSourceCustodyBefore": {
+    "packages/uma-sim-ui/src/App.tsx": "4a20a5614ceb465c0ec355a4daeec9e78d4e2488e5139072c040d62afc4d2595",
+    "packages/uma-sim-ui/src/components/ConditionsPanel.tsx": "60aff7f837acccc15063ba03f3cc86abd96528f7e8954c12c0e7aa75d10afd36",
+    "packages/uma-sim-ui/src/components/conditionsView.ts": "da99da41857a0d4285c1527d9b6e6fba48b70323480aa40b2d782d0eba890f5a",
+    "packages/uma-sim-ui/src/styles/conditions.css": "93d68cb87fa1df27a5fa9cbf058168df91f3bfc347eda4134522e428580a5964",
+    "uma-sim-core/src/state.rs": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833",
+    "uma-sim-core/src/engine.rs": "5b2ad3cd6557d929d07fef8b1783357089d129190dc1e871e80f4d6e28dd075c",
+    "uma-sim-core/src/config.rs": "5da9209669a971226c4ab1b24dadd462329962c3d15f2be041c96f5fa46933f4",
+    "uma-sim-core/src/api.rs": "b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa"
+  },
+  "binary": {
+    "path": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/target/debug/uma-sim-api",
+    "sha256": "283c46e2a698dd1e258ef726ffd3816536c2f1f8fec7240168a4b0063e16a69a"
+  },
+  "distIndexSha256": "f9b6a8cb69f6fc21d732ab9fcb77fe6a35aaf3b957a53e1f4cf37c91c33df4c4",
+  "builtUiFiles": [
+    {
+      "path": "assets/index-BwJjg5HG.css",
+      "size": 13427,
+      "sha256": "96f6fbdb6decf9706541c24a12ec36de85ccb1759bbde0b625d398470f09a8d2"
+    },
+    {
+      "path": "assets/index-DbHbiY9q.js",
+      "size": 211729,
+      "sha256": "b26af0c6700f3c2e2a8448d9980fe165cb0fc672e893a713b98d41433b356d1c"
+    },
+    {
+      "path": "index.html",
+      "size": 394,
+      "sha256": "f9b6a8cb69f6fc21d732ab9fcb77fe6a35aaf3b957a53e1f4cf37c91c33df4c4"
+    }
+  ],
+  "custodyNote": "Working source hashes record custody; exact executed UI assets are pinned separately. Build provenance is supplied by the qualification record.",
+  "receiverSha256": "ee2b921ab9856f9e41fba9838a7e5785da5c32ad23c8cf92064be645f3361d08",
+  "cases": [
+    {
+      "name": "Actual new career reports an empty collection without a false injury warning",
+      "pass": true
+    },
+    {
+      "name": "Existing career choices reach an actual state offering Rest before the injury fixture is authored",
+      "pass": true,
+      "mandatoryRacePerformed": true,
+      "phaseBefore": "MANDATORY_RACE",
+      "phaseAfter": "FREE",
+      "turnBefore": 1,
+      "turnAfter": 2
+    },
+    {
+      "name": "Actual imported career shows all 46 entries, duplicate injury, exact title IDs and native injury guidance",
+      "pass": true,
+      "retainedCount": 46,
+      "titleCount": 3
+    },
+    {
+      "name": "Markup-like IDs, blank IDs and unknown labels remain inert visible data",
+      "pass": true
+    },
+    {
+      "name": "Keyboard reading and long-list scrolling preserve the complete career snapshot and RNG",
+      "pass": true,
+      "snapshotSha256": "9156243aa85d6a0f96a577dbe1d96b13fbf0ea7f8ceae05aa93d96fe137c4da8",
+      "rngCalls": 4
+    },
+    {
+      "name": "Existing Rest action removes every native injury match and refreshes the panel while retaining all other entries",
+      "pass": true,
+      "turnBefore": 2,
+      "turnAfter": 3,
+      "remainingCount": 42,
+      "statuses": [
+        "epithet:sim_g1_win",
+        "epithet:sim_climax_win",
+        "epithet:sim_ura_finale_win",
+        "steady",
+        "<img src=x onerror=\"window.statusExecuted=true\">",
+        "",
+        " \t",
+        "status:longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong",
+        "status:0",
+        "status:1",
+        "status:2",
+        "status:3",
+        "status:4",
+        "status:5",
+        "status:6",
+        "status:7",
+        "status:8",
+        "status:9",
+        "status:10",
+        "status:11",
+        "status:12",
+        "status:13",
+        "status:14",
+        "status:15",
+        "status:16",
+        "status:17",
+        "status:18",
+        "status:19",
+        "status:20",
+        "status:21",
+        "status:22",
+        "status:23",
+        "status:24",
+        "status:25",
+        "status:26",
+        "status:27",
+        "status:28",
+        "status:29",
+        "status:30",
+        "status:31",
+        "status:32",
+        "status:33"
+      ]
+    },
+    {
+      "name": "Completed career keeps its injury record without offering recovery guidance for an ended run",
+      "pass": true
+    },
+    {
+      "name": "Switching to an empty retained career removes prior conditions and titles",
+      "pass": true
+    },
+    {
+      "name": "Phone layout wraps long literal IDs and keeps every retained row reachable",
+      "pass": true,
+      "clientWidth": 348,
+      "scrollWidth": 348,
+      "left": 20,
+      "right": 370,
+      "viewport": 390
+    },
+    {
+      "name": "Actual browser has no page errors; only inherited catalog portrait requests are attempted and all remain blocked",
+      "pass": true,
+      "blockedInheritedPortraitRequests": 133,
+      "unexpectedOffOrigin": 0
+    }
+  ],
+  "authoredCheckpoints": [
+    {
+      "name": "conditions-rich-receiver",
+      "sha256": "0d5f4b40127c6f6214094b75e4ba3c65f9b5ae1673343399b489843076144452",
+      "fields": [
+        "statuses",
+        "careerComplete",
+        "awaitingChoice",
+        "pendingEventOptions"
+      ],
+      "fansMarker": 100123,
+      "statuses": [
+        "injured",
+        "LEFT-INJURY",
+        "epithet:future_injury_win",
+        "epithet:sim_g1_win",
+        "epithet:sim_climax_win",
+        "epithet:sim_ura_finale_win",
+        "steady",
+        "<img src=x onerror=\"window.statusExecuted=true\">",
+        "",
+        " \t",
+        "status:longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong",
+        "status:0",
+        "status:1",
+        "status:2",
+        "status:3",
+        "status:4",
+        "status:5",
+        "status:6",
+        "status:7",
+        "status:8",
+        "status:9",
+        "status:10",
+        "status:11",
+        "status:12",
+        "status:13",
+        "status:14",
+        "status:15",
+        "status:16",
+        "status:17",
+        "status:18",
+        "status:19",
+        "status:20",
+        "status:21",
+        "status:22",
+        "status:23",
+        "status:24",
+        "status:25",
+        "status:26",
+        "status:27",
+        "status:28",
+        "status:29",
+        "status:30",
+        "status:31",
+        "status:32",
+        "status:33",
+        "injured"
+      ]
+    },
+    {
+      "name": "conditions-completed-receiver",
+      "sha256": "6704d96b4f34ac722029704193a8167ccaed650c39340b08056cf192b7e9b293",
+      "fields": [
+        "statuses",
+        "careerComplete",
+        "awaitingChoice",
+        "pendingEventOptions"
+      ],
+      "fansMarker": 100124,
+      "statuses": [
+        "injured",
+        "epithet:sim_g1_win"
+      ]
+    },
+    {
+      "name": "conditions-empty-receiver",
+      "sha256": "072f152c103655d4e3b91bc3677c4d6ec1eb7e431367e358fcaef759fa8f0740",
+      "fields": [
+        "statuses",
+        "careerComplete"
+      ],
+      "fansMarker": 100125,
+      "statuses": []
+    },
+    {
+      "name": "conditions-mobile-receiver",
+      "sha256": "432e41108276e373db81f95fd1bc3b699f6f4726dcf0f31fca8b002f8346205b",
+      "fields": [
+        "statuses",
+        "careerComplete",
+        "awaitingChoice",
+        "pendingEventOptions"
+      ],
+      "fansMarker": 100126,
+      "statuses": [
+        "injured",
+        "LEFT-INJURY",
+        "epithet:future_injury_win",
+        "epithet:sim_g1_win",
+        "epithet:sim_climax_win",
+        "epithet:sim_ura_finale_win",
+        "steady",
+        "<img src=x onerror=\"window.statusExecuted=true\">",
+        "",
+        " \t",
+        "status:longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong",
+        "status:0",
+        "status:1",
+        "status:2",
+        "status:3",
+        "status:4",
+        "status:5",
+        "status:6",
+        "status:7",
+        "status:8",
+        "status:9",
+        "status:10",
+        "status:11",
+        "status:12",
+        "status:13",
+        "status:14",
+        "status:15",
+        "status:16",
+        "status:17",
+        "status:18",
+        "status:19",
+        "status:20",
+        "status:21",
+        "status:22",
+        "status:23",
+        "status:24",
+        "status:25",
+        "status:26",
+        "status:27",
+        "status:28",
+        "status:29",
+        "status:30",
+        "status:31",
+        "status:32",
+        "status:33",
+        "injured"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/v1/health",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/start",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/action",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/load",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/run/action",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/load",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/load",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/v1/library/load",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "query": "",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "query": "",
+      "status": 200
+    }
+  ],
+  "blockedExternalRequests": [
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1118.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1033.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1019.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1032.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1018.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1111.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1036.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1129.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1087.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1053.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1095.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1054.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1023.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1124.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1114.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1120.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1110.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1089.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1133.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1098.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1134.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1038.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1085.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1065.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1009.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1092.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1112.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1119.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1108.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1121.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1037.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1014.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1141.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1081.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1127.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1022.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1005.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1079.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1113.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1116.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1040.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1007.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1131.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1011.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1052.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1028.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1012.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1106.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1099.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1063.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1034.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1031.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1094.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1093.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1104.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1039.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1061.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1137.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1068.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1132.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1130.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1025.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1004.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1055.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1056.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1062.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1024.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1058.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1071.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1074.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1059.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1013.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1064.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1086.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1027.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1026.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1057.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1049.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1016.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1050.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1077.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1105.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1060.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1051.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1096.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1082.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1006.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1115.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1136.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1109.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1030.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1103.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1145.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1041.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1069.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1076.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1088.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1067.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1042.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1020.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1043.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1002.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1070.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1046.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1102.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1001.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1135.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1097.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1045.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1044.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1083.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1017.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1010.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1021.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1084.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1107.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1015.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1003.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1048.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1080.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1073.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1066.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1090.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1143.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1091.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1008.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1117.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1035.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1100.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1072.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1078.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1029.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1047.png"
+  ],
+  "pageErrors": [],
+  "storage": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/candidate-browser-fixed/native-storage-B62EQe",
+  "providerCalls": 0,
+  "nativePid": 24178,
+  "nativePort": 63219,
+  "health": {
+    "ok": true,
+    "repoRoot": true,
+    "repoRootPath": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/source",
+    "version": "0.1.0"
+  },
+  "inheritedPortraitUrls": [
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1001.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1002.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1003.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1004.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1005.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1006.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1007.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1008.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1009.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1010.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1011.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1012.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1013.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1014.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1015.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1016.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1017.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1018.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1019.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1020.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1021.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1022.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1023.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1024.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1025.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1026.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1027.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1028.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1029.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1030.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1031.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1032.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1033.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1034.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1035.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1036.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1037.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1038.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1039.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1040.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1041.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1042.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1043.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1044.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1045.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1046.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1047.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1048.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1049.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1050.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1051.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1052.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1053.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1054.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1055.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1056.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1057.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1058.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1059.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1060.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1061.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1062.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1063.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1064.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1065.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1066.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1067.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1068.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1069.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1070.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1071.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1072.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1073.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1074.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1076.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1077.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1078.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1079.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1080.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1081.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1082.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1083.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1084.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1085.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1086.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1087.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1088.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1089.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1090.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1091.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1092.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1093.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1094.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1095.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1096.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1097.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1098.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1099.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1100.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1102.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1103.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1104.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1105.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1106.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1107.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1108.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1109.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1110.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1111.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1112.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1113.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1114.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1115.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1116.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1117.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1118.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1119.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1120.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1121.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1124.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1127.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1129.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1130.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1131.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1132.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1133.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1134.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1135.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1136.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1137.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1141.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1143.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1145.png"
+  ],
+  "browserVersion": "154.0.8037.98",
+  "workingSourceCustodyAfter": {
+    "packages/uma-sim-ui/src/App.tsx": "4a20a5614ceb465c0ec355a4daeec9e78d4e2488e5139072c040d62afc4d2595",
+    "packages/uma-sim-ui/src/components/ConditionsPanel.tsx": "60aff7f837acccc15063ba03f3cc86abd96528f7e8954c12c0e7aa75d10afd36",
+    "packages/uma-sim-ui/src/components/conditionsView.ts": "da99da41857a0d4285c1527d9b6e6fba48b70323480aa40b2d782d0eba890f5a",
+    "packages/uma-sim-ui/src/styles/conditions.css": "93d68cb87fa1df27a5fa9cbf058168df91f3bfc347eda4134522e428580a5964",
+    "uma-sim-core/src/state.rs": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833",
+    "uma-sim-core/src/engine.rs": "5b2ad3cd6557d929d07fef8b1783357089d129190dc1e871e80f4d6e28dd075c",
+    "uma-sim-core/src/config.rs": "5da9209669a971226c4ab1b24dadd462329962c3d15f2be041c96f5fa46933f4",
+    "uma-sim-core/src/api.rs": "b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa"
+  },
+  "sourceUnchanged": true,
+  "binaryUnchanged": true,
+  "finishedAt": "2026-10-08T16:31:40.491Z",
+  "exitCode": 0
+}

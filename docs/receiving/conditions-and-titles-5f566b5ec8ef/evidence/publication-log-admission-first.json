@@ -1,0 +1,81 @@
+{
+  "at": "2026-10-08T16:46:54.763645+00:00",
+  "phase": "Initial publication inventory stopped after native commit, before manifest or GitHub source publication",
+  "native_partial_publication_head": "c804b2645cfba3e9a8025b7a98cb1bb51e4786c3",
+  "failure": "Expected-file assertion found14 retained log files excluded by the repository log ignore pattern; all bytes remained available and all8 qualified source pins stayed exact.",
+  "ignored_paths": [
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/native-stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/native-stdout.log",
+      "size": 75,
+      "sha256": "7e873e2f2c872d785f1c319a572afa709fd153821de9964243017c3cb6b309a3"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-stdout.log",
+      "size": 75,
+      "sha256": "7e92db968cdc08f3e5dbd0b786aa7ad6dc7b9aca21eac0704b02bfb6d2f1fd02"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/baseline-browser-process.log",
+      "size": 22186,
+      "sha256": "e53b25a8e322bbdb44424aa5504fa66caff0b62c377c4a061f6e5257096089b9"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/baseline-ui-build.log",
+      "size": 379,
+      "sha256": "7811d13fa36fe4be87724be9faccd90c0cbae845241ab6400167c7324562b594"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-browser-fixed-process.log",
+      "size": 257,
+      "sha256": "ba0f0ea62a4677054bd6cff788a2fc308984b0746706491536a7ac7a0562e341"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-browser-process.log",
+      "size": 373,
+      "sha256": "80b78c2c3a6512ef041e45673f56e6a4c1e8d3085a835fee9e7873fa2fce9d12"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-ui-build.log",
+      "size": 379,
+      "sha256": "0ff232314f6ef2103ad3ce9e19eb69cd89e57c8fffd9ae78f419093fe504a04b"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/native-api-build.log",
+      "size": 1133,
+      "sha256": "d38e73c4cc6a1e5b45196756c87dfc90d2569954989436edfe56a3de6aca7d54"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/npm-ci-current-lock.log",
+      "size": 486,
+      "sha256": "ea06f55eb48276c50c5459a1bfae5b97ae99a7d9acee4cc2cfc361d4884085a1"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/npm-ci-offline.log",
+      "size": 314,
+      "sha256": "6ccceff38b892d801c2b77b0e325bb383552541219e41c61b192c3423bd7f43a"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/source-seed-clone.log",
+      "size": 72,
+      "sha256": "3fdc598a5b3c6c43a0040aac3a7aecfa0f994517b40a7d960c43dc8aa8a26d72"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/ui-tests.log",
+      "size": 6432,
+      "sha256": "a4172cce410edc41fc70df22e661d0a3d0e83ec75f1dc9c993105c0c4445eb06"
+    }
+  ],
+  "ignore_rules": ".gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/native-stderr.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/native-stdout.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-stderr.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/native-stdout.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/baseline-browser-process.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/baseline-ui-build.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-browser-fixed-process.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-browser-process.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/candidate-ui-build.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/native-api-build.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/npm-ci-current-lock.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/npm-ci-offline.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/source-seed-clone.log\n.gitignore:12:*.log\tdocs/receiving/conditions-and-titles-5f566b5ec8ef/evidence/ui-tests.log\n",
+  "source_changes": false,
+  "recovery": "Explicitly stage only these14 owned receiving logs and this receipt; preserve first native commit. No rule file changes, builds, tests or browser replay."
+}

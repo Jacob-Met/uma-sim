@@ -1,0 +1,74 @@
+{
+  "started_at": "2026-10-08T16:03:39.942101+00:00",
+  "canonical_base": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "native_baseline": "ac242eb732eaad0e21032d76d5a25582cda90612",
+  "steps": [
+    {
+      "name": "npm-ci-current-lock",
+      "command": [
+        "/opt/homebrew/bin/npm",
+        "ci",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "cwd": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/source/packages/uma-sim-ui",
+      "exit_code": 0,
+      "seconds": 3.515,
+      "log": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/evidence/npm-ci-current-lock.log",
+      "log_sha256": "ea06f55eb48276c50c5459a1bfae5b97ae99a7d9acee4cc2cfc361d4884085a1",
+      "free_after": 1893240832
+    },
+    {
+      "name": "ui-tests",
+      "command": [
+        "/opt/homebrew/bin/npm",
+        "test"
+      ],
+      "cwd": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/source/packages/uma-sim-ui",
+      "exit_code": 0,
+      "seconds": 0.659,
+      "log": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/evidence/ui-tests.log",
+      "log_sha256": "a4172cce410edc41fc70df22e661d0a3d0e83ec75f1dc9c993105c0c4445eb06",
+      "free_after": 1892864000
+    },
+    {
+      "name": "candidate-ui-build",
+      "command": [
+        "/opt/homebrew/bin/npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/source/packages/uma-sim-ui",
+      "exit_code": 0,
+      "seconds": 1.68,
+      "log": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/evidence/candidate-ui-build.log",
+      "log_sha256": "0ff232314f6ef2103ad3ce9e19eb69cd89e57c8fffd9ae78f419093fe504a04b",
+      "free_after": 1888722944
+    },
+    {
+      "name": "baseline-ui-build",
+      "command": [
+        "/opt/homebrew/bin/npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/baseline-ui",
+      "exit_code": 0,
+      "seconds": 1.738,
+      "log": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/evidence/baseline-ui-build.log",
+      "log_sha256": "7811d13fa36fe4be87724be9faccd90c0cbae845241ab6400167c7324562b594",
+      "free_after": 1864937472
+    }
+  ],
+  "generated_build_info": {
+    "before_sha256": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+    "after_sha256": "e361db94e4e65e44616ca72bdd530379437fedb9810f0d0e8fcff46ddb17f70f",
+    "restored_exact_input": true
+  },
+  "versions": {
+    "node": "v26.3.0",
+    "npm": "11.16.0"
+  },
+  "finished_at": "2026-10-08T16:03:48.488768+00:00",
+  "native_api_build": "Held for peer archive app/widget receiving"
+}

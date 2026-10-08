@@ -1,0 +1,106 @@
+{
+  "phase": "Phone layout wraps long literal IDs and keeps every retained row reachable",
+  "sourceHead": "7683f629a152be0b94249bf1527c3cd8e0f4e5e3",
+  "receiverSha256": "ee2b921ab9856f9e41fba9838a7e5785da5c32ad23c8cf92064be645f3361d08",
+  "nativePid": 24178,
+  "nativePort": 63219,
+  "cases": [
+    {
+      "name": "Actual new career reports an empty collection without a false injury warning",
+      "pass": true
+    },
+    {
+      "name": "Existing career choices reach an actual state offering Rest before the injury fixture is authored",
+      "pass": true,
+      "mandatoryRacePerformed": true,
+      "phaseBefore": "MANDATORY_RACE",
+      "phaseAfter": "FREE",
+      "turnBefore": 1,
+      "turnAfter": 2
+    },
+    {
+      "name": "Actual imported career shows all 46 entries, duplicate injury, exact title IDs and native injury guidance",
+      "pass": true,
+      "retainedCount": 46,
+      "titleCount": 3
+    },
+    {
+      "name": "Markup-like IDs, blank IDs and unknown labels remain inert visible data",
+      "pass": true
+    },
+    {
+      "name": "Keyboard reading and long-list scrolling preserve the complete career snapshot and RNG",
+      "pass": true,
+      "snapshotSha256": "9156243aa85d6a0f96a577dbe1d96b13fbf0ea7f8ceae05aa93d96fe137c4da8",
+      "rngCalls": 4
+    },
+    {
+      "name": "Existing Rest action removes every native injury match and refreshes the panel while retaining all other entries",
+      "pass": true,
+      "turnBefore": 2,
+      "turnAfter": 3,
+      "remainingCount": 42,
+      "statuses": [
+        "epithet:sim_g1_win",
+        "epithet:sim_climax_win",
+        "epithet:sim_ura_finale_win",
+        "steady",
+        "<img src=x onerror=\"window.statusExecuted=true\">",
+        "",
+        " \t",
+        "status:longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong",
+        "status:0",
+        "status:1",
+        "status:2",
+        "status:3",
+        "status:4",
+        "status:5",
+        "status:6",
+        "status:7",
+        "status:8",
+        "status:9",
+        "status:10",
+        "status:11",
+        "status:12",
+        "status:13",
+        "status:14",
+        "status:15",
+        "status:16",
+        "status:17",
+        "status:18",
+        "status:19",
+        "status:20",
+        "status:21",
+        "status:22",
+        "status:23",
+        "status:24",
+        "status:25",
+        "status:26",
+        "status:27",
+        "status:28",
+        "status:29",
+        "status:30",
+        "status:31",
+        "status:32",
+        "status:33"
+      ]
+    },
+    {
+      "name": "Completed career keeps its injury record without offering recovery guidance for an ended run",
+      "pass": true
+    },
+    {
+      "name": "Switching to an empty retained career removes prior conditions and titles",
+      "pass": true
+    },
+    {
+      "name": "Phone layout wraps long literal IDs and keeps every retained row reachable",
+      "pass": true,
+      "clientWidth": 348,
+      "scrollWidth": 348,
+      "left": 20,
+      "right": 370,
+      "viewport": 390
+    }
+  ]
+}
