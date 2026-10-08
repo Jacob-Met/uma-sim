@@ -1,0 +1,260 @@
+{
+  "schema": "hamon.uma-api-independent-candidate-index.v1",
+  "binding": {
+    "schema": "hamon.uma-api-candidate-binding.v1",
+    "sourceCommit": null,
+    "sourceBase": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+    "baseDifference": "Only LibraryPanel.tsx and18 checkpoint portability test/evidence paths; all281 Rust/data inputs exact.",
+    "api": {
+      "sourceBase": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+      "apiBlob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+      "apiSha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55",
+      "binarySha256": "926c50c94e8bee778d7630c9ceb6ea19171f3aa6a4b7373457cdb97dae5b2d1b",
+      "binaryBytes": 14092352,
+      "committed": false
+    },
+    "authoredSource": {
+      "base": "0ac14602addd1a4610aa8359896915a34cce5659",
+      "manifest": [
+        {
+          "path": "source/uma-sim-core/src/api.rs",
+          "bytes": 86803,
+          "sha256": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55",
+          "git_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9"
+        },
+        {
+          "path": "source/uma-sim-core/tests/api_body_admission.rs",
+          "bytes": 9489,
+          "sha256": "c58ac98b07ac43711260fea5581beb046b920897cba2496217b23c030ae240e1",
+          "git_blob": "a54fb88b055d2e7ae79eb3623aa9002c52e775f1"
+        },
+        {
+          "path": "candidate-uma-sim-api",
+          "bytes": 14092352,
+          "sha256": "926c50c94e8bee778d7630c9ceb6ea19171f3aa6a4b7373457cdb97dae5b2d1b",
+          "git_blob": null
+        }
+      ]
+    },
+    "receiverReportSourceHeadMeaning": "The frozen receiver's sourceHead0b5 is the source base for this uncommitted candidate, not a commit containing the correction. The APIblob and binary hashes here identify the actual correction. A later commit binding must preserve these exact inputs.",
+    "receiving": {
+      "host": "ThinkPad",
+      "pid": 1548665,
+      "exitCode": 0,
+      "elapsedSeconds": 16.67,
+      "cases": 19,
+      "passed": 19,
+      "setupErrors": 0,
+      "fatal": null
+    },
+    "independence": "Frozen receiver/contract were created before candidate code was viewed. Source review happened only after actual HTTP completion.",
+    "expectedBaselineInputsHead": "0ac14602addd1a4610aa8359896915a34cce5659"
+  },
+  "receiverSha256": "c28f038df7b476e6c2894775ec73a5fe99e83ed776292a9401875e3a5317e1aa",
+  "contractSha256": "fe1c279204700e17bb7773f70372cf5e30201eab278b5d2155bba5c53d525c7f",
+  "binaryBefore": "926c50c94e8bee778d7630c9ceb6ea19171f3aa6a4b7373457cdb97dae5b2d1b",
+  "binaryAfter": "926c50c94e8bee778d7630c9ceb6ea19171f3aa6a4b7373457cdb97dae5b2d1b",
+  "passed": 19,
+  "failed": [],
+  "fatal": null,
+  "cases": [
+    {
+      "name": "malformed_start",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "ba8fa679a9a833ac24f2872041bea10954a74666094798a2dd60110339576d93",
+      "afterDigest": "ba8fa679a9a833ac24f2872041bea10954a74666094798a2dd60110339576d93",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "trailing_auto",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "e6347e90a39b07b3dceafd0e63ce3f1929f2e0a7972f665550b4c991aca98847",
+      "afterDigest": "e6347e90a39b07b3dceafd0e63ce3f1929f2e0a7972f665550b4c991aca98847",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "malformed_action",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "64cd6aa33393b5db4be895cbf43c0814b32cdb709f8da43736eeed4bd4201d97",
+      "afterDigest": "64cd6aa33393b5db4be895cbf43c0814b32cdb709f8da43736eeed4bd4201d97",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "malformed_fast",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "5ba08da1ad10fabf00e85e5204c0b20e6172c85a9f77ccf010b3b36dcb01fad1",
+      "afterDigest": "5ba08da1ad10fabf00e85e5204c0b20e6172c85a9f77ccf010b3b36dcb01fad1",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "malformed_fork",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "d6fde5ae69afe7c058b4b34085b127371250d6f235fafdb76f672a2b9fcec44e",
+      "afterDigest": "d6fde5ae69afe7c058b4b34085b127371250d6f235fafdb76f672a2b9fcec44e",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "malformed_checkpoint_save",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "16cb3cdb86dc3be4cc6c4231b619049128f02c3af0c47097fad02f7ce7e13cd4",
+      "afterDigest": "16cb3cdb86dc3be4cc6c4231b619049128f02c3af0c47097fad02f7ce7e13cd4",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "malformed_branch",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "688fd506a0ed2134ed7dd1b6f1191552eddda389f70e2dc823cbd1ef7dc8df1e",
+      "afterDigest": "688fd506a0ed2134ed7dd1b6f1191552eddda389f70e2dc823cbd1ef7dc8df1e",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "nonobject_null",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "61cea35103fa450e7968e25a3c0b6b335ebe23a95ab82b97ab2f3b8ef9fe8336",
+      "afterDigest": "61cea35103fa450e7968e25a3c0b6b335ebe23a95ab82b97ab2f3b8ef9fe8336",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "nonobject_boolean",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "1ee4ef93495b436548fa9378c8834be41e548757a64132e77e65d58cf7d4e057",
+      "afterDigest": "1ee4ef93495b436548fa9378c8834be41e548757a64132e77e65d58cf7d4e057",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "nonobject_array",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "fe19f5667949ea3b217b5df9225a07ccd2beaa43e96eae28bcf1fa7efc72ac0c",
+      "afterDigest": "fe19f5667949ea3b217b5df9225a07ccd2beaa43e96eae28bcf1fa7efc72ac0c",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "nonobject_string",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "0e0c12b0a826df968c3bf64270904c4bc5d195664fa32b9cb4c4eb83523cf1db",
+      "afterDigest": "0e0c12b0a826df968c3bf64270904c4bc5d195664fa32b9cb4c4eb83523cf1db",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "invalid_utf8_start",
+      "passed": true,
+      "status": 400,
+      "failures": [],
+      "beforeDigest": "487a1a2aa03f8bf30350f99dd75cd3327fadd1868d20e62630729b63a97f1dfe",
+      "afterDigest": "487a1a2aa03f8bf30350f99dd75cd3327fadd1868d20e62630729b63a97f1dfe",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "truncated_json_start",
+      "passed": true,
+      "status": null,
+      "failures": [],
+      "beforeDigest": "aeef881bb275d91866e00a2baf8932670d5c5d4f116c3f496f4744af8623a42f",
+      "afterDigest": "aeef881bb275d91866e00a2baf8932670d5c5d4f116c3f496f4744af8623a42f",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "short_declared_object_start",
+      "passed": true,
+      "status": null,
+      "failures": [],
+      "beforeDigest": "9ad5865a19e504c264a166b8bdbd74160a48fac17062efcf9785964509e881d9",
+      "afterDigest": "9ad5865a19e504c264a166b8bdbd74160a48fac17062efcf9785964509e881d9",
+      "nextAlphaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778",
+      "nextBetaDigest": "9d2acca1d5ce924131bd40849435924bb0d23ff3cbe8f4ce11c3fee048120778"
+    },
+    {
+      "name": "valid_empty_auto",
+      "passed": true,
+      "status": 200,
+      "failures": [],
+      "beforeDigest": null,
+      "afterDigest": null,
+      "nextAlphaDigest": null,
+      "nextBetaDigest": null
+    },
+    {
+      "name": "valid_whitespace_auto",
+      "passed": true,
+      "status": 200,
+      "failures": [],
+      "beforeDigest": null,
+      "afterDigest": null,
+      "nextAlphaDigest": null,
+      "nextBetaDigest": null
+    },
+    {
+      "name": "valid_object_auto",
+      "passed": true,
+      "status": 200,
+      "failures": [],
+      "beforeDigest": null,
+      "afterDigest": null,
+      "nextAlphaDigest": null,
+      "nextBetaDigest": null
+    },
+    {
+      "name": "valid_utf8_object_start",
+      "passed": true,
+      "status": 200,
+      "failures": [],
+      "beforeDigest": null,
+      "afterDigest": null,
+      "nextAlphaDigest": null,
+      "nextBetaDigest": null
+    },
+    {
+      "name": "valid_routing_refusals",
+      "passed": true,
+      "status": null,
+      "failures": [],
+      "beforeDigest": null,
+      "afterDigest": null,
+      "nextAlphaDigest": null,
+      "nextBetaDigest": null
+    }
+  ],
+  "archive": {
+    "path": "candidate-thinkpad-evidence.tar.gz",
+    "bytes": 103535,
+    "sha256": "9a31ce12c618e049b87c2d08656eb46a1c01700a3da59d0c28ca441c236abcc6",
+    "gitBlob": "49767f3d9be07eb57d633b6c74871e37b3610a3e",
+    "filesBeforeManifest": 150
+  },
+  "counting": "Same19 frozen cases as baseline; baseline repetitions across two native platforms do not increase unique case count.12 validly framed invalid bodies now return400; two incomplete transports close without state/RNG changes; five ordinary controls remain accepted."
+}

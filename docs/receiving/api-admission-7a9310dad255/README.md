@@ -18,6 +18,18 @@ The same19 cases ran on Darwin/arm64 and Linux/x64. They are19 unique cases, not
 
 The malformed branch case reaches the default scoring-policy launcher. With `UMA_POLICY_CMD=''` deliberately disabling external commands in the receiver's child environment, the API panics at `policy_external.rs:218`; no external command starts. This is preserved as a process failure, not reported as an ordinary HTTP assertion failure. The admission correction must refuse the invalid body before that path runs.
 
+## Candidate receiving and source review
+
+The exact Linux candidate API passed all19 unchanged independent cases: exit0 in16.67seconds, no setup errors or harness-wide fatal error, binary unchanged. All12 validly framed malformed/nonobject/invalid-UTF-8 requests return400 with JSON and CORS while preserving complete observed game/storage state and the next valid random outcome. The two interrupted transports still close safely. All5 ordinary valid/routing controls pass. The branch request is refused before the external-policy path.
+
+Candidate binary SHA-256 is `926c50c94e8bee778d7630c9ceb6ea19171f3aa6a4b7373457cdb97dae5b2d1b` (14,092,352bytes). Candidate `api.rs` is Git blob `eab9ccf7082ffc96c446f434bd76f313aff14bc9`, SHA-256 `31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55`. The281-input post-run comparison has zero unexpected differences: this API blob is the only source change among those inputs.
+
+The receiver ran before the reviewer viewed candidate code. The subsequent complete source diff was accepted: routing validates object JSON once after matching a POST route; body read errors propagate; blank-body compatibility and the existing outer CORS wrapper remain. All17 modified handler bodies are exactly equivalent after the mechanical parameter/parse/reference adaptation. All15 other top-level handlers, the three session-resolution functions owned by issue#63, and the entire existing inline-test suffix remain exact. See [candidate-source-review.json](candidate-source-review.json).
+
+[candidate-index.json](candidate-index.json) contains compact outcomes and the binding between source and executable. This candidate was uncommitted at execution time: the raw receiver's `sourceHead=0b5cc234…` labels its source base, not a commit containing the correction. Exact API/executable hashes establish the tested candidate; any later source commit must preserve those inputs. Source publication, fresh-head CI, merge and deployment remain separate.
+
+[candidate-thinkpad-evidence.tar.gz](candidate-thinkpad-evidence.tar.gz) contains150 evidence/source-binding files plus its artifact manifest, including full raw receipt, complete stored/snapshot observations, API logs, source checks and reviewed diff. It is103,535bytes, SHA-256 `9a31ce12c618e049b87c2d08656eb46a1c01700a3da59d0c28ca441c236abcc6`. The original baseline evidence is retained unchanged.
+
 ## Exact native evidence
 
 | Artifact | Bytes | SHA-256 |

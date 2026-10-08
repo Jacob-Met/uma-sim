@@ -1,0 +1,69 @@
+{
+  "sourceBase": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+  "baselineApiBlob": "4ff7034bc5701d793cd93d645d89d40d73fc3273",
+  "candidateApiBlob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+  "topLevelHandlers": 32,
+  "changedHandlers": [
+    "handle_start",
+    "handle_action",
+    "handle_auto",
+    "handle_fast",
+    "handle_load_content_pack",
+    "handle_deck_place",
+    "handle_set_style",
+    "handle_session_fork",
+    "handle_session_close",
+    "handle_session_activate",
+    "handle_library_save",
+    "handle_library_load",
+    "handle_library_delete",
+    "handle_library_import",
+    "handle_lab_branch",
+    "handle_lab_branch_delete",
+    "handle_lab_compare"
+  ],
+  "mechanicallyEquivalentHandlerBodies": [
+    "handle_start",
+    "handle_action",
+    "handle_auto",
+    "handle_fast",
+    "handle_load_content_pack",
+    "handle_deck_place",
+    "handle_set_style",
+    "handle_session_fork",
+    "handle_session_close",
+    "handle_session_activate",
+    "handle_library_save",
+    "handle_library_load",
+    "handle_library_delete",
+    "handle_library_import",
+    "handle_lab_branch",
+    "handle_lab_branch_delete",
+    "handle_lab_compare"
+  ],
+  "nonMechanicalHandlerDifferences": [],
+  "protectedFunctions": [
+    {
+      "name": "session_param",
+      "unchanged": true,
+      "present": true
+    },
+    {
+      "name": "resolve_session",
+      "unchanged": true,
+      "present": true
+    },
+    {
+      "name": "resolve_session_ref",
+      "unchanged": true,
+      "present": true
+    }
+  ],
+  "existingInlineTestsUnchanged": true,
+  "notes": [
+    "Each changed handler receives the already admitted Value; normalization changes the parameter type, removes its old parse call and removes only the extra body reference. No outcome/model/session semantics change was observed in the actual complete diff.",
+    "read_body propagates IO/UTF8 errors. route applies one with_json_body admission only after matched POST route/method selection, preserving GET, unknown-route, 405 and preflight behavior.",
+    "parse_body preserves prior trim-empty default object, otherwise requires successfully parsed object JSON. CORS stays at the existing outer response wrapper.",
+    "Independent frozen HTTP receiving passed all19 cases on exact candidate binary926c50c9; runtime/data input281 manifest has zero deviations other than the intended API blob."
+  ]
+}
