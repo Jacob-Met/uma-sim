@@ -23,7 +23,8 @@ use crate::state::{
     SimAction, SimActionKind, SimChoice, SimDate, SimSettings, TrainingFacility, TurnPhase,
 };
 use crate::telemetry::SimTelemetry;
-use crate::training::TrainingResolver;
+use crate::training::{TrainingOutcome, TrainingResolver};
+use crate::training_inspection::TrainingInspection;
 use std::sync::Arc;
 
 #[derive(Debug, Clone)]
@@ -238,6 +239,31 @@ impl SimEngine {
 
     pub fn state(&self) -> &CareerState {
         &self.state
+    }
+
+    /// Inspect training without consuming the career RNG or changing its state.
+    pub fn training_inspection(&self) -> TrainingInspection {
+        let mut preview_state = self.state.clone();
+        for facility in TrainingFacility::ALL {
+            preview_state
+                .facility_levels
+                .insert(facility.key().into(), self.facility_level(facility));
+        }
+        TrainingInspection::build(
+            &preview_state,
+            &self.choices(),
+            &self.training_resolver,
+            |level, outcome| {
+                (
+                    self.training_failure_chance_pct(level, outcome),
+                    apply_energy_after_training(
+                        self.state.energy,
+                        outcome.energy_cost,
+                        self.state.max_energy,
+                    ) - self.state.energy,
+                )
+            },
+        )
     }
 
     pub fn assign_deck_slot(&mut self, support_id: &str, facility: TrainingFacility) -> bool {
@@ -882,6 +908,27 @@ impl SimEngine {
         format!("Event: {title} → {}", lines.join("; "))
     }
 
+    fn training_failure_chance_pct(&self, level: i32, outcome: &TrainingOutcome) -> i32 {
+        let energy_before = self.state.energy;
+        let scenario = self.state.meta.scenario_id.to_lowercase();
+        if (scenario == "unity" || scenario == "unity_cup")
+            && UnityCupMechanics::zero_failure_when_burst_ready(&self.state.scenario_resources)
+        {
+            0
+        } else if (scenario == "trackblazer" || scenario == "tb")
+            && TrackblazerMechanics::zero_failure_ready(&self.state.scenario_resources)
+        {
+            0
+        } else {
+            TrainingFailureConfig::failure_chance_pct(
+                (energy_before - outcome.energy_cost.max(0)).max(0),
+                self.state.max_energy,
+                self.state.mood,
+                level,
+            )
+        }
+    }
+
     fn do_train(&mut self, action: &SimAction) -> String {
         if self.state.is_injured() {
             return "Injured — rest to recover before training.".to_string();
@@ -898,23 +945,7 @@ impl SimEngine {
             Some(&self.state),
             None,
         );
-        let scenario = self.state.meta.scenario_id.to_lowercase();
-        let fail_pct = if (scenario == "unity" || scenario == "unity_cup")
-            && UnityCupMechanics::zero_failure_when_burst_ready(&self.state.scenario_resources)
-        {
-            0
-        } else if (scenario == "trackblazer" || scenario == "tb")
-            && TrackblazerMechanics::zero_failure_ready(&self.state.scenario_resources)
-        {
-            0
-        } else {
-            TrainingFailureConfig::failure_chance_pct(
-                (energy_before - outcome.energy_cost.max(0)).max(0),
-                self.state.max_energy,
-                self.state.mood,
-                level,
-            )
-        };
+        let fail_pct = self.training_failure_chance_pct(level, &outcome);
         if outcome.energy_cost > 0 && energy_before < outcome.energy_cost {
             return format!(
                 "Not enough energy to train ({} required, {} available).",

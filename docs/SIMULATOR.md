@@ -79,6 +79,7 @@ Integer **1–100**. Presets: 1, 2, 5, 10, 20, 50, 100.
 |---------|-------------|
 | `start` | New career; persists to `.uma-sim/session.json` |
 | `state` | Print stats, phase, deck, legacy |
+| `training [--format=text|json]` | Read-only training samples, energy, risk and blockers for the saved career |
 | `step [action]` | Single action (`train_speed`, `rest`, `race`, `event_0`) |
 | `fast` | Auto-play to completion (default speed 20 if unset) |
 | `batch` | Run many careers to JSONL (`--count=` or `--seeds=`, `--seed`, `--scenario`, `--policy`, `--output`) |
@@ -91,6 +92,12 @@ Integer **1–100**. Presets: 1, 2, 5, 10, 20, 50, 100.
 | `clear` | Clear saved session |
 
 Flags: `--seed`, `--scenario`, `--trainee`, `--speed=1-100`, `--dialogue=off|choices|full`, `--deck=id1,id2`, `--legacy=factor:...`, `--policy=default|bot|external`, `--race-model=stub|physics` (default **physics**), `--trace-rng`, `--trace-telemetry`, `--output=`. Env: `UMA_RACE_MODEL`.
+
+Training inspection uses deterministic local-seed-0 samples before stat caps and
+later scenario/event effects; it does not promise the next training outcome.
+It preserves the saved career and RNG, and makes unavailable phases, injuries
+and insufficient energy explicit. See [the CLI training guide](../README.md#inspect-training-before-choosing)
+for output fields and refusal behavior.
 
 ## Mid-run races (R8)
 
