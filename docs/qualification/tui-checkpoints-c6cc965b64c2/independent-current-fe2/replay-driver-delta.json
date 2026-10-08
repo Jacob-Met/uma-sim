@@ -1,0 +1,14 @@
+{
+  "schema": "hamon.uma.terminal_durable.driver_replay.v1",
+  "original_driver_path": "/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-v1/receive-v1.mjs",
+  "original_driver_sha256": "b5c79ba9e8aa53ded1c6cadf650ef2e99908e277fe92e49438ade74a9504ef50",
+  "current_driver_path": "/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-fe2e6fdc-v1/receive-v1.mjs",
+  "current_driver_sha256": "6588974a3182048930512a8142731aaa37ae3b9559257766bfe0c763632f2e35",
+  "only_source_change": {
+    "old": "const root=\"/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-v1\";",
+    "new": "const root=\"/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-fe2e6fdc-v1\";"
+  },
+  "all_helpers_cases_and_assertions_otherwise_exact": true,
+  "original_receipt_sha256": "b217ca32937cbd8d7a488886799ce69950cece3ea69164973c298ae855afa199",
+  "purpose": "Replay the original 16 independent groups on the current API composition without rewriting the old result or weakening expectations."
+}

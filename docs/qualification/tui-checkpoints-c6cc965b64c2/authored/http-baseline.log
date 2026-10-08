@@ -1,0 +1,95 @@
+✖ checkpoint opens an independent named career, preserves existing state, and shows advisories (101.107125ms)
+✖ save is explicitly create-only and selected-session bound; checkpoint listing never advances play (146.215042ms)
+✖ standalone list is read-only, exits with closed stdin, and supports an empty library (81.326375ms)
+✖ malformed save commands are refused locally rather than sent as game choices (176.710458ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 659.405541
+
+✖ failing tests:
+
+test at packages/uma-sim-cli/tests/tui-checkpoints.test.mjs:62:1
+✖ checkpoint opens an independent named career, preserves existing state, and shows advisories (101.107125ms)
+  AssertionError [ERR_ASSERTION]: {"stdout":"","stderr":"Unknown option '--checkpoint'. Use --help.\n","ended":true}
+  
+  true !== false
+  
+      at Object.prompt (file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoint-harness.mjs:39:14)
+      at async TestContext.<anonymous> (file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.test.mjs:67:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at packages/uma-sim-cli/tests/tui-checkpoints.test.mjs:87:1
+✖ save is explicitly create-only and selected-session bound; checkpoint listing never advances play (146.215042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      body: {
+  +     action: 'save half-time',
+  -     name: 'half-time',
+  -     overwrite: false,
+        session: 'career'
+      },
+      method: 'POST',
+      query: {},
+  +   route: '/v1/run/action'
+  -   route: '/v1/library/save'
+    }
+  
+      at TestContext.<anonymous> (file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.test.mjs:94:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { method: 'POST', route: '/v1/run/action', query: {}, body: { action: 'save half-time', session: 'career' } },
+    expected: { method: 'POST', route: '/v1/library/save', query: {}, body: { name: 'half-time', overwrite: false, session: 'career' } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at packages/uma-sim-cli/tests/tui-checkpoints.test.mjs:115:1
+✖ standalone list is read-only, exits with closed stdin, and supports an empty library (81.326375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.test.mjs:121:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at packages/uma-sim-cli/tests/tui-checkpoints.test.mjs:147:1
+✖ malformed save commands are refused locally rather than sent as game choices (176.710458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  8 !== 0
+  
+      at TestContext.<anonymous> (file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.test.mjs:156:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 8,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

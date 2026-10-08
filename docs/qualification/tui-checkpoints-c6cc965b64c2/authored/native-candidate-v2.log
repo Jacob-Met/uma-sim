@@ -1,0 +1,19 @@
+✔ native checkpoint survives an actual process restart and resumes the exact next RNG step (1168.267333ms)
+✔ native create-only save preserves an earlier checkpoint and reports actual storage refusal (430.551959ms)
+✔ native missing and incompatible checkpoints refuse without replacement; compatibility advisories remain visible (794.624292ms)
+✔ native committed save with disconnect reports uncertainty and is not replayed (417.580584ms)
+✔ native committed save with invalid JSON reports uncertainty and is not replayed (397.134417ms)
+✔ native committed fork with disconnect reports uncertainty and is not replayed (433.389083ms)
+✔ native committed fork with invalid JSON reports uncertainty and is not replayed (386.570375ms)
+✔ native EOF after committed save preserves resumable state without replay (406.32375ms)
+✔ native SIGINT after committed save preserves resumable state without replay (401.580292ms)
+✔ native EOF after committed fork preserves resumable state without replay (386.029084ms)
+✔ native SIGINT after committed fork preserves resumable state without replay (389.9435ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5789.789583

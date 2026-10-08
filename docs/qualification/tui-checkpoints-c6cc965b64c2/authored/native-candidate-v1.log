@@ -1,0 +1,36 @@
+✔ native checkpoint survives an actual process restart and resumes the exact next RNG step (872.915459ms)
+✖ native create-only save preserves an earlier checkpoint and reports actual storage refusal (344.785084ms)
+✔ native missing and incompatible checkpoints refuse without replacement; compatibility advisories remain visible (624.128708ms)
+✔ native committed save with disconnect reports uncertainty and is not replayed (350.708584ms)
+✔ native committed save with invalid JSON reports uncertainty and is not replayed (341.177542ms)
+✔ native committed fork with disconnect reports uncertainty and is not replayed (330.858666ms)
+✔ native committed fork with invalid JSON reports uncertainty and is not replayed (331.902083ms)
+✔ native EOF after committed save preserves resumable state without replay (348.306125ms)
+✔ native SIGINT after committed save preserves resumable state without replay (342.081833ms)
+✔ native EOF after committed fork preserves resumable state without replay (323.05375ms)
+✔ native SIGINT after committed fork preserves resumable state without replay (322.571542ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4671.986708
+
+✖ failing tests:
+
+test at packages/uma-sim-cli/tests/tui-checkpoints.native.mjs:193:1
+✖ native create-only save preserves an earlier checkpoint and reports actual storage refusal (344.785084ms)
+  Error: EISDIR: illegal operation on a directory, read
+      at async readFileHandle (node:internal/fs/promises:1203:24)
+      at async file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.native.mjs:68:44
+      at async Promise.all (index 0)
+      at async Object.files (file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.native.mjs:67:33)
+      at async TestContext.<anonymous> (file:///Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.native.mjs:215:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -21,
+    code: 'EISDIR',
+    syscall: 'read'
+  }

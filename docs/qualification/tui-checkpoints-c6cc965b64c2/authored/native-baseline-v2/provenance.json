@@ -1,0 +1,21 @@
+{
+  "node": "v26.3.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "files": [
+    {
+      "path": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/checkpoints-c6cc965b64c2/tui-baseline.mjs",
+      "sha256": "39d36f1ebba8c06823e57f2a5c9d49ab6a2b00d8ff0d67ff7afb6f5c5f1d17bb"
+    },
+    {
+      "path": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/target/debug/uma-sim-api",
+      "sha256": "6f94216933f76a08caeade29087f50e0e49da46dabdea8d98d89a200d4835754"
+    },
+    {
+      "path": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/packages/uma-sim-cli/tests/tui-checkpoints.native.mjs",
+      "sha256": "bc0f5bd98a64c0b21ec54191bc84218728a70036cb5023a43d5ae2a2b82c72fd"
+    }
+  ],
+  "backend": "real disposable Rust uma-sim-api processes, private filesystem library, pinned repository catalogs",
+  "faultInjection": "forwarded native HTTP responses are deliberately dropped, corrupted or held only in named fault cases"
+}

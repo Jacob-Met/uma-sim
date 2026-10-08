@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-10-08T12:00:00Z",
+  "sourceBase": "a3e04846521c8877d112842332bc4825a29edaf3",
+  "claimUrl": "https://github.com/Jacob-Met/uma-sim/pull/72#issuecomment-6058688293",
+  "claimId": 6058688293,
+  "threadAdditionalClaims": 0,
+  "openPullRequests": [
+    {
+      "number": 84,
+      "title": "Preserve saved careers when checkpoint replacement fails",
+      "head": "bcdc8b658607d9bfc2227ac3f85614ed54850d7c",
+      "branch": "estate/ac386303dce2-checkpoint-replacement"
+    },
+    {
+      "number": 82,
+      "title": "fix(cli): fail batch when output cannot be written",
+      "head": "17527b933667fedff6615cc91c7f17e19a105e8c",
+      "branch": "fix/batch-output-errors-31a349052b90"
+    },
+    {
+      "number": 80,
+      "title": "fix(ui): show and search retained career events",
+      "head": "adab078345167a57b960fb3dc530af720aea8b60",
+      "branch": "work/retained-career-log-e652aa-20261008"
+    },
+    {
+      "number": 54,
+      "title": "test(api): harden handle_fast regression harness around 503 saga",
+      "head": "c3cde8960258bf239cf96373e0aee6c4ab146c9f",
+      "branch": "d2/harness-503-regression"
+    },
+    {
+      "number": 37,
+      "title": "lab: saved-career branch-and-compare laboratory (T100)",
+      "head": "ef2b26729fd20231b47715bba904cc67c4f88649",
+      "branch": "lab/t100-career-branch-compare"
+    },
+    {
+      "number": 34,
+      "title": "lab: saved-career branch-and-compare laboratory (T100)",
+      "head": "17941ddaf5d6f818557b7eb28e52c0bf7ae9376d",
+      "branch": "lab/t100-branch-compare"
+    }
+  ],
+  "adjacentScopes": {
+    "80": "Browser/UI retained event display owner; disjoint from terminal.",
+    "82": "Native batch output errors; exact files reviewed and disjoint from Node terminal.",
+    "84": "Native checkpoint replacement owner; current main library remains the already qualified 4360cd3 blob. This terminal only sends overwrite:false."
+  },
+  "terminalCompetitorFound": false
+}

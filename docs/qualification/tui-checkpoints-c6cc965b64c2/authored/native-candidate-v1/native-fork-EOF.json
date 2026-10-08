@@ -1,0 +1,44 @@
+{
+  "terminal": {
+    "code": 0,
+    "signal": null,
+    "stdout": "Opening checkpoint 'keep' as session: tui-a22a4e67-d38d-46b9-8fdc-3ff3d6caac23\n",
+    "stderr": "POST /v1/session/fork: This operation was aborted\nThe request may have reached the server. Resume with --session=tui-a22a4e67-d38d-46b9-8fdc-3ff3d6caac23 and inspect state before retrying; no action was retried automatically.\n"
+  },
+  "traffic": [
+    {
+      "method": "GET",
+      "route": "/v1/health",
+      "nativeStatus": 200,
+      "nativeResponse": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/",
+        "version": "0.1.0"
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "keep",
+        "id": "tui-a22a4e67-d38d-46b9-8fdc-3ff3d6caac23"
+      },
+      "nativeStatus": 200,
+      "nativeResponse": {
+        "compatAdvisories": [],
+        "session": {
+          "careerComplete": false,
+          "id": "tui-a22a4e67-d38d-46b9-8fdc-3ff3d6caac23",
+          "label": "tui-a22a4e67-d38d-46b9-8fdc-3ff3d6caac23",
+          "phase": "MANDATORY_RACE",
+          "scenarioId": "ura",
+          "seed": 42,
+          "traineeName": "Special Week",
+          "turn": 1
+        }
+      },
+      "committed": true
+    }
+  ]
+}

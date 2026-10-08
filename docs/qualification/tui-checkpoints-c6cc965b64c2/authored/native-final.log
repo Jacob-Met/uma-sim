@@ -1,0 +1,23 @@
+
+> uma-sim-cli@0.1.0 test:tui:native
+> node --test tests/tui-checkpoints.native.mjs
+
+✔ native checkpoint survives an actual process restart and resumes the exact next RNG step (1115.561125ms)
+✔ native create-only save preserves an earlier checkpoint and reports actual storage refusal (395.92575ms)
+✔ native missing and incompatible checkpoints refuse without replacement; compatibility advisories remain visible (643.990334ms)
+✔ native committed save with disconnect reports uncertainty and is not replayed (424.085291ms)
+✔ native committed save with invalid JSON reports uncertainty and is not replayed (403.82425ms)
+✔ native committed fork with disconnect reports uncertainty and is not replayed (440.939458ms)
+✔ native committed fork with invalid JSON reports uncertainty and is not replayed (361.049208ms)
+✔ native EOF after committed save preserves resumable state without replay (380.419959ms)
+✔ native SIGINT after committed save preserves resumable state without replay (384.380791ms)
+✔ native EOF after committed fork preserves resumable state without replay (372.757292ms)
+✔ native SIGINT after committed fork preserves resumable state without replay (370.461042ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5415.399416
