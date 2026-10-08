@@ -1,0 +1,21 @@
+{
+  "sourceBodies": [
+    {
+      "path": "packages/uma-sim-ui/src/api/checkpointJson.ts",
+      "exact": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "exact": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "exact": true
+    }
+  ],
+  "baseClientExact": true,
+  "baseStoreExact": true,
+  "gateCapsuleExact": true,
+  "gateTestExact": true,
+  "packageAppendOnly": true
+}

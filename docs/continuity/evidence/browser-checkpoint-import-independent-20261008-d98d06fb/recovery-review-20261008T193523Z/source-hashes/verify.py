@@ -1,0 +1,2 @@
+import hashlib,json,sys
+print(json.dumps([{ "path":f["path"], "sha256":hashlib.sha256(f["content"].encode()).hexdigest(), "bytes":len(f["content"].encode()), "git_blob":hashlib.sha1(("blob "+str(len(f["content"].encode()))+"\\0").encode().replace(b"\\0",b"\x00")+f["content"].encode()).hexdigest()} for f in json.loads(sys.argv[1])]))
