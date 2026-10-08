@@ -375,7 +375,7 @@ fn cmd_batch(args: &[String]) {
         Ok(fh) => fh,
         Err(e) => {
             eprintln!("Failed to open {}: {e}", out_path.display());
-            return;
+            std::process::exit(1);
         }
     };
     use std::io::Write;
@@ -398,7 +398,7 @@ fn cmd_batch(args: &[String]) {
             Ok(line) => {
                 if let Err(e) = writeln!(file, "{line}") {
                     eprintln!("write error: {e}");
-                    return;
+                    std::process::exit(1);
                 }
                 written += 1;
             }
