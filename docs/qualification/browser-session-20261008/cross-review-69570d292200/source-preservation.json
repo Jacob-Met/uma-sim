@@ -1,0 +1,138 @@
+{
+  "result": "PASS",
+  "common": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "prior": "63aca264ee8b47df14bcecf47cf1b390b244852f",
+  "incoming": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+  "candidate": "3397f142e397aa911c125261fac41158e7bc74cc",
+  "candidateTree": "8220492e07834480ab9fc0823358c9ad3aa9f24b",
+  "completeCandidateLeaves": 1586,
+  "unchangedIncomingLeaves": 1547,
+  "allPriorLeavesStillPresent": true,
+  "allIncomingLeavesStillPresent": true,
+  "overlaps": [
+    "packages/uma-sim-ui/src/api/client.ts",
+    "packages/uma-sim-ui/package.json"
+  ],
+  "clientRule": {
+    "from": "if (!session) return path;",
+    "to": "if (session === undefined) return path;",
+    "occurrences": 1,
+    "exactWholeIncomingFileAfterReplacement": true
+  },
+  "packageRule": {
+    "incomingTestCommand": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs tests/checkpoint-json.test.mjs",
+    "candidateTestCommand": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs tests/checkpoint-json.test.mjs tests/run-session.test.mjs",
+    "prebuild": "npm test",
+    "reactTestRenderer": "18.3.1",
+    "allOtherIncomingFieldsPreserved": true
+  },
+  "wholePriorNativeLeavesPreserved": [
+    {
+      "path": "packages/uma-sim-ui/README.md",
+      "sha": "26d8137e4bcf91621630026fb13d41cc4ea82327",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/package-lock.json",
+      "sha": "bb105e8d35007889dac0756e73c056ffe88a9e5e",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "sha": "7b013659cd58ad3eead004d72a5501081fcef736",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/runStore.ts",
+      "sha": "5f183bd271f1185ac08e6e6d470c31d2c96a8123",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/compile-ui.mjs",
+      "sha": "18c07ee8671bf66d14507abdca594a69f37a25b5",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/run-session.test.mjs",
+      "sha": "fc9b80d266f9b3b8ab7d53ddfcf46a79e1578824",
+      "mode": "100644"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "sha": "9123b4c2a6a62579cb2d4172eeec835cabaacc59",
+      "mode": "100644"
+    },
+    {
+      "path": "uma-sim-core/tests/session_targeting.rs",
+      "sha": "fbcb1b7a7859c509e4b4eee7addb5da427cbdb0c",
+      "mode": "100644"
+    }
+  ],
+  "wholeIncomingImportLeavesPreserved": [
+    {
+      "path": "docs/browser-checkpoint-import.md",
+      "sha": "67d6aa53e19d5e61cabf7b2ee76be36a1ab938e4",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/MANIFEST.json",
+      "sha": "b990d96bd3894e44cbff8a2c9acc2ec16212691a",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/README.md",
+      "sha": "d66ba91b621dd65db0bc49f957cbf60ddd7bc35a",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/compiler-custody.json",
+      "sha": "80555b733d74013e376e7f25b357c5f74beadb9c",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/gate-execution.json",
+      "sha": "1ff3e1509ba24c08c75b7d52e0e70d42bc47d77b",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/gate-input.json",
+      "sha": "e21bccf100aae30916ac08aa315f0bb38d7a78cf",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/gate-runner.cjs",
+      "sha": "87795d9ef5f9002be88f238bb0c6cf78a8b39149",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/owner-scope.json",
+      "sha": "1f80ca9329b950885385463a33b5ed23bd29c0c1",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/publication-plan.json",
+      "sha": "7c342f159a06039a649582b2a49a6bd8fb0ddf5e",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/source-manifest.json",
+      "sha": "53b6202cb3f74e53f1b1b1e0d1eacbe6428c932b",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/checkpointJson.ts",
+      "sha": "7ffd6458667d05e7b8a46ac8e3d2b18dc5f44945",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "sha": "a8c6301c82e5edfe40754454320382cbc03afe16",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/checkpoint-json.test.mjs",
+      "sha": "eab213bc5029e3b7af72b74bf4a29e5b37ba8584",
+      "mode": "100644"
+    }
+  ]
+}

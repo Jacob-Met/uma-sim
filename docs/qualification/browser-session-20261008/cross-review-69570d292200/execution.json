@@ -1,0 +1,88 @@
+{
+  "reviewer": "estate-69570d292200/evaluation_lane",
+  "reviewedHead": "3397f142e397aa911c125261fac41158e7bc74cc",
+  "reviewedTree": "8220492e07834480ab9fc0823358c9ad3aa9f24b",
+  "parents": [
+    "63aca264ee8b47df14bcecf47cf1b390b244852f",
+    "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa"
+  ],
+  "originalReceiver": {
+    "path": "docs/qualification/browser-session-20261008/current-receiving/review-receiving.mjs",
+    "blob": "f8ab830df82d86d9de193ecce5cf12f7296fb30c"
+  },
+  "executedReceiver": {
+    "path": "docs/qualification/browser-session-20261008/cross-review-69570d292200/review-receiving.mjs",
+    "bytes": 9151,
+    "sha256": "407542673bcebcf4366e4c979e5e919802a4576164f7ea07c9497545866b03a7",
+    "blob": "b69e578d7cd878710dc7df07b841d2c7587e8bba",
+    "adaptations": [
+      {
+        "from": "const root = \"/workspace/scratch/69570d292200/root-receiving\";",
+        "to": "const root = \"/dev/evaluation-69570d292200/uma-pr116\";"
+      },
+      {
+        "from": "baseline:\"8d74413d7dbc3caf1745779c92d56b6eb7feea42\"",
+        "to": "baseline:\"0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa\""
+      }
+    ],
+    "onlyEnvironmentAndBaselineChanges": true
+  },
+  "invocation": {
+    "args": [
+      "node",
+      "docs/qualification/browser-session-20261008/cross-review-69570d292200/review-receiving.mjs"
+    ],
+    "cwd": "/dev/evaluation-69570d292200/uma-pr116",
+    "retainedSession": 36079
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "typescript": "5.9.3",
+    "react": "18.3.1",
+    "reactTestRenderer": "18.3.1"
+  },
+  "result": {
+    "exit": 0,
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "stdout": "react-receiving.log",
+    "stdoutBytes": 2558,
+    "stdoutSha256": "aa78aaab9421d8ae2941b39e8aef582b95ba8562a0a0b11eb43edd41005f66af",
+    "stderr": "react-receiving.stderr",
+    "stderrBytes": 0
+  },
+  "sourceReceipt": {
+    "baseline": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+    "node": "v24.19.0",
+    "files": 47,
+    "sourceSetSha256": "8a8047e667e3d64593355cf6d662b66e215e842851c6714f80f8ba4f84357662",
+    "app": "9e6c183cdabba7259e799797f7ccdd486594b9b0d81594e734b42defe9992131",
+    "runStore": "5c470117c0c93656b849c9672b5a6f62606e4e14292a1c7b3ca9884e7ad53765",
+    "client": "1760e9c7c6e1ebb9ac4ef6fa21ae2fe91de82c2026f78d738b3b0fedaeaa8cf0",
+    "labStore": "42de971e46a746ae4b2aa051749e6e15b417de3c059c153e8aeb56ead8e3ffde",
+    "nativeApi": "c8b465c327e6945dc5e702d96e8aa5523f49372e0f6948ccbb90aceb6c844f3e",
+    "nativeTest": "c42b468d8974a104a0f49df7dc94a551b2d19bc8d4b5ed5e18e172d08e78aee3",
+    "changedDuringExecution": false,
+    "nativeRerun": false,
+    "cssContentIgnored": true
+  },
+  "staging": {
+    "copiedOriginalGitPinnedInputs": 46,
+    "exactCurrentOverlayInputs": 5,
+    "currentGitInputsVerifiedBeforeAndAfter": 48,
+    "receiverSignedInputs": 47,
+    "extraPinnedNotExecuted": "packages/uma-sim-ui/tests/checkpoint-json.test.mjs",
+    "sharedSourceChanged": false,
+    "sharedDependenciesChanged": false,
+    "installs": false
+  },
+  "disposition": "Approve the exact current source composition and the requested independent React receiving gate. Root retains hosted/current-head integration.",
+  "limits": [
+    "Existing receiver expectations, fixtures and tests are unchanged; this is independent source review and execution, not newly authored test cases.",
+    "React test renderer and in-memory TypeScript compilation are used; CSS bytes are pinned but CSS imports are ignored by the receiver.",
+    "Native Rust API and test files are hashed but not rerun. The full116-test UI build is not repeated.",
+    "No real browser, network service, deployed or installed runtime, user career, provider or payment action is exercised.",
+    "The per-invocation /dev staging filesystem is temporary. Git preserves this complete receipt."
+  ]
+}
