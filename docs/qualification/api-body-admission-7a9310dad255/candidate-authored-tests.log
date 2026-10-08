@@ -1,0 +1,12 @@
+   Compiling uma-sim-core v0.1.0 (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/source/uma-sim-core)
+    Finished `test` profile [unoptimized] target(s) in 6.97s
+     Running tests/api_body_admission.rs (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/target/debug/deps/api_body_admission-0ef94eb6e25aff83)
+
+running 5 tests
+test empty_bodies_and_valid_objects_keep_existing_defaults ... ok
+test invalid_utf8_is_rejected_before_start_and_auto ... ok
+test malformed_json_is_rejected_before_every_post_handler ... ok
+test nonobject_json_is_not_an_empty_command ... ok
+test unsupported_routes_and_preflight_keep_their_status ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.56s

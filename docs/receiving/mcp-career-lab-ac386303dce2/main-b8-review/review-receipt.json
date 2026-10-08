@@ -1,0 +1,184 @@
+{
+  "schema": "hamon.uma69-independent-ancestry-ci.v1",
+  "reviewer": "research_integration",
+  "repository": "Jacob-Met/uma-sim",
+  "pull_request": 69,
+  "disposition": "PASS_FOR_E914_ON_B8_WITH_CURRENT_MAIN_REFRESH_HELD",
+  "source": {
+    "base": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+    "head": "e914b047973710bb1d50885730dea28bc8025b0b",
+    "base_leaves": 524,
+    "head_leaves": 580,
+    "preserved": 521,
+    "changed": [
+      ".github/workflows/ci.yml",
+      "packages/uma-sim-mcp/mcp-stdio.js",
+      "packages/uma-sim-mcp/tests/mcp-handshake.test.mjs"
+    ],
+    "added": 56,
+    "deleted": [],
+    "unexpected": [],
+    "all_unowned_blobs_preserved": true,
+    "mcp_source": {
+      "path": "packages/uma-sim-mcp/mcp-stdio.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24d5384c0a14fbdd07c4dd838b6a0d56b6d92ceb",
+      "size": 17575,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/24d5384c0a14fbdd07c4dd838b6a0d56b6d92ceb"
+    },
+    "ci": {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ae99b56d4af0635f755b46a3c38d885806ba32b",
+      "size": 4271,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/1ae99b56d4af0635f755b46a3c38d885806ba32b"
+    }
+  },
+  "ci_source": {
+    "restoration_equals_current_main": true,
+    "terminal_cli_step_byte_identical": true,
+    "native_binary": "${{ github.workspace }}/target/release/uma-sim-api",
+    "native_only_after_release_build": true,
+    "protocol_glob_preserves_handshake": true,
+    "permissions_unchanged": true
+  },
+  "run": {
+    "id": 37762223137,
+    "head_sha": "e914b047973710bb1d50885730dea28bc8025b0b",
+    "event": "pull_request",
+    "conclusion": "success",
+    "checkout_commit": "4810377ccb6989a8faee8e31d3de67729ed0547e",
+    "checkout_tree": "43d39a70727bb75ba6c448f7639379682119f44c",
+    "checkout_parents": [
+      "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+      "e914b047973710bb1d50885730dea28bc8025b0b"
+    ],
+    "jobs": {
+      "ui": {
+        "id": 113261167922,
+        "conclusion": "success"
+      },
+      "rust": {
+        "id": 113261299648,
+        "conclusion": "success",
+        "native_tests": 11,
+        "native_pass": 11,
+        "native_skip": 0
+      },
+      "mcp": {
+        "id": 113261168157,
+        "conclusion": "success",
+        "protocol_tests": 129,
+        "protocol_pass": 125,
+        "protocol_skip": 4,
+        "cli_tests": 17,
+        "cli_pass": 17,
+        "cli_skip": 0
+      }
+    }
+  },
+  "artifact": {
+    "id": 11542952144,
+    "sha256": "a4a6e54f7162f87e112e576c91626d98a6cba49a5655fbc00872be81ae7b86e1",
+    "size": 8758,
+    "file_count": 16,
+    "files": [
+      {
+        "path": "native-runs/review-JY4KCL/provenance.json",
+        "size": 532,
+        "sha256": "ec74f4381e5a9281e085d2eb3b218ce306de2c47a677497c45f6d07fb9f4ca79"
+      },
+      {
+        "path": "native-runs/review-JY4KCL/server.log",
+        "size": 75,
+        "sha256": "9140584a8545f19cf6d21cad619477fff4b81a5ddff77a8f12a177f4cb640dff"
+      },
+      {
+        "path": "native-runs/review-gx1BUp/comparison.json",
+        "size": 3143,
+        "sha256": "a5187282d489553f2bedcbb5b95da709f43aba5614221d34d87efd24a2ee7198"
+      },
+      {
+        "path": "native-runs/review-gx1BUp/comparison.md",
+        "size": 1782,
+        "sha256": "796ca4c30319426d6c462ef3a6b68316ee1c9bf40bc0294a5bd484a8c772ec68"
+      },
+      {
+        "path": "native-runs/review-gx1BUp/provenance.json",
+        "size": 532,
+        "sha256": "dfe7e4be357835b855f41b8c9483776c06cab43a02334361cee73a0e288c32ea"
+      },
+      {
+        "path": "native-runs/review-gx1BUp/server.log",
+        "size": 75,
+        "sha256": "5e9b126ee30108b628f0bbc6e82ccdc7b5e7c93dfc0166cbb884f20f1a06ae9a"
+      },
+      {
+        "path": "native-runs/review-hfdKkv/provenance.json",
+        "size": 532,
+        "sha256": "da538541f3c04b63cfb3aac54fc990d16bd216be81670e6073d84c0a8885492d"
+      },
+      {
+        "path": "native-runs/review-hfdKkv/server.log",
+        "size": 75,
+        "sha256": "67efa665c38d82386ba01f48d2f16693bb8e03052d7a7a8b889aecbccc044f0b"
+      },
+      {
+        "path": "native-runs/review-hfdKkv/sessions-receiving-result.json",
+        "size": 285,
+        "sha256": "cc5c445a38b7b6ae3b5418314ae34804611a6d075a455cf89e367ed594c115fe"
+      },
+      {
+        "path": "native-runs/review-kFEgtS/provenance.json",
+        "size": 532,
+        "sha256": "1fd7d19b3aa76025e78fa310430001d9b0d895c20aa09791ae12b00cdacdd10e"
+      },
+      {
+        "path": "native-runs/review-kFEgtS/server.log",
+        "size": 75,
+        "sha256": "079634b4f5a622379e9e81a566573a1639ab45f66694a5ab7b273b3891f81b4f"
+      },
+      {
+        "path": "native-runs/review-kFEgtS/sessions-receiving-result.json",
+        "size": 275,
+        "sha256": "b36c571f90b5027f2869ac85a4e31107e7f92049a90fb7aaedebb22be300b040"
+      },
+      {
+        "path": "native-runs/review-xYFNhR/independent-content.json",
+        "size": 79527,
+        "sha256": "5c1cd31142d20d6aeab30bc9f98aeee45855299bce7f25075fc3ef44b7e3d3ef"
+      },
+      {
+        "path": "native-runs/review-xYFNhR/provenance.json",
+        "size": 532,
+        "sha256": "7bce5a886141af2b4a3ad622c295ded03aaeae3615bb628737aa1dd9d19e932c"
+      },
+      {
+        "path": "native-runs/review-xYFNhR/server.log",
+        "size": 75,
+        "sha256": "06c0b4fa5655ad10cc5443384d36fc54c07d434557b10831b0bd321ce4daafae"
+      },
+      {
+        "path": "native-runs/review-xYFNhR/sessions-receiving-result.json",
+        "size": 343,
+        "sha256": "e4285afbca1a3d1089061bbb814cac1206e686d17f323a4dc84bb3fdea9d3da0"
+      }
+    ],
+    "provenance_count": 5,
+    "receiving_commit": "4810377ccb6989a8faee8e31d3de67729ed0547e",
+    "mcp_sha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+    "binary_sha256": "10aae96b1859a895e98b3a49d7a1e7bbc7d368edb99383db2e53084471674afe"
+  },
+  "freshness": {
+    "main": "0bc58cb83e89f07c6af3056dd7c37436906d994f",
+    "main_tree": "7c1b145124486f2a7911df3cecb620558abf84e1",
+    "new_native_api_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+    "current_main_not_in_reviewed_head": true,
+    "requires_conservative_ancestry_refresh": true,
+    "requires_fresh_actual_head_native_ci": true,
+    "content_mutations_held_by_parent": true
+  },
+  "recorded_at": "2026-10-08 10:50:23 UTC"
+}

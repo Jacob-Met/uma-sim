@@ -62,3 +62,14 @@ receiver, not a claim that the later native source was already exercised.
 Current main ancestry, independent review and actual proposed-head CI remain
 required at the final main-branch merge. This packet records executed receiving
 on the source above; the PR records the final integration result.
+
+## Later native request admission
+
+Main subsequently received PR #79 at `0bc58cb83e89f07c6af3056dd7c37436906d994f`.
+The final refresh preserves that exact request-body admission source, tests and
+receipts, and retains the unchanged reviewed MCP bridge. The independent
+[e914/b8 review](main-b8-review/REVIEW.md), its structured receipt, and the
+byte-exact hosted native [artifact](main-b8-review/uma69-e914-native.zip) are
+retained as their original qualification. That review explicitly held later
+integration for this native refresh. The refreshed head must run current-native
+receiving through hosted CI; earlier native results are not relabeled.
