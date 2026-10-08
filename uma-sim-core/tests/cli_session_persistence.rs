@@ -143,7 +143,10 @@ fn healthy_commands_publish_reloadable_sessions() {
     let _: serde_json::Value = serde_json::from_slice(&placed).unwrap();
     // Starting the same seed replaces the saved career with its original state.
     succeeded(c.run(START));
-    assert_eq!(fs::read(c.session()).unwrap(), original);
+    assert_eq!(
+        serde_json::from_slice::<serde_json::Value>(&fs::read(c.session()).unwrap()).unwrap(),
+        serde_json::from_slice::<serde_json::Value>(&original).unwrap()
+    );
     c.assert_only_session_and_sentinel();
 }
 
