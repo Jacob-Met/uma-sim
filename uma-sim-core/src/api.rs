@@ -7,6 +7,7 @@ use crate::career_lab::{
 };
 use crate::catalog::event::{install_event_catalog, EventCatalog, FileEventCatalog};
 use crate::catalog::factor::FactorCatalog;
+use crate::catalog::skill::SkillCatalog;
 use crate::catalog::support::SupportCatalog;
 use crate::catalog::trainee::TraineeCatalog;
 use crate::content::{ContentPackLoader, ContentPackRegistry};
@@ -124,6 +125,7 @@ fn route(
         (Method::Get, "/v1/catalog/trainees") => handle_catalog_trainees(),
         (Method::Get, "/v1/catalog/supports") => handle_catalog_supports(),
         (Method::Get, "/v1/catalog/factors") => handle_catalog_factors(),
+        (Method::Get, "/v1/catalog/skills") => handle_catalog_skills(),
         (Method::Post, "/v1/run/start") => with_json_body(body, |body| handle_start(st, body)),
         (Method::Get, "/v1/run/state") => handle_state(st, query),
         (Method::Get, "/v1/run/text") => handle_text(st, query),
@@ -194,6 +196,7 @@ fn is_known_path(path: &str) -> bool {
             | "/v1/catalog/trainees"
             | "/v1/catalog/supports"
             | "/v1/catalog/factors"
+            | "/v1/catalog/skills"
             | "/v1/run/start"
             | "/v1/run/state"
             | "/v1/run/text"
@@ -541,6 +544,11 @@ fn handle_catalog_factors() -> Response<Cursor<Vec<u8>>> {
         })
         .collect();
     json_response(200, json!({"items": items}))
+}
+
+fn handle_catalog_skills() -> Response<Cursor<Vec<u8>>> {
+    let _ = init_from_detected_repo(true);
+    json_response(200, json!({"items": SkillCatalog::list_all()}))
 }
 
 fn handle_start(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {

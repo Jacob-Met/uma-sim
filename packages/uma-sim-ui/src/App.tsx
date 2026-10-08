@@ -8,6 +8,7 @@ import { RacePanel } from "./components/RacePanel";
 import { GrandLivePanel } from "./components/GrandLivePanel";
 import { DeckPanel } from "./components/DeckPanel";
 import { AptitudePanel } from "./components/AptitudePanel";
+import { SkillsPanel } from "./components/SkillsPanel";
 import { CareerSummary } from "./components/CareerSummary";
 import { ControlsBar } from "./components/ControlsBar";
 import { api } from "./api/client";
@@ -169,6 +170,7 @@ export default function App() {
                 busy={state.busy}
                 onStyle={(style) => void setStyle(style)}
               />
+              <SkillsPanel state={cs} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               <LogPanel lines={state.textLines} history={cs.log} />
