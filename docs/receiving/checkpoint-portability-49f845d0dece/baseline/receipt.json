@@ -1,0 +1,602 @@
+{
+  "stage": "baseline",
+  "startedAt": "2026-10-08T09:05:30.453Z",
+  "source": "0ac14602addd1a4610aa8359896915a34cce5659",
+  "sourceFiles": {
+    "packages/uma-sim-ui/src/components/LibraryPanel.tsx": {
+      "sha256": "447d79389bbcbebdc78e04188614f9ffe3f06681b8f3160d7d5b1c8d75db5684"
+    },
+    "packages/uma-sim-ui/src/state/labStore.ts": {
+      "sha256": "aeccd1b983ff988f185b2bc5ce1cfffcbf1f9d7020929fce4e6117b0e21a926a"
+    },
+    "uma-sim-core/src/api.rs": {
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    },
+    "uma-sim-core/src/career_lab.rs": {
+      "sha256": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7"
+    },
+    "uma-sim-core/src/snapshot.rs": {
+      "sha256": "95dcb1d92dacac6494a403cb9d39ef06b42e855aa22dfb3013f39c941c2f3e68"
+    },
+    "uma-sim-core/src/engine.rs": {
+      "sha256": "5b2ad3cd6557d929d07fef8b1783357089d129190dc1e871e80f4d6e28dd075c"
+    },
+    "uma-sim-core/src/rng.rs": {
+      "sha256": "6926d2388464fff071f71dc37d80eea6d3306e9279d0cdb946da78fcd84e42cc"
+    }
+  },
+  "builtAssets": {
+    "index-C8rte7ax.css": {
+      "sha256": "beda9c92acf18ac0a0ca344bea9c6be08715624da91d007032ffdcb5dad195ac"
+    },
+    "index-X8h0Ki6P.js": {
+      "sha256": "61864c0562e309b6307a07ce63affe3d2ed0c42123cea767d9d76c3633db7d14"
+    }
+  },
+  "nativeBinary": {
+    "sha256": "61298b37b1ecdf7dfaaca892ac51de4b03ba22b233b962f1fa1304f5f0a2fd66"
+  },
+  "storageRoots": [
+    "/Users/me/workspace/estate/production-evidence-49f845d0dece/checkpoint-portability-receiving/baseline/storage-a-gWnxVi",
+    "/Users/me/workspace/estate/production-evidence-49f845d0dece/checkpoint-portability-receiving/baseline/storage-b-IDdg4A"
+  ],
+  "boots": [
+    {
+      "name": "origin",
+      "pid": 45044,
+      "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/checkpoint-portability-receiving/baseline/storage-a-gWnxVi",
+      "endpoint": "http://127.0.0.1:62083",
+      "startedAt": "2026-10-08T09:05:31.084Z",
+      "health": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim",
+        "version": "0.1.0"
+      },
+      "exitedAt": "2026-10-08T09:05:32.776Z",
+      "exitCode": null,
+      "exitSignal": "SIGTERM"
+    },
+    {
+      "name": "import",
+      "pid": 45071,
+      "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/checkpoint-portability-receiving/baseline/storage-b-IDdg4A",
+      "endpoint": "http://127.0.0.1:62102",
+      "startedAt": "2026-10-08T09:05:32.778Z",
+      "health": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim",
+        "version": "0.1.0"
+      },
+      "exitedAt": "2026-10-08T09:05:33.432Z",
+      "exitCode": null,
+      "exitSignal": "SIGTERM"
+    },
+    {
+      "name": "restart",
+      "pid": 45265,
+      "cwd": "/Users/me/workspace/estate/production-evidence-49f845d0dece/checkpoint-portability-receiving/baseline/storage-b-IDdg4A",
+      "endpoint": "http://127.0.0.1:62117",
+      "startedAt": "2026-10-08T09:05:33.434Z",
+      "health": {
+        "ok": true,
+        "repoRoot": true,
+        "repoRootPath": "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim",
+        "version": "0.1.0"
+      },
+      "exitedAt": "2026-10-08T09:05:34.131Z",
+      "exitCode": null,
+      "exitSignal": "SIGTERM"
+    }
+  ],
+  "requests": [
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/health",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/start",
+      "body": "{\"seed\":42,\"scenario\":\"ura\",\"trainee\":\"Special Week\",\"speed\":1,\"dialogue\":\"choices\",\"raceModel\":\"stub\",\"policy\":\"bot\",\"deckSupports\":\"\",\"traceTelemetry\":true}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/library/save",
+      "body": "{\"name\":\"portable-origin-muzb9v6z\",\"label\":\"Portable reference\",\"note\":\"Browser portability receiving fixture\",\"overwrite\":false}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "boot": "origin",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "origin",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/health",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "boot": "import",
+      "method": "POST",
+      "path": "/v1/library/import",
+      "body": {
+        "name": null,
+        "snapshot": {
+          "sha256": "0ce6ce24b3e89d3d2d14486b494ca87394e5eb6086045e903543ba576bc91ff4"
+        }
+      }
+    },
+    {
+      "boot": "import",
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/health",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "POST",
+      "path": "/v1/library/load",
+      "body": "{\"name\":\"seed42-t11-ura\"}"
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/run/state",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/library",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": null
+    },
+    {
+      "boot": "restart",
+      "method": "POST",
+      "path": "/v1/run/auto",
+      "body": "{\"policy\":\"bot\"}"
+    },
+    {
+      "boot": "restart",
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": null
+    }
+  ],
+  "cases": [
+    {
+      "name": "actual browser export preserves complete snapshot and exact RNG words",
+      "pass": true
+    },
+    {
+      "name": "fresh-storage browser import and export preserve complete snapshot",
+      "pass": true
+    },
+    {
+      "name": "import label accurately describes the generated default name",
+      "pass": false
+    },
+    {
+      "name": "checkpoint files persist unchanged across a native API process restart",
+      "pass": true
+    },
+    {
+      "name": "browser Resume restores the full native engine snapshot after restart",
+      "pass": true
+    },
+    {
+      "name": "next actual browser Auto step reproduces complete state and RNG position",
+      "pass": true
+    }
+  ],
+  "pageErrors": [],
+  "uiBase": "http://127.0.0.1:62079",
+  "browser": "153.0.8010.12",
+  "originalEntry": {
+    "dateLabel": "Y1 Nov · 2nd half",
+    "fingerprint": {
+      "contentPackEvents": 0,
+      "coreVersion": "0.1.0",
+      "eventCatalogCount": 3458,
+      "repoRootDetected": true,
+      "snapshotSchema": 1
+    },
+    "label": "Portable reference",
+    "name": "portable-origin-muzb9v6z",
+    "note": "Browser portability receiving fixture",
+    "phase": "FREE",
+    "rngCalls": 53,
+    "savedAt": "2026-10-08T09:05:32Z",
+    "savedAtUnix": 1791450332,
+    "scenarioId": "ura",
+    "seed": 42,
+    "traineeName": "Special Week",
+    "turn": 11
+  },
+  "download": {
+    "suggestedFilename": "export.json",
+    "digest": {
+      "sha256": "d3e3dee3254c2dfe843d7e6231f620c6c6fcd6a3b7ce3fe953fe085f5d60e16b"
+    }
+  },
+  "importedEntry": {
+    "dateLabel": "Y1 Nov · 2nd half",
+    "fingerprint": {
+      "contentPackEvents": 0,
+      "coreVersion": "0.1.0",
+      "eventCatalogCount": 3458,
+      "repoRootDetected": true,
+      "snapshotSchema": 1
+    },
+    "label": "seed42-t11-ura",
+    "name": "seed42-t11-ura",
+    "note": "imported",
+    "phase": "FREE",
+    "rngCalls": 53,
+    "savedAt": "2026-10-08T09:05:33Z",
+    "savedAtUnix": 1791450333,
+    "scenarioId": "ura",
+    "seed": 42,
+    "traineeName": "Special Week",
+    "turn": 11
+  },
+  "naming": {
+    "renderedLabel": "Name (optional — defaults to the file’s stored name)",
+    "originalName": "portable-origin-muzb9v6z",
+    "importedName": "seed42-t11-ura",
+    "expectedGeneratedName": "seed42-t11-ura",
+    "labelAgrees": false
+  },
+  "persistedBeforeRestart": {
+    "seed42-t11-ura.meta.json": {
+      "sha256": "9dc05cb3dd6ec16b1dc6b719e8964c91bb558b466f75d5091d5f3b06f9480e54"
+    },
+    "seed42-t11-ura.snapshot.json": {
+      "sha256": "ae3dfcd186591419b0257760c1ca7d9d37458361cd510de9278880ff60cf6e47"
+    }
+  },
+  "persistedAfterRestart": {
+    "seed42-t11-ura.meta.json": {
+      "sha256": "9dc05cb3dd6ec16b1dc6b719e8964c91bb558b466f75d5091d5f3b06f9480e54"
+    },
+    "seed42-t11-ura.snapshot.json": {
+      "sha256": "ae3dfcd186591419b0257760c1ca7d9d37458361cd510de9278880ff60cf6e47"
+    }
+  },
+  "rng": {
+    "origin": {
+      "x": -70377500,
+      "y": -1080387997,
+      "z": -482688134,
+      "w": -1670661915,
+      "v": 1918856562,
+      "addend": 54770995
+    },
+    "expectedNext": {
+      "x": 647651624,
+      "y": 589358916,
+      "z": -591566752,
+      "w": -1540213742,
+      "v": -999551478,
+      "addend": 56945617
+    },
+    "actualNext": {
+      "x": 647651624,
+      "y": 589358916,
+      "z": -591566752,
+      "w": -1540213742,
+      "v": -999551478,
+      "addend": 56945617
+    },
+    "callsBefore": 53,
+    "callsAfter": 57
+  },
+  "completed": true,
+  "completedAt": "2026-10-08T09:05:34.131Z"
+}
