@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-01",
+  "effect_types": [
+    "stat_delta",
+    "energy_delta",
+    "mood_delta",
+    "skill_points",
+    "hint_skill",
+    "hint_level",
+    "condition",
+    "random_stat",
+    "bond_delta",
+    "scenario_resource"
+  ],
+  "parse_patterns": {
+    "stat_line": "^(Speed|Stamina|Power|Guts|Wit) ([+-]\\d+)$",
+    "energy_line": "^Energy ([+-]\\d+)(?:/([+-]\\d+))?$",
+    "skill_points": "^Skill points \\+(\\d+)$",
+    "random_stat": "^(\\d+) random stat \\+(\\d+)$"
+  },
+  "confidence": "high"
+}

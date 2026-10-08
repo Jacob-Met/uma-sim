@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-01",
+  "confidence": "estimated",
+  "base_failure_by_energy_pct": [
+    { "energy_max_pct": 30, "failure_pct": 45 },
+    { "energy_max_pct": 50, "failure_pct": 30 },
+    { "energy_max_pct": 70, "failure_pct": 15 },
+    { "energy_max_pct": 90, "failure_pct": 5 },
+    { "energy_max_pct": 100, "failure_pct": 0 }
+  ],
+  "mood_modifiers": {
+    "GREAT": -5,
+    "GOOD": -2,
+    "NORMAL": 0,
+    "BAD": 5,
+    "AWFUL": 10
+  },
+  "facility_level_modifier_per_level": 2,
+  "failure_penalty": {
+    "energy_loss": 15,
+    "mood_drop_chance": 0.3,
+    "injury_chance": 0.02
+  },
+  "notes": "Calibrate against OCR failure rates in TurnTelemetry"
+}

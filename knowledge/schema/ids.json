@@ -1,0 +1,46 @@
+{
+  "idConvention": {
+    "trainee": "trainee:{character_card_id}",
+    "support_card": "support:{support_id}",
+    "skill": "skill:{skill_id}",
+    "race": "race:{race_instance_id}",
+    "scenario": "scenario:{slug}",
+    "factor": "factor:{factor_id}",
+    "epithet": "epithet:{slug}",
+    "event": "event:{owner_kind}:{owner_id}:{event_slug}",
+    "song": "song:{song_list_id}",
+    "lesson": "lesson:{lesson_id}",
+    "item": "item:{item_id}"
+  },
+  "scenarioSlugs": {
+    "ura": {
+      "id": "scenario:ura",
+      "official_en": "The Beginning: URA Finale",
+      "bot_alias": "URA Finale",
+      "jp": "新設！URAファイナルズ"
+    },
+    "unity": {
+      "id": "scenario:unity",
+      "official_en": "Unity Cup: Shine On, Team Spirit!",
+      "bot_alias": "Unity Cup",
+      "jp": "アオハル杯 ～輝け、チームの絆～"
+    },
+    "trackblazer": {
+      "id": "scenario:trackblazer",
+      "official_en": "Trackblazer: Start of the Climax",
+      "bot_alias": "Trackblazer",
+      "jp": "Make a new track!! ～クライマックス開幕～",
+      "disambiguation": "Also a skill name (JP 切り開く者). Always prefix scenario: vs skill:."
+    },
+    "grand_concert": {
+      "id": "scenario:grand_concert",
+      "official_en": "Brighter Together! Our Grand Concert",
+      "bot_alias": "Grand Live",
+      "jp_alias": "Grand Live",
+      "jp": "つなげ、照らせ、ひかれ。私たちのグランドライブ"
+    }
+  },
+  "statKeys": ["speed", "stamina", "power", "guts", "wit"],
+  "styles": ["front_runner", "pace_chaser", "late_surger", "end_closer"],
+  "moods": ["great", "good", "normal", "bad", "awful"]
+}

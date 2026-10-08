@@ -1,0 +1,30 @@
+{
+  "provenance": "umamusu.wiki / community mechanics notes (CompeteTop). Verified vs oracle Virtual Nige default-pacer (cp_10 exact).",
+  "entry_window": {
+    "start_m": 150,
+    "end_section": 6,
+    "hard_end_section": 9
+  },
+  "distance_gap_m": {
+    "Nige": 3.75,
+    "Oonige": 5.0
+  },
+  "lane_gap": "deferred (no lane model → treat as 0 / always satisfied)",
+  "same_group_only": "Nige↔Nige or Oonige↔Oonige (not mixed)",
+  "target_speed_bonus": "(500 * guts)^0.6 * 0.0001 m/s",
+  "duration_s": "(700 * guts)^0.5 * 0.012",
+  "hp_factor": {
+    "Nige": 1.4,
+    "Nige_rushed": 3.6,
+    "Oonige": 3.5,
+    "Oonige_rushed": 7.7,
+    "note": "When lead-comp is active, base rushed×1.6 is suppressed so the combined factor is not double-counted."
+  },
+  "default_virtual_pacer": {
+    "strategy": "Nige",
+    "skills": [],
+    "speed_mult": "none (copy focus speed; prior 1.125+tier fit removed — not in oracle useDefaultPacer)",
+    "source": "umalator RaceSolverBuilder.useDefaultPacer(false)"
+  },
+  "status": "Wired in simulate_with_default_pacer + simulate_field_synced (nearest same-frame neighbour)"
+}

@@ -1,0 +1,50 @@
+{
+  "count": 5,
+  "mismatches": [
+    {
+      "id": "101502111",
+      "gametora": [
+        "||phase==1&corner!=0"
+      ],
+      "skill_data": [
+        "||corner_random==1@corner_random==2@corner_random==3@corner_random==4"
+      ]
+    },
+    {
+      "id": "105701111",
+      "gametora": [
+        "||distance_type==3&corner_random==3&order_rate>=40@distance_type==4&corner_random==3&order_rate>=40"
+      ],
+      "skill_data": [
+        "||distance_type==3&corner_random==3&order_rate>=50@distance_type==4&corner_random==3&order_rate>=50"
+      ]
+    },
+    {
+      "id": "106502111",
+      "gametora": [
+        "||running_style==1&always==1"
+      ],
+      "skill_data": [
+        "||running_style==1&phase==0"
+      ]
+    },
+    {
+      "id": "108501211",
+      "gametora": [
+        "||distance_type==1&phase>=2&order_rate>=40&is_overtake==1@distance_type==2&phase>=2&order_rate>=40&is_overtake==1"
+      ],
+      "skill_data": [
+        "||distance_type==1&phase>=2&order_rate>=50&is_overtake==1@distance_type==2&phase>=2&order_rate>=50&is_overtake==1"
+      ]
+    },
+    {
+      "id": "110601211",
+      "gametora": [
+        "||running_style==3&phase_random==1&order_rate>=40"
+      ],
+      "skill_data": [
+        "||running_style==3&phase_random==1&order_rate>=40&order_rate<=90"
+      ]
+    }
+  ]
+}

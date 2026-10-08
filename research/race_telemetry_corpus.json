@@ -1,0 +1,3416 @@
+{
+  "status": "bootstrap_from_live_logs \u2014 win/not_first only (no NPC stats/margins yet)",
+  "schema_version": 1,
+  "total_races": 410,
+  "wins": 286,
+  "win_rate": 0.697560975609756,
+  "by_race_name": {
+    "Tokyo Turf 2400m (Med) Left": {
+      "n": 53,
+      "wins": 26,
+      "win_rate": 0.49056603773584906
+    },
+    "Tokyo Turf 200Om (Med) Left": {
+      "n": 44,
+      "wins": 34,
+      "win_rate": 0.7727272727272727
+    },
+    "Tokyo Turf 1600m (Mile) Left": {
+      "n": 39,
+      "wins": 30,
+      "win_rate": 0.7692307692307693
+    },
+    "Hanshin Turf 2000m (Med) Right / Inner": {
+      "n": 36,
+      "wins": 28,
+      "win_rate": 0.7777777777777778
+    },
+    "Nakayama Turf 2000m (Med) Right / Inner": {
+      "n": 36,
+      "wins": 26,
+      "win_rate": 0.7222222222222222
+    },
+    "Hanshin Turf 1600m (Mile) Right / Outer": {
+      "n": 30,
+      "wins": 20,
+      "win_rate": 0.6666666666666666
+    },
+    "Nakayama Turf 1800Om (Mile) Right / Inner": {
+      "n": 28,
+      "wins": 22,
+      "win_rate": 0.7857142857142857
+    },
+    "Nakayama Turf 1200m (Sprint) Right / Outer": {
+      "n": 22,
+      "wins": 22,
+      "win_rate": 1.0
+    },
+    "Tokyo Turf 1800m (Mile) Left": {
+      "n": 20,
+      "wins": 18,
+      "win_rate": 0.9
+    },
+    "Nakayama Turf 2500m (Long) Right / Inner": {
+      "n": 14,
+      "wins": 12,
+      "win_rate": 0.8571428571428571
+    },
+    "Hanshin Turf 2200m (Med) Right / Inner": {
+      "n": 13,
+      "wins": 11,
+      "win_rate": 0.8461538461538461
+    },
+    "Kyoto Turf 2000m (Med) Right / Inner": {
+      "n": 12,
+      "wins": 6,
+      "win_rate": 0.5
+    },
+    "Nakayama Turf 2200m (Med) Right / Outer": {
+      "n": 10,
+      "wins": 6,
+      "win_rate": 0.6
+    },
+    "Chukyo Turf 200Om (Med) Left": {
+      "n": 10,
+      "wins": 4,
+      "win_rate": 0.4
+    },
+    "Tokyo Dirt 1600m (Mile) Left": {
+      "n": 9,
+      "wins": 9,
+      "win_rate": 1.0
+    },
+    "Kyoto Turf 1800m (Mile) Right / Outer": {
+      "n": 6,
+      "wins": 2,
+      "win_rate": 0.3333333333333333
+    },
+    "Hanshin Turf 1800m (Mile) Right / Outer": {
+      "n": 6,
+      "wins": 3,
+      "win_rate": 0.5
+    },
+    "Kyoto Turf 2200m (Med) Right / Outer": {
+      "n": 6,
+      "wins": 2,
+      "win_rate": 0.3333333333333333
+    },
+    "Kyoto Turf 2400m (Med) Right / Outer": {
+      "n": 4,
+      "wins": 0,
+      "win_rate": 0.0
+    },
+    "Kyoto Turf 3000m (Long) Right / Outer": {
+      "n": 4,
+      "wins": 0,
+      "win_rate": 0.0
+    },
+    "Kyoto Turf 1600m (Mile) Right / Outer": {
+      "n": 2,
+      "wins": 1,
+      "win_rate": 0.5
+    },
+    "Nakayama Turf 1600Om (Mile) Right / Outer": {
+      "n": 2,
+      "wins": 2,
+      "win_rate": 1.0
+    },
+    "Chukyo Turf 160Om (Mile) Left": {
+      "n": 2,
+      "wins": 2,
+      "win_rate": 1.0
+    },
+    "Kyoto Turf 3200m (Long) Right / Outer": {
+      "n": 2,
+      "wins": 0,
+      "win_rate": 0.0
+    }
+  },
+  "races": [
+    {
+      "turn": 12,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Kyoto Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\live\\tail-big-flat.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 07_54_50.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 07_54_50.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 07_54_50.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 07_54_50.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 07_54_50.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 08_15_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 08_15_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 08_15_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Hanshin Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 08_15_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 08_15_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Kyoto Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T151735Z-86196c2a\\logs\\http\\El_Condor_Pasa_2026-09-02 08_15_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T054352Z-91316924\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260902T054352Z-91316924\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Hanshin Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T054352Z-91316924\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T054352Z-91316924\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Kyoto Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T054352Z-91316924\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 29,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 31,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 44,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 45,
+      "race_name": "Kyoto Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Kyoto Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Nakayama Turf 1600Om (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 11,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_15_53.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_15_53.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_15_53.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_15_53.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_15_53.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_15_53.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Hanshin Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Kyoto Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\El_Condor_Pasa_2026-09-01 19_33_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Kyoto Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 66,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 73,
+      "race_name": "Kyoto Turf 2400m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 2400m (Med) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Chukyo Turf 160Om (Mile) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 44,
+      "race_name": "Kyoto Turf 3000m (Long) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 44,
+      "race_name": "Kyoto Turf 3000m (Long) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 48,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 56,
+      "race_name": "Kyoto Turf 3200m (Long) Right / Outer",
+      "source": "runs\\20260902T022352Z-c42e5352\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 12,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 29,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 31,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 44,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 45,
+      "race_name": "Kyoto Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Kyoto Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Daiwa_Scarlet_2026-08-31 23_28_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 21_21_45.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Nakayama Turf 1600Om (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-08-31 22_23_25.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Tokyo Dirt 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 27,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 33,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 43,
+      "race_name": "Tokyo Turf 1800m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G2"
+    },
+    {
+      "turn": 60,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 70,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 72,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 1800m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\El_Condor_Pasa_2026-09-01 00_44_11.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_17_49.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 09_34_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 10_17_03.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Kyoto Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_04_19.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 11_39_48.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 12_46_58.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 66,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 73,
+      "race_name": "Kyoto Turf 2400m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 13_31_09.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-27 14_06_42.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Nakayama Turf 2200m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_02_51.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 15_58_36.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Hanshin Turf 2200m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 17_00_23.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 2400m (Med) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_01_12.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 1200m (Sprint) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 54,
+      "race_name": "Hanshin Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 59,
+      "race_name": "Tokyo Turf 1600m (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 68,
+      "race_name": "Tokyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 73,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 74,
+      "race_name": "Kyoto Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 75,
+      "race_name": "Chukyo Turf 200Om (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Maruzensky_2026-08-31 18_56_04.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "FINALE"
+    },
+    {
+      "turn": 12,
+      "race_name": "Chukyo Turf 160Om (Mile) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 23,
+      "race_name": "Hanshin Turf 1600m (Mile) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 30,
+      "race_name": "Nakayama Turf 1800Om (Mile) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G3"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 44,
+      "race_name": "Kyoto Turf 3000m (Long) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Mihono_Bourbon_2026-09-01 10_52_18.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 12,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "Mandatory"
+    },
+    {
+      "turn": 31,
+      "race_name": "Nakayama Turf 2000m (Med) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": true,
+      "place_bucket": "first",
+      "grade": "G1"
+    },
+    {
+      "turn": 34,
+      "race_name": "Tokyo Turf 2400m (Med) Left",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 44,
+      "race_name": "Kyoto Turf 3000m (Long) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 48,
+      "race_name": "Nakayama Turf 2500m (Long) Right / Inner",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    },
+    {
+      "turn": 56,
+      "race_name": "Kyoto Turf 3200m (Long) Right / Outer",
+      "source": "runs\\20260901T171744Z-89eb7649\\logs\\http\\Seiun_Sky_2026-08-31 19_54_06.txt",
+      "win": false,
+      "place_bucket": "not_first",
+      "grade": "G1"
+    }
+  ],
+  "notes": [
+    "Extracted from bot [RACE] log lines under runs/**.",
+    "V4 gate needs trainee stats + full placement + margins; this corpus is win-rate prior only.",
+    "Use to calibrate placeholder_npc_field aggressiveness, not as full distribution match yet."
+  ]
+}

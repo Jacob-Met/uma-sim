@@ -1,0 +1,71 @@
+{
+  "provenance": "knowledge/mechanics/race_model.md + community writeups; verified against oracle behaviour, not transcribed from GPL sources",
+  "dt_seconds": 0.06666666666666667,
+  "base_speed": {
+    "formula": "20.0 - (distance_m - 2000) / 1000.0",
+    "note": "Widely documented community constant; matches observed oracle base speed"
+  },
+  "max_hp": {
+    "formula": "0.8 * strategy_coef * stamina + distance_m",
+    "strategy_coef": {
+      "nige": 0.95,
+      "senkou": 0.89,
+      "sasi": 1.0,
+      "oikomi": 0.995,
+      "oonige": 0.86
+    },
+    "strategy_coef_aliases": {
+      "front_runner": "nige",
+      "pace_chaser": "senkou",
+      "late_surger": "sasi",
+      "end_closer": "oikomi",
+      "runaway": "oonige"
+    }
+  },
+  "hp_per_second": {
+    "formula": "20.0 * (velocity - base_speed + 12.0)^2 / 144.0 * status_modifier * ground_modifier * guts_modifier",
+    "guts_modifier_from_phase": 2,
+    "guts_modifier_formula": "1.0 + 200.0 / sqrt(600.0 * guts)",
+    "status_modifiers": {
+      "rushed": 1.6,
+      "pace_down": 0.6,
+      "downhill": 0.4
+    },
+    "ground_modifier_turf": [null, 1.0, 1.0, 1.02, 1.02],
+    "ground_modifier_dirt": [null, 1.0, 1.0, 1.01, 1.02],
+    "ground_index": ["unused", "good", "yielding", "soft", "heavy"]
+  },
+  "last_spurt": {
+    "accept_chance_formula": "round((15.0 + 0.05 * wisdom) * 1000) / 100000 per candidate via uniform(100000)",
+    "accept_chance_note": "Wit/wisdom acceptance ≈ (15 + 0.05 * Wit)% per candidate"
+  },
+  "phases": {
+    "phase0_end_frac": 0.16666666666666666,
+    "phase1_end_frac": 0.6666666666666666,
+    "phase2_end_frac": 0.8333333333333334,
+    "note": "phase starts at 0, 1/6, 2/3, 5/6 of distance"
+  },
+  "strategy_phase_speed": {
+    "source": "knowledge/raw/references/reference_5th_anniversary.md Phase Multipliers",
+    "oonige": [1.063, 0.962, 0.95],
+    "nige": [1.0, 0.98, 0.962],
+    "senkou": [0.978, 0.991, 0.975],
+    "sasi": [0.938, 0.998, 0.994],
+    "oikomi": [0.931, 1.0, 1.0]
+  },
+  "strategy_phase_accel": {
+    "source": "knowledge/raw/references/reference_5th_anniversary.md Phase Multipliers",
+    "oonige": [1.17, 0.94, 0.956],
+    "nige": [1.0, 1.0, 0.996],
+    "senkou": [0.985, 1.0, 0.996],
+    "sasi": [0.975, 1.0, 1.0],
+    "oikomi": [0.945, 1.0, 0.997]
+  },
+  "base_accel": 0.0006,
+  "uphill_base_accel": 0.0004,
+  "oracle_fixtures": {
+    "case1_tokyo_1400_senkou_median_s": 66.46666666666802,
+    "case2_hanshin_2600_nige_median_s": 130.7999999999977,
+    "case3_tokyo_dirt_1600_oikomi_median_s": 76.33333333333412
+  }
+}

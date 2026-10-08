@@ -1,0 +1,64 @@
+{
+  "provenance": "KuromiAK / 5th Anniversary community notes + oracle-verified behaviour for Virtual position-keep",
+  "course_factor": {
+    "formula": "0.0008 * (distance - 1000) + 1.0"
+  },
+  "base_minimum_threshold_bashin": {
+    "note": "index by strategy id; Senkou ignores course_factor for minimum",
+    "Nige": 0,
+    "Senkou": 3.0,
+    "Sasi": 6.5,
+    "Oikomi": 7.5,
+    "Oonige": 0
+  },
+  "base_maximum_threshold_bashin": {
+    "Nige": 0,
+    "Senkou": 5.0,
+    "Sasi": 7.0,
+    "Oikomi": 8.0,
+    "Oonige": 0
+  },
+  "speed_coefficients": {
+    "None": 1.0,
+    "PaceUp": 1.04,
+    "PaceDown": 0.915,
+    "SpeedUp": 1.04,
+    "Overtake": 1.05
+  },
+  "wit_checks": {
+    "speed_up_overtake": "0.2 * log10(0.1 * wisdom)",
+    "pace_up": "0.15 * log10(0.1 * wisdom)"
+  },
+  "nige_thresholds_m": {
+    "speed_up_gap": 4.5,
+    "oonige_speed_up_gap": 17.5,
+    "overtake_exit_gap": 10.0,
+    "oonige_overtake_exit_gap": 27.5
+  },
+  "pos_keep_end_sections": {
+    "compare_mode": 10,
+    "other": 3
+  },
+  "approximate_conditions": {
+    "tick": "1 Hz via conditionTimer starting at -1 (IEEE: first tick ~frame 16 at 15fps)",
+    "blocked_side": {
+      "value_on_start": 1,
+      "rates": [
+        {"when": "section 1..=3 && lane > 3*horseLane", "start": 0.0, "continue": 0.0},
+        {"when": "phase==0", "start": 0.1, "continue": 0.85},
+        {"when": "phase==1", "start": 0.08, "continue": 0.75},
+        {"when": "fallback", "start": 0.07, "continue": 0.50}
+      ]
+    },
+    "overtake": {
+      "value_on_start": 0,
+      "rates": [
+        {"when": "Nige", "start": 0.05, "continue": 0.50},
+        {"when": "Senkou", "start": 0.15, "continue": 0.55},
+        {"when": "fallback", "start": 0.20, "continue": 0.60}
+      ]
+    },
+    "note": "Drives apply_lane_movement only. Skill-condition keywords blocked_side/overtake_* stay Erlang (Virtual parity)."
+  },
+  "status": "Virtual + Approximate Markov (A9) wired; career physics uses simulate_field_synced Virtual"
+}

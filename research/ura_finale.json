@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "scenario_id": "ura",
+  "as_of": "2026-09-01",
+  "source": "knowledge/scenarios/ura.md, uma-android-automation UraFinale.kt",
+  "hard_caps": { "speed": 1400, "stamina": 1400, "power": 1400, "guts": 1400, "wit": 1400 },
+  "spark": { "speed": true, "stamina": true },
+  "fan_target_optional_race": 3500,
+  "happy_meek": {
+    "enabled": true,
+    "spawn_chance_per_turn": 0.12,
+    "min_turn": 6,
+    "max_level": 5,
+    "duel_failure_acceptable_pct": 40,
+    "duel_training_bias_moderate": 1.25,
+    "prediction_weights": { "great": 15, "good": 30, "bad": 35, "worst": 20 },
+    "win_chance_by_prediction": { "great": 0.92, "good": 0.72, "bad": 0.45, "worst": 0.22 },
+    "win_rewards": {
+      "stat_gain_by_level": [15, 20, 25, 30, 35],
+      "cap_raise": 50,
+      "skill_points": 15,
+      "energy_on_energy_contest": 30
+    },
+    "loss_penalty": { "energy": 15, "mood": -1 }
+  },
+  "finale_races": ["qualifier", "semifinal", "finals"],
+  "sim_implementation_status": {
+    "implemented": [
+      "Happy Meek spawn + duel predictions",
+      "duel win/loss rewards (stats, SP, caps, energy)",
+      "Racing Spirit facility hints on duel win",
+      "duel_failure_acceptable_pct filters Bad/Worst when no Good+ target",
+      "Past My Limits skill on max-level Meek win",
+      "duel training bias",
+      "inheritance event at turn 13",
+      "finale mandatory races (qualifier/semifinal/finals)"
+    ],
+    "not_modeled": [
+      "finale distance/surface from race history"
+    ],
+    "parity_tests_for_not_modeled": {
+      "finale distance/surface from race history": "tests/ura_mechanics.rs::ura_finale_distance_gap_documented"
+    }
+  }
+}

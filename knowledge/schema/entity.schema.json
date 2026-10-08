@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uma-sim.local/knowledge/entity.json",
+  "title": "UmaKnowledgeEntity",
+  "type": "object",
+  "required": ["id", "kind", "server", "provenance"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Namespaced id, e.g. support:10001, skill:200162, trainee:100101, scenario:grand_concert"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["trainee", "support_card", "skill", "event", "race", "scenario", "factor", "epithet", "song", "lesson", "item"]
+    },
+    "server": { "type": "string", "enum": ["global", "jp", "both"] },
+    "name_en_official": { "type": ["string", "null"] },
+    "name_en_fan": { "type": ["string", "null"] },
+    "name_ja": { "type": ["string", "null"] },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "release_en": { "type": ["string", "null"], "description": "ISO date when available on Global" },
+    "available_en": { "type": "boolean" },
+    "payload": { "type": "object", "description": "Kind-specific fields" },
+    "provenance": {
+      "type": "object",
+      "required": ["source", "as_of"],
+      "properties": {
+        "source": { "type": "string" },
+        "content_hash": { "type": ["string", "null"] },
+        "as_of": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

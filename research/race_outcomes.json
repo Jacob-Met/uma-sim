@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-01",
+  "confidence": "estimated",
+  "win": { "fans_multiplier": 1.0, "skill_points_base": 45 },
+  "place_2_5": { "fans_multiplier": 0.6, "skill_points_base": 35 },
+  "show": { "fans_multiplier": 0.3, "skill_points_base": 20 },
+  "grade_modifiers": {
+    "G1": 2.0,
+    "G2": 1.5,
+    "G3": 1.2,
+    "OP": 1.0,
+    "PRE_OP": 0.8
+  },
+  "notes": "Outcomes v1: place/show multipliers wired; default race_model=physics (R8.8) feeds genuine placements into these multipliers. Stub opt-in for Kotlin RNG/turn traces. Epithet stubs on G1/climax/finale wins."
+}

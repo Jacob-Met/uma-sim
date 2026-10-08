@@ -1,0 +1,16 @@
+{
+  "provenance": "Black-box oracle duration distribution + KuromiAK status factor 1.6×. Not GPL.",
+  "entry": {
+    "chance": "(6.5 / log10(0.1*wisdom + 1))^2 / 100",
+    "section": "2 + uniform(8) on rushed_rng after chance roll"
+  },
+  "duration": {
+    "early_clear_check_s": 3.0,
+    "early_clear_probability": 0.55,
+    "early_clear_checks": 1,
+    "max_duration_s": 12.0,
+    "notes": "Empirical oracle hist (n=45 rushed): ~55.6% last exactly 3.0s, ~44.4% last 12.0667s (12+1/15). Not every-3s repeats."
+  },
+  "hp_factor": 1.6,
+  "status": "wired 2026-09-02 — single 3s clear via post-boot rushed_rng stream"
+}

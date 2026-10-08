@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "scenario_id": "unity",
+  "bot_alias": "Unity Cup",
+  "mdb_scenario_id": null,
+  "as_of": "2026-09-01",
+  "sources": ["knowledge/scenarios/unity.md"],
+  "hard_caps": { "speed": 1300, "stamina": 1300, "power": 1300, "guts": 1300, "wit": 1800 },
+  "spark": { "power": true, "wit": true },
+  "fan_target_optional_race": 4000,
+  "spirit_gauge": {
+    "resource_key": "unity_spirit",
+    "gain_per_training_success": { "base": 15, "per_facility_level": 3 },
+    "burst_threshold": 100,
+    "extreme_burst_threshold": 150,
+    "burst_ready_key": "unity_burst_ready",
+    "extreme_ready_key": "unity_extreme_ready",
+    "extreme_stat_bonus": 10,
+    "failure_pct_burst": 0,
+    "failure_pct_extreme": 0,
+    "post_july_2026_extreme": true
+  },
+  "mandatory_races": [
+    { "race_id": "debut", "name": "Junior Make Debut", "turn": 1, "year": 1, "month": 6, "half": 2 },
+    { "race_id": "unity_preseason", "name": "Unity Preseason", "turn": 24, "year": 2, "month": 6, "half": 2 },
+    { "race_id": "unity_finals", "name": "Unity Finals vs Team Zenith", "turn": 72, "year": 3, "month": 12, "half": 2 }
+  ],
+  "team_rank_facility_levels": {
+    "min_rank": 1,
+    "max_rank": 5,
+    "rank_to_level": {
+      "F": 1, "G": 1,
+      "D": 2, "E": 2,
+      "B": 3, "C": 3,
+      "A": 4,
+      "S": 5
+    },
+    "source": "GameTora Unity Cup — facility level tied to team stat rank, not train count",
+    "confidence": "high"
+  },
+  "team_races": {
+    "count": 5,
+    "interval_months": 6,
+    "finals_opponent": "Team Zenith (Riko Kashimoto)"
+  },
+  "skills": {
+    "burning_spirit": { "condition": "10+ spirit bursts", "inheritable": false },
+    "ignited_spirit": { "condition": "<=9 bursts + matching extreme", "inheritable": true }
+  },
+  "sim_implementation_status": {
+    "implemented": [
+      "spirit gauge fill",
+      "burst at 100",
+      "extreme at 150",
+      "extreme stat bonus",
+      "team rank → facility level",
+      "rank up on spirit burst",
+      "rank up on team race win",
+      "0% fail when burst ready",
+      "abstracted 5-leg win (unity_legs_won += 5 on team race win)",
+      "Zenith upgrade flag after 4 team-race wins",
+      "Ignited Spirit hints on extreme burst when burst_count ≤ 9"
+    ],
+    "not_modeled": ["per-leg team race simulation", "teammate stat sharing"],
+    "parity_tests_for_not_modeled": {
+      "per-leg team race simulation": "tests/unity_trackblazer_mechanics.rs::unity_per_leg_gap_documented",
+      "teammate stat sharing": "tests/unity_trackblazer_mechanics.rs::unity_teammate_share_gap_documented"
+    }
+  }
+}

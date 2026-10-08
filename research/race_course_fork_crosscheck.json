@@ -1,0 +1,29 @@
+{
+  "provenance": "R8.2: research/race_course_data.json vs fork uma-skill-tools/data/course_data.json",
+  "courses_compared": 121,
+  "career_course_ids_required": 89,
+  "career_course_ids_covered": 89,
+  "fork_geometry_identical": true,
+  "mismatches": [
+    {
+      "id": 10301,
+      "field": "laneMax",
+      "ours": 13500,
+      "fork": 23500
+    }
+  ],
+  "allowed_mdb_overrides": [
+    {
+      "id": 10301,
+      "field": "laneMax",
+      "ours": 13500,
+      "fork": 23500
+    }
+  ],
+  "notes": [
+    "10301 laneMax: ours 13500 from master.mdb float_lane_max; fork 23500 \u2014 mdb/telemetry wins",
+    "Raw courseeventparams differ systematically (final corner length / last straight start); fork course_data is the processed physics table we ship",
+    "mdb metadata: research/race_course_mdb_crosscheck.json (JP-only 11605/11612 absent from this mdb)"
+  ],
+  "ok": true
+}

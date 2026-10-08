@@ -1,0 +1,18 @@
+{
+  "provenance": "Compete-fight / dueling (追い比べ) constants from umamusu.wiki parameter notes. Not GPL. Lane gap deferred (=0).",
+  "entry": {
+    "region": "final_straight",
+    "target_distance_gap_m": 3.0,
+    "lane_gap": "deferred (=0 always)",
+    "target_hold_s": 2.0,
+    "top_half_placement": true,
+    "trigger_speed_gap_ms": 0.6,
+    "start_min_hp_frac": 0.15,
+    "end_min_hp_frac": 0.05
+  },
+  "bonuses": {
+    "target_speed": "(200 * guts)^0.708 * 1e-4 m/s",
+    "accel": "(160 * guts)^0.59 * 1e-4 m/s^2"
+  },
+  "notes": "Wiki marks this section as inferred from parameter files (less RE-confirmed than lead competition). Wired only for synced fields with ≥3 runners — not on 2-horse Virtual+default-pacer (checkpoint path) until oracle activation rates are matched without over-triggering."
+}
