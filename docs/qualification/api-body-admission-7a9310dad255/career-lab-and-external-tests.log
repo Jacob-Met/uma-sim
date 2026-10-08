@@ -1,0 +1,28 @@
+   Compiling uma-sim-core v0.1.0 (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/source/uma-sim-core)
+    Finished `test` profile [unoptimized] target(s) in 5.93s
+     Running tests/career_lab.rs (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/target/debug/deps/career_lab-8db3706e2a6cb633)
+
+running 14 tests
+test branch_run_is_deterministic ... ok
+test checkpoint_restore_reproduces_state_and_rng ... ok
+test branch_store_round_trip ... ok
+test rng_state_words_restore_is_exact ... ok
+test comparison_report_renders ... ok
+test divergence_detected_on_first_decision_difference ... ok
+test stale_tmp_files_are_swept ... ok
+test import_failure_preserves_last_good ... ok
+test identical_branches_have_no_divergence ... ok
+test event_and_mandatory_race_checkpoints_all_scenarios ... ok
+test library_name_rules_and_overwrite_protection ... ok
+test library_round_trip ... ok
+test sibling_branch_cannot_mutate_checkpoint_or_sibling ... ok
+test snapshot_carries_rng_state_words ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.98s
+
+     Running tests/rest_policy_external_stub.rs (/home/jacob/.commander-tp-2/uma-api-body-7a9310dad255/target/debug/deps/rest_policy_external_stub-db631f0ddd954db4)
+
+running 1 test
+test policy_external_positive_path_with_stub ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.68s
