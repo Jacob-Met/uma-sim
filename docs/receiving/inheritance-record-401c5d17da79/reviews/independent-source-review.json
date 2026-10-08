@@ -1,0 +1,45 @@
+{
+  "schema": "uma.inheritance-independent-source-review.v1",
+  "reviewer": "estate-401c5d17da79/integration_discovery",
+  "canonical": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "scope": "Read-only inspection of inheritanceView, InheritancePanel and exact App/types diff against the already-reviewed state.rs/legacy.rs producer contract. No runtime invocation, native acceptance, source edit or broader ownership discovery.",
+  "inputs": {
+    "packages/uma-sim-ui/src/components/inheritanceView.ts": {
+      "path": "packages/uma-sim-ui/src/components/inheritanceView.ts",
+      "bytes": 4695,
+      "sha256": "46c1db2b7f685100933a9ccf13b6749a1421d4c4a668e6d09ce07c6e28715dce",
+      "gitBlob": "917144dc8335f9d05d2f83cf153f2166981797f9"
+    },
+    "packages/uma-sim-ui/src/components/InheritancePanel.tsx": {
+      "path": "packages/uma-sim-ui/src/components/InheritancePanel.tsx",
+      "bytes": 6437,
+      "sha256": "25fa356320b89b23a0f990dd0793a28e79e4a7c67889c3a65468b53d40fb1b49",
+      "gitBlob": "0ed2978307418a7f77b38756cda614f98eaa5eb0"
+    },
+    "packages/uma-sim-ui/src/App.tsx": {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "bytes": 7033,
+      "sha256": "11c9a13f87c7803740bfdf483436535f5a3d77c6ef0128e23f36faee0b0b6737",
+      "gitBlob": "08d69e007314cc62ff7c46b24e6a6b664278e6c0"
+    },
+    "packages/uma-sim-ui/src/api/types.ts": {
+      "path": "packages/uma-sim-ui/src/api/types.ts",
+      "bytes": 8431,
+      "sha256": "244906b9d133c795142e07924daaa9d6b9feca209d9e7c2dfba9e88f0505467f",
+      "gitBlob": "a84ece2452919f9b73da76a1435fd3fad1944d23"
+    }
+  },
+  "blocking_findings": [],
+  "findings": [
+    "The six ancestor positions and five slot kinds are projected in fixed recorded order; repeated factors are kept per slot and per retained list occurrence. Stored stars are displayed directly, including 0/4/-1, with missing nonfinite/nonnumber data kept unknown.",
+    "Absent structured lineage remains distinct from an empty or partial recorded tree; flat entries are shown separately and never attributed to invented ancestor positions. Missing nodes, names, slots and absent arrays have explicit text.",
+    "Stored compatibility, cap additions and starting bonuses are displayed directly; no normalization, summation, star clamping or future inheritance calculation is introduced.",
+    "The inheritanceComplete boolean is labelled only as completion of the initial choice, not as the selected choice index; retained skill IDs are labelled candidates rather than learned skills.",
+    "The React panel has no request, save, input or mutation callback. Text and IDs use JSX text rendering. App only imports and mounts the panel after AptitudePanel using current career/catalog props, so a replacement career is rendered from the new props without retained view data.",
+    "All four added snapshot mirrors are optional, preserving older typed snapshots. App/types changes are additive and leave existing request/selection/save handlers unchanged."
+  ],
+  "limits": [
+    "This is source review only. Browser rendering, replacement behavior, request absence and visual fit remain the separate native receiver gate.",
+    "Unknown malformed retained values are treated as not recorded; this display does not validate or repair source snapshots."
+  ]
+}

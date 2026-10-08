@@ -1,0 +1,270 @@
+{
+  "error": "Error: failed predicate: candidate skills are not labelled as learned\n    at check (file:///home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/receive-native-inheritance-v5.mjs:28:181)\n    at file:///home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/receive-native-inheritance-v5.mjs:106:2",
+  "checks": [
+    {
+      "name": "native catalog root matches exact owned source",
+      "pass": true,
+      "actual": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source",
+      "expected": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source"
+    },
+    {
+      "name": "native start retains original tree stars rather than editor normalization",
+      "pass": true,
+      "actual": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "expected": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "native flat career omits structured tree",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "native structured retained duplicate factors",
+      "pass": true,
+      "actual": 6,
+      "expected": 6
+    },
+    {
+      "name": "baseline running career has no inheritance inspection",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "new panel sits directly after aptitude",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "keyboard Enter opens lineage disclosure",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "all six explicit positions are rendered",
+      "pass": true,
+      "actual": [
+        "parentA",
+        "gpA1",
+        "gpA2",
+        "parentB",
+        "gpB1",
+        "gpB2"
+      ],
+      "expected": [
+        "parentA",
+        "gpA1",
+        "gpA2",
+        "parentB",
+        "gpB1",
+        "gpB2"
+      ]
+    },
+    {
+      "name": "recorded zero and out-of-range stars remain literal",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "duplicate tree factors remain separate occurrences",
+      "pass": true,
+      "actual": 6,
+      "expected": 6
+    },
+    {
+      "name": "known factor catalog label is visible",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "unknown markup-like factor is literal text",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "recorded compatibility appears without calculated grade",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "cap values are native retained amounts",
+      "pass": true,
+      "actual": {
+        "Speed": "56"
+      },
+      "expected": {
+        "Speed": "56"
+      }
+    },
+    {
+      "name": "starting values are native retained amounts",
+      "pass": true,
+      "actual": {
+        "Speed": "74"
+      },
+      "expected": {
+        "Speed": "74"
+      }
+    },
+    {
+      "name": "candidate skills are not labelled as learned",
+      "pass": false,
+      "actual": false,
+      "expected": true
+    }
+  ],
+  "apiTraffic": [
+    {
+      "method": "GET",
+      "path": "/v1/health",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": ""
+    },
+    {
+      "method": "POST",
+      "path": "/v1/session/activate",
+      "body": "{\"session\":\"record-tree\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/health",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/scenarios",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/trainees",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/supports",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/factors",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sessions",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/library",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/lab/branches",
+      "body": ""
+    },
+    {
+      "method": "POST",
+      "path": "/v1/session/activate",
+      "body": "{\"session\":\"record-tree\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/state",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/choices",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/run/text",
+      "body": ""
+    },
+    {
+      "method": "GET",
+      "path": "/v1/catalog/skills",
+      "body": ""
+    }
+  ],
+  "runtimeErrors": []
+}

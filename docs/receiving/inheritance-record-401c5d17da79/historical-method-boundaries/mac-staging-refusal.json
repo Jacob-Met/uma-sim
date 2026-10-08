@@ -1,0 +1,33 @@
+{
+  "status": "source_staging_refused_by_capacity",
+  "device": "Mac.lan",
+  "sourceUnchanged": true,
+  "firstFailedPath": "producer-source/docs",
+  "method": "from pathlib import Path\nimport hashlib,json,os,shutil,subprocess\nroot=Path(\"/Users/me/hamon/estate-401c5d17da79/uma-inheritance-205178f1\")\nspec=json.loads((root/\"SOURCE-INPUT.json\").read_text())\nassert shutil.disk_usage(root).free>32*1024*1024\ndef gh(b): return hashlib.sha1(b\"blob \"+str(len(b)).encode()+b\"\\0\"+b).hexdigest()\nrows=[]; missing=[]\nfor e in spec[\"entries\"]:\n    data=None; origin=None\n    for value in spec[\"donors\"]:\n        donor=Path(value); p=donor/e[\"path\"]\n        if p.is_file():\n            b=p.read_bytes()\n            if gh(b)==e[\"sha\"]: data=b;origin=str(p);break\n        if (donor/\".git\").exists():\n            r=subprocess.run([\"/usr/bin/git\",\"-C\",str(donor),\"cat-file\",\"blob\",e[\"sha\"]],capture_output=True,env=dict(os.environ,GIT_OPTIONAL_LOCKS=\"0\"))\n            if r.returncode==0 and gh(r.stdout)==e[\"sha\"]:data=r.stdout;origin=str(donor)+\" Git object \"+e[\"sha\"];break\n    if data is None:missing.append(e);continue\n    targets=[\"baseline\",\"candidate\"] if e[\"path\"].startswith(\"packages/uma-sim-ui/\") else [\"producer-source\"]\n    for kind in targets:\n        target=root/kind/e[\"path\"];target.parent.mkdir(parents=True,exist_ok=True)\n        with target.open(\"xb\") as f:f.write(data)\n        target.chmod(int(e[\"mode\"],8)&0o777)\n    rows.append({\"path\":e[\"path\"],\"mode\":e[\"mode\"],\"gitBlob\":e[\"sha\"],\"sha256\":hashlib.sha256(data).hexdigest(),\"bytes\":len(data),\"origin\":origin,\"targets\":targets})\nresult={\"schema\":\"hamon.uma.source-copy.v1\",\"canonicalCommit\":spec[\"canonicalCommit\"],\"copied\":rows,\"missing\":missing,\"completeUiOnly\":True,\"gitAncestryInvented\":False}\n(root/\"SOURCE-COPY.json\").write_text(json.dumps(result,indent=2)+\"\\n\")\nprint(json.dumps({\"copied\":len(rows),\"missing\":missing,\"freeAfter\":shutil.disk_usage(root).free,\"receiptSha256\":hashlib.sha256((root/\"SOURCE-COPY.json\").read_bytes()).hexdigest()}))\n",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Process started with PID 59353 (shell: /bin/bash)\nInitial output:\nTraceback (most recent call last):\n  File \"/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py\", line 722, in mkdir\n    os.mkdir(self, mode)\n    ~~~~~~~~^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/me/hamon/estate-401c5d17da79/uma-inheritance-205178f1/producer-source/docs'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 21, in <module>\n    target=root/kind/e[\"path\"];target.parent.mkdir(parents=True,exist_ok=True)\n                               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py\", line 726, in mkdir\n    self.parent.mkdir(parents=True, exist_ok=True)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py\", line 722, in mkdir\n    os.mkdir(self, mode)\n    ~~~~~~~~^^^^^^^^^^^^\nOSError: [Errno 28] No space left on device: '/Users/me/hamon/estate-401c5d17da79/uma-inheritance-205178f1/producer-source'\n\n✅ Process 59353 has finished execution"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0e3d582f-e25b-44b2-8418-9639fc4e4e33)]"
+      }
+    ],
+    "isError": false
+  },
+  "rootCreation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Process started with PID 52864 (shell: /bin/bash)\nInitial output:\n{\"root\": \"/Users/me/hamon/estate-401c5d17da79/uma-inheritance-205178f1\", \"freeBefore\": 137818112, \"uid\": 501, \"sourceOnly\": true}\n"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: Mac.lan (0e3d582f-e25b-44b2-8418-9639fc4e4e33)]"
+      }
+    ],
+    "isError": false
+  }
+}

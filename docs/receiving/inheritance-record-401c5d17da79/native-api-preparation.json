@@ -1,0 +1,83 @@
+{
+  "sourceCommit": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "expectedTree": "a0458be13b0a43575361e2fb8f9385f222683971",
+  "steps": [
+    {
+      "name": "api-source-init",
+      "args": [
+        "git",
+        "init",
+        "--quiet"
+      ],
+      "exitCode": 0,
+      "seconds": 0.008,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "api-source-remote",
+      "args": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/Jacob-Met/uma-sim.git"
+      ],
+      "exitCode": 0,
+      "seconds": 0.008,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "api-source-fetch",
+      "args": [
+        "git",
+        "fetch",
+        "--depth=1",
+        "origin",
+        "205178f1bf3bf5f34c04bbda88c3e4df2102f535"
+      ],
+      "exitCode": 0,
+      "seconds": 2.409,
+      "logSha256": "6671ffe6aa76faf6b460b4d51a5b116bc05a24c0dcf55824a0923de9ceba76fb"
+    },
+    {
+      "name": "api-source-checkout",
+      "args": [
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "exitCode": 0,
+      "seconds": 0.332,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "api-build-offline",
+      "args": [
+        "cargo",
+        "build",
+        "--offline",
+        "--locked",
+        "-p",
+        "uma-sim-core",
+        "--bin",
+        "uma-sim-api"
+      ],
+      "exitCode": 0,
+      "seconds": 90.214,
+      "logSha256": "6521c5de71e272d635a75841ea703322937c25b4e4dcd0e263ca9421253814a0"
+    }
+  ],
+  "installedDependencies": false,
+  "verifiedGitSource": {
+    "head": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+    "tree": "a0458be13b0a43575361e2fb8f9385f222683971"
+  },
+  "binary": {
+    "path": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-target/debug/uma-sim-api",
+    "bytes": 12763872,
+    "sha256": "3b210a6d7f5885b54b281f3d7dca658a71d695a836346efd7daf1cd52b7d2c23"
+  },
+  "sourceUnchanged": true
+}

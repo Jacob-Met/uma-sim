@@ -1,0 +1,465 @@
+{
+  "pass": false,
+  "node": "v22.22.1",
+  "versions": {
+    "typescript": "5.9.3",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "5.4.21"
+  },
+  "donorRoot": "/home/jacob/hamon-ultra-c77045b4-uma-full-app/candidate/packages/uma-sim-ui",
+  "canonical": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "source": {
+    ".gitignore": "787044cb79f3fec00a8a5d95851b7c42fbe5b62b98a2153dbd7d190c702748d4",
+    "README.md": "604a9209d12289d7af94026d42d1bc10a2551e1922156a74d4bc340fc26e8932",
+    "index.html": "522e81e6f8c08d5014a889173521e237a34ab0ef039cfa6b6098d5d1a7330f10",
+    "package-lock.json": "b306b84fc9fb3285a442d8360a419eba3276d3d4effda266205832331ac1dc99",
+    "package.json": "2fa1147a4bb92eb601ecf991867b325c5ea2850ed77d6495a6e942f98ed6101d",
+    "src/App.tsx": "11c9a13f87c7803740bfdf483436535f5a3d77c6ef0128e23f36faee0b0b6737",
+    "src/api/client.ts": "1c62c84e2ae6bf38d4494072cd5e87105a20786bde8817c32fc6f6b716cad9ee",
+    "src/api/types.ts": "244906b9d133c795142e07924daaa9d6b9feca209d9e7c2dfba9e88f0505467f",
+    "src/components/AptitudePanel.tsx": "8274d708e0d6774d129b092693f9504c78e76bcd34589d1e8af684d42fba42ce",
+    "src/components/BranchTracePanel.tsx": "bd71c1c794211021dde6ba038c5938cfcf81824d7d92e738ca807daa59e0c514",
+    "src/components/CareerSummary.tsx": "139a42516a3167900bab1daf3dcd23e5f5f70bc82ecb6b1550db1063a1d82b29",
+    "src/components/ChoicePanel.tsx": "3209d1e34c8f3cb8b932eb9684eec0bd1d6104bcae838646666a49aedd03f1d5",
+    "src/components/ComparePanel.tsx": "c35c5727d480a88e081eb955bfd6a95cb14e937ec42e833cb5971d92d1c611a0",
+    "src/components/ControlsBar.tsx": "73829741b2848398b799fc5565e6d656e0e0cb712f615a0d29cc8c174eb7d5fc",
+    "src/components/DeckPanel.tsx": "8d6f4ccae23c3330c65834ae8047ef39330a489c58113233e69c44b1948091f0",
+    "src/components/EventDialog.tsx": "ab3fc0b940f1795b1020fb19d1f8108b5111d35910e9ba534d0679949036b831",
+    "src/components/GrandLivePanel.tsx": "f741b6aa032232c0483206e7c2dea396a6cf00d2ff939918bcfb64fb05cab3cd",
+    "src/components/InheritancePanel.tsx": "25fa356320b89b23a0f990dd0793a28e79e4a7c67889c3a65468b53d40fb1b49",
+    "src/components/LabTab.tsx": "a59e06410115292b1f06a1106c3d67d3f57cc765dd1985e730afe1fbf2eec9c1",
+    "src/components/LegacyPanel.tsx": "ae3ce8a8aff5fb96ccfdceb7394937b681a7a41dc8ccc4884d6e04289182e1f3",
+    "src/components/LibraryPanel.tsx": "4ee64eea0e358402db5ac82ea20bd5567db00e0bba2f24efec32b31b6ff4664a",
+    "src/components/LogDownload.tsx": "cf92740a422128141f242c449f120d6e0cae02b627792b8ff388ac270f12b1d6",
+    "src/components/LogPanel.tsx": "2d23c9ad7932da56d434e08c8f20af490cd9f628d71dfaa92858f0269fa557a2",
+    "src/components/RacePanel.tsx": "b8f4a6db8e1c8927a8a09d3955f0cd2c5ac8cd4f4ebb3cdd034754a40ef1a2a1",
+    "src/components/RunSetup.tsx": "9f2d53bc06102589c2dc32d0bd67b9dacd4e4bbb53c90e5e3c4fec5a7bfe895d",
+    "src/components/SessionPanel.tsx": "7dd8e015d04de06dc17f23f1f63d60386629b09e8d96420d5ab3f9daff067ccb",
+    "src/components/SkillsPanel.tsx": "2819e889e028641c6497206967c09ecfa49d5406c34b4131521cfd5d8aa7c5a1",
+    "src/components/StatsPanel.tsx": "0be937e011648d0621fefd5449a22123ccbc23216a6d0a14c313ab7781ece14a",
+    "src/components/branch-trace.css": "de60a2bb970b9b3b012c0890f74bbc9519b0be46b1d14444b6222768319afae2",
+    "src/components/branchInput.ts": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d",
+    "src/components/inheritance-record.css": "cfb4563c11a9a9c7499efcea3491b8ec4e7b2fcb199c7964bd132c70ef06f68a",
+    "src/components/inheritanceView.ts": "46c1db2b7f685100933a9ccf13b6749a1421d4c4a668e6d09ce07c6e28715dce",
+    "src/components/legacyPreview.ts": "3714b479a6802b782839cf8d1183e5b921ae90c9bc8a703c4ea3e4793dba230a",
+    "src/components/logExport.ts": "7ea3a0b6066e926af6825397feb5115cebd82bbbba2923dbd900d41c09e7937c",
+    "src/components/logPanel.css": "afb5363f7aa6f9bcf089ffe755e679865b55c026bd50df1fbbcfe79efdbf7544",
+    "src/components/logView.ts": "7dcd6bef0674cfbf7ea53b896faae192c9f0ac3e093487958f37494f2b5067d2",
+    "src/components/skillsView.ts": "0b41f51bb55890f31c39d435411fe6d60b3178e84f58733b27deb4b21e30cfde",
+    "src/main.tsx": "bb83ae1c9948579eba3cd84cbc885934e0f28fb27980389335a07ac764b3c981",
+    "src/state/branchTraceStore.ts": "3e76129407244fac596be4562af715dbbdff91a44fb6d9e0b28f3ce7c6261bc2",
+    "src/state/labStore.ts": "ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b",
+    "src/state/runStore.ts": "d7b06256d7a4c6ed70a7d381679e78a0824450eec32e985a1562cd25278b3922",
+    "src/styles/app.css": "ddb13d4540f849398653e4e6f3bc57338017c47fc0263f15fb97c17fdc903ddd",
+    "src/styles/skills.css": "0b3c997dcd5cc9248a487aab8738a86136f9aeec23a2a87e56dffd317689f065",
+    "test/career-log-browser.mjs": "31ad15f4f28a23235dc8fbbc7d8b313a6a9734300f34e327af165602fb8dc3ab",
+    "test/inheritance-view.test.mjs": "47609ebbc0e4fff1452ee6015a16a2cdf683fbd1e63daa8839a05d05652db4b8",
+    "test/log-export.test.mjs": "9ac6faa080f5e95f5b2a6302fb781e60cdc08dbb97d86960974aa19f536019f7",
+    "test/log-view.test.mjs": "13cfc75c020bea6ca536b07a6a385e350b577f646387638b178b69776c6bf255",
+    "test/skills-view.test.mjs": "094ddd2014d96f8621a34ee95ec7f7cc4e859cdb0be419c4dbcd937800e9b43e",
+    "tests/branch-input.test.mjs": "c3678c4cbe54629c3189a3f9c4191f8ed38b262f39fdecb06f34bbe30f97d14c",
+    "tests/branch-trace-panel.test.mjs": "8b83f6729bcbf23cb805429ac51d055af1daada712f2fad4ed0596931357b0ab",
+    "tests/checkpoint-portability.browser.mjs": "a48784b6c94410eb7d1ac0e3178a8ebf17926ea3a5a63c6a35745ec82c0e8ae9",
+    "tests/lab-comparison.browser.mjs": "9c47dda7fb4b1d0223db6ae09b3600652cf0ad1be4080585fcd07cb1a8d21dee",
+    "tests/receiving/TRACE-RECEIVER-CONTRACT.md": "b5e5e8e670576a8f2c3a220543eebcc2e636f55876d195d354e6b942b592756d",
+    "tests/receiving/skills-hints-receiver.mjs": "c84764b19e2f74f9fcdd29ac7a35a7a9a12bc6e0e7fe6ce0aa2b7c0686bf2255",
+    "tests/receiving/uma-lab-receiver.mjs": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d",
+    "tests/receiving/uma-trace-receiver.mjs": "3d96af883b3af297826160adf9e5e49e806d2dd29d3fa8c64f2db46da4a4a531",
+    "tsconfig.json": "54ab5d248a612123bcac384ef740ad6c4c0d84ec9a15410bcddd250b4318994a",
+    "tsconfig.tsbuildinfo": "3fcbc416686593feac26555248c767b8d303fcde00ad8fc6c63db8a412bc1fbf",
+    "vite.config.ts": "5ee715cca411d354060de66569dadf21811d8ff5625ca867b2c8a98fd8ec26cd"
+  },
+  "diagnostics": [
+    {
+      "code": 2307,
+      "path": "src/App.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/App.tsx",
+      "line": 85,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 7006,
+      "path": "src/App.tsx",
+      "line": 195,
+      "message": "Parameter 'c' implicitly has an 'any' type."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/AptitudePanel.tsx",
+      "line": 36,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/BranchTracePanel.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/BranchTracePanel.tsx",
+      "line": 37,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/CareerSummary.tsx",
+      "line": 11,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/ChoicePanel.tsx",
+      "line": 21,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/ComparePanel.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/ComparePanel.tsx",
+      "line": 17,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/ComparePanel.tsx",
+      "line": 102,
+      "message": "Parameter 'e' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/ComparePanel.tsx",
+      "line": 213,
+      "message": "Parameter 'b' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/ComparePanel.tsx",
+      "line": 338,
+      "message": "Parameter 'r' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/ComparePanel.tsx",
+      "line": 359,
+      "message": "Parameter 'cv' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/ComparePanel.tsx",
+      "line": 359,
+      "message": "Parameter 'i' implicitly has an 'any' type."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/ControlsBar.tsx",
+      "line": 21,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/DeckPanel.tsx",
+      "line": 18,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/EventDialog.tsx",
+      "line": 17,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/GrandLivePanel.tsx",
+      "line": 20,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/InheritancePanel.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/InheritancePanel.tsx",
+      "line": 17,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/LabTab.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/LabTab.tsx",
+      "line": 22,
+      "message": "Parameter 'branch' implicitly has an 'any' type."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/LabTab.tsx",
+      "line": 32,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/LegacyPanel.tsx",
+      "line": 2,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/LegacyPanel.tsx",
+      "line": 114,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/LibraryPanel.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/LibraryPanel.tsx",
+      "line": 14,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/LibraryPanel.tsx",
+      "line": 81,
+      "message": "Parameter 'e' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/LibraryPanel.tsx",
+      "line": 155,
+      "message": "Parameter 'text' implicitly has an 'any' type."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/LogDownload.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/LogDownload.tsx",
+      "line": 18,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/LogPanel.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/LogPanel.tsx",
+      "line": 65,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/LogPanel.tsx",
+      "line": 111,
+      "message": "Parameter 'entry' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/LogPanel.tsx",
+      "line": 113,
+      "message": "Parameter 'part' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/LogPanel.tsx",
+      "line": 113,
+      "message": "Parameter 'index' implicitly has an 'any' type."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/RacePanel.tsx",
+      "line": 49,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/RunSetup.tsx",
+      "line": 7,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/RunSetup.tsx",
+      "line": 102,
+      "message": "Parameter 'prev' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/RunSetup.tsx",
+      "line": 103,
+      "message": "Parameter 'id' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/RunSetup.tsx",
+      "line": 109,
+      "message": "Parameter 'tree' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/RunSetup.tsx",
+      "line": 124,
+      "message": "Parameter 'id' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/RunSetup.tsx",
+      "line": 126,
+      "message": "Parameter 'n' implicitly has an 'any' type."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/RunSetup.tsx",
+      "line": 159,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/RunSetup.tsx",
+      "line": 180,
+      "message": "Parameter 't' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/RunSetup.tsx",
+      "line": 264,
+      "message": "Parameter 's' implicitly has an 'any' type."
+    },
+    {
+      "code": 2322,
+      "path": "src/components/RunSetup.tsx",
+      "line": 311,
+      "message": "Type 'unknown' is not assignable to type 'ReactNode'."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/SessionPanel.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/SessionPanel.tsx",
+      "line": 11,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/SessionPanel.tsx",
+      "line": 30,
+      "message": "Parameter 's' implicitly has an 'any' type."
+    },
+    {
+      "code": 2307,
+      "path": "src/components/SkillsPanel.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/SkillsPanel.tsx",
+      "line": 8,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 7006,
+      "path": "src/components/SkillsPanel.tsx",
+      "line": 66,
+      "message": "Parameter 'value' implicitly has an 'any' type."
+    },
+    {
+      "code": 2875,
+      "path": "src/components/StatsPanel.tsx",
+      "line": 12,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/main.tsx",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2307,
+      "path": "src/main.tsx",
+      "line": 2,
+      "message": "Cannot find module 'react-dom/client' or its corresponding type declarations."
+    },
+    {
+      "code": 2875,
+      "path": "src/main.tsx",
+      "line": 7,
+      "message": "This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed."
+    },
+    {
+      "code": 2307,
+      "path": "src/state/branchTraceStore.ts",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 2307,
+      "path": "src/state/labStore.ts",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    },
+    {
+      "code": 7006,
+      "path": "src/state/labStore.ts",
+      "line": 46,
+      "message": "Parameter 's' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/state/labStore.ts",
+      "line": 218,
+      "message": "Parameter 's' implicitly has an 'any' type."
+    },
+    {
+      "code": 7006,
+      "path": "src/state/labStore.ts",
+      "line": 220,
+      "message": "Parameter 'branch' implicitly has an 'any' type."
+    },
+    {
+      "code": 2307,
+      "path": "src/state/runStore.ts",
+      "line": 1,
+      "message": "Cannot find module 'react' or its corresponding type declarations."
+    }
+  ],
+  "noEmit": true,
+  "sourceUnchanged": true,
+  "donorSourceExcluded": true,
+  "method": "Actual TypeScript createProgram with complete current UI source overlay, actual installed React declarations and strict canonical tsconfig; no stubs, installs, or donor writes."
+}

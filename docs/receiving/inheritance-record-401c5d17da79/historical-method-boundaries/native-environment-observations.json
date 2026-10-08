@@ -1,0 +1,21 @@
+{
+  "thinkpadScriptWrite": {
+    "toolResult": "ENOSPC: no space left on device, write",
+    "path": "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/compose-current-inputs.py",
+    "observedBytesAfter": 0,
+    "currentWorktreeCreated": false
+  },
+  "snapWrapperVersion": {
+    "command": "timeout 20s /snap/bin/chromium --version",
+    "exitCode": 124,
+    "runtimeSeconds": 20.72,
+    "output": ""
+  },
+  "directInstalledVersion": {
+    "command": "timeout 10s /snap/chromium/current/usr/lib/chromium-browser/chrome --version",
+    "exitCode": 0,
+    "runtimeSeconds": 4.35,
+    "output": "Chromium 153.0.8010.47"
+  },
+  "classification": "Preserved observed staging and launcher boundaries; no product source change."
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "hamon.uma.inheritance.precandidate-contract.v1",
+  "canonicalCommit": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "goal": "Inspect the lineage and inheritance values already recorded in the selected running career, without taking an action or reconstructing missing facts.",
+  "sourceFence": [
+    "new InheritancePanel.tsx, inheritanceView.ts and scoped CSS",
+    "optional snapshot mirror fields in api/types.ts",
+    "single App import and placement after AptitudePanel",
+    "new focused maintained test entry and receiving documentation"
+  ],
+  "preserve": [
+    "RunSetup and LegacyPanel editing/preview behavior",
+    "API, runStore, client, session/keyboard/action/export routing",
+    "Skills, Conditions and Race panels",
+    "all native engine, catalog and RNG source"
+  ],
+  "predicates": [
+    "Show all six explicit ancestor positions and every retained spark occurrence without merging duplicates, inventing parent relationships for flat entries, defaulting missing stars, or clamping recorded values.",
+    "Show native-retained parent names, factor IDs, cap additions, starting-stat bonuses and inheritance-choice/inspiration progress from the supplied legacy record; compute no bonuses or future odds.",
+    "Use catalog names only for exact factor IDs, retain literal IDs and unknown values, and render markup-like names as text.",
+    "Distinguish an empty recorded tree/collection from unavailable data; present flat-only entries literally without parsing an ancestry or adding stars.",
+    "Replacing the supplied career and catalogs replaces all displayed facts; no local record cache may retain the previous career.",
+    "Opening and closing disclosures or scrolling the panel sends no API request, changes no source snapshot, and modifies no persisted session/checkpoint.",
+    "Actual structured and flat native careers provide the baseline absence and candidate evidence; ordinary native continuation keeps recorded lineage while updating only native-owned state.",
+    "Inspect desktop and 390px layouts, keyboard disclosure operation and full current TypeScript/Vite compatibility using installed dependencies.",
+    "Preserve every current package source byte outside the declared source fence and keep the original staging capacity refusal separate from product findings."
+  ],
+  "nativeExecution": "Private fixture/output locations only; current existing runtime and explicit source-bound producer receipts; no dependency install or player-save changes."
+}

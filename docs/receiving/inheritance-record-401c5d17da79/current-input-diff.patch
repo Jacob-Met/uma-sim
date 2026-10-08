@@ -1,0 +1,143 @@
+diff --git a/packages/uma-sim-ui/package.json b/packages/uma-sim-ui/package.json
+index d3012d7..f789d67 100644
+--- a/packages/uma-sim-ui/package.json
++++ b/packages/uma-sim-ui/package.json
+@@ -6,7 +6,7 @@
+   "license": "GPL-3.0-only",
+   "description": "Browser UI for uma-sim career simulator",
+   "scripts": {
+-    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs",
++    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs",
+     "test:browser": "node tests/receiving/uma-lab-receiver.mjs dist test-results/career-lab",
+     "test:trace": "node tests/receiving/uma-trace-receiver.mjs dist test-results/trace",
+     "dev": "vite",
+diff --git a/packages/uma-sim-ui/src/App.tsx b/packages/uma-sim-ui/src/App.tsx
+index 790fa1c..04ba8ad 100644
+--- a/packages/uma-sim-ui/src/App.tsx
++++ b/packages/uma-sim-ui/src/App.tsx
+@@ -1,6 +1,7 @@
+ import { useEffect, useState } from "react";
+ import { RunSetup } from "./components/RunSetup";
+ import { StatsPanel } from "./components/StatsPanel";
++import { ConditionsPanel } from "./components/ConditionsPanel";
+ import { LogPanel } from "./components/LogPanel";
+ import { ChoicePanel } from "./components/ChoicePanel";
+ import { EventDialog } from "./components/EventDialog";
+@@ -159,6 +160,7 @@ export default function App() {
+           <div className="turn-layout">
+             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+               <StatsPanel state={cs} />
++              <ConditionsPanel state={cs} />
+               <DeckPanel
+                 state={cs}
+                 supports={state.catalogs.supports}
+@@ -175,7 +177,7 @@ export default function App() {
+             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+               <LogPanel lines={state.textLines} history={cs.log} />
+               <RacePanel
+-                lines={state.textLines}
++                lines={cs.log}
+                 mandatory={mandatory}
+                 pendingRaceId={cs.pendingRaceId}
+                 busy={state.busy}
+diff --git a/uma-sim-core/src/engine.rs b/uma-sim-core/src/engine.rs
+index 7ece312..cf14926 100644
+--- a/uma-sim-core/src/engine.rs
++++ b/uma-sim-core/src/engine.rs
+@@ -23,7 +23,8 @@ use crate::state::{
+     SimAction, SimActionKind, SimChoice, SimDate, SimSettings, TrainingFacility, TurnPhase,
+ };
+ use crate::telemetry::SimTelemetry;
+-use crate::training::TrainingResolver;
++use crate::training::{TrainingOutcome, TrainingResolver};
++use crate::training_inspection::TrainingInspection;
+ use std::sync::Arc;
+ 
+ #[derive(Debug, Clone)]
+@@ -240,6 +241,31 @@ impl SimEngine {
+         &self.state
+     }
+ 
++    /// Inspect training without consuming the career RNG or changing its state.
++    pub fn training_inspection(&self) -> TrainingInspection {
++        let mut preview_state = self.state.clone();
++        for facility in TrainingFacility::ALL {
++            preview_state
++                .facility_levels
++                .insert(facility.key().into(), self.facility_level(facility));
++        }
++        TrainingInspection::build(
++            &preview_state,
++            &self.choices(),
++            &self.training_resolver,
++            |level, outcome| {
++                (
++                    self.training_failure_chance_pct(level, outcome),
++                    apply_energy_after_training(
++                        self.state.energy,
++                        outcome.energy_cost,
++                        self.state.max_energy,
++                    ) - self.state.energy,
++                )
++            },
++        )
++    }
++
+     pub fn assign_deck_slot(&mut self, support_id: &str, facility: TrainingFacility) -> bool {
+         let Some(updated) = DeckPlacement::reassign(&self.state.deck.slots, support_id, facility)
+         else {
+@@ -882,24 +908,10 @@ impl SimEngine {
+         format!("Event: {title} → {}", lines.join("; "))
+     }
+ 
+-    fn do_train(&mut self, action: &SimAction) -> String {
+-        if self.state.is_injured() {
+-            return "Injured — rest to recover before training.".to_string();
+-        }
+-        let facility = parse_facility(action.payload.as_deref()).unwrap_or(TrainingFacility::Speed);
+-        let key = facility.key();
+-        let level = self.facility_level(facility);
++    fn training_failure_chance_pct(&self, level: i32, outcome: &TrainingOutcome) -> i32 {
+         let energy_before = self.state.energy;
+-        let outcome = self.training_resolver.resolve(
+-            facility,
+-            level,
+-            self.state.mood,
+-            &mut self.rng,
+-            Some(&self.state),
+-            None,
+-        );
+         let scenario = self.state.meta.scenario_id.to_lowercase();
+-        let fail_pct = if (scenario == "unity" || scenario == "unity_cup")
++        if (scenario == "unity" || scenario == "unity_cup")
+             && UnityCupMechanics::zero_failure_when_burst_ready(&self.state.scenario_resources)
+         {
+             0
+@@ -914,7 +926,26 @@ impl SimEngine {
+                 self.state.mood,
+                 level,
+             )
+-        };
++        }
++    }
++
++    fn do_train(&mut self, action: &SimAction) -> String {
++        if self.state.is_injured() {
++            return "Injured — rest to recover before training.".to_string();
++        }
++        let facility = parse_facility(action.payload.as_deref()).unwrap_or(TrainingFacility::Speed);
++        let key = facility.key();
++        let level = self.facility_level(facility);
++        let energy_before = self.state.energy;
++        let outcome = self.training_resolver.resolve(
++            facility,
++            level,
++            self.state.mood,
++            &mut self.rng,
++            Some(&self.state),
++            None,
++        );
++        let fail_pct = self.training_failure_chance_pct(level, &outcome);
+         if outcome.energy_cost > 0 && energy_before < outcome.energy_cost {
+             return format!(
+                 "Not enough energy to train ({} required, {} available).",

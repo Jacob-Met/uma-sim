@@ -1,0 +1,313 @@
+{
+  "schema": "uma.inheritance-checkpoint-independent.v1",
+  "ui_parent": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "api_parent": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "started_at": "2026-10-08T19:44:17.508Z",
+  "checks": [
+    {
+      "name": "The actual native API uses the pinned205 catalog source",
+      "pass": true
+    },
+    {
+      "name": "Fixture reaches a genuine native pending event through bounded normal actions",
+      "pass": true
+    },
+    {
+      "name": "The imported checkpoint restores identical UI and native control snapshots",
+      "pass": true
+    },
+    {
+      "name": "Partial inheritance import preserves the exact pending decision and RNG",
+      "pass": true
+    },
+    {
+      "name": "Native normalization is recorded before any missing-field display claim",
+      "pass": true
+    },
+    {
+      "name": "Native omitted-bonus/count defaults stay explicit",
+      "pass": true
+    }
+  ],
+  "failure": {
+    "name": "Error",
+    "message": "Page condition timed out: [...document.querySelectorAll(\"tr\")].some(e=>e.textContent.includes(\"Pending checkpoint\"))",
+    "stack": "Error: Page condition timed out: [...document.querySelectorAll(\"tr\")].some(e=>e.textContent.includes(\"Pending checkpoint\"))\n    at CDP.wait (file:///home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/towerops-flight-register/methods/cdp.mjs:37:11)\n    at async file:///tmp/uma-inheritance-checkpoint-receiving-401c5d17da79/receive-checkpoint.v2.mjs:95:43"
+  },
+  "inputs": {
+    "source": {
+      "parent": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+      "parentTree": "8a77986dcacbdb137a31f4e438561153b38f8c06",
+      "qualifiedNativeApi": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+      "source": {
+        "packages/uma-sim-ui/src/components/inheritanceView.ts": {
+          "sha256": "46c1db2b7f685100933a9ccf13b6749a1421d4c4a668e6d09ce07c6e28715dce",
+          "gitBlob": "917144dc8335f9d05d2f83cf153f2166981797f9"
+        },
+        "packages/uma-sim-ui/src/components/InheritancePanel.tsx": {
+          "sha256": "25fa356320b89b23a0f990dd0793a28e79e4a7c67889c3a65468b53d40fb1b49",
+          "gitBlob": "0ed2978307418a7f77b38756cda614f98eaa5eb0"
+        },
+        "packages/uma-sim-ui/src/components/inheritance-record.css": {
+          "sha256": "cfb4563c11a9a9c7499efcea3491b8ec4e7b2fcb199c7964bd132c70ef06f68a",
+          "gitBlob": "2f943a5ae3615cb59a60843c411a9bb6521f1797"
+        },
+        "packages/uma-sim-ui/src/App.tsx": {
+          "sha256": "4f26fdddb3ac240aa0fe36919bd52a60c9690fcfc8cb9f33c3e8ae9f41dd89ca",
+          "gitBlob": "88a1f4de0c5b8d2759eb2b38ca9b2e950cc32f7e"
+        },
+        "packages/uma-sim-ui/src/api/types.ts": {
+          "sha256": "244906b9d133c795142e07924daaa9d6b9feca209d9e7c2dfba9e88f0505467f",
+          "gitBlob": "a84ece2452919f9b73da76a1435fd3fad1944d23"
+        },
+        "packages/uma-sim-ui/test/inheritance-view.test.mjs": {
+          "sha256": "47609ebbc0e4fff1452ee6015a16a2cdf683fbd1e63daa8839a05d05652db4b8",
+          "gitBlob": "c0dcbc9aaaca0a13ceedd75abd761dbf1762bde3"
+        },
+        "packages/uma-sim-ui/package.json": {
+          "sha256": "f1207ad9007a0063b639692b2b8e160a633be09fea5757ba3a187721adc87818",
+          "gitBlob": "3db1eaff22ef98c9b96d58d69e44e912f63252cc"
+        }
+      },
+      "preservedPeerSeams": [
+        "ConditionsPanel after StatsPanel",
+        "RacePanel lines={cs.log}",
+        "Existing session/action handlers",
+        "Current race/conditions test entries"
+      ],
+      "steps": [
+        {
+          "name": "typecheck",
+          "command": [
+            "npm",
+            "run",
+            "typecheck"
+          ],
+          "exitCode": 0,
+          "seconds": 38.912667,
+          "logSha256": "ba382cd035fd5e48f00d1e124a7a3ba53cdd163dd8b92442adeb5c0817b2c02f"
+        },
+        {
+          "name": "tests",
+          "command": [
+            "npm",
+            "test"
+          ],
+          "exitCode": 0,
+          "seconds": 11.02895,
+          "logSha256": "d85ae00058de2804eeae84ebaccc85f59ffdf037f613a3d0252f794aa71d9b31"
+        },
+        {
+          "name": "build",
+          "command": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "exitCode": 0,
+          "seconds": 17.58776,
+          "logSha256": "9ccab888f3bb3245339e31140dbcb6558c1534c6cde829d25c8127ca8727b7fc"
+        }
+      ],
+      "sourceUnchanged": true,
+      "artifactsSha256": "b05817c01ec100fdfc5527cb7cb4bc92ffb653a4b0bf1857972e60905675a473"
+    },
+    "assets": [
+      {
+        "key": "candidate/assets/index-CBwa3T9X.js",
+        "path": "assets/index-CBwa3T9X.js",
+        "bytes": 221033,
+        "sha256": "74f0bab61bb46f575894fcab34fd94437a75f6d92a31fe19e768f27b7acb4fd3"
+      },
+      {
+        "key": "candidate/assets/index-Cgvjwgjk.css",
+        "path": "assets/index-Cgvjwgjk.css",
+        "bytes": 15849,
+        "sha256": "5be418f2d600948020ab42e6b8d914ad51196241070e9e07cc02027e8623168e"
+      },
+      {
+        "key": "candidate/index.html",
+        "path": "index.html",
+        "bytes": 394,
+        "sha256": "9b5ff5e7f30f27f7baf3d043e40956c4e0612f797deeb6fd7f4a89fdf16ba43b"
+      }
+    ],
+    "borrowed": {
+      "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-target/debug/uma-sim-api": "3b210a6d7f5885b54b281f3d7dca658a71d695a836346efd7daf1cd52b7d2c23",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/evidence/ui-build-artifacts.json": "b05817c01ec100fdfc5527cb7cb4bc92ffb653a4b0bf1857972e60905675a473",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/evidence/receipt.json": "c1042b5dca100d5cba47607a0e03953ff200761f1aed5687e3e7b7f47a566f78",
+      "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/towerops-flight-register/methods/cdp.mjs": "be20b757f9cd7b3b85bcc701b589d61ad338123be70d75acb914eda529af5639",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/source/packages/uma-sim-ui/src/components/inheritanceView.ts": "46c1db2b7f685100933a9ccf13b6749a1421d4c4a668e6d09ce07c6e28715dce",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/source/packages/uma-sim-ui/src/components/InheritancePanel.tsx": "25fa356320b89b23a0f990dd0793a28e79e4a7c67889c3a65468b53d40fb1b49",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/source/packages/uma-sim-ui/src/components/inheritance-record.css": "cfb4563c11a9a9c7499efcea3491b8ec4e7b2fcb199c7964bd132c70ef06f68a",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/source/packages/uma-sim-ui/src/App.tsx": "4f26fdddb3ac240aa0fe36919bd52a60c9690fcfc8cb9f33c3e8ae9f41dd89ca",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/source/packages/uma-sim-ui/src/api/types.ts": "244906b9d133c795142e07924daaa9d6b9feca209d9e7c2dfba9e88f0505467f",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/source/packages/uma-sim-ui/test/inheritance-view.test.mjs": "47609ebbc0e4fff1452ee6015a16a2cdf683fbd1e63daa8839a05d05652db4b8",
+      "/tmp/uma-inheritance-current-8d74413-401c5d17da79/source/packages/uma-sim-ui/package.json": "f1207ad9007a0063b639692b2b8e160a633be09fea5757ba3a187721adc87818",
+      "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source/uma-sim-core/src/state.rs": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833",
+      "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source/uma-sim-core/src/legacy.rs": "70fc0e91f7b18335d8b91011587664353bbc016985d7ec9230c2aa272c75e666",
+      "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source/uma-sim-core/src/api.rs": "b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa",
+      "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source/uma-sim-core/src/engine.rs": "5b2ad3cd6557d929d07fef8b1783357089d129190dc1e871e80f4d6e28dd075c",
+      "/home/jacob/.commander-tp-1/hamon-work/estate-401c5d17da79/uma-inheritance-205178f1/native-api-source/uma-sim-core/src/snapshot.rs": "95dcb1d92dacac6494a403cb9d39ef06b42e855aa22dfb3013f39c941c2f3e68"
+    },
+    "method_sha256": "41981c929d71307fd9eeb1cba6a56361e5795cd63d421af621c5631638f8b981"
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.47",
+    "revision": "@73934a44f61e6b3878d1943064c141a5a820f5f7",
+    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.12"
+  },
+  "borrowed_changed": [],
+  "page_errors": [],
+  "external_requests": [
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1118.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1033.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1019.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1032.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1018.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1111.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1036.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1129.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1087.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1053.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1095.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1054.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1023.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1124.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1114.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1120.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1110.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1089.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1133.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1098.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1134.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1038.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1085.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1065.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1009.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1092.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1112.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1119.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1108.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1121.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1037.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1014.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1141.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1081.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1127.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1022.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1005.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1079.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1113.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1116.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1040.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1007.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1131.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1011.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1052.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1028.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1012.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1106.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1099.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1063.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1034.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1031.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1094.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1093.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1104.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1039.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1061.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1137.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1068.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1132.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1130.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1025.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1004.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1055.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1056.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1062.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1024.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1058.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1071.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1074.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1059.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1013.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1064.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1086.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1027.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1026.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1057.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1049.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1016.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1050.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1077.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1105.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1060.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1051.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1096.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1082.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1006.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1115.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1136.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1109.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1030.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1103.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1145.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1041.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1069.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1076.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1088.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1067.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1042.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1020.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1043.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1002.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1070.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1046.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1102.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1001.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1135.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1097.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1045.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1044.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1083.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1017.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1010.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1021.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1084.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1107.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1015.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1003.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1048.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1080.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1073.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1066.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1090.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1143.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1091.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1008.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1117.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1035.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1100.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1072.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1078.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1029.png",
+    "https://gametora.com/images/umamusume/characters/icons/chr_icon_1047.png"
+  ],
+  "processes": {
+    "api_pid": 938786,
+    "api_exit": null,
+    "api_signal": "SIGTERM",
+    "browser_pid": 940725,
+    "browser_exit": null,
+    "browser_signal": null,
+    "privateCwd": "/tmp/uma-inheritance-checkpoint-receiving-401c5d17da79/run-v2/private-careers",
+    "profile": "/tmp/uma-inheritance-checkpoint-receiving-401c5d17da79/run-v2/chromium-profile"
+  },
+  "completed_at": "2026-10-08T19:45:47.835Z",
+  "passed": 6,
+  "failed": 0,
+  "status": "failed"
+}
