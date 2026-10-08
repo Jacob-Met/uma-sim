@@ -1,0 +1,2311 @@
+﻿2026-10-08T20:37:54.2451899Z Current runner version: '2.337.0'
+2026-10-08T20:37:54.2470951Z ##[group]Runner Image Provisioner
+2026-10-08T20:37:54.2471678Z Hosted Compute Agent
+2026-10-08T20:37:54.2472156Z Version: 20261002.596
+2026-10-08T20:37:54.2472707Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T20:37:54.2473313Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T20:37:54.2473848Z Worker ID: {918e14b2-06a8-4d61-9f01-04d32550a1de}
+2026-10-08T20:37:54.2474509Z Region: westus3
+2026-10-08T20:37:54.2474962Z Cloud: Azure
+2026-10-08T20:37:54.2475616Z ##[endgroup]
+2026-10-08T20:37:54.2476655Z ##[group]Operating System
+2026-10-08T20:37:54.2477136Z Ubuntu
+2026-10-08T20:37:54.2477639Z 24.04.5
+2026-10-08T20:37:54.2478058Z LTS
+2026-10-08T20:37:54.2478511Z ##[endgroup]
+2026-10-08T20:37:54.2478992Z ##[group]Runner Image
+2026-10-08T20:37:54.2479476Z Image: ubuntu-24.04
+2026-10-08T20:37:54.2480012Z Version: 20261004.327.1
+2026-10-08T20:37:54.2481009Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T20:37:54.2482307Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T20:37:54.2483096Z ##[endgroup]
+2026-10-08T20:37:54.2484055Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T20:37:54.2485803Z Contents: read
+2026-10-08T20:37:54.2486424Z Metadata: read
+2026-10-08T20:37:54.2486883Z ##[endgroup]
+2026-10-08T20:37:54.2488932Z Secret source: Actions
+2026-10-08T20:37:54.2489731Z Cache mode: write
+2026-10-08T20:37:54.2490336Z Prepare workflow directory
+2026-10-08T20:37:54.2762675Z Prepare all required actions
+2026-10-08T20:37:54.2816119Z Getting action download info
+2026-10-08T20:37:54.5931123Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-08T20:37:54.6810833Z Download action repository 'actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c' (SHA:3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c)
+2026-10-08T20:37:55.4177585Z Download action repository 'dtolnay/rust-toolchain@89b12181fb390509a0842a86cc55eeb8eb928c1d' (SHA:89b12181fb390509a0842a86cc55eeb8eb928c1d)
+2026-10-08T20:37:55.6357855Z Download action repository 'Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6' (SHA:6323deb102c322ba6fcbdcafc7e3dddab59af2b6)
+2026-10-08T20:37:56.4368293Z Download action repository 'actions/setup-node@820762786026740c76f36085b0efc47a31fe5020' (SHA:820762786026740c76f36085b0efc47a31fe5020)
+2026-10-08T20:37:56.7356784Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-10-08T20:37:56.8745899Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-10-08T20:37:57.1581612Z Complete job name: rust
+2026-10-08T20:37:57.2232003Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-08T20:37:57.2232567Z with:
+2026-10-08T20:37:57.2232751Z   repository: Jacob-Met/uma-sim
+2026-10-08T20:37:57.2234748Z   token: ***
+2026-10-08T20:37:57.2234928Z   ssh-strict: true
+2026-10-08T20:37:57.2235105Z   ssh-user: git
+2026-10-08T20:37:57.2235499Z   persist-credentials: true
+2026-10-08T20:37:57.2235700Z   clean: true
+2026-10-08T20:37:57.2235897Z   sparse-checkout-cone-mode: true
+2026-10-08T20:37:57.2236133Z   fetch-depth: 1
+2026-10-08T20:37:57.2236325Z   fetch-tags: false
+2026-10-08T20:37:57.2236501Z   show-progress: true
+2026-10-08T20:37:57.2236673Z   lfs: false
+2026-10-08T20:37:57.2236864Z   submodules: false
+2026-10-08T20:37:57.2237039Z   set-safe-directory: true
+2026-10-08T20:37:57.2237247Z   allow-unsafe-pr-checkout: false
+2026-10-08T20:37:57.2237626Z ##[endgroup]
+2026-10-08T20:37:57.3037155Z Syncing repository: Jacob-Met/uma-sim
+2026-10-08T20:37:57.3038705Z ##[group]Getting Git version info
+2026-10-08T20:37:57.3039252Z Working directory is '/home/runner/work/uma-sim/uma-sim'
+2026-10-08T20:37:57.3039962Z [command]/usr/bin/git version
+2026-10-08T20:37:57.3109477Z git version 2.55.0
+2026-10-08T20:37:57.3136615Z ##[endgroup]
+2026-10-08T20:37:57.3165928Z Temporarily overriding HOME='/home/runner/work/_temp/32537bc7-0f03-4d0d-97d3-767b6e549a61' before making global git config changes
+2026-10-08T20:37:57.3178869Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T20:37:57.3180003Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:37:57.3316533Z Deleting the contents of '/home/runner/work/uma-sim/uma-sim'
+2026-10-08T20:37:57.3317555Z ##[group]Determining repository object format
+2026-10-08T20:37:57.3318237Z ##[endgroup]
+2026-10-08T20:37:57.3318817Z ##[group]Initializing the repository
+2026-10-08T20:37:57.3319429Z [command]/usr/bin/git init /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:37:57.3751609Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T20:37:57.3752395Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T20:37:57.3753054Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T20:37:57.3753542Z hint: call:
+2026-10-08T20:37:57.3753773Z hint:
+2026-10-08T20:37:57.3754124Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T20:37:57.3754503Z hint:
+2026-10-08T20:37:57.3754881Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T20:37:57.3755678Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T20:37:57.3756157Z hint:
+2026-10-08T20:37:57.3756398Z hint: 	git branch -m <name>
+2026-10-08T20:37:57.3756679Z hint:
+2026-10-08T20:37:57.3757044Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T20:37:57.3757677Z Initialized empty Git repository in /home/runner/work/uma-sim/uma-sim/.git/
+2026-10-08T20:37:57.3762839Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/uma-sim
+2026-10-08T20:37:57.3806413Z ##[endgroup]
+2026-10-08T20:37:57.3806938Z ##[group]Disabling automatic garbage collection
+2026-10-08T20:37:57.3809876Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T20:37:57.3839027Z ##[endgroup]
+2026-10-08T20:37:57.3839898Z ##[group]Setting up auth
+2026-10-08T20:37:57.3840227Z Removing SSH command configuration
+2026-10-08T20:37:57.3844295Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T20:37:57.3873344Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T20:37:57.5418414Z Removing HTTP extra header
+2026-10-08T20:37:57.5423146Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T20:37:57.5452605Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T20:37:57.5648261Z Removing includeIf entries pointing to credentials config files
+2026-10-08T20:37:57.5652441Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T20:37:57.5687101Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T20:37:57.5873978Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T20:37:57.5907070Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path /home/runner/work/_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config
+2026-10-08T20:37:57.5934361Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config
+2026-10-08T20:37:57.6302864Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config
+2026-10-08T20:37:57.6335050Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config
+2026-10-08T20:37:57.6361994Z ##[endgroup]
+2026-10-08T20:37:57.6362451Z ##[group]Fetching the repository
+2026-10-08T20:37:57.6367972Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8d9ec78f210bd39dbbce0f8910fb61c35ba5c007:refs/remotes/pull/118/merge
+2026-10-08T20:37:59.5710273Z From https://github.com/Jacob-Met/uma-sim
+2026-10-08T20:37:59.5710780Z  * [new ref]         8d9ec78f210bd39dbbce0f8910fb61c35ba5c007 -> pull/118/merge
+2026-10-08T20:37:59.5713481Z ##[endgroup]
+2026-10-08T20:37:59.5713964Z ##[group]Determining the checkout info
+2026-10-08T20:37:59.5714494Z ##[endgroup]
+2026-10-08T20:37:59.5718703Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T20:37:59.5763265Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T20:37:59.5791378Z ##[group]Checking out the ref
+2026-10-08T20:37:59.5796102Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/118/merge
+2026-10-08T20:37:59.7080131Z Note: switching to 'refs/remotes/pull/118/merge'.
+2026-10-08T20:37:59.7080484Z 
+2026-10-08T20:37:59.7080735Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T20:37:59.7081300Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T20:37:59.7081821Z state without impacting any branches by switching back to a branch.
+2026-10-08T20:37:59.7082250Z 
+2026-10-08T20:37:59.7086335Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T20:37:59.7086953Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T20:37:59.7087276Z 
+2026-10-08T20:37:59.7087416Z   git switch -c <new-branch-name>
+2026-10-08T20:37:59.7087628Z 
+2026-10-08T20:37:59.7087766Z Or undo this operation with:
+2026-10-08T20:37:59.7087948Z 
+2026-10-08T20:37:59.7088063Z   git switch -
+2026-10-08T20:37:59.7088237Z 
+2026-10-08T20:37:59.7088504Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T20:37:59.7088887Z 
+2026-10-08T20:37:59.7089308Z HEAD is now at 8d9ec78 Merge 248c62564bb816630d6983ec5f733b965a8e1e43 into 38291c1aaf915da17229eca0afbbd58d9b3ce453
+2026-10-08T20:37:59.7136295Z ##[endgroup]
+2026-10-08T20:37:59.7139491Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T20:37:59.7164962Z 8d9ec78f210bd39dbbce0f8910fb61c35ba5c007
+2026-10-08T20:37:59.7365608Z ##[group]Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+2026-10-08T20:37:59.7365971Z with:
+2026-10-08T20:37:59.7366147Z   name: uma-sim-ui-dist
+2026-10-08T20:37:59.7366349Z   path: packages/uma-sim-ui/dist
+2026-10-08T20:37:59.7366577Z   merge-multiple: false
+2026-10-08T20:37:59.7366770Z   repository: Jacob-Met/uma-sim
+2026-10-08T20:37:59.7366979Z   run-id: 37840723118
+2026-10-08T20:37:59.7367168Z   skip-decompress: false
+2026-10-08T20:37:59.7367356Z   digest-mismatch: error
+2026-10-08T20:37:59.7367546Z ##[endgroup]
+2026-10-08T20:37:59.8430236Z Downloading single artifact
+2026-10-08T20:38:00.0669336Z Preparing to download the following artifacts:
+2026-10-08T20:38:00.0676165Z - uma-sim-ui-dist (ID: 11577786170, Size: 70268, Expected Digest: sha256:30c6f1ba205682d3785fc3362a3d1ac4bd2f826d0bbc18cb620e6f26d28fb512)
+2026-10-08T20:38:00.5046187Z Redirecting to blob download url: https://productionresultssa8.blob.core.windows.net/actions-results/9d679aeb-e0f7-8d68-a477-1db4689b80ba/workflow-job-run-cd550475-5180-5c99-b89e-4df77dcc5b68/artifacts/41ddf279ab96a7c5364033a2bd4e1228c219b6777fd5a55ec9929d0be21c822c.zip
+2026-10-08T20:38:00.5047982Z Starting download of artifact to: /home/runner/work/uma-sim/uma-sim/packages/uma-sim-ui/dist
+2026-10-08T20:38:00.7416017Z (node:2109) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-08T20:38:00.7416775Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T20:38:00.8326711Z SHA256 digest of downloaded artifact is 30c6f1ba205682d3785fc3362a3d1ac4bd2f826d0bbc18cb620e6f26d28fb512
+2026-10-08T20:38:00.8327388Z Artifact download completed successfully.
+2026-10-08T20:38:00.8327688Z Total of 1 artifact(s) downloaded
+2026-10-08T20:38:00.8330475Z Download artifact has finished successfully
+2026-10-08T20:38:00.8555848Z ##[group]Run dtolnay/rust-toolchain@89b12181fb390509a0842a86cc55eeb8eb928c1d
+2026-10-08T20:38:00.8556187Z with:
+2026-10-08T20:38:00.8556363Z   components: rustfmt, clippy
+2026-10-08T20:38:00.8556560Z   toolchain: stable
+2026-10-08T20:38:00.8556732Z ##[endgroup]
+2026-10-08T20:38:00.8611280Z ##[start-action display=Parse toolchain version;id=__dtolnay_rust-toolchain.parse]
+2026-10-08T20:38:00.8656362Z ##[group]Run if [[ -z $toolchain ]]; then
+2026-10-08T20:38:00.8656681Z [36;1mif [[ -z $toolchain ]]; then[0m
+2026-10-08T20:38:00.8657130Z [36;1m  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070[0m
+2026-10-08T20:38:00.8657576Z [36;1m  echo "'toolchain' is a required input" >&2[0m
+2026-10-08T20:38:00.8657810Z [36;1m  exit 1[0m
+2026-10-08T20:38:00.8658096Z [36;1melif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+2026-10-08T20:38:00.8658422Z [36;1m  if [[ Linux == macOS ]]; then[0m
+2026-10-08T20:38:00.8658886Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:00.8659287Z [36;1m  else[0m
+2026-10-08T20:38:00.8659606Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:00.8659963Z [36;1m  fi[0m
+2026-10-08T20:38:00.8660203Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+2026-10-08T20:38:00.8660608Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:00.8660961Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+2026-10-08T20:38:00.8661372Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:00.8661767Z [36;1melse[0m
+2026-10-08T20:38:00.8661985Z [36;1m  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:00.8662236Z [36;1mfi[0m
+2026-10-08T20:38:00.8850914Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:00.8851196Z env:
+2026-10-08T20:38:00.8851361Z   toolchain: stable
+2026-10-08T20:38:00.8851545Z ##[endgroup]
+2026-10-08T20:38:00.8964042Z ##[end-action id=__dtolnay_rust-toolchain.parse;outcome=success;conclusion=success;duration_ms=35]
+2026-10-08T20:38:00.8973761Z ##[start-action display=Construct rustup command line;id=__dtolnay_rust-toolchain.flags]
+2026-10-08T20:38:00.8997867Z ##[group]Run echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+2026-10-08T20:38:00.8998389Z [36;1mecho "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:00.8998890Z [36;1mecho "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:00.8999280Z [36;1mecho "downgrade=" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:00.9047863Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:00.9048153Z env:
+2026-10-08T20:38:00.9048318Z   targets: 
+2026-10-08T20:38:00.9048490Z   components: rustfmt, clippy
+2026-10-08T20:38:00.9048699Z ##[endgroup]
+2026-10-08T20:38:00.9126380Z ##[end-action id=__dtolnay_rust-toolchain.flags;outcome=success;conclusion=success;duration_ms=15]
+2026-10-08T20:38:00.9128208Z ##[start-action display=Set $CARGO_HOME;id=__dtolnay_rust-toolchain.__run]
+2026-10-08T20:38:00.9144381Z ##[group]Run echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+2026-10-08T20:38:00.9144772Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV[0m
+2026-10-08T20:38:00.9192174Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:00.9192447Z ##[endgroup]
+2026-10-08T20:38:00.9262732Z ##[end-action id=__dtolnay_rust-toolchain.__run;outcome=success;conclusion=success;duration_ms=13]
+2026-10-08T20:38:00.9264650Z ##[start-action display=Install rustup if needed;id=__dtolnay_rust-toolchain.__run_2]
+2026-10-08T20:38:00.9285571Z ##[group]Run if ! command -v rustup &>/dev/null; then
+2026-10-08T20:38:00.9285870Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+2026-10-08T20:38:00.9286469Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y[0m
+2026-10-08T20:38:00.9287050Z [36;1m  echo "$CARGO_HOME/bin" >> $GITHUB_PATH[0m
+2026-10-08T20:38:00.9287285Z [36;1mfi[0m
+2026-10-08T20:38:00.9334726Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:00.9335003Z env:
+2026-10-08T20:38:00.9335338Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:00.9335573Z ##[endgroup]
+2026-10-08T20:38:00.9403620Z ##[end-action id=__dtolnay_rust-toolchain.__run_2;outcome=success;conclusion=success;duration_ms=13]
+2026-10-08T20:38:00.9405601Z ##[start-action display=Install rustup if needed on windows;id=__dtolnay_rust-toolchain.__run_3]
+2026-10-08T20:38:00.9411177Z ##[end-action id=__dtolnay_rust-toolchain.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-08T20:38:00.9419136Z ##[start-action display=rustup toolchain install stable;id=__dtolnay_rust-toolchain.__run_4]
+2026-10-08T20:38:00.9434983Z ##[group]Run log=$(mktemp)
+2026-10-08T20:38:00.9435508Z [36;1mlog=$(mktemp)[0m
+2026-10-08T20:38:00.9435746Z [36;1mtrap 'rm -f "$log"' EXIT[0m
+2026-10-08T20:38:00.9435967Z [36;1mfor attempt in 1 2 3 4 5; do[0m
+2026-10-08T20:38:00.9436493Z [36;1m  if rustup toolchain install stable --component rustfmt --component clippy --profile minimal --no-self-update --force-non-host 2>&1 | tee "$log"; then[0m
+2026-10-08T20:38:00.9437008Z [36;1m    break[0m
+2026-10-08T20:38:00.9437185Z [36;1m  else[0m
+2026-10-08T20:38:00.9437351Z [36;1m    status=$?[0m
+2026-10-08T20:38:00.9437533Z [36;1m  fi[0m
+2026-10-08T20:38:00.9437783Z [36;1m  if [[ $attempt == 5 ]] || ! grep -Fq 'checksum failed for ' "$log" \[0m
+2026-10-08T20:38:00.9438228Z [36;1m      || ! grep -Fq 'this is likely due to an ongoing update of the official release server' "$log"; then[0m
+2026-10-08T20:38:00.9438590Z [36;1m    exit "$status"[0m
+2026-10-08T20:38:00.9438787Z [36;1m  fi[0m
+2026-10-08T20:38:00.9439079Z [36;1m  echo "Retrying rustup toolchain install in 30 seconds (retry $attempt of 4)" >&2[0m
+2026-10-08T20:38:00.9439416Z [36;1m  sleep 30[0m
+2026-10-08T20:38:00.9439587Z [36;1mdone[0m
+2026-10-08T20:38:00.9487637Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:00.9487925Z env:
+2026-10-08T20:38:00.9488100Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:00.9488322Z   RUSTUP_PERMIT_COPY_RENAME: 1
+2026-10-08T20:38:00.9488524Z ##[endgroup]
+2026-10-08T20:38:01.3588247Z info: syncing channel updates for stable-x86_64-unknown-linux-gnu
+2026-10-08T20:38:02.0361287Z info: latest update on 2026-10-01 for version 1.99.0 (b940084d7 2026-09-28)
+2026-10-08T20:38:02.0457599Z info: component clippy is up to date
+2026-10-08T20:38:02.0458009Z info: component rustfmt is up to date
+2026-10-08T20:38:02.0470686Z 
+2026-10-08T20:38:02.0541786Z   stable-x86_64-unknown-linux-gnu unchanged - rustc 1.99.0 (b940084d7 2026-09-28)
+2026-10-08T20:38:02.0542196Z 
+2026-10-08T20:38:02.0581596Z ##[end-action id=__dtolnay_rust-toolchain.__run_4;outcome=success;conclusion=success;duration_ms=1116]
+2026-10-08T20:38:02.0587020Z ##[start-action display=rustup default stable;id=__dtolnay_rust-toolchain.__run_5]
+2026-10-08T20:38:02.0604114Z ##[group]Run rustup default stable --force-non-host
+2026-10-08T20:38:02.0604446Z [36;1mrustup default stable --force-non-host[0m
+2026-10-08T20:38:02.0660123Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:02.0660406Z env:
+2026-10-08T20:38:02.0660580Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:02.0660797Z ##[endgroup]
+2026-10-08T20:38:02.0762192Z info: using existing install for stable-x86_64-unknown-linux-gnu
+2026-10-08T20:38:02.0770542Z info: default toolchain set to stable-x86_64-unknown-linux-gnu
+2026-10-08T20:38:02.0770953Z 
+2026-10-08T20:38:02.0835886Z   stable-x86_64-unknown-linux-gnu unchanged - rustc 1.99.0 (b940084d7 2026-09-28)
+2026-10-08T20:38:02.0836174Z 
+2026-10-08T20:38:02.0862416Z ##[end-action id=__dtolnay_rust-toolchain.__run_5;outcome=success;conclusion=success;duration_ms=27]
+2026-10-08T20:38:02.0864306Z ##[start-action display=Create cachekey;id=__dtolnay_rust-toolchain.rustc-version]
+2026-10-08T20:38:02.0881519Z ##[group]Run DATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+2026-10-08T20:38:02.0882215Z [36;1mDATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+2026-10-08T20:38:02.0882725Z [36;1mHASH=$(rustc +stable --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+2026-10-08T20:38:02.0883118Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+2026-10-08T20:38:02.0934668Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:02.0934955Z env:
+2026-10-08T20:38:02.0935275Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:02.0935533Z ##[endgroup]
+2026-10-08T20:38:02.1249219Z ##[end-action id=__dtolnay_rust-toolchain.rustc-version;outcome=success;conclusion=success;duration_ms=38]
+2026-10-08T20:38:02.1251545Z ##[start-action display=Disable incremental compilation;id=__dtolnay_rust-toolchain.__run_6]
+2026-10-08T20:38:02.1268457Z ##[group]Run if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+2026-10-08T20:38:02.1268766Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+2026-10-08T20:38:02.1269032Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+2026-10-08T20:38:02.1269272Z [36;1mfi[0m
+2026-10-08T20:38:02.1324392Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:02.1324676Z env:
+2026-10-08T20:38:02.1324850Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:02.1325061Z ##[endgroup]
+2026-10-08T20:38:02.1396517Z ##[end-action id=__dtolnay_rust-toolchain.__run_6;outcome=success;conclusion=success;duration_ms=14]
+2026-10-08T20:38:02.1398226Z ##[start-action display=Enable colors in Cargo output;id=__dtolnay_rust-toolchain.__run_7]
+2026-10-08T20:38:02.1413038Z ##[group]Run if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+2026-10-08T20:38:02.1413341Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+2026-10-08T20:38:02.1413619Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+2026-10-08T20:38:02.1413869Z [36;1mfi[0m
+2026-10-08T20:38:02.1462458Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:02.1462742Z env:
+2026-10-08T20:38:02.1462914Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:02.1463123Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:38:02.1463304Z ##[endgroup]
+2026-10-08T20:38:02.1532492Z ##[end-action id=__dtolnay_rust-toolchain.__run_7;outcome=success;conclusion=success;duration_ms=13]
+2026-10-08T20:38:02.1534174Z ##[start-action display=Enable Cargo sparse registry;id=__dtolnay_rust-toolchain.__run_8]
+2026-10-08T20:38:02.1550278Z ##[group]Run # implemented in 1.66, stabilized in 1.68, made default in 1.70
+2026-10-08T20:38:02.1550700Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+2026-10-08T20:38:02.1551275Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+2026-10-08T20:38:02.1551993Z [36;1m  if rustc +stable --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+2026-10-08T20:38:02.1552494Z [36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-08T20:38:02.1552927Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+2026-10-08T20:38:02.1553328Z [36;1m  elif rustc +stable --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+2026-10-08T20:38:02.1553769Z [36;1m    touch "/home/runner/work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-08T20:38:02.1554290Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+2026-10-08T20:38:02.1554582Z [36;1m  fi[0m
+2026-10-08T20:38:02.1554749Z [36;1mfi[0m
+2026-10-08T20:38:02.1602343Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:02.1602635Z env:
+2026-10-08T20:38:02.1602810Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:02.1603026Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:38:02.1603221Z   CARGO_TERM_COLOR: always
+2026-10-08T20:38:02.1603417Z ##[endgroup]
+2026-10-08T20:38:02.1880639Z ##[end-action id=__dtolnay_rust-toolchain.__run_8;outcome=success;conclusion=success;duration_ms=34]
+2026-10-08T20:38:02.1882970Z ##[start-action display=Work around spurious network errors in curl 8.0;id=__dtolnay_rust-toolchain.__run_9]
+2026-10-08T20:38:02.1900905Z ##[group]Run # https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+2026-10-08T20:38:02.1901503Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+2026-10-08T20:38:02.1901994Z [36;1mif rustc +stable --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+2026-10-08T20:38:02.1902362Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+2026-10-08T20:38:02.1902616Z [36;1mfi[0m
+2026-10-08T20:38:02.1957671Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:02.1957948Z env:
+2026-10-08T20:38:02.1958138Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:02.1958354Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:38:02.1958539Z   CARGO_TERM_COLOR: always
+2026-10-08T20:38:02.1958737Z ##[endgroup]
+2026-10-08T20:38:02.2135432Z ##[end-action id=__dtolnay_rust-toolchain.__run_9;outcome=success;conclusion=success;duration_ms=25]
+2026-10-08T20:38:02.2138603Z ##[start-action display=rustc +stable --version --verbose;id=__dtolnay_rust-toolchain.__run_10]
+2026-10-08T20:38:02.2154802Z ##[group]Run rustc +stable --version --verbose
+2026-10-08T20:38:02.2155094Z [36;1mrustc +stable --version --verbose[0m
+2026-10-08T20:38:02.2207718Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T20:38:02.2207999Z env:
+2026-10-08T20:38:02.2208177Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:02.2208387Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:38:02.2208571Z   CARGO_TERM_COLOR: always
+2026-10-08T20:38:02.2208757Z ##[endgroup]
+2026-10-08T20:38:02.2364113Z rustc 1.99.0 (b940084d7 2026-09-28)
+2026-10-08T20:38:02.2364584Z binary: rustc
+2026-10-08T20:38:02.2364830Z commit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4
+2026-10-08T20:38:02.2365323Z commit-date: 2026-09-28
+2026-10-08T20:38:02.2365608Z host: x86_64-unknown-linux-gnu
+2026-10-08T20:38:02.2366054Z release: 1.99.0
+2026-10-08T20:38:02.2366294Z LLVM version: 23.1.1
+2026-10-08T20:38:02.2380724Z ##[end-action id=__dtolnay_rust-toolchain.__run_10;outcome=success;conclusion=success;duration_ms=24]
+2026-10-08T20:38:02.2552367Z ##[group]Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6
+2026-10-08T20:38:02.2552702Z with:
+2026-10-08T20:38:02.2552874Z   prefix-key: v0-rust
+2026-10-08T20:38:02.2553068Z   add-job-id-key: true
+2026-10-08T20:38:02.2553270Z   add-rust-environment-hash-key: true
+2026-10-08T20:38:02.2553495Z   cache-targets: true
+2026-10-08T20:38:02.2553679Z   cache-all-crates: false
+2026-10-08T20:38:02.2553885Z   cache-workspace-crates: false
+2026-10-08T20:38:02.2554086Z   save-if: true
+2026-10-08T20:38:02.2554261Z   cache-provider: github
+2026-10-08T20:38:02.2554589Z   cache-bin: true
+2026-10-08T20:38:02.2554763Z   lookup-only: false
+2026-10-08T20:38:02.2554934Z   cmd-format: {0}
+2026-10-08T20:38:02.2555096Z env:
+2026-10-08T20:38:02.2555443Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:02.2555652Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:38:02.2555839Z   CARGO_TERM_COLOR: always
+2026-10-08T20:38:02.2556027Z ##[endgroup]
+2026-10-08T20:38:02.6935528Z ##[group]Cache Configuration
+2026-10-08T20:38:02.6936007Z Cache Provider:
+2026-10-08T20:38:02.6936270Z     github
+2026-10-08T20:38:02.6936549Z Workspaces:
+2026-10-08T20:38:02.6936866Z     /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:38:02.6937120Z Cache Paths:
+2026-10-08T20:38:02.6937306Z     /home/runner/.cargo/bin
+2026-10-08T20:38:02.6937534Z     /home/runner/.cargo/.crates.toml
+2026-10-08T20:38:02.6937753Z     /home/runner/.cargo/.crates2.json
+2026-10-08T20:38:02.6937973Z     /home/runner/.cargo/registry
+2026-10-08T20:38:02.6938188Z     /home/runner/.cargo/git
+2026-10-08T20:38:02.6938391Z     /home/runner/work/uma-sim/uma-sim/target
+2026-10-08T20:38:02.6938620Z Restore Key:
+2026-10-08T20:38:02.6938802Z     v0-rust-rust-Linux-x64-c7b3ef7d
+2026-10-08T20:38:02.6939006Z Cache Key:
+2026-10-08T20:38:02.6939188Z     v0-rust-rust-Linux-x64-c7b3ef7d-d4037fbb
+2026-10-08T20:38:02.6939405Z .. Prefix:
+2026-10-08T20:38:02.6939581Z   - v0-rust-rust-Linux-x64
+2026-10-08T20:38:02.6939779Z .. Environment considered:
+2026-10-08T20:38:02.6939964Z   - Rust Versions:
+2026-10-08T20:38:02.6940253Z     - 1.99.0 x86_64-unknown-linux-gnu b940084d7eb6a299eb4bfeb8e34901bc051e7ac4
+2026-10-08T20:38:02.6940654Z   - CARGO_HOME
+2026-10-08T20:38:02.6940865Z   - CARGO_INCREMENTAL
+2026-10-08T20:38:02.6941058Z   - CARGO_TERM_COLOR
+2026-10-08T20:38:02.6941232Z .. Lockfiles considered:
+2026-10-08T20:38:02.6941447Z   - /home/runner/work/uma-sim/uma-sim/Cargo.lock
+2026-10-08T20:38:02.6941745Z   - /home/runner/work/uma-sim/uma-sim/uma-race-core/Cargo.toml
+2026-10-08T20:38:02.6942055Z   - /home/runner/work/uma-sim/uma-sim/uma-sim-core/Cargo.toml
+2026-10-08T20:38:02.6942530Z ##[endgroup]
+2026-10-08T20:38:02.6942623Z 
+2026-10-08T20:38:02.6942703Z ... Restoring cache ...
+2026-10-08T20:38:02.8911881Z Cache hit for: v0-rust-rust-Linux-x64-c7b3ef7d-d4037fbb
+2026-10-08T20:38:04.1016776Z Received 37748736 of 81539103 (46.3%), 36.0 MBs/sec
+2026-10-08T20:38:04.3568783Z Received 81539103 of 81539103 (100.0%), 62.0 MBs/sec
+2026-10-08T20:38:04.3569276Z Cache Size: ~78 MB (81539103 B)
+2026-10-08T20:38:04.3623955Z [command]/usr/bin/tar -xf /home/runner/work/_temp/b3cd66df-eee2-4f4d-886d-721ac7a40b71/cache.tzst -P -C /home/runner/work/uma-sim/uma-sim --use-compress-program unzstd
+2026-10-08T20:38:04.7438388Z Cache restored successfully
+2026-10-08T20:38:04.7472525Z Restored from cache key "v0-rust-rust-Linux-x64-c7b3ef7d-d4037fbb" full match: true.
+2026-10-08T20:38:04.7593289Z ##[group]Run cargo fmt --all -- --check
+2026-10-08T20:38:04.7593663Z [36;1mcargo fmt --all -- --check[0m
+2026-10-08T20:38:04.7651549Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:38:04.7651811Z env:
+2026-10-08T20:38:04.7651999Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:04.7652233Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:38:04.7652443Z   CARGO_TERM_COLOR: always
+2026-10-08T20:38:04.7652650Z   CACHE_ON_FAILURE: false
+2026-10-08T20:38:04.7652852Z ##[endgroup]
+2026-10-08T20:38:08.2024856Z ##[group]Run cargo clippy --workspace --all-targets --locked
+2026-10-08T20:38:08.2025437Z [36;1mcargo clippy --workspace --all-targets --locked[0m
+2026-10-08T20:38:08.2081173Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:38:08.2081401Z env:
+2026-10-08T20:38:08.2081576Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:08.2081799Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:38:08.2082002Z   CARGO_TERM_COLOR: always
+2026-10-08T20:38:08.2082206Z   CACHE_ON_FAILURE: false
+2026-10-08T20:38:08.2082400Z ##[endgroup]
+2026-10-08T20:38:09.2151401Z [1m[92m    Updating[0m crates.io index
+2026-10-08T20:38:09.8948343Z [1m[92m    Checking[0m uma-race-core v0.1.0 (/home/runner/work/uma-sim/uma-sim/uma-race-core)
+2026-10-08T20:38:09.8949516Z [1m[92m   Compiling[0m uma-sim-core v0.1.0 (/home/runner/work/uma-sim/uma-sim/uma-sim-core)
+2026-10-08T20:38:12.0899263Z [1m[33mwarning[0m[1m: manually reimplementing `div_ceil`[0m
+2026-10-08T20:38:12.0899858Z   [1m[94m--> [0muma-race-core/src/compete_fight.rs:33:16
+2026-10-08T20:38:12.0900159Z    [1m[94m|[0m
+2026-10-08T20:38:12.0900459Z [1m[94m33[0m [1m[94m|[0m     let half = (field_size + 1) / 2; // ceil(n/2)
+2026-10-08T20:38:12.0901046Z    [1m[94m|[0m                [1m[33m^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: consider using `.div_ceil()`: `field_size.div_ceil(2)`[0m
+2026-10-08T20:38:12.0901450Z    [1m[94m|[0m
+2026-10-08T20:38:12.0901960Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_div_ceil
+2026-10-08T20:38:12.0907461Z    [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_div_ceil)]` on by default
+2026-10-08T20:38:12.0907716Z 
+2026-10-08T20:38:13.5618892Z [1m[33mwarning[0m[1m: using `contains()` instead of `iter().any()` is more efficient[0m
+2026-10-08T20:38:13.5619994Z    [1m[94m--> [0muma-race-core/src/condition/skill.rs:176:8
+2026-10-08T20:38:13.5620771Z     [1m[94m|[0m
+2026-10-08T20:38:13.5621287Z [1m[94m176[0m [1m[94m|[0m     if SCENARIO.iter().any(|s| *s == skill_id) {
+2026-10-08T20:38:13.5622021Z     [1m[94m|[0m        [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: try: `SCENARIO.contains(&skill_id)`[0m
+2026-10-08T20:38:13.5622586Z     [1m[94m|[0m
+2026-10-08T20:38:13.5623428Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_contains
+2026-10-08T20:38:13.5624558Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_contains)]` on by default
+2026-10-08T20:38:13.5624892Z 
+2026-10-08T20:38:13.5912513Z [1m[33mwarning[0m[1m: this OR pattern can be rewritten using a range[0m
+2026-10-08T20:38:13.5913183Z    [1m[94m--> [0muma-race-core/src/condition/skill.rs:282:83
+2026-10-08T20:38:13.5913673Z     [1m[94m|[0m
+2026-10-08T20:38:13.5914376Z [1m[94m282[0m [1m[94m|[0m             let skip_wisdom = green_skip || matches!(payload.rarity.unwrap_or(1), 3 | 4 | 5);
+2026-10-08T20:38:13.5915526Z     [1m[94m|[0m                                                                                   [1m[33m^^^^^^^^^[0m [1m[33mhelp: try: `3..=5`[0m
+2026-10-08T20:38:13.5916116Z     [1m[94m|[0m
+2026-10-08T20:38:13.5916972Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_patterns
+2026-10-08T20:38:13.5918079Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_range_patterns)]` on by default
+2026-10-08T20:38:13.5918471Z 
+2026-10-08T20:38:13.6755085Z [1m[33mwarning[0m[1m: this function has too many arguments (11/7)[0m
+2026-10-08T20:38:13.6755918Z   [1m[94m--> [0muma-race-core/src/pos_keep.rs:86:1
+2026-10-08T20:38:13.6756325Z    [1m[94m|[0m
+2026-10-08T20:38:13.6756788Z [1m[94m86[0m [1m[94m|[0m [1m[33m/[0m pub fn tick_nige_pos_keep(
+2026-10-08T20:38:13.6757390Z [1m[94m87[0m [1m[94m|[0m [1m[33m|[0m     state: PosKeepState,
+2026-10-08T20:38:13.6758337Z [1m[94m88[0m [1m[94m|[0m [1m[33m|[0m     strategy: Strategy,
+2026-10-08T20:38:13.6758926Z [1m[94m89[0m [1m[94m|[0m [1m[33m|[0m     am_i_pacer: bool,
+2026-10-08T20:38:13.6759410Z [1m[94m...[0m  [1m[33m|[0m
+2026-10-08T20:38:13.6759879Z [1m[94m97[0m [1m[94m|[0m [1m[33m|[0m     section_len: f64,
+2026-10-08T20:38:13.6760487Z [1m[94m98[0m [1m[94m|[0m [1m[33m|[0m ) -> (PosKeepState, f64, f64, f64) {
+2026-10-08T20:38:13.6761066Z    [1m[94m|[0m [1m[33m|__________________________________^[0m
+2026-10-08T20:38:13.6761482Z    [1m[94m|[0m
+2026-10-08T20:38:13.6762316Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:13.6763472Z    [1m[94m= [0m[1mnote[0m: `#[warn(clippy::too_many_arguments)]` on by default
+2026-10-08T20:38:13.6764113Z 
+2026-10-08T20:38:13.6764445Z [1m[33mwarning[0m[1m: this function has too many arguments (13/7)[0m
+2026-10-08T20:38:13.6765030Z    [1m[94m--> [0muma-race-core/src/pos_keep.rs:151:1
+2026-10-08T20:38:13.6765640Z     [1m[94m|[0m
+2026-10-08T20:38:13.6766053Z [1m[94m151[0m [1m[94m|[0m [1m[33m/[0m pub fn tick_pack_pos_keep(
+2026-10-08T20:38:13.6766656Z [1m[94m152[0m [1m[94m|[0m [1m[33m|[0m     state: PosKeepState,
+2026-10-08T20:38:13.6767315Z [1m[94m153[0m [1m[94m|[0m [1m[33m|[0m     strategy: Strategy,
+2026-10-08T20:38:13.6767877Z [1m[94m154[0m [1m[94m|[0m [1m[33m|[0m     behind: f64,
+2026-10-08T20:38:13.6768342Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:13.6768809Z [1m[94m164[0m [1m[94m|[0m [1m[33m|[0m     section_len: f64,
+2026-10-08T20:38:13.6769440Z [1m[94m165[0m [1m[94m|[0m [1m[33m|[0m ) -> (PosKeepState, f64, f64, f64) {
+2026-10-08T20:38:13.6770050Z     [1m[94m|[0m [1m[33m|__________________________________^[0m
+2026-10-08T20:38:13.6770491Z     [1m[94m|[0m
+2026-10-08T20:38:13.6771321Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:13.6771957Z 
+2026-10-08T20:38:13.6772296Z [1m[33mwarning[0m[1m: this function has too many arguments (12/7)[0m
+2026-10-08T20:38:13.6772867Z   [1m[94m--> [0muma-race-core/src/runner.rs:74:1
+2026-10-08T20:38:13.6773268Z    [1m[94m|[0m
+2026-10-08T20:38:13.6773689Z [1m[94m74[0m [1m[94m|[0m [1m[33m/[0m fn apply_gate_skills(
+2026-10-08T20:38:13.6774286Z [1m[94m75[0m [1m[94m|[0m [1m[33m|[0m     pending: &mut Vec<PendingSkill>,
+2026-10-08T20:38:13.6774903Z [1m[94m76[0m [1m[94m|[0m [1m[33m|[0m     h: &mut HorseInput,
+2026-10-08T20:38:13.6775624Z [1m[94m77[0m [1m[94m|[0m [1m[33m|[0m     start_delay: &mut f64,
+2026-10-08T20:38:13.6776102Z [1m[94m...[0m  [1m[33m|[0m
+2026-10-08T20:38:13.6776551Z [1m[94m86[0m [1m[94m|[0m [1m[33m|[0m     num_umas: u32,
+2026-10-08T20:38:13.6777085Z [1m[94m87[0m [1m[94m|[0m [1m[33m|[0m ) -> GatePhysics {
+2026-10-08T20:38:13.6777577Z    [1m[94m|[0m [1m[33m|________________^[0m
+2026-10-08T20:38:13.6777967Z    [1m[94m|[0m
+2026-10-08T20:38:13.6778781Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:13.6779427Z 
+2026-10-08T20:38:13.7146984Z [1m[33mwarning[0m[1m: this function has too many arguments (8/7)[0m
+2026-10-08T20:38:13.7147610Z    [1m[94m--> [0muma-race-core/src/runner.rs:379:5
+2026-10-08T20:38:13.7148033Z     [1m[94m|[0m
+2026-10-08T20:38:13.7148425Z [1m[94m379[0m [1m[94m|[0m [1m[33m/[0m     fn build(
+2026-10-08T20:38:13.7148958Z [1m[94m380[0m [1m[94m|[0m [1m[33m|[0m         course: &Course,
+2026-10-08T20:38:13.7149569Z [1m[94m381[0m [1m[94m|[0m [1m[33m|[0m         ground: GroundCondition,
+2026-10-08T20:38:13.7150214Z [1m[94m382[0m [1m[94m|[0m [1m[33m|[0m         horse: &HorseInput,
+2026-10-08T20:38:13.7150690Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:13.7151548Z [1m[94m387[0m [1m[94m|[0m [1m[33m|[0m         num_umas: u32,
+2026-10-08T20:38:13.7152126Z [1m[94m388[0m [1m[94m|[0m [1m[33m|[0m     ) -> Self {
+2026-10-08T20:38:13.7152594Z     [1m[94m|[0m [1m[33m|_____________^[0m
+2026-10-08T20:38:13.7152982Z     [1m[94m|[0m
+2026-10-08T20:38:13.7153804Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:13.7154443Z 
+2026-10-08T20:38:13.7490223Z [1m[33mwarning[0m[1m: struct update has no effect, all the fields in the struct have already been specified[0m
+2026-10-08T20:38:13.7491215Z     [1m[94m--> [0muma-race-core/src/runner.rs:1303:15
+2026-10-08T20:38:13.7491804Z      [1m[94m|[0m
+2026-10-08T20:38:13.7495900Z [1m[94m1303[0m [1m[94m|[0m             ..Default::default()
+2026-10-08T20:38:13.7496854Z      [1m[94m|[0m               [1m[33m^^^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:13.7497704Z      [1m[94m|[0m
+2026-10-08T20:38:13.7498599Z      [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_update
+2026-10-08T20:38:13.7499628Z      [1m[94m= [0m[1mnote[0m: `#[warn(clippy::needless_update)]` on by default
+2026-10-08T20:38:13.7499990Z 
+2026-10-08T20:38:13.7529047Z [1m[33mwarning[0m[1m: this function has too many arguments (15/7)[0m
+2026-10-08T20:38:13.7530070Z    [1m[94m--> [0muma-race-core/src/solver.rs:430:1
+2026-10-08T20:38:13.7530731Z     [1m[94m|[0m
+2026-10-08T20:38:13.7531255Z [1m[94m430[0m [1m[94m|[0m [1m[33m/[0m pub(crate) fn dynamics_ok(
+2026-10-08T20:38:13.7531903Z [1m[94m431[0m [1m[94m|[0m [1m[33m|[0m     dynamics: &[DynamicPred],
+2026-10-08T20:38:13.7532503Z [1m[94m432[0m [1m[94m|[0m [1m[33m|[0m     t: f64,
+2026-10-08T20:38:13.7533069Z [1m[94m433[0m [1m[94m|[0m [1m[33m|[0m     is_last_spurt: bool,
+2026-10-08T20:38:13.7533518Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:13.7534222Z [1m[94m445[0m [1m[94m|[0m [1m[33m|[0m     used_skills: &std::collections::HashSet<String>,
+2026-10-08T20:38:13.7534858Z [1m[94m446[0m [1m[94m|[0m [1m[33m|[0m ) -> bool {
+2026-10-08T20:38:13.7535474Z     [1m[94m|[0m [1m[33m|_________^[0m
+2026-10-08T20:38:13.7535838Z     [1m[94m|[0m
+2026-10-08T20:38:13.7536639Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:13.7537295Z 
+2026-10-08T20:38:13.7544214Z [1m[33mwarning[0m[1m: this function has too many arguments (8/7)[0m
+2026-10-08T20:38:13.7544890Z    [1m[94m--> [0muma-race-core/src/special_conditions.rs:161:5
+2026-10-08T20:38:13.7545514Z     [1m[94m|[0m
+2026-10-08T20:38:13.7546032Z [1m[94m161[0m [1m[94m|[0m [1m[33m/[0m     pub fn tick(
+2026-10-08T20:38:13.7546860Z [1m[94m162[0m [1m[94m|[0m [1m[33m|[0m         &mut self,
+2026-10-08T20:38:13.7547465Z [1m[94m163[0m [1m[94m|[0m [1m[33m|[0m         rng: &mut PrandoRng,
+2026-10-08T20:38:13.7548037Z [1m[94m164[0m [1m[94m|[0m [1m[33m|[0m         phase: Phase,
+2026-10-08T20:38:13.7548490Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:13.7548973Z [1m[94m169[0m [1m[94m|[0m [1m[33m|[0m         horse_lane: f64,
+2026-10-08T20:38:13.7549520Z [1m[94m170[0m [1m[94m|[0m [1m[33m|[0m     ) {
+2026-10-08T20:38:13.7549953Z     [1m[94m|[0m [1m[33m|_____^[0m
+2026-10-08T20:38:13.7550327Z     [1m[94m|[0m
+2026-10-08T20:38:13.7551168Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:13.7551791Z 
+2026-10-08T20:38:13.7552112Z [1m[33mwarning[0m[1m: this function has too many arguments (8/7)[0m
+2026-10-08T20:38:13.7552758Z    [1m[94m--> [0muma-race-core/src/special_conditions.rs:201:5
+2026-10-08T20:38:13.7553220Z     [1m[94m|[0m
+2026-10-08T20:38:13.7553637Z [1m[94m201[0m [1m[94m|[0m [1m[33m/[0m     pub fn on_frame(
+2026-10-08T20:38:13.7554442Z [1m[94m202[0m [1m[94m|[0m [1m[33m|[0m         &mut self,
+2026-10-08T20:38:13.7554970Z [1m[94m203[0m [1m[94m|[0m [1m[33m|[0m         dt: f64,
+2026-10-08T20:38:13.7555755Z [1m[94m204[0m [1m[94m|[0m [1m[33m|[0m         phase: Phase,
+2026-10-08T20:38:13.7556233Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:13.7556691Z [1m[94m209[0m [1m[94m|[0m [1m[33m|[0m         horse_lane: f64,
+2026-10-08T20:38:13.7557203Z [1m[94m210[0m [1m[94m|[0m [1m[33m|[0m     ) {
+2026-10-08T20:38:13.7557625Z     [1m[94m|[0m [1m[33m|_____^[0m
+2026-10-08T20:38:13.7557980Z     [1m[94m|[0m
+2026-10-08T20:38:13.7558810Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:13.7559651Z 
+2026-10-08T20:38:13.7561453Z [1m[33mwarning[0m[1m: this operation has no effect[0m
+2026-10-08T20:38:13.7561959Z    [1m[94m--> [0muma-race-core/src/solver.rs:982:40
+2026-10-08T20:38:13.7562332Z     [1m[94m|[0m
+2026-10-08T20:38:13.7562783Z [1m[94m982[0m [1m[94m|[0m         assert_eq!(gate_block(16, 18), 1 + (24 - 16) % 8);
+2026-10-08T20:38:13.7563538Z     [1m[94m|[0m                                        [1m[33m^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: consider reducing it to: `1`[0m
+2026-10-08T20:38:13.7564054Z     [1m[94m|[0m
+2026-10-08T20:38:13.7564755Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#identity_op
+2026-10-08T20:38:13.7565804Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::identity_op)]` on by default
+2026-10-08T20:38:13.7566264Z 
+2026-10-08T20:38:13.7778888Z [1m[33mwarning[0m: `uma-race-core` (lib test) generated 12 warnings (8 duplicates) (run `cargo clippy --fix --lib -p uma-race-core --tests -- ` to apply 4 suggestions)
+2026-10-08T20:38:13.7780839Z [1m[33mwarning[0m: `uma-race-core` (lib) generated 11 warnings (3 duplicates)
+2026-10-08T20:38:13.8586811Z [1m[33mwarning[0m[1m: manual `RangeInclusive::contains` implementation[0m
+2026-10-08T20:38:13.8616283Z   [1m[94m--> [0muma-race-core/tests/probe_residual.rs:75:16
+2026-10-08T20:38:13.8645883Z    [1m[94m|[0m
+2026-10-08T20:38:13.8676179Z [1m[94m75[0m [1m[94m|[0m             || (i >= 105 && i <= 130)
+2026-10-08T20:38:13.8677027Z    [1m[94m|[0m                [1m[33m^^^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: use: `(105..=130).contains(&i)`[0m
+2026-10-08T20:38:13.8705873Z    [1m[94m|[0m
+2026-10-08T20:38:13.8736504Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_contains
+2026-10-08T20:38:13.8766304Z    [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_range_contains)]` on by default
+2026-10-08T20:38:13.8795484Z 
+2026-10-08T20:38:13.8826426Z [1m[33mwarning[0m[1m: manual `RangeInclusive::contains` implementation[0m
+2026-10-08T20:38:13.8856058Z   [1m[94m--> [0muma-race-core/tests/probe_residual.rs:76:18
+2026-10-08T20:38:13.8886035Z    [1m[94m|[0m
+2026-10-08T20:38:13.8916070Z [1m[94m76[0m [1m[94m|[0m             || ((i >= 60 && i <= 180 && i % 5 == 0) || i < 5);
+2026-10-08T20:38:13.8946211Z    [1m[94m|[0m                  [1m[33m^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: use: `(60..=180).contains(&i)`[0m
+2026-10-08T20:38:13.8975850Z    [1m[94m|[0m
+2026-10-08T20:38:13.9006513Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_contains
+2026-10-08T20:38:13.9035492Z 
+2026-10-08T20:38:13.9036676Z [1m[33mwarning[0m: `uma-race-core` (test "probe_residual") generated 2 warnings (run `cargo clippy --fix --test "probe_residual" -p uma-race-core -- ` to apply 2 suggestions)
+2026-10-08T20:38:15.7806973Z [1m[33mwarning[0m[1m: consider using `sort_by_key`[0m
+2026-10-08T20:38:15.7808300Z    [1m[94m--> [0muma-sim-core/src/batch_analysis.rs:174:5
+2026-10-08T20:38:15.7809064Z     [1m[94m|[0m
+2026-10-08T20:38:15.7809908Z [1m[94m174[0m [1m[94m|[0m     top.sort_by(|a, b| b.score.cmp(&a.score));
+2026-10-08T20:38:15.7810555Z     [1m[94m|[0m     [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:15.7811018Z     [1m[94m|[0m
+2026-10-08T20:38:15.7811894Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_sort_by
+2026-10-08T20:38:15.7813017Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::unnecessary_sort_by)]` on by default
+2026-10-08T20:38:15.7813502Z [1m[96mhelp[0m: try
+2026-10-08T20:38:15.7813794Z     [1m[94m|[0m
+2026-10-08T20:38:15.7814263Z [1m[94m174[0m [91m- [0m    top.[91msort_by(|a, b| b.score.cmp(&a.score))[0m;
+2026-10-08T20:38:15.7815471Z [1m[94m174[0m [92m+ [0m    top.[92msort_by_key(|a| std::cmp::Reverse(a.score))[0m;
+2026-10-08T20:38:15.7816011Z     [1m[94m|[0m
+2026-10-08T20:38:15.7816198Z 
+2026-10-08T20:38:15.7861412Z [1m[33mwarning[0m[1m: manual implementation of `.is_multiple_of()`[0m
+2026-10-08T20:38:15.7862085Z    [1m[94m--> [0muma-sim-core/src/batch_pairs.rs:192:21
+2026-10-08T20:38:15.7862544Z     [1m[94m|[0m
+2026-10-08T20:38:15.7862973Z [1m[94m192[0m [1m[94m|[0m     let median = if count % 2 == 0 {
+2026-10-08T20:38:15.7863706Z     [1m[94m|[0m                     [1m[33m^^^^^^^^^^^^^^[0m [1m[33mhelp: replace with: `count.is_multiple_of(2)`[0m
+2026-10-08T20:38:15.7864284Z     [1m[94m|[0m
+2026-10-08T20:38:15.7865089Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_is_multiple_of
+2026-10-08T20:38:15.7866333Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_is_multiple_of)]` on by default
+2026-10-08T20:38:15.7866708Z 
+2026-10-08T20:38:15.8717409Z [1m[33mwarning[0m[1m: this `if` statement can be collapsed[0m
+2026-10-08T20:38:15.8717870Z     [1m[94m--> [0muma-sim-core/src/career_lab.rs:1531:13
+2026-10-08T20:38:15.8718151Z      [1m[94m|[0m
+2026-10-08T20:38:15.8718499Z [1m[94m1531[0m [1m[94m|[0m [1m[33m/[0m             if name.starts_with(".tmp-") {
+2026-10-08T20:38:15.8719143Z [1m[94m1532[0m [1m[94m|[0m [1m[33m|[0m                 if fs::remove_file(de.path()).is_ok() {
+2026-10-08T20:38:15.8719570Z [1m[94m1533[0m [1m[94m|[0m [1m[33m|[0m                     removed += 1;
+2026-10-08T20:38:15.8719935Z [1m[94m1534[0m [1m[94m|[0m [1m[33m|[0m                 }
+2026-10-08T20:38:15.8720265Z [1m[94m1535[0m [1m[94m|[0m [1m[33m|[0m             }
+2026-10-08T20:38:15.8720566Z      [1m[94m|[0m [1m[33m|_____________^[0m
+2026-10-08T20:38:15.8720825Z      [1m[94m|[0m
+2026-10-08T20:38:15.8721348Z      [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+2026-10-08T20:38:15.8721969Z      [1m[94m= [0m[1mnote[0m: `#[warn(clippy::collapsible_if)]` on by default
+2026-10-08T20:38:15.8722312Z [1m[96mhelp[0m: collapse nested if block
+2026-10-08T20:38:15.8722562Z      [1m[94m|[0m
+2026-10-08T20:38:15.8722850Z [1m[94m1531[0m [92m~ [0m            if name.starts_with(".tmp-")
+2026-10-08T20:38:15.8723326Z [1m[94m1532[0m [92m~ [0m                [92m&&[0m fs::remove_file(de.path()).is_ok() {
+2026-10-08T20:38:15.8723736Z [1m[94m1533[0m [1m[94m|[0m                     removed += 1;
+2026-10-08T20:38:15.8724036Z [1m[94m1534[0m [92m~ [0m                }
+2026-10-08T20:38:15.8724275Z      [1m[94m|[0m
+2026-10-08T20:38:15.8724379Z 
+2026-10-08T20:38:15.9513017Z [1m[33mwarning[0m[1m: this `impl` can be derived[0m
+2026-10-08T20:38:15.9513622Z   [1m[94m--> [0muma-sim-core/src/catalog/factor.rs:35:1
+2026-10-08T20:38:15.9514015Z    [1m[94m|[0m
+2026-10-08T20:38:15.9514556Z [1m[94m35[0m [1m[94m|[0m [1m[33m/[0m impl Default for FactorCatalogState {
+2026-10-08T20:38:15.9515372Z [1m[94m36[0m [1m[94m|[0m [1m[33m|[0m     fn default() -> Self {
+2026-10-08T20:38:15.9516229Z [1m[94m37[0m [1m[94m|[0m [1m[33m|[0m         Self {
+2026-10-08T20:38:15.9516829Z [1m[94m38[0m [1m[94m|[0m [1m[33m|[0m             by_id: HashMap::new(),
+2026-10-08T20:38:15.9517327Z [1m[94m...[0m  [1m[33m|[0m
+2026-10-08T20:38:15.9517711Z [1m[94m42[0m [1m[94m|[0m [1m[33m|[0m }
+2026-10-08T20:38:15.9518118Z    [1m[94m|[0m [1m[33m|_^[0m
+2026-10-08T20:38:15.9518454Z    [1m[94m|[0m
+2026-10-08T20:38:15.9519278Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#derivable_impls
+2026-10-08T20:38:15.9520286Z    [1m[94m= [0m[1mnote[0m: `#[warn(clippy::derivable_impls)]` on by default
+2026-10-08T20:38:15.9520966Z [1m[96mhelp[0m: replace the manual implementation with a derive attribute
+2026-10-08T20:38:15.9521670Z    [1m[94m|[0m
+2026-10-08T20:38:15.9522011Z [1m[94m30[0m [92m+ #[derive(Default)][0m
+2026-10-08T20:38:15.9522473Z [1m[94m31[0m [1m[94m|[0m struct FactorCatalogState {
+2026-10-08T20:38:15.9522898Z    [1m[94m|[0m
+2026-10-08T20:38:15.9523067Z 
+2026-10-08T20:38:15.9549104Z [1m[33mwarning[0m[1m: this `impl` can be derived[0m
+2026-10-08T20:38:15.9549688Z   [1m[94m--> [0muma-sim-core/src/catalog/support.rs:45:1
+2026-10-08T20:38:15.9550147Z    [1m[94m|[0m
+2026-10-08T20:38:15.9550637Z [1m[94m45[0m [1m[94m|[0m [1m[33m/[0m impl Default for SupportCatalogState {
+2026-10-08T20:38:15.9551280Z [1m[94m46[0m [1m[94m|[0m [1m[33m|[0m     fn default() -> Self {
+2026-10-08T20:38:15.9551831Z [1m[94m47[0m [1m[94m|[0m [1m[33m|[0m         Self {
+2026-10-08T20:38:15.9552661Z [1m[94m48[0m [1m[94m|[0m [1m[33m|[0m             by_id: HashMap::new(),
+2026-10-08T20:38:15.9558933Z [1m[94m...[0m  [1m[33m|[0m
+2026-10-08T20:38:15.9559352Z [1m[94m53[0m [1m[94m|[0m [1m[33m|[0m }
+2026-10-08T20:38:15.9559779Z    [1m[94m|[0m [1m[33m|_^[0m
+2026-10-08T20:38:15.9560130Z    [1m[94m|[0m
+2026-10-08T20:38:15.9560942Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#derivable_impls
+2026-10-08T20:38:15.9561925Z [1m[96mhelp[0m: replace the manual implementation with a derive attribute
+2026-10-08T20:38:15.9562436Z    [1m[94m|[0m
+2026-10-08T20:38:15.9562785Z [1m[94m39[0m [92m+ #[derive(Default)][0m
+2026-10-08T20:38:15.9563290Z [1m[94m40[0m [1m[94m|[0m struct SupportCatalogState {
+2026-10-08T20:38:15.9563718Z    [1m[94m|[0m
+2026-10-08T20:38:15.9563874Z 
+2026-10-08T20:38:15.9564136Z [1m[33mwarning[0m[1m: consider using `sort_by_key`[0m
+2026-10-08T20:38:15.9564681Z    [1m[94m--> [0muma-sim-core/src/catalog/support.rs:118:9
+2026-10-08T20:38:15.9565249Z     [1m[94m|[0m
+2026-10-08T20:38:15.9565843Z [1m[94m118[0m [1m[94m|[0m         rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+2026-10-08T20:38:15.9566619Z     [1m[94m|[0m         [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:15.9567107Z     [1m[94m|[0m
+2026-10-08T20:38:15.9567924Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_sort_by
+2026-10-08T20:38:15.9568708Z [1m[96mhelp[0m: try
+2026-10-08T20:38:15.9569020Z     [1m[94m|[0m
+2026-10-08T20:38:15.9569631Z [1m[94m118[0m [91m- [0m        rows.[91msort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()))[0m;
+2026-10-08T20:38:15.9570502Z [1m[94m118[0m [92m+ [0m        rows.[92msort_by_key(|a| a.name.to_lowercase())[0m;
+2026-10-08T20:38:15.9571002Z     [1m[94m|[0m
+2026-10-08T20:38:15.9571158Z 
+2026-10-08T20:38:15.9571399Z [1m[33mwarning[0m[1m: this `impl` can be derived[0m
+2026-10-08T20:38:15.9571930Z   [1m[94m--> [0muma-sim-core/src/catalog/trainee.rs:55:1
+2026-10-08T20:38:15.9572350Z    [1m[94m|[0m
+2026-10-08T20:38:15.9572817Z [1m[94m55[0m [1m[94m|[0m [1m[33m/[0m impl Default for TraineeCatalogState {
+2026-10-08T20:38:15.9573593Z [1m[94m56[0m [1m[94m|[0m [1m[33m|[0m     fn default() -> Self {
+2026-10-08T20:38:15.9573948Z [1m[94m57[0m [1m[94m|[0m [1m[33m|[0m         Self {
+2026-10-08T20:38:15.9574381Z [1m[94m58[0m [1m[94m|[0m [1m[33m|[0m             by_name: HashMap::new(),
+2026-10-08T20:38:15.9574694Z [1m[94m...[0m  [1m[33m|[0m
+2026-10-08T20:38:15.9574954Z [1m[94m65[0m [1m[94m|[0m [1m[33m|[0m }
+2026-10-08T20:38:15.9575431Z    [1m[94m|[0m [1m[33m|_^[0m
+2026-10-08T20:38:15.9575650Z    [1m[94m|[0m
+2026-10-08T20:38:15.9576183Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#derivable_impls
+2026-10-08T20:38:15.9576774Z [1m[96mhelp[0m: replace the manual implementation with a derive attribute
+2026-10-08T20:38:15.9577214Z    [1m[94m|[0m
+2026-10-08T20:38:15.9577432Z [1m[94m47[0m [92m+ #[derive(Default)][0m
+2026-10-08T20:38:15.9577736Z [1m[94m48[0m [1m[94m|[0m struct TraineeCatalogState {
+2026-10-08T20:38:15.9578013Z    [1m[94m|[0m
+2026-10-08T20:38:15.9578107Z 
+2026-10-08T20:38:15.9587062Z [1m[33mwarning[0m[1m: consider using `sort_by_key`[0m
+2026-10-08T20:38:15.9587459Z    [1m[94m--> [0muma-sim-core/src/catalog/trainee.rs:371:9
+2026-10-08T20:38:15.9587727Z     [1m[94m|[0m
+2026-10-08T20:38:15.9588083Z [1m[94m371[0m [1m[94m|[0m         rows.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+2026-10-08T20:38:15.9588555Z     [1m[94m|[0m         [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:15.9588857Z     [1m[94m|[0m
+2026-10-08T20:38:15.9589370Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_sort_by
+2026-10-08T20:38:15.9589859Z [1m[96mhelp[0m: try
+2026-10-08T20:38:15.9590051Z     [1m[94m|[0m
+2026-10-08T20:38:15.9590437Z [1m[94m371[0m [91m- [0m        rows.[91msort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()))[0m;
+2026-10-08T20:38:15.9590934Z [1m[94m371[0m [92m+ [0m        rows.[92msort_by_key(|a| a.name.to_lowercase())[0m;
+2026-10-08T20:38:15.9591251Z     [1m[94m|[0m
+2026-10-08T20:38:15.9591345Z 
+2026-10-08T20:38:16.0328141Z [1m[33mwarning[0m[1m: this `let...else` may be rewritten with the `?` operator[0m
+2026-10-08T20:38:16.0329061Z    [1m[94m--> [0muma-sim-core/src/config.rs:464:9
+2026-10-08T20:38:16.0329865Z     [1m[94m|[0m
+2026-10-08T20:38:16.0330925Z [1m[94m464[0m [1m[94m|[0m [1m[33m/[0m         let Some(id) = Self::epithet_for_win(race_id) else {
+2026-10-08T20:38:16.0332703Z [1m[94m465[0m [1m[94m|[0m [1m[33m|[0m             return None;
+2026-10-08T20:38:16.0333449Z [1m[94m466[0m [1m[94m|[0m [1m[33m|[0m         };
+2026-10-08T20:38:16.0334511Z     [1m[94m|[0m [1m[33m|__________^[0m [1m[33mhelp: replace it with: `let id = Self::epithet_for_win(race_id)?;`[0m
+2026-10-08T20:38:16.0335878Z     [1m[94m|[0m
+2026-10-08T20:38:16.0336954Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#question_mark
+2026-10-08T20:38:16.0338177Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::question_mark)]` on by default
+2026-10-08T20:38:16.0338711Z 
+2026-10-08T20:38:16.0758431Z [1m[33mwarning[0m[1m: redundant closure[0m
+2026-10-08T20:38:16.0758983Z    [1m[94m--> [0muma-sim-core/src/deck.rs:285:18
+2026-10-08T20:38:16.0759391Z     [1m[94m|[0m
+2026-10-08T20:38:16.0759990Z [1m[94m285[0m [1m[94m|[0m             .map(|s| Self::to_resolved_card(s))
+2026-10-08T20:38:16.0761066Z     [1m[94m|[0m                  [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: replace the closure with the associated function itself: `Self::to_resolved_card`[0m
+2026-10-08T20:38:16.0761833Z     [1m[94m|[0m
+2026-10-08T20:38:16.0762635Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#redundant_closure
+2026-10-08T20:38:16.0763600Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::redundant_closure)]` on by default
+2026-10-08T20:38:16.0763836Z 
+2026-10-08T20:38:16.0820917Z [1m[33mwarning[0m[1m: redundant closure[0m
+2026-10-08T20:38:16.0821262Z    [1m[94m--> [0muma-sim-core/src/engine.rs:521:58
+2026-10-08T20:38:16.0821529Z     [1m[94m|[0m
+2026-10-08T20:38:16.0821985Z [1m[94m521[0m [1m[94m|[0m         self.play_to_completion_with_policy(max_actions, |choices| default_auto_policy(choices));
+2026-10-08T20:38:16.0822754Z     [1m[94m|[0m                                                          [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: replace the closure with the function itself: `default_auto_policy`[0m
+2026-10-08T20:38:16.0823227Z     [1m[94m|[0m
+2026-10-08T20:38:16.0823903Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#redundant_closure
+2026-10-08T20:38:16.0824282Z 
+2026-10-08T20:38:16.1144998Z [1m[33mwarning[0m[1m: this `if` has identical blocks[0m
+2026-10-08T20:38:16.1145816Z    [1m[94m--> [0muma-sim-core/src/engine.rs:916:9
+2026-10-08T20:38:16.1146216Z     [1m[94m|[0m
+2026-10-08T20:38:16.1146557Z [1m[94m916[0m [1m[94m|[0m [1m[33m/[0m         {
+2026-10-08T20:38:16.1146867Z [1m[94m917[0m [1m[94m|[0m [1m[33m|[0m             0
+2026-10-08T20:38:16.1147288Z [1m[94m918[0m [1m[94m|[0m [1m[33m|[0m         } else if (scenario == "trackblazer" || scenario == "tb")
+2026-10-08T20:38:16.1147694Z     [1m[94m|[0m [1m[33m|_________^[0m
+2026-10-08T20:38:16.1147930Z     [1m[94m|[0m
+2026-10-08T20:38:16.1148137Z [1m[92mnote[0m: same as this
+2026-10-08T20:38:16.1148402Z    [1m[94m--> [0muma-sim-core/src/engine.rs:920:9
+2026-10-08T20:38:16.1148654Z     [1m[94m|[0m
+2026-10-08T20:38:16.1148903Z [1m[94m920[0m [1m[94m|[0m [1m[92m/[0m         {
+2026-10-08T20:38:16.1149203Z [1m[94m921[0m [1m[94m|[0m [1m[92m|[0m             0
+2026-10-08T20:38:16.1149520Z [1m[94m922[0m [1m[94m|[0m [1m[92m|[0m         } else {
+2026-10-08T20:38:16.1149845Z     [1m[94m|[0m [1m[92m|_________^[0m
+2026-10-08T20:38:16.1150527Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#if_same_then_else
+2026-10-08T20:38:16.1151218Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::if_same_then_else)]` on by default
+2026-10-08T20:38:16.1151444Z 
+2026-10-08T20:38:16.1298669Z [1m[33mwarning[0m[1m: literal with an empty format string[0m
+2026-10-08T20:38:16.1299665Z    [1m[94m--> [0muma-sim-core/src/policy_external.rs:161:44
+2026-10-08T20:38:16.1300125Z     [1m[94m|[0m
+2026-10-08T20:38:16.1302833Z [1m[94m161[0m [1m[94m|[0m         let _ = writeln!(self.stdin, "{}", r#"{"cmd":"quit"}"#);
+2026-10-08T20:38:16.1303519Z     [1m[94m|[0m                                            [1m[33m^^^^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:16.1303999Z     [1m[94m|[0m
+2026-10-08T20:38:16.1304819Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#write_literal
+2026-10-08T20:38:16.1306033Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::write_literal)]` on by default
+2026-10-08T20:38:16.1306530Z [1m[96mhelp[0m: try
+2026-10-08T20:38:16.1306843Z     [1m[94m|[0m
+2026-10-08T20:38:16.1307414Z [1m[94m161[0m [91m- [0m        let _ = writeln!(self.stdin, "{}"[91m, r#"{"cmd":"quit"}"#[0m);
+2026-10-08T20:38:16.1308213Z [1m[94m161[0m [92m+ [0m        let _ = writeln!(self.stdin, "{[92m{\"cmd\":\"quit\"}[0m}");
+2026-10-08T20:38:16.1308740Z     [1m[94m|[0m
+2026-10-08T20:38:16.1308890Z 
+2026-10-08T20:38:16.1351016Z [1m[33mwarning[0m[1m: this OR pattern can be rewritten using a range[0m
+2026-10-08T20:38:16.1351700Z    [1m[94m--> [0muma-sim-core/src/race.rs:524:9
+2026-10-08T20:38:16.1352346Z     [1m[94m|[0m
+2026-10-08T20:38:16.1353110Z [1m[94m524[0m [1m[94m|[0m         11 | 12 | 13 => "th",
+2026-10-08T20:38:16.1353995Z     [1m[94m|[0m         [1m[33m^^^^^^^^^^^^[0m [1m[33mhelp: try: `11..=13`[0m
+2026-10-08T20:38:16.1354519Z     [1m[94m|[0m
+2026-10-08T20:38:16.1355545Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_patterns
+2026-10-08T20:38:16.1356670Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_range_patterns)]` on by default
+2026-10-08T20:38:16.1357059Z 
+2026-10-08T20:38:16.1365093Z [1m[33mwarning[0m[1m: manual implementation of `isolate_lowest_one`[0m
+2026-10-08T20:38:16.1365876Z   [1m[94m--> [0muma-sim-core/src/rng.rs:62:16
+2026-10-08T20:38:16.1366295Z    [1m[94m|[0m
+2026-10-08T20:38:16.1366823Z [1m[94m62[0m [1m[94m|[0m             if n & -n == n {
+2026-10-08T20:38:16.1367869Z    [1m[94m|[0m                [1m[33m^^^^^^[0m [1m[33mhelp: consider using `.isolate_lowest_one()`: `n.isolate_lowest_one()`[0m
+2026-10-08T20:38:16.1368521Z    [1m[94m|[0m
+2026-10-08T20:38:16.1369367Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_isolate_lowest_one
+2026-10-08T20:38:16.1370486Z    [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_isolate_lowest_one)]` on by default
+2026-10-08T20:38:16.1371049Z 
+2026-10-08T20:38:16.1404141Z [1m[33mwarning[0m[1m: this function has too many arguments (9/7)[0m
+2026-10-08T20:38:16.1414943Z    [1m[94m--> [0muma-sim-core/src/scenario/grand_live.rs:193:5
+2026-10-08T20:38:16.1415601Z     [1m[94m|[0m
+2026-10-08T20:38:16.1416101Z [1m[94m193[0m [1m[94m|[0m [1m[33m/[0m     pub fn load_community_calibration(
+2026-10-08T20:38:16.1416824Z [1m[94m194[0m [1m[94m|[0m [1m[33m|[0m         gate_before_1st: Option<Vec<i32>>,
+2026-10-08T20:38:16.1417528Z [1m[94m195[0m [1m[94m|[0m [1m[33m|[0m         gate_before_2nd_4th: Option<Vec<i32>>,
+2026-10-08T20:38:16.1418251Z [1m[94m196[0m [1m[94m|[0m [1m[33m|[0m         gate_before_grand: Option<Vec<i32>>,
+2026-10-08T20:38:16.1418795Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:16.1419294Z [1m[94m202[0m [1m[94m|[0m [1m[33m|[0m         cycle_max: Option<i32>,
+2026-10-08T20:38:16.1419851Z [1m[94m203[0m [1m[94m|[0m [1m[33m|[0m     ) {
+2026-10-08T20:38:16.1420280Z     [1m[94m|[0m [1m[33m|_____^[0m
+2026-10-08T20:38:16.1420639Z     [1m[94m|[0m
+2026-10-08T20:38:16.1421451Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:16.1422458Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::too_many_arguments)]` on by default
+2026-10-08T20:38:16.1422817Z 
+2026-10-08T20:38:16.1502728Z [1m[33mwarning[0m[1m: used consecutive `str::replace` call[0m
+2026-10-08T20:38:16.1503471Z   [1m[94m--> [0muma-sim-core/src/scenario/grand_live_deck_support.rs:11:14
+2026-10-08T20:38:16.1504018Z    [1m[94m|[0m
+2026-10-08T20:38:16.1504429Z [1m[94m11[0m [1m[94m|[0m               .replace('_', " ")
+2026-10-08T20:38:16.1504944Z    [1m[94m|[0m [1m[33m ______________^[0m
+2026-10-08T20:38:16.1505647Z [1m[94m12[0m [1m[94m|[0m [1m[33m|[0m             .replace('-', " ");
+2026-10-08T20:38:16.1506432Z    [1m[94m|[0m [1m[33m|______________________________^[0m [1m[33mhelp: replace with: `replace(['_', '-'], " ")`[0m
+2026-10-08T20:38:16.1507056Z    [1m[94m|[0m
+2026-10-08T20:38:16.1507922Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_str_replace
+2026-10-08T20:38:16.1508996Z    [1m[94m= [0m[1mnote[0m: `#[warn(clippy::collapsible_str_replace)]` on by default
+2026-10-08T20:38:16.1509375Z 
+2026-10-08T20:38:16.1590351Z [1m[33mwarning[0m[1m: unnecessary use of `to_string`[0m
+2026-10-08T20:38:16.1590976Z    [1m[94m--> [0muma-sim-core/src/scenario/ura.rs:266:59
+2026-10-08T20:38:16.1591419Z     [1m[94m|[0m
+2026-10-08T20:38:16.1592239Z [1m[94m266[0m [1m[94m|[0m             .map(|f| format!("Contest of {}!", capitalize(&f.key().to_string())))
+2026-10-08T20:38:16.1593144Z     [1m[94m|[0m                                                           [1m[33m^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: use: `f.key()`[0m
+2026-10-08T20:38:16.1593707Z     [1m[94m|[0m
+2026-10-08T20:38:16.1594518Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_to_owned
+2026-10-08T20:38:16.1595790Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::unnecessary_to_owned)]` on by default
+2026-10-08T20:38:16.1596180Z 
+2026-10-08T20:38:16.1596466Z [1m[33mwarning[0m[1m: unnecessary use of `to_string`[0m
+2026-10-08T20:38:16.1597011Z    [1m[94m--> [0muma-sim-core/src/scenario/ura.rs:278:50
+2026-10-08T20:38:16.1597833Z     [1m[94m|[0m
+2026-10-08T20:38:16.1598398Z [1m[94m278[0m [1m[94m|[0m                 format!("{} +{gain}", capitalize(&f.key().to_string()))
+2026-10-08T20:38:16.1599227Z     [1m[94m|[0m                                                  [1m[33m^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: use: `f.key()`[0m
+2026-10-08T20:38:16.1599791Z     [1m[94m|[0m
+2026-10-08T20:38:16.1600608Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_to_owned
+2026-10-08T20:38:16.1601248Z 
+2026-10-08T20:38:16.1635619Z [1m[33mwarning[0m[1m: unneeded `return` statement[0m
+2026-10-08T20:38:16.1636217Z    [1m[94m--> [0muma-sim-core/src/scenario/mod.rs:589:13
+2026-10-08T20:38:16.1636659Z     [1m[94m|[0m
+2026-10-08T20:38:16.1637097Z [1m[94m589[0m [1m[94m|[0m             return (next, lines);
+2026-10-08T20:38:16.1637631Z     [1m[94m|[0m             [1m[33m^^^^^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:16.1638066Z     [1m[94m|[0m
+2026-10-08T20:38:16.1638899Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_return
+2026-10-08T20:38:16.1639947Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::needless_return)]` on by default
+2026-10-08T20:38:16.1640487Z [1m[96mhelp[0m: remove `return`
+2026-10-08T20:38:16.1640846Z     [1m[94m|[0m
+2026-10-08T20:38:16.1641290Z [1m[94m589[0m [91m- [0m            [91mreturn (next, lines);[0m
+2026-10-08T20:38:16.1641836Z [1m[94m589[0m [92m+ [0m            [92m(next, lines)[0m
+2026-10-08T20:38:16.1642269Z     [1m[94m|[0m
+2026-10-08T20:38:16.1642430Z 
+2026-10-08T20:38:16.2770139Z [1m[33mwarning[0m[1m: this function has too many arguments (8/7)[0m
+2026-10-08T20:38:16.2770824Z    [1m[94m--> [0muma-sim-core/src/scoring/rank_estimate.rs:280:1
+2026-10-08T20:38:16.2771316Z     [1m[94m|[0m
+2026-10-08T20:38:16.2771744Z [1m[94m280[0m [1m[94m|[0m [1m[33m/[0m pub fn estimate_rank(
+2026-10-08T20:38:16.2772282Z [1m[94m281[0m [1m[94m|[0m [1m[33m|[0m     speed: i32,
+2026-10-08T20:38:16.2772782Z [1m[94m282[0m [1m[94m|[0m [1m[33m|[0m     stamina: i32,
+2026-10-08T20:38:16.2773293Z [1m[94m283[0m [1m[94m|[0m [1m[33m|[0m     power: i32,
+2026-10-08T20:38:16.2773725Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:16.2774212Z [1m[94m288[0m [1m[94m|[0m [1m[33m|[0m     unique_level: i32,
+2026-10-08T20:38:16.2774783Z [1m[94m289[0m [1m[94m|[0m [1m[33m|[0m ) -> RankResult {
+2026-10-08T20:38:16.2775458Z     [1m[94m|[0m [1m[33m|_______________^[0m
+2026-10-08T20:38:16.2775849Z     [1m[94m|[0m
+2026-10-08T20:38:16.2776715Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:16.2777349Z 
+2026-10-08T20:38:16.2778477Z [1m[33mwarning[0m[1m: module has the same name as its containing module[0m
+2026-10-08T20:38:16.2779130Z   [1m[94m--> [0muma-sim-core/src/scoring/mod.rs:10:1
+2026-10-08T20:38:16.2779570Z    [1m[94m|[0m
+2026-10-08T20:38:16.2780079Z [1m[94m10[0m [1m[94m|[0m pub mod scoring;
+2026-10-08T20:38:16.2780533Z    [1m[94m|[0m [1m[33m^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:16.2781150Z    [1m[94m|[0m
+2026-10-08T20:38:16.2781994Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#module_inception
+2026-10-08T20:38:16.2783089Z    [1m[94m= [0m[1mnote[0m: `#[warn(clippy::module_inception)]` on by default
+2026-10-08T20:38:16.2783461Z 
+2026-10-08T20:38:16.2786672Z [1m[33mwarning[0m[1m: using `contains()` instead of `iter().any()` is more efficient[0m
+2026-10-08T20:38:16.2787686Z    [1m[94m--> [0muma-sim-core/src/scoring/scoring.rs:249:8
+2026-10-08T20:38:16.2788455Z     [1m[94m|[0m
+2026-10-08T20:38:16.2789096Z [1m[94m249[0m [1m[94m|[0m     if config.blacklist.iter().any(|b| *b == Some(training.name)) {
+2026-10-08T20:38:16.2790137Z     [1m[94m|[0m        [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: try: `config.blacklist.contains(&Some(training.name))`[0m
+2026-10-08T20:38:16.2791459Z     [1m[94m|[0m
+2026-10-08T20:38:16.2792285Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_contains
+2026-10-08T20:38:16.2793321Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_contains)]` on by default
+2026-10-08T20:38:16.2793659Z 
+2026-10-08T20:38:16.2812131Z [1m[33mwarning[0m[1m: this `if` has identical blocks[0m
+2026-10-08T20:38:16.2812955Z    [1m[94m--> [0muma-sim-core/src/scoring/skill_scoring.rs:186:34
+2026-10-08T20:38:16.2813509Z     [1m[94m|[0m
+2026-10-08T20:38:16.2814114Z [1m[94m186[0m [1m[94m|[0m       if apt >= AptitudeOrdinal::S {
+2026-10-08T20:38:16.2814753Z     [1m[94m|[0m [1m[33m __________________________________^[0m
+2026-10-08T20:38:16.2815769Z [1m[94m187[0m [1m[94m|[0m [1m[33m|[0m         1.1
+2026-10-08T20:38:16.2816481Z [1m[94m188[0m [1m[94m|[0m [1m[33m|[0m     } else if apt >= AptitudeOrdinal::A {
+2026-10-08T20:38:16.2817118Z     [1m[94m|[0m [1m[33m|_____^[0m
+2026-10-08T20:38:16.2817546Z     [1m[94m|[0m
+2026-10-08T20:38:16.2817952Z [1m[92mnote[0m: same as this
+2026-10-08T20:38:16.2818534Z    [1m[94m--> [0muma-sim-core/src/scoring/skill_scoring.rs:188:41
+2026-10-08T20:38:16.2819068Z     [1m[94m|[0m
+2026-10-08T20:38:16.2819648Z [1m[94m188[0m [1m[94m|[0m       } else if apt >= AptitudeOrdinal::A {
+2026-10-08T20:38:16.2820301Z     [1m[94m|[0m [1m[92m _________________________________________^[0m
+2026-10-08T20:38:16.2820893Z [1m[94m189[0m [1m[94m|[0m [1m[92m|[0m         1.1
+2026-10-08T20:38:16.2821608Z [1m[94m190[0m [1m[94m|[0m [1m[92m|[0m     } else if apt >= AptitudeOrdinal::B {
+2026-10-08T20:38:16.2822201Z     [1m[94m|[0m [1m[92m|_____^[0m
+2026-10-08T20:38:16.2823140Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#if_same_then_else
+2026-10-08T20:38:16.2823869Z 
+2026-10-08T20:38:16.2852997Z [1m[33mwarning[0m[1m: this function has too many arguments (10/7)[0m
+2026-10-08T20:38:16.2853772Z    [1m[94m--> [0muma-sim-core/src/scoring/terminal_utility.rs:116:1
+2026-10-08T20:38:16.2854313Z     [1m[94m|[0m
+2026-10-08T20:38:16.2854782Z [1m[94m116[0m [1m[94m|[0m [1m[33m/[0m pub fn evaluate_career_terminal(
+2026-10-08T20:38:16.2855601Z [1m[94m117[0m [1m[94m|[0m [1m[33m|[0m     seed: i64,
+2026-10-08T20:38:16.2856202Z [1m[94m118[0m [1m[94m|[0m [1m[33m|[0m     scenario: &str,
+2026-10-08T20:38:16.2856799Z [1m[94m119[0m [1m[94m|[0m [1m[33m|[0m     trainee: &str,
+2026-10-08T20:38:16.2857305Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:16.2857854Z [1m[94m126[0m [1m[94m|[0m [1m[33m|[0m     appearance_probs: &[f64],
+2026-10-08T20:38:16.2858554Z [1m[94m127[0m [1m[94m|[0m [1m[33m|[0m ) -> CareerTerminalRecord {
+2026-10-08T20:38:16.2859189Z     [1m[94m|[0m [1m[33m|_________________________^[0m
+2026-10-08T20:38:16.2859670Z     [1m[94m|[0m
+2026-10-08T20:38:16.2861005Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:16.2861668Z 
+2026-10-08T20:38:16.3073335Z [1m[33mwarning[0m[1m: this function has too many arguments (14/7)[0m
+2026-10-08T20:38:16.3074527Z    [1m[94m--> [0muma-sim-core/src/state.rs:524:5
+2026-10-08T20:38:16.3075369Z     [1m[94m|[0m
+2026-10-08T20:38:16.3075989Z [1m[94m524[0m [1m[94m|[0m [1m[33m/[0m     pub fn copy_with(
+2026-10-08T20:38:16.3076708Z [1m[94m525[0m [1m[94m|[0m [1m[33m|[0m         &self,
+2026-10-08T20:38:16.3077496Z [1m[94m526[0m [1m[94m|[0m [1m[33m|[0m         scenario_resources: ScenarioResources,
+2026-10-08T20:38:16.3078352Z [1m[94m527[0m [1m[94m|[0m [1m[33m|[0m         stats: Option<TraineeStats>,
+2026-10-08T20:38:16.3079326Z [1m[94m...[0m   [1m[33m|[0m
+2026-10-08T20:38:16.3080138Z [1m[94m538[0m [1m[94m|[0m [1m[33m|[0m         log: Option<Vec<String>>,
+2026-10-08T20:38:16.3080880Z [1m[94m539[0m [1m[94m|[0m [1m[33m|[0m     ) -> Self {
+2026-10-08T20:38:16.3081541Z     [1m[94m|[0m [1m[33m|_____________^[0m
+2026-10-08T20:38:16.3082095Z     [1m[94m|[0m
+2026-10-08T20:38:16.3083091Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#too_many_arguments
+2026-10-08T20:38:16.3083891Z 
+2026-10-08T20:38:16.3199972Z [1m[33mwarning[0m[1m: using `Option.and_then(|x| Some(y))`, which is more succinctly expressed as `map(|x| y)`[0m
+2026-10-08T20:38:16.3200780Z    [1m[94m--> [0muma-sim-core/src/telemetry.rs:192:13
+2026-10-08T20:38:16.3201180Z     [1m[94m|[0m
+2026-10-08T20:38:16.3201671Z [1m[94m192[0m [1m[94m|[0m [1m[33m/[0m             stat_key.as_ref().and_then(|k| {
+2026-10-08T20:38:16.3202430Z [1m[94m193[0m [1m[94m|[0m [1m[33m|[0m                 let before = pre.stats.get(facility_from_stat(k));
+2026-10-08T20:38:16.3203256Z [1m[94m194[0m [1m[94m|[0m [1m[33m|[0m                 let after = post.stats.get(facility_from_stat(k));
+2026-10-08T20:38:16.3204021Z [1m[94m195[0m [1m[94m|[0m [1m[33m|[0m                 Some((after - before).max(0))
+2026-10-08T20:38:16.3204620Z [1m[94m196[0m [1m[94m|[0m [1m[33m|[0m             })
+2026-10-08T20:38:16.3205090Z     [1m[94m|[0m [1m[33m|______________^[0m
+2026-10-08T20:38:16.3205656Z     [1m[94m|[0m
+2026-10-08T20:38:16.3206501Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#bind_instead_of_map
+2026-10-08T20:38:16.3207577Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::bind_instead_of_map)]` on by default
+2026-10-08T20:38:16.3208127Z [1m[96mhelp[0m: use `map` instead
+2026-10-08T20:38:16.3208500Z     [1m[94m|[0m
+2026-10-08T20:38:16.3208926Z [1m[94m192[0m [92m~ [0m            stat_key.as_ref().[92mmap[0m(|k| {
+2026-10-08T20:38:16.3209638Z [1m[94m193[0m [1m[94m|[0m                 let before = pre.stats.get(facility_from_stat(k));
+2026-10-08T20:38:16.3210322Z [1m[94m194[0m [1m[94m|[0m                 let after = post.stats.get(facility_from_stat(k));
+2026-10-08T20:38:16.3211042Z [1m[94m195[0m [92m~ [0m                [92m(after - before).max(0)[0m
+2026-10-08T20:38:16.3211508Z     [1m[94m|[0m
+2026-10-08T20:38:16.3211713Z 
+2026-10-08T20:38:16.3227920Z [1m[33mwarning[0m[1m: redundant closure[0m
+2026-10-08T20:38:16.3228457Z    [1m[94m--> [0muma-sim-core/src/telemetry.rs:422:25
+2026-10-08T20:38:16.3228878Z     [1m[94m|[0m
+2026-10-08T20:38:16.3229422Z [1m[94m422[0m [1m[94m|[0m             .filter_map(|l| Self::parse_line(l))
+2026-10-08T20:38:16.3230561Z     [1m[94m|[0m                         [1m[33m^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: replace the closure with the associated function itself: `Self::parse_line`[0m
+2026-10-08T20:38:16.3231328Z     [1m[94m|[0m
+2026-10-08T20:38:16.3232083Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#redundant_closure
+2026-10-08T20:38:16.3232731Z 
+2026-10-08T20:38:16.3251894Z [1m[33mwarning[0m[1m: the borrowed expression implements the required traits[0m
+2026-10-08T20:38:16.3252589Z    [1m[94m--> [0muma-sim-core/src/training.rs:187:41
+2026-10-08T20:38:16.3253028Z     [1m[94m|[0m
+2026-10-08T20:38:16.3253478Z [1m[94m187[0m [1m[94m|[0m                     .and_then(|v| v.get(&level.to_string()))
+2026-10-08T20:38:16.3254279Z     [1m[94m|[0m                                         [1m[33m^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: change this to: `level.to_string()`[0m
+2026-10-08T20:38:16.3255551Z     [1m[94m|[0m
+2026-10-08T20:38:16.3257042Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+2026-10-08T20:38:16.3258467Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::needless_borrows_for_generic_args)]` on by default
+2026-10-08T20:38:16.3259364Z 
+2026-10-08T20:38:16.3259787Z [1m[33mwarning[0m[1m: the borrowed expression implements the required traits[0m
+2026-10-08T20:38:16.3260918Z    [1m[94m--> [0muma-sim-core/src/training.rs:199:37
+2026-10-08T20:38:16.3261345Z     [1m[94m|[0m
+2026-10-08T20:38:16.3261824Z [1m[94m199[0m [1m[94m|[0m                 .and_then(|v| v.get(&level.to_string()))
+2026-10-08T20:38:16.3262650Z     [1m[94m|[0m                                     [1m[33m^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: change this to: `level.to_string()`[0m
+2026-10-08T20:38:16.3263225Z     [1m[94m|[0m
+2026-10-08T20:38:16.3264125Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+2026-10-08T20:38:16.3264824Z 
+2026-10-08T20:38:16.3265376Z [1m[33mwarning[0m[1m: the borrowed expression implements the required traits[0m
+2026-10-08T20:38:16.3266020Z    [1m[94m--> [0muma-sim-core/src/training.rs:229:37
+2026-10-08T20:38:16.3266419Z     [1m[94m|[0m
+2026-10-08T20:38:16.3266896Z [1m[94m229[0m [1m[94m|[0m                 .and_then(|v| v.get(&level.to_string()))
+2026-10-08T20:38:16.3267706Z     [1m[94m|[0m                                     [1m[33m^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: change this to: `level.to_string()`[0m
+2026-10-08T20:38:16.3268284Z     [1m[94m|[0m
+2026-10-08T20:38:16.3269163Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+2026-10-08T20:38:16.3269848Z 
+2026-10-08T20:38:16.3270466Z [1m[33mwarning[0m[1m: the borrowed expression implements the required traits[0m
+2026-10-08T20:38:16.3271278Z    [1m[94m--> [0muma-sim-core/src/training.rs:236:37
+2026-10-08T20:38:16.3271759Z     [1m[94m|[0m
+2026-10-08T20:38:16.3272229Z [1m[94m236[0m [1m[94m|[0m                 .and_then(|v| v.get(&level.to_string()))
+2026-10-08T20:38:16.3273006Z     [1m[94m|[0m                                     [1m[33m^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: change this to: `level.to_string()`[0m
+2026-10-08T20:38:16.3273583Z     [1m[94m|[0m
+2026-10-08T20:38:16.3274443Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+2026-10-08T20:38:16.3275321Z 
+2026-10-08T20:38:16.4212425Z [1m[33mwarning[0m: `uma-sim-core` (lib test) generated 32 warnings (29 duplicates) (run `cargo clippy --fix --lib -p uma-sim-core --tests -- ` to apply 1 suggestion)
+2026-10-08T20:38:16.4319864Z [1m[33mwarning[0m: `uma-sim-core` (lib) generated 32 warnings (3 duplicates) (run `cargo clippy --fix --lib -p uma-sim-core -- ` to apply 22 suggestions)
+2026-10-08T20:38:16.5509775Z [1m[33mwarning[0m[1m: iterating on a map's keys[0m
+2026-10-08T20:38:16.5526095Z    [1m[94m--> [0muma-sim-core/tests/parity.rs:308:32
+2026-10-08T20:38:16.5539296Z     [1m[94m|[0m
+2026-10-08T20:38:16.5555852Z [1m[94m308[0m [1m[94m|[0m             config.stat_caps = stats.iter().map(|(k, _)| (*k, 1400)).collect();
+2026-10-08T20:38:16.5562759Z     [1m[94m|[0m                                [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: try: `stats.keys().map(|k| (*k, 1400))`[0m
+2026-10-08T20:38:16.5563641Z     [1m[94m|[0m
+2026-10-08T20:38:16.5564643Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#iter_kv_map
+2026-10-08T20:38:16.5566116Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::iter_kv_map)]` on by default
+2026-10-08T20:38:16.5566876Z 
+2026-10-08T20:38:16.5610635Z [1m[33mwarning[0m: `uma-sim-core` (test "parity") generated 1 warning (run `cargo clippy --fix --test "parity" -p uma-sim-core -- ` to apply 1 suggestion)
+2026-10-08T20:38:16.9245958Z [1m[33mwarning[0m[1m: unused import: `uma_sim_core::scenario::TrackblazerMechanics`[0m
+2026-10-08T20:38:16.9276026Z  [1m[94m--> [0muma-sim-core/examples/tb_shop_dump.rs:1:5
+2026-10-08T20:38:16.9305879Z   [1m[94m|[0m
+2026-10-08T20:38:16.9336132Z [1m[94m1[0m [1m[94m|[0m use uma_sim_core::scenario::TrackblazerMechanics;
+2026-10-08T20:38:16.9365825Z   [1m[94m|[0m     [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:16.9366319Z   [1m[94m|[0m
+2026-10-08T20:38:16.9396018Z   [1m[94m= [0m[1mnote[0m: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+2026-10-08T20:38:16.9396572Z 
+2026-10-08T20:38:16.9429735Z [1m[33mwarning[0m: `uma-sim-core` (example "tb_shop_dump") generated 1 warning (run `cargo clippy --fix --example "tb_shop_dump" -p uma-sim-core -- ` to apply 1 suggestion)
+2026-10-08T20:38:17.3049877Z [1m[33mwarning[0m[1m: manual `RangeInclusive::contains` implementation[0m
+2026-10-08T20:38:17.3051423Z    [1m[94m--> [0muma-sim-core/tests/race_v4_dist.rs:291:9
+2026-10-08T20:38:17.3052148Z     [1m[94m|[0m
+2026-10-08T20:38:17.3052845Z [1m[94m291[0m [1m[94m|[0m         mean_place >= 1.0 && mean_place <= 12.0,
+2026-10-08T20:38:17.3053777Z     [1m[94m|[0m         [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[33mhelp: use: `(1.0..=12.0).contains(&mean_place)`[0m
+2026-10-08T20:38:17.3054532Z     [1m[94m|[0m
+2026-10-08T20:38:17.3055664Z     [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_contains
+2026-10-08T20:38:17.3056939Z     [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_range_contains)]` on by default
+2026-10-08T20:38:17.3057526Z 
+2026-10-08T20:38:17.3060763Z [1m[33mwarning[0m[1m: manual implementation of `.is_multiple_of()`[0m
+2026-10-08T20:38:17.3061566Z   [1m[94m--> [0muma-sim-core/tests/career_lab_branch_publication.rs:44:33
+2026-10-08T20:38:17.3062040Z    [1m[94m|[0m
+2026-10-08T20:38:17.3062760Z [1m[94m44[0m [1m[94m|[0m         "config": {"policy": if marker % 2 == 0 {"default"} else {"bot"}, "maxActions": marker + 1, "overrides": []},
+2026-10-08T20:38:17.3063777Z    [1m[94m|[0m                                 [1m[33m^^^^^^^^^^^^^^^[0m [1m[33mhelp: replace with: `marker.is_multiple_of(2)`[0m
+2026-10-08T20:38:17.3064351Z    [1m[94m|[0m
+2026-10-08T20:38:17.3065288Z    [1m[94m= [0m[1mhelp[0m: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_is_multiple_of
+2026-10-08T20:38:17.3066323Z    [1m[94m= [0m[1mnote[0m: `#[warn(clippy::manual_is_multiple_of)]` on by default
+2026-10-08T20:38:17.3066698Z 
+2026-10-08T20:38:17.3133204Z [1m[33mwarning[0m: `uma-sim-core` (test "race_v4_dist") generated 1 warning (run `cargo clippy --fix --test "race_v4_dist" -p uma-sim-core -- ` to apply 1 suggestion)
+2026-10-08T20:38:17.3210298Z [1m[33mwarning[0m: `uma-sim-core` (test "career_lab_branch_publication") generated 1 warning (run `cargo clippy --fix --test "career_lab_branch_publication" -p uma-sim-core -- ` to apply 1 suggestion)
+2026-10-08T20:38:17.5661124Z [1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 9.16s
+2026-10-08T20:38:17.6109574Z ##[group]Run cargo test --workspace --locked
+2026-10-08T20:38:17.6109891Z [36;1mcargo test --workspace --locked[0m
+2026-10-08T20:38:17.6165561Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:38:17.6165784Z env:
+2026-10-08T20:38:17.6165966Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:38:17.6166189Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:38:17.6166389Z   CARGO_TERM_COLOR: always
+2026-10-08T20:38:17.6166590Z   CACHE_ON_FAILURE: false
+2026-10-08T20:38:17.6166791Z ##[endgroup]
+2026-10-08T20:38:17.8358513Z [1m[92m   Compiling[0m uma-race-core v0.1.0 (/home/runner/work/uma-sim/uma-sim/uma-race-core)
+2026-10-08T20:38:17.8359581Z [1m[92m   Compiling[0m uma-sim-core v0.1.0 (/home/runner/work/uma-sim/uma-sim/uma-sim-core)
+2026-10-08T20:38:28.4407110Z [1m[33mwarning[0m[1m: unused import: `uma_sim_core::scenario::TrackblazerMechanics`[0m
+2026-10-08T20:38:28.4456219Z  [1m[94m--> [0muma-sim-core/examples/tb_shop_dump.rs:1:5
+2026-10-08T20:38:28.4485976Z   [1m[94m|[0m
+2026-10-08T20:38:28.4486704Z [1m[94m1[0m [1m[94m|[0m use uma_sim_core::scenario::TrackblazerMechanics;
+2026-10-08T20:38:28.4487282Z   [1m[94m|[0m     [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+2026-10-08T20:38:28.4487699Z   [1m[94m|[0m
+2026-10-08T20:38:28.4488201Z   [1m[94m= [0m[1mnote[0m: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+2026-10-08T20:38:28.4488601Z 
+2026-10-08T20:38:28.8009334Z [1m[33mwarning[0m: `uma-sim-core` (example "tb_shop_dump") generated 1 warning (run `cargo fix --example "tb_shop_dump" -p uma-sim-core` to apply 1 suggestion)
+2026-10-08T20:38:32.5450672Z [1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 14.82s
+2026-10-08T20:38:32.7127329Z [1m[92m     Running[0m unittests src/lib.rs (target/debug/deps/uma_race_core-25d6642d236d496f)
+2026-10-08T20:38:32.7138205Z 
+2026-10-08T20:38:32.7138343Z running 52 tests
+2026-10-08T20:38:32.7141251Z test compete_fight::tests::guts_bonuses_positive ... ok
+2026-10-08T20:38:32.7141983Z test compete_fight::tests::top_half_two_horse ... ok
+2026-10-08T20:38:32.7142683Z test condition::parser::tests::or_binds_looser_than_and ... ok
+2026-10-08T20:38:32.7152206Z test condition::parser::tests::parses_basic_and_or ... ok
+2026-10-08T20:38:32.7172584Z test condition::regions::tests::base_power_gate_uses_mood_adjusted_stats ... ok
+2026-10-08T20:38:32.7173537Z test condition::regions::tests::all_corner_random_intersects_corners_not_always ... ok
+2026-10-08T20:38:32.7177020Z test condition::regions::tests::finalcorner_empty_on_straight_course_10301 ... ok
+2026-10-08T20:38:32.7177481Z test condition::regions::tests::phase_random_2_on_1600_is_final_third ... ok
+2026-10-08T20:38:32.7177919Z test condition::regions::tests::season_spring_default_rejects_autumn_winter_greens ... ok
+2026-10-08T20:38:32.7178355Z test condition::sample::tests::erlang_reconcile_keeps_right_k ... ok
+2026-10-08T20:38:32.7178728Z test condition::skill::tests::activation_chance_kuromiak_examples ... ok
+2026-10-08T20:38:32.7599193Z test condition::skill::tests::compiles_200701_phase_random_accel ... ok
+2026-10-08T20:38:32.7599916Z test condition::skill::tests::evolution_does_not_skip_wisdom_unique_does ... ok
+2026-10-08T20:38:32.7605958Z test condition::skill::tests::gene_version_910391_is_catalogued ... ok
+2026-10-08T20:38:32.7618186Z test course::tests::course_10601_round_trips_slope_geometry ... ok
+2026-10-08T20:38:32.7645756Z test data::tests::exe_dir_is_a_candidate ... ok
+2026-10-08T20:38:32.7675696Z test data::tests::finds_course_data_in_source_checkout ... ok
+2026-10-08T20:38:32.7695662Z test data::tests::missing_file_is_none ... ok
+2026-10-08T20:38:32.7696413Z test field::tests::independent_field_orders_faster_horse_first ... ok
+2026-10-08T20:38:32.7697197Z test field::tests::entrant_seed_index_zero_is_root ... ok
+2026-10-08T20:38:32.7697866Z test course::tests::covers_all_89_career_course_ids ... ok
+2026-10-08T20:38:32.7698569Z test field::tests::synced_none_matches_independent_finish_order ... ok
+2026-10-08T20:38:32.7699575Z test hp::tests::guts_modifier_example ... ok
+2026-10-08T20:38:32.7700182Z test hp::tests::hp_per_second_at_base_speed_is_20 ... ok
+2026-10-08T20:38:32.7700766Z test hp::tests::max_hp_formula ... ok
+2026-10-08T20:38:32.7701342Z test hp::tests::spurt_accept_threshold_matches_doc ... ok
+2026-10-08T20:38:32.7701973Z test hp::tests::status_modifiers_from_constants ... ok
+2026-10-08T20:38:32.7702592Z test hp::tests::strategy_coefs_match_constants_file ... ok
+2026-10-08T20:38:32.7703274Z test lead_comp::tests::guts_782_bonus_and_duration_positive ... ok
+2026-10-08T20:38:32.7703925Z test physics::tests::base_speed_at_2000_is_20 ... ok
+2026-10-08T20:38:32.7704573Z test physics::tests::phase_fractions_match_constants_file ... ok
+2026-10-08T20:38:32.7705371Z test pos_keep::tests::course_factor_at_1000_is_one ... ok
+2026-10-08T20:38:32.7706361Z test pos_keep::tests::senkou_min_threshold_ignores_course_factor ... ok
+2026-10-08T20:38:32.7706963Z test pos_keep::tests::speed_coefs_match_research_json ... ok
+2026-10-08T20:38:32.7707465Z test rng::tests::prando_readme_seed_12345678 ... ok
+2026-10-08T20:38:32.7707941Z test rng::tests::seeded_streams_match_oracle_dump ... ok
+2026-10-08T20:38:32.7708502Z test runner::tests::virtual_default_pacer_case1_within_one_frame ... ok
+2026-10-08T20:38:32.7709089Z test solver::tests::activate_count_heal_gates_until_heal ... ok
+2026-10-08T20:38:32.7709642Z test solver::tests::case1_finish_within_one_frame_of_oracle ... ok
+2026-10-08T20:38:32.7710200Z test field::tests::synced_virtual_can_change_order_vs_none ... ok
+2026-10-08T20:38:32.7710743Z test solver::tests::case3_accel_skill_beats_no_skill ... ok
+2026-10-08T20:38:32.7711298Z test solver::tests::case3_skill_finish_within_one_frame_of_oracle ... ok
+2026-10-08T20:38:32.7711898Z test solver::tests::order_ge_noop_in_solo_enforced_in_pack ... ok
+2026-10-08T20:38:32.7712494Z test solver::tests::order_rate_enforced_only_for_multi_horse_fields ... ok
+2026-10-08T20:38:32.7713119Z test solver::tests::section_random_band_matches_kuromiak_examples ... ok
+2026-10-08T20:38:32.7713712Z test solver::tests::uphill_penalty_uses_power_not_sqrt500 ... ok
+2026-10-08T20:38:32.7714271Z test special_conditions::tests::blocked_side_starts_active ... ok
+2026-10-08T20:38:32.7714898Z test special_conditions::tests::condition_timer_ticks_once_per_second ... ok
+2026-10-08T20:38:32.7715609Z test solver::tests::post_number_uses_gate_block ... ok
+2026-10-08T20:38:32.7716136Z test special_conditions::tests::outer_lane_forces_off_on_tick ... ok
+2026-10-08T20:38:32.7724567Z test field::tests::synced_virtual_order_deterministic ... ok
+2026-10-08T20:38:32.8003675Z test condition::parser::tests::all_skill_condition_strings_parse ... ok
+2026-10-08T20:38:32.8004050Z 
+2026-10-08T20:38:32.8004364Z test result: ok. 52 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+2026-10-08T20:38:32.8004799Z 
+2026-10-08T20:38:32.8009230Z [1m[92m     Running[0m tests/checkpoint_r85.rs (target/debug/deps/checkpoint_r85-09b191734e50b08e)
+2026-10-08T20:38:32.8019789Z 
+2026-10-08T20:38:32.8019919Z running 1 test
+2026-10-08T20:38:33.0118714Z test r85_checkpoint_sample_triage ... ok
+2026-10-08T20:38:33.0119228Z 
+2026-10-08T20:38:33.0119940Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+2026-10-08T20:38:33.0120635Z 
+2026-10-08T20:38:33.0126211Z [1m[92m     Running[0m tests/checkpoint_v3.rs (target/debug/deps/checkpoint_v3-38c824b672455bba)
+2026-10-08T20:38:33.0135416Z 
+2026-10-08T20:38:33.0135592Z running 1 test
+2026-10-08T20:38:33.2359926Z test r85_v3_expanded_sample_soft_gate ... ok
+2026-10-08T20:38:33.2360413Z 
+2026-10-08T20:38:33.2360982Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+2026-10-08T20:38:33.2361528Z 
+2026-10-08T20:38:33.2365702Z [1m[92m     Running[0m tests/checkpoint_v3_1000.rs (target/debug/deps/checkpoint_v3_1000-489d0fa927e2d900)
+2026-10-08T20:38:33.2378633Z 
+2026-10-08T20:38:33.2378845Z running 1 test
+2026-10-08T20:38:34.0918874Z test r85_v3_expanded_1000_soft_gate ... ok
+2026-10-08T20:38:34.0919225Z 
+2026-10-08T20:38:34.0919567Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.85s
+2026-10-08T20:38:34.0920019Z 
+2026-10-08T20:38:34.0923488Z [1m[92m     Running[0m tests/checkpoint_v3_wide.rs (target/debug/deps/checkpoint_v3_wide-bdefae85e3f1f0c2)
+2026-10-08T20:38:34.0934753Z 
+2026-10-08T20:38:34.0934937Z running 1 test
+2026-10-08T20:38:34.3222197Z test r85_v3_wide_240_soft_gate ... ok
+2026-10-08T20:38:34.3222520Z 
+2026-10-08T20:38:34.3222858Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+2026-10-08T20:38:34.3223313Z 
+2026-10-08T20:38:34.3224170Z [1m[92m     Running[0m tests/condition_keywords.rs (target/debug/deps/condition_keywords-a42569097673071a)
+2026-10-08T20:38:34.3233160Z 
+2026-10-08T20:38:34.3233395Z running 3 tests
+2026-10-08T20:38:34.3261786Z test corner_3_uses_oval_corner_indices ... ok
+2026-10-08T20:38:34.3262291Z test distance_rate_after_random_50_has_regions ... ok
+2026-10-08T20:38:34.3262783Z test is_basis_distance_filters_non_core_course ... ok
+2026-10-08T20:38:34.3263068Z 
+2026-10-08T20:38:34.3263345Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:34.3263726Z 
+2026-10-08T20:38:34.3264073Z [1m[92m     Running[0m tests/probe_394_202662.rs (target/debug/deps/probe_394_202662-7376c3889745da8b)
+2026-10-08T20:38:34.3272916Z 
+2026-10-08T20:38:34.3273049Z running 1 test
+2026-10-08T20:38:34.4049004Z test probe_394_202662 ... ok
+2026-10-08T20:38:34.4049261Z 
+2026-10-08T20:38:34.4049589Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+2026-10-08T20:38:34.4050024Z 
+2026-10-08T20:38:34.4056498Z [1m[92m     Running[0m tests/probe_394_pending.rs (target/debug/deps/probe_394_pending-a30b940c96048b09)
+2026-10-08T20:38:34.4066349Z 
+2026-10-08T20:38:34.4066477Z running 1 test
+2026-10-08T20:38:34.4801663Z test probe_394_pending ... ok
+2026-10-08T20:38:34.4801883Z 
+2026-10-08T20:38:34.4802116Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+2026-10-08T20:38:34.4802413Z 
+2026-10-08T20:38:34.4808517Z [1m[92m     Running[0m tests/probe_534_procs.rs (target/debug/deps/probe_534_procs-0385cdae1396207b)
+2026-10-08T20:38:34.4818914Z 
+2026-10-08T20:38:34.4819036Z running 1 test
+2026-10-08T20:38:34.5570872Z test probe_534_procs ... ok
+2026-10-08T20:38:34.5571062Z 
+2026-10-08T20:38:34.5571285Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+2026-10-08T20:38:34.5571560Z 
+2026-10-08T20:38:34.5578453Z [1m[92m     Running[0m tests/probe_534_stats.rs (target/debug/deps/probe_534_stats-e6a288a567dbaa73)
+2026-10-08T20:38:34.5588543Z 
+2026-10-08T20:38:34.5588675Z running 1 test
+2026-10-08T20:38:34.6341400Z test probe_534_stats ... ok
+2026-10-08T20:38:34.6341598Z 
+2026-10-08T20:38:34.6341820Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+2026-10-08T20:38:34.6342140Z 
+2026-10-08T20:38:34.6347324Z [1m[92m     Running[0m tests/probe_last_two.rs (target/debug/deps/probe_last_two-617fd1afbf56b3a1)
+2026-10-08T20:38:34.6357333Z 
+2026-10-08T20:38:34.6357463Z running 1 test
+2026-10-08T20:38:34.7172162Z test probe_last_two_procs ... ok
+2026-10-08T20:38:34.7172475Z 
+2026-10-08T20:38:34.7172807Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+2026-10-08T20:38:34.7173256Z 
+2026-10-08T20:38:34.7178189Z [1m[92m     Running[0m tests/probe_residual.rs (target/debug/deps/probe_residual-d12cb37c6f329fd3)
+2026-10-08T20:38:34.7188515Z 
+2026-10-08T20:38:34.7188635Z running 2 tests
+2026-10-08T20:38:34.8053897Z test probe_590_pos ... ok
+2026-10-08T20:38:34.8054538Z test probe_590_pk ... ok
+2026-10-08T20:38:34.8054741Z 
+2026-10-08T20:38:34.8055095Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+2026-10-08T20:38:34.8055669Z 
+2026-10-08T20:38:34.8063852Z [1m[92m     Running[0m tests/probe_residuals_bare.rs (target/debug/deps/probe_residuals_bare-16e53fcf21c41e75)
+2026-10-08T20:38:34.8073737Z 
+2026-10-08T20:38:34.8073865Z running 1 test
+2026-10-08T20:38:34.9888462Z test probe_residuals_bare ... ok
+2026-10-08T20:38:34.9888771Z 
+2026-10-08T20:38:34.9889084Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+2026-10-08T20:38:34.9889518Z 
+2026-10-08T20:38:34.9895585Z [1m[92m     Running[0m unittests src/lib.rs (target/debug/deps/uma_sim_core-69171c73a3dc97ca)
+2026-10-08T20:38:34.9909079Z 
+2026-10-08T20:38:34.9909252Z running 46 tests
+2026-10-08T20:38:35.3838654Z test api::tests::fast_503_leaves_speed_unchanged_success_sets_it ... ok
+2026-10-08T20:38:35.4606401Z test api::tests::health_and_catalogs_and_action_include_state ... ok
+2026-10-08T20:38:36.0862405Z test api::tests::lab_library_fork_branch_compare_flow ... ok
+2026-10-08T20:38:36.2450434Z test api::tests::policy_case_variants ... ok
+2026-10-08T20:38:36.2966333Z test api::tests::policy_error_shape_contract ... ok
+2026-10-08T20:38:36.3492254Z test api::tests::lab_library_import_failure_is_nondestructive ... ok
+2026-10-08T20:38:36.4012484Z test api::tests::policy_external_without_policy_cmd_fails_loudly_not_silently ... ok
+2026-10-08T20:38:36.5438904Z test api::tests::policy_unknown_on_auto_and_fast ... ok
+2026-10-08T20:38:36.5959365Z test api::tests::run_endpoints_unaffected_by_policy_errors ... ok
+2026-10-08T20:38:36.5962401Z test batch_analysis::tests::aggregates_known_values ... ok
+2026-10-08T20:38:36.5963537Z test batch_analysis::tests::compare_deltas ... ok
+2026-10-08T20:38:36.5964759Z test batch_analysis::tests::empty_input_is_error ... ok
+2026-10-08T20:38:36.5967380Z test batch_analysis::tests::malformed_lines_skipped_not_fatal ... ok
+2026-10-08T20:38:36.5969122Z test batch_analysis::tests::text_render_contains_key_sections ... ok
+2026-10-08T20:38:36.5970905Z test batch_analysis::tests::top_n_truncates ... ok
+2026-10-08T20:38:36.5971509Z test career_lab::unit_tests::action_choice_id_round_trips ... ok
+2026-10-08T20:38:36.5972332Z test career_lab::unit_tests::fingerprint_check_flags_schema_but_not_version ... ok
+2026-10-08T20:38:36.5973022Z test career_lab::unit_tests::name_validation ... ok
+2026-10-08T20:38:36.5977440Z test career_lab::unit_tests::refused_snapshot_restoration_retains_recoverable_bytes ... ok
+2026-10-08T20:38:36.5978153Z test career_lab::unit_tests::rfc3339_formats_epoch ... ok
+2026-10-08T20:38:36.5978593Z test legacy::unit::aptitude_rise_caps_at_a ... ok
+2026-10-08T20:38:36.5979213Z test legacy::unit::blue_star_tables ... ok
+2026-10-08T20:38:36.5980019Z test legacy::unit::pink_rank_table_matches_planner ... ok
+2026-10-08T20:38:36.5980998Z test mid_run_inheritance::tests::april_dates_match_classic_and_senior ... ok
+2026-10-08T20:38:36.5981640Z test mid_run_inheritance::tests::blue_ranges_match_crazyfellow_table ... ok
+2026-10-08T20:38:36.5982571Z test mid_run_inheritance::tests::compatibility_grade_bands ... ok
+2026-10-08T20:38:36.5983195Z test mid_run_inheritance::tests::odds_scale_with_compatibility ... ok
+2026-10-08T20:38:36.6483785Z test api::tests::session_usable_after_policy_503 ... ok
+2026-10-08T20:38:36.7005093Z test api::tests::start_rejects_unknown_policy ... ok
+2026-10-08T20:38:36.7108560Z test race::tests::course_id_lookup_from_canonical_race_json ... ok
+2026-10-08T20:38:36.7109230Z test race::tests::default_race_model_is_physics_since_r88 ... ok
+2026-10-08T20:38:36.7110069Z test race::tests::derive_race_seed_is_stable_and_nonzero ... ok
+2026-10-08T20:38:36.7110578Z test race::tests::npc_count_uses_race_json_entries_when_present ... ok
+2026-10-08T20:38:36.7567945Z test api::tests::start_rejects_unknown_scenario_and_race_model ... ok
+2026-10-08T20:38:36.7568873Z test race::tests::placeholder_npcs_vary_aptitudes_moods_strategies_skills ... ok
+2026-10-08T20:38:36.7569703Z test race::tests::placement_bands ... ok
+2026-10-08T20:38:36.7570485Z test race::tests::preferred_running_style_overrides_best_aptitude ... ok
+2026-10-08T20:38:36.7571538Z test race::tests::race_effective_stat_halves_above_soft_cap ... ok
+2026-10-08T20:38:36.7572474Z test rng::tests::matches_kotlin_seed_42_fixture ... ok
+2026-10-08T20:38:36.7574321Z test rng::tests::raw_ints_match_kotlin ... ok
+2026-10-08T20:38:36.7575547Z test scoring::terminal_utility::tests::evaluate_produces_nonzero_u ... ok
+2026-10-08T20:38:36.7576547Z test scoring::terminal_utility::tests::phi_matches_condor_allocations ... ok
+2026-10-08T20:38:36.7577327Z test scoring::terminal_utility::tests::skill_shop_converts_sp ... ok
+2026-10-08T20:38:36.7617994Z test policy_external::tests::dead_policy_child_is_reaped_and_respawned ... ok
+2026-10-08T20:38:36.7710732Z test race::tests::physics_debut_with_weak_stats_does_not_always_place_first ... ok
+2026-10-08T20:38:37.5676215Z test policy_external::tests::wedged_policy_server_times_out_loudly_and_respawns ... ok
+2026-10-08T20:38:37.5677046Z 
+2026-10-08T20:38:37.5679550Z test result: ok. 46 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.58s
+2026-10-08T20:38:37.5680016Z 
+2026-10-08T20:38:37.5713860Z [1m[92m     Running[0m unittests src/bin/uma-sim.rs (target/debug/deps/uma_sim-c6ee01c3064dc43f)
+2026-10-08T20:38:37.5721770Z 
+2026-10-08T20:38:37.5721889Z running 0 tests
+2026-10-08T20:38:37.5723108Z 
+2026-10-08T20:38:37.5723457Z test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:37.5723895Z 
+2026-10-08T20:38:37.5724427Z [1m[92m     Running[0m unittests src/bin/uma-sim-api.rs (target/debug/deps/uma_sim_api-af58dc6de920f48f)
+2026-10-08T20:38:37.5731658Z 
+2026-10-08T20:38:37.5731786Z running 0 tests
+2026-10-08T20:38:37.5733138Z 
+2026-10-08T20:38:37.5733454Z test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:37.5733880Z 
+2026-10-08T20:38:37.5734316Z [1m[92m     Running[0m tests/api_body_admission.rs (target/debug/deps/api_body_admission-8e32d5dda1eafa35)
+2026-10-08T20:38:37.5741434Z 
+2026-10-08T20:38:37.5741561Z running 5 tests
+2026-10-08T20:38:38.0777495Z test invalid_utf8_is_rejected_before_start_and_auto ... ok
+2026-10-08T20:38:38.0780152Z test nonobject_json_is_not_an_empty_command ... ok
+2026-10-08T20:38:38.1249653Z test malformed_json_is_rejected_before_every_post_handler ... ok
+2026-10-08T20:38:38.1559516Z test empty_bodies_and_valid_objects_keep_existing_defaults ... ok
+2026-10-08T20:38:38.3699502Z test unsupported_routes_and_preflight_keep_their_status ... ok
+2026-10-08T20:38:38.3699873Z 
+2026-10-08T20:38:38.3700230Z test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.80s
+2026-10-08T20:38:38.3700666Z 
+2026-10-08T20:38:38.3702531Z [1m[92m     Running[0m tests/batch_output_failures.rs (target/debug/deps/batch_output_failures-0383987cbbdb2899)
+2026-10-08T20:38:38.3712318Z 
+2026-10-08T20:38:38.3712456Z running 3 tests
+2026-10-08T20:38:38.3735456Z test batch_output_open_failure_is_nonzero_and_preserves_existing_directory ... ok
+2026-10-08T20:38:39.1998600Z test batch_success_writes_every_requested_career_and_returns_zero ... ok
+2026-10-08T20:38:39.8562709Z test batch_midstream_write_failure_is_nonzero_and_retains_the_written_prefix ... ok
+2026-10-08T20:38:39.8563126Z 
+2026-10-08T20:38:39.8563341Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.48s
+2026-10-08T20:38:39.8563623Z 
+2026-10-08T20:38:39.8564754Z [1m[92m     Running[0m tests/bond_gain_config.rs (target/debug/deps/bond_gain_config-be83ec7bdac84427)
+2026-10-08T20:38:39.8574816Z 
+2026-10-08T20:38:39.8574993Z running 2 tests
+2026-10-08T20:38:39.8577484Z test training_increases_bond_on_facility_cards ... ok
+2026-10-08T20:38:39.8577976Z test rainbow_count_requires_bond_on_specialty ... ok
+2026-10-08T20:38:39.8578261Z 
+2026-10-08T20:38:39.8578472Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:39.8578855Z 
+2026-10-08T20:38:39.8579309Z [1m[92m     Running[0m tests/bot_parity.rs (target/debug/deps/bot_parity-15fb69031a49da40)
+2026-10-08T20:38:39.8590221Z 
+2026-10-08T20:38:39.8590336Z running 6 tests
+2026-10-08T20:38:39.8594125Z test event_low_energy_prefers_energy_option ... ok
+2026-10-08T20:38:39.8594668Z test external_policy_all_scenarios ... ok
+2026-10-08T20:38:39.8595102Z test external_policy_drives_career_self_consistent ... ok
+2026-10-08T20:38:39.8595631Z test inheritance_event_at_turn_13 ... ok
+2026-10-08T20:38:39.8595996Z test training_picks_speed_when_prioritized ... ok
+2026-10-08T20:38:39.8730319Z test lesson_scoring_prefers_song_near_concert_when_hype_not_ready ... ok
+2026-10-08T20:38:39.8730720Z 
+2026-10-08T20:38:39.8731036Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+2026-10-08T20:38:39.8731507Z 
+2026-10-08T20:38:39.8733104Z [1m[92m     Running[0m tests/career_lab.rs (target/debug/deps/career_lab-8b99d504b4521411)
+2026-10-08T20:38:39.8744631Z 
+2026-10-08T20:38:39.8744771Z running 14 tests
+2026-10-08T20:38:40.2846020Z test branch_store_round_trip ... ok
+2026-10-08T20:38:40.5136293Z test branch_run_is_deterministic ... ok
+2026-10-08T20:38:40.5403145Z test checkpoint_restore_reproduces_state_and_rng ... ok
+2026-10-08T20:38:41.1540729Z test comparison_report_renders ... ok
+2026-10-08T20:38:41.3816047Z test divergence_detected_on_first_decision_difference ... ok
+2026-10-08T20:38:41.4403406Z test event_and_mandatory_race_checkpoints_all_scenarios ... ok
+2026-10-08T20:38:41.5630361Z test identical_branches_have_no_divergence ... ok
+2026-10-08T20:38:41.5631133Z test rng_state_words_restore_is_exact ... ok
+2026-10-08T20:38:41.5765802Z test import_failure_preserves_last_good ... ok
+2026-10-08T20:38:41.5903800Z test library_name_rules_and_overwrite_protection ... ok
+2026-10-08T20:38:41.5905567Z test stale_tmp_files_are_swept ... ok
+2026-10-08T20:38:41.6081703Z test library_round_trip ... ok
+2026-10-08T20:38:41.8397140Z test sibling_branch_cannot_mutate_checkpoint_or_sibling ... ok
+2026-10-08T20:38:41.8460327Z test snapshot_carries_rng_state_words ... ok
+2026-10-08T20:38:41.8460546Z 
+2026-10-08T20:38:41.8460805Z test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.97s
+2026-10-08T20:38:41.8461096Z 
+2026-10-08T20:38:41.8490303Z [1m[92m     Running[0m tests/career_lab_branch_publication.rs (target/debug/deps/career_lab_branch_publication-3720c9fed994df86)
+2026-10-08T20:38:41.8500298Z 
+2026-10-08T20:38:41.8500437Z running 6 tests
+2026-10-08T20:38:41.9278520Z test dangling_destination_is_an_existing_identity_and_is_preserved ... ok
+2026-10-08T20:38:41.9293876Z test changed_payload_cannot_replace_an_acknowledged_identity ... ok
+2026-10-08T20:38:41.9297852Z test subprocess_branch_store_worker ... ignored, invoked only by the bounded independent-process receiver
+2026-10-08T20:38:41.9300933Z test distinct_results_reopen_without_changing_checkpoint_session_or_sibling ... ok
+2026-10-08T20:38:41.9302287Z test identical_payload_repeated_save_is_still_a_creation_conflict ... ok
+2026-10-08T20:38:41.9316160Z test competing_processes_acknowledge_exactly_one_complete_result ... ok
+2026-10-08T20:38:41.9316603Z 
+2026-10-08T20:38:41.9319318Z [1m[92m     Running[0m tests/career_lab_divergence.rs (target/debug/deps/career_lab_divergence-ceda4417a2f326da)
+2026-10-08T20:38:41.9320168Z test result: ok. 5 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.08s
+2026-10-08T20:38:41.9320608Z 
+2026-10-08T20:38:41.9329229Z 
+2026-10-08T20:38:41.9329434Z running 6 tests
+2026-10-08T20:38:41.9375858Z test an_empty_branch_ended_after_zero_recorded_steps_in_either_position ... ok
+2026-10-08T20:38:41.9376604Z test earlier_decision_or_outcome_remains_first_when_a_branch_later_ends ... ok
+2026-10-08T20:38:41.9381487Z test a_ended_note_counts_a_recorded_steps_when_b_continues ... ok
+2026-10-08T20:38:41.9382061Z test b_ended_note_counts_b_recorded_steps_when_a_continues ... ok
+2026-10-08T20:38:41.9382688Z test ending_uses_the_recorded_timeline_even_if_summary_counts_are_stale ... ok
+2026-10-08T20:38:41.9383326Z test equal_length_timelines_keep_existing_divergence_behavior ... ok
+2026-10-08T20:38:41.9383924Z 
+2026-10-08T20:38:41.9384229Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+2026-10-08T20:38:41.9384655Z 
+2026-10-08T20:38:41.9386027Z [1m[92m     Running[0m tests/career_lab_reports.rs (target/debug/deps/career_lab_reports-0774675e3ea13d9b)
+2026-10-08T20:38:41.9395523Z 
+2026-10-08T20:38:41.9395759Z running 9 tests
+2026-10-08T20:38:41.9435908Z test changed_numeric_input_and_absent_divergence_are_rendered_from_the_comparison ... ok
+2026-10-08T20:38:41.9602312Z test branch_names_remain_literal_and_cannot_split_outcome_columns ... ok
+2026-10-08T20:38:41.9709755Z test every_displayed_field_keeps_line_breaks_out_of_report_structure ... ok
+2026-10-08T20:38:41.9722360Z test ordinary_reports_keep_numeric_columns_and_timeline_meaning ... ok
+2026-10-08T20:38:41.9735515Z test every_displayed_field_preserves_punctuation_and_entity_text ... ok
+2026-10-08T20:38:41.9746002Z test the_report_uses_display_labels_without_substituting_hidden_identifiers ... ok
+2026-10-08T20:38:41.9755848Z test rendering_does_not_rewrite_source_data_or_json_report ... ok
+2026-10-08T20:38:41.9784196Z test every_displayed_field_prevents_raw_html_elements ... ok
+2026-10-08T20:38:41.9940077Z test inline_code_fields_keep_backtick_runs_entities_and_significant_padding ... ok
+2026-10-08T20:38:41.9940672Z 
+2026-10-08T20:38:41.9941125Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+2026-10-08T20:38:41.9941723Z 
+2026-10-08T20:38:41.9944752Z [1m[92m     Running[0m tests/career_library_replacement.rs (target/debug/deps/career_library_replacement-de3a34823e95a6d1)
+2026-10-08T20:38:41.9957202Z 
+2026-10-08T20:38:41.9957438Z running 6 tests
+2026-10-08T20:38:42.2809523Z test a_failed_new_save_does_not_create_a_visible_partial_checkpoint ... ok
+2026-10-08T20:38:42.2848679Z test failed_import_overwrite_preserves_an_existing_checkpoint ... ok
+2026-10-08T20:38:42.2897831Z test failed_overwrite_restores_the_complete_previous_checkpoint ... ok
+2026-10-08T20:38:42.2906493Z test no_overwrite_preserves_orphan_snapshot_bytes ... ok
+2026-10-08T20:38:42.2944529Z test snapshot_staging_failure_preserves_the_old_pair_and_cleans_its_backup ... ok
+2026-10-08T20:38:42.2983380Z test successful_overwrite_replaces_state_and_metadata_without_recovery_files ... ok
+2026-10-08T20:38:42.2983978Z 
+2026-10-08T20:38:42.2984296Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.30s
+2026-10-08T20:38:42.2984628Z 
+2026-10-08T20:38:42.3007163Z [1m[92m     Running[0m tests/cli_policy.rs (target/debug/deps/cli_policy-79d863b08e07da3a)
+2026-10-08T20:38:42.3016594Z 
+2026-10-08T20:38:42.3016724Z running 2 tests
+2026-10-08T20:38:42.6903343Z test cli_policy_external_missing_cmd_names_env ... ok
+2026-10-08T20:38:42.9064169Z test cli_policy_unknown_runs_default ... ok
+2026-10-08T20:38:42.9064538Z 
+2026-10-08T20:38:42.9064810Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.60s
+2026-10-08T20:38:42.9065095Z 
+2026-10-08T20:38:42.9066522Z [1m[92m     Running[0m tests/cli_seed_admission.rs (target/debug/deps/cli_seed_admission-3f425ddb33201893)
+2026-10-08T20:38:42.9076584Z 
+2026-10-08T20:38:42.9076710Z running 15 tests
+2026-10-08T20:38:43.3466326Z test last_valid_duplicate_seed_still_wins ... ok
+2026-10-08T20:38:43.3544596Z test empty_seed_preserves_existing_career ... ok
+2026-10-08T20:38:43.3545502Z test fractional_seed_preserves_existing_career ... ok
+2026-10-08T20:38:43.7879549Z test malformed_batch_preserves_output_before_zero_career_run ... ok
+2026-10-08T20:38:43.7904030Z test malformed_seed_does_not_create_a_first_career ... ok
+2026-10-08T20:38:43.7920253Z test malformed_seed_before_valid_duplicate_is_refused ... ok
+2026-10-08T20:38:43.7986560Z test explicit_seed_list_still_overrides_valid_seed_and_count ... ok
+2026-10-08T20:38:43.8015666Z test malformed_seed_after_valid_duplicate_is_refused ... ok
+2026-10-08T20:38:44.2322235Z test malformed_seed_is_refused_even_when_explicit_list_would_override_it ... ok
+2026-10-08T20:38:44.2327411Z test malformed_start_preserves_existing_career ... ok
+2026-10-08T20:38:44.2365475Z test omitted_seed_still_starts_seed_42 ... ok
+2026-10-08T20:38:44.2405878Z test seed_above_i64_max_preserves_existing_career ... ok
+2026-10-08T20:38:44.2421219Z test signed_i64_boundaries_are_admitted_without_running_a_career ... ok
+2026-10-08T20:38:44.5129466Z test seed_below_i64_min_preserves_existing_career ... ok
+2026-10-08T20:38:45.4368866Z test valid_signed_seeds_are_saved_exactly ... ok
+2026-10-08T20:38:45.4369120Z 
+2026-10-08T20:38:45.4369353Z test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.53s
+2026-10-08T20:38:45.4369667Z 
+2026-10-08T20:38:45.4372270Z [1m[92m     Running[0m tests/cli_session_persistence.rs (target/debug/deps/cli_session_persistence-f79b002f153d5114)
+2026-10-08T20:38:45.4381986Z 
+2026-10-08T20:38:45.4382095Z running 10 tests
+2026-10-08T20:38:46.1225805Z test fast_reports_obstructed_parent_without_success_output ... ok
+2026-10-08T20:38:46.1256059Z test dangling_session_symlink_can_start_a_career ... ok
+2026-10-08T20:38:46.6752904Z test existing_session_symlink_still_publishes_to_its_target ... ok
+2026-10-08T20:38:47.1067195Z test deck_write_failure_preserves_prior_career ... ok
+2026-10-08T20:38:47.4326818Z test start_reports_obstructed_parent_without_success_output ... ok
+2026-10-08T20:38:47.7531633Z test fast_write_failure_preserves_prior_career ... ok
+2026-10-08T20:38:47.9822210Z test replacing_session_retains_existing_permissions ... ok
+2026-10-08T20:38:48.4794363Z test healthy_commands_publish_reloadable_sessions ... ok
+2026-10-08T20:38:48.7050696Z test start_write_failure_preserves_prior_career ... ok
+2026-10-08T20:38:48.9916416Z test step_write_failure_preserves_prior_career ... ok
+2026-10-08T20:38:48.9916767Z 
+2026-10-08T20:38:48.9917125Z test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.55s
+2026-10-08T20:38:48.9917608Z 
+2026-10-08T20:38:48.9919472Z [1m[92m     Running[0m tests/content_pack_loader.rs (target/debug/deps/content_pack_loader-cf08ec1d928e49d3)
+2026-10-08T20:38:48.9930053Z 
+2026-10-08T20:38:48.9930229Z running 1 test
+2026-10-08T20:38:48.9933280Z test example_pack_has_events ... ok
+2026-10-08T20:38:48.9933669Z 
+2026-10-08T20:38:48.9934222Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:48.9934845Z 
+2026-10-08T20:38:48.9936376Z [1m[92m     Running[0m tests/deck_placement.rs (target/debug/deps/deck_placement-412e471d0122826c)
+2026-10-08T20:38:48.9947751Z 
+2026-10-08T20:38:48.9947954Z running 7 tests
+2026-10-08T20:38:48.9952016Z test assigns_cards_to_specialty_facilities ... ok
+2026-10-08T20:38:48.9952713Z test deck_spec_parses_manual_placement ... ok
+2026-10-08T20:38:48.9953442Z test grand_live_scenario_links_only_on_trained_facility ... ok
+2026-10-08T20:38:48.9954030Z test manual_placement_stacks_cards_on_facility ... ok
+2026-10-08T20:38:48.9954650Z test deck_increases_training_gain_vs_empty_deck ... ok
+2026-10-08T20:38:48.9955306Z test runtime_reassign_moves_card ... ok
+2026-10-08T20:38:48.9957894Z test training_gain_uses_only_cards_on_facility ... ok
+2026-10-08T20:38:48.9958223Z 
+2026-10-08T20:38:48.9958545Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:48.9958952Z 
+2026-10-08T20:38:48.9960603Z [1m[92m     Running[0m tests/deck_support_bridge.rs (target/debug/deps/deck_support_bridge-eedd0eb3ae8938f4)
+2026-10-08T20:38:48.9969399Z 
+2026-10-08T20:38:48.9969603Z running 1 test
+2026-10-08T20:38:48.9973385Z test deck_increases_training_gain_vs_empty_deck ... ok
+2026-10-08T20:38:48.9973681Z 
+2026-10-08T20:38:48.9974021Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:48.9974447Z 
+2026-10-08T20:38:48.9975479Z [1m[92m     Running[0m tests/event_effect_applier.rs (target/debug/deps/event_effect_applier-516f1334a2eb08cb)
+2026-10-08T20:38:48.9984599Z 
+2026-10-08T20:38:48.9984732Z running 2 tests
+2026-10-08T20:38:49.0123125Z test applies_stat_and_energy ... ok
+2026-10-08T20:38:49.0136601Z test applies_skill_points_and_hints ... ok
+2026-10-08T20:38:49.0136797Z 
+2026-10-08T20:38:49.0137014Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+2026-10-08T20:38:49.0137294Z 
+2026-10-08T20:38:49.0139972Z [1m[92m     Running[0m tests/event_pool_gating.rs (target/debug/deps/event_pool_gating-78b517e910c38910)
+2026-10-08T20:38:49.0148625Z 
+2026-10-08T20:38:49.0148783Z running 4 tests
+2026-10-08T20:38:49.0151384Z test scenario_owner_maps_engine_ids ... ok
+2026-10-08T20:38:49.0151845Z test support_events_require_deck_membership ... ok
+2026-10-08T20:38:49.0152310Z test scenario_events_match_active_scenario_only ... ok
+2026-10-08T20:38:49.1171672Z test file_catalog_ura_pool_excludes_other_scenarios_and_undecked_supports ... ok
+2026-10-08T20:38:49.1172460Z 
+2026-10-08T20:38:49.1172690Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+2026-10-08T20:38:49.1172992Z 
+2026-10-08T20:38:49.1173976Z [1m[92m     Running[0m tests/event_probability_config.rs (target/debug/deps/event_probability_config-7b11d3a367a0b4e3)
+2026-10-08T20:38:49.1184024Z 
+2026-10-08T20:38:49.1184177Z running 3 tests
+2026-10-08T20:38:49.1186679Z test deck_raises_event_chance ... ok
+2026-10-08T20:38:49.1188450Z test matches_energy_variance_pattern ... ok
+2026-10-08T20:38:49.1188882Z test energy_variance_picks_from_outcomes ... ok
+2026-10-08T20:38:49.1189165Z 
+2026-10-08T20:38:49.1189482Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:49.1189904Z 
+2026-10-08T20:38:49.1190348Z [1m[92m     Running[0m tests/facility_level_config.rs (target/debug/deps/facility_level_config-2f9958e3e56de64e)
+2026-10-08T20:38:49.1196448Z 
+2026-10-08T20:38:49.1196572Z running 3 tests
+2026-10-08T20:38:49.1198703Z test level_rises_every_four_trains ... ok
+2026-10-08T20:38:49.1200305Z test ura_uses_train_count_leveling_unity_does_not ... ok
+2026-10-08T20:38:49.1200646Z test successful_train_increments_level_after_fourth_use ... ok
+2026-10-08T20:38:49.1200952Z 
+2026-10-08T20:38:49.1201253Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:38:49.1201688Z 
+2026-10-08T20:38:49.1202158Z [1m[92m     Running[0m tests/golden_seed.rs (target/debug/deps/golden_seed-26d67a9a015bebb8)
+2026-10-08T20:38:49.1212144Z 
+2026-10-08T20:38:49.1212293Z running 3 tests
+2026-10-08T20:38:49.3496557Z test golden_seed_42_ura ... ok
+2026-10-08T20:39:00.8235744Z test fixture_file_matches_engine ... ok
+2026-10-08T20:39:12.8590711Z test all_fifty_seeds_reproducible ... ok
+2026-10-08T20:39:12.8592411Z 
+2026-10-08T20:39:12.8592924Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 23.74s
+2026-10-08T20:39:12.8593446Z 
+2026-10-08T20:39:12.8599600Z [1m[92m     Running[0m tests/golden_seeds.rs (target/debug/deps/golden_seeds-44659c3cedf7ebd3)
+2026-10-08T20:39:12.8612995Z 
+2026-10-08T20:39:12.8613264Z running 3 tests
+2026-10-08T20:39:13.0574669Z test kotlin_golden_fixture_seed_42_ura ... ok
+2026-10-08T20:39:13.1348596Z test seed_42_ura_reproducible ... ok
+2026-10-08T20:39:24.4512472Z test all_kotlin_golden_summaries ... ok
+2026-10-08T20:39:24.4512788Z 
+2026-10-08T20:39:24.4513092Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 11.59s
+2026-10-08T20:39:24.4513478Z 
+2026-10-08T20:39:24.4522069Z [1m[92m     Running[0m tests/grand_live_bot_replay.rs (target/debug/deps/grand_live_bot_replay-962da15d3a66b9f5)
+2026-10-08T20:39:24.4534554Z 
+2026-10-08T20:39:24.4534681Z running 2 tests
+2026-10-08T20:39:24.4538425Z test gl_token_totals_wired_into_decision_context ... ok
+2026-10-08T20:39:24.4685552Z test gl_replay_fixtures_match_at_least_95_percent ... ok
+2026-10-08T20:39:24.4685813Z 
+2026-10-08T20:39:24.4686022Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+2026-10-08T20:39:24.4686302Z 
+2026-10-08T20:39:24.4690155Z [1m[92m     Running[0m tests/grand_live_calibration_loader.rs (target/debug/deps/grand_live_calibration_loader-be59d50ae4794352)
+2026-10-08T20:39:24.4699358Z 
+2026-10-08T20:39:24.4699489Z running 4 tests
+2026-10-08T20:39:24.4704402Z test calibration_row_totals_documented ... ok
+2026-10-08T20:39:24.4706470Z test deck_size_specific_row_preferred ... ok
+2026-10-08T20:39:24.4708720Z test load_from_path ... ok
+2026-10-08T20:39:24.4711321Z test loads_calibration_from_repo ... ok
+2026-10-08T20:39:24.4711598Z 
+2026-10-08T20:39:24.4711908Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:24.4712356Z 
+2026-10-08T20:39:24.4713508Z [1m[92m     Running[0m tests/grand_live_catalog_loader.rs (target/debug/deps/grand_live_catalog_loader-ebba63bcb4ab2857)
+2026-10-08T20:39:24.4722526Z 
+2026-10-08T20:39:24.4722642Z running 1 test
+2026-10-08T20:39:24.4784552Z test loads_songs_from_knowledge_base ... ok
+2026-10-08T20:39:24.4784754Z 
+2026-10-08T20:39:24.4784982Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+2026-10-08T20:39:24.4785587Z 
+2026-10-08T20:39:24.4787596Z [1m[92m     Running[0m tests/grand_live_formula_calibration.rs (target/debug/deps/grand_live_formula_calibration-34df03460eb2cb23)
+2026-10-08T20:39:24.4796418Z 
+2026-10-08T20:39:24.4796533Z running 4 tests
+2026-10-08T20:39:24.4799216Z test calibration_rows_match_uma_guide_formula_total ... ok
+2026-10-08T20:39:24.4799918Z test inheritance_choice_applies_skills ... ok
+2026-10-08T20:39:24.4800379Z test skill_factors_become_inherited_skills ... ok
+2026-10-08T20:39:24.4800798Z test split_sums_to_formula_total ... ok
+2026-10-08T20:39:24.4801087Z 
+2026-10-08T20:39:24.4801399Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:24.4801690Z 
+2026-10-08T20:39:24.4802298Z [1m[92m     Running[0m tests/grand_live_l1_training.rs (target/debug/deps/grand_live_l1_training-df60fd29519aee79)
+2026-10-08T20:39:24.4811209Z 
+2026-10-08T20:39:24.4811348Z running 3 tests
+2026-10-08T20:39:24.4815578Z test grand_concert_l1_speed_matches_gametora_base ... ok
+2026-10-08T20:39:24.4816174Z test grand_concert_l1_wit_recovers_energy ... ok
+2026-10-08T20:39:24.4816897Z test ura_l1_unchanged_by_gl_override ... ok
+2026-10-08T20:39:24.4817126Z 
+2026-10-08T20:39:24.4817418Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:24.4817694Z 
+2026-10-08T20:39:24.4818913Z [1m[92m     Running[0m tests/grand_live_r7.rs (target/debug/deps/grand_live_r7-90b86100e9166009)
+2026-10-08T20:39:24.4828908Z 
+2026-10-08T20:39:24.4829047Z running 18 tests
+2026-10-08T20:39:24.4844041Z test blocked_performance_types_zero_token_gains ... ok
+2026-10-08T20:39:24.4851918Z test concert_outcome_great_success_normal_and_failure ... ok
+2026-10-08T20:39:24.4852429Z test concert_failure_on_race_loss ... ok
+2026-10-08T20:39:24.4864280Z test concert_outcome_respects_race_result_flag ... ok
+2026-10-08T20:39:24.4864829Z test fan_scaled_unique_skill_power_multiply_fan_count ... ok
+2026-10-08T20:39:24.4865524Z test closer_together_fires_at_senior_nov_with_16_songs ... ok
+2026-10-08T20:39:24.4866023Z test consolation_unique_path_sets_power ... ok
+2026-10-08T20:39:24.4866370Z test lesson_board_includes_unaffordable_and_song_when_unlocked ... ok
+2026-10-08T20:39:24.4866711Z test live_type_and_result_state_packet_mapping ... ok
+2026-10-08T20:39:24.4866992Z test member_ready_count_tracks_deck_size ... ok
+2026-10-08T20:39:24.4867325Z test lesson_board_three_slots_documents_next_square_approximation ... ok
+2026-10-08T20:39:24.4867660Z test reserve_square_id_prefers_board_slot ... ok
+2026-10-08T20:39:24.4867963Z test normal_concert_path_without_great_success ... ok
+2026-10-08T20:39:24.4868302Z test dating_light_hello_event_can_fire_and_unlocks_pal_date ... ok
+2026-10-08T20:39:24.4868672Z test specialty_bonus_biases_roll_toward_specialty_facility ... ok
+2026-10-08T20:39:24.4922032Z test technique_tiers_gate_advanced_lessons_until_later_concerts ... ok
+2026-10-08T20:39:24.4930265Z test song_mastery_train_bonuses_apply_on_purchase ... ok
+2026-10-08T20:39:24.4947237Z test technique_pivot_skips_forced_song_slot_at_21_songs ... ok
+2026-10-08T20:39:24.4947820Z 
+2026-10-08T20:39:24.4948150Z test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+2026-10-08T20:39:24.4948576Z 
+2026-10-08T20:39:24.4952410Z [1m[92m     Running[0m tests/grand_live_simulation.rs (target/debug/deps/grand_live_simulation-9b0da865c810dcd1)
+2026-10-08T20:39:24.4963996Z 
+2026-10-08T20:39:24.4964206Z running 24 tests
+2026-10-08T20:39:24.4968654Z test all_six_concert_turns_mapped ... ok
+2026-10-08T20:39:24.4969996Z test days_to_concert_matches_scoring_shared ... ok
+2026-10-08T20:39:24.4970454Z test cycle_max_blocks_song_when_full ... ok
+2026-10-08T20:39:24.4971154Z test career_starts_without_make_debut_until_grant_turn ... ok
+2026-10-08T20:39:24.4971674Z test debut_grants_no_tokens_make_debut_song_already_granted ... ok
+2026-10-08T20:39:24.4976302Z test debut_race_preserves_make_debut_cycle_hype ... ok
+2026-10-08T20:39:24.4978535Z test friendship_training_biases_secondary_to_least_owned ... ok
+2026-10-08T20:39:24.4979389Z test friendship_bonus_increases_training_multiplier ... ok
+2026-10-08T20:39:24.4980181Z test is_hype_maxed_when_cycle_meets_required ... ok
+2026-10-08T20:39:24.4980665Z test lesson_board_has_at_most_three_slots ... ok
+2026-10-08T20:39:24.4981142Z test great_success_grand_concert_with_18_songs ... ok
+2026-10-08T20:39:24.4982648Z test light_hello_grants_least_owned_on_proc ... ok
+2026-10-08T20:39:24.4983369Z test make_debut_song_grants_all_performance_tokens ... ok
+2026-10-08T20:39:24.4984045Z test part_four_songs_unlock_in_senior_dec_late ... ok
+2026-10-08T20:39:24.4984740Z test performance_tokens_cap_at_200 ... ok
+2026-10-08T20:39:24.4985490Z test scenario_links_increase_formula_total ... ok
+2026-10-08T20:39:24.4986203Z test promo_concert_grants_stats_sp_and_raises_perf_cap ... ok
+2026-10-08T20:39:24.4987863Z test soft_cap_halves_gains_above_1200 ... ok
+2026-10-08T20:39:24.4988369Z test promo_concert_mandatory_at_turn_24 ... ok
+2026-10-08T20:39:24.4988865Z test song_purchase_increments_cycle_hype ... ok
+2026-10-08T20:39:24.4989942Z test technique_gate_blocks_song_purchase ... ok
+2026-10-08T20:39:24.4991525Z test training_applies_603010_token_split ... ok
+2026-10-08T20:39:24.4991952Z test uma_guide_performance_formula ... ok
+2026-10-08T20:39:24.9577541Z test full_career_completes_with_engine ... ok
+2026-10-08T20:39:24.9577855Z 
+2026-10-08T20:39:24.9578157Z test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.46s
+2026-10-08T20:39:24.9578553Z 
+2026-10-08T20:39:24.9584692Z [1m[92m     Running[0m tests/grand_live_token_labels.rs (target/debug/deps/grand_live_token_labels-733e1af4fa910d75)
+2026-10-08T20:39:24.9595070Z 
+2026-10-08T20:39:24.9595440Z running 1 test
+2026-10-08T20:39:24.9597422Z test facility_split_labels_match_gametora_condor ... ok
+2026-10-08T20:39:24.9597773Z 
+2026-10-08T20:39:24.9598086Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:24.9598512Z 
+2026-10-08T20:39:24.9599375Z [1m[92m     Running[0m tests/hint_progression_config.rs (target/debug/deps/hint_progression_config-9f4ce874ea34ade3)
+2026-10-08T20:39:24.9608195Z 
+2026-10-08T20:39:24.9608321Z running 4 tests
+2026-10-08T20:39:24.9610696Z test caps_at_max_level ... ok
+2026-10-08T20:39:24.9612045Z test event_options_include_bonus ... ok
+2026-10-08T20:39:24.9612420Z test increments_below_max ... ok
+2026-10-08T20:39:24.9612751Z test roll_bonus_within_range ... ok
+2026-10-08T20:39:24.9612959Z 
+2026-10-08T20:39:24.9613273Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:24.9613712Z 
+2026-10-08T20:39:24.9614294Z [1m[92m     Running[0m tests/knowledge_validate.rs (target/debug/deps/knowledge_validate-77befdfb09cb30c1)
+2026-10-08T20:39:24.9620363Z 
+2026-10-08T20:39:24.9620864Z running 1 test
+2026-10-08T20:39:25.0811528Z test canonical_knowledge_base_passes_validate_script ... ok
+2026-10-08T20:39:25.0811838Z 
+2026-10-08T20:39:25.0812050Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+2026-10-08T20:39:25.0812333Z 
+2026-10-08T20:39:25.0813426Z [1m[92m     Running[0m tests/legacy_applicator.rs (target/debug/deps/legacy_applicator-8e05a08efdecbfac)
+2026-10-08T20:39:25.0826811Z 
+2026-10-08T20:39:25.0826929Z running 10 tests
+2026-10-08T20:39:25.0829660Z test blue_starting_bonuses_match_gametora_table ... ok
+2026-10-08T20:39:25.0833744Z test effective_cap_raises_above_base ... ok
+2026-10-08T20:39:25.0834565Z test legacy_tree_preferred_over_flat_factors ... ok
+2026-10-08T20:39:25.0835012Z test inheritance_choice_applies_skills ... ok
+2026-10-08T20:39:25.0836034Z test inheritance_choice_1_boosts_spark_stats ... ok
+2026-10-08T20:39:25.0836446Z test pink_and_race_factors_tracked ... ok
+2026-10-08T20:39:25.0836815Z test pink_preview_caps_at_a ... ok
+2026-10-08T20:39:25.0837214Z test skill_factors_become_inherited_skills ... ok
+2026-10-08T20:39:25.3069190Z test spark_run_differs_from_ace_run ... ok
+2026-10-08T20:39:25.3069634Z test spark_caps_stack_per_star ... ok
+2026-10-08T20:39:25.3069798Z 
+2026-10-08T20:39:25.3070020Z test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+2026-10-08T20:39:25.3070297Z 
+2026-10-08T20:39:25.3074968Z [1m[92m     Running[0m tests/live_bot_telemetry.rs (target/debug/deps/live_bot_telemetry-496f02d78ff21496)
+2026-10-08T20:39:25.3087537Z 
+2026-10-08T20:39:25.3087819Z running 1 test
+2026-10-08T20:39:25.3234392Z test live_bot_sample_match_rate ... ok
+2026-10-08T20:39:25.3234654Z 
+2026-10-08T20:39:25.3234925Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+2026-10-08T20:39:25.3235474Z 
+2026-10-08T20:39:25.3238217Z [1m[92m     Running[0m tests/live_telemetry_replay.rs (target/debug/deps/live_telemetry_replay-b24ad8477a0e6199)
+2026-10-08T20:39:25.3249936Z 
+2026-10-08T20:39:25.3250067Z running 1 test
+2026-10-08T20:39:25.3400552Z test jsonl_replay_match_rate_at_least_90_percent ... ok
+2026-10-08T20:39:25.3400755Z 
+2026-10-08T20:39:25.3400962Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+2026-10-08T20:39:25.3401233Z 
+2026-10-08T20:39:25.3403877Z [1m[92m     Running[0m tests/mid_run_inspiration.rs (target/debug/deps/mid_run_inspiration-edb7e7f8c6217b83)
+2026-10-08T20:39:25.3414113Z 
+2026-10-08T20:39:25.3414230Z running 2 tests
+2026-10-08T20:39:25.3418534Z test career_start_calendar_is_not_april_inspiration ... ok
+2026-10-08T20:39:25.3418924Z test mid_run_inspiration_applies_blue_when_compat_guarantees_proc ... ok
+2026-10-08T20:39:25.3419164Z 
+2026-10-08T20:39:25.3419358Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:25.3419639Z 
+2026-10-08T20:39:25.3420940Z [1m[92m     Running[0m tests/paired_batches.rs (target/debug/deps/paired_batches-0b2647a46b0df1b2)
+2026-10-08T20:39:25.3428888Z 
+2026-10-08T20:39:25.3428994Z running 7 tests
+2026-10-08T20:39:25.3436061Z test incomplete_or_duplicate_cohorts_refuse_in_both_directions ... ok
+2026-10-08T20:39:25.3436966Z test odd_median_and_full_signed_integer_endpoints_are_exact ... ok
+2026-10-08T20:39:25.3437840Z test matches_complete_identities_instead_of_positions_or_seed_alone ... ok
+2026-10-08T20:39:25.3438680Z test every_required_field_is_strict_and_late_bad_records_are_not_skipped ... ok
+2026-10-08T20:39:25.3439252Z test string_limits_count_utf8_bytes_and_retain_literal_whitespace ... ok
+2026-10-08T20:39:25.3439801Z test text_ranks_ten_largest_absolute_deltas_and_json_keeps_all_pairs ... ok
+2026-10-08T20:39:26.1932660Z test reader_bounds_utf8_and_io_errors_are_reported ... ok
+2026-10-08T20:39:26.1933077Z 
+2026-10-08T20:39:26.1933380Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.85s
+2026-10-08T20:39:26.1933749Z 
+2026-10-08T20:39:26.1935812Z [1m[92m     Running[0m tests/paired_batches_cli.rs (target/debug/deps/paired_batches_cli-4d25892d9d2d4538)
+2026-10-08T20:39:26.1946337Z 
+2026-10-08T20:39:26.1946477Z running 5 tests
+2026-10-08T20:39:26.1971132Z test help_is_available_without_files ... ok
+2026-10-08T20:39:26.1996305Z test real_cli_reports_saved_records_without_session_or_simulator_configuration ... ok
+2026-10-08T20:39:26.2007551Z test actual_unwritable_output_and_diagnostic_sinks_return_failure_without_panicking ... ok
+2026-10-08T20:39:26.2031691Z test missing_late_invalid_and_unmatched_input_produce_no_primary_output ... ok
+2026-10-08T20:39:26.2143225Z test unknown_duplicate_empty_and_missing_flags_refuse_before_input_access ... ok
+2026-10-08T20:39:26.2143692Z 
+2026-10-08T20:39:26.2144059Z test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+2026-10-08T20:39:26.2144663Z 
+2026-10-08T20:39:26.2145889Z [1m[92m     Running[0m tests/parity.rs (target/debug/deps/parity-a47619aa11e4bdba)
+2026-10-08T20:39:26.2157058Z 
+2026-10-08T20:39:26.2157241Z running 6 tests
+2026-10-08T20:39:26.2178030Z test rng_seed_42_fixture_present ... ok
+2026-10-08T20:39:26.2205895Z test parity_fixture_manifest_complete ... ok
+2026-10-08T20:39:26.2406468Z test scoring_vectors_fixture_loads ... ok
+2026-10-08T20:39:26.2873543Z test event_parse_vectors_fixture_loads ... ok
+2026-10-08T20:39:26.3048612Z test all_rng_trace_fixtures_match_kotlin ... ok
+2026-10-08T20:39:26.3380778Z test turn_traces_report_first_divergence ... ok
+2026-10-08T20:39:26.3381076Z 
+2026-10-08T20:39:26.3381364Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+2026-10-08T20:39:26.3381755Z 
+2026-10-08T20:39:26.3389509Z [1m[92m     Running[0m tests/perf.rs (target/debug/deps/perf-288f99fb6beb7aea)
+2026-10-08T20:39:26.3403345Z 
+2026-10-08T20:39:26.3403613Z running 2 tests
+2026-10-08T20:39:26.4984164Z test full_career_under_3s_at_x100 ... ok
+2026-10-08T20:39:26.4999167Z test full_career_under_10s_at_x20 ... ok
+2026-10-08T20:39:26.4999482Z 
+2026-10-08T20:39:26.4999820Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+2026-10-08T20:39:26.5000261Z 
+2026-10-08T20:39:26.5008402Z [1m[92m     Running[0m tests/product_readiness.rs (target/debug/deps/product_readiness-9ebaea476e1c2f9f)
+2026-10-08T20:39:26.5022611Z 
+2026-10-08T20:39:26.5022776Z running 7 tests
+2026-10-08T20:39:27.0207012Z test four_scenarios_complete_72_turns ... ok
+2026-10-08T20:39:27.0207764Z test golden_fixture_file_present ... ok
+2026-10-08T20:39:27.0208556Z test speed_multiplier_clamps_1_to_100 ... ok
+2026-10-08T20:39:27.0209190Z test telemetry_replay_resources_present ... ok
+2026-10-08T20:39:27.2808661Z test deck_and_legacy_start_completes_career ... ok
+2026-10-08T20:39:27.5585959Z test full_career_under_ten_seconds_at_x20 ... ok
+2026-10-08T20:39:28.5219290Z test bot_policy_completes_all_four_scenarios ... ok
+2026-10-08T20:39:28.5219549Z 
+2026-10-08T20:39:28.5219813Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.02s
+2026-10-08T20:39:28.5220114Z 
+2026-10-08T20:39:28.5243678Z [1m[92m     Running[0m tests/race_npc_r86.rs (target/debug/deps/race_npc_r86-903587ad110c00fa)
+2026-10-08T20:39:28.5254922Z 
+2026-10-08T20:39:28.5255045Z running 1 test
+2026-10-08T20:39:30.0124222Z test r86_npc_win_rates_ordered_vs_telemetry_prior ... ok
+2026-10-08T20:39:30.0124482Z 
+2026-10-08T20:39:30.0124702Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.49s
+2026-10-08T20:39:30.0124986Z 
+2026-10-08T20:39:30.0129360Z [1m[92m     Running[0m tests/race_outcomes.rs (target/debug/deps/race_outcomes-019a1e18c4b6e6a4)
+2026-10-08T20:39:30.0144750Z 
+2026-10-08T20:39:30.0145013Z running 3 tests
+2026-10-08T20:39:30.0147838Z test g1_and_climax_wins_grant_stub_epithets ... ok
+2026-10-08T20:39:30.0148362Z test mid_run_race_physics_documented_in_research ... ok
+2026-10-08T20:39:30.0150266Z test place_and_show_fans_are_lower_than_win ... ok
+2026-10-08T20:39:30.0150506Z 
+2026-10-08T20:39:30.0151186Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:30.0151637Z 
+2026-10-08T20:39:30.0152119Z [1m[92m     Running[0m tests/race_perf_r89.rs (target/debug/deps/race_perf_r89-b66ddbff0f943165)
+2026-10-08T20:39:30.0165101Z 
+2026-10-08T20:39:30.0165442Z running 2 tests
+2026-10-08T20:39:30.1588246Z test physics_career_race_budget_under_250ms ... ok
+2026-10-08T20:39:31.1775939Z test eighteen_horse_2000m_under_10ms_p50 ... ok
+2026-10-08T20:39:31.1776267Z 
+2026-10-08T20:39:31.1776559Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.16s
+2026-10-08T20:39:31.1776951Z 
+2026-10-08T20:39:31.1784222Z [1m[92m     Running[0m tests/race_physics_r87.rs (target/debug/deps/race_physics_r87-792eb495763192b6)
+2026-10-08T20:39:31.1798111Z 
+2026-10-08T20:39:31.1798326Z running 3 tests
+2026-10-08T20:39:31.1803906Z test stub_default_debut_still_places_first ... ok
+2026-10-08T20:39:31.2479088Z test physics_debut_race_returns_real_order_not_always_first ... ok
+2026-10-08T20:39:31.3274283Z test physics_full_career_completes_with_varied_or_non_first_places ... ok
+2026-10-08T20:39:31.3274679Z 
+2026-10-08T20:39:31.3274967Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+2026-10-08T20:39:31.3275580Z 
+2026-10-08T20:39:31.3284419Z [1m[92m     Running[0m tests/race_scheduler.rs (target/debug/deps/race_scheduler-72c90596173a56c3)
+2026-10-08T20:39:31.3295073Z 
+2026-10-08T20:39:31.3295292Z running 4 tests
+2026-10-08T20:39:31.3298409Z test skips_early_turns ... ok
+2026-10-08T20:39:31.3298790Z test skips_non_free_phase ... ok
+2026-10-08T20:39:31.3299144Z test skips_when_fans_high ... ok
+2026-10-08T20:39:31.3299520Z test suggests_race_when_fans_low ... ok
+2026-10-08T20:39:31.3299766Z 
+2026-10-08T20:39:31.3300051Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:31.3300332Z 
+2026-10-08T20:39:31.3301512Z [1m[92m     Running[0m tests/race_v4_dist.rs (target/debug/deps/race_v4_dist-948f119ece761ed6)
+2026-10-08T20:39:31.3313780Z 
+2026-10-08T20:39:31.3313893Z running 2 tests
+2026-10-08T20:39:31.7950389Z test r86_v4_career_physics_logs_emit_place_and_margins ... ok
+2026-10-08T20:39:32.3279621Z test r86_v4_place_margin_distribution_soft_gate ... ok
+2026-10-08T20:39:32.3279952Z 
+2026-10-08T20:39:32.3280242Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.00s
+2026-10-08T20:39:32.3280624Z 
+2026-10-08T20:39:32.3287103Z [1m[92m     Running[0m tests/rest_policy_external_stub.rs (target/debug/deps/rest_policy_external_stub-480ac7d9f4f5276f)
+2026-10-08T20:39:32.3301382Z 
+2026-10-08T20:39:32.3301518Z running 1 test
+2026-10-08T20:39:32.6681805Z test policy_external_positive_path_with_stub ... ok
+2026-10-08T20:39:32.6682202Z 
+2026-10-08T20:39:32.6685827Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+2026-10-08T20:39:32.6686232Z 
+2026-10-08T20:39:32.6705777Z [1m[92m     Running[0m tests/scenario_depth.rs (target/debug/deps/scenario_depth-1119343b4c225ea1)
+2026-10-08T20:39:32.6713210Z 
+2026-10-08T20:39:32.6713328Z running 4 tests
+2026-10-08T20:39:32.6717824Z test grand_concert_promo_mandatory_at_turn_36 ... ok
+2026-10-08T20:39:32.6718302Z test happy_meek_badge_rolls_on_turn_start ... ok
+2026-10-08T20:39:32.6718817Z test grand_concert_perfect_when_18_songs_and_great_success ... ok
+2026-10-08T20:39:32.6719155Z test unity_extreme_burst_consumes_ready_flag ... ok
+2026-10-08T20:39:32.6719340Z 
+2026-10-08T20:39:32.6719679Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:32.6720115Z 
+2026-10-08T20:39:32.6720554Z [1m[92m     Running[0m tests/session_targeting.rs (target/debug/deps/session_targeting-a492a22b6a448a6f)
+2026-10-08T20:39:32.6728395Z 
+2026-10-08T20:39:32.6728515Z running 5 tests
+2026-10-08T20:39:33.1289805Z test absent_explicit_main_never_falls_back_to_the_active_fork ... ok
+2026-10-08T20:39:33.1296721Z test empty_body_session_precedes_query_and_empty_query_is_explicit ... ok
+2026-10-08T20:39:33.2356629Z test explicit_main_action_changes_only_main ... ok
+2026-10-08T20:39:33.3588741Z test explicit_main_fast_forward_keeps_active_fork_unchanged ... ok
+2026-10-08T20:39:33.4683646Z test explicit_main_reads_do_not_follow_an_active_fork ... ok
+2026-10-08T20:39:33.4684038Z 
+2026-10-08T20:39:33.4684244Z test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.80s
+2026-10-08T20:39:33.4684536Z 
+2026-10-08T20:39:33.4686365Z [1m[92m     Running[0m tests/sim_engine.rs (target/debug/deps/sim_engine-7df509cf75fe5345)
+2026-10-08T20:39:33.4699345Z 
+2026-10-08T20:39:33.4699443Z running 10 tests
+2026-10-08T20:39:33.4707023Z test mandatory_debut_race_on_turn_1 ... ok
+2026-10-08T20:39:33.5496834Z test grand_concert_earns_performance_tokens ... ok
+2026-10-08T20:39:33.5667224Z test snapshot_round_trip_preserves_turn ... ok
+2026-10-08T20:39:33.5668113Z test event_choice_updates_stats ... ok
+2026-10-08T20:39:33.5678370Z test speed_clamped_to_100 ... ok
+2026-10-08T20:39:33.5680053Z test training_uses_formula_gain ... ok
+2026-10-08T20:39:33.5680713Z test turbo_suppresses_dialogue ... ok
+2026-10-08T20:39:33.5817283Z test trackblazer_earns_coins_on_race ... ok
+2026-10-08T20:39:33.5896824Z test same_seed_same_outcome ... ok
+2026-10-08T20:39:33.6452884Z test completes_72_turn_career ... ok
+2026-10-08T20:39:33.6453185Z 
+2026-10-08T20:39:33.6453515Z test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+2026-10-08T20:39:33.6453960Z 
+2026-10-08T20:39:33.6462272Z [1m[92m     Running[0m tests/sim_telemetry_export.rs (target/debug/deps/sim_telemetry_export-85f711ca6de494fe)
+2026-10-08T20:39:33.6475858Z 
+2026-10-08T20:39:33.6475989Z running 2 tests
+2026-10-08T20:39:33.7359467Z test export_jsonl_matches_android_turn_shape ... ok
+2026-10-08T20:39:34.0791347Z test bot_run_produces_calibration_ready_training_records ... ok
+2026-10-08T20:39:34.0791724Z 
+2026-10-08T20:39:34.0792042Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.43s
+2026-10-08T20:39:34.0792436Z 
+2026-10-08T20:39:34.0798619Z [1m[92m     Running[0m tests/skill_catalog_display.rs (target/debug/deps/skill_catalog_display-890ce50352fb1817)
+2026-10-08T20:39:34.0808522Z 
+2026-10-08T20:39:34.0808652Z running 1 test
+2026-10-08T20:39:34.0812969Z test display_projection_preserves_name_lookup_and_failed_load_semantics ... ok
+2026-10-08T20:39:34.0813403Z 
+2026-10-08T20:39:34.0813711Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:34.0814149Z 
+2026-10-08T20:39:34.0814740Z [1m[92m     Running[0m tests/skill_hint_routing.rs (target/debug/deps/skill_hint_routing-18287bcf48fe9db6)
+2026-10-08T20:39:34.0823104Z 
+2026-10-08T20:39:34.0823277Z running 2 tests
+2026-10-08T20:39:34.1081909Z test trainee_skills_event_loaded_for_special_week ... ok
+2026-10-08T20:39:34.3576542Z test skill_catalog_resolves_hydrate_or_loads ... ok
+2026-10-08T20:39:34.3576955Z 
+2026-10-08T20:39:34.3577251Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+2026-10-08T20:39:34.3577652Z 
+2026-10-08T20:39:34.3599682Z [1m[92m     Running[0m tests/soft_cap.rs (target/debug/deps/soft_cap-917785d16b4a2e3a)
+2026-10-08T20:39:34.3610132Z 
+2026-10-08T20:39:34.3610270Z running 2 tests
+2026-10-08T20:39:34.3612493Z test shared_multiplier_matches_scoring_shared ... ok
+2026-10-08T20:39:34.3612839Z test spark_cap_raises_hard_cap_before_soft_cap_blend ... ok
+2026-10-08T20:39:34.3613049Z 
+2026-10-08T20:39:34.3613258Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:34.3613528Z 
+2026-10-08T20:39:34.3614715Z [1m[92m     Running[0m tests/spark_generation.rs (target/debug/deps/spark_generation-68c36383b5336bda)
+2026-10-08T20:39:34.3626566Z 
+2026-10-08T20:39:34.3626690Z running 5 tests
+2026-10-08T20:39:34.3647294Z test blue_bands_never_roll_3star_below_600 ... ok
+2026-10-08T20:39:34.3647661Z test grade_quality_ue_can_roll_3star ... ok
+2026-10-08T20:39:34.3648175Z test red_star_distribution_covers_1_2_3 ... ok
+2026-10-08T20:39:34.6889610Z test completed_career_emits_blue_and_green_sparks ... ok
+2026-10-08T20:39:34.6905493Z test spark_generation_does_not_change_career_rng_call_count ... ok
+2026-10-08T20:39:34.6905762Z 
+2026-10-08T20:39:34.6905983Z test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.33s
+2026-10-08T20:39:34.6906274Z 
+2026-10-08T20:39:34.6924840Z [1m[92m     Running[0m tests/support_catalog.rs (target/debug/deps/support_catalog-12bfdec8355b36ac)
+2026-10-08T20:39:34.6935091Z 
+2026-10-08T20:39:34.6935305Z running 1 test
+2026-10-08T20:39:34.7950781Z test loads_special_week_from_kb_when_available ... ok
+2026-10-08T20:39:34.7951473Z 
+2026-10-08T20:39:34.7951693Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+2026-10-08T20:39:34.7951992Z 
+2026-10-08T20:39:34.7967492Z [1m[92m     Running[0m tests/telemetry_replay.rs (target/debug/deps/telemetry_replay-2a57734a7d2299fc)
+2026-10-08T20:39:34.7980011Z 
+2026-10-08T20:39:34.7980125Z running 2 tests
+2026-10-08T20:39:34.8133340Z test event_fixtures_exact_match ... ok
+2026-10-08T20:39:34.8136558Z test replay_fixtures_match_at_least_90_percent ... ok
+2026-10-08T20:39:34.8136845Z 
+2026-10-08T20:39:34.8137179Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+2026-10-08T20:39:34.8137578Z 
+2026-10-08T20:39:34.8141996Z [1m[92m     Running[0m tests/trainee_catalog.rs (target/debug/deps/trainee_catalog-1ed3c0a9294336c2)
+2026-10-08T20:39:34.8152244Z 
+2026-10-08T20:39:34.8152361Z running 3 tests
+2026-10-08T20:39:34.8415945Z test loads_special_week_growth_from_kb ... ok
+2026-10-08T20:39:34.8416458Z test list_all_excludes_staff_and_non_card_chars ... ok
+2026-10-08T20:39:34.8419875Z test growth_pct_boosts_training_gain ... ok
+2026-10-08T20:39:34.8420139Z 
+2026-10-08T20:39:34.8420480Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+2026-10-08T20:39:34.8420880Z 
+2026-10-08T20:39:34.8438915Z [1m[92m     Running[0m tests/training_failure_config.rs (target/debug/deps/training_failure_config-e5dd3180913d3c89)
+2026-10-08T20:39:34.8439493Z 
+2026-10-08T20:39:34.8439617Z running 3 tests
+2026-10-08T20:39:34.8441344Z test awful_mood_increases_failure ... ok
+2026-10-08T20:39:34.8441626Z test low_energy_increases_failure ... ok
+2026-10-08T20:39:34.8441966Z test rainbow_activates_friendship_for_all_cards_on_facility ... ok
+2026-10-08T20:39:34.8442191Z 
+2026-10-08T20:39:34.8442401Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:34.8442674Z 
+2026-10-08T20:39:34.8444102Z [1m[92m     Running[0m tests/training_failure_penalty.rs (target/debug/deps/training_failure_penalty-40ce375d01f8b3f4)
+2026-10-08T20:39:34.8456648Z 
+2026-10-08T20:39:34.8456765Z running 4 tests
+2026-10-08T20:39:34.8462253Z test certain_injury_chance_applies_injury_flag ... ok
+2026-10-08T20:39:34.8463007Z test injured_trainee_blocked_from_training ... ok
+2026-10-08T20:39:34.8463878Z test rest_clears_injury ... ok
+2026-10-08T20:39:34.8467721Z test wit_training_restores_energy ... ok
+2026-10-08T20:39:34.8467981Z 
+2026-10-08T20:39:34.8468295Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:34.8468727Z 
+2026-10-08T20:39:34.8471578Z [1m[92m     Running[0m tests/training_inspection.rs (target/debug/deps/training_inspection-8fa9ecb80fb7751b)
+2026-10-08T20:39:34.8484057Z 
+2026-10-08T20:39:34.8484302Z running 7 tests
+2026-10-08T20:39:34.8516396Z test current_energy_risk_uses_the_native_post_cost_boundary ... ok
+2026-10-08T20:39:34.8546430Z test repeated_inspection_preserves_snapshot_rng_and_next_action ... ok
+2026-10-08T20:39:34.8562284Z test samples_stay_raw_while_energy_recovery_respects_the_cap ... ok
+2026-10-08T20:39:34.8637176Z test scenario_zero_failure_and_effective_unity_level_are_inspected ... ok
+2026-10-08T20:39:34.8647299Z test unavailable_phases_and_blocked_rows_have_no_attempt_results ... ok
+2026-10-08T20:39:34.8652944Z test actual_cli_refuses_arguments_and_unreadable_sessions_without_writes ... ok
+2026-10-08T20:39:37.0539263Z test actual_cli_inspects_saved_native_career_without_rewriting_it ... ok
+2026-10-08T20:39:37.0539706Z 
+2026-10-08T20:39:37.0540030Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.21s
+2026-10-08T20:39:37.0540484Z 
+2026-10-08T20:39:37.0542903Z [1m[92m     Running[0m tests/training_resolver.rs (target/debug/deps/training_resolver-efededd8d228c80f)
+2026-10-08T20:39:37.0553619Z 
+2026-10-08T20:39:37.0553760Z running 2 tests
+2026-10-08T20:39:37.0556026Z test power_training_secondary_is_stamina ... ok
+2026-10-08T20:39:37.0560768Z test tertiary_gain_is_twenty_percent_of_main ... ok
+2026-10-08T20:39:37.0561075Z 
+2026-10-08T20:39:37.0561402Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:37.0561797Z 
+2026-10-08T20:39:37.0563142Z [1m[92m     Running[0m tests/unity_trackblazer_mechanics.rs (target/debug/deps/unity_trackblazer_mechanics-2083eea53868887a)
+2026-10-08T20:39:37.0574409Z 
+2026-10-08T20:39:37.0574527Z running 20 tests
+2026-10-08T20:39:37.0578302Z test trackblazer_climax2_gap_documented ... ok
+2026-10-08T20:39:37.0578908Z test trackblazer_climax_awards_victory_points ... ok
+2026-10-08T20:39:37.0579648Z test trackblazer_climax_pays_more_coins ... ok
+2026-10-08T20:39:37.0581860Z test trackblazer_epithet_gap_documented ... ok
+2026-10-08T20:39:37.0583850Z test trackblazer_megaphone_training_multiplier ... ok
+2026-10-08T20:39:37.0584314Z test trackblazer_rival_gap_documented ... ok
+2026-10-08T20:39:37.0584723Z test trackblazer_shop_opens_on_interval ... ok
+2026-10-08T20:39:37.0585565Z test trackblazer_shop_purchase_deducts_coins_and_applies_stats ... ok
+2026-10-08T20:39:37.0586077Z test trackblazer_inventory_gap_documented ... ok
+2026-10-08T20:39:37.0596335Z test trackblazer_shop_roll_is_deterministic ... ok
+2026-10-08T20:39:37.0597916Z test unity_per_leg_gap_documented ... ok
+2026-10-08T20:39:37.0724812Z test trackblazer_speed_charm_effects_raise_speed ... ok
+2026-10-08T20:39:37.0725865Z test trackblazer_shop_sale_reduces_purchase_cost ... ok
+2026-10-08T20:39:37.0726305Z test unity_extreme_burst_grants_ignited_spirit_hint ... ok
+2026-10-08T20:39:37.0727757Z test unity_spirit_burst_bumps_team_rank ... ok
+2026-10-08T20:39:37.0729821Z test unity_plugin_syncs_facility_levels_from_rank ... ok
+2026-10-08T20:39:37.0730276Z test unity_team_rank_maps_to_facility_level ... ok
+2026-10-08T20:39:37.0730587Z test unity_teammate_share_gap_documented ... ok
+2026-10-08T20:39:37.0730879Z test unity_team_race_win_counts_five_legs_and_zenith ... ok
+2026-10-08T20:39:37.0731283Z test unity_spirit_burst_at_research_threshold ... ok
+2026-10-08T20:39:37.0731536Z 
+2026-10-08T20:39:37.0732021Z test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+2026-10-08T20:39:37.0732454Z 
+2026-10-08T20:39:37.0735316Z [1m[92m     Running[0m tests/ura_mechanics.rs (target/debug/deps/ura_mechanics-d01cb73d8f52df87)
+2026-10-08T20:39:37.0745634Z 
+2026-10-08T20:39:37.0745768Z running 9 tests
+2026-10-08T20:39:37.0748732Z test choose_duel_falls_back_to_best_odds_when_no_good_target ... ok
+2026-10-08T20:39:37.0750258Z test duel_accepts_bad_odds_when_failure_within_pct ... ok
+2026-10-08T20:39:37.0750715Z test duel_training_bias_boosts_badged_facility ... ok
+2026-10-08T20:39:37.0751016Z test choose_duel_prefers_good_odds_target_stat ... ok
+2026-10-08T20:39:37.0751484Z test duel_win_grants_racing_spirit_hint ... ok
+2026-10-08T20:39:37.0752003Z test max_level_meek_win_unlocks_past_my_limits ... ok
+2026-10-08T20:39:37.0752461Z test duel_win_raises_cap_and_meek_level ... ok
+2026-10-08T20:39:37.0753025Z test training_on_badged_facility_triggers_duel_event ... ok
+2026-10-08T20:39:37.0753375Z test ura_finale_distance_gap_documented ... ok
+2026-10-08T20:39:37.0753610Z 
+2026-10-08T20:39:37.0754517Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:37.0754926Z 
+2026-10-08T20:39:37.0756671Z [1m[92m   Doc-tests[0m uma_race_core
+2026-10-08T20:39:37.2424884Z 
+2026-10-08T20:39:37.2425607Z running 0 tests
+2026-10-08T20:39:37.2425788Z 
+2026-10-08T20:39:37.2426028Z test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:37.2426316Z 
+2026-10-08T20:39:37.2457993Z [1m[92m   Doc-tests[0m uma_sim_core
+2026-10-08T20:39:37.5885917Z 
+2026-10-08T20:39:37.5886468Z running 0 tests
+2026-10-08T20:39:37.5886659Z 
+2026-10-08T20:39:37.5886904Z test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-08T20:39:37.5887190Z 
+2026-10-08T20:39:37.5978001Z ##[group]Run cargo build --locked --release --features embed-ui -p uma-sim-core
+2026-10-08T20:39:37.5978493Z [36;1mcargo build --locked --release --features embed-ui -p uma-sim-core[0m
+2026-10-08T20:39:37.6100063Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:39:37.6100670Z env:
+2026-10-08T20:39:37.6101565Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:39:37.6102074Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:39:37.6102899Z   CARGO_TERM_COLOR: always
+2026-10-08T20:39:37.6103119Z   CACHE_ON_FAILURE: false
+2026-10-08T20:39:37.6103341Z ##[endgroup]
+2026-10-08T20:39:37.7091043Z [1m[92m   Compiling[0m uma-sim-core v0.1.0 (/home/runner/work/uma-sim/uma-sim/uma-sim-core)
+2026-10-08T20:39:37.7091976Z [1m[92m   Compiling[0m uma-race-core v0.1.0 (/home/runner/work/uma-sim/uma-sim/uma-race-core)
+2026-10-08T20:39:52.3908883Z [1m[92m    Finished[0m `release` profile [optimized] target(s) in 14.75s
+2026-10-08T20:39:52.4013900Z ##[group]Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+2026-10-08T20:39:52.4014230Z with:
+2026-10-08T20:39:52.4014413Z   node-version: 20
+2026-10-08T20:39:52.4014598Z   check-latest: false
+2026-10-08T20:39:52.4016944Z   token: ***
+2026-10-08T20:39:52.4017137Z   package-manager-cache: true
+2026-10-08T20:39:52.4017353Z env:
+2026-10-08T20:39:52.4017545Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:39:52.4017760Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:39:52.4017958Z   CARGO_TERM_COLOR: always
+2026-10-08T20:39:52.4018165Z   CACHE_ON_FAILURE: false
+2026-10-08T20:39:52.4018354Z ##[endgroup]
+2026-10-08T20:39:52.5384019Z Attempting to download 20...
+2026-10-08T20:39:53.5138575Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+2026-10-08T20:39:54.0278962Z Extracting ...
+2026-10-08T20:39:54.0380040Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/96c4b716-d867-4c6b-9b5a-8941d8249435 -f /home/runner/work/_temp/76f4d9ce-f2b5-4e3e-a4f0-73c54eb4b9e8
+2026-10-08T20:39:54.8933607Z Adding to the cache ...
+2026-10-08T20:39:56.6520638Z ##[group]Environment details
+2026-10-08T20:39:56.9493467Z node: v20.20.2
+2026-10-08T20:39:56.9493819Z npm: 10.8.2
+2026-10-08T20:39:56.9494061Z yarn: 1.22.22
+2026-10-08T20:39:56.9494649Z ##[endgroup]
+2026-10-08T20:39:56.9638306Z ##[group]Run npm --prefix packages/uma-sim-cli run test:tui:native
+2026-10-08T20:39:56.9638717Z [36;1mnpm --prefix packages/uma-sim-cli run test:tui:native[0m
+2026-10-08T20:39:56.9697456Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:39:56.9697687Z env:
+2026-10-08T20:39:56.9697868Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:39:56.9698101Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:39:56.9698308Z   CARGO_TERM_COLOR: always
+2026-10-08T20:39:56.9698516Z   CACHE_ON_FAILURE: false
+2026-10-08T20:39:56.9698820Z   UMA_SIM_NATIVE_API: /home/runner/work/uma-sim/uma-sim/target/release/uma-sim-api
+2026-10-08T20:39:56.9699219Z   UMA_TUI_RECEIPTS: /home/runner/work/_temp/uma-terminal-checkpoints
+2026-10-08T20:39:56.9699508Z ##[endgroup]
+2026-10-08T20:39:57.0604026Z 
+2026-10-08T20:39:57.0610239Z > uma-sim-cli@0.1.0 test:tui:native
+2026-10-08T20:39:57.0610693Z > node --test tests/tui-checkpoints.native.mjs
+2026-10-08T20:39:57.0610888Z 
+2026-10-08T20:39:57.0955431Z TAP version 13
+2026-10-08T20:39:58.9523626Z # Subtest: native checkpoint survives an actual process restart and resumes the exact next RNG step
+2026-10-08T20:39:58.9529425Z ok 1 - native checkpoint survives an actual process restart and resumes the exact next RNG step
+2026-10-08T20:39:58.9530357Z   ---
+2026-10-08T20:39:58.9530902Z   duration_ms: 1821.73367
+2026-10-08T20:39:58.9531368Z   ...
+2026-10-08T20:39:59.5977694Z # Subtest: native create-only save preserves an earlier checkpoint and reports actual storage refusal
+2026-10-08T20:39:59.5980772Z ok 2 - native create-only save preserves an earlier checkpoint and reports actual storage refusal
+2026-10-08T20:39:59.5981430Z   ---
+2026-10-08T20:39:59.5981683Z   duration_ms: 645.475655
+2026-10-08T20:39:59.5982013Z   ...
+2026-10-08T20:40:00.4754941Z # Subtest: native missing and incompatible checkpoints refuse without replacement; compatibility advisories remain visible
+2026-10-08T20:40:00.4756636Z ok 3 - native missing and incompatible checkpoints refuse without replacement; compatibility advisories remain visible
+2026-10-08T20:40:00.4757095Z   ---
+2026-10-08T20:40:00.4757292Z   duration_ms: 877.49127
+2026-10-08T20:40:00.4757493Z   ...
+2026-10-08T20:40:01.1621189Z # Subtest: native committed save with disconnect reports uncertainty and is not replayed
+2026-10-08T20:40:01.1622143Z ok 4 - native committed save with disconnect reports uncertainty and is not replayed
+2026-10-08T20:40:01.1622669Z   ---
+2026-10-08T20:40:01.1622939Z   duration_ms: 686.995576
+2026-10-08T20:40:01.1623233Z   ...
+2026-10-08T20:40:01.8644802Z # Subtest: native committed save with invalid JSON reports uncertainty and is not replayed
+2026-10-08T20:40:01.8646055Z ok 5 - native committed save with invalid JSON reports uncertainty and is not replayed
+2026-10-08T20:40:01.8646445Z   ---
+2026-10-08T20:40:01.8646816Z   duration_ms: 702.187028
+2026-10-08T20:40:01.8647075Z   ...
+2026-10-08T20:40:02.4750145Z # Subtest: native committed fork with disconnect reports uncertainty and is not replayed
+2026-10-08T20:40:02.4750958Z ok 6 - native committed fork with disconnect reports uncertainty and is not replayed
+2026-10-08T20:40:02.4751321Z   ---
+2026-10-08T20:40:02.4751507Z   duration_ms: 610.419665
+2026-10-08T20:40:02.4751917Z   ...
+2026-10-08T20:40:03.0863402Z # Subtest: native committed fork with invalid JSON reports uncertainty and is not replayed
+2026-10-08T20:40:03.0864377Z ok 7 - native committed fork with invalid JSON reports uncertainty and is not replayed
+2026-10-08T20:40:03.0864931Z   ---
+2026-10-08T20:40:03.0865707Z   duration_ms: 611.220933
+2026-10-08T20:40:03.0866013Z   ...
+2026-10-08T20:40:03.7290807Z # Subtest: native EOF after committed save preserves resumable state without replay
+2026-10-08T20:40:03.7291839Z ok 8 - native EOF after committed save preserves resumable state without replay
+2026-10-08T20:40:03.7292475Z   ---
+2026-10-08T20:40:03.7292787Z   duration_ms: 642.767243
+2026-10-08T20:40:03.7293113Z   ...
+2026-10-08T20:40:04.3669077Z # Subtest: native SIGINT after committed save preserves resumable state without replay
+2026-10-08T20:40:04.3670456Z ok 9 - native SIGINT after committed save preserves resumable state without replay
+2026-10-08T20:40:04.3671124Z   ---
+2026-10-08T20:40:04.3671457Z   duration_ms: 637.816738
+2026-10-08T20:40:04.3671809Z   ...
+2026-10-08T20:40:04.9721333Z # Subtest: native EOF after committed fork preserves resumable state without replay
+2026-10-08T20:40:04.9722267Z ok 10 - native EOF after committed fork preserves resumable state without replay
+2026-10-08T20:40:04.9724020Z   ---
+2026-10-08T20:40:04.9724283Z   duration_ms: 605.120575
+2026-10-08T20:40:04.9724578Z   ...
+2026-10-08T20:40:05.5699372Z # Subtest: native SIGINT after committed fork preserves resumable state without replay
+2026-10-08T20:40:05.5700273Z ok 11 - native SIGINT after committed fork preserves resumable state without replay
+2026-10-08T20:40:05.5700865Z   ---
+2026-10-08T20:40:05.5701206Z   duration_ms: 597.574082
+2026-10-08T20:40:05.5701564Z   ...
+2026-10-08T20:40:05.5961186Z 1..11
+2026-10-08T20:40:05.5961507Z # tests 11
+2026-10-08T20:40:05.5961780Z # suites 0
+2026-10-08T20:40:05.5962885Z # pass 11
+2026-10-08T20:40:05.5963432Z # fail 0
+2026-10-08T20:40:05.5965679Z # cancelled 0
+2026-10-08T20:40:05.5985761Z # skipped 0
+2026-10-08T20:40:05.5986022Z # todo 0
+2026-10-08T20:40:05.5986339Z # duration_ms 8507.468842
+2026-10-08T20:40:05.6090098Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-10-08T20:40:05.6090456Z with:
+2026-10-08T20:40:05.6090651Z   name: uma-terminal-checkpoint-receiving
+2026-10-08T20:40:05.6090938Z   path: /home/runner/work/_temp/uma-terminal-checkpoints
+2026-10-08T20:40:05.6091213Z   if-no-files-found: warn
+2026-10-08T20:40:05.6091411Z   compression-level: 6
+2026-10-08T20:40:05.6091598Z   overwrite: false
+2026-10-08T20:40:05.6091960Z   include-hidden-files: false
+2026-10-08T20:40:05.6092164Z   archive: true
+2026-10-08T20:40:05.6092336Z env:
+2026-10-08T20:40:05.6092509Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:40:05.6092725Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:40:05.6092920Z   CARGO_TERM_COLOR: always
+2026-10-08T20:40:05.6093242Z   CACHE_ON_FAILURE: false
+2026-10-08T20:40:05.6093433Z ##[endgroup]
+2026-10-08T20:40:05.7247672Z With the provided path, there will be 12 files uploaded
+2026-10-08T20:40:05.7253471Z Artifact name is valid!
+2026-10-08T20:40:05.7254414Z Root directory input is valid!
+2026-10-08T20:40:06.0824412Z Uploading artifact: uma-terminal-checkpoint-receiving.zip
+2026-10-08T20:40:06.0857800Z Beginning upload of artifact content to blob storage
+2026-10-08T20:40:06.3759215Z Uploaded bytes 21771
+2026-10-08T20:40:06.4309373Z Finished uploading artifact content to blob storage!
+2026-10-08T20:40:06.4310211Z SHA256 digest of uploaded artifact is 17f7f5d912dad77ea594429b0cd66e645edb9b8fa1906adf296850084c1c3865
+2026-10-08T20:40:06.4311043Z Finalizing artifact upload
+2026-10-08T20:40:06.8210966Z Artifact uma-terminal-checkpoint-receiving successfully finalized. Artifact ID 11578400170
+2026-10-08T20:40:06.8211926Z Artifact uma-terminal-checkpoint-receiving has been successfully uploaded! Final size is 21771 bytes. Artifact ID is 11578400170
+2026-10-08T20:40:06.8215227Z Artifact download URL: https://github.com/Jacob-Met/uma-sim/actions/runs/37840723118/artifacts/11578400170
+2026-10-08T20:40:06.8325829Z ##[group]Run node --test packages/uma-sim-mcp/tests/*native.test.mjs
+2026-10-08T20:40:06.8326317Z [36;1mnode --test packages/uma-sim-mcp/tests/*native.test.mjs[0m
+2026-10-08T20:40:06.8382861Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:40:06.8383108Z env:
+2026-10-08T20:40:06.8383294Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:40:06.8383527Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:40:06.8383730Z   CARGO_TERM_COLOR: always
+2026-10-08T20:40:06.8383940Z   CACHE_ON_FAILURE: false
+2026-10-08T20:40:06.8384248Z   UMA_SIM_TEST_API_BIN: /home/runner/work/uma-sim/uma-sim/target/release/uma-sim-api
+2026-10-08T20:40:06.8384696Z   UMA_SIM_TEST_OUTPUT_DIR: /home/runner/work/_temp/uma-sim-mcp-native
+2026-10-08T20:40:06.8385079Z   UMA_SIM_TEST_RECEIVING_COMMIT: 8d9ec78f210bd39dbbce0f8910fb61c35ba5c007
+2026-10-08T20:40:06.8385575Z ##[endgroup]
+2026-10-08T20:40:06.8776505Z TAP version 13
+2026-10-08T20:40:07.4841763Z # Subtest: native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+2026-10-08T20:40:07.4843817Z     # Subtest: save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes
+2026-10-08T20:40:07.4845370Z     ok 1 - save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes
+2026-10-08T20:40:07.4846314Z       ---
+2026-10-08T20:40:07.4846812Z       duration_ms: 144.43746
+2026-10-08T20:40:07.4847313Z       ...
+2026-10-08T20:40:07.6796238Z     # Subtest: forking and named actions do not mutate the source, sibling or saved checkpoint
+2026-10-08T20:40:07.6797215Z     ok 2 - forking and named actions do not mutate the source, sibling or saved checkpoint
+2026-10-08T20:40:07.6797780Z       ---
+2026-10-08T20:40:07.6798061Z       duration_ms: 197.421425
+2026-10-08T20:40:07.6798394Z       ...
+2026-10-08T20:40:07.8593510Z     # Subtest: incompatible checkpoint metadata returns real 422 and preserves the target session
+2026-10-08T20:40:07.8601052Z     ok 3 - incompatible checkpoint metadata returns real 422 and preserves the target session
+2026-10-08T20:40:07.8601893Z       ---
+2026-10-08T20:40:07.8602382Z       duration_ms: 179.566831
+2026-10-08T20:40:07.8602939Z       ...
+2026-10-08T20:40:08.1885524Z     # Subtest: known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics
+2026-10-08T20:40:08.1891276Z     ok 4 - known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics
+2026-10-08T20:40:08.1892597Z       ---
+2026-10-08T20:40:08.1893390Z       duration_ms: 327.710248
+2026-10-08T20:40:08.1893750Z       ...
+2026-10-08T20:40:08.2767673Z     # Subtest: external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged
+2026-10-08T20:40:08.2768643Z     ok 5 - external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged
+2026-10-08T20:40:08.2769195Z       ---
+2026-10-08T20:40:08.2769458Z       duration_ms: 89.445911
+2026-10-08T20:40:08.2769777Z       ...
+2026-10-08T20:40:08.5857865Z     # Subtest: branches compare actual decisions while preserving live sessions and checkpoint bytes
+2026-10-08T20:40:08.5859017Z     ok 6 - branches compare actual decisions while preserving live sessions and checkpoint bytes
+2026-10-08T20:40:08.5859673Z       ---
+2026-10-08T20:40:08.5859974Z       duration_ms: 308.615506
+2026-10-08T20:40:08.5860353Z       ...
+2026-10-08T20:40:08.7201096Z     # Subtest: invalid branch/import operations and deletions preserve unrelated native state
+2026-10-08T20:40:08.7202086Z     ok 7 - invalid branch/import operations and deletions preserve unrelated native state
+2026-10-08T20:40:08.7202545Z       ---
+2026-10-08T20:40:08.7202743Z       duration_ms: 135.061822
+2026-10-08T20:40:08.7203000Z       ...
+2026-10-08T20:40:08.7347472Z     1..7
+2026-10-08T20:40:08.7348269Z ok 1 - native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+2026-10-08T20:40:08.7348813Z   ---
+2026-10-08T20:40:08.7349464Z   duration_ms: 1826.273264
+2026-10-08T20:40:08.7349807Z   ...
+2026-10-08T20:40:08.7420800Z # Subtest: native receiving: fork contention has one winner and closing it without main preserves surviving careers
+2026-10-08T20:40:08.7421552Z ok 2 - native receiving: fork contention has one winner and closing it without main preserves surviving careers
+2026-10-08T20:40:08.7422153Z   ---
+2026-10-08T20:40:08.7422414Z   duration_ms: 540.922248
+2026-10-08T20:40:08.7422617Z   ...
+2026-10-08T20:40:08.7423708Z # {"case":"concurrent-fork-and-no-main","winner":"receiving-fork-a","surviving":["receiving-a","receiving-b"],"a":"2c0acd43b7c1a5aa1d7ebd0030e1969411b4fc5a03e40b58b365b0e65dd07e2d","b":"0f6ec7eb2348414d2e332c7d4f7b263219c27939cf900a235cab422ebf2fa177"}
+2026-10-08T20:40:08.7425038Z # Subtest: native receiving: external-policy refusal fully restores a non-active target and permits later continuation
+2026-10-08T20:40:08.7426024Z ok 3 - native receiving: external-policy refusal fully restores a non-active target and permits later continuation
+2026-10-08T20:40:08.7426508Z   ---
+2026-10-08T20:40:08.7426698Z   duration_ms: 446.625229
+2026-10-08T20:40:08.7426964Z   ...
+2026-10-08T20:40:08.7428245Z # {"case":"non-active-503-rollback-and-continuation","unchangedTarget":"de5251a364744ef3555384b9cf972cbbff58d55bdce552c77ffaae6f48596094","unchangedActive":"99d1755e710745d3f4973825360ddfdbdcddb3ba622ac98d4584785912ba05dc","targetSpeed":3,"activeSpeed":7}
+2026-10-08T20:40:08.7429652Z # Subtest: native receiving: global content reaches both existing careers and differs from an unloaded API control
+2026-10-08T20:40:08.7430445Z ok 4 - native receiving: global content reaches both existing careers and differs from an unloaded API control
+2026-10-08T20:40:08.7430853Z   ---
+2026-10-08T20:40:08.7431025Z   duration_ms: 547.097777
+2026-10-08T20:40:08.7431223Z   ...
+2026-10-08T20:40:08.7432385Z # {"case":"global-content-native-control","loaded":500,"step":2,"turn":3,"a":"f94ecfe0a31c30bfc652c76bbb18f000b40522938c099cd9411a63b63173ad25","b":"f94ecfe0a31c30bfc652c76bbb18f000b40522938c099cd9411a63b63173ad25","unloaded":"d44a37350291d5c162fd7db47da298d6ba1cfa54b7e8eb6d60b9b09636aca761","active":"pack-b"}
+2026-10-08T20:40:08.7433357Z 1..4
+2026-10-08T20:40:08.7433526Z # tests 11
+2026-10-08T20:40:08.7433690Z # suites 0
+2026-10-08T20:40:08.7433862Z # pass 11
+2026-10-08T20:40:08.7434110Z # fail 0
+2026-10-08T20:40:08.7434319Z # cancelled 0
+2026-10-08T20:40:08.7434543Z # skipped 0
+2026-10-08T20:40:08.7434706Z # todo 0
+2026-10-08T20:40:08.7434892Z # duration_ms 1873.747947
+2026-10-08T20:40:08.7513875Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-10-08T20:40:08.7514258Z with:
+2026-10-08T20:40:08.7514442Z   name: uma-sim-mcp-native
+2026-10-08T20:40:08.7514700Z   path: /home/runner/work/_temp/uma-sim-mcp-native
+2026-10-08T20:40:08.7514966Z   if-no-files-found: warn
+2026-10-08T20:40:08.7515434Z   compression-level: 6
+2026-10-08T20:40:08.7515634Z   overwrite: false
+2026-10-08T20:40:08.7515830Z   include-hidden-files: false
+2026-10-08T20:40:08.7516033Z   archive: true
+2026-10-08T20:40:08.7516211Z env:
+2026-10-08T20:40:08.7516381Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:40:08.7516603Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:40:08.7516803Z   CARGO_TERM_COLOR: always
+2026-10-08T20:40:08.7517006Z   CACHE_ON_FAILURE: false
+2026-10-08T20:40:08.7517203Z ##[endgroup]
+2026-10-08T20:40:08.8724391Z With the provided path, there will be 16 files uploaded
+2026-10-08T20:40:08.8729822Z Artifact name is valid!
+2026-10-08T20:40:08.8730469Z Root directory input is valid!
+2026-10-08T20:40:09.2045383Z Uploading artifact: uma-sim-mcp-native.zip
+2026-10-08T20:40:09.2078129Z Beginning upload of artifact content to blob storage
+2026-10-08T20:40:09.4529818Z Uploaded bytes 8776
+2026-10-08T20:40:09.5075590Z Finished uploading artifact content to blob storage!
+2026-10-08T20:40:09.5076546Z SHA256 digest of uploaded artifact is 569661f86ddd96d65e7ef769d80f975a7992c812ed30d0813e8224b105945258
+2026-10-08T20:40:09.5077225Z Finalizing artifact upload
+2026-10-08T20:40:09.9308373Z Artifact uma-sim-mcp-native successfully finalized. Artifact ID 11577114102
+2026-10-08T20:40:09.9309379Z Artifact uma-sim-mcp-native has been successfully uploaded! Final size is 8776 bytes. Artifact ID is 11577114102
+2026-10-08T20:40:09.9312326Z Artifact download URL: https://github.com/Jacob-Met/uma-sim/actions/runs/37840723118/artifacts/11577114102
+2026-10-08T20:40:09.9478685Z ##[group]Run STAGE=dist/uma-sim-linux-x64
+2026-10-08T20:40:09.9479007Z [36;1mSTAGE=dist/uma-sim-linux-x64[0m
+2026-10-08T20:40:09.9479291Z [36;1mmkdir -p "$STAGE/knowledge/canonical/by_kind"[0m
+2026-10-08T20:40:09.9479615Z [36;1mcp target/release/uma-sim "$STAGE/"[0m
+2026-10-08T20:40:09.9479898Z [36;1mcp -r research content_packs "$STAGE/"[0m
+2026-10-08T20:40:09.9480256Z [36;1mcp knowledge/canonical/by_kind/*.json "$STAGE/knowledge/canonical/by_kind/"[0m
+2026-10-08T20:40:09.9480654Z [36;1mscripts/smoke_release_layout.sh "$STAGE" uma-sim[0m
+2026-10-08T20:40:09.9537963Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:40:09.9538221Z env:
+2026-10-08T20:40:09.9538419Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:40:09.9538657Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:40:09.9538869Z   CARGO_TERM_COLOR: always
+2026-10-08T20:40:09.9539082Z   CACHE_ON_FAILURE: false
+2026-10-08T20:40:09.9539282Z ##[endgroup]
+2026-10-08T20:40:09.9799410Z == uma-sim fast --seed=42 --race-model=stub (cwd: /tmp/tmp.NAqoAO0PaH)
+2026-10-08T20:40:10.0586526Z Ended: career=true turn=72 fans=4064 elapsed=19ms speed=x20 policy=default
+2026-10-08T20:40:10.0587382Z Terminal: U=9.000 grade=F+ score=1100 sp_spent=221 φ=4.50 ψ=4.50
+2026-10-08T20:40:10.0601539Z == uma-sim fast --seed=42 --race-model=physics (cwd: /tmp/tmp.NAqoAO0PaH)
+2026-10-08T20:40:10.1467079Z Ended: career=true turn=72 fans=1217 elapsed=29ms speed=x20 policy=default
+2026-10-08T20:40:10.1468135Z Terminal: U=9.000 grade=F score=770 sp_spent=121 φ=4.50 ψ=4.50
+2026-10-08T20:40:10.1482238Z release layout OK
+2026-10-08T20:40:10.1574692Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+2026-10-08T20:40:10.1575032Z with:
+2026-10-08T20:40:10.1575441Z   python-version: 3.12
+2026-10-08T20:40:10.1575655Z   check-latest: false
+2026-10-08T20:40:10.1577582Z   token: ***
+2026-10-08T20:40:10.1577774Z   update-environment: true
+2026-10-08T20:40:10.1577996Z   allow-prereleases: false
+2026-10-08T20:40:10.1578207Z   freethreaded: false
+2026-10-08T20:40:10.1578395Z env:
+2026-10-08T20:40:10.1578579Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:40:10.1578807Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:40:10.1579019Z   CARGO_TERM_COLOR: always
+2026-10-08T20:40:10.1579412Z   CACHE_ON_FAILURE: false
+2026-10-08T20:40:10.1579614Z ##[endgroup]
+2026-10-08T20:40:10.2514294Z ##[group]Installed versions
+2026-10-08T20:40:10.2575809Z Successfully set up CPython (3.12.15)
+2026-10-08T20:40:10.2576556Z ##[endgroup]
+2026-10-08T20:40:10.2711500Z ##[group]Run python scripts/calibrate_grand_live.py --strict
+2026-10-08T20:40:10.2711891Z [36;1mpython scripts/calibrate_grand_live.py --strict[0m
+2026-10-08T20:40:10.2924504Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:40:10.2924777Z env:
+2026-10-08T20:40:10.2924981Z   CARGO_HOME: /home/runner/.cargo
+2026-10-08T20:40:10.2925459Z   CARGO_INCREMENTAL: 0
+2026-10-08T20:40:10.2925666Z   CARGO_TERM_COLOR: always
+2026-10-08T20:40:10.2925880Z   CACHE_ON_FAILURE: false
+2026-10-08T20:40:10.2926149Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T20:40:10.2926537Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-08T20:40:10.2926909Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T20:40:10.2927266Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T20:40:10.2927585Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T20:40:10.2927962Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-08T20:40:10.2928239Z ##[endgroup]
+2026-10-08T20:40:10.9858551Z {
+2026-10-08T20:40:10.9858874Z   "rows_checked": 9,
+2026-10-08T20:40:10.9859198Z   "exact_matches": 9,
+2026-10-08T20:40:10.9859423Z   "mismatches": 0,
+2026-10-08T20:40:10.9859627Z   "label_mismatches": [],
+2026-10-08T20:40:10.9859839Z   "within_2_pts": 9,
+2026-10-08T20:40:10.9860050Z   "pct_within_2": 1.0,
+2026-10-08T20:40:10.9860266Z   "median_abs_error": 0.0,
+2026-10-08T20:40:10.9860487Z   "gate_pass": true,
+2026-10-08T20:40:10.9860690Z   "exact_pass": true,
+2026-10-08T20:40:10.9860895Z   "pass": true,
+2026-10-08T20:40:10.9861085Z   "details": []
+2026-10-08T20:40:10.9861261Z }
+2026-10-08T20:40:11.0020753Z Post job cleanup.
+2026-10-08T20:40:11.1062040Z Post job cleanup.
+2026-10-08T20:40:11.2175300Z Post job cleanup.
+2026-10-08T20:40:11.3175440Z Cache up-to-date.
+2026-10-08T20:40:11.3385039Z Post job cleanup.
+2026-10-08T20:40:11.4163854Z [command]/usr/bin/git version
+2026-10-08T20:40:11.4201082Z git version 2.55.0
+2026-10-08T20:40:11.4227847Z Temporarily overriding HOME='/home/runner/work/_temp/17f0d21e-e81c-4aa2-8b1e-6ecef294b88b' before making global git config changes
+2026-10-08T20:40:11.4229083Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T20:40:11.4231223Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:40:11.4260355Z Removing SSH command configuration
+2026-10-08T20:40:11.4265839Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T20:40:11.4296361Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T20:40:11.4510418Z Removing HTTP extra header
+2026-10-08T20:40:11.4515570Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T20:40:11.4545871Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T20:40:11.4766993Z Removing includeIf entries pointing to credentials config files
+2026-10-08T20:40:11.4772811Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T20:40:11.4801040Z includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path
+2026-10-08T20:40:11.4801977Z includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path
+2026-10-08T20:40:11.4802792Z includeif.gitdir:/github/workspace/.git.path
+2026-10-08T20:40:11.4803647Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-08T20:40:11.4810157Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path
+2026-10-08T20:40:11.4833418Z /home/runner/work/_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config
+2026-10-08T20:40:11.4843382Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-86af2625\-7970\-4535\-9d95\-72e14c27e1ce\.config
+2026-10-08T20:40:11.4890194Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path
+2026-10-08T20:40:11.4918223Z /home/runner/work/_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config
+2026-10-08T20:40:11.4933309Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-86af2625\-7970\-4535\-9d95\-72e14c27e1ce\.config
+2026-10-08T20:40:11.4961336Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-08T20:40:11.4986087Z /github/runner_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config
+2026-10-08T20:40:11.4993453Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-86af2625\-7970\-4535\-9d95\-72e14c27e1ce\.config
+2026-10-08T20:40:11.5026768Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-08T20:40:11.5049083Z /github/runner_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config
+2026-10-08T20:40:11.5055909Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-86af2625\-7970\-4535\-9d95\-72e14c27e1ce\.config
+2026-10-08T20:40:11.5156700Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T20:40:11.5349711Z Removing credentials config '/home/runner/work/_temp/git-credentials-86af2625-7970-4535-9d95-72e14c27e1ce.config'
+2026-10-08T20:40:11.5482021Z Cleaning up orphan processes

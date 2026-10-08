@@ -1,0 +1,313 @@
+{
+  "observedAt": "2026-10-08 20:41:32 UTC",
+  "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+  "tree": "7cab649fb15bb8e7071d66eab329aba5f5cd68e9",
+  "base": "38291c1aaf915da17229eca0afbbd58d9b3ce453",
+  "runId": 37840723118,
+  "previewMerge": "8d9ec78f210bd39dbbce0f8910fb61c35ba5c007",
+  "previewTree": "7cab649fb15bb8e7071d66eab329aba5f5cd68e9",
+  "sameTree": true,
+  "checks": [
+    {
+      "name": "rust",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37840723118/job/113529607265"
+    },
+    {
+      "name": "ui",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37840723118/job/113529097057"
+    },
+    {
+      "name": "bugfix-requires-test",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37840723114/job/113529096825"
+    },
+    {
+      "name": "mcp",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37840723118/job/113529096749"
+    },
+    {
+      "name": "Secret scan",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37840723073/job/113529096428"
+    },
+    {
+      "name": "Secret scan",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37840715178/job/113529069784"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "mcp",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run node --test packages/uma-sim-mcp/tests/*.test.mjs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run node --test packages/uma-sim-cli/tests/*.test.mjs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "ui",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run typecheck",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npx playwright install --with-deps chromium",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run test:browser",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run test:trace",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "rust",
+      "head": "248c62564bb816630d6983ec5f733b965a8e1e43",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dtolnay/rust-toolchain@89b12181fb390509a0842a86cc55eeb8eb928c1d",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --workspace --all-targets --locked",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --workspace --locked",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo build --locked --release --features embed-ui -p uma-sim-core",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify terminal checkpoint save and restart recovery",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Exercise the career laboratory through MCP and the native API",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain MCP native comparison and receiving evidence",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke-test release layout (binary run away from the source tree)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python scripts/calibrate_grand_live.py --strict",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "rustCounts": {
+    "summaries": 82,
+    "passed": 424,
+    "failed": 0,
+    "ignored": 1
+  },
+  "nativeReceivingReuse": "Reviewed CLI/session/test blobs are unchanged; native baseline/candidate/fault artifacts remain pinned at58f17a6. No additional native rebuild was performed for the current-base composition.",
+  "logs": {
+    "rust": "hosted-rust.log",
+    "ui": "hosted-ui.log",
+    "mcp": "hosted-mcp.log"
+  },
+  "boundary": "Decoded complete hosted job logs. Rust count includes one ignored documentation example; native persistence tests all10 executed."
+}

@@ -1,0 +1,1740 @@
+﻿2026-10-08T20:36:40.6992325Z Current runner version: '2.337.0'
+2026-10-08T20:36:40.7016018Z ##[group]Runner Image Provisioner
+2026-10-08T20:36:40.7016966Z Hosted Compute Agent
+2026-10-08T20:36:40.7017624Z Version: 20261002.596
+2026-10-08T20:36:40.7018279Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T20:36:40.7019161Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T20:36:40.7019868Z Worker ID: {d384bef9-5175-4eb3-a938-c3e41231df82}
+2026-10-08T20:36:40.7020980Z Region: westus2
+2026-10-08T20:36:40.7021590Z Cloud: Azure
+2026-10-08T20:36:40.7022152Z ##[endgroup]
+2026-10-08T20:36:40.7024173Z ##[group]Operating System
+2026-10-08T20:36:40.7024847Z Ubuntu
+2026-10-08T20:36:40.7025368Z 24.04.5
+2026-10-08T20:36:40.7025959Z LTS
+2026-10-08T20:36:40.7026524Z ##[endgroup]
+2026-10-08T20:36:40.7027148Z ##[group]Runner Image
+2026-10-08T20:36:40.7027811Z Image: ubuntu-24.04
+2026-10-08T20:36:40.7028361Z Version: 20261004.327.1
+2026-10-08T20:36:40.7029696Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T20:36:40.7031598Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T20:36:40.7032646Z ##[endgroup]
+2026-10-08T20:36:40.7033767Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T20:36:40.7035691Z Contents: read
+2026-10-08T20:36:40.7036334Z Metadata: read
+2026-10-08T20:36:40.7037006Z ##[endgroup]
+2026-10-08T20:36:40.7039030Z Secret source: Actions
+2026-10-08T20:36:40.7040116Z Cache mode: write
+2026-10-08T20:36:40.7041082Z Prepare workflow directory
+2026-10-08T20:36:40.7499608Z Prepare all required actions
+2026-10-08T20:36:40.7548089Z Getting action download info
+2026-10-08T20:36:41.1084655Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-08T20:36:41.1968707Z Download action repository 'actions/setup-node@820762786026740c76f36085b0efc47a31fe5020' (SHA:820762786026740c76f36085b0efc47a31fe5020)
+2026-10-08T20:36:41.3196373Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-10-08T20:36:41.5189239Z Complete job name: ui
+2026-10-08T20:36:41.5985683Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-08T20:36:41.5986754Z with:
+2026-10-08T20:36:41.5987192Z   repository: Jacob-Met/uma-sim
+2026-10-08T20:36:41.5991050Z   token: ***
+2026-10-08T20:36:41.5991479Z   ssh-strict: true
+2026-10-08T20:36:41.5991904Z   ssh-user: git
+2026-10-08T20:36:41.5992336Z   persist-credentials: true
+2026-10-08T20:36:41.5992824Z   clean: true
+2026-10-08T20:36:41.5993297Z   sparse-checkout-cone-mode: true
+2026-10-08T20:36:41.5993822Z   fetch-depth: 1
+2026-10-08T20:36:41.5994240Z   fetch-tags: false
+2026-10-08T20:36:41.5994676Z   show-progress: true
+2026-10-08T20:36:41.5995118Z   lfs: false
+2026-10-08T20:36:41.5995535Z   submodules: false
+2026-10-08T20:36:41.5995969Z   set-safe-directory: true
+2026-10-08T20:36:41.5996476Z   allow-unsafe-pr-checkout: false
+2026-10-08T20:36:41.5997284Z ##[endgroup]
+2026-10-08T20:36:41.7042949Z Syncing repository: Jacob-Met/uma-sim
+2026-10-08T20:36:41.7045883Z ##[group]Getting Git version info
+2026-10-08T20:36:41.7047174Z Working directory is '/home/runner/work/uma-sim/uma-sim'
+2026-10-08T20:36:41.7048977Z [command]/usr/bin/git version
+2026-10-08T20:36:41.7109409Z git version 2.55.0
+2026-10-08T20:36:41.7132999Z ##[endgroup]
+2026-10-08T20:36:41.7145855Z Temporarily overriding HOME='/home/runner/work/_temp/25d9e48d-3310-4a7a-a2a8-26bf82177e49' before making global git config changes
+2026-10-08T20:36:41.7148712Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T20:36:41.7153898Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:36:41.7204751Z Deleting the contents of '/home/runner/work/uma-sim/uma-sim'
+2026-10-08T20:36:41.7214952Z ##[group]Determining repository object format
+2026-10-08T20:36:41.7216410Z ##[endgroup]
+2026-10-08T20:36:41.7217877Z ##[group]Initializing the repository
+2026-10-08T20:36:41.7221508Z [command]/usr/bin/git init /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:36:41.7336175Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T20:36:41.7337859Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T20:36:41.7339716Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T20:36:41.7341156Z hint: call:
+2026-10-08T20:36:41.7341853Z hint:
+2026-10-08T20:36:41.7342743Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T20:36:41.7343768Z hint:
+2026-10-08T20:36:41.7344683Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T20:36:41.7346333Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T20:36:41.7347636Z hint:
+2026-10-08T20:36:41.7348297Z hint: 	git branch -m <name>
+2026-10-08T20:36:41.7349042Z hint:
+2026-10-08T20:36:41.7350063Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T20:36:41.7351946Z Initialized empty Git repository in /home/runner/work/uma-sim/uma-sim/.git/
+2026-10-08T20:36:41.7354559Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/uma-sim
+2026-10-08T20:36:41.7401841Z ##[endgroup]
+2026-10-08T20:36:41.7403387Z ##[group]Disabling automatic garbage collection
+2026-10-08T20:36:41.7406153Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T20:36:41.7440007Z ##[endgroup]
+2026-10-08T20:36:41.7441703Z ##[group]Setting up auth
+2026-10-08T20:36:41.7442701Z Removing SSH command configuration
+2026-10-08T20:36:41.7447796Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T20:36:41.7487630Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T20:36:41.7907927Z Removing HTTP extra header
+2026-10-08T20:36:41.7912637Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T20:36:41.7964102Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T20:36:41.8217912Z Removing includeIf entries pointing to credentials config files
+2026-10-08T20:36:41.8225686Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T20:36:41.8278918Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T20:36:41.8510011Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T20:36:41.8549377Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path /home/runner/work/_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config
+2026-10-08T20:36:41.8582842Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config
+2026-10-08T20:36:41.8618854Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config
+2026-10-08T20:36:41.8654100Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config
+2026-10-08T20:36:41.8684533Z ##[endgroup]
+2026-10-08T20:36:41.8685428Z ##[group]Fetching the repository
+2026-10-08T20:36:41.8691126Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8d9ec78f210bd39dbbce0f8910fb61c35ba5c007:refs/remotes/pull/118/merge
+2026-10-08T20:36:43.7234561Z From https://github.com/Jacob-Met/uma-sim
+2026-10-08T20:36:43.7236988Z  * [new ref]         8d9ec78f210bd39dbbce0f8910fb61c35ba5c007 -> pull/118/merge
+2026-10-08T20:36:43.7243267Z ##[endgroup]
+2026-10-08T20:36:43.7245485Z ##[group]Determining the checkout info
+2026-10-08T20:36:43.7247356Z ##[endgroup]
+2026-10-08T20:36:43.7248168Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T20:36:43.7303299Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T20:36:43.7335761Z ##[group]Checking out the ref
+2026-10-08T20:36:43.7408086Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/118/merge
+2026-10-08T20:36:43.8956514Z Note: switching to 'refs/remotes/pull/118/merge'.
+2026-10-08T20:36:43.8957541Z 
+2026-10-08T20:36:43.8958337Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T20:36:43.8959682Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T20:36:43.8961430Z state without impacting any branches by switching back to a branch.
+2026-10-08T20:36:43.8962329Z 
+2026-10-08T20:36:43.8963125Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T20:36:43.8964348Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T20:36:43.8965265Z 
+2026-10-08T20:36:43.8965921Z   git switch -c <new-branch-name>
+2026-10-08T20:36:43.8966529Z 
+2026-10-08T20:36:43.8966766Z Or undo this operation with:
+2026-10-08T20:36:43.8967151Z 
+2026-10-08T20:36:43.8967373Z   git switch -
+2026-10-08T20:36:43.8967657Z 
+2026-10-08T20:36:43.8968069Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T20:36:43.8968635Z 
+2026-10-08T20:36:43.8969057Z HEAD is now at 8d9ec78 Merge 248c62564bb816630d6983ec5f733b965a8e1e43 into 38291c1aaf915da17229eca0afbbd58d9b3ce453
+2026-10-08T20:36:43.8976760Z ##[endgroup]
+2026-10-08T20:36:43.9030100Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T20:36:43.9060848Z 8d9ec78f210bd39dbbce0f8910fb61c35ba5c007
+2026-10-08T20:36:43.9334993Z ##[group]Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+2026-10-08T20:36:43.9335466Z with:
+2026-10-08T20:36:43.9335725Z   node-version: 20
+2026-10-08T20:36:43.9335984Z   cache: npm
+2026-10-08T20:36:43.9336330Z   cache-dependency-path: packages/uma-sim-ui/package-lock.json
+2026-10-08T20:36:43.9336736Z   check-latest: false
+2026-10-08T20:36:43.9339175Z   token: ***
+2026-10-08T20:36:43.9339466Z   package-manager-cache: true
+2026-10-08T20:36:43.9339767Z ##[endgroup]
+2026-10-08T20:36:44.0566878Z Attempting to download 20...
+2026-10-08T20:36:44.7546032Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+2026-10-08T20:36:45.1911931Z Extracting ...
+2026-10-08T20:36:45.2038441Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/b3555e97-ee1b-4e29-9014-c90e46426528 -f /home/runner/work/_temp/5ed8172f-ea5c-405f-aa1f-1d5a86773853
+2026-10-08T20:36:46.2349625Z Adding to the cache ...
+2026-10-08T20:36:48.1894007Z ##[group]Environment details
+2026-10-08T20:36:48.4043309Z node: v20.20.2
+2026-10-08T20:36:48.4043932Z npm: 10.8.2
+2026-10-08T20:36:48.4044422Z yarn: 1.22.22
+2026-10-08T20:36:48.4045376Z ##[endgroup]
+2026-10-08T20:36:48.4064910Z [command]/opt/hostedtoolcache/node/20.20.2/x64/bin/npm config get cache
+2026-10-08T20:36:48.5089594Z /home/runner/.npm
+2026-10-08T20:36:48.7903289Z Cache hit for: node-cache-Linux-x64-npm-eeb0c434c1684ffeb9b45bfa8603bb6ff335b8860c2e51c7b7f22108a8cb6332
+2026-10-08T20:36:50.0990919Z Received 0 of 20825427 (0.0%), 0.0 MBs/sec
+2026-10-08T20:36:50.3092085Z Received 20825427 of 20825427 (100.0%), 16.4 MBs/sec
+2026-10-08T20:36:50.3093370Z Cache Size: ~20 MB (20825427 B)
+2026-10-08T20:36:50.3125597Z [command]/usr/bin/tar -xf /home/runner/work/_temp/3bd1af12-9c4a-48d9-9a51-b8a8e786c38a/cache.tzst -P -C /home/runner/work/uma-sim/uma-sim --use-compress-program unzstd
+2026-10-08T20:36:50.3676851Z Cache restored successfully
+2026-10-08T20:36:50.3693800Z Cache restored from key: node-cache-Linux-x64-npm-eeb0c434c1684ffeb9b45bfa8603bb6ff335b8860c2e51c7b7f22108a8cb6332
+2026-10-08T20:36:50.3887785Z ##[group]Run npm ci
+2026-10-08T20:36:50.3888098Z [36;1mnpm ci[0m
+2026-10-08T20:36:50.4125608Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:36:50.4125997Z ##[endgroup]
+2026-10-08T20:36:51.9831472Z 
+2026-10-08T20:36:51.9838640Z added 74 packages, and audited 75 packages in 2s
+2026-10-08T20:36:51.9839063Z 
+2026-10-08T20:36:51.9839330Z 7 packages are looking for funding
+2026-10-08T20:36:51.9839766Z   run `npm fund` for details
+2026-10-08T20:36:51.9986176Z 
+2026-10-08T20:36:51.9986752Z 3 vulnerabilities (1 moderate, 2 high)
+2026-10-08T20:36:51.9987210Z 
+2026-10-08T20:36:51.9987638Z To address issues that do not require attention, run:
+2026-10-08T20:36:51.9988267Z   npm audit fix
+2026-10-08T20:36:51.9988496Z 
+2026-10-08T20:36:52.0001548Z To address all issues (including breaking changes), run:
+2026-10-08T20:36:52.0011306Z   npm audit fix --force
+2026-10-08T20:36:52.0011831Z 
+2026-10-08T20:36:52.0012130Z Run `npm audit` for details.
+2026-10-08T20:36:52.0387575Z ##[group]Run npm test
+2026-10-08T20:36:52.0387990Z [36;1mnpm test[0m
+2026-10-08T20:36:52.0456097Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:36:52.0456414Z ##[endgroup]
+2026-10-08T20:36:52.1642488Z 
+2026-10-08T20:36:52.1643097Z > uma-sim-ui@0.1.0 test
+2026-10-08T20:36:52.1646357Z > node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs tests/checkpoint-json.test.mjs tests/run-session.test.mjs
+2026-10-08T20:36:52.1648321Z 
+2026-10-08T20:36:52.2123372Z TAP version 13
+2026-10-08T20:36:53.1452291Z # Subtest: an empty collection is reported separately from absent or malformed data
+2026-10-08T20:36:53.1478043Z ok 1 - an empty collection is reported separately from absent or malformed data
+2026-10-08T20:36:53.1546352Z   ---
+2026-10-08T20:36:53.1546835Z   duration_ms: 2.692103
+2026-10-08T20:36:53.1547273Z   ...
+2026-10-08T20:36:53.1548254Z # Subtest: injury matching follows the native exact injured or injury-substring predicate
+2026-10-08T20:36:53.1549606Z ok 2 - injury matching follows the native exact injured or injury-substring predicate
+2026-10-08T20:36:53.1550680Z   ---
+2026-10-08T20:36:53.1551116Z   duration_ms: 0.52966
+2026-10-08T20:36:53.1551516Z   ...
+2026-10-08T20:36:53.1552337Z # Subtest: similar words and whitespace do not widen the native injury predicate
+2026-10-08T20:36:53.1553541Z ok 3 - similar words and whitespace do not widen the native injury predicate
+2026-10-08T20:36:53.1554283Z   ---
+2026-10-08T20:36:53.1554701Z   duration_ms: 0.343082
+2026-10-08T20:36:53.1555159Z   ...
+2026-10-08T20:36:53.1555931Z # Subtest: only the three exact simulator epithet IDs receive title labels
+2026-10-08T20:36:53.1621397Z ok 4 - only the three exact simulator epithet IDs receive title labels
+2026-10-08T20:36:53.1651161Z   ---
+2026-10-08T20:36:53.1681099Z   duration_ms: 0.425636
+2026-10-08T20:36:53.1681642Z   ...
+2026-10-08T20:36:53.1682654Z # Subtest: unknown title-like IDs remain literal without invented names or effects
+2026-10-08T20:36:53.1684102Z ok 5 - unknown title-like IDs remain literal without invented names or effects
+2026-10-08T20:36:53.1685039Z   ---
+2026-10-08T20:36:53.1685523Z   duration_ms: 0.330758
+2026-10-08T20:36:53.1686087Z   ...
+2026-10-08T20:36:53.1687149Z # Subtest: native injury admission takes precedence over a title-like namespace
+2026-10-08T20:36:53.1688542Z ok 6 - native injury admission takes precedence over a title-like namespace
+2026-10-08T20:36:53.1689324Z   ---
+2026-10-08T20:36:53.1689814Z   duration_ms: 0.429102
+2026-10-08T20:36:53.1690261Z   ...
+2026-10-08T20:36:53.1691492Z # Subtest: every retained entry survives in order including duplicates and long collections
+2026-10-08T20:36:53.1692843Z ok 7 - every retained entry survives in order including duplicates and long collections
+2026-10-08T20:36:53.1694130Z   ---
+2026-10-08T20:36:53.1694500Z   duration_ms: 0.398425
+2026-10-08T20:36:53.1694901Z   ...
+2026-10-08T20:36:53.1695986Z # Subtest: markup-like strings, whitespace and object-property names remain exact data
+2026-10-08T20:36:53.1697491Z ok 8 - markup-like strings, whitespace and object-property names remain exact data
+2026-10-08T20:36:53.1698454Z   ---
+2026-10-08T20:36:53.1698955Z   duration_ms: 0.334755
+2026-10-08T20:36:53.1699520Z   ...
+2026-10-08T20:36:53.1700833Z # Subtest: a later recovered snapshot removes the warning and retains unrelated titles and statuses
+2026-10-08T20:36:53.1702310Z ok 9 - a later recovered snapshot removes the warning and retains unrelated titles and statuses
+2026-10-08T20:36:53.1703206Z   ---
+2026-10-08T20:36:53.1716632Z   duration_ms: 0.465901
+2026-10-08T20:36:53.1764727Z   ...
+2026-10-08T20:36:53.1937174Z # Subtest: JSON preserves every original entry and explicit retained-history scope
+2026-10-08T20:36:53.2001889Z ok 10 - JSON preserves every original entry and explicit retained-history scope
+2026-10-08T20:36:53.2027652Z   ---
+2026-10-08T20:36:53.2030315Z   duration_ms: 2.784725
+2026-10-08T20:36:53.2031801Z   ...
+2026-10-08T20:36:53.2033116Z # Subtest: a prepared file survives later append or replacement without taking a filtered subset
+2026-10-08T20:36:53.2034798Z ok 11 - a prepared file survives later append or replacement without taking a filtered subset
+2026-10-08T20:36:53.2035882Z   ---
+2026-10-08T20:36:53.2036463Z   duration_ms: 0.235881
+2026-10-08T20:36:53.2037052Z   ...
+2026-10-08T20:36:53.2038057Z # Subtest: readable text retains ordered duplicate and empty numbered blocks
+2026-10-08T20:36:53.2039406Z ok 12 - readable text retains ordered duplicate and empty numbered blocks
+2026-10-08T20:36:53.2040363Z   ---
+2026-10-08T20:36:53.2041347Z   duration_ms: 0.297566
+2026-10-08T20:36:53.2041931Z   ...
+2026-10-08T20:36:53.2042886Z # Subtest: empty, single-entry and long histories have explicit complete counts
+2026-10-08T20:36:53.2044337Z ok 13 - empty, single-entry and long histories have explicit complete counts
+2026-10-08T20:36:53.2045301Z   ---
+2026-10-08T20:36:53.2045873Z   duration_ms: 9.402416
+2026-10-08T20:36:53.2046509Z   ...
+2026-10-08T20:36:53.2047685Z # Subtest: one local request delivers the actual JSON Blob and releases its URL after the click
+2026-10-08T20:36:53.2049421Z ok 14 - one local request delivers the actual JSON Blob and releases its URL after the click
+2026-10-08T20:36:53.2111121Z   ---
+2026-10-08T20:36:53.2111897Z   duration_ms: 13.207769
+2026-10-08T20:36:53.2141095Z   ...
+2026-10-08T20:36:53.2162297Z # Subtest: preparation and dispatch failures propagate without another click or a leaked URL
+2026-10-08T20:36:53.2181183Z     # Subtest: url
+2026-10-08T20:36:53.2201161Z     ok 1 - url
+2026-10-08T20:36:53.2231082Z       ---
+2026-10-08T20:36:53.2253214Z       duration_ms: 10.552537
+2026-10-08T20:36:53.2281112Z       ...
+2026-10-08T20:36:53.2281876Z     # Subtest: create
+2026-10-08T20:36:53.2308243Z     ok 2 - create
+2026-10-08T20:36:53.2326670Z       ---
+2026-10-08T20:36:53.2328606Z       duration_ms: 5.765718
+2026-10-08T20:36:53.2351495Z       ...
+2026-10-08T20:36:53.2363601Z     # Subtest: append
+2026-10-08T20:36:53.2364358Z     ok 3 - append
+2026-10-08T20:36:53.2365190Z       ---
+2026-10-08T20:36:53.2365838Z       duration_ms: 1.787562
+2026-10-08T20:36:53.2366544Z       ...
+2026-10-08T20:36:53.2367135Z     # Subtest: click
+2026-10-08T20:36:53.2367766Z     ok 4 - click
+2026-10-08T20:36:53.2368405Z       ---
+2026-10-08T20:36:53.2368970Z       duration_ms: 2.73405
+2026-10-08T20:36:53.2369656Z       ...
+2026-10-08T20:36:53.2370248Z     1..4
+2026-10-08T20:36:53.2371592Z ok 15 - preparation and dispatch failures propagate without another click or a leaked URL
+2026-10-08T20:36:53.2372680Z   ---
+2026-10-08T20:36:53.2373321Z   duration_ms: 22.119479
+2026-10-08T20:36:53.2373955Z   ...
+2026-10-08T20:36:53.2375004Z # Subtest: native React rendering names the full count and disables only an empty log
+2026-10-08T20:36:53.2377009Z ok 16 - native React rendering names the full count and disables only an empty log
+2026-10-08T20:36:53.2378002Z   ---
+2026-10-08T20:36:53.2378620Z   duration_ms: 6.781608
+2026-10-08T20:36:53.2379318Z   ...
+2026-10-08T20:36:53.2380821Z # Subtest: the actual LogPanel exposes the full-history download beside preserved reader and summary
+2026-10-08T20:36:53.2382732Z ok 17 - the actual LogPanel exposes the full-history download beside preserved reader and summary
+2026-10-08T20:36:53.2383958Z   ---
+2026-10-08T20:36:53.2411220Z   duration_ms: 4.717258
+2026-10-08T20:36:53.2428817Z   ...
+2026-10-08T20:36:53.5251429Z # Subtest: empty query exposes every retained entry verbatim, including empty and duplicate entries
+2026-10-08T20:36:53.5283091Z ok 18 - empty query exposes every retained entry verbatim, including empty and duplicate entries
+2026-10-08T20:36:53.5311036Z   ---
+2026-10-08T20:36:53.5331063Z   duration_ms: 3.362265
+2026-10-08T20:36:53.5400918Z   ...
+2026-10-08T20:36:53.5441557Z # Subtest: matching entries and occurrences are counted separately without crossing entry boundaries
+2026-10-08T20:36:53.5471878Z ok 19 - matching entries and occurrences are counted separately without crossing entry boundaries
+2026-10-08T20:36:53.5509609Z   ---
+2026-10-08T20:36:53.5510909Z   duration_ms: 0.519441
+2026-10-08T20:36:53.5541119Z   ...
+2026-10-08T20:36:53.5571710Z # Subtest: case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters
+2026-10-08T20:36:53.5573555Z ok 20 - case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters
+2026-10-08T20:36:53.5601011Z   ---
+2026-10-08T20:36:53.5631081Z   duration_ms: 0.476421
+2026-10-08T20:36:53.5641174Z   ...
+2026-10-08T20:36:53.5642426Z # Subtest: Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s
+2026-10-08T20:36:53.5644111Z ok 21 - Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s
+2026-10-08T20:36:53.5645204Z   ---
+2026-10-08T20:36:53.5645809Z   duration_ms: 1.195705
+2026-10-08T20:36:53.5646436Z   ...
+2026-10-08T20:36:53.5647712Z # Subtest: Japanese, astral symbols, combining characters, and isolated surrogates preserve original text
+2026-10-08T20:36:53.5649547Z ok 22 - Japanese, astral symbols, combining characters, and isolated surrogates preserve original text
+2026-10-08T20:36:53.5651028Z   ---
+2026-10-08T20:36:53.5651635Z   duration_ms: 0.773055
+2026-10-08T20:36:53.5652319Z   ...
+2026-10-08T20:36:53.5653517Z # Subtest: all regexp metacharacters, whitespace, and markup-like text remain literal search data
+2026-10-08T20:36:53.5655243Z ok 23 - all regexp metacharacters, whitespace, and markup-like text remain literal search data
+2026-10-08T20:36:53.5656363Z   ---
+2026-10-08T20:36:53.5656990Z   duration_ms: 4.476217
+2026-10-08T20:36:53.5657651Z   ...
+2026-10-08T20:36:53.5658853Z # Subtest: matches are non-overlapping and global matching restarts independently for each entry
+2026-10-08T20:36:53.5660835Z ok 24 - matches are non-overlapping and global matching restarts independently for each entry
+2026-10-08T20:36:53.5661969Z   ---
+2026-10-08T20:36:53.5662585Z   duration_ms: 0.493322
+2026-10-08T20:36:53.5663205Z   ...
+2026-10-08T20:36:53.5664324Z # Subtest: 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle
+2026-10-08T20:36:53.5665987Z ok 25 - 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle
+2026-10-08T20:36:53.5667060Z   ---
+2026-10-08T20:36:53.5667655Z   duration_ms: 264.45366
+2026-10-08T20:36:53.5668307Z   ...
+2026-10-08T20:36:53.5669575Z # Subtest: history changes distinguish a strict prefix append from trimming, replacement, and reordering
+2026-10-08T20:36:53.5671933Z ok 26 - history changes distinguish a strict prefix append from trimming, replacement, and reordering
+2026-10-08T20:36:53.5673116Z   ---
+2026-10-08T20:36:53.5673715Z   duration_ms: 0.480669
+2026-10-08T20:36:53.5674376Z   ...
+2026-10-08T20:36:53.5675632Z # Subtest: 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input
+2026-10-08T20:36:53.5677824Z ok 27 - 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input
+2026-10-08T20:36:53.5679003Z   ---
+2026-10-08T20:36:53.5679593Z   duration_ms: 54.379753
+2026-10-08T20:36:53.5680240Z   ...
+2026-10-08T20:36:54.1302029Z # Subtest: learned names and descriptions use exact IDs with a literal unknown fallback
+2026-10-08T20:36:54.1326743Z ok 28 - learned names and descriptions use exact IDs with a literal unknown fallback
+2026-10-08T20:36:54.1365436Z   ---
+2026-10-08T20:36:54.1368785Z   duration_ms: 2.784215
+2026-10-08T20:36:54.1369528Z   ...
+2026-10-08T20:36:54.1402811Z # Subtest: all retained learned entries survive in order, including duplicates beyond 24
+2026-10-08T20:36:54.1404362Z ok 29 - all retained learned entries survive in order, including duplicates beyond 24
+2026-10-08T20:36:54.1405328Z   ---
+2026-10-08T20:36:54.1405861Z   duration_ms: 0.430034
+2026-10-08T20:36:54.1406459Z   ...
+2026-10-08T20:36:54.1407540Z # Subtest: only skill namespace hints are skills; raw names and training keys remain separate
+2026-10-08T20:36:54.1409475Z ok 30 - only skill namespace hints are skills; raw names and training keys remain separate
+2026-10-08T20:36:54.1410847Z   ---
+2026-10-08T20:36:54.1411454Z   duration_ms: 0.537665
+2026-10-08T20:36:54.1412040Z   ...
+2026-10-08T20:36:54.1413165Z # Subtest: hint levels are retained values, with no cap, discount, or purchase inference
+2026-10-08T20:36:54.1414739Z ok 31 - hint levels are retained values, with no cap, discount, or purchase inference
+2026-10-08T20:36:54.1415790Z   ---
+2026-10-08T20:36:54.1416392Z   duration_ms: 0.33752
+2026-10-08T20:36:54.1417032Z   ...
+2026-10-08T20:36:54.1418255Z # Subtest: catalog failure and malformed entries do not manufacture names or accept an HTML fallback
+2026-10-08T20:36:54.1420115Z ok 32 - catalog failure and malformed entries do not manufacture names or accept an HTML fallback
+2026-10-08T20:36:54.1421493Z   ---
+2026-10-08T20:36:54.1422121Z   duration_ms: 0.603609
+2026-10-08T20:36:54.1422746Z   ...
+2026-10-08T20:36:54.1424045Z # Subtest: markup-like text and object-property keys remain literal, without changing snapshot inputs
+2026-10-08T20:36:54.1425869Z ok 33 - markup-like text and object-property keys remain literal, without changing snapshot inputs
+2026-10-08T20:36:54.1427027Z   ---
+2026-10-08T20:36:54.1427632Z   duration_ms: 0.407903
+2026-10-08T20:36:54.1428264Z   ...
+2026-10-08T20:36:54.2199807Z # Subtest: preserves the full authored order, blank lines, turn zero and colon action IDs
+2026-10-08T20:36:54.2231477Z ok 34 - preserves the full authored order, blank lines, turn zero and colon action IDs
+2026-10-08T20:36:54.2286954Z   ---
+2026-10-08T20:36:54.2311046Z   duration_ms: 1.994849
+2026-10-08T20:36:54.2311473Z   ...
+2026-10-08T20:36:54.2312092Z # Subtest: a policy-only run is valid with no override text
+2026-10-08T20:36:54.2312999Z ok 35 - a policy-only run is valid with no override text
+2026-10-08T20:36:54.2313647Z   ---
+2026-10-08T20:36:54.2314031Z   duration_ms: 0.164507
+2026-10-08T20:36:54.2314457Z   ...
+2026-10-08T20:36:54.2315356Z # Subtest: accepts only the exact representable integer boundary and allowed maximum budget
+2026-10-08T20:36:54.2316641Z ok 36 - accepts only the exact representable integer boundary and allowed maximum budget
+2026-10-08T20:36:54.2317452Z   ---
+2026-10-08T20:36:54.2317826Z   duration_ms: 0.170529
+2026-10-08T20:36:54.2318228Z   ...
+2026-10-08T20:36:54.2318795Z # Subtest: refuses the whole draft for missing colon
+2026-10-08T20:36:54.2319555Z ok 37 - refuses the whole draft for missing colon
+2026-10-08T20:36:54.2320105Z   ---
+2026-10-08T20:36:54.2320715Z   duration_ms: 0.370973
+2026-10-08T20:36:54.2321157Z   ...
+2026-10-08T20:36:54.2321712Z # Subtest: refuses the whole draft for missing turn
+2026-10-08T20:36:54.2322518Z ok 38 - refuses the whole draft for missing turn
+2026-10-08T20:36:54.2323088Z   ---
+2026-10-08T20:36:54.2323466Z   duration_ms: 0.167453
+2026-10-08T20:36:54.2324437Z   ...
+2026-10-08T20:36:54.2325018Z # Subtest: refuses the whole draft for negative turn
+2026-10-08T20:36:54.2325803Z ok 39 - refuses the whole draft for negative turn
+2026-10-08T20:36:54.2326365Z   ---
+2026-10-08T20:36:54.2326737Z   duration_ms: 0.125033
+2026-10-08T20:36:54.2327134Z   ...
+2026-10-08T20:36:54.2327689Z # Subtest: refuses the whole draft for fractional turn
+2026-10-08T20:36:54.2328464Z ok 40 - refuses the whole draft for fractional turn
+2026-10-08T20:36:54.2329024Z   ---
+2026-10-08T20:36:54.2329387Z   duration_ms: 0.169617
+2026-10-08T20:36:54.2329777Z   ...
+2026-10-08T20:36:54.2330380Z # Subtest: refuses the whole draft for scientific notation
+2026-10-08T20:36:54.2331471Z ok 41 - refuses the whole draft for scientific notation
+2026-10-08T20:36:54.2332039Z   ---
+2026-10-08T20:36:54.2332410Z   duration_ms: 0.177311
+2026-10-08T20:36:54.2332805Z   ...
+2026-10-08T20:36:54.2333421Z # Subtest: refuses the whole draft for hexadecimal notation
+2026-10-08T20:36:54.2334293Z ok 42 - refuses the whole draft for hexadecimal notation
+2026-10-08T20:36:54.2334891Z   ---
+2026-10-08T20:36:54.2335245Z   duration_ms: 0.19223
+2026-10-08T20:36:54.2335615Z   ...
+2026-10-08T20:36:54.2336462Z # Subtest: refuses the whole draft for non-number turn
+2026-10-08T20:36:54.2337299Z ok 43 - refuses the whole draft for non-number turn
+2026-10-08T20:36:54.2337866Z   ---
+2026-10-08T20:36:54.2338248Z   duration_ms: 0.2088
+2026-10-08T20:36:54.2338624Z   ...
+2026-10-08T20:36:54.2339162Z # Subtest: refuses the whole draft for infinite turn
+2026-10-08T20:36:54.2339891Z ok 44 - refuses the whole draft for infinite turn
+2026-10-08T20:36:54.2341657Z   ---
+2026-10-08T20:36:54.2342058Z   duration_ms: 0.145161
+2026-10-08T20:36:54.2342442Z   ...
+2026-10-08T20:36:54.2343075Z # Subtest: refuses the whole draft for signed integer overflow
+2026-10-08T20:36:54.2343981Z ok 45 - refuses the whole draft for signed integer overflow
+2026-10-08T20:36:54.2344566Z   ---
+2026-10-08T20:36:54.2344933Z   duration_ms: 0.194583
+2026-10-08T20:36:54.2345407Z   ...
+2026-10-08T20:36:54.2346122Z # Subtest: refuses the whole draft for integer that would wrap to turn 8
+2026-10-08T20:36:54.2347157Z ok 46 - refuses the whole draft for integer that would wrap to turn 8
+2026-10-08T20:36:54.2347802Z   ---
+2026-10-08T20:36:54.2348150Z   duration_ms: 0.133499
+2026-10-08T20:36:54.2348538Z   ...
+2026-10-08T20:36:54.2349085Z # Subtest: refuses the whole draft for unsafe integer
+2026-10-08T20:36:54.2349827Z ok 47 - refuses the whole draft for unsafe integer
+2026-10-08T20:36:54.2350358Z   ---
+2026-10-08T20:36:54.2350972Z   duration_ms: 0.212959
+2026-10-08T20:36:54.2351363Z   ...
+2026-10-08T20:36:54.2351878Z # Subtest: refuses the whole draft for empty action
+2026-10-08T20:36:54.2352580Z ok 48 - refuses the whole draft for empty action
+2026-10-08T20:36:54.2353082Z   ---
+2026-10-08T20:36:54.2353416Z   duration_ms: 0.161732
+2026-10-08T20:36:54.2353787Z   ...
+2026-10-08T20:36:54.2354614Z # Subtest: duplicate turns report both source lines rather than picking the first silently
+2026-10-08T20:36:54.2381729Z ok 49 - duplicate turns report both source lines rather than picking the first silently
+2026-10-08T20:36:54.2411306Z   ---
+2026-10-08T20:36:54.2411887Z   duration_ms: 0.244097
+2026-10-08T20:36:54.2412456Z   ...
+2026-10-08T20:36:54.2413648Z # Subtest: collects actionable line errors without discarding valid intervening input
+2026-10-08T20:36:54.2423939Z ok 50 - collects actionable line errors without discarding valid intervening input
+2026-10-08T20:36:54.2424837Z   ---
+2026-10-08T20:36:54.2425298Z   duration_ms: 1.621
+2026-10-08T20:36:54.2425790Z   ...
+2026-10-08T20:36:54.2426375Z # Subtest: refuses invalid action budget ""
+2026-10-08T20:36:54.2427124Z ok 51 - refuses invalid action budget ""
+2026-10-08T20:36:54.2427737Z   ---
+2026-10-08T20:36:54.2428193Z   duration_ms: 0.320318
+2026-10-08T20:36:54.2428686Z   ...
+2026-10-08T20:36:54.2429280Z # Subtest: refuses invalid action budget " "
+2026-10-08T20:36:54.2430033Z ok 52 - refuses invalid action budget " "
+2026-10-08T20:36:54.2430845Z   ---
+2026-10-08T20:36:54.2431628Z   duration_ms: 0.136815
+2026-10-08T20:36:54.2432096Z   ...
+2026-10-08T20:36:54.2432663Z # Subtest: refuses invalid action budget "0"
+2026-10-08T20:36:54.2433407Z ok 53 - refuses invalid action budget "0"
+2026-10-08T20:36:54.2433988Z   ---
+2026-10-08T20:36:54.2434415Z   duration_ms: 0.225261
+2026-10-08T20:36:54.2434905Z   ...
+2026-10-08T20:36:54.2435491Z # Subtest: refuses invalid action budget "501"
+2026-10-08T20:36:54.2436248Z ok 54 - refuses invalid action budget "501"
+2026-10-08T20:36:54.2436854Z   ---
+2026-10-08T20:36:54.2437310Z   duration_ms: 0.175588
+2026-10-08T20:36:54.2437800Z   ...
+2026-10-08T20:36:54.2438385Z # Subtest: refuses invalid action budget "1.5"
+2026-10-08T20:36:54.2439164Z ok 55 - refuses invalid action budget "1.5"
+2026-10-08T20:36:54.2439746Z   ---
+2026-10-08T20:36:54.2440168Z   duration_ms: 0.14925
+2026-10-08T20:36:54.2441004Z   ...
+2026-10-08T20:36:54.2441623Z # Subtest: refuses invalid action budget "-1"
+2026-10-08T20:36:54.2442377Z ok 56 - refuses invalid action budget "-1"
+2026-10-08T20:36:54.2442985Z   ---
+2026-10-08T20:36:54.2443417Z   duration_ms: 0.092473
+2026-10-08T20:36:54.2443891Z   ...
+2026-10-08T20:36:54.2444742Z # Subtest: refuses invalid action budget "NaN"
+2026-10-08T20:36:54.2445656Z ok 57 - refuses invalid action budget "NaN"
+2026-10-08T20:36:54.2446290Z   ---
+2026-10-08T20:36:54.2446728Z   duration_ms: 0.09654
+2026-10-08T20:36:54.2447202Z   ...
+2026-10-08T20:36:54.2447814Z # Subtest: refuses invalid action budget "Infinity"
+2026-10-08T20:36:54.2448654Z ok 58 - refuses invalid action budget "Infinity"
+2026-10-08T20:36:54.2449285Z   ---
+2026-10-08T20:36:54.2449728Z   duration_ms: 0.137818
+2026-10-08T20:36:54.2450222Z   ...
+2026-10-08T20:36:54.2451076Z # Subtest: refuses invalid action budget "1e2"
+2026-10-08T20:36:54.2451851Z ok 59 - refuses invalid action budget "1e2"
+2026-10-08T20:36:54.2452466Z   ---
+2026-10-08T20:36:54.2452911Z   duration_ms: 0.103213
+2026-10-08T20:36:54.2453384Z   ...
+2026-10-08T20:36:54.2454053Z # Subtest: refuses invalid action budget "9007199254740993"
+2026-10-08T20:36:54.2454957Z ok 60 - refuses invalid action budget "9007199254740993"
+2026-10-08T20:36:54.2455681Z   ---
+2026-10-08T20:36:54.2456140Z   duration_ms: 0.097984
+2026-10-08T20:36:54.2456665Z   ...
+2026-10-08T20:36:54.2457504Z # Subtest: reports both budget and override errors in a single review
+2026-10-08T20:36:54.2458735Z ok 61 - reports both budget and override errors in a single review
+2026-10-08T20:36:54.2459617Z   ---
+2026-10-08T20:36:54.2460138Z   duration_ms: 0.282008
+2026-10-08T20:36:54.2461025Z   ...
+2026-10-08T20:36:54.2462029Z # Subtest: preserves literal action text for the existing simulator legality check
+2026-10-08T20:36:54.2463431Z ok 62 - preserves literal action text for the existing simulator legality check
+2026-10-08T20:36:54.2464360Z   ---
+2026-10-08T20:36:54.2464880Z   duration_ms: 0.173374
+2026-10-08T20:36:54.2465407Z   ...
+2026-10-08T20:36:54.5302114Z # Subtest: an unselected inspector explains how to read a saved trace
+2026-10-08T20:36:54.5331307Z ok 63 - an unselected inspector explains how to read a saved trace
+2026-10-08T20:36:54.5344045Z   ---
+2026-10-08T20:36:54.5390940Z   duration_ms: 8.236126
+2026-10-08T20:36:54.5391532Z   ...
+2026-10-08T20:36:54.5421392Z # Subtest: loading identifies the requested branch and exposes only a close action
+2026-10-08T20:36:54.5481224Z ok 64 - loading identifies the requested branch and exposes only a close action
+2026-10-08T20:36:54.5483891Z   ---
+2026-10-08T20:36:54.5571043Z   duration_ms: 0.958171
+2026-10-08T20:36:54.5571903Z   ...
+2026-10-08T20:36:54.5607108Z # Subtest: an error identifies its branch, is announced and supports explicit retry
+2026-10-08T20:36:54.5631405Z ok 65 - an error identifies its branch, is announced and supports explicit retry
+2026-10-08T20:36:54.5660893Z   ---
+2026-10-08T20:36:54.5671053Z   duration_ms: 0.818049
+2026-10-08T20:36:54.5700972Z   ...
+2026-10-08T20:36:54.5721408Z # Subtest: same-turn rejection and later application remain separate recorded steps
+2026-10-08T20:36:54.5751490Z ok 66 - same-turn rejection and later application remain separate recorded steps
+2026-10-08T20:36:54.5760949Z   ---
+2026-10-08T20:36:54.5791121Z   duration_ms: 2.892697
+2026-10-08T20:36:54.5811059Z   ...
+2026-10-08T20:36:54.5816734Z # Subtest: a configured but unobserved turn has no invented rejection outcome
+2026-10-08T20:36:54.5862454Z ok 67 - a configured but unobserved turn has no invented rejection outcome
+2026-10-08T20:36:54.5871003Z   ---
+2026-10-08T20:36:54.5900944Z   duration_ms: 0.821586
+2026-10-08T20:36:54.5901571Z   ...
+2026-10-08T20:36:54.5902294Z # Subtest: a branch with no recorded steps has an explicit empty state
+2026-10-08T20:36:54.5903271Z ok 68 - a branch with no recorded steps has an explicit empty state
+2026-10-08T20:36:54.5903866Z   ---
+2026-10-08T20:36:54.5904209Z   duration_ms: 0.590834
+2026-10-08T20:36:54.5904580Z   ...
+2026-10-08T20:36:54.5905285Z # Subtest: a policy-only timeline offers all steps when the override filter is empty
+2026-10-08T20:36:54.5906353Z ok 69 - a policy-only timeline offers all steps when the override filter is empty
+2026-10-08T20:36:54.5907087Z   ---
+2026-10-08T20:36:54.5907541Z   duration_ms: 0.574815
+2026-10-08T20:36:54.5908364Z   ...
+2026-10-08T20:36:54.5909236Z # Subtest: legacy duplicate configuration is retained without dropping either authored action
+2026-10-08T20:36:54.5910673Z ok 70 - legacy duplicate configuration is retained without dropping either authored action
+2026-10-08T20:36:54.5911344Z   ---
+2026-10-08T20:36:54.5911693Z   duration_ms: 1.039944
+2026-10-08T20:36:54.5912061Z   ...
+2026-10-08T20:36:54.5912734Z # Subtest: source text remains literal instead of becoming active markup
+2026-10-08T20:36:54.5913696Z ok 71 - source text remains literal instead of becoming active markup
+2026-10-08T20:36:54.5914316Z   ---
+2026-10-08T20:36:54.5914652Z   duration_ms: 5.07507
+2026-10-08T20:36:54.5915013Z   ...
+2026-10-08T20:36:55.9622300Z # Subtest: import preserves the complete snapshot text for signed seed -9223372036854775808
+2026-10-08T20:36:55.9661650Z ok 72 - import preserves the complete snapshot text for signed seed -9223372036854775808
+2026-10-08T20:36:55.9682618Z   ---
+2026-10-08T20:36:55.9741067Z   duration_ms: 124.775583
+2026-10-08T20:36:55.9770905Z   ...
+2026-10-08T20:36:55.9771782Z # Subtest: import preserves the complete snapshot text for signed seed -9007199254740993
+2026-10-08T20:36:55.9828815Z ok 73 - import preserves the complete snapshot text for signed seed -9007199254740993
+2026-10-08T20:36:55.9851320Z   ---
+2026-10-08T20:36:55.9931274Z   duration_ms: 57.841672
+2026-10-08T20:36:55.9941013Z   ...
+2026-10-08T20:36:55.9941778Z # Subtest: import preserves the complete snapshot text for signed seed -42
+2026-10-08T20:36:55.9942833Z ok 74 - import preserves the complete snapshot text for signed seed -42
+2026-10-08T20:36:55.9943489Z   ---
+2026-10-08T20:36:55.9943848Z   duration_ms: 63.642973
+2026-10-08T20:36:55.9944243Z   ...
+2026-10-08T20:36:55.9944924Z # Subtest: import preserves the complete snapshot text for signed seed 0
+2026-10-08T20:36:55.9945918Z ok 75 - import preserves the complete snapshot text for signed seed 0
+2026-10-08T20:36:55.9946528Z   ---
+2026-10-08T20:36:55.9946868Z   duration_ms: 25.89446
+2026-10-08T20:36:55.9947292Z   ...
+2026-10-08T20:36:56.0000327Z # Subtest: import preserves the complete snapshot text for signed seed 42
+2026-10-08T20:36:56.0013741Z ok 76 - import preserves the complete snapshot text for signed seed 42
+2026-10-08T20:36:56.0031532Z   ---
+2026-10-08T20:36:56.0032127Z   duration_ms: 24.775387
+2026-10-08T20:36:56.0032744Z   ...
+2026-10-08T20:36:56.0033755Z # Subtest: import preserves the complete snapshot text for signed seed 9007199254740993
+2026-10-08T20:36:56.0035223Z ok 77 - import preserves the complete snapshot text for signed seed 9007199254740993
+2026-10-08T20:36:56.0036233Z   ---
+2026-10-08T20:36:56.0036853Z   duration_ms: 23.503389
+2026-10-08T20:36:56.0037512Z   ...
+2026-10-08T20:36:56.0038578Z # Subtest: import preserves the complete snapshot text for signed seed 9223372036854775807
+2026-10-08T20:36:56.0040857Z ok 78 - import preserves the complete snapshot text for signed seed 9223372036854775807
+2026-10-08T20:36:56.0041896Z   ---
+2026-10-08T20:36:56.0042614Z   duration_ms: 18.24069
+2026-10-08T20:36:56.0043330Z   ...
+2026-10-08T20:36:56.0044393Z # Subtest: optional names remain one escaped string and cannot add envelope fields
+2026-10-08T20:36:56.0045872Z ok 79 - optional names remain one escaped string and cannot add envelope fields
+2026-10-08T20:36:56.0046873Z   ---
+2026-10-08T20:36:56.0047490Z   duration_ms: 91.497294
+2026-10-08T20:36:56.0048148Z   ...
+2026-10-08T20:36:56.0048973Z # Subtest: malformed JSON is refused before any request
+2026-10-08T20:36:56.0050008Z ok 80 - malformed JSON is refused before any request
+2026-10-08T20:36:56.0051059Z   ---
+2026-10-08T20:36:56.0051660Z   duration_ms: 124.249767
+2026-10-08T20:36:56.0052290Z   ...
+2026-10-08T20:36:56.0053246Z # Subtest: valid JSON outside the object shape is refused before any request
+2026-10-08T20:36:56.0054544Z ok 81 - valid JSON outside the object shape is refused before any request
+2026-10-08T20:36:56.0055491Z   ---
+2026-10-08T20:36:56.0056084Z   duration_ms: 95.015927
+2026-10-08T20:36:56.0057007Z   ...
+2026-10-08T20:36:56.0058150Z # Subtest: the existing object-import route retains its serialization and entry projection
+2026-10-08T20:36:56.0059771Z ok 82 - the existing object-import route retains its serialization and entry projection
+2026-10-08T20:36:56.0061071Z   ---
+2026-10-08T20:36:56.0061597Z   duration_ms: 19.728444
+2026-10-08T20:36:56.0062154Z   ...
+2026-10-08T20:36:56.0063047Z # Subtest: ordinary GET and object POST defaults remain on the same transport
+2026-10-08T20:36:56.0064372Z ok 83 - ordinary GET and object POST defaults remain on the same transport
+2026-10-08T20:36:56.0065199Z   ---
+2026-10-08T20:36:56.0065696Z   duration_ms: 63.077213
+2026-10-08T20:36:56.0066228Z   ...
+2026-10-08T20:36:56.0067112Z # Subtest: server errors retain their status, body diagnostics and single request
+2026-10-08T20:36:56.0068410Z ok 84 - server errors retain their status, body diagnostics and single request
+2026-10-08T20:36:56.0069234Z   ---
+2026-10-08T20:36:56.0069721Z   duration_ms: 144.976618
+2026-10-08T20:36:56.0070258Z   ...
+2026-10-08T20:36:56.0071438Z # Subtest: invalid response JSON uses the shared diagnostic for success and error statuses
+2026-10-08T20:36:56.0072781Z ok 85 - invalid response JSON uses the shared diagnostic for success and error statuses
+2026-10-08T20:36:56.0073665Z   ---
+2026-10-08T20:36:56.0074159Z   duration_ms: 19.615947
+2026-10-08T20:36:56.0074700Z   ...
+2026-10-08T20:36:56.0075376Z # Subtest: network failure is preserved without retry
+2026-10-08T20:36:56.0076263Z ok 86 - network failure is preserved without retry
+2026-10-08T20:36:56.0076959Z   ---
+2026-10-08T20:36:56.0077449Z   duration_ms: 9.922915
+2026-10-08T20:36:56.0078001Z   ...
+2026-10-08T20:36:56.0531051Z # Subtest: native physics record keeps the observed place, field, precision and source metadata
+2026-10-08T20:36:56.0532081Z ok 87 - native physics record keeps the observed place, field, precision and source metadata
+2026-10-08T20:36:56.0532719Z   ---
+2026-10-08T20:36:56.0533052Z   duration_ms: 3.227437
+2026-10-08T20:36:56.0533421Z   ...
+2026-10-08T20:36:56.0533971Z # Subtest: fan-only records retain zero and never invent missing race statistics
+2026-10-08T20:36:56.0534699Z ok 88 - fan-only records retain zero and never invent missing race statistics
+2026-10-08T20:36:56.0535208Z   ---
+2026-10-08T20:36:56.0535519Z   duration_ms: 0.561545
+2026-10-08T20:36:56.0535844Z   ...
+2026-10-08T20:36:56.0536404Z # Subtest: repeated race IDs and identical occurrences retain separate source positions
+2026-10-08T20:36:56.0537165Z ok 89 - repeated race IDs and identical occurrences retain separate source positions
+2026-10-08T20:36:56.0537857Z   ---
+2026-10-08T20:36:56.0538347Z   duration_ms: 0.505377
+2026-10-08T20:36:56.0538717Z   ...
+2026-10-08T20:36:56.0539354Z # Subtest: non-race entries and action narration are not retained race records
+2026-10-08T20:36:56.0539973Z ok 90 - non-race entries and action narration are not retained race records
+2026-10-08T20:36:56.0541406Z   ---
+2026-10-08T20:36:56.0541718Z   duration_ms: 0.210097
+2026-10-08T20:36:56.0542086Z   ...
+2026-10-08T20:36:56.0542831Z # Subtest: a newest unrecognized record stays latest even when a valid older result exists
+2026-10-08T20:36:56.0544000Z ok 91 - a newest unrecognized record stays latest even when a valid older result exists
+2026-10-08T20:36:56.0544653Z   ---
+2026-10-08T20:36:56.0544938Z   duration_ms: 0.582576
+2026-10-08T20:36:56.0545168Z   ...
+2026-10-08T20:36:56.0545675Z # Subtest: invalid numeric fields or inconsistent place and field remain literal unknown records
+2026-10-08T20:36:56.0548934Z ok 92 - invalid numeric fields or inconsistent place and field remain literal unknown records
+2026-10-08T20:36:56.0549702Z   ---
+2026-10-08T20:36:56.0550025Z   duration_ms: 0.646068
+2026-10-08T20:36:56.0550929Z   ...
+2026-10-08T20:36:56.0551662Z # Subtest: native ordinal suffixes keep 11th to 13th distinct from 21st to 23rd
+2026-10-08T20:36:56.0552713Z ok 93 - native ordinal suffixes keep 11th to 13th distinct from 21st to 23rd
+2026-10-08T20:36:56.0553351Z   ---
+2026-10-08T20:36:56.0554106Z   duration_ms: 0.335138
+2026-10-08T20:36:56.0554509Z   ...
+2026-10-08T20:36:56.0555294Z # Subtest: rendered physics facts show exact native values and the full original record
+2026-10-08T20:36:56.0556429Z ok 94 - rendered physics facts show exact native values and the full original record
+2026-10-08T20:36:56.0557108Z   ---
+2026-10-08T20:36:56.0557428Z   duration_ms: 8.066337
+2026-10-08T20:36:56.0557740Z   ...
+2026-10-08T20:36:56.0558222Z # Subtest: rendered fan-only facts state the missing details without inventing first place
+2026-10-08T20:36:56.0558914Z ok 95 - rendered fan-only facts state the missing details without inventing first place
+2026-10-08T20:36:56.0559328Z   ---
+2026-10-08T20:36:56.0559522Z   duration_ms: 1.338898
+2026-10-08T20:36:56.0559739Z   ...
+2026-10-08T20:36:56.0560173Z # Subtest: unknown latest is visible while earlier recognized occurrences stay in history
+2026-10-08T20:36:56.0561177Z ok 96 - unknown latest is visible while earlier recognized occurrences stay in history
+2026-10-08T20:36:56.0561585Z   ---
+2026-10-08T20:36:56.0561777Z   duration_ms: 2.075731
+2026-10-08T20:36:56.0561987Z   ...
+2026-10-08T20:36:56.0562337Z # Subtest: mandatory entry remains explicit and disabled while busy
+2026-10-08T20:36:56.0562845Z ok 97 - mandatory entry remains explicit and disabled while busy
+2026-10-08T20:36:56.0563171Z   ---
+2026-10-08T20:36:56.0563355Z   duration_ms: 0.618766
+2026-10-08T20:36:56.0563566Z   ...
+2026-10-08T20:36:56.0563979Z # Subtest: replacing the supplied history cannot retain an old result
+2026-10-08T20:36:56.0564497Z ok 98 - replacing the supplied history cannot retain an old result
+2026-10-08T20:36:56.0564847Z   ---
+2026-10-08T20:36:56.0565035Z   duration_ms: 1.25232
+2026-10-08T20:36:56.0565245Z   ...
+2026-10-08T20:36:56.0565642Z # Subtest: unusual race IDs and unrecognized source text are rendered literally
+2026-10-08T20:36:56.0566239Z ok 99 - unusual race IDs and unrecognized source text are rendered literally
+2026-10-08T20:36:56.0566608Z   ---
+2026-10-08T20:36:56.0566801Z   duration_ms: 1.125986
+2026-10-08T20:36:56.0567024Z   ...
+2026-10-08T20:36:56.2677063Z # Subtest: a delayed action cannot replace a newly selected session
+2026-10-08T20:36:56.2678123Z ok 100 - a delayed action cannot replace a newly selected session
+2026-10-08T20:36:56.2678768Z   ---
+2026-10-08T20:36:56.2679150Z   duration_ms: 36.638349
+2026-10-08T20:36:56.2679566Z   ...
+2026-10-08T20:36:56.2764060Z # Subtest: bootstrap catalogs survive selection without releasing its pending request
+2026-10-08T20:36:56.2765416Z ok 101 - bootstrap catalogs survive selection without releasing its pending request
+2026-10-08T20:36:56.2766329Z   ---
+2026-10-08T20:36:56.2766812Z   duration_ms: 6.967895
+2026-10-08T20:36:56.2767341Z   ...
+2026-10-08T20:36:56.2800848Z # Subtest: a superseded refresh cannot restore the previous session
+2026-10-08T20:36:56.2802527Z ok 102 - a superseded refresh cannot restore the previous session
+2026-10-08T20:36:56.2804313Z   ---
+2026-10-08T20:36:56.2804950Z   duration_ms: 5.272065
+2026-10-08T20:36:56.2805631Z   ...
+2026-10-08T20:36:56.2843984Z # Subtest: reset prevents a delayed action from resurrecting a career
+2026-10-08T20:36:56.2855065Z ok 103 - reset prevents a delayed action from resurrecting a career
+2026-10-08T20:36:56.2856015Z   ---
+2026-10-08T20:36:56.2856657Z   duration_ms: 3.618655
+2026-10-08T20:36:56.2857526Z   ...
+2026-10-08T20:36:56.2876654Z # Subtest: late failures and cleanup cannot alter a newer pending refresh
+2026-10-08T20:36:56.2881107Z ok 104 - late failures and cleanup cannot alter a newer pending refresh
+2026-10-08T20:36:56.2882101Z   ---
+2026-10-08T20:36:56.2882710Z   duration_ms: 4.352005
+2026-10-08T20:36:56.2883378Z   ...
+2026-10-08T20:36:56.2911413Z # Subtest: failed session selection clears stale playable state
+2026-10-08T20:36:56.2923914Z ok 105 - failed session selection clears stale playable state
+2026-10-08T20:36:56.2924848Z   ---
+2026-10-08T20:36:56.2925434Z   duration_ms: 3.491116
+2026-10-08T20:36:56.2926063Z   ...
+2026-10-08T20:36:56.2954366Z # Subtest: same-turn duplicate actions submit only once
+2026-10-08T20:36:56.2955534Z ok 106 - same-turn duplicate actions submit only once
+2026-10-08T20:36:56.2956365Z   ---
+2026-10-08T20:36:56.2956957Z   duration_ms: 3.765268
+2026-10-08T20:36:56.2957603Z   ...
+2026-10-08T20:36:56.3047221Z # Subtest: run operations remain bound to the displayed session after external activation
+2026-10-08T20:36:56.3048887Z ok 107 - run operations remain bound to the displayed session after external activation
+2026-10-08T20:36:56.3049963Z   ---
+2026-10-08T20:36:56.3050856Z   duration_ms: 6.287032
+2026-10-08T20:36:56.3051532Z   ...
+2026-10-08T20:36:56.3052431Z # Subtest: explicit default session is preserved in read requests
+2026-10-08T20:36:56.3053688Z ok 108 - explicit default session is preserved in read requests
+2026-10-08T20:36:56.3054607Z   ---
+2026-10-08T20:36:56.3055230Z   duration_ms: 1.456663
+2026-10-08T20:36:56.3055899Z   ...
+2026-10-08T20:36:56.3070631Z # Subtest: the displayed main session remains the action target after a fork activates
+2026-10-08T20:36:56.3072321Z ok 109 - the displayed main session remains the action target after a fork activates
+2026-10-08T20:36:56.3073376Z   ---
+2026-10-08T20:36:56.3073969Z   duration_ms: 3.713662
+2026-10-08T20:36:56.3074610Z   ...
+2026-10-08T20:36:56.3401283Z # Subtest: starting main hydrates main even when another client activates a fork
+2026-10-08T20:36:56.3402735Z ok 110 - starting main hydrates main even when another client activates a fork
+2026-10-08T20:36:56.3403549Z   ---
+2026-10-08T20:36:56.3403981Z   duration_ms: 2.237252
+2026-10-08T20:36:56.3404246Z   ...
+2026-10-08T20:36:56.4009234Z # Subtest: keyboard shortcuts operate only the visible run and its displayed choice numbers
+2026-10-08T20:36:56.4011552Z ok 111 - keyboard shortcuts operate only the visible run and its displayed choice numbers
+2026-10-08T20:36:56.4012716Z   ---
+2026-10-08T20:36:56.4013393Z   duration_ms: 85.585648
+2026-10-08T20:36:56.4014049Z   ...
+2026-10-08T20:36:56.4134414Z # Subtest: telemetry export uses the displayed career even after external activation
+2026-10-08T20:36:56.4135611Z ok 112 - telemetry export uses the displayed career even after external activation
+2026-10-08T20:36:56.4136561Z   ---
+2026-10-08T20:36:56.4137089Z   duration_ms: 14.392504
+2026-10-08T20:36:56.4137687Z   ...
+2026-10-08T20:36:56.4305192Z 1..112
+2026-10-08T20:36:56.4305805Z # tests 116
+2026-10-08T20:36:56.4306473Z # suites 0
+2026-10-08T20:36:56.4306960Z # pass 116
+2026-10-08T20:36:56.4307472Z # fail 0
+2026-10-08T20:36:56.4307948Z # cancelled 0
+2026-10-08T20:36:56.4308480Z # skipped 0
+2026-10-08T20:36:56.4308973Z # todo 0
+2026-10-08T20:36:56.4313012Z # duration_ms 4235.944279
+2026-10-08T20:36:56.4435832Z ##[group]Run npm run typecheck
+2026-10-08T20:36:56.4436149Z [36;1mnpm run typecheck[0m
+2026-10-08T20:36:56.4500769Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:36:56.4501078Z ##[endgroup]
+2026-10-08T20:36:56.5647842Z 
+2026-10-08T20:36:56.5648395Z > uma-sim-ui@0.1.0 typecheck
+2026-10-08T20:36:56.5648951Z > tsc --noEmit
+2026-10-08T20:36:56.5649143Z 
+2026-10-08T20:36:59.5216023Z ##[group]Run npm run build
+2026-10-08T20:36:59.5216495Z [36;1mnpm run build[0m
+2026-10-08T20:36:59.5289383Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:36:59.5289697Z ##[endgroup]
+2026-10-08T20:36:59.6453011Z 
+2026-10-08T20:36:59.6453518Z > uma-sim-ui@0.1.0 prebuild
+2026-10-08T20:36:59.6454339Z > npm test
+2026-10-08T20:36:59.6454671Z 
+2026-10-08T20:36:59.7889006Z 
+2026-10-08T20:36:59.7889719Z > uma-sim-ui@0.1.0 test
+2026-10-08T20:36:59.7893285Z > node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs test/skills-view.test.mjs tests/race-results.test.mjs test/conditions-view.test.mjs tests/checkpoint-json.test.mjs tests/run-session.test.mjs
+2026-10-08T20:36:59.7895623Z 
+2026-10-08T20:36:59.8491571Z TAP version 13
+2026-10-08T20:37:00.8552318Z # Subtest: an empty collection is reported separately from absent or malformed data
+2026-10-08T20:37:00.8571505Z ok 1 - an empty collection is reported separately from absent or malformed data
+2026-10-08T20:37:00.8588414Z   ---
+2026-10-08T20:37:00.8617315Z   duration_ms: 2.419873
+2026-10-08T20:37:00.8643157Z   ...
+2026-10-08T20:37:00.8661996Z # Subtest: injury matching follows the native exact injured or injury-substring predicate
+2026-10-08T20:37:00.8691523Z ok 2 - injury matching follows the native exact injured or injury-substring predicate
+2026-10-08T20:37:00.8720871Z   ---
+2026-10-08T20:37:00.8739149Z   duration_ms: 0.484646
+2026-10-08T20:37:00.8741793Z   ...
+2026-10-08T20:37:00.8742563Z # Subtest: similar words and whitespace do not widen the native injury predicate
+2026-10-08T20:37:00.8743668Z ok 3 - similar words and whitespace do not widen the native injury predicate
+2026-10-08T20:37:00.8744332Z   ---
+2026-10-08T20:37:00.8744668Z   duration_ms: 0.298888
+2026-10-08T20:37:00.8745039Z   ...
+2026-10-08T20:37:00.8745705Z # Subtest: only the three exact simulator epithet IDs receive title labels
+2026-10-08T20:37:00.8746709Z ok 4 - only the three exact simulator epithet IDs receive title labels
+2026-10-08T20:37:00.8747330Z   ---
+2026-10-08T20:37:00.8747652Z   duration_ms: 0.383005
+2026-10-08T20:37:00.8748010Z   ...
+2026-10-08T20:37:00.8748768Z # Subtest: unknown title-like IDs remain literal without invented names or effects
+2026-10-08T20:37:00.8771688Z ok 5 - unknown title-like IDs remain literal without invented names or effects
+2026-10-08T20:37:00.8800976Z   ---
+2026-10-08T20:37:00.8827349Z   duration_ms: 0.296634
+2026-10-08T20:37:00.8831188Z   ...
+2026-10-08T20:37:00.8861450Z # Subtest: native injury admission takes precedence over a title-like namespace
+2026-10-08T20:37:00.8875370Z ok 6 - native injury admission takes precedence over a title-like namespace
+2026-10-08T20:37:00.8921089Z   ---
+2026-10-08T20:37:00.8951046Z   duration_ms: 0.307716
+2026-10-08T20:37:00.8951459Z   ...
+2026-10-08T20:37:00.8952329Z # Subtest: every retained entry survives in order including duplicates and long collections
+2026-10-08T20:37:00.8953660Z ok 7 - every retained entry survives in order including duplicates and long collections
+2026-10-08T20:37:00.8954431Z   ---
+2026-10-08T20:37:00.8954790Z   duration_ms: 0.372106
+2026-10-08T20:37:00.8955195Z   ...
+2026-10-08T20:37:00.8956004Z # Subtest: markup-like strings, whitespace and object-property names remain exact data
+2026-10-08T20:37:00.8957199Z ok 8 - markup-like strings, whitespace and object-property names remain exact data
+2026-10-08T20:37:00.8957954Z   ---
+2026-10-08T20:37:00.8958267Z   duration_ms: 0.248054
+2026-10-08T20:37:00.8958616Z   ...
+2026-10-08T20:37:00.8959451Z # Subtest: a later recovered snapshot removes the warning and retains unrelated titles and statuses
+2026-10-08T20:37:00.8960985Z ok 9 - a later recovered snapshot removes the warning and retains unrelated titles and statuses
+2026-10-08T20:37:00.8961775Z   ---
+2026-10-08T20:37:00.8962111Z   duration_ms: 0.435625
+2026-10-08T20:37:00.8962859Z   ...
+2026-10-08T20:37:01.1397766Z # Subtest: JSON preserves every original entry and explicit retained-history scope
+2026-10-08T20:37:01.1433284Z ok 10 - JSON preserves every original entry and explicit retained-history scope
+2026-10-08T20:37:01.1464110Z   ---
+2026-10-08T20:37:01.1490922Z   duration_ms: 3.058086
+2026-10-08T20:37:01.1491335Z   ...
+2026-10-08T20:37:01.1521621Z # Subtest: a prepared file survives later append or replacement without taking a filtered subset
+2026-10-08T20:37:01.1544569Z ok 11 - a prepared file survives later append or replacement without taking a filtered subset
+2026-10-08T20:37:01.1592322Z   ---
+2026-10-08T20:37:01.1610885Z   duration_ms: 0.245229
+2026-10-08T20:37:01.1640825Z   ...
+2026-10-08T20:37:01.1651507Z # Subtest: readable text retains ordered duplicate and empty numbered blocks
+2026-10-08T20:37:01.1679262Z ok 12 - readable text retains ordered duplicate and empty numbered blocks
+2026-10-08T20:37:01.1725257Z   ---
+2026-10-08T20:37:01.1761149Z   duration_ms: 0.308928
+2026-10-08T20:37:01.1783831Z   ...
+2026-10-08T20:37:01.1784612Z # Subtest: empty, single-entry and long histories have explicit complete counts
+2026-10-08T20:37:01.1785750Z ok 13 - empty, single-entry and long histories have explicit complete counts
+2026-10-08T20:37:01.1786459Z   ---
+2026-10-08T20:37:01.1786836Z   duration_ms: 9.460674
+2026-10-08T20:37:01.1787266Z   ...
+2026-10-08T20:37:01.1788179Z # Subtest: one local request delivers the actual JSON Blob and releases its URL after the click
+2026-10-08T20:37:01.1891832Z ok 14 - one local request delivers the actual JSON Blob and releases its URL after the click
+2026-10-08T20:37:01.1901191Z   ---
+2026-10-08T20:37:01.1920978Z   duration_ms: 16.287179
+2026-10-08T20:37:01.1951085Z   ...
+2026-10-08T20:37:01.1972025Z # Subtest: preparation and dispatch failures propagate without another click or a leaked URL
+2026-10-08T20:37:01.2001024Z     # Subtest: url
+2026-10-08T20:37:01.2011277Z     ok 1 - url
+2026-10-08T20:37:01.2041122Z       ---
+2026-10-08T20:37:01.2061009Z       duration_ms: 33.779913
+2026-10-08T20:37:01.2071235Z       ...
+2026-10-08T20:37:01.2091462Z     # Subtest: create
+2026-10-08T20:37:01.2092310Z     ok 2 - create
+2026-10-08T20:37:01.2093024Z       ---
+2026-10-08T20:37:01.2093821Z       duration_ms: 5.368465
+2026-10-08T20:37:01.2094657Z       ...
+2026-10-08T20:37:01.2095301Z     # Subtest: append
+2026-10-08T20:37:01.2096134Z     ok 3 - append
+2026-10-08T20:37:01.2096800Z       ---
+2026-10-08T20:37:01.2097407Z       duration_ms: 5.155838
+2026-10-08T20:37:01.2098105Z       ...
+2026-10-08T20:37:01.2261765Z     # Subtest: click
+2026-10-08T20:37:01.2300964Z     ok 4 - click
+2026-10-08T20:37:01.2330929Z       ---
+2026-10-08T20:37:01.2345434Z       duration_ms: 3.44942
+2026-10-08T20:37:01.2381124Z       ...
+2026-10-08T20:37:01.2381693Z     1..4
+2026-10-08T20:37:01.2382683Z ok 15 - preparation and dispatch failures propagate without another click or a leaked URL
+2026-10-08T20:37:01.2383495Z   ---
+2026-10-08T20:37:01.2383952Z   duration_ms: 49.15172
+2026-10-08T20:37:01.2384436Z   ...
+2026-10-08T20:37:01.2385286Z # Subtest: native React rendering names the full count and disables only an empty log
+2026-10-08T20:37:01.2386510Z ok 16 - native React rendering names the full count and disables only an empty log
+2026-10-08T20:37:01.2387333Z   ---
+2026-10-08T20:37:01.2387747Z   duration_ms: 11.74778
+2026-10-08T20:37:01.2388233Z   ...
+2026-10-08T20:37:01.2389208Z # Subtest: the actual LogPanel exposes the full-history download beside preserved reader and summary
+2026-10-08T20:37:01.2390895Z ok 17 - the actual LogPanel exposes the full-history download beside preserved reader and summary
+2026-10-08T20:37:01.2391797Z   ---
+2026-10-08T20:37:01.2392246Z   duration_ms: 9.787537
+2026-10-08T20:37:01.2392692Z   ...
+2026-10-08T20:37:01.3331829Z # Subtest: empty query exposes every retained entry verbatim, including empty and duplicate entries
+2026-10-08T20:37:01.3361667Z ok 18 - empty query exposes every retained entry verbatim, including empty and duplicate entries
+2026-10-08T20:37:01.3381076Z   ---
+2026-10-08T20:37:01.3471004Z   duration_ms: 4.225038
+2026-10-08T20:37:01.3500985Z   ...
+2026-10-08T20:37:01.3502534Z # Subtest: matching entries and occurrences are counted separately without crossing entry boundaries
+2026-10-08T20:37:01.3561444Z ok 19 - matching entries and occurrences are counted separately without crossing entry boundaries
+2026-10-08T20:37:01.3612786Z   ---
+2026-10-08T20:37:01.3671236Z   duration_ms: 0.488994
+2026-10-08T20:37:01.3694359Z   ...
+2026-10-08T20:37:01.3723313Z # Subtest: case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters
+2026-10-08T20:37:01.3733764Z ok 20 - case-insensitive highlighting retains original UTF-16 spans after length-changing lowercase characters
+2026-10-08T20:37:01.3760973Z   ---
+2026-10-08T20:37:01.3781050Z   duration_ms: 0.483885
+2026-10-08T20:37:01.3808968Z   ...
+2026-10-08T20:37:01.3812201Z # Subtest: Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s
+2026-10-08T20:37:01.3813956Z ok 21 - Unicode simple folding handles sigma, Kelvin sign, and long s without expanding sharp s
+2026-10-08T20:37:01.3815009Z   ---
+2026-10-08T20:37:01.3815543Z   duration_ms: 1.291614
+2026-10-08T20:37:01.3816121Z   ...
+2026-10-08T20:37:01.3817283Z # Subtest: Japanese, astral symbols, combining characters, and isolated surrogates preserve original text
+2026-10-08T20:37:01.3819020Z ok 22 - Japanese, astral symbols, combining characters, and isolated surrogates preserve original text
+2026-10-08T20:37:01.3820088Z   ---
+2026-10-08T20:37:01.3820814Z   duration_ms: 0.919328
+2026-10-08T20:37:01.3821420Z   ...
+2026-10-08T20:37:01.3828974Z # Subtest: all regexp metacharacters, whitespace, and markup-like text remain literal search data
+2026-10-08T20:37:01.3831226Z ok 23 - all regexp metacharacters, whitespace, and markup-like text remain literal search data
+2026-10-08T20:37:01.3832416Z   ---
+2026-10-08T20:37:01.3833380Z   duration_ms: 4.441553
+2026-10-08T20:37:01.3834143Z   ...
+2026-10-08T20:37:01.3836722Z # Subtest: matches are non-overlapping and global matching restarts independently for each entry
+2026-10-08T20:37:01.3838550Z ok 24 - matches are non-overlapping and global matching restarts independently for each entry
+2026-10-08T20:37:01.3839782Z   ---
+2026-10-08T20:37:01.3840889Z   duration_ms: 0.445533
+2026-10-08T20:37:01.3841694Z   ...
+2026-10-08T20:37:01.3842975Z # Subtest: 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle
+2026-10-08T20:37:01.3844740Z ok 25 - 2,000 deterministic mixed-Unicode cases agree with an independent scalar-token oracle
+2026-10-08T20:37:01.3846042Z   ---
+2026-10-08T20:37:01.3846704Z   duration_ms: 365.779194
+2026-10-08T20:37:01.3847552Z   ...
+2026-10-08T20:37:01.3848877Z # Subtest: history changes distinguish a strict prefix append from trimming, replacement, and reordering
+2026-10-08T20:37:01.3850934Z ok 26 - history changes distinguish a strict prefix append from trimming, replacement, and reordering
+2026-10-08T20:37:01.3852321Z   ---
+2026-10-08T20:37:01.3852943Z   duration_ms: 0.461533
+2026-10-08T20:37:01.3853673Z   ...
+2026-10-08T20:37:01.3854830Z # Subtest: 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input
+2026-10-08T20:37:01.3856468Z ok 27 - 14,641 sequence pairs agree with an independent serialized-prefix oracle without mutating input
+2026-10-08T20:37:01.3857716Z   ---
+2026-10-08T20:37:01.3858293Z   duration_ms: 47.522996
+2026-10-08T20:37:01.3859022Z   ...
+2026-10-08T20:37:01.9951894Z # Subtest: learned names and descriptions use exact IDs with a literal unknown fallback
+2026-10-08T20:37:01.9953742Z ok 28 - learned names and descriptions use exact IDs with a literal unknown fallback
+2026-10-08T20:37:01.9954851Z   ---
+2026-10-08T20:37:01.9955456Z   duration_ms: 1.899371
+2026-10-08T20:37:01.9956304Z   ...
+2026-10-08T20:37:01.9957435Z # Subtest: all retained learned entries survive in order, including duplicates beyond 24
+2026-10-08T20:37:01.9958847Z ok 29 - all retained learned entries survive in order, including duplicates beyond 24
+2026-10-08T20:37:01.9960410Z   ---
+2026-10-08T20:37:01.9961318Z   duration_ms: 0.286035
+2026-10-08T20:37:01.9962386Z   ...
+2026-10-08T20:37:01.9963614Z # Subtest: only skill namespace hints are skills; raw names and training keys remain separate
+2026-10-08T20:37:01.9965114Z ok 30 - only skill namespace hints are skills; raw names and training keys remain separate
+2026-10-08T20:37:01.9966261Z   ---
+2026-10-08T20:37:01.9966884Z   duration_ms: 0.366796
+2026-10-08T20:37:01.9967672Z   ...
+2026-10-08T20:37:02.0031602Z # Subtest: hint levels are retained values, with no cap, discount, or purchase inference
+2026-10-08T20:37:02.0033058Z ok 31 - hint levels are retained values, with no cap, discount, or purchase inference
+2026-10-08T20:37:02.0033892Z   ---
+2026-10-08T20:37:02.0034434Z   duration_ms: 0.238656
+2026-10-08T20:37:02.0034992Z   ...
+2026-10-08T20:37:02.0035998Z # Subtest: catalog failure and malformed entries do not manufacture names or accept an HTML fallback
+2026-10-08T20:37:02.0037576Z ok 32 - catalog failure and malformed entries do not manufacture names or accept an HTML fallback
+2026-10-08T20:37:02.0038480Z   ---
+2026-10-08T20:37:02.0038963Z   duration_ms: 0.426136
+2026-10-08T20:37:02.0039553Z   ...
+2026-10-08T20:37:02.0040831Z # Subtest: markup-like text and object-property keys remain literal, without changing snapshot inputs
+2026-10-08T20:37:02.0042440Z ok 33 - markup-like text and object-property keys remain literal, without changing snapshot inputs
+2026-10-08T20:37:02.0043403Z   ---
+2026-10-08T20:37:02.0043908Z   duration_ms: 0.252101
+2026-10-08T20:37:02.0044424Z   ...
+2026-10-08T20:37:02.2474829Z # Subtest: preserves the full authored order, blank lines, turn zero and colon action IDs
+2026-10-08T20:37:02.2493141Z ok 34 - preserves the full authored order, blank lines, turn zero and colon action IDs
+2026-10-08T20:37:02.2501179Z   ---
+2026-10-08T20:37:02.2521076Z   duration_ms: 1.98461
+2026-10-08T20:37:02.2521867Z   ...
+2026-10-08T20:37:02.2522682Z # Subtest: a policy-only run is valid with no override text
+2026-10-08T20:37:02.2551506Z ok 35 - a policy-only run is valid with no override text
+2026-10-08T20:37:02.2580960Z   ---
+2026-10-08T20:37:02.2611086Z   duration_ms: 0.188072
+2026-10-08T20:37:02.2611773Z   ...
+2026-10-08T20:37:02.2612813Z # Subtest: accepts only the exact representable integer boundary and allowed maximum budget
+2026-10-08T20:37:02.2614418Z ok 36 - accepts only the exact representable integer boundary and allowed maximum budget
+2026-10-08T20:37:02.2615353Z   ---
+2026-10-08T20:37:02.2615863Z   duration_ms: 0.173885
+2026-10-08T20:37:02.2616588Z   ...
+2026-10-08T20:37:02.2617251Z # Subtest: refuses the whole draft for missing colon
+2026-10-08T20:37:02.2618203Z ok 37 - refuses the whole draft for missing colon
+2026-10-08T20:37:02.2618966Z   ---
+2026-10-08T20:37:02.2619496Z   duration_ms: 0.325529
+2026-10-08T20:37:02.2620036Z   ...
+2026-10-08T20:37:02.2621030Z # Subtest: refuses the whole draft for missing turn
+2026-10-08T20:37:02.2622057Z ok 38 - refuses the whole draft for missing turn
+2026-10-08T20:37:02.2622784Z   ---
+2026-10-08T20:37:02.2623328Z   duration_ms: 0.167674
+2026-10-08T20:37:02.2623940Z   ...
+2026-10-08T20:37:02.2624661Z # Subtest: refuses the whole draft for negative turn
+2026-10-08T20:37:02.2651136Z ok 39 - refuses the whole draft for negative turn
+2026-10-08T20:37:02.2705216Z   ---
+2026-10-08T20:37:02.2761141Z   duration_ms: 0.166441
+2026-10-08T20:37:02.2761743Z   ...
+2026-10-08T20:37:02.2762548Z # Subtest: refuses the whole draft for fractional turn
+2026-10-08T20:37:02.2763528Z ok 40 - refuses the whole draft for fractional turn
+2026-10-08T20:37:02.2764316Z   ---
+2026-10-08T20:37:02.2764996Z   duration_ms: 0.174797
+2026-10-08T20:37:02.2765573Z   ...
+2026-10-08T20:37:02.2766482Z # Subtest: refuses the whole draft for scientific notation
+2026-10-08T20:37:02.2767484Z ok 41 - refuses the whole draft for scientific notation
+2026-10-08T20:37:02.2768241Z   ---
+2026-10-08T20:37:02.2768909Z   duration_ms: 0.135914
+2026-10-08T20:37:02.2770007Z   ...
+2026-10-08T20:37:02.2771179Z # Subtest: refuses the whole draft for hexadecimal notation
+2026-10-08T20:37:02.2772667Z ok 42 - refuses the whole draft for hexadecimal notation
+2026-10-08T20:37:02.2773494Z   ---
+2026-10-08T20:37:02.2773988Z   duration_ms: 0.18716
+2026-10-08T20:37:02.2774563Z   ...
+2026-10-08T20:37:02.2775315Z # Subtest: refuses the whole draft for non-number turn
+2026-10-08T20:37:02.2776340Z ok 43 - refuses the whole draft for non-number turn
+2026-10-08T20:37:02.2777370Z   ---
+2026-10-08T20:37:02.2801172Z   duration_ms: 0.269924
+2026-10-08T20:37:02.2801705Z   ...
+2026-10-08T20:37:02.2831339Z # Subtest: refuses the whole draft for infinite turn
+2026-10-08T20:37:02.2851210Z ok 44 - refuses the whole draft for infinite turn
+2026-10-08T20:37:02.2861106Z   ---
+2026-10-08T20:37:02.2921097Z   duration_ms: 0.151303
+2026-10-08T20:37:02.2946852Z   ...
+2026-10-08T20:37:02.2947938Z # Subtest: refuses the whole draft for signed integer overflow
+2026-10-08T20:37:02.2949117Z ok 45 - refuses the whole draft for signed integer overflow
+2026-10-08T20:37:02.2950224Z   ---
+2026-10-08T20:37:02.2950961Z   duration_ms: 0.174497
+2026-10-08T20:37:02.2951630Z   ...
+2026-10-08T20:37:02.2952504Z # Subtest: refuses the whole draft for integer that would wrap to turn 8
+2026-10-08T20:37:02.2953700Z ok 46 - refuses the whole draft for integer that would wrap to turn 8
+2026-10-08T20:37:02.2954501Z   ---
+2026-10-08T20:37:02.2955057Z   duration_ms: 0.129192
+2026-10-08T20:37:02.2955585Z   ...
+2026-10-08T20:37:02.2956321Z # Subtest: refuses the whole draft for unsafe integer
+2026-10-08T20:37:02.2957355Z ok 47 - refuses the whole draft for unsafe integer
+2026-10-08T20:37:02.2958066Z   ---
+2026-10-08T20:37:02.2958571Z   duration_ms: 2.581936
+2026-10-08T20:37:02.2959140Z   ...
+2026-10-08T20:37:02.2959773Z # Subtest: refuses the whole draft for empty action
+2026-10-08T20:37:02.2961019Z ok 48 - refuses the whole draft for empty action
+2026-10-08T20:37:02.2961699Z   ---
+2026-10-08T20:37:02.2962281Z   duration_ms: 0.135643
+2026-10-08T20:37:02.2962796Z   ...
+2026-10-08T20:37:02.2963807Z # Subtest: duplicate turns report both source lines rather than picking the first silently
+2026-10-08T20:37:02.2965141Z ok 49 - duplicate turns report both source lines rather than picking the first silently
+2026-10-08T20:37:02.2965959Z   ---
+2026-10-08T20:37:02.2966557Z   duration_ms: 0.241302
+2026-10-08T20:37:02.2967056Z   ...
+2026-10-08T20:37:02.2967949Z # Subtest: collects actionable line errors without discarding valid intervening input
+2026-10-08T20:37:02.2969201Z ok 50 - collects actionable line errors without discarding valid intervening input
+2026-10-08T20:37:02.2969971Z   ---
+2026-10-08T20:37:02.2970326Z   duration_ms: 1.523468
+2026-10-08T20:37:02.2971052Z   ...
+2026-10-08T20:37:02.2971541Z # Subtest: refuses invalid action budget ""
+2026-10-08T20:37:02.2972204Z ok 51 - refuses invalid action budget ""
+2026-10-08T20:37:02.2972702Z   ---
+2026-10-08T20:37:02.2973044Z   duration_ms: 0.284041
+2026-10-08T20:37:02.2973433Z   ...
+2026-10-08T20:37:02.2973922Z # Subtest: refuses invalid action budget " "
+2026-10-08T20:37:02.2974572Z ok 52 - refuses invalid action budget " "
+2026-10-08T20:37:02.2975055Z   ---
+2026-10-08T20:37:02.2975376Z   duration_ms: 0.13407
+2026-10-08T20:37:02.2975724Z   ...
+2026-10-08T20:37:02.2976172Z # Subtest: refuses invalid action budget "0"
+2026-10-08T20:37:02.2976797Z ok 53 - refuses invalid action budget "0"
+2026-10-08T20:37:02.2977285Z   ---
+2026-10-08T20:37:02.2977615Z   duration_ms: 0.223718
+2026-10-08T20:37:02.2977997Z   ...
+2026-10-08T20:37:02.2978470Z # Subtest: refuses invalid action budget "501"
+2026-10-08T20:37:02.2979123Z ok 54 - refuses invalid action budget "501"
+2026-10-08T20:37:02.2979596Z   ---
+2026-10-08T20:37:02.2979909Z   duration_ms: 0.143569
+2026-10-08T20:37:02.2980263Z   ...
+2026-10-08T20:37:02.3004456Z # Subtest: refuses invalid action budget "1.5"
+2026-10-08T20:37:02.3005338Z ok 55 - refuses invalid action budget "1.5"
+2026-10-08T20:37:02.3005796Z   ---
+2026-10-08T20:37:02.3006101Z   duration_ms: 0.095479
+2026-10-08T20:37:02.3007070Z   ...
+2026-10-08T20:37:02.3007716Z # Subtest: refuses invalid action budget "-1"
+2026-10-08T20:37:02.3008508Z ok 56 - refuses invalid action budget "-1"
+2026-10-08T20:37:02.3009207Z   ---
+2026-10-08T20:37:02.3009497Z   duration_ms: 0.086712
+2026-10-08T20:37:02.3010012Z   ...
+2026-10-08T20:37:02.3010468Z # Subtest: refuses invalid action budget "NaN"
+2026-10-08T20:37:02.3011409Z ok 57 - refuses invalid action budget "NaN"
+2026-10-08T20:37:02.3011917Z   ---
+2026-10-08T20:37:02.3012540Z   duration_ms: 0.086632
+2026-10-08T20:37:02.3012907Z   ...
+2026-10-08T20:37:02.3013574Z # Subtest: refuses invalid action budget "Infinity"
+2026-10-08T20:37:02.3014304Z ok 58 - refuses invalid action budget "Infinity"
+2026-10-08T20:37:02.3015081Z   ---
+2026-10-08T20:37:02.3015374Z   duration_ms: 0.082585
+2026-10-08T20:37:02.3015945Z   ...
+2026-10-08T20:37:02.3016390Z # Subtest: refuses invalid action budget "1e2"
+2026-10-08T20:37:02.3017072Z ok 59 - refuses invalid action budget "1e2"
+2026-10-08T20:37:02.3017522Z   ---
+2026-10-08T20:37:02.3017821Z   duration_ms: 0.094707
+2026-10-08T20:37:02.3018172Z   ...
+2026-10-08T20:37:02.3018685Z # Subtest: refuses invalid action budget "9007199254740993"
+2026-10-08T20:37:02.3019383Z ok 60 - refuses invalid action budget "9007199254740993"
+2026-10-08T20:37:02.3019857Z   ---
+2026-10-08T20:37:02.3020193Z   duration_ms: 0.094426
+2026-10-08T20:37:02.3020866Z   ...
+2026-10-08T20:37:02.3021455Z # Subtest: reports both budget and override errors in a single review
+2026-10-08T20:37:02.3022384Z ok 61 - reports both budget and override errors in a single review
+2026-10-08T20:37:02.3022986Z   ---
+2026-10-08T20:37:02.3023309Z   duration_ms: 0.241742
+2026-10-08T20:37:02.3023681Z   ...
+2026-10-08T20:37:02.3024425Z # Subtest: preserves literal action text for the existing simulator legality check
+2026-10-08T20:37:02.3025554Z ok 62 - preserves literal action text for the existing simulator legality check
+2026-10-08T20:37:02.3026254Z   ---
+2026-10-08T20:37:02.3026573Z   duration_ms: 0.172492
+2026-10-08T20:37:02.3026942Z   ...
+2026-10-08T20:37:02.5733990Z # Subtest: an unselected inspector explains how to read a saved trace
+2026-10-08T20:37:02.5739561Z ok 63 - an unselected inspector explains how to read a saved trace
+2026-10-08T20:37:02.5740805Z   ---
+2026-10-08T20:37:02.5741376Z   duration_ms: 5.580873
+2026-10-08T20:37:02.5741959Z   ...
+2026-10-08T20:37:02.5743053Z # Subtest: loading identifies the requested branch and exposes only a close action
+2026-10-08T20:37:02.5745331Z ok 64 - loading identifies the requested branch and exposes only a close action
+2026-10-08T20:37:02.5746382Z   ---
+2026-10-08T20:37:02.5746940Z   duration_ms: 0.703846
+2026-10-08T20:37:02.5747569Z   ...
+2026-10-08T20:37:02.5755666Z # Subtest: an error identifies its branch, is announced and supports explicit retry
+2026-10-08T20:37:02.5782601Z ok 65 - an error identifies its branch, is announced and supports explicit retry
+2026-10-08T20:37:02.5911298Z   ---
+2026-10-08T20:37:02.5972070Z   duration_ms: 0.532816
+2026-10-08T20:37:02.6001241Z   ...
+2026-10-08T20:37:02.6022005Z # Subtest: same-turn rejection and later application remain separate recorded steps
+2026-10-08T20:37:02.6023268Z ok 66 - same-turn rejection and later application remain separate recorded steps
+2026-10-08T20:37:02.6024043Z   ---
+2026-10-08T20:37:02.6024446Z   duration_ms: 2.147575
+2026-10-08T20:37:02.6024885Z   ...
+2026-10-08T20:37:02.6025727Z # Subtest: a configured but unobserved turn has no invented rejection outcome
+2026-10-08T20:37:02.6026926Z ok 67 - a configured but unobserved turn has no invented rejection outcome
+2026-10-08T20:37:02.6027761Z   ---
+2026-10-08T20:37:02.6028188Z   duration_ms: 0.746916
+2026-10-08T20:37:02.6028651Z   ...
+2026-10-08T20:37:02.6029399Z # Subtest: a branch with no recorded steps has an explicit empty state
+2026-10-08T20:37:02.6030692Z ok 68 - a branch with no recorded steps has an explicit empty state
+2026-10-08T20:37:02.6031408Z   ---
+2026-10-08T20:37:02.6031847Z   duration_ms: 0.525703
+2026-10-08T20:37:02.6032903Z   ...
+2026-10-08T20:37:02.6039344Z # Subtest: a policy-only timeline offers all steps when the override filter is empty
+2026-10-08T20:37:02.6041014Z ok 69 - a policy-only timeline offers all steps when the override filter is empty
+2026-10-08T20:37:02.6041775Z   ---
+2026-10-08T20:37:02.6042189Z   duration_ms: 0.610581
+2026-10-08T20:37:02.6042623Z   ...
+2026-10-08T20:37:02.6043467Z # Subtest: legacy duplicate configuration is retained without dropping either authored action
+2026-10-08T20:37:02.6044727Z ok 70 - legacy duplicate configuration is retained without dropping either authored action
+2026-10-08T20:37:02.6045515Z   ---
+2026-10-08T20:37:02.6045905Z   duration_ms: 0.942222
+2026-10-08T20:37:02.6046339Z   ...
+2026-10-08T20:37:02.6047068Z # Subtest: source text remains literal instead of becoming active markup
+2026-10-08T20:37:02.6048247Z ok 71 - source text remains literal instead of becoming active markup
+2026-10-08T20:37:02.6050030Z   ---
+2026-10-08T20:37:02.6082700Z   duration_ms: 3.640877
+2026-10-08T20:37:02.6083530Z   ...
+2026-10-08T20:37:03.7545214Z # Subtest: import preserves the complete snapshot text for signed seed -9223372036854775808
+2026-10-08T20:37:03.7571892Z ok 72 - import preserves the complete snapshot text for signed seed -9223372036854775808
+2026-10-08T20:37:03.7573032Z   ---
+2026-10-08T20:37:03.7595874Z   duration_ms: 105.272245
+2026-10-08T20:37:03.7596669Z   ...
+2026-10-08T20:37:03.7616444Z # Subtest: import preserves the complete snapshot text for signed seed -9007199254740993
+2026-10-08T20:37:03.7651780Z ok 73 - import preserves the complete snapshot text for signed seed -9007199254740993
+2026-10-08T20:37:03.7675751Z   ---
+2026-10-08T20:37:03.7683941Z   duration_ms: 45.361399
+2026-10-08T20:37:03.7731053Z   ...
+2026-10-08T20:37:03.7732707Z # Subtest: import preserves the complete snapshot text for signed seed -42
+2026-10-08T20:37:03.7746627Z ok 74 - import preserves the complete snapshot text for signed seed -42
+2026-10-08T20:37:03.7747372Z   ---
+2026-10-08T20:37:03.7747734Z   duration_ms: 71.295884
+2026-10-08T20:37:03.7748158Z   ...
+2026-10-08T20:37:03.7748863Z # Subtest: import preserves the complete snapshot text for signed seed 0
+2026-10-08T20:37:03.7749888Z ok 75 - import preserves the complete snapshot text for signed seed 0
+2026-10-08T20:37:03.7750797Z   ---
+2026-10-08T20:37:03.7751173Z   duration_ms: 24.754212
+2026-10-08T20:37:03.7751577Z   ...
+2026-10-08T20:37:03.7752297Z # Subtest: import preserves the complete snapshot text for signed seed 42
+2026-10-08T20:37:03.7753348Z ok 76 - import preserves the complete snapshot text for signed seed 42
+2026-10-08T20:37:03.7754025Z   ---
+2026-10-08T20:37:03.7754397Z   duration_ms: 30.768722
+2026-10-08T20:37:03.7754812Z   ...
+2026-10-08T20:37:03.7755620Z # Subtest: import preserves the complete snapshot text for signed seed 9007199254740993
+2026-10-08T20:37:03.7756924Z ok 77 - import preserves the complete snapshot text for signed seed 9007199254740993
+2026-10-08T20:37:03.7757693Z   ---
+2026-10-08T20:37:03.7758075Z   duration_ms: 29.40923
+2026-10-08T20:37:03.7758486Z   ...
+2026-10-08T20:37:03.7759326Z # Subtest: import preserves the complete snapshot text for signed seed 9223372036854775807
+2026-10-08T20:37:03.7760883Z ok 78 - import preserves the complete snapshot text for signed seed 9223372036854775807
+2026-10-08T20:37:03.7761688Z   ---
+2026-10-08T20:37:03.7762071Z   duration_ms: 27.505126
+2026-10-08T20:37:03.7762499Z   ...
+2026-10-08T20:37:03.7763318Z # Subtest: optional names remain one escaped string and cannot add envelope fields
+2026-10-08T20:37:03.7764538Z ok 79 - optional names remain one escaped string and cannot add envelope fields
+2026-10-08T20:37:03.7765298Z   ---
+2026-10-08T20:37:03.7765680Z   duration_ms: 132.631707
+2026-10-08T20:37:03.7766132Z   ...
+2026-10-08T20:37:03.7766730Z # Subtest: malformed JSON is refused before any request
+2026-10-08T20:37:03.7767543Z ok 80 - malformed JSON is refused before any request
+2026-10-08T20:37:03.7768115Z   ---
+2026-10-08T20:37:03.7768476Z   duration_ms: 151.582189
+2026-10-08T20:37:03.7768891Z   ...
+2026-10-08T20:37:03.7770140Z # Subtest: valid JSON outside the object shape is refused before any request
+2026-10-08T20:37:03.7771721Z ok 81 - valid JSON outside the object shape is refused before any request
+2026-10-08T20:37:03.7772433Z   ---
+2026-10-08T20:37:03.7772802Z   duration_ms: 129.923628
+2026-10-08T20:37:03.7773219Z   ...
+2026-10-08T20:37:03.7774099Z # Subtest: the existing object-import route retains its serialization and entry projection
+2026-10-08T20:37:03.7775421Z ok 82 - the existing object-import route retains its serialization and entry projection
+2026-10-08T20:37:03.7776214Z   ---
+2026-10-08T20:37:03.7776595Z   duration_ms: 20.065467
+2026-10-08T20:37:03.7777012Z   ...
+2026-10-08T20:37:03.7777796Z # Subtest: ordinary GET and object POST defaults remain on the same transport
+2026-10-08T20:37:03.7778929Z ok 83 - ordinary GET and object POST defaults remain on the same transport
+2026-10-08T20:37:03.7779629Z   ---
+2026-10-08T20:37:03.7780001Z   duration_ms: 29.889394
+2026-10-08T20:37:03.7780685Z   ...
+2026-10-08T20:37:03.7781497Z # Subtest: server errors retain their status, body diagnostics and single request
+2026-10-08T20:37:03.7782680Z ok 84 - server errors retain their status, body diagnostics and single request
+2026-10-08T20:37:03.7783388Z   ---
+2026-10-08T20:37:03.7783743Z   duration_ms: 68.302827
+2026-10-08T20:37:03.7784149Z   ...
+2026-10-08T20:37:03.7784999Z # Subtest: invalid response JSON uses the shared diagnostic for success and error statuses
+2026-10-08T20:37:03.7786304Z ok 85 - invalid response JSON uses the shared diagnostic for success and error statuses
+2026-10-08T20:37:03.7787173Z   ---
+2026-10-08T20:37:03.7787546Z   duration_ms: 19.075694
+2026-10-08T20:37:03.7787966Z   ...
+2026-10-08T20:37:03.7788526Z # Subtest: network failure is preserved without retry
+2026-10-08T20:37:03.7789338Z ok 86 - network failure is preserved without retry
+2026-10-08T20:37:03.7789898Z   ---
+2026-10-08T20:37:03.7790214Z   duration_ms: 18.503754
+2026-10-08T20:37:03.7790828Z   ...
+2026-10-08T20:37:03.8022499Z # Subtest: native physics record keeps the observed place, field, precision and source metadata
+2026-10-08T20:37:03.8041752Z ok 87 - native physics record keeps the observed place, field, precision and source metadata
+2026-10-08T20:37:03.8046674Z   ---
+2026-10-08T20:37:03.8047232Z   duration_ms: 3.571179
+2026-10-08T20:37:03.8047811Z   ...
+2026-10-08T20:37:03.8048720Z # Subtest: fan-only records retain zero and never invent missing race statistics
+2026-10-08T20:37:03.8049980Z ok 88 - fan-only records retain zero and never invent missing race statistics
+2026-10-08T20:37:03.8051111Z   ---
+2026-10-08T20:37:03.8051538Z   duration_ms: 0.546105
+2026-10-08T20:37:03.8051957Z   ...
+2026-10-08T20:37:03.8052774Z # Subtest: repeated race IDs and identical occurrences retain separate source positions
+2026-10-08T20:37:03.8054003Z ok 89 - repeated race IDs and identical occurrences retain separate source positions
+2026-10-08T20:37:03.8054724Z   ---
+2026-10-08T20:37:03.8055071Z   duration_ms: 0.510897
+2026-10-08T20:37:03.8055478Z   ...
+2026-10-08T20:37:03.8056205Z # Subtest: non-race entries and action narration are not retained race records
+2026-10-08T20:37:03.8057287Z ok 90 - non-race entries and action narration are not retained race records
+2026-10-08T20:37:03.8057963Z   ---
+2026-10-08T20:37:03.8058326Z   duration_ms: 0.241141
+2026-10-08T20:37:03.8058706Z   ...
+2026-10-08T20:37:03.8059528Z # Subtest: a newest unrecognized record stays latest even when a valid older result exists
+2026-10-08T20:37:03.8061022Z ok 91 - a newest unrecognized record stays latest even when a valid older result exists
+2026-10-08T20:37:03.8061772Z   ---
+2026-10-08T20:37:03.8062110Z   duration_ms: 0.64812
+2026-10-08T20:37:03.8062515Z   ...
+2026-10-08T20:37:03.8063068Z # Subtest: invalid numeric fields or inconsistent place and field remain literal unknown records
+2026-10-08T20:37:03.8063814Z ok 92 - invalid numeric fields or inconsistent place and field remain literal unknown records
+2026-10-08T20:37:03.8064254Z   ---
+2026-10-08T20:37:03.8064708Z   duration_ms: 0.703235
+2026-10-08T20:37:03.8064929Z   ...
+2026-10-08T20:37:03.8065482Z # Subtest: native ordinal suffixes keep 11th to 13th distinct from 21st to 23rd
+2026-10-08T20:37:03.8066092Z ok 93 - native ordinal suffixes keep 11th to 13th distinct from 21st to 23rd
+2026-10-08T20:37:03.8066466Z   ---
+2026-10-08T20:37:03.8066664Z   duration_ms: 0.327246
+2026-10-08T20:37:03.8066888Z   ...
+2026-10-08T20:37:03.8067317Z # Subtest: rendered physics facts show exact native values and the full original record
+2026-10-08T20:37:03.8067965Z ok 94 - rendered physics facts show exact native values and the full original record
+2026-10-08T20:37:03.8068372Z   ---
+2026-10-08T20:37:03.8068565Z   duration_ms: 5.927253
+2026-10-08T20:37:03.8068780Z   ...
+2026-10-08T20:37:03.8069244Z # Subtest: rendered fan-only facts state the missing details without inventing first place
+2026-10-08T20:37:03.8069921Z ok 95 - rendered fan-only facts state the missing details without inventing first place
+2026-10-08T20:37:03.8070333Z   ---
+2026-10-08T20:37:03.8070836Z   duration_ms: 0.958543
+2026-10-08T20:37:03.8071057Z   ...
+2026-10-08T20:37:03.8071509Z # Subtest: unknown latest is visible while earlier recognized occurrences stay in history
+2026-10-08T20:37:03.8072168Z ok 96 - unknown latest is visible while earlier recognized occurrences stay in history
+2026-10-08T20:37:03.8072579Z   ---
+2026-10-08T20:37:03.8072773Z   duration_ms: 1.966711
+2026-10-08T20:37:03.8072989Z   ...
+2026-10-08T20:37:03.8073348Z # Subtest: mandatory entry remains explicit and disabled while busy
+2026-10-08T20:37:03.8073857Z ok 97 - mandatory entry remains explicit and disabled while busy
+2026-10-08T20:37:03.8074188Z   ---
+2026-10-08T20:37:03.8074386Z   duration_ms: 0.462224
+2026-10-08T20:37:03.8074595Z   ...
+2026-10-08T20:37:03.8074948Z # Subtest: replacing the supplied history cannot retain an old result
+2026-10-08T20:37:03.8075467Z ok 98 - replacing the supplied history cannot retain an old result
+2026-10-08T20:37:03.8075800Z   ---
+2026-10-08T20:37:03.8075986Z   duration_ms: 0.785643
+2026-10-08T20:37:03.8076199Z   ...
+2026-10-08T20:37:03.8076606Z # Subtest: unusual race IDs and unrecognized source text are rendered literally
+2026-10-08T20:37:03.8077201Z ok 99 - unusual race IDs and unrecognized source text are rendered literally
+2026-10-08T20:37:03.8077576Z   ---
+2026-10-08T20:37:03.8077771Z   duration_ms: 0.682916
+2026-10-08T20:37:03.8077981Z   ...
+2026-10-08T20:37:04.2571898Z # Subtest: a delayed action cannot replace a newly selected session
+2026-10-08T20:37:04.2572976Z ok 100 - a delayed action cannot replace a newly selected session
+2026-10-08T20:37:04.2573636Z   ---
+2026-10-08T20:37:04.2574023Z   duration_ms: 35.943847
+2026-10-08T20:37:04.2574464Z   ...
+2026-10-08T20:37:04.2618774Z # Subtest: bootstrap catalogs survive selection without releasing its pending request
+2026-10-08T20:37:04.2621208Z ok 101 - bootstrap catalogs survive selection without releasing its pending request
+2026-10-08T20:37:04.2622613Z   ---
+2026-10-08T20:37:04.2623325Z   duration_ms: 7.004463
+2026-10-08T20:37:04.2624150Z   ...
+2026-10-08T20:37:04.2661277Z # Subtest: a superseded refresh cannot restore the previous session
+2026-10-08T20:37:04.2664455Z ok 102 - a superseded refresh cannot restore the previous session
+2026-10-08T20:37:04.2665252Z   ---
+2026-10-08T20:37:04.2665784Z   duration_ms: 4.663718
+2026-10-08T20:37:04.2666317Z   ...
+2026-10-08T20:37:04.2708691Z # Subtest: reset prevents a delayed action from resurrecting a career
+2026-10-08T20:37:04.2710049Z ok 103 - reset prevents a delayed action from resurrecting a career
+2026-10-08T20:37:04.2711289Z   ---
+2026-10-08T20:37:04.2711835Z   duration_ms: 2.953657
+2026-10-08T20:37:04.2712390Z   ...
+2026-10-08T20:37:04.2729086Z # Subtest: late failures and cleanup cannot alter a newer pending refresh
+2026-10-08T20:37:04.2732779Z ok 104 - late failures and cleanup cannot alter a newer pending refresh
+2026-10-08T20:37:04.2733749Z   ---
+2026-10-08T20:37:04.2734284Z   duration_ms: 3.681199
+2026-10-08T20:37:04.2734848Z   ...
+2026-10-08T20:37:04.2764056Z # Subtest: failed session selection clears stale playable state
+2026-10-08T20:37:04.2765712Z ok 105 - failed session selection clears stale playable state
+2026-10-08T20:37:04.2766609Z   ---
+2026-10-08T20:37:04.2767183Z   duration_ms: 3.551231
+2026-10-08T20:37:04.2767737Z   ...
+2026-10-08T20:37:04.2794913Z # Subtest: same-turn duplicate actions submit only once
+2026-10-08T20:37:04.2825309Z ok 106 - same-turn duplicate actions submit only once
+2026-10-08T20:37:04.2828168Z   ---
+2026-10-08T20:37:04.2829011Z   duration_ms: 3.096411
+2026-10-08T20:37:04.2829630Z   ...
+2026-10-08T20:37:04.2877101Z # Subtest: run operations remain bound to the displayed session after external activation
+2026-10-08T20:37:04.2880760Z ok 107 - run operations remain bound to the displayed session after external activation
+2026-10-08T20:37:04.2881978Z   ---
+2026-10-08T20:37:04.2882546Z   duration_ms: 6.213251
+2026-10-08T20:37:04.2883158Z   ...
+2026-10-08T20:37:04.2883734Z # Subtest: explicit default session is preserved in read requests
+2026-10-08T20:37:04.2884453Z ok 108 - explicit default session is preserved in read requests
+2026-10-08T20:37:04.2884977Z   ---
+2026-10-08T20:37:04.2885345Z   duration_ms: 1.401299
+2026-10-08T20:37:04.2885711Z   ...
+2026-10-08T20:37:04.2910754Z # Subtest: the displayed main session remains the action target after a fork activates
+2026-10-08T20:37:04.2912559Z ok 109 - the displayed main session remains the action target after a fork activates
+2026-10-08T20:37:04.2913451Z   ---
+2026-10-08T20:37:04.2913874Z   duration_ms: 3.413527
+2026-10-08T20:37:04.2914350Z   ...
+2026-10-08T20:37:04.3254360Z # Subtest: starting main hydrates main even when another client activates a fork
+2026-10-08T20:37:04.3256141Z ok 110 - starting main hydrates main even when another client activates a fork
+2026-10-08T20:37:04.3257440Z   ---
+2026-10-08T20:37:04.3258196Z   duration_ms: 2.058746
+2026-10-08T20:37:04.3258851Z   ...
+2026-10-08T20:37:04.3846924Z # Subtest: keyboard shortcuts operate only the visible run and its displayed choice numbers
+2026-10-08T20:37:04.3881657Z ok 111 - keyboard shortcuts operate only the visible run and its displayed choice numbers
+2026-10-08T20:37:04.3882955Z   ---
+2026-10-08T20:37:04.3890649Z   duration_ms: 85.464896
+2026-10-08T20:37:04.3891387Z   ...
+2026-10-08T20:37:04.3972506Z # Subtest: telemetry export uses the displayed career even after external activation
+2026-10-08T20:37:04.3975131Z ok 112 - telemetry export uses the displayed career even after external activation
+2026-10-08T20:37:04.3975812Z   ---
+2026-10-08T20:37:04.3985063Z   duration_ms: 15.14545
+2026-10-08T20:37:04.3985677Z   ...
+2026-10-08T20:37:04.4166961Z 1..112
+2026-10-08T20:37:04.4167356Z # tests 116
+2026-10-08T20:37:04.4167718Z # suites 0
+2026-10-08T20:37:04.4168064Z # pass 116
+2026-10-08T20:37:04.4168406Z # fail 0
+2026-10-08T20:37:04.4168745Z # cancelled 0
+2026-10-08T20:37:04.4169117Z # skipped 0
+2026-10-08T20:37:04.4169466Z # todo 0
+2026-10-08T20:37:04.4173955Z # duration_ms 4596.268917
+2026-10-08T20:37:04.4266090Z 
+2026-10-08T20:37:04.4266378Z > uma-sim-ui@0.1.0 build
+2026-10-08T20:37:04.4266830Z > tsc -b && vite build
+2026-10-08T20:37:04.4267072Z 
+2026-10-08T20:37:07.2711250Z [36mvite v5.4.21 [32mbuilding for production...[36m[39m
+2026-10-08T20:37:07.3258555Z transforming...
+2026-10-08T20:37:08.1222200Z [32m✓[39m 69 modules transformed.
+2026-10-08T20:37:08.2686818Z rendering chunks...
+2026-10-08T20:37:08.2749538Z computing gzip size...
+2026-10-08T20:37:08.2825072Z [2mdist/[22m[32mindex.html                 [39m[1m[2m  0.39 kB[22m[1m[22m[2m │ gzip:  0.27 kB[22m
+2026-10-08T20:37:08.2826216Z [2mdist/[22m[2massets/[22m[35mindex-RguA8KSx.css  [39m[1m[2m 14.45 kB[22m[1m[22m[2m │ gzip:  3.39 kB[22m
+2026-10-08T20:37:08.2827295Z [2mdist/[22m[2massets/[22m[36mindex-C2Z-NqtR.js   [39m[1m[2m215.82 kB[22m[1m[22m[2m │ gzip: 66.25 kB[22m
+2026-10-08T20:37:08.2828040Z [32m✓ built in 984ms[39m
+2026-10-08T20:37:08.3071861Z ##[group]Run npx playwright install --with-deps chromium
+2026-10-08T20:37:08.3072323Z [36;1mnpx playwright install --with-deps chromium[0m
+2026-10-08T20:37:08.3135492Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:37:08.3135805Z ##[endgroup]
+2026-10-08T20:37:09.1069950Z Installing dependencies...
+2026-10-08T20:37:09.1142977Z Switching to root user to install dependencies...
+2026-10-08T20:37:09.2017466Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-08T20:37:09.2322186Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-08T20:37:09.2478428Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-10-08T20:37:09.2492447Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-08T20:37:09.2642717Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-08T20:37:09.2686072Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-08T20:37:09.3232307Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main all Packages [640 B]
+2026-10-08T20:37:09.3333706Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [474 kB]
+2026-10-08T20:37:09.3478428Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [12.3 kB]
+2026-10-08T20:37:09.3542758Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [531 kB]
+2026-10-08T20:37:09.4278384Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1375 kB]
+2026-10-08T20:37:09.4346800Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [306 kB]
+2026-10-08T20:37:09.4366496Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1702 kB]
+2026-10-08T20:37:09.4462465Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [342 kB]
+2026-10-08T20:37:09.4479659Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1761 kB]
+2026-10-08T20:37:09.4577967Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [401 kB]
+2026-10-08T20:37:09.4610364Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [55.0 kB]
+2026-10-08T20:37:09.4612264Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+2026-10-08T20:37:09.5376236Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1115 kB]
+2026-10-08T20:37:09.5433102Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [227 kB]
+2026-10-08T20:37:09.5870793Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1218 kB]
+2026-10-08T20:37:09.5952382Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [245 kB]
+2026-10-08T20:37:09.5982034Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1632 kB]
+2026-10-08T20:37:09.6021326Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [376 kB]
+2026-10-08T20:37:09.6042007Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [11.6 kB]
+2026-10-08T20:37:12.3252853Z Fetched 12.2 MB in 1s (9585 kB/s)
+2026-10-08T20:37:13.1543511Z Reading package lists...
+2026-10-08T20:37:13.1780102Z Reading package lists...
+2026-10-08T20:37:13.3515910Z Building dependency tree...
+2026-10-08T20:37:13.3523421Z Reading state information...
+2026-10-08T20:37:13.4875570Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-08T20:37:13.4876507Z libasound2t64 set to manually installed.
+2026-10-08T20:37:13.4877363Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-08T20:37:13.4878305Z libatk-bridge2.0-0t64 set to manually installed.
+2026-10-08T20:37:13.4879077Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-08T20:37:13.4880375Z libatk1.0-0t64 set to manually installed.
+2026-10-08T20:37:13.4881295Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-08T20:37:13.4881943Z libatspi2.0-0t64 set to manually installed.
+2026-10-08T20:37:13.4882387Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-08T20:37:13.4882799Z libcairo2 set to manually installed.
+2026-10-08T20:37:13.4883522Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-10-08T20:37:13.4883944Z libcups2t64 set to manually installed.
+2026-10-08T20:37:13.4884370Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-08T20:37:13.4884778Z libdbus-1-3 set to manually installed.
+2026-10-08T20:37:13.4885334Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-10-08T20:37:13.4885840Z libdrm2 set to manually installed.
+2026-10-08T20:37:13.4886246Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+2026-10-08T20:37:13.4886638Z libgbm1 set to manually installed.
+2026-10-08T20:37:13.4887213Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+2026-10-08T20:37:13.4887921Z libglib2.0-0t64 set to manually installed.
+2026-10-08T20:37:13.4888650Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-10-08T20:37:13.4889323Z libnspr4 set to manually installed.
+2026-10-08T20:37:13.4890023Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+2026-10-08T20:37:13.4890787Z libnss3 set to manually installed.
+2026-10-08T20:37:13.4891242Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-08T20:37:13.4891682Z libpango-1.0-0 set to manually installed.
+2026-10-08T20:37:13.4892306Z libx11-6 is already the newest version (2:1.8.7-1build1).
+2026-10-08T20:37:13.4892983Z libx11-6 set to manually installed.
+2026-10-08T20:37:13.4893638Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-08T20:37:13.4894234Z libxcb1 set to manually installed.
+2026-10-08T20:37:13.4894649Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-08T20:37:13.4895079Z libxcomposite1 set to manually installed.
+2026-10-08T20:37:13.4895657Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-08T20:37:13.4896362Z libxdamage1 set to manually installed.
+2026-10-08T20:37:13.4897105Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-08T20:37:13.4897803Z libxext6 set to manually installed.
+2026-10-08T20:37:13.4898503Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-08T20:37:13.4899213Z libxfixes3 set to manually installed.
+2026-10-08T20:37:13.4899938Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-10-08T20:37:13.4900937Z libxkbcommon0 set to manually installed.
+2026-10-08T20:37:13.4901659Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-08T20:37:13.4902354Z libxrandr2 set to manually installed.
+2026-10-08T20:37:13.4903051Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+2026-10-08T20:37:13.4903996Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-08T20:37:13.4905005Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-08T20:37:13.4905748Z libfontconfig1 set to manually installed.
+2026-10-08T20:37:13.4906486Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-08T20:37:13.4907205Z fonts-liberation set to manually installed.
+2026-10-08T20:37:13.4907914Z The following additional packages will be installed:
+2026-10-08T20:37:13.4908529Z   xfonts-encodings xfonts-utils
+2026-10-08T20:37:13.4909015Z Recommended packages:
+2026-10-08T20:37:13.4909491Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-10-08T20:37:13.5058449Z The following NEW packages will be installed:
+2026-10-08T20:37:13.5059864Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-08T20:37:13.5065632Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-10-08T20:37:13.5066390Z   xfonts-utils
+2026-10-08T20:37:13.5070202Z The following packages will be upgraded:
+2026-10-08T20:37:13.5074616Z   libfreetype6
+2026-10-08T20:37:13.5235886Z 1 upgraded, 9 newly installed, 0 to remove and 22 not upgraded.
+2026-10-08T20:37:13.5236380Z Need to get 21.5 MB of archives.
+2026-10-08T20:37:13.5237131Z After this operation, 79.5 MB of additional disk space will be used.
+2026-10-08T20:37:13.5237663Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-08T20:37:13.6795811Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-08T20:37:13.9688161Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-08T20:37:14.3499481Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-08T20:37:14.4901966Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-08T20:37:14.7550172Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-08T20:37:15.2168982Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libfreetype6 amd64 2.13.2+dfsg-1ubuntu0.2 [403 kB]
+2026-10-08T20:37:15.3689756Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-08T20:37:15.5300706Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-08T20:37:15.6705776Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-08T20:37:15.8223520Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-08T20:37:16.0765972Z Fetched 21.5 MB in 2s (9258 kB/s)
+2026-10-08T20:37:16.0978487Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-08T20:37:16.1214492Z (Reading database ... 
+2026-10-08T20:37:16.1215243Z (Reading database ... 5%
+2026-10-08T20:37:16.1215946Z (Reading database ... 10%
+2026-10-08T20:37:16.1216778Z (Reading database ... 15%
+2026-10-08T20:37:16.1217618Z (Reading database ... 20%
+2026-10-08T20:37:16.1218353Z (Reading database ... 25%
+2026-10-08T20:37:16.1219041Z (Reading database ... 30%
+2026-10-08T20:37:16.1219861Z (Reading database ... 35%
+2026-10-08T20:37:16.1220919Z (Reading database ... 40%
+2026-10-08T20:37:16.1221761Z (Reading database ... 45%
+2026-10-08T20:37:16.1222519Z (Reading database ... 50%
+2026-10-08T20:37:16.1259725Z (Reading database ... 55%
+2026-10-08T20:37:16.2454383Z (Reading database ... 60%
+2026-10-08T20:37:16.4367390Z (Reading database ... 65%
+2026-10-08T20:37:16.6425584Z (Reading database ... 70%
+2026-10-08T20:37:16.8437440Z (Reading database ... 75%
+2026-10-08T20:37:16.9891018Z (Reading database ... 80%
+2026-10-08T20:37:17.1931578Z (Reading database ... 85%
+2026-10-08T20:37:17.4436007Z (Reading database ... 90%
+2026-10-08T20:37:17.5856690Z (Reading database ... 95%
+2026-10-08T20:37:17.5857181Z (Reading database ... 100%
+2026-10-08T20:37:17.5857916Z (Reading database ... 203191 files and directories currently installed.)
+2026-10-08T20:37:17.5900275Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-08T20:37:17.5995778Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-08T20:37:17.8194331Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-08T20:37:17.8319281Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-08T20:37:17.8325832Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-08T20:37:17.9083118Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-08T20:37:17.9210167Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-08T20:37:17.9216550Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-08T20:37:17.9413573Z Selecting previously unselected package fonts-unifont.
+2026-10-08T20:37:17.9538817Z Preparing to unpack .../3-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-08T20:37:17.9545682Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-08T20:37:18.0562713Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-08T20:37:18.0690975Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-08T20:37:18.0787077Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-08T20:37:18.5465767Z Preparing to unpack .../5-libfreetype6_2.13.2+dfsg-1ubuntu0.2_amd64.deb ...
+2026-10-08T20:37:18.5494673Z Unpacking libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) over (2.13.2+dfsg-1ubuntu0.1) ...
+2026-10-08T20:37:18.5732687Z Selecting previously unselected package xfonts-encodings.
+2026-10-08T20:37:18.5859506Z Preparing to unpack .../6-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-08T20:37:18.5866216Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-08T20:37:18.6133955Z Selecting previously unselected package xfonts-utils.
+2026-10-08T20:37:18.6258105Z Preparing to unpack .../7-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-08T20:37:18.6265425Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-08T20:37:18.6593950Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-08T20:37:18.6719682Z Preparing to unpack .../8-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-08T20:37:18.6726999Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-08T20:37:18.7066521Z Selecting previously unselected package xfonts-scalable.
+2026-10-08T20:37:18.7187744Z Preparing to unpack .../9-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-08T20:37:18.7194352Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-08T20:37:18.7605210Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-08T20:37:18.7718036Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-08T20:37:18.7739012Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-08T20:37:18.7756315Z Setting up libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) ...
+2026-10-08T20:37:18.7772890Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-08T20:37:18.7789288Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-08T20:37:18.7852154Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-08T20:37:18.7865984Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-08T20:37:18.7883016Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-08T20:37:18.7921173Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-08T20:37:18.8189331Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-08T20:37:18.8445437Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-10-08T20:37:18.8716842Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-08T20:37:18.8735232Z Not building database; man-db/auto-update is not 'true'.
+2026-10-08T20:37:18.8745769Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-08T20:37:19.5548781Z 
+2026-10-08T20:37:19.5549482Z Running kernel seems to be up-to-date.
+2026-10-08T20:37:19.5549833Z 
+2026-10-08T20:37:19.5549998Z Restarting services...
+2026-10-08T20:37:19.5622553Z  systemctl restart php8.3-fpm.service
+2026-10-08T20:37:19.6731146Z 
+2026-10-08T20:37:19.6731752Z No containers need to be restarted.
+2026-10-08T20:37:19.6732039Z 
+2026-10-08T20:37:19.6732244Z No user sessions are running outdated binaries.
+2026-10-08T20:37:19.6732489Z 
+2026-10-08T20:37:19.6732801Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-08T20:37:20.4763678Z Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip
+2026-10-08T20:37:21.5258961Z |                                                                                |   0% of 184.3 MiB
+2026-10-08T20:37:21.7822017Z |■■■■■■■■                                                                        |  10% of 184.3 MiB
+2026-10-08T20:37:21.9001747Z |■■■■■■■■■■■■■■■■                                                                |  20% of 184.3 MiB
+2026-10-08T20:37:22.0100195Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 184.3 MiB
+2026-10-08T20:37:22.1178653Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 184.3 MiB
+2026-10-08T20:37:22.2060776Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 184.3 MiB
+2026-10-08T20:37:22.2986139Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 184.3 MiB
+2026-10-08T20:37:22.3905585Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 184.3 MiB
+2026-10-08T20:37:22.4788365Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 184.3 MiB
+2026-10-08T20:37:22.5679978Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 184.3 MiB
+2026-10-08T20:37:22.6572061Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 184.3 MiB
+2026-10-08T20:37:26.2521726Z Chrome for Testing 151.0.7922.34 (playwright chromium v1234) downloaded to /home/runner/.cache/ms-playwright/chromium-1234
+2026-10-08T20:37:26.2525331Z Downloading FFmpeg (playwright ffmpeg v1011) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-08T20:37:27.4116790Z |                                                                                |   0% of 2.3 MiB
+2026-10-08T20:37:27.4236474Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-08T20:37:27.4299957Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-08T20:37:27.4351757Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-08T20:37:27.4393491Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-08T20:37:27.4417153Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-08T20:37:27.4454264Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-08T20:37:27.4473424Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-08T20:37:27.4493682Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-08T20:37:27.4511461Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-08T20:37:27.4533812Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-08T20:37:27.5257677Z FFmpeg (playwright ffmpeg v1011) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-10-08T20:37:27.5262305Z Downloading Chrome Headless Shell 151.0.7922.34 (playwright chromium-headless-shell v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-headless-shell-linux64.zip
+2026-10-08T20:37:28.5577919Z |                                                                                |   0% of 114.7 MiB
+2026-10-08T20:37:28.7588746Z |■■■■■■■■                                                                        |  10% of 114.7 MiB
+2026-10-08T20:37:28.8638880Z |■■■■■■■■■■■■■■■■                                                                |  20% of 114.7 MiB
+2026-10-08T20:37:28.9433144Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 114.7 MiB
+2026-10-08T20:37:29.0080057Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 114.7 MiB
+2026-10-08T20:37:29.0636453Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 114.7 MiB
+2026-10-08T20:37:29.1324944Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 114.7 MiB
+2026-10-08T20:37:29.1987399Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 114.7 MiB
+2026-10-08T20:37:29.2668778Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 114.7 MiB
+2026-10-08T20:37:29.3306452Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 114.7 MiB
+2026-10-08T20:37:29.3892471Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 114.7 MiB
+2026-10-08T20:37:31.8734458Z Chrome Headless Shell 151.0.7922.34 (playwright chromium-headless-shell v1234) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1234
+2026-10-08T20:37:31.8929034Z ##[group]Run npm run test:browser
+2026-10-08T20:37:31.8929374Z [36;1mnpm run test:browser[0m
+2026-10-08T20:37:31.8992842Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:37:31.8993181Z ##[endgroup]
+2026-10-08T20:37:32.0143795Z 
+2026-10-08T20:37:32.0144391Z > uma-sim-ui@0.1.0 test:browser
+2026-10-08T20:37:32.0145494Z > node tests/receiving/uma-lab-receiver.mjs dist test-results/career-lab
+2026-10-08T20:37:32.0146164Z 
+2026-10-08T20:37:33.0726388Z PASS successful comparison actual markdown and JSON downloads
+2026-10-08T20:37:33.5178648Z PASS changed selection cannot retarget displayed comparison downloads
+2026-10-08T20:37:34.0340714Z PASS failed new comparison keeps prior result and downloads coherent
+2026-10-08T20:37:34.4825810Z PASS delete displayed branch after selection changes invalidates result
+2026-10-08T20:37:35.0102165Z PASS delete unrelated pending branch preserves successful comparison
+2026-10-08T20:37:35.3802834Z PASS deleting selected compared branch requires replacement selection
+2026-10-08T20:37:35.8328220Z PASS failed branch deletion preserves valid comparison and selected row
+2026-10-08T20:37:36.2212111Z PASS confirmed deletion invalidates result when branch list refresh fails
+2026-10-08T20:37:36.6168316Z PASS in flight comparison cannot overwrite newer keyboard selections
+2026-10-08T20:37:36.9987693Z PASS report query encoding preserves branch identity
+2026-10-08T20:37:37.3465898Z PASS invalid override malformed nonblank line blocks branch mutation
+2026-10-08T20:37:37.6732369Z PASS invalid override missing turn blocks branch mutation
+2026-10-08T20:37:38.0049903Z PASS invalid override fractional turn blocks branch mutation
+2026-10-08T20:37:38.3402390Z PASS invalid override negative turn blocks branch mutation
+2026-10-08T20:37:38.6642199Z PASS invalid override unsafe integer turn blocks branch mutation
+2026-10-08T20:37:38.9924924Z PASS invalid override missing action blocks branch mutation
+2026-10-08T20:37:39.3212419Z PASS invalid override conflicting duplicate turn blocks branch mutation
+2026-10-08T20:37:39.6571918Z PASS invalid max actions empty blocks branch mutation
+2026-10-08T20:37:39.9899938Z PASS invalid max actions 0 blocks branch mutation
+2026-10-08T20:37:40.3227038Z PASS invalid max actions 501 blocks branch mutation
+2026-10-08T20:37:40.6531811Z PASS invalid max actions 1.5 blocks branch mutation
+2026-10-08T20:37:40.8986280Z PASS valid turn zero whitespace blank lines and colon action are transmitted exactly
+2026-10-08T20:37:41.1164603Z PASS valid upper action budget and empty overrides are transmitted exactly
+2026-10-08T20:37:41.1397655Z {"passed":23,"failed":0,"receipt":"/home/runner/work/uma-sim/uma-sim/packages/uma-sim-ui/test-results/career-lab/receiver-results.json"}
+2026-10-08T20:37:41.1608928Z ##[group]Run npm run test:trace
+2026-10-08T20:37:41.1609246Z [36;1mnpm run test:trace[0m
+2026-10-08T20:37:41.1672544Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:37:41.1672821Z ##[endgroup]
+2026-10-08T20:37:41.2810868Z 
+2026-10-08T20:37:41.2811429Z > uma-sim-ui@0.1.0 test:trace
+2026-10-08T20:37:41.2812223Z > node tests/receiving/uma-trace-receiver.mjs dist test-results/trace
+2026-10-08T20:37:41.2812711Z 
+2026-10-08T20:37:41.9978820Z PASS saved branch rows expose trace inspection in the actual application
+2026-10-08T20:37:42.4655616Z PASS trace preserves authored overrides per-step mixed flags and exact full JSON
+2026-10-08T20:37:42.8321103Z PASS loading B never relabels or exports the old A trace as B
+2026-10-08T20:37:43.1810096Z PASS late A response cannot replace the newer B trace
+2026-10-08T20:37:43.5302577Z PASS late A failure cannot overwrite the newer B trace with an obsolete error
+2026-10-08T20:37:43.8289379Z PASS closing inspector prevents a late response from reopening it
+2026-10-08T20:37:44.1452140Z PASS closing inspector prevents a late error from reopening it
+2026-10-08T20:37:44.5622005Z PASS unmounted trace read cannot affect a newly opened lab view
+2026-10-08T20:37:44.9302199Z PASS retry requests the failed branch and keeps its error identity explicit
+2026-10-08T20:37:45.1952504Z PASS wrong branch identity response is rejected without a wrong trace export
+2026-10-08T20:37:45.4248224Z PASS missing trace configuration fails visibly without crashing the application
+2026-10-08T20:37:45.6968895Z PASS reserved branch ID is retrieved unchanged and exported intact
+2026-10-08T20:37:46.0172816Z PASS confirmed deletion invalidates the currently loaded trace
+2026-10-08T20:37:46.3272035Z PASS confirmed deletion prevents a pending trace response from reopening the inspector
+2026-10-08T20:37:46.6652119Z PASS failed deletion preserves the valid loaded trace
+2026-10-08T20:37:46.6935062Z {"passed":15,"failed":0,"dependentCasesNotRun":0,"receipt":"/home/runner/work/uma-sim/uma-sim/packages/uma-sim-ui/test-results/trace/trace-receiver-results.json"}
+2026-10-08T20:37:46.7187526Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-10-08T20:37:46.7187982Z with:
+2026-10-08T20:37:46.7188188Z   name: uma-sim-ui-dist
+2026-10-08T20:37:46.7188437Z   path: packages/uma-sim-ui/dist
+2026-10-08T20:37:46.7188701Z   if-no-files-found: warn
+2026-10-08T20:37:46.7188946Z   compression-level: 6
+2026-10-08T20:37:46.7189165Z   overwrite: false
+2026-10-08T20:37:46.7189381Z   include-hidden-files: false
+2026-10-08T20:37:46.7189619Z   archive: true
+2026-10-08T20:37:46.7189826Z ##[endgroup]
+2026-10-08T20:37:46.8618421Z With the provided path, there will be 3 files uploaded
+2026-10-08T20:37:46.8624896Z Artifact name is valid!
+2026-10-08T20:37:46.8625853Z Root directory input is valid!
+2026-10-08T20:37:47.2645046Z Uploading artifact: uma-sim-ui-dist.zip
+2026-10-08T20:37:47.2689985Z Beginning upload of artifact content to blob storage
+2026-10-08T20:37:47.7471288Z Uploaded bytes 70268
+2026-10-08T20:37:47.8283841Z Finished uploading artifact content to blob storage!
+2026-10-08T20:37:47.8285417Z SHA256 digest of uploaded artifact is 30c6f1ba205682d3785fc3362a3d1ac4bd2f826d0bbc18cb620e6f26d28fb512
+2026-10-08T20:37:47.8286862Z Finalizing artifact upload
+2026-10-08T20:37:48.2358151Z Artifact uma-sim-ui-dist successfully finalized. Artifact ID 11577786170
+2026-10-08T20:37:48.2359750Z Artifact uma-sim-ui-dist has been successfully uploaded! Final size is 70268 bytes. Artifact ID is 11577786170
+2026-10-08T20:37:48.2363060Z Artifact download URL: https://github.com/Jacob-Met/uma-sim/actions/runs/37840723118/artifacts/11577786170
+2026-10-08T20:37:48.2532317Z Post job cleanup.
+2026-10-08T20:37:48.3614098Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-eeb0c434c1684ffeb9b45bfa8603bb6ff335b8860c2e51c7b7f22108a8cb6332, not saving cache.
+2026-10-08T20:37:48.3741103Z Post job cleanup.
+2026-10-08T20:37:48.4595376Z [command]/usr/bin/git version
+2026-10-08T20:37:48.4651252Z git version 2.55.0
+2026-10-08T20:37:48.4688198Z Temporarily overriding HOME='/home/runner/work/_temp/ea608c9f-1366-44f7-9d73-5630473bbf0b' before making global git config changes
+2026-10-08T20:37:48.4689919Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T20:37:48.4693333Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:37:48.4725297Z Removing SSH command configuration
+2026-10-08T20:37:48.4732389Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T20:37:48.4778464Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T20:37:48.5032702Z Removing HTTP extra header
+2026-10-08T20:37:48.5038308Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T20:37:48.5075395Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T20:37:48.5319669Z Removing includeIf entries pointing to credentials config files
+2026-10-08T20:37:48.5327343Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T20:37:48.5363601Z includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path
+2026-10-08T20:37:48.5365264Z includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path
+2026-10-08T20:37:48.5366899Z includeif.gitdir:/github/workspace/.git.path
+2026-10-08T20:37:48.5368240Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-08T20:37:48.5374907Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path
+2026-10-08T20:37:48.5401913Z /home/runner/work/_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config
+2026-10-08T20:37:48.5413641Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-49b62836\-dda0\-49ca\-a4b9\-dfd41c2ec1b1\.config
+2026-10-08T20:37:48.5492835Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path
+2026-10-08T20:37:48.5509733Z /home/runner/work/_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config
+2026-10-08T20:37:48.5523868Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-49b62836\-dda0\-49ca\-a4b9\-dfd41c2ec1b1\.config
+2026-10-08T20:37:48.5562195Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-08T20:37:48.5592132Z /github/runner_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config
+2026-10-08T20:37:48.5613238Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-49b62836\-dda0\-49ca\-a4b9\-dfd41c2ec1b1\.config
+2026-10-08T20:37:48.5642668Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-08T20:37:48.5673113Z /github/runner_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config
+2026-10-08T20:37:48.5684099Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-49b62836\-dda0\-49ca\-a4b9\-dfd41c2ec1b1\.config
+2026-10-08T20:37:48.5732922Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T20:37:48.5974545Z Removing credentials config '/home/runner/work/_temp/git-credentials-49b62836-dda0-49ca-a4b9-dfd41c2ec1b1.config'
+2026-10-08T20:37:48.6141980Z Cleaning up orphan processes
