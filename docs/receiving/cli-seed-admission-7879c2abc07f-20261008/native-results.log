@@ -1,0 +1,151 @@
+# Hosted native excerpts
+# ANSI color sequences removed for reading; timestamps and test text retained.
+# Lossless complete decoded UTF-8 logs are in hosted-logs.json.
+
+## Original: run37777355371 job113311939020, actual checkout a54e31ad83d833c8724e110e99d37987e1920281
+2026-10-08T12:32:19.5481127Z      Running tests/cli_seed_admission.rs (target/debug/deps/cli_seed_admission-3f425ddb33201893)
+2026-10-08T12:32:19.5490713Z 
+2026-10-08T12:32:19.5491099Z running 15 tests
+2026-10-08T12:32:19.9328220Z test last_valid_duplicate_seed_still_wins ... ok
+2026-10-08T12:32:20.3233374Z test malformed_batch_preserves_output_before_zero_career_run ... FAILED
+2026-10-08T12:32:20.3247957Z test empty_seed_preserves_existing_career ... FAILED
+2026-10-08T12:32:20.3338499Z test fractional_seed_preserves_existing_career ... FAILED
+2026-10-08T12:32:20.3578506Z test explicit_seed_list_still_overrides_valid_seed_and_count ... ok
+2026-10-08T12:32:20.7154569Z test malformed_seed_does_not_create_a_first_career ... FAILED
+2026-10-08T12:32:21.0991185Z test malformed_seed_after_valid_duplicate_is_refused ... FAILED
+2026-10-08T12:32:21.1038005Z test malformed_seed_before_valid_duplicate_is_refused ... FAILED
+2026-10-08T12:32:21.4389013Z test malformed_seed_is_refused_even_when_explicit_list_would_override_it ... FAILED
+2026-10-08T12:32:21.4928112Z test omitted_seed_still_starts_seed_42 ... ok
+2026-10-08T12:32:21.4957652Z test malformed_start_preserves_existing_career ... FAILED
+2026-10-08T12:32:21.4978617Z test signed_i64_boundaries_are_admitted_without_running_a_career ... ok
+2026-10-08T12:32:21.8636612Z test seed_above_i64_max_preserves_existing_career ... FAILED
+2026-10-08T12:32:22.1019962Z test seed_below_i64_min_preserves_existing_career ... FAILED
+2026-10-08T12:32:22.2308886Z test valid_signed_seeds_are_saved_exactly ... ok
+2026-10-08T12:32:22.2309348Z 
+2026-10-08T12:32:22.2309447Z failures:
+2026-10-08T12:32:22.2309606Z 
+2026-10-08T12:32:22.2309864Z ---- malformed_batch_preserves_output_before_zero_career_run stdout ----
+2026-10-08T12:32:22.2310194Z 
+2026-10-08T12:32:22.2310636Z thread 'malformed_batch_preserves_output_before_zero_career_run' (4126) panicked at uma-sim-core/tests/cli_seed_admission.rs:126:5:
+2026-10-08T12:32:22.2312186Z batch admission failed: args=["batch", "--count=0", "--seed=not-a-number", "--output=/tmp/uma-seed-admission-4117-1791462739931862228-4-malformed-batch/authored.jsonl"], code=Some(0), output_unchanged=false, before_output_len=40, after_output_len=Some(0), career_unchanged=true, after_seed=Some(7)
+2026-10-08T12:32:22.2314309Z stdout=Batch wrote 0/0 records to /tmp/uma-seed-admission-4117-1791462739931862228-4-malformed-batch/authored.jsonl (nonzero U=0) in 0.00s → 0.0 careers/min policy=default
+2026-10-08T12:32:22.2315062Z 
+2026-10-08T12:32:22.2315167Z stderr=
+2026-10-08T12:32:22.2315546Z note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+2026-10-08T12:32:22.2315910Z 
+2026-10-08T12:32:22.2316084Z ---- empty_seed_preserves_existing_career stdout ----
+2026-10-08T12:32:22.2316329Z 
+2026-10-08T12:32:22.2316694Z thread 'empty_seed_preserves_existing_career' (4118) panicked at uma-sim-core/tests/cli_seed_admission.rs:93:5:
+2026-10-08T12:32:22.2318116Z seed admission failed: args=["start", "--seed="], code=Some(0), bytes_unchanged=false, before_len=2758, after_len=Some(2763), before_seed=7, after_seed=Some(42)
+2026-10-08T12:32:22.2318883Z stdout=T1 Y1M6 SPD=83 E=100 F=0
+2026-10-08T12:32:22.2319224Z Choices: race
+2026-10-08T12:32:22.2319364Z 
+2026-10-08T12:32:22.2319462Z stderr=
+2026-10-08T12:32:22.2319587Z 
+2026-10-08T12:32:22.2319778Z ---- fractional_seed_preserves_existing_career stdout ----
+2026-10-08T12:32:22.2320086Z 
+2026-10-08T12:32:22.2320513Z thread 'fractional_seed_preserves_existing_career' (4120) panicked at uma-sim-core/tests/cli_seed_admission.rs:93:5:
+2026-10-08T12:32:22.2321566Z seed admission failed: args=["start", "--seed=1.5"], code=Some(0), bytes_unchanged=false, before_len=2758, after_len=Some(2763), before_seed=7, after_seed=Some(42)
+2026-10-08T12:32:22.2322297Z stdout=T1 Y1M6 SPD=83 E=100 F=0
+2026-10-08T12:32:22.2322528Z Choices: race
+2026-10-08T12:32:22.2322638Z 
+2026-10-08T12:32:22.2322719Z stderr=
+2026-10-08T12:32:22.2322819Z 
+2026-10-08T12:32:22.2322967Z ---- malformed_seed_does_not_create_a_first_career stdout ----
+2026-10-08T12:32:22.2323177Z 
+2026-10-08T12:32:22.2323470Z thread 'malformed_seed_does_not_create_a_first_career' (4135) panicked at uma-sim-core/tests/cli_seed_admission.rs:208:5:
+2026-10-08T12:32:22.2324081Z first-career admission failed: code=Some(0), directory_created=true, saved_bytes=Some(2763), saved_seed=Some(42)
+2026-10-08T12:32:22.2324502Z stdout=T1 Y1M6 SPD=83 E=100 F=0
+2026-10-08T12:32:22.2324719Z Choices: race
+2026-10-08T12:32:22.2324829Z 
+2026-10-08T12:32:22.2324908Z stderr=
+2026-10-08T12:32:22.2324999Z 
+2026-10-08T12:32:22.2325154Z ---- malformed_seed_after_valid_duplicate_is_refused stdout ----
+2026-10-08T12:32:22.2325375Z 
+2026-10-08T12:32:22.2325654Z thread 'malformed_seed_after_valid_duplicate_is_refused' (4131) panicked at uma-sim-core/tests/cli_seed_admission.rs:93:5:
+2026-10-08T12:32:22.2326398Z seed admission failed: args=["start", "--seed=99", "--seed=oops"], code=Some(0), bytes_unchanged=false, before_len=2758, after_len=Some(2763), before_seed=7, after_seed=Some(99)
+2026-10-08T12:32:22.2327097Z stdout=T1 Y1M6 SPD=83 E=100 F=0
+2026-10-08T12:32:22.2327369Z Choices: race
+2026-10-08T12:32:22.2327473Z 
+2026-10-08T12:32:22.2327686Z stderr=
+2026-10-08T12:32:22.2327788Z 
+2026-10-08T12:32:22.2327948Z ---- malformed_seed_before_valid_duplicate_is_refused stdout ----
+2026-10-08T12:32:22.2328169Z 
+2026-10-08T12:32:22.2328460Z thread 'malformed_seed_before_valid_duplicate_is_refused' (4133) panicked at uma-sim-core/tests/cli_seed_admission.rs:93:5:
+2026-10-08T12:32:22.2329186Z seed admission failed: args=["start", "--seed=oops", "--seed=99"], code=Some(0), bytes_unchanged=false, before_len=2758, after_len=Some(2763), before_seed=7, after_seed=Some(99)
+2026-10-08T12:32:22.2329721Z stdout=T1 Y1M6 SPD=83 E=100 F=0
+2026-10-08T12:32:22.2329939Z Choices: race
+2026-10-08T12:32:22.2330050Z 
+2026-10-08T12:32:22.2330134Z stderr=
+2026-10-08T12:32:22.2330232Z 
+2026-10-08T12:32:22.2330432Z ---- malformed_seed_is_refused_even_when_explicit_list_would_override_it stdout ----
+2026-10-08T12:32:22.2330695Z 
+2026-10-08T12:32:22.2331040Z thread 'malformed_seed_is_refused_even_when_explicit_list_would_override_it' (4137) panicked at uma-sim-core/tests/cli_seed_admission.rs:126:5:
+2026-10-08T12:32:22.2332172Z batch admission failed: args=["batch", "--count=0", "--seed=oops", "--seeds=10,5", "--output=/tmp/uma-seed-admission-4117-1791462740358736580-8-invalid-with-list/authored.jsonl"], code=Some(0), output_unchanged=false, before_output_len=40, after_output_len=Some(590), career_unchanged=true, after_seed=Some(7)
+2026-10-08T12:32:22.2334021Z stdout=Batch wrote 2/2 records to /tmp/uma-seed-admission-4117-1791462740358736580-8-invalid-with-list/authored.jsonl (nonzero U=2) in 0.67s → 178.7 careers/min policy=default
+2026-10-08T12:32:22.2334835Z 
+2026-10-08T12:32:22.2334932Z stderr=
+2026-10-08T12:32:22.2335054Z 
+2026-10-08T12:32:22.2335359Z ---- malformed_start_preserves_existing_career stdout ----
+2026-10-08T12:32:22.2335756Z 
+2026-10-08T12:32:22.2336100Z thread 'malformed_start_preserves_existing_career' (4141) panicked at uma-sim-core/tests/cli_seed_admission.rs:93:5:
+2026-10-08T12:32:22.2337111Z seed admission failed: args=["start", "--seed=not-a-number"], code=Some(0), bytes_unchanged=false, before_len=2758, after_len=Some(2763), before_seed=7, after_seed=Some(42)
+2026-10-08T12:32:22.2337836Z stdout=T1 Y1M6 SPD=83 E=100 F=0
+2026-10-08T12:32:22.2338100Z Choices: race
+2026-10-08T12:32:22.2338233Z 
+2026-10-08T12:32:22.2338323Z stderr=
+2026-10-08T12:32:22.2338459Z 
+2026-10-08T12:32:22.2338642Z ---- seed_above_i64_max_preserves_existing_career stdout ----
+2026-10-08T12:32:22.2338914Z 
+2026-10-08T12:32:22.2339275Z thread 'seed_above_i64_max_preserves_existing_career' (4146) panicked at uma-sim-core/tests/cli_seed_admission.rs:93:5:
+2026-10-08T12:32:22.2340221Z seed admission failed: args=["start", "--seed=9223372036854775808"], code=Some(0), bytes_unchanged=false, before_len=2758, after_len=Some(2763), before_seed=7, after_seed=Some(42)
+2026-10-08T12:32:22.2341031Z stdout=T1 Y1M6 SPD=83 E=100 F=0
+2026-10-08T12:32:22.2341333Z Choices: race
+2026-10-08T12:32:22.2341483Z 
+2026-10-08T12:32:22.2341583Z stderr=
+2026-10-08T12:32:22.2341701Z 
+2026-10-08T12:32:22.2341897Z ---- seed_below_i64_min_preserves_existing_career stdout ----
+2026-10-08T12:32:22.2342192Z 
+2026-10-08T12:32:22.2342577Z thread 'seed_below_i64_min_preserves_existing_career' (4149) panicked at uma-sim-core/tests/cli_seed_admission.rs:93:5:
+2026-10-08T12:32:22.2343672Z seed admission failed: args=["start", "--seed=-9223372036854775809"], code=Some(0), bytes_unchanged=false, before_len=2758, after_len=Some(2763), before_seed=7, after_seed=Some(42)
+2026-10-08T12:32:22.2344448Z stdout=T1 Y1M6 SPD=83 E=100 F=0
+2026-10-08T12:32:22.2344761Z Choices: race
+2026-10-08T12:32:22.2344906Z 
+2026-10-08T12:32:22.2345014Z stderr=
+2026-10-08T12:32:22.2345155Z 
+2026-10-08T12:32:22.2345160Z 
+2026-10-08T12:32:22.2345282Z failures:
+2026-10-08T12:32:22.2345556Z     empty_seed_preserves_existing_career
+2026-10-08T12:32:22.2345915Z     fractional_seed_preserves_existing_career
+2026-10-08T12:32:22.2346380Z     malformed_batch_preserves_output_before_zero_career_run
+2026-10-08T12:32:22.2347401Z     malformed_seed_after_valid_duplicate_is_refused
+2026-10-08T12:32:22.2347867Z     malformed_seed_before_valid_duplicate_is_refused
+2026-10-08T12:32:22.2348312Z     malformed_seed_does_not_create_a_first_career
+2026-10-08T12:32:22.2348817Z     malformed_seed_is_refused_even_when_explicit_list_would_override_it
+2026-10-08T12:32:22.2349320Z     malformed_start_preserves_existing_career
+2026-10-08T12:32:22.2349731Z     seed_above_i64_max_preserves_existing_career
+2026-10-08T12:32:22.2350146Z     seed_below_i64_min_preserves_existing_career
+2026-10-08T12:32:22.2350413Z 
+2026-10-08T12:32:22.2350728Z test result: FAILED. 5 passed; 10 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.68s
+
+## Candidate: run37777881604 job113313655859, actual checkout 6c9820f2599e7ee5d2640488b04d179ba2e962e9
+2026-10-08T12:36:41.8043869Z      Running tests/cli_seed_admission.rs (target/debug/deps/cli_seed_admission-3f425ddb33201893)
+2026-10-08T12:36:41.8053756Z 
+2026-10-08T12:36:41.8053903Z running 15 tests
+2026-10-08T12:36:42.2375965Z test last_valid_duplicate_seed_still_wins ... ok
+2026-10-08T12:36:42.2436139Z test fractional_seed_preserves_existing_career ... ok
+2026-10-08T12:36:42.2461811Z test empty_seed_preserves_existing_career ... ok
+2026-10-08T12:36:42.6585827Z test malformed_batch_preserves_output_before_zero_career_run ... ok
+2026-10-08T12:36:42.6592555Z test malformed_seed_does_not_create_a_first_career ... ok
+2026-10-08T12:36:42.6790422Z test malformed_seed_after_valid_duplicate_is_refused ... ok
+2026-10-08T12:36:42.6805730Z test malformed_seed_before_valid_duplicate_is_refused ... ok
+2026-10-08T12:36:42.6865299Z test explicit_seed_list_still_overrides_valid_seed_and_count ... ok
+2026-10-08T12:36:43.0885937Z test malformed_seed_is_refused_even_when_explicit_list_would_override_it ... ok
+2026-10-08T12:36:43.1095744Z test omitted_seed_still_starts_seed_42 ... ok
+2026-10-08T12:36:43.1119479Z test malformed_start_preserves_existing_career ... ok
+2026-10-08T12:36:43.1141561Z test seed_above_i64_max_preserves_existing_career ... ok
+2026-10-08T12:36:43.1148985Z test signed_i64_boundaries_are_admitted_without_running_a_career ... ok
+2026-10-08T12:36:43.3837862Z test seed_below_i64_min_preserves_existing_career ... ok
+2026-10-08T12:36:43.9446254Z test valid_signed_seeds_are_saved_exactly ... ok
+2026-10-08T12:36:43.9446502Z 
+2026-10-08T12:36:43.9446720Z test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.14s

@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "repository": "Jacob-Met/uma-sim",
+  "issue": 87,
+  "pull_request": 90,
+  "scope": "Validate every explicit --seed= value as i64 in the existing parse_flags branch before effects; preserve other flags and valid seed behavior.",
+  "source_base": {
+    "commit": "d85c09556eedbbed78a5d21204e239ef3e1900d3",
+    "tree": "178ef23920a19cf2b58117e2c683c1f001a17fe9",
+    "leaves": 661
+  },
+  "current_composition_base": {
+    "commit": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+    "tree": "8352de08ded783d6d23030b312c36c5b9a4b0fe1",
+    "leaves": 677
+  },
+  "candidate": {
+    "commit": "e12db23f6ce61df700cbe375e6c4fdb26d541b28",
+    "tree": "06f43399a86ddcff758bc321160f9920eb73445f",
+    "parents": [
+      "8f7f225bfefb0654a5ef4d31d1c2c3b53788f8ae",
+      "09df4c25cbd86c12d16a121481c01d1633a5efb6"
+    ]
+  },
+  "source_files": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "bytes": 20213,
+      "sha256": "f3a2bc30b65e593f001e5e4ac4868861adc843357e9c1d51be00d6f5c6707489",
+      "git_blob": "5f028f91b8dc3420af36940471035412264b160a"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_seed_admission.rs",
+      "bytes": 10682,
+      "sha256": "7116ea1e5e7d9fe31c4b4bc109d4260006a9765b6314187b691a3c5785dc850e",
+      "git_blob": "465bf36edb3752021bb09f0f3fd94e9891d7aadc"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11566,
+      "sha256": "f4852efa2517d98ee0f8ade0c7e066798cb7116cbc39a9bd97380c0fb305b147",
+      "git_blob": "64c0d4de47d98fcb132ae280305876f72f338ecd"
+    }
+  ],
+  "complete_tree_verification": {
+    "tree": "06f43399a86ddcff758bc321160f9920eb73445f",
+    "oldLeaves": 677,
+    "newLeaves": 678,
+    "unchanged": 675,
+    "delta": [
+      {
+        "path": "README.md",
+        "before": "2163937330c9b7040c01d7cf42c4044dc851ba47",
+        "after": "64c0d4de47d98fcb132ae280305876f72f338ecd"
+      },
+      {
+        "path": "uma-sim-core/src/bin/uma-sim.rs",
+        "before": "2df06c16c8cb4bffe711b37e1afb3a8a57ebd528",
+        "after": "5f028f91b8dc3420af36940471035412264b160a"
+      }
+    ],
+    "added": [
+      {
+        "path": "uma-sim-core/tests/cli_seed_admission.rs",
+        "sha": "465bf36edb3752021bb09f0f3fd94e9891d7aadc",
+        "mode": "100644"
+      }
+    ],
+    "truncated": false
+  },
+  "verification_method": "Read the complete non-truncated current-base and candidate recursive trees, compare every leaf path/type/mode/blob, and read all three authored file bodies back exactly. Independently reviewed source reconstruction and tree comparison were also reported by /root/github_execution.",
+  "phases": [
+    {
+      "name": "format-attempt",
+      "run": 37777034470,
+      "job": 113310797066,
+      "head": "e06d1ffc351e35cf491c9c56b50f43fb4cdfd35a",
+      "checkout": "13ca9c327105e79c841b3dbc1c37bc310c2755e2",
+      "tree": "864364d9229527480756e1ee3978a83096b43f75",
+      "outcome": "formatting-only failure; no native regression executed"
+    },
+    {
+      "name": "original-runtime",
+      "run": 37777355371,
+      "job": 113311939020,
+      "head": "43d39044ab4afa3d81ba9df4c3f456b508b6d621",
+      "checkout": "a54e31ad83d833c8724e110e99d37987e1920281",
+      "tree": "42167e8e3351e9b2e4acfb3263e814703ffe720d",
+      "outcome": "actual CLI: 5 passed, 10 intended failures, 0 ignored; 2.68 seconds"
+    },
+    {
+      "name": "candidate-runtime",
+      "run": 37777881604,
+      "job": 113313655859,
+      "head": "e12db23f6ce61df700cbe375e6c4fdb26d541b28",
+      "checkout": "6c9820f2599e7ee5d2640488b04d179ba2e962e9",
+      "tree": "06f43399a86ddcff758bc321160f9920eb73445f",
+      "outcome": "actual CLI: 15 passed, 0 failed, 0 ignored; 2.14 seconds; complete CI successful"
+    }
+  ],
+  "regression_preservation": {
+    "final_test_blob": "465bf36edb3752021bb09f0f3fd94e9891d7aadc",
+    "same_on_original_and_candidate": true,
+    "first_format_attempt_blob": "5071633b46daaacb9a6937b0235a959231026d01",
+    "correction": "Rustfmt wrapped one check_refused_batch call and added a trailing comma; formatting-only, with unchanged inputs, assertions and execution semantics."
+  },
+  "effect_observations": [
+    {
+      "case": "malformed zero-career batch",
+      "original_exit": 0,
+      "before_output_bytes": 40,
+      "after_output_bytes": 0,
+      "prior_career_retained": true
+    },
+    {
+      "case": "malformed start",
+      "original_exit": 0,
+      "before_seed": 7,
+      "after_seed": 42,
+      "before_saved_bytes": 2758,
+      "after_saved_bytes": 2763
+    },
+    {
+      "case": "malformed seed before or after valid duplicate",
+      "original_exit": 0,
+      "before_seed": 7,
+      "after_seed": 99
+    },
+    {
+      "case": "malformed first start",
+      "original_exit": 0,
+      "session_directory_created": true,
+      "after_seed": 42,
+      "after_saved_bytes": 2763
+    },
+    {
+      "case": "malformed seed overridden by explicit list",
+      "original_exit": 0,
+      "before_output_bytes": 40,
+      "after_output_bytes": 590,
+      "careers_written": 2
+    },
+    {
+      "case": "candidate refusal cases",
+      "result": "All ten actual-CLI refusal methods passed: exit 2, seed-specific diagnostic, no stdout, exact prior bytes retained or no first career created."
+    }
+  ],
+  "valid_controls": [
+    "omitted default 42",
+    "actual saved +7, -7 and 0",
+    "last valid duplicate wins",
+    "i64 min/max and signed zero admitted with zero-career batch",
+    "ordered explicit list 10,5,7 overrides valid seed 77 and count 0"
+  ],
+  "ownership": {
+    "native_claim": "https://github.com/Jacob-Met/uma-sim/issues/87",
+    "batch_output_owner_coordination": "https://github.com/Jacob-Met/uma-sim/pull/82#issuecomment-6059790102",
+    "governing_handbook": {
+      "path": "docs/agent-operations.md",
+      "ref": "d85c09556eedbbed78a5d21204e239ef3e1900d3",
+      "blob": "4113412c01f73323cdbb80dfb2313f57c5d3b29e"
+    },
+    "holds": "No governing AGENTS.md, CONTRIBUTING or CODEOWNERS found in the complete source tree; respected existing handbook and unrelated owners."
+  },
+  "qualification_limits": [
+    "Hosted native execution was Ubuntu/Linux, not a new local or Windows run.",
+    "Extreme seeds were tested for admission only; their complete simulation semantics remain unchanged and unclaimed.",
+    "Bare --seed syntax, other flags, durable save/output failure semantics and live APIs/accounts are outside the repair.",
+    "Packet seal records candidate qualification; merge-time current-base, reviews and expected-head checks remain separate."
+  ],
+  "independent_acceptance": {
+    "url": "https://github.com/Jacob-Met/uma-sim/pull/90#issuecomment-6060058064",
+    "reviewer": "/root/github_execution",
+    "scope": "Independent production/test/full-tree review and direct original/candidate hosted log receipt; no new runtime claimed."
+  }
+}
