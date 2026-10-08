@@ -35,12 +35,16 @@ function negotiateProtocolVersion(requested) {
 // -32603 stays reserved for genuine internal/backend failures.
 class InvalidParamsError extends Error {}
 
-class ApiError extends Error {
-  constructor(status, response) {
-    super(`Simulator HTTP ${status}: ${typeof response === "string" ? response : JSON.stringify(response)}`);
-    this.status = status;
-    this.response = response;
+// HTTP failures are tool execution failures. Keep them separate from invalid
+// MCP parameters and transport/decoding failures in the bridge itself.
+class BackendHttpError extends Error {
+  constructor(status, body) {
+    super(`uma-sim API returned HTTP ${status}${body ? `: ${body}` : ""}`);
   }
+}
+
+function isObject(value) {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
 }
 
 const RESOURCES = [
@@ -179,17 +183,8 @@ async function api(method, path, body, format = "json") {
     headers: body ? { "Content-Type": "application/json" } : undefined,
     body: body ? JSON.stringify(body) : undefined,
   });
-  const text = await res.text();
-  let data = text;
-  if (format === "json" || !res.ok) {
-    try {
-      data = JSON.parse(text);
-    } catch {
-      if (res.ok) throw new Error(`Simulator HTTP ${res.status}: expected a JSON response`);
-    }
-  }
-  if (!res.ok) throw new ApiError(res.status, data);
-  return data;
+  if (!res.ok) throw new BackendHttpError(res.status, await res.text());
+  return format === "text" ? res.text() : res.json();
 }
 
 async function readResource(uri) {
@@ -316,9 +311,19 @@ process.stdin.on("data", (chunk) => {
 });
 
 async function handle(req) {
+  const hasId = isObject(req) && Object.hasOwn(req, "id");
+  if (!isObject(req) || req.jsonrpc !== "2.0" || typeof req.method !== "string" ||
+      (hasId && typeof req.id !== "string" && !Number.isSafeInteger(req.id))) {
+    send({ jsonrpc: "2.0", id: null, error: { code: -32600, message: "Invalid Request" } });
+    return;
+  }
   const { id, method, params } = req;
-  // Notifications carry no id: accept them silently (MCP stdio spec).
-  if (id === undefined || id === null) return;
+  // Strings and safe integers preserve request identity after JSON parsing.
+  // Use a string for larger identifiers; only an omitted ID is a notification.
+  if (!hasId) return;
+  if (params !== undefined && !isObject(params)) {
+    throw new InvalidParamsError("params must be an object");
+  }
   if (method === "initialize") {
     send({
       jsonrpc: "2.0",
@@ -365,18 +370,19 @@ async function handle(req) {
     let result;
     try {
       result = await callTool(params.name, args);
-    } catch (e) {
-      if (!(e instanceof ApiError)) throw e;
+    } catch (error) {
+      if (!(error instanceof BackendHttpError)) throw error;
       send({
-        jsonrpc: "2.0", id,
-        result: { isError: true, content: [{ type: "text", text: JSON.stringify({ status: e.status, response: e.response }, null, 2) }] },
+        jsonrpc: "2.0",
+        id,
+        result: { content: [{ type: "text", text: error.message }], isError: true },
       });
       return;
     }
     send({
       jsonrpc: "2.0",
       id,
-      result: { content: [{ type: "text", text: typeof result === "string" ? result : JSON.stringify(result, null, 2) }] },
+      result: { content: [{ type: "text", text: params.name === "sim_lab_report" && args.format !== "json" ? result : JSON.stringify(result, null, 2) }] },
     });
     return;
   }

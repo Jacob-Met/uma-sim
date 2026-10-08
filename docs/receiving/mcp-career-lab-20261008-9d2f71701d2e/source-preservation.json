@@ -1,0 +1,70 @@
+{
+  "at": "2026-10-08T09:08:16.112Z",
+  "sourceCommit": "dd1b6d6e396d940e8b2eb17d1a5268b7aa5b488f",
+  "sourceTree": "d703e1d405ef7db885cf069f7e039cb986b61aac",
+  "sourceSha256": "372c1992cb366f9ca5d06be4f069a4431f4fcdde70f3dea2a0d857fab39f1460",
+  "careerParent": "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+  "errorParent": "d77898c5e8848662df668ff48b3becccc95019ab",
+  "checks": [
+    {
+      "name": "career26ToolsSchemasRecursiveValidationAndEncodedQuery",
+      "byteExact": true,
+      "bytes": 7237,
+      "sha256": "dd4854e0579d2789d23d484c4f252404b4c4dbd61dff12a37838640b5940d91a"
+    },
+    {
+      "name": "careerAllResourceAndToolDispatch",
+      "byteExact": true,
+      "bytes": 3715,
+      "sha256": "fa1bfba5a79a67fdfba73edbf5169f0539fc5a72b0ebea729a48cd7da4fe6b5c"
+    },
+    {
+      "name": "sharedStdoutFraming",
+      "byteExact": true,
+      "bytes": 957,
+      "sha256": "7c1b4635cb4cf434e642486278fbb598b2663c9e73fb0a24eb9703fadc351633"
+    },
+    {
+      "name": "ownerHttpErrorClassAndObjectGuard",
+      "byteExact": true,
+      "bytes": 411,
+      "sha256": "8da1c8b0946ed5762c4bf18dd0024d6164dad200a0473031e726109b7723a51e"
+    },
+    {
+      "name": "ownerApiWithCareerMarkdownFormatOnly",
+      "byteExact": true,
+      "bytes": 374,
+      "sha256": "5e793418ad4dc196451a67f1df49213f40234b8f97cdd8ffcc67981bbb5e0546"
+    },
+    {
+      "name": "ownerFrameGuardWithDocumentedSafeIntegerRestrictionOnly",
+      "byteExact": true,
+      "bytes": 609,
+      "sha256": "0f1b5fff053858737d4253316f7adf63fc7852b1b9f7bf52116c016f8a9bc754"
+    },
+    {
+      "name": "ownerRawHttpToolErrorSend",
+      "byteExact": true,
+      "bytes": 247,
+      "sha256": "6b8b5de1cd96b3e16f9665533f3eca13277676b871fb6eb819681c38fd5dd8d6"
+    },
+    {
+      "name": "careerLiteralSuccessPayloadAndMethodFallback",
+      "byteExact": true,
+      "bytes": 379,
+      "sha256": "56ae446a1c2e1f636c26d6c5e8f1e86498a5c3cb8ffd4ab7650bd327047a5ebd"
+    }
+  ],
+  "contractDisposition": [
+    "Career-lab26tool schemas/strict argument validation supersede the owner's older flat permissive validator.",
+    "Career-lab success text remains literal, including Markdown and decoded JSON string payloads; resources retain their existing shape.",
+    "Owner HTTP error formatting preserves the exact raw body and status, including whitespace, malformed JSON, and empty bodies.",
+    "Only the request-ID predicate intentionally strengthens the owner guard from integer to safe integer; larger IDs must be strings."
+  ],
+  "ciTestAdaptations": [
+    "Expected tool list expands from10to26.",
+    "Legacy string payload assertion follows career-lab literal text behavior.",
+    "Legacy speed0, multiplier0 and unknown extra inputs are not accepted by career-lab; positive identity/default tests now use accepted speed1/multiplier1 and safe ID extrema.",
+    "Raw unsafe numeric ID literals are added to refusal-before-REST regression."
+  ]
+}

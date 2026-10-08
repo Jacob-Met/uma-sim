@@ -1,0 +1,288 @@
+{
+  "createdAt": "2026-10-08T09:31:49.864Z",
+  "sourceProductCommit": "d8cc21e219b43376e75b0365c3c86b7a5866f1ec",
+  "sourceProductTree": "5545dd228ea38c04a2ae609051655007b9e681fb",
+  "preservingMainCommit": "816a03c3e36f134f336769765f9404a2025b659a",
+  "currentMain": "0b5cc2342cd93141beb461edf6e83998388e67b8",
+  "careerOwner": "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+  "errorOwner": "d77898c5e8848662df668ff48b3becccc95019ab",
+  "bridgeSha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+  "sourceFiles": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 4208,
+      "sha256": "39ad04d9c94b5c7c8b68a9e36ab7af3c73f7ec1dd6892877756f8c1328b6ec2e",
+      "gitBlob": "8947e170d34fef03a01ef66d19cc8989a67bc691"
+    },
+    {
+      "path": "packages/uma-sim-mcp/README.md",
+      "bytes": 10147,
+      "sha256": "feb583036205713c9d5049f8498dd8d8bea9839dd9083a15e7b93a728d692ef0",
+      "gitBlob": "8411b55c77623e01caed4292cb3fd1aa49d9e6e0"
+    },
+    {
+      "path": "packages/uma-sim-mcp/mcp-stdio.js",
+      "bytes": 17575,
+      "sha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+      "gitBlob": "24d5384c0a14fbdd07c4dd838b6a0d56b6d92ceb"
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/career-lab-native.test.mjs",
+      "bytes": 12631,
+      "sha256": "2536e1cc1d7b557428cbe81e26f99410b6ef8909486a03d2d2dd43b22f02a1ce",
+      "gitBlob": "e7c8b5ba2419796fa7060562fa5c29ef2506250f"
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/career-lab-protocol.test.mjs",
+      "bytes": 16575,
+      "sha256": "0abb770a90dfa35ef0276ed0871b75d6cc61f0e73c207cda00a64283b2951499",
+      "gitBlob": "5a14098bbed8bdbcac5613fd16da7b4d844d80f7"
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/helpers/mcp-client.mjs",
+      "bytes": 6354,
+      "sha256": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+      "gitBlob": "2b55f958e850b5af5e5ea3d877ce2659e251b818"
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/helpers/native-api.mjs",
+      "bytes": 3548,
+      "sha256": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44",
+      "gitBlob": "cb5d6750d68fbf43a04d5d26eed4d00b2d8c9f63"
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/mcp-handshake.test.mjs",
+      "bytes": 20409,
+      "sha256": "a3f6efd3bb99ea05d3002ab122f15a083e0918834df93f3cb66990afd04417e8",
+      "gitBlob": "46d932acfa597687c28004be477241add2cf1946"
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/report-format-receiving.test.mjs",
+      "bytes": 2841,
+      "sha256": "e1e1b8c1a850f2584315173a26f85ef61caed614f2c25a490bd4893ef0bc2f54",
+      "gitBlob": "01d7835ac88ca84cf4480e31077a709645faf5ef"
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/sessions-receiving-native.test.mjs",
+      "bytes": 7559,
+      "sha256": "1dff31c95ba28319e4bf651a125f6f1c3c373a233381b1d1b84fcea21170b286",
+      "gitBlob": "a89f2b4baad9887bec1b9daf479faf64ce4353b0"
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/tool-string-payload-receiving.test.mjs",
+      "bytes": 2274,
+      "sha256": "6465bccd919fe017a38934c7f8da4b75f913319c307916ceca83927bedc495d4",
+      "gitBlob": "4f44e8f3942b40ab821256818deee824a4925f26"
+    }
+  ],
+  "qualification": {
+    "assembledAuthor": {
+      "pass": 135,
+      "fail": 0,
+      "skipped": 0
+    },
+    "addedPayloadTestAdoption": {
+      "pass": 1,
+      "fail": 0
+    },
+    "independentInitialComposition": {
+      "pass": 6,
+      "fail": 0
+    },
+    "independentFinalPayloadAmendment": {
+      "pass": 2,
+      "fail": 0
+    },
+    "nativeBaseline": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+    "deployed": false,
+    "headCiGate": "pending actual GitHub head"
+  },
+  "artifacts": [
+    {
+      "path": "RECEIVING.md",
+      "bytes": 11974,
+      "sha256": "804f639a708c5c69a5e92589583a246a77246be6481177425d49e8bbaecac2d5"
+    },
+    {
+      "path": "assembled-native-receipt.json",
+      "bytes": 840,
+      "sha256": "6b428d4a7ec29f82f9a9a4430699691cfc6a8f6d38f871f460024451358cdfb6"
+    },
+    {
+      "path": "assembled-native.log",
+      "bytes": 8761,
+      "sha256": "4476246ae75ce9eb984f297a63c6f366f9303c7ecb8b5b8aeab801670ec5b8bd"
+    },
+    {
+      "path": "final-native-receipt.json",
+      "bytes": 3544,
+      "sha256": "a752b93bf3b9edc53c72b30232a08e3ccbac5ca9f27058a6880733e7988232eb"
+    },
+    {
+      "path": "final-native.tap",
+      "bytes": 25122,
+      "sha256": "6ffdb3c560c103e29166332bd735638e2577812e5f1f331962b799f58efcefac"
+    },
+    {
+      "path": "main-ancestry-import.json",
+      "bytes": 2898,
+      "sha256": "5ad9c6ff63bd02f5c12df6969df794dcfd5220721db736a74a074407ba190e2d"
+    },
+    {
+      "path": "main-second-ancestry-import.json",
+      "bytes": 3865,
+      "sha256": "a3a806fd63ff523467a26c220acf2bcbd2ffad77024b0af3888c89e9e528cb27"
+    },
+    {
+      "path": "payload-amendment.json",
+      "bytes": 1651,
+      "sha256": "0a23e8f9dfb11744424b4e8a3afaa6e66e0d18625fcd24ff29adda120da43452"
+    },
+    {
+      "path": "payload-test-adoption.tap",
+      "bytes": 530,
+      "sha256": "96d06a3555b0dfe9e6559fddca5b2ece29f938617e492cce1c2f828967e9df8c"
+    },
+    {
+      "path": "peer/id-guard/MANIFEST.json",
+      "bytes": 4136,
+      "sha256": "9f442e4739436b35bc1631c12a846baeeeed3bef97ae68c86a4ced67b14c4a35"
+    },
+    {
+      "path": "peer/id-guard/REVIEW.md",
+      "bytes": 7458,
+      "sha256": "93899894725e391f5e0420da594fd549548ca399eb7b56a1fa9c60fb5bb7a6db"
+    },
+    {
+      "path": "peer/id-guard/native-id-receipt.json",
+      "bytes": 1614,
+      "sha256": "2720c69ed0f71fc71606dd984ef67137490df33d145cc0d1c2b5c1c0f4da887a"
+    },
+    {
+      "path": "peer/id-guard/owner-preservation.json",
+      "bytes": 934,
+      "sha256": "9ba0e7e59eb72dd484463ea898c93019b2dedbfa5bff6e438237cde1cfaa3dc3"
+    },
+    {
+      "path": "peer/native-port/MANIFEST.json",
+      "bytes": 10313,
+      "sha256": "73efe9654d478688c145d59ab0dabef9998c7dc28ed6790ba46a70ec66114003"
+    },
+    {
+      "path": "peer/native-port/REVIEW.md",
+      "bytes": 11082,
+      "sha256": "def0c6d623675a8f408a57f3abc9e6b3e10bcba6b93f041fc4fbfcfef6c95a33"
+    },
+    {
+      "path": "peer/native-port/career-base-receipt.json",
+      "bytes": 654,
+      "sha256": "ba9f4a5a256645f788a6249c66ed4f4296bc82391e57301ef7fc8d7cad52d3aa"
+    },
+    {
+      "path": "peer/native-port/helper-provenance.json",
+      "bytes": 732,
+      "sha256": "cf2049228344261f6e06e4b70712db426394967311f2ac6da74c4d05e74d87bb"
+    },
+    {
+      "path": "peer/native-port/independent-source-composition.json",
+      "bytes": 1473,
+      "sha256": "b35bfa0ef28d433351fd52b22e6fd977ae773998aa46f0b93fbd581b3cce1b74"
+    },
+    {
+      "path": "peer/native-port/native-port-receipt.json",
+      "bytes": 2039,
+      "sha256": "061fa8b4267bdc8c1cd75aa140b0e5ad3a8271d8d35d56720f7aa585ba6b30ed"
+    },
+    {
+      "path": "peer/native-port/native-port.tap",
+      "bytes": 1788,
+      "sha256": "a0dca08c6a71bfa11b5f0a0b8dacab23caa3dc7fb3714e8f01a1e559820a0a1e"
+    },
+    {
+      "path": "peer/native-port/report-format-receipt.json",
+      "bytes": 512,
+      "sha256": "109584fdd19b07f1fe32d17483c2b650b905978562fbf8778a238edeb68bbe33"
+    },
+    {
+      "path": "peer/native-port/report-format-receiving.tap",
+      "bytes": 572,
+      "sha256": "98ec245baa46c5b1a166d9165c51280936e29fcb730b6464849f2658170c3d44"
+    },
+    {
+      "path": "peer/native-port/safe-id-receiving.tap",
+      "bytes": 1155,
+      "sha256": "1d97b97dfa2160a5fce528a3f8311a05e670893a54bbbccdb0c5e48a807fd8ea"
+    },
+    {
+      "path": "peer/payload-amendment/MANIFEST.json",
+      "bytes": 3908,
+      "sha256": "c09ba9810f8d72c95f6984c81265838d2a17d050a27ba6bf7561e1b8b93fedf1"
+    },
+    {
+      "path": "peer/payload-amendment/REVIEW.md",
+      "bytes": 4847,
+      "sha256": "ead24e8b5100a79bd91f2f4e8008ef4f6e337ec79a8c3ef815e8512ea1fe914a"
+    },
+    {
+      "path": "peer/payload-amendment/payload-amendment.tap",
+      "bytes": 990,
+      "sha256": "d8dbd66ad41ab0fa1788820e6d551f7158ac45ba279ef8c880bdefdef72ba814"
+    },
+    {
+      "path": "peer/payload-amendment/payload-only.diff",
+      "bytes": 597,
+      "sha256": "c7fa15814146380e05a28aaf371e2fb33eeed450e8de191fc72b49f5f062b457"
+    },
+    {
+      "path": "peer/payload-amendment/payload-receipt.json",
+      "bytes": 2655,
+      "sha256": "f94f242b10110dd8ff93b81b22ebbe7b75f87eeaf920e56491257ab900a53136"
+    },
+    {
+      "path": "peer/payload-amendment/source-provenance.json",
+      "bytes": 745,
+      "sha256": "78f2410f11b0b5ea7fc150440f7a1571217aa5e24247bca7a61bdf18abcf10be"
+    },
+    {
+      "path": "peer/uma-independent-complete.bundle",
+      "bytes": 83009,
+      "sha256": "667777d3d6bfe47dfdf69fea5c659af3546af87469aee18f950d9194149756b3"
+    },
+    {
+      "path": "peer-adoption.json",
+      "bytes": 6146,
+      "sha256": "b47bf4516301e4897690a29a2bb94cdfd2af0365d280d701e64ac24c5b951813"
+    },
+    {
+      "path": "predecessor/ORIGINAL_RECEIVING.md",
+      "bytes": 14202,
+      "sha256": "36b09e1bda2314f69398569160bb6aefb3da03cdbe0cb03653d45acfea8dcc6b"
+    },
+    {
+      "path": "predecessor/SUPERSEDED.json",
+      "bytes": 2159,
+      "sha256": "089a8f1bb1ec29f69037534e82dea7d8f3b979e467903e22fcfdd6e11761af15"
+    },
+    {
+      "path": "predecessor/mcp-sessions-on-owned-errors.patch.gz",
+      "bytes": 10679,
+      "sha256": "98e239bef5d9dd1682932d04ae051b050627720b0e61a964702f97085583cd25"
+    },
+    {
+      "path": "predecessor/mcp-sessions-qualified.bundle",
+      "bytes": 75732,
+      "sha256": "626b5b27e6bf10eda4fc7c7ce8763eb980bc9285aa3f5180717a68463b5b4370"
+    },
+    {
+      "path": "product-files.json",
+      "bytes": 2719,
+      "sha256": "b209b648a378ac1633d800ae5ceb437e5650c3751c5bae25f417a7d74840a40b"
+    },
+    {
+      "path": "source-preservation.json",
+      "bytes": 2933,
+      "sha256": "aa3829855d3cf2980d51b5f4de6c8a7279cc9867987d6e0799eb79aaabf925d0"
+    }
+  ],
+  "note": "This manifest excludes itself. Raw failed reporter logs remain byte-exact inside the standalone peer bundle; the historical patch is losslessly compressed. No underlying failed evidence was normalized or discarded."
+}

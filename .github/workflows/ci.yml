@@ -71,7 +71,7 @@ jobs:
           UMA_SIM_TEST_API_BIN: ${{ github.workspace }}/target/release/uma-sim-api
           UMA_SIM_TEST_OUTPUT_DIR: ${{ runner.temp }}/uma-sim-mcp-native
           UMA_SIM_TEST_RECEIVING_COMMIT: ${{ github.sha }}
-        run: node --test packages/uma-sim-mcp/tests/career-lab-native.test.mjs
+        run: node --test packages/uma-sim-mcp/tests/*native.test.mjs
       - name: Retain MCP native comparison and receiving evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

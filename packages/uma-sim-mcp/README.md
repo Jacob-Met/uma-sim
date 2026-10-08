@@ -142,13 +142,23 @@ retains that qualification.
 
 ## Errors and uncertain delivery
 
+Malformed JSON-RPC frames return `-32600`. Request IDs must be strings or
+safe integers from `-9007199254740991` through `9007199254740991`. Use a string
+for larger identifiers: JavaScript can round numeric JSON values before the
+bridge receives them, so unsafe numeric IDs are refused before REST dispatch.
+An explicit null ID is invalid; only an omitted ID is a silent notification.
+
 Malformed arguments, missing required fields, unknown keys, conflicting fork
 sources, and unknown tool names return JSON-RPC `-32602`. Valid calls refused by
-the simulator return an MCP tool result with `isError: true`; its text contains
-`{ "status": 409, "response": { "error": "..." } }`, preserving the actual HTTP
-status and response. Plain-text HTTP errors are preserved too. A transport
-failure or malformed JSON success response remains `-32603` as in the existing
-stdio contract.
+the simulator return an MCP tool result with `isError: true`; its text is
+`uma-sim API returned HTTP <status>: <raw response body>`. The body is preserved
+exactly, including JSON, plain text, whitespace, or malformed JSON. An empty
+body omits the colon and body. Failed resource reads, transport failures, and
+malformed JSON success responses remain `-32603`.
+
+Successful JSON tool payloads retain JSON encoding, including string values
+returned by the existing tools. Only the new Markdown report is delivered as
+literal text; selecting its JSON format retains JSON encoding.
 
 The wrapper does not automatically retry mutations. A lost response can leave
 the operation's outcome unknown. Inspect the relevant sessions, checkpoints, or
