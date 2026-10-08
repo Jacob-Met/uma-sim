@@ -1,0 +1,29 @@
+{
+  "kind": "required_secret_scan_blocker_classified",
+  "head": "82338bb4fffce22debc6c9f61d1f4dda3fc5113d",
+  "job": 113431419960,
+  "rule": "generic-api-key",
+  "findings": [
+    {
+      "file": "docs/receiving/mcp-exact-json-58d79b68/author/PARENT-IMPACT.md",
+      "line": 11,
+      "label": "Received native API baseline",
+      "classification": "Public Git commit identifier",
+      "provenance": "Baseline source commit independently fetched before source receiving, and exact tracked tree bound in original source-commit-binding plus parent-trees.json. The source markdown places this identifier before its tree identifier."
+    },
+    {
+      "file": "docs/receiving/mcp-exact-json-58d79b68/author/PARENT-IMPACT.md",
+      "line": 15,
+      "label": "Retained original native API SHA256",
+      "classification": "Retained executable SHA256 digest",
+      "provenance": "Independent original native receiving recomputed this digest for the 14,182,432-byte API binary and bound the canonical source inputs and build receipt."
+    }
+  ],
+  "bothFindingAndSecretFieldsScannerRedacted": true,
+  "matchedValuesOmitted": true,
+  "credentialMaterialFound": false,
+  "sourceTreePreserved": true,
+  "scannerChangeMade": false,
+  "capsuleChangeMade": false,
+  "mergeGate": "Held until the required scan passes on the final offered head; source owner owns the correction."
+}
