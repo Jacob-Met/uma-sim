@@ -1,0 +1,97 @@
+{
+  "id": "br-1791452919-0000",
+  "name": "second-acknowledged-result",
+  "checkpointName": "process-fixture",
+  "checkpointTurn": 11,
+  "seed": 42,
+  "scenarioId": "ura",
+  "traineeName": "Special Week",
+  "config": {
+    "policy": "bot",
+    "maxActions": 2,
+    "overrides": []
+  },
+  "startedAt": "2026-10-08T09:48:39Z",
+  "timeline": [
+    {
+      "stepIndex": 0,
+      "turn": 11,
+      "dateLabel": "Y1 Nov · 2nd half",
+      "phase": "FREE",
+      "actionId": "race",
+      "actionLabel": "Race (optional)",
+      "overrideApplied": false,
+      "overrideRejected": false,
+      "rngCallsBefore": 53,
+      "rngCallsAfter": 57,
+      "energy": 5,
+      "mood": "BAD",
+      "fans": 2995,
+      "skillPoints": 166,
+      "stats": {
+        "speed": 103,
+        "stamina": 88,
+        "power": 107,
+        "guts": 93,
+        "wit": 91
+      },
+      "newRaces": [],
+      "totalRaces": 1,
+      "totalSkills": 1
+    },
+    {
+      "stepIndex": 1,
+      "turn": 12,
+      "dateLabel": "Y1 Dec · 1st half",
+      "phase": "FREE",
+      "actionId": "race",
+      "actionLabel": "Race (optional)",
+      "overrideApplied": false,
+      "overrideRejected": false,
+      "rngCallsBefore": 57,
+      "rngCallsAfter": 61,
+      "energy": 5,
+      "mood": "BAD",
+      "fans": 3428,
+      "skillPoints": 196,
+      "stats": {
+        "speed": 103,
+        "stamina": 88,
+        "power": 107,
+        "guts": 93,
+        "wit": 91
+      },
+      "newRaces": [],
+      "totalRaces": 1,
+      "totalSkills": 1
+    }
+  ],
+  "outcome": {
+    "steps": 2,
+    "finalTurn": 13,
+    "careerComplete": false,
+    "completedRaces": [
+      "debut"
+    ],
+    "stats": {
+      "speed": 103,
+      "stamina": 88,
+      "power": 107,
+      "guts": 93,
+      "wit": 91
+    },
+    "energy": 5,
+    "mood": "BAD",
+    "fans": 3428,
+    "skillPoints": 196,
+    "learnedSkills": [
+      "skill:100011"
+    ],
+    "sparks": [],
+    "scenarioResources": {
+      "happy_meek_badge": 0
+    },
+    "totalRngCalls": 61,
+    "telemetryRecords": 2
+  }
+}

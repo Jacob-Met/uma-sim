@@ -1,0 +1,24 @@
+{
+  "binary_sha256": "04d229942623be528bf9581602b50afda94c60fdacbd509082f03ace7d7ad734",
+  "command": [
+    "rustc",
+    "--edition=2021",
+    "--test",
+    "/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/uma-sim-core/tests/career_lab_branch_publication.rs",
+    "--extern",
+    "uma_sim_core=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libuma_sim_core-8744fe8d52c199c4.rlib",
+    "--extern",
+    "serde_json=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps/libserde_json-70c5caf873f5c0c3.rlib",
+    "-L",
+    "dependency=/Users/me/workspace/estate/production-evidence-49f845d0dece/uma-sim/target/debug/deps",
+    "-o",
+    "/Users/me/workspace/estate/production-evidence-49f845d0dece/career-cli-receiving/branch-publication-independent/branch-publication-candidate"
+  ],
+  "exit_code": 0,
+  "pins": {
+    "core_rlib_sha256": "a0357aa3c3661fa71cddd02150cdc801235c27657d818f6a972f5078d30227fd",
+    "domain_sha256": "f12208e5796ac6ab42ba515d6d8e6734388810894b600420e4badfdeab250f08",
+    "test_sha256": "e925eb000d256ce4545b4054d5740a1c46f1dae3a46cca85dc8a33f20777a7e2"
+  },
+  "stderr": ""
+}

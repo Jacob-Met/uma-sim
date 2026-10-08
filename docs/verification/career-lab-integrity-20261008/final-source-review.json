@@ -1,0 +1,114 @@
+{
+  "verdict": "NO_BLOCKER",
+  "reviewer": "runtime_access independent worker; authored receivers, no production source changes",
+  "scope": "Exact runtime delta against main0ac146 plus package, lock and UI CI composition; no new test campaign.",
+  "upstreamRuntimeBase": "0ac14602addd1a4610aa8359896915a34cce5659",
+  "publicationBaseUpdate": {
+    "revisionPrefix": "0b5",
+    "rootConfirmedPreservedPaths": [
+      "packages/uma-sim-ui/src/components/LibraryPanel.tsx",
+      "packages/uma-sim-ui/tests/checkpoint-portability.browser.mjs",
+      "docs/receiving/checkpoint-portability-49f845d0dece/"
+    ],
+    "ownLibraryPanelMutation": false
+  },
+  "findings": [],
+  "reviewedInvariants": [
+    "Upstream PR65 displayed comparison report IDs, deletion invalidation and independent draft selection are preserved.",
+    "Branch draft validation rejects partial malformed input, conflicting duplicate turns, non-i32 turns and out-of-range budgets before submitting a mutation.",
+    "Confirmed deletion invalidates local branch state and comparisons before a fallible list refresh, with that refresh inside the existing error wrapper.",
+    "Comparison completion guards and branch revisions prevent superseded or deletion-invalidated successful comparisons from reviving a result.",
+    "Trace state pins request identity and ignores old success/error after switching, close or unmount; LabTab retires loaded/pending traces when the acknowledged branch disappears.",
+    "Trace presentation distinguishes recorded per-step flags and unobserved turns, states selected-action semantics, and preserves the complete loaded object in its JSON export.",
+    "Playwright and playwright-core are pinned to 1.62.1; only their lock entries and nested optional fsevents are added, with application dependencies unchanged.",
+    "CI Node 20 satisfies locked Playwright Node.js >=20; npm tests, typecheck and build precede browser installation and both receiving runners; UI artifact upload remains after gates.",
+    "Preserved lab-comparison.browser.mjs and checkpoint-portability.browser.mjs are outside tests/*.test.mjs, so npm test does not invoke their native browser prerequisites prematurely."
+  ],
+  "evidence": {
+    "browserReceiving": "38/38 passed on final frozen app, previously recorded; not rerun for this review",
+    "finalQualification": "runtime-receiver/evidence/final-qualification.json",
+    "nativeProducerReview": "Production peer separately checked selected-action and first-override precedence semantics."
+  },
+  "files": [
+    {
+      "path": "packages/uma-sim-ui/src/components/ComparePanel.tsx",
+      "sha256": "c35c5727d480a88e081eb955bfd6a95cb14e937ec42e833cb5971d92d1c611a0",
+      "gitBlobSha": "589cd9d73b6994aa5b08c582332f721fd86b921d"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/branchInput.ts",
+      "sha256": "563f42b385e327453e77fc836da8a9957888de12b9d4192bc5164904cfdece8d",
+      "gitBlobSha": "4f803d0899a5d8a2e8f37e1cf3cfddf6ba254f46"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "sha256": "ddcc3eca9deae3daf39efdc633663db48db07b321622f03566a58241c667851b",
+      "gitBlobSha": "6cc39e49150ab6774cb78aac1b89676b704418f8"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/LabTab.tsx",
+      "sha256": "a59e06410115292b1f06a1106c3d67d3f57cc765dd1985e730afe1fbf2eec9c1",
+      "gitBlobSha": "7dc46dbbcc83b04b99298936d5d4f8303fbda94a"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/BranchTracePanel.tsx",
+      "sha256": "bd71c1c794211021dde6ba038c5938cfcf81824d7d92e738ca807daa59e0c514",
+      "gitBlobSha": "73f27dc0fc411080651473135f7fa7cc0445e202"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/branchTraceStore.ts",
+      "sha256": "3e76129407244fac596be4562af715dbbdff91a44fb6d9e0b28f3ce7c6261bc2",
+      "gitBlobSha": "e35bab119fe33a3953af44f391a0218f2eb7c9d6"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/branch-trace.css",
+      "sha256": "de60a2bb970b9b3b012c0890f74bbc9519b0be46b1d14444b6222768319afae2",
+      "gitBlobSha": "6838312c2743b5efae3162e4e7f9872ee4538436"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "sha256": "fa15b4222ca6f3edec34a113ca93ffe1401dbd32e2dedb9a28a520a54e12eeed",
+      "gitBlobSha": "db6b16c96113566f0b9e9ac1b415c57a38c705af"
+    },
+    {
+      "path": "packages/uma-sim-ui/package-lock.json",
+      "sha256": "b306b84fc9fb3285a442d8360a419eba3276d3d4effda266205832331ac1dc99",
+      "gitBlobSha": "10a4968db9d4507b9448dd00dba265eed483f419"
+    },
+    {
+      "path": "packages/uma-sim-ui/.gitignore",
+      "sha256": "787044cb79f3fec00a8a5d95851b7c42fbe5b62b98a2153dbd7d190c702748d4",
+      "gitBlobSha": "51511d1f8f36f488f26610dcb58157a2e65da2bc"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "ab5135edc4ad0b811a61a2a99f9a869ed78b7f7c13817b806fb71d4772f69c4a",
+      "gitBlobSha": "247b92e6b0f2a4e6242435e228cf057bdf724ebd"
+    }
+  ],
+  "metadataComposition": {
+    "verdict": "NO_BLOCKER",
+    "upstreamBase": "5d32d0b06de88141ecd4c84922e77553a45a522f",
+    "preservedMergedWork": "PR72 MCP job CLI test step retained exactly; all earlier UI gates unchanged.",
+    "packageTestCommand": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs",
+    "reason": "Explicit filenames avoid reliance on shell glob expansion while retaining both authored Node test files.",
+    "sourceRuntimeChanged": false,
+    "changes": [
+      {
+        "path": "packages/uma-sim-ui/package.json",
+        "previousSha256": "6c01d6e79c8dabbbbbc01c4088f625d9ef7146519a73353ed8ed11b386bc639b",
+        "previousGitBlobSha": "13998f7f052332336c68814fbc6ddc3a79960c1b",
+        "sha256": "fa15b4222ca6f3edec34a113ca93ffe1401dbd32e2dedb9a28a520a54e12eeed",
+        "gitBlobSha": "db6b16c96113566f0b9e9ac1b415c57a38c705af"
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "previousSha256": "904af379b6388590975df065f8bf059d04ec43ed1afa337bb9d90dd24002aa8f",
+        "previousGitBlobSha": "1350b7607cfc40167b3f1c61067b419fa4e1a9c2",
+        "sha256": "ab5135edc4ad0b811a61a2a99f9a869ed78b7f7c13817b806fb71d4772f69c4a",
+        "gitBlobSha": "247b92e6b0f2a4e6242435e228cf057bdf724ebd"
+      }
+    ],
+    "verification": "Read-only exact delta/hash inspection; parent already reported 38/38 Node tests. No repeated browser or native test campaign."
+  }
+}
