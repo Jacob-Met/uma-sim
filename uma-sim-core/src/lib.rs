@@ -25,6 +25,7 @@ pub mod spark_generation;
 pub mod state;
 pub mod telemetry;
 pub mod training;
+pub mod training_inspection;
 
 pub use bot::{scoring_auto_policy, BotDecisionAdapter};
 pub use calendar::{TurnCalendar, CAREER_TURNS};
@@ -82,3 +83,4 @@ pub use state::{
 };
 pub use telemetry::{SimReplayLine, SimTelemetry, TelemetryReplayLoader};
 pub use training::{TrainingGainContext, TrainingOutcome, TrainingPreview, TrainingResolver};
+pub use training_inspection::TrainingInspection;

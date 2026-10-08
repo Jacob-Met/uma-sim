@@ -18,6 +18,7 @@ fn main() {
     match args[0].as_str() {
         "start" => cmd_start(&args[1..]),
         "state" => cmd_state(),
+        "training" => cmd_training(&args[1..]),
         "step" => cmd_step(&args[1..]),
         "fast" => cmd_fast(&args[1..]),
         "batch" => cmd_batch(&args[1..]),
@@ -242,6 +243,34 @@ fn cmd_state() {
         s.legacy.factor_ids.len(),
         s.career_complete,
     );
+}
+
+fn cmd_training(args: &[String]) {
+    let json = match args {
+        [] => false,
+        [format] if format == "--format=text" => false,
+        [format] if format == "--format=json" => true,
+        _ => {
+            eprintln!("Usage: uma-sim training [--format=text|json]");
+            std::process::exit(2);
+        }
+    };
+    let Some((engine, _)) = RunSession::load() else {
+        eprintln!("No readable saved career. Run: uma-sim start --seed=42");
+        std::process::exit(1);
+    };
+    let inspection = engine.training_inspection();
+    if json {
+        match serde_json::to_string_pretty(&inspection) {
+            Ok(text) => println!("{text}"),
+            Err(error) => {
+                eprintln!("Could not render training inspection: {error}");
+                std::process::exit(1);
+            }
+        }
+    } else {
+        print!("{}", inspection.render_text());
+    }
 }
 
 fn cmd_step(args: &[String]) {
@@ -566,6 +595,7 @@ uma-sim CLI v0.4 (Rust)
   deck place <supportId> <facility>
         [--policy=default|bot] [--race-model=stub|physics] [--trace-rng] [--trace-telemetry]
   state
+  training [--format=text|json]
   step [train_speed|rest|race|event_0|...]
   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
   batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]

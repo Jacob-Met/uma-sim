@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "turn": 3,
+  "date": "Year 1, Month 7, Late",
+  "phase": "FREE",
+  "scenarioId": "ura",
+  "traineeName": "Special Week",
+  "energy": 100,
+  "maxEnergy": 100,
+  "mood": "NORMAL",
+  "sampleKind": "deterministic_seed_0",
+  "notes": [
+    "Stat gains are deterministic samples (local seed 0), before stat caps and later scenario/event effects; they are not guaranteed results or expected values.",
+    "Energy is the base successful-training change after the ordinary energy cap, before later scenario/event effects. Failure is the current engine chance for an available attempt.",
+    "Blocked rows have no energy result or failure roll. Rainbow and hint counts are the existing preview signals.",
+    "Inspection does not take an action, advance the career RNG, or save the session."
+  ],
+  "unavailableReason": null,
+  "rows": [
+    {
+      "actionId": "train_speed",
+      "facility": "speed",
+      "label": "Speed",
+      "level": 1,
+      "statGains": {
+        "speed": 10,
+        "stamina": 0,
+        "power": 5,
+        "guts": 2,
+        "wit": 0
+      },
+      "energyCost": 20,
+      "energyDelta": -20,
+      "failureChancePct": 5,
+      "numRainbow": 0,
+      "numSkillHints": 0,
+      "available": true,
+      "blockedReason": null
+    },
+    {
+      "actionId": "train_stamina",
+      "facility": "stamina",
+      "label": "Stamina",
+      "level": 1,
+      "statGains": {
+        "speed": 0,
+        "stamina": 12,
+        "power": 2,
+        "guts": 6,
+        "wit": 0
+      },
+      "energyCost": 20,
+      "energyDelta": -20,
+      "failureChancePct": 5,
+      "numRainbow": 0,
+      "numSkillHints": 0,
+      "available": true,
+      "blockedReason": null
+    },
+    {
+      "actionId": "train_power",
+      "facility": "power",
+      "label": "Power",
+      "level": 1,
+      "statGains": {
+        "speed": 2,
+        "stamina": 5,
+        "power": 10,
+        "guts": 0,
+        "wit": 0
+      },
+      "energyCost": 20,
+      "energyDelta": -20,
+      "failureChancePct": 5,
+      "numRainbow": 0,
+      "numSkillHints": 0,
+      "available": true,
+      "blockedReason": null
+    },
+    {
+      "actionId": "train_guts",
+      "facility": "guts",
+      "label": "Guts",
+      "level": 1,
+      "statGains": {
+        "speed": 5,
+        "stamina": 0,
+        "power": 2,
+        "guts": 10,
+        "wit": 0
+      },
+      "energyCost": 20,
+      "energyDelta": -20,
+      "failureChancePct": 5,
+      "numRainbow": 0,
+      "numSkillHints": 0,
+      "available": true,
+      "blockedReason": null
+    },
+    {
+      "actionId": "train_wit",
+      "facility": "wit",
+      "label": "Wit",
+      "level": 1,
+      "statGains": {
+        "speed": 5,
+        "stamina": 2,
+        "power": 0,
+        "guts": 0,
+        "wit": 11
+      },
+      "energyCost": -5,
+      "energyDelta": 0,
+      "failureChancePct": 0,
+      "numRainbow": 0,
+      "numSkillHints": 0,
+      "available": true,
+      "blockedReason": null
+    }
+  ]
+}

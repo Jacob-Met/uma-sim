@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "training",
+    "--format=json"
+  ],
+  "exit": 0,
+  "stdout": "uma-sim CLI v0.4 (Rust)\n  start [--seed=N] [--scenario=ura|grand_concert|unity|trackblazer]\n        [--trainee=Name] [--speed=1-100] [--dialogue=off|choices|full]\n        [--deck=id1,id2,...] [--legacy=factor:blue:1@3,...]\n        Deck: support:10001@speed:85 (manual facility + bond)\n  deck place <supportId> <facility>\n        [--policy=default|bot] [--race-model=stub|physics] [--trace-rng] [--trace-telemetry]\n  state\n  step [train_speed|rest|race|event_0|...]\n  fast [--seed=N] [--speed=20] [--policy=default|bot|external]\n  batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]\n  analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]\n  validate [--path=content_packs/example.json]\n  content validate [--path=...]\n  serve [--port=8765] [--open]\n  clear\nEnv: UMA_RACE_MODEL=stub|physics (default physics), UMA_REPO_ROOT=<folder with research/ and knowledge/>\nSession persisted to .uma-sim/session.json\n",
+  "stderr": "",
+  "created_files": []
+}
