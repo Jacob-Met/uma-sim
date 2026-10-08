@@ -111,6 +111,18 @@ uma-sim analyze --input=new.jsonl --compare=old.jsonl        # delta of new batc
 
 `fast` always starts a new career and replaces the saved one.
 
+For consecutive `batch` runs, `--count=<integer>` must be positive and fit a
+signed 64-bit integer; omitting it keeps the default of 100. The complete seed
+range, including its final seed, must fit signed 64-bit integers. Invalid,
+empty, zero or negative counts and overflowing ranges exit with status 2 before
+creating an output directory, opening or replacing the output file, or starting
+a career. Consecutive seeds are streamed without allocating the whole range.
+
+The first `--count=` is used when repeated. An explicit `--seeds=` list retains
+its existing precedence: its first supplied list determines the ordered careers,
+including repeated seeds, and the count is ignored. Valid batches still replace
+the chosen output file; keep prior results under a different filename.
+
 `start`, `fast`, `batch`, and `export-telemetry` accept `--seed=<integer>`
 as a signed 64-bit seed; omitting it uses 42. These commands reject an empty,
 malformed, or out-of-range value with status 2 before a career or output file

@@ -244,7 +244,7 @@ fn last_valid_duplicate_seed_still_wins() {
 }
 
 #[test]
-fn signed_i64_boundaries_are_admitted_without_running_a_career() {
+fn signed_i64_boundaries_are_admitted_in_one_record_batches() {
     for seed in [
         "-9223372036854775808",
         "9223372036854775807",
@@ -253,14 +253,18 @@ fn signed_i64_boundaries_are_admitted_without_running_a_career() {
         "+0",
     ] {
         let work = Workspace::new("boundary");
-        let output_path = work.0.join("empty.jsonl");
+        let output_path = work.0.join("boundary.jsonl");
         let output_flag = format!("--output={}", output_path.display());
         let seed_flag = format!("--seed={seed}");
-        let out = work.run(&["batch", "--count=0", &seed_flag, &output_flag]);
+        let out = work.run(&["batch", "--count=1", &seed_flag, &output_flag]);
         let output_after = fs::read(&output_path).ok();
+        let terminal_seed = output_after.as_deref().and_then(|bytes| {
+            let value: serde_json::Value = serde_json::from_slice(bytes).ok()?;
+            value.get("seed")?.as_i64()
+        });
         assert!(
             out.status.success()
-                && output_after.as_deref() == Some(b"".as_slice())
+                && terminal_seed == seed.parse::<i64>().ok()
                 && !work.session_path().exists(),
             "valid boundary seed={seed}: code={:?}, output_len={:?}\nstdout={}\nstderr={}",
             out.status.code(),
