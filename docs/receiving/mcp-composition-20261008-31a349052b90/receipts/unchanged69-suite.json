@@ -1,0 +1,37 @@
+{
+  "sourceCommit": "4873c0958294173d342fba8bf0bf68d7a4b724de",
+  "sourceSha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+  "suiteCommit": "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+  "unchangedTestFiles": {
+    "tests/career-lab-native.test.mjs": "2536e1cc1d7b557428cbe81e26f99410b6ef8909486a03d2d2dd43b22f02a1ce",
+    "tests/career-lab-protocol.test.mjs": "0abb770a90dfa35ef0276ed0871b75d6cc61f0e73c207cda00a64283b2951499",
+    "tests/helpers/mcp-client.mjs": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+    "tests/helpers/native-api.mjs": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44",
+    "tests/mcp-handshake.test.mjs": "cc359e78d68dbed34f7665c75c34e3e25bb5f5bd69c6644f62f200b250bce0e5"
+  },
+  "nativeSourceCommit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "nativeSourceFilesVerified": 169,
+  "apiBinary": "/workspace/scratch/ac386303dce2/product-review/target/debug/uma-sim-api",
+  "apiBinarySha256": "fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e",
+  "nodeVersion": "v20.19.0",
+  "nodeSha256": "34bc6627675906f8431892630b5e91fc4cc9f1e03ce15e9716025aa551e5c823",
+  "command": [
+    "/workspace/scratch/ac386303dce2/product-review/node20-npm-cache/_npx/39eeea3b362d2c2d/node_modules/node/node_modules/node-linux-x64/bin/node",
+    "--test",
+    "/dev/shm/hamon-product-31a349052b90-uma69-review/owner75/packages/uma-sim-mcp/tests/career-lab-native.test.mjs",
+    "/dev/shm/hamon-product-31a349052b90-uma69-review/owner75/packages/uma-sim-mcp/tests/career-lab-protocol.test.mjs",
+    "/dev/shm/hamon-product-31a349052b90-uma69-review/owner75/packages/uma-sim-mcp/tests/mcp-handshake.test.mjs"
+  ],
+  "outputs": "/dev/shm/hamon-product-31a349052b90-uma69-review/owner75-original-suite",
+  "started": "2026-10-08T09:39:34Z",
+  "exitCode": 0,
+  "completed": "2026-10-08T09:39:37Z",
+  "logSha256": "ca479c7310d1b1d0ac8f4ae178ec99bc23e172c4f8b3d6537c38468b7195980b",
+  "summary": [
+    "# tests 123",
+    "# pass 123",
+    "# fail 0",
+    "# skipped 0",
+    "# duration_ms 2356.11319"
+  ]
+}

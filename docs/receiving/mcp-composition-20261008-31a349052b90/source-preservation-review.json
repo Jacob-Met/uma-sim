@@ -1,0 +1,58 @@
+{
+  "baselineHead": "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+  "composedHead": "4873c0958294173d342fba8bf0bf68d7a4b724de",
+  "baselineSha256": "0bbc3707639338a8e10c4b55404a02b383bf36a456a4afa8264f485757a8d9da",
+  "composedSha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+  "regions": [
+    {
+      "region": "protocol negotiation and version identity",
+      "byteIdentical": true,
+      "baselineSha256": "8cfcbd5d5f369b6182935854de63beececb7834e6991508f4240c793f8c6dc6c",
+      "composedSha256": "8cfcbd5d5f369b6182935854de63beececb7834e6991508f4240c793f8c6dc6c",
+      "bytes": 1688
+    },
+    {
+      "region": "all 26 tool definitions, resources, strict recursive validation, and query encoding",
+      "byteIdentical": true,
+      "baselineSha256": "dd3a03d32675faac7cebaad37aa357bc47407a5dd4b2e0770445f82fb2353062",
+      "composedSha256": "dd3a03d32675faac7cebaad37aa357bc47407a5dd4b2e0770445f82fb2353062",
+      "bytes": 7641
+    },
+    {
+      "region": "all resource and tool REST dispatch routes",
+      "byteIdentical": true,
+      "baselineSha256": "fa1bfba5a79a67fdfba73edbf5169f0539fc5a72b0ebea729a48cd7da4fe6b5c",
+      "composedSha256": "fa1bfba5a79a67fdfba73edbf5169f0539fc5a72b0ebea729a48cd7da4fe6b5c",
+      "bytes": 3715
+    },
+    {
+      "region": "stdio framing, stream decoding and parse-error behavior",
+      "byteIdentical": true,
+      "baselineSha256": "7c1b4635cb4cf434e642486278fbb598b2663c9e73fb0a24eb9703fadc351633",
+      "composedSha256": "7c1b4635cb4cf434e642486278fbb598b2663c9e73fb0a24eb9703fadc351633",
+      "bytes": 957
+    },
+    {
+      "region": "initialization, resources, discovery and strict call-argument validation",
+      "byteIdentical": true,
+      "baselineSha256": "0ef02594cd005bafce8d9168f430f2246c61b1097f977214ad4322abc6df5f8f",
+      "composedSha256": "0ef02594cd005bafce8d9168f430f2246c61b1097f977214ad4322abc6df5f8f",
+      "bytes": 1361
+    },
+    {
+      "region": "ping and method-not-found responses",
+      "byteIdentical": true,
+      "baselineSha256": "faaea04462804aba64022f384afd24faf03c796692e2ce90f58cc9b5876f24ef",
+      "composedSha256": "faaea04462804aba64022f384afd24faf03c796692e2ce90f58cc9b5876f24ef",
+      "bytes": 188
+    }
+  ],
+  "intentionalChangedBoundaries": [
+    "BackendHttpError preserves the raw HTTP body/status",
+    "api handles HTTP failure before successful JSON/text decoding",
+    "initial handle validates frame, string/safe-integer IDs and object params",
+    "failed tool execution result contains the raw HTTP error message",
+    "successful legacy JSON strings stay encoded; only Markdown report text stays literal"
+  ],
+  "reviewerRole": "Independent receiving of the owned composition; reviewer authored the earlier #68 guard, whose independent source acceptance remains with parent."
+}

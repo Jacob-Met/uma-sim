@@ -1,0 +1,426 @@
+{
+  "head": "4873c0958294173d342fba8bf0bf68d7a4b724de",
+  "files": [
+    {
+      "path": "RECEIVING_REVIEW.md",
+      "bytes": 6693,
+      "sha256": "bca261e5d9a26fa12f90d540fc2900de93f4bf99e92d4fbe5e2c55f5411eacd9",
+      "gitBlob": "680a6739abee7873b5b73367e10f22c84f4d4f85"
+    },
+    {
+      "path": "bridge-69-to-75.diff",
+      "bytes": 3430,
+      "sha256": "ca73a7707dcd87d4f22314d536fe1bf8e997894c59f6c561f79db1a162f59a9d",
+      "gitBlob": "26c268889eaa4024fea153214cacee389890e3de"
+    },
+    {
+      "path": "captured-head-checks.json",
+      "bytes": 1675,
+      "sha256": "1a069bf841f52af5c669dcd1bb4634f8adeaca0ef1aa6e45077259a4325f9872",
+      "gitBlob": "e3488f5f9ba714cd5d28c49e907d45f0f305959e"
+    },
+    {
+      "path": "exact75/.github/workflows/ci.yml",
+      "bytes": 4208,
+      "sha256": "39ad04d9c94b5c7c8b68a9e36ab7af3c73f7ec1dd6892877756f8c1328b6ec2e",
+      "gitBlob": "8947e170d34fef03a01ef66d19cc8989a67bc691"
+    },
+    {
+      "path": "exact75/docs/agent-operations.md",
+      "bytes": 3171,
+      "sha256": "276bf2357e7c816867a3a3a99217922db041d109ede2d708fd607b6a8234dd32",
+      "gitBlob": "4113412c01f73323cdbb80dfb2313f57c5d3b29e"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/README.md",
+      "bytes": 10147,
+      "sha256": "feb583036205713c9d5049f8498dd8d8bea9839dd9083a15e7b93a728d692ef0",
+      "gitBlob": "8411b55c77623e01caed4292cb3fd1aa49d9e6e0"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/mcp-stdio.js",
+      "bytes": 17575,
+      "sha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+      "gitBlob": "24d5384c0a14fbdd07c4dd838b6a0d56b6d92ceb"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72",
+      "gitBlob": "9d2aaf8942be2908ac2380204dcb32d9bb8e73fc"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/tests/career-lab-native.test.mjs",
+      "bytes": 12631,
+      "sha256": "2536e1cc1d7b557428cbe81e26f99410b6ef8909486a03d2d2dd43b22f02a1ce",
+      "gitBlob": "e7c8b5ba2419796fa7060562fa5c29ef2506250f"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/tests/career-lab-protocol.test.mjs",
+      "bytes": 16575,
+      "sha256": "0abb770a90dfa35ef0276ed0871b75d6cc61f0e73c207cda00a64283b2951499",
+      "gitBlob": "5a14098bbed8bdbcac5613fd16da7b4d844d80f7"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs",
+      "bytes": 6354,
+      "sha256": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+      "gitBlob": "2b55f958e850b5af5e5ea3d877ce2659e251b818"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/tests/helpers/native-api.mjs",
+      "bytes": 3548,
+      "sha256": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44",
+      "gitBlob": "cb5d6750d68fbf43a04d5d26eed4d00b2d8c9f63"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/tests/mcp-handshake.test.mjs",
+      "bytes": 20409,
+      "sha256": "a3f6efd3bb99ea05d3002ab122f15a083e0918834df93f3cb66990afd04417e8",
+      "gitBlob": "46d932acfa597687c28004be477241add2cf1946"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/tests/report-format-receiving.test.mjs",
+      "bytes": 2841,
+      "sha256": "e1e1b8c1a850f2584315173a26f85ef61caed614f2c25a490bd4893ef0bc2f54",
+      "gitBlob": "01d7835ac88ca84cf4480e31077a709645faf5ef"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/tests/sessions-receiving-native.test.mjs",
+      "bytes": 7559,
+      "sha256": "1dff31c95ba28319e4bf651a125f6f1c3c373a233381b1d1b84fcea21170b286",
+      "gitBlob": "a89f2b4baad9887bec1b9daf479faf64ce4353b0"
+    },
+    {
+      "path": "exact75/packages/uma-sim-mcp/tests/tool-string-payload-receiving.test.mjs",
+      "bytes": 2274,
+      "sha256": "6465bccd919fe017a38934c7f8da4b75f913319c307916ceca83927bedc495d4",
+      "gitBlob": "4f44e8f3942b40ab821256818deee824a4925f26"
+    },
+    {
+      "path": "native-original-build-provenance.json",
+      "bytes": 1407,
+      "sha256": "9cdf551f50e515158f7d780be48d00ca0ff8293c1b3c40c3f73fa4a76892216f",
+      "gitBlob": "a591d93a9da7b64aac1128345ea33c04cc217c01"
+    },
+    {
+      "path": "native-runtime-authority.json",
+      "bytes": 75430,
+      "sha256": "0edd47628a724bd233e0e69fc018344593b0b5296dd38fd126b1957512819a30",
+      "gitBlob": "4ab78370f15f26a26dc93b9b5564f8ed0e038990"
+    },
+    {
+      "path": "original/docs/agent-operations.md",
+      "bytes": 3171,
+      "sha256": "276bf2357e7c816867a3a3a99217922db041d109ede2d708fd607b6a8234dd32",
+      "gitBlob": "4113412c01f73323cdbb80dfb2313f57c5d3b29e"
+    },
+    {
+      "path": "original/packages/uma-sim-mcp/README.md",
+      "bytes": 9514,
+      "sha256": "2b20e15737d2d37e06c2db56720ad5c1c4791443c3ea80d96e07f75b59693871",
+      "gitBlob": "9fd6df91e50684d50442c6840e63349b012ea908"
+    },
+    {
+      "path": "original/packages/uma-sim-mcp/mcp-stdio.js",
+      "bytes": 17076,
+      "sha256": "0bbc3707639338a8e10c4b55404a02b383bf36a456a4afa8264f485757a8d9da",
+      "gitBlob": "8845f09be21264bfdb9c762d0106048072dac94a"
+    },
+    {
+      "path": "original/packages/uma-sim-mcp/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72",
+      "gitBlob": "9d2aaf8942be2908ac2380204dcb32d9bb8e73fc"
+    },
+    {
+      "path": "original/packages/uma-sim-mcp/tests/career-lab-native.test.mjs",
+      "bytes": 12631,
+      "sha256": "2536e1cc1d7b557428cbe81e26f99410b6ef8909486a03d2d2dd43b22f02a1ce",
+      "gitBlob": "e7c8b5ba2419796fa7060562fa5c29ef2506250f"
+    },
+    {
+      "path": "original/packages/uma-sim-mcp/tests/career-lab-protocol.test.mjs",
+      "bytes": 16575,
+      "sha256": "0abb770a90dfa35ef0276ed0871b75d6cc61f0e73c207cda00a64283b2951499",
+      "gitBlob": "5a14098bbed8bdbcac5613fd16da7b4d844d80f7"
+    },
+    {
+      "path": "original/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs",
+      "bytes": 6354,
+      "sha256": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+      "gitBlob": "2b55f958e850b5af5e5ea3d877ce2659e251b818"
+    },
+    {
+      "path": "original/packages/uma-sim-mcp/tests/helpers/native-api.mjs",
+      "bytes": 3548,
+      "sha256": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44",
+      "gitBlob": "cb5d6750d68fbf43a04d5d26eed4d00b2d8c9f63"
+    },
+    {
+      "path": "original/packages/uma-sim-mcp/tests/mcp-handshake.test.mjs",
+      "bytes": 7577,
+      "sha256": "cc359e78d68dbed34f7665c75c34e3e25bb5f5bd69c6644f62f200b250bce0e5",
+      "gitBlob": "108c0d1543a45ef20294b3c32ce9f2643f127af6"
+    },
+    {
+      "path": "owner75/packages/uma-sim-mcp/mcp-stdio.js",
+      "bytes": 17575,
+      "sha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+      "gitBlob": "24d5384c0a14fbdd07c4dd838b6a0d56b6d92ceb"
+    },
+    {
+      "path": "owner75/packages/uma-sim-mcp/package.json",
+      "bytes": 332,
+      "sha256": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72",
+      "gitBlob": "9d2aaf8942be2908ac2380204dcb32d9bb8e73fc"
+    },
+    {
+      "path": "owner75/packages/uma-sim-mcp/tests/career-lab-native.test.mjs",
+      "bytes": 12631,
+      "sha256": "2536e1cc1d7b557428cbe81e26f99410b6ef8909486a03d2d2dd43b22f02a1ce",
+      "gitBlob": "e7c8b5ba2419796fa7060562fa5c29ef2506250f"
+    },
+    {
+      "path": "owner75/packages/uma-sim-mcp/tests/career-lab-protocol.test.mjs",
+      "bytes": 16575,
+      "sha256": "0abb770a90dfa35ef0276ed0871b75d6cc61f0e73c207cda00a64283b2951499",
+      "gitBlob": "5a14098bbed8bdbcac5613fd16da7b4d844d80f7"
+    },
+    {
+      "path": "owner75/packages/uma-sim-mcp/tests/helpers/mcp-client.mjs",
+      "bytes": 6354,
+      "sha256": "43eacdb0b83772be18a59c1a945731f792c0f506a057691e9adf8e0dc83a5c8d",
+      "gitBlob": "2b55f958e850b5af5e5ea3d877ce2659e251b818"
+    },
+    {
+      "path": "owner75/packages/uma-sim-mcp/tests/helpers/native-api.mjs",
+      "bytes": 3548,
+      "sha256": "f3968a77e895a468181964c51eb054494c773ac54267b9f61db0cecb49644f44",
+      "gitBlob": "cb5d6750d68fbf43a04d5d26eed4d00b2d8c9f63"
+    },
+    {
+      "path": "owner75/packages/uma-sim-mcp/tests/mcp-handshake.test.mjs",
+      "bytes": 7577,
+      "sha256": "cc359e78d68dbed34f7665c75c34e3e25bb5f5bd69c6644f62f200b250bce0e5",
+      "gitBlob": "108c0d1543a45ef20294b3c32ce9f2643f127af6"
+    },
+    {
+      "path": "owner75-authority.json",
+      "bytes": 4484,
+      "sha256": "9446adf6b3f7a893ac6dc4f0ec9554d6488054ef6f5ef4a1af108520f1e35728",
+      "gitBlob": "472150f0b91ca5e89d75658e781e068efb96b29c"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-5jA0wv/independent-content.json",
+      "bytes": 79527,
+      "sha256": "5c1cd31142d20d6aeab30bc9f98aeee45855299bce7f25075fc3ef44b7e3d3ef",
+      "gitBlob": "6f5819aff12edac7d770f6dd450e3ba56986ed18"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-5jA0wv/provenance.json",
+      "bytes": 613,
+      "sha256": "1380c1b6c816fea9800f8702489f6f6b31cf5ac0326d1d67ddc07d4e30dee1b5",
+      "gitBlob": "4ffae2a46cb3df1f30c96b1f16805249b61ce8e6"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-5jA0wv/server.log",
+      "bytes": 75,
+      "sha256": "d78e412229386b73b6298420c4d7a1dcce78e2ef667ad5c3dda6405af3933567",
+      "gitBlob": "93e9e7ab5afe5179d55f6fd9b2f9d34239b55b1d"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-5jA0wv/sessions-receiving-result.json",
+      "bytes": 343,
+      "sha256": "bd901cba151e44ed7f0f7496c5382ccd2a10a15a1a6b0294ea2c8952639645ca",
+      "gitBlob": "6317228fcb7bb5da900f7914b17e46416dcd293d"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-9t3VDT/provenance.json",
+      "bytes": 613,
+      "sha256": "2e239502903365874fac05b84254aaf23b813f1b9c18a03403a464f014a0f26d",
+      "gitBlob": "0498d5c21119d6b012a420881bf269ababdf3847"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-9t3VDT/server.log",
+      "bytes": 75,
+      "sha256": "06461235b3a70aac3034d64e8da4a40ea362bcf9d83aa5db769333d77b2ef4ec",
+      "gitBlob": "f70323e66935c3e9a761336bcef9bbed9a18a690"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-gj0UZa/.uma-sim/lab/br-1791452536-0001.json",
+      "bytes": 2091,
+      "sha256": "d7fddffdf953c3034a169ac735516bd9003c8402a0a17f1f835bd6940605842a",
+      "gitBlob": "3516c9662f75d113ae4d30c00bb2ab591cea2120"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-gj0UZa/.uma-sim/library/review-mid.meta.json",
+      "bytes": 482,
+      "sha256": "0548e88ac0ba4027236cf4e04aae6a312a17d2d5779e4dbd91a4ffec8e0a15a8",
+      "gitBlob": "c2093de140bbd0d00f60d8fcad80d215e8b68753"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-gj0UZa/.uma-sim/library/review-mid.snapshot.json",
+      "bytes": 2951,
+      "sha256": "3911ef8c9289e7b19a782099cdacd65d1607c571deacb307281d34eca64da4a6",
+      "gitBlob": "8e0e1e59fcfd4921b25301904a09b9eecbc43d6f"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-gj0UZa/comparison.json",
+      "bytes": 3089,
+      "sha256": "c3ea7adab9613ac04801bc4dfd7a2a501ff10315ff6c295dee7ddb2e5e6ab960",
+      "gitBlob": "f53d658b3ca84f310f7a5b75f6d0ac49596427e3"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-gj0UZa/comparison.md",
+      "bytes": 1782,
+      "sha256": "48b18e4f970bea95f4f4f9f6f8a58c2721c0de3e11c784c42fd91d7b5a5aa97b",
+      "gitBlob": "89b17a41af5265c39f000d0cc6d4838c7a6b68bc"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-gj0UZa/provenance.json",
+      "bytes": 613,
+      "sha256": "9843bee632261d8abed5546b7f4a128fe7df2fa76a5c3e0354d28158262564c8",
+      "gitBlob": "5e5d589b2187274e6cc3a231b01188db7d7f7b66"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-gj0UZa/server.log",
+      "bytes": 75,
+      "sha256": "eb58d31fed550fa42659346549a23c23b7d07ee3c9823691e42456fbaba06c86",
+      "gitBlob": "e63195101b4da74628a079bc62967b2c8958a3eb"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-j8ByZe/provenance.json",
+      "bytes": 613,
+      "sha256": "0e45241bef260d6db88928412e0829af304fc7edd65938267cc550df8e294d14",
+      "gitBlob": "4bec9a6322d8ef9f905ceae060ac6221866efd7f"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-j8ByZe/server.log",
+      "bytes": 75,
+      "sha256": "2a6419eaabf73473ef172ee49c41082a982814a0ef5174c66f0741f44438b656",
+      "gitBlob": "ff9fe1c47c4cb957a737944aef55762ee01fae96"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-j8ByZe/sessions-receiving-result.json",
+      "bytes": 275,
+      "sha256": "fdde5d59748d5d395ae6b1d69cb260c2e25b994718d42bcc8b86fd5519777fb5",
+      "gitBlob": "7e5a63185861d8582e491473ca7f0c5fc6ac376d"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-tOhF9t/provenance.json",
+      "bytes": 613,
+      "sha256": "4366979bcad7f4e854339189cc55b80e9c52c8410a062af21330ac79d8a9448b",
+      "gitBlob": "84119300f63f18dc36d0398655a5bf173096be4b"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-tOhF9t/server.log",
+      "bytes": 75,
+      "sha256": "647fa956cae9ab3834accef749e68406be16d463ff59345aaa0d335e074846bf",
+      "gitBlob": "4b2773d27ff8492b50f6bbaf9ba63931f9fa59b0"
+    },
+    {
+      "path": "owner75-exact-suite/native-runs/review-tOhF9t/sessions-receiving-result.json",
+      "bytes": 285,
+      "sha256": "c05b4eb6ea7eb7e884b02e3f0f5dc0e781ff501f4d0b1e56a481ebe6a88cb31d",
+      "gitBlob": "d5c78f696db4c840da12a459bf6de5fdf7943c47"
+    },
+    {
+      "path": "owner75-exact-suite/receipt.json",
+      "bytes": 4766,
+      "sha256": "d555b1025e63efde743726fb72b5f0eb7a09d8ba584bbdb6a285fa8980767bf0",
+      "gitBlob": "498570c1ec35383d2c41a1e85ff2d04137556f8b"
+    },
+    {
+      "path": "owner75-exact-suite/tests.tap",
+      "bytes": 23116,
+      "sha256": "4c3688a9cd431dad2f37bd493c4ba4fee191a0b3b1a57e98ad99eeacef348222",
+      "gitBlob": "1871b2de3391dbde9476b16f46fefc26defb5449"
+    },
+    {
+      "path": "owner75-original-suite/native-runs/review-rfNRAd/.uma-sim/lab/br-1791452376-0001.json",
+      "bytes": 2091,
+      "sha256": "e977b8348701244cce78f66c115bf0afb5563774a105e89fd2adbd1165e1c4af",
+      "gitBlob": "3d83f45fa5f0266adc011c80a5ef57c350d335d4"
+    },
+    {
+      "path": "owner75-original-suite/native-runs/review-rfNRAd/.uma-sim/library/review-mid.meta.json",
+      "bytes": 482,
+      "sha256": "328923e12fc8b752e296860feb3fd28b82f0e80d2aac9fd5c89e9499ea559b4f",
+      "gitBlob": "17a179a44100adf82c193b5fdaf8a8c9dd23962d"
+    },
+    {
+      "path": "owner75-original-suite/native-runs/review-rfNRAd/.uma-sim/library/review-mid.snapshot.json",
+      "bytes": 2951,
+      "sha256": "4c5058da3d1ce728c6b16dfa8713ed2815c4f589c307d32647ebf35ce8de0a5f",
+      "gitBlob": "6546a764520c59005055cdf8b7df82112857f20f"
+    },
+    {
+      "path": "owner75-original-suite/native-runs/review-rfNRAd/comparison.json",
+      "bytes": 3089,
+      "sha256": "9f2cbdbefc4736f5a6fe9f6b20f55aaad7f2c05261a85cd030092805089b1d32",
+      "gitBlob": "2ef3ce6aa66d231c0b3a98a973aa037f7ec1afa7"
+    },
+    {
+      "path": "owner75-original-suite/native-runs/review-rfNRAd/comparison.md",
+      "bytes": 1782,
+      "sha256": "58dc70e9624c39c64d4f0f3c9e7b0a7fab48f0d0481148836c0e3c01962ceb67",
+      "gitBlob": "3b8b41d0f4cfe2f0d0f588af4c104d30d91c69cb"
+    },
+    {
+      "path": "owner75-original-suite/native-runs/review-rfNRAd/provenance.json",
+      "bytes": 616,
+      "sha256": "42ee2f294be2c814065fbe0091e8d39b554129fcbb457f2bc53dd5d1287fb767",
+      "gitBlob": "b38624d015f1334903f462ec86ffb1c558984436"
+    },
+    {
+      "path": "owner75-original-suite/native-runs/review-rfNRAd/server.log",
+      "bytes": 75,
+      "sha256": "0a8e7a37844253e37cc042563d3d5889d411be481ffcfaffc374aa34f61587e5",
+      "gitBlob": "cec5159be9318f9115318561e833e26b4cb86f53"
+    },
+    {
+      "path": "owner75-original-suite/receipt.json",
+      "bytes": 2088,
+      "sha256": "3b6ca8af07840680b1e32b35aa78ebbcd24e2b55801939270e5ffa0aae771dfc",
+      "gitBlob": "e0c7fdd5461d7e815f94c9953b236ab687c379db"
+    },
+    {
+      "path": "owner75-original-suite/tests.tap",
+      "bytes": 19020,
+      "sha256": "ca479c7310d1b1d0ac8f4ae178ec99bc23e172c4f8b3d6537c38468b7195980b",
+      "gitBlob": "7faeab83af3ee0e017aae7412773d9717ae89b50"
+    },
+    {
+      "path": "parent-negative-control/frames-receiving-31a.test.mjs",
+      "bytes": 19594,
+      "sha256": "17ce67ad407e0977444de63b899406c282bf34ef71d40bf4f8bbf4dcb1314774",
+      "gitBlob": "e418a2403fe8ee7185e822185a1c20fb9989d004"
+    },
+    {
+      "path": "parent-negative-control/parent-reported-receipt.json",
+      "bytes": 813,
+      "sha256": "884cdde665729e46e1060a3b7fef9c1a49a38c1a3c0156b882e5c6a833ad3e91",
+      "gitBlob": "67c857b05feaba2493038138790d61e77d4886b0"
+    },
+    {
+      "path": "source-authority.json",
+      "bytes": 22931,
+      "sha256": "5274cc9bd1a90be4c1ad60d26cdad42de33d032d98b31dba9ed0d8073d5756d0",
+      "gitBlob": "dcd9bad90f81dfde48974aa713e368f45535ad5e"
+    },
+    {
+      "path": "source-preservation-review.json",
+      "bytes": 2824,
+      "sha256": "b040324f981e63f889c260c8e191123ad6a891523f88345659c6bc9e4414e632",
+      "gitBlob": "c7e1c30c653faca32b109e99f7f00c70aaa7fb18"
+    },
+    {
+      "path": "source-verification.json",
+      "bytes": 1783,
+      "sha256": "3f7d2f81a88535f90017827ab36ac4cf4587abad298f16ca0daff330f8a53433",
+      "gitBlob": "5bef69aa5d2de762862cb6e85cff7897a6b9a67d"
+    }
+  ],
+  "selfExcluded": true
+}
