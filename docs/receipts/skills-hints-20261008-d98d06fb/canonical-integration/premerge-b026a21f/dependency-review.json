@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-08T15:19:11.483344+00:00",
+  "finding": "No changed qualified runtime/build/browser inputs",
+  "candidate_vs_qualified_entire_tree_delta": [
+    "M\tpackages/uma-sim-mcp/tests/helpers/mcp-client.mjs",
+    "A\tpackages/uma-sim-mcp/tests/report-literal-normalization.test.mjs"
+  ],
+  "source_review": "Read both exact MCP test/helper hunks. They normalize only the expected escaped report timestamp for comparison and add literal/invalid-date controls. No production code changes.",
+  "gate_scope": "Executed npm tests/build use packages/uma-sim-ui; Rust display/hint gates and actual native receiver do not import packages/uma-sim-mcp/tests. All other tree entries match the qualified source.",
+  "tests_repeated": false,
+  "reason": "Only unrelated MCP test/helper inputs differ; exact qualified source and dependency content preserved.",
+  "merge_tree": "23dbe5c1dec644978ab8d623da0891fa971223ae",
+  "source_head": "d4c208e46382b7f69f1ffea57474df46b38c7a8b",
+  "actual_first_parent": "b026a21f437789d7a7cd04c5074258302e36814e"
+}
