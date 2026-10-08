@@ -1,0 +1,15 @@
+[
+  {
+    "pid": 242,
+    "exe": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/workspace/scratch/c6cc965b64c2/agents/tui-review/source/packages/uma-sim-cli/tui.js",
+      "--session=saved-review"
+    ],
+    "stdout": "Resuming session: saved-review\nResume this career with --session=saved-review\numa-sim TUI — [choice] | auto | fast | state | quit\n\n\n┌─ State ─────────────────────\nTurn 4  Y1 M8\nSPD 107 STA 88 POW 110\nGUT 94 WIT 91\nE 60  Mood NORMAL  Fans 241  SP 21\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 4) ---\nDate: Year 1, Month 8, Early\nStats: SPD 107 STA 88 POW 110 GUT 94 WIT 91\nEnergy: 60/100  Mood: Normal  Fans: 241  SP: 21\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 5  Y1 M8\nSPD 119 STA 88 POW 116\nGUT 96 WIT 91\nE 40  Mood NORMAL  Fans 241  SP 21\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 5) ---\nDate: Year 1, Month 8, Late\nStats: SPD 119 STA 88 POW 116 GUT 96 WIT 91\nEnergy: 40/100  Mood: Normal  Fans: 241  SP: 21\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+    "stderr": "POST /v1/run/action: fetch failed\nThe request may have reached the server. Resume with --session=saved-review and inspect state before retrying; no action was retried automatically.\n",
+    "exit_code": 0,
+    "signal": null,
+    "closed": true
+  }
+]

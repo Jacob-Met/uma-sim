@@ -1,0 +1,11 @@
+# PR72 secret-scan classification
+
+The first published head `8e4cec8bdcf94770e9538878cd9f89cd2b57e477` passed the complete [CI run 37755751591](https://github.com/Jacob-Met/uma-sim/actions/runs/37755751591), including the terminal's new Node test step, existing MCP/UI checks, Rust tests/build, release-layout smoke and calibration. Workflow YAML lint and the required-test gate also passed.
+
+The [secret-scan run 37755751400](https://github.com/Jacob-Met/uma-sim/actions/runs/37755751400) failed with two `generic-api-key` findings, both in the retained `independent/server-build-provenance.json`, at lines 14 and 19. Those values are the recorded SHA256 identities of the native receiver's source file and executable. Their exact digests were reproduced with `sha256sum` during receiving and match the original build record. They are artifact identifiers, not credentials.
+
+The follow-up `.gitleaks.toml` retains all default rules and extends only `generic-api-key`. Its single allowlist requires both the exact anchored provenance-file path and one of those two exact anchored digest values, with matching performed on the extracted secret. Other values, paths and detection rules remain eligible for scanning. Raw provenance, artifact pins, product source and all verification evidence remain byte-identical.
+
+[Gitleaks 8.24.3's version-pinned documentation](https://github.com/gitleaks/gitleaks/blob/v8.24.3/README.md#configuration) describes inherited default-rule attributes and `AND` matching of allowlist paths and values. This is the exact scanner version reported by the failed job. Static predicate checks accepted the two recorded digests and rejected a different digest, a different path, a different rule, and prefixed/suffixed values. Those predicate checks are not represented as a local native Gitleaks execution: the cloud command transport had disconnected after source publication. CI on the appended commit supplies the actual scanner result; consult the PR's head checks before receiving.
+
+The original failed scan remains accessible by its run/job identities (job `113239745207`); it has not been rerun or hidden. No scanner rule, workflow step, or failure exit status is disabled by this classification.

@@ -102,3 +102,4 @@ jobs:
       # Dependency-free protocol and HTTP contract tests. Native API receiving
       # runs separately against the release binary in the Rust job above.
       - run: node --test packages/uma-sim-mcp/tests/*.test.mjs
+      - run: node --test packages/uma-sim-cli/tests/*.test.mjs

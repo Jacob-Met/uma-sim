@@ -1,0 +1,83 @@
+✖ ordinary seed/scenario creates a fresh named career and every operation stays on it (124.118813ms)
+✖ resume never starts, activates or closes a career and remains explicit when active changes (119.782381ms)
+✖ rejected actions and unavailable external fast policy leave an interactive prompt (131.222962ms)
+✖ disconnect after an action reports uncertainty and never retries the action (96.382485ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 560.911504
+
+✖ failing tests:
+
+test at packages/uma-sim-cli/tests/tui-session.test.mjs:116:1
+✖ ordinary seed/scenario creates a fresh named career and every operation stays on it (124.118813ms)
+  AssertionError [ERR_ASSERTION]: The "string" argument must be of type string. Received type undefined (undefined)
+      at TestContext.<anonymous> (file:///workspace/scratch/c6cc965b64c2/agents/production/uma-terminal/packages/uma-sim-cli/tests/tui-session.test.mjs:122:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /^tui-[0-9a-f-]{36}$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at packages/uma-sim-cli/tests/tui-session.test.mjs:153:1
+✖ resume never starts, activates or closes a career and remains explicit when active changes (119.782381ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Turn 12/. Input:
+  
+  'uma-sim TUI — [choice] | auto | fast | state | quit\n' +
+    '\n' +
+    '\n' +
+    '┌─ State ─────────────────────\n' +
+    'Turn 48  Y1 M6\n' +
+    'SPD 80 STA 70 POW 60\n' +
+    'GUT 50 WIT 40\n' +
+    'E 70  Mood 2  Fans 120  SP 90\n' +
+    'Phase: training\n' +
+    '└─────────────────────────────\n' +
+    'Career other turn 48\n' +
+    '\n' +
+    'Choices: rest (Rest)\n' +
+    '\n' +
+    '> '
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/c6cc965b64c2/agents/production/uma-terminal/packages/uma-sim-cli/tests/tui-session.test.mjs:157:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'uma-sim TUI — [choice] | auto | fast | state | quit\n\n\n┌─ State ─────────────────────\nTurn 48  Y1 M6\nSPD 80 STA 70 POW 60\nGUT 50 WIT 40\nE 70  Mood 2  Fans 120  SP 90\nPhase: training\n└─────────────────────────────\nCareer other turn 48\n\nChoices: rest (Rest)\n\n> ',
+    expected: /Turn 12/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at packages/uma-sim-cli/tests/tui-session.test.mjs:202:1
+✖ rejected actions and unavailable external fast policy leave an interactive prompt (131.222962ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /HTTP 400: choice rejected/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/c6cc965b64c2/agents/production/uma-terminal/packages/uma-sim-cli/tests/tui-session.test.mjs:213:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /HTTP 400: choice rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at packages/uma-sim-cli/tests/tui-session.test.mjs:221:3
+✖ disconnect after an action reports uncertainty and never retries the action (96.382485ms)
+  TypeError: Cannot read properties of undefined (reading 'state')
+      at file:///workspace/scratch/c6cc965b64c2/agents/production/uma-terminal/packages/uma-sim-cli/tests/tui-session.test.mjs:224:41
+      at Server.<anonymous> (file:///workspace/scratch/c6cc965b64c2/agents/production/uma-terminal/packages/uma-sim-cli/tests/tui-session.test.mjs:79:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)

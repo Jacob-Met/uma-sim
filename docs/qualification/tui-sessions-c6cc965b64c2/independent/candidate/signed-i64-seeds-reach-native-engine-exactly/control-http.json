@@ -1,0 +1,194 @@
+[
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "seed": "7301",
+      "scenario": "ura",
+      "speed": "3",
+      "traceTelemetry": "true"
+    },
+    "status": 200,
+    "response_sha256": "d3c88f630361723f23de096607680b039d69cc5a71b1a5e0e094333ac6d42cda"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "0747271957b5658424c98c8cd1ad5b2954b2dafa2f0cb4ee58ae1afd4761542d"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "8976751149d3ace8896f75736e46ad90217ea7da85f15704ef13c76718f8e28e"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "61bd244d6370d79bb55d10be2d63e2cce95b20d4ae20e1f9fdbfc27f1bb5c2e6"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "995ea7a512491c5b9c388aa2e92ea3d21ffab3f78de6a8c6b8b3cea106312f22"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "010ccf84e377ef5d520dc670d825cb104057468e5edc38ea071a195c1f3f8e92"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "96a00e7fe7217cbef47f566d2333d50e981390b553c15eaffbb39c925015a441"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "f56cdadd2150a614806a4982217f7f18323e0a4f9ceac447adcb9810aafa736d"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "session": "saved-review",
+      "seed": "7302",
+      "scenario": "ura",
+      "traceTelemetry": "true"
+    },
+    "status": 200,
+    "response_sha256": "a7475b14d0fb1c929dcacd168bc1119990c8c97ff758fa15944427dac4586ad8"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "7cf08be1f620024f73c7e41d7357e6f09af855999b2a152ae7419a39505985fc"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "b475125c798716b528f1b6435739073e03a9f629b919449e4b972eacda691856"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/auto",
+    "body": {
+      "session": "saved-review",
+      "policy": "bot"
+    },
+    "status": 200,
+    "response_sha256": "dbc5c030e3299e8db678950d2fc938325b690db59ca90a3ec1dabf7d2f4087a9"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/run/start",
+    "body": {
+      "session": "other-review",
+      "seed": "7303",
+      "scenario": "ura",
+      "speed": "7"
+    },
+    "status": 200,
+    "response_sha256": "8777a6c5e0b06e65c05e6117dcb30a4c2958f09d4a98a57020024daee1d2a44a"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=other-review",
+    "status": 200,
+    "response_sha256": "8777a6c5e0b06e65c05e6117dcb30a4c2958f09d4a98a57020024daee1d2a44a"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=saved-review",
+    "status": 200,
+    "response_sha256": "048e0ea8603bd0943826b8421ec5cc0cc1246129d9816d32cdb8d0f70b9b1bef"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=tui-356f91c8-9248-4116-a1ca-e9ecda6d09ad",
+    "status": 200,
+    "response_sha256": "df504aeb855a603a728ac3e22885a2d10647c985044ba87a7568f45f9773e4b9"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=tui-54e469e3-a6bf-4e95-abcb-c90180cbbde3",
+    "status": 200,
+    "response_sha256": "52be072e1af7b68382eba7d76ae8c55df43854e71f410d80825246495211c289"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state?session=tui-f2241233-c9e3-45ea-a18a-33a9a308cc81",
+    "status": 200,
+    "response_sha256": "7a82515ca9382d2c0806131be0367f1a63f57b1515ef82d64683044abb0634d9"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/sessions",
+    "status": 200,
+    "response_sha256": "5b8f1708cfde7ce780d36b8cc53aa2ee800b4ce65c56571cb49ef04bfc8d95ef"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": ""
+    },
+    "status": 200,
+    "response_sha256": "d99dd64915a5e064d8380ad29635ee04653dd1e3bd458649226361fdcce65cce"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/run/state",
+    "status": 200,
+    "response_sha256": "f56cdadd2150a614806a4982217f7f18323e0a4f9ceac447adcb9810aafa736d"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/session/activate",
+    "body": {
+      "session": "tui-f2241233-c9e3-45ea-a18a-33a9a308cc81"
+    },
+    "status": 200,
+    "response_sha256": "36d3b975851135a26972ec08ab87921e555f1df95f8e3dc796038b36e0053306"
+  }
+]

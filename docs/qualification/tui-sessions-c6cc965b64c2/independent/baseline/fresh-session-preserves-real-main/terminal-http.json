@@ -1,0 +1,49 @@
+[
+  {
+    "method": "GET",
+    "url": "/v1/run/state",
+    "route": "/v1/run/state",
+    "query": {},
+    "status": 200,
+    "response_sha256": "70cb440c88276ee3e47dcb401f72a2d9a743e72cf5eafd86794be28521f136c1"
+  },
+  {
+    "method": "POST",
+    "url": "/v1/run/start",
+    "route": "/v1/run/start",
+    "query": {},
+    "body": {
+      "seed": "42",
+      "scenario": "ura",
+      "trainee": "Special Week",
+      "speed": "1",
+      "traceTelemetry": "true"
+    },
+    "status": 200,
+    "response_sha256": "e6365bf6142dd1aae123a63eaf4155dff263b599b5f0d51c6cb3059e2624b88c"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/state",
+    "route": "/v1/run/state",
+    "query": {},
+    "status": 200,
+    "response_sha256": "e6365bf6142dd1aae123a63eaf4155dff263b599b5f0d51c6cb3059e2624b88c"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/text",
+    "route": "/v1/run/text",
+    "query": {},
+    "status": 200,
+    "response_sha256": "10617495620251f6d3f61847547c1879df806955e15bda3092d429616c7593b0"
+  },
+  {
+    "method": "GET",
+    "url": "/v1/run/choices",
+    "route": "/v1/run/choices",
+    "query": {},
+    "status": 200,
+    "response_sha256": "fe0407db0298a2320fa34d4c0f6440d1c982267dd389a4298c67096b981299db"
+  }
+]
