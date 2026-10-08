@@ -1,0 +1,1050 @@
+{
+  "at": "2026-10-08T16:35:07.489375+00:00",
+  "owner": "chatgpt:5f566b5ec8ef:mac_continuity",
+  "root": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/target",
+  "reason": "Completed private API build and actual browser qualification; keep its original executable and all source/log/receipt custody, retire only reproducible target files.",
+  "lsof_no_open_target_files": true,
+  "preserved_binary": {
+    "path": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/target/debug/uma-sim-api",
+    "sha256": "283c46e2a698dd1e258ef726ffd3816536c2f1f8fec7240168a4b0063e16a69a",
+    "size": 14269024
+  },
+  "reproducible_files": [
+    {
+      "path": ".rustc_info.json",
+      "size": 1947
+    },
+    {
+      "path": "CACHEDIR.TAG",
+      "size": 177
+    },
+    {
+      "path": "debug/.cargo-build-lock",
+      "size": 0
+    },
+    {
+      "path": "debug/.cargo-lock",
+      "size": 0
+    },
+    {
+      "path": "debug/uma-sim-api.d",
+      "size": 6660
+    },
+    {
+      "path": "debug/.cargo-artifact-lock",
+      "size": 0
+    },
+    {
+      "path": "debug/deps/libhttpdate-01c0576cf3761db1.rmeta",
+      "size": 30297
+    },
+    {
+      "path": "debug/deps/libascii-a4e71080aaa13c4d.rlib",
+      "size": 611792
+    },
+    {
+      "path": "debug/deps/libuma_sim_core-1bde05baddcdbe02.rlib",
+      "size": 17191144
+    },
+    {
+      "path": "debug/deps/uma_sim_api-89aa2ae1608cbce4.d",
+      "size": 303
+    },
+    {
+      "path": "debug/deps/libunicode_ident-988745e56f2d5c0e.rlib",
+      "size": 51864
+    },
+    {
+      "path": "debug/deps/itoa-9a3607861fdd286e.d",
+      "size": 1188
+    },
+    {
+      "path": "debug/deps/libsyn-eae552b86068f1e9.rlib",
+      "size": 5277640
+    },
+    {
+      "path": "debug/deps/libserde_json-21cc13a4d3d344ba.rmeta",
+      "size": 1453965
+    },
+    {
+      "path": "debug/deps/libproc_macro2-f60035a9c74f4878.rlib",
+      "size": 999624
+    },
+    {
+      "path": "debug/deps/uma_race_core-0e2cbd65dd693a54.d",
+      "size": 2834
+    },
+    {
+      "path": "debug/deps/httpdate-01c0576cf3761db1.d",
+      "size": 1208
+    },
+    {
+      "path": "debug/deps/libserde-df7620b1da1c8452.rlib",
+      "size": 926200
+    },
+    {
+      "path": "debug/deps/libserde_json-21cc13a4d3d344ba.rlib",
+      "size": 2220712
+    },
+    {
+      "path": "debug/deps/regex-b60b342fb82e613a.d",
+      "size": 5464
+    },
+    {
+      "path": "debug/deps/libitoa-9a3607861fdd286e.rmeta",
+      "size": 61755
+    },
+    {
+      "path": "debug/deps/quote-f7e60c7293b94311.d",
+      "size": 3516
+    },
+    {
+      "path": "debug/deps/regex_syntax-14dd235571cfeab7.d",
+      "size": 16577
+    },
+    {
+      "path": "debug/deps/libhttpdate-01c0576cf3761db1.rlib",
+      "size": 141496
+    },
+    {
+      "path": "debug/deps/libproc_macro2-f60035a9c74f4878.rmeta",
+      "size": 351966
+    },
+    {
+      "path": "debug/deps/libtiny_http-4d0e3449cb6f08ac.rlib",
+      "size": 2212336
+    },
+    {
+      "path": "debug/deps/libregex-b60b342fb82e613a.rlib",
+      "size": 926608
+    },
+    {
+      "path": "debug/deps/libaho_corasick-48af5cbac57db5d0.rmeta",
+      "size": 1745676
+    },
+    {
+      "path": "debug/deps/libuma_sim_core-1bde05baddcdbe02.rmeta",
+      "size": 4144857
+    },
+    {
+      "path": "debug/deps/liblog-eb304496061c1e19.rmeta",
+      "size": 192675
+    },
+    {
+      "path": "debug/deps/unicode_ident-988745e56f2d5c0e.d",
+      "size": 1279
+    },
+    {
+      "path": "debug/deps/serde_derive-991ba43884965184.d",
+      "size": 10946
+    },
+    {
+      "path": "debug/deps/libmemchr-599155c480ec9623.rmeta",
+      "size": 1139507
+    },
+    {
+      "path": "debug/deps/libserde_core-818954515b531355.rmeta",
+      "size": 4848833
+    },
+    {
+      "path": "debug/deps/zmij-53814c0d755cfbd4.d",
+      "size": 1180
+    },
+    {
+      "path": "debug/deps/proc_macro2-f60035a9c74f4878.d",
+      "size": 5814
+    },
+    {
+      "path": "debug/deps/libuma_race_core-0e2cbd65dd693a54.rmeta",
+      "size": 704951
+    },
+    {
+      "path": "debug/deps/libascii-a4e71080aaa13c4d.rmeta",
+      "size": 429185
+    },
+    {
+      "path": "debug/deps/libaho_corasick-48af5cbac57db5d0.rlib",
+      "size": 3363464
+    },
+    {
+      "path": "debug/deps/libserde_core-818954515b531355.rlib",
+      "size": 4980392
+    },
+    {
+      "path": "debug/deps/libzmij-53814c0d755cfbd4.rlib",
+      "size": 240672
+    },
+    {
+      "path": "debug/deps/libchunked_transfer-128734dad6bd5f36.rmeta",
+      "size": 40739
+    },
+    {
+      "path": "debug/deps/libregex_automata-292971d21578ce2d.rmeta",
+      "size": 3375817
+    },
+    {
+      "path": "debug/deps/chunked_transfer-128734dad6bd5f36.d",
+      "size": 1809
+    },
+    {
+      "path": "debug/deps/libregex-b60b342fb82e613a.rmeta",
+      "size": 683872
+    },
+    {
+      "path": "debug/deps/uma_sim_api-89aa2ae1608cbce4",
+      "size": 14269024
+    },
+    {
+      "path": "debug/deps/libchunked_transfer-128734dad6bd5f36.rlib",
+      "size": 47480
+    },
+    {
+      "path": "debug/deps/aho_corasick-48af5cbac57db5d0.d",
+      "size": 14943
+    },
+    {
+      "path": "debug/deps/liblog-eb304496061c1e19.rlib",
+      "size": 230784
+    },
+    {
+      "path": "debug/deps/libuma_race_core-0e2cbd65dd693a54.rlib",
+      "size": 3068928
+    },
+    {
+      "path": "debug/deps/libquote-f7e60c7293b94311.rlib",
+      "size": 449968
+    },
+    {
+      "path": "debug/deps/log-eb304496061c1e19.d",
+      "size": 2091
+    },
+    {
+      "path": "debug/deps/libregex_automata-292971d21578ce2d.rlib",
+      "size": 7328496
+    },
+    {
+      "path": "debug/deps/libregex_syntax-14dd235571cfeab7.rlib",
+      "size": 7641904
+    },
+    {
+      "path": "debug/deps/libtiny_http-4d0e3449cb6f08ac.rmeta",
+      "size": 396724
+    },
+    {
+      "path": "debug/deps/libsyn-eae552b86068f1e9.rmeta",
+      "size": 2296104
+    },
+    {
+      "path": "debug/deps/ascii-a4e71080aaa13c4d.d",
+      "size": 2626
+    },
+    {
+      "path": "debug/deps/libregex_syntax-14dd235571cfeab7.rmeta",
+      "size": 4651821
+    },
+    {
+      "path": "debug/deps/syn-eae552b86068f1e9.d",
+      "size": 19546
+    },
+    {
+      "path": "debug/deps/serde-df7620b1da1c8452.d",
+      "size": 3183
+    },
+    {
+      "path": "debug/deps/libquote-f7e60c7293b94311.rmeta",
+      "size": 276056
+    },
+    {
+      "path": "debug/deps/libunicode_ident-988745e56f2d5c0e.rmeta",
+      "size": 33124
+    },
+    {
+      "path": "debug/deps/tiny_http-4d0e3449cb6f08ac.d",
+      "size": 8197
+    },
+    {
+      "path": "debug/deps/uma_sim_core-1bde05baddcdbe02.d",
+      "size": 7746
+    },
+    {
+      "path": "debug/deps/serde_core-818954515b531355.d",
+      "size": 9796
+    },
+    {
+      "path": "debug/deps/libitoa-9a3607861fdd286e.rlib",
+      "size": 111248
+    },
+    {
+      "path": "debug/deps/libmemchr-599155c480ec9623.rlib",
+      "size": 1260096
+    },
+    {
+      "path": "debug/deps/libserde_derive-991ba43884965184.dylib",
+      "size": 3602896
+    },
+    {
+      "path": "debug/deps/memchr-599155c480ec9623.d",
+      "size": 12112
+    },
+    {
+      "path": "debug/deps/libzmij-53814c0d755cfbd4.rmeta",
+      "size": 155702
+    },
+    {
+      "path": "debug/deps/regex_automata-292971d21578ce2d.d",
+      "size": 32297
+    },
+    {
+      "path": "debug/deps/serde_json-21cc13a4d3d344ba.d",
+      "size": 8036
+    },
+    {
+      "path": "debug/deps/libserde-df7620b1da1c8452.rmeta",
+      "size": 842694
+    },
+    {
+      "path": "debug/build/quote-3e81fc139d28354b/stderr",
+      "size": 0
+    },
+    {
+      "path": "debug/build/quote-3e81fc139d28354b/output",
+      "size": 83
+    },
+    {
+      "path": "debug/build/quote-3e81fc139d28354b/root-output",
+      "size": 92
+    },
+    {
+      "path": "debug/build/quote-3e81fc139d28354b/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/build/serde_core-7e0c0a3621d648eb/stderr",
+      "size": 0
+    },
+    {
+      "path": "debug/build/serde_core-7e0c0a3621d648eb/output",
+      "size": 484
+    },
+    {
+      "path": "debug/build/serde_core-7e0c0a3621d648eb/root-output",
+      "size": 97
+    },
+    {
+      "path": "debug/build/serde_core-7e0c0a3621d648eb/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/build/zmij-85da6ecd079f0ac3/build_script_build-85da6ecd079f0ac3",
+      "size": 535792
+    },
+    {
+      "path": "debug/build/zmij-85da6ecd079f0ac3/build-script-build",
+      "size": 535792
+    },
+    {
+      "path": "debug/build/zmij-85da6ecd079f0ac3/build_script_build-85da6ecd079f0ac3.d",
+      "size": 579
+    },
+    {
+      "path": "debug/build/zmij-079df1e93eecee73/stderr",
+      "size": 0
+    },
+    {
+      "path": "debug/build/zmij-079df1e93eecee73/output",
+      "size": 176
+    },
+    {
+      "path": "debug/build/zmij-079df1e93eecee73/root-output",
+      "size": 91
+    },
+    {
+      "path": "debug/build/zmij-079df1e93eecee73/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/build/serde_json-30332a0ffea4c32f/build_script_build-30332a0ffea4c32f",
+      "size": 437152
+    },
+    {
+      "path": "debug/build/serde_json-30332a0ffea4c32f/build_script_build-30332a0ffea4c32f.d",
+      "size": 612
+    },
+    {
+      "path": "debug/build/serde_json-30332a0ffea4c32f/build-script-build",
+      "size": 437152
+    },
+    {
+      "path": "debug/build/serde-94232c090defe7b6/build_script_build-94232c090defe7b6",
+      "size": 561776
+    },
+    {
+      "path": "debug/build/serde-94232c090defe7b6/build_script_build-94232c090defe7b6.d",
+      "size": 587
+    },
+    {
+      "path": "debug/build/serde-94232c090defe7b6/build-script-build",
+      "size": 561776
+    },
+    {
+      "path": "debug/build/proc-macro2-879990dba0680197/build_script_build-879990dba0680197.d",
+      "size": 617
+    },
+    {
+      "path": "debug/build/proc-macro2-879990dba0680197/build_script_build-879990dba0680197",
+      "size": 587328
+    },
+    {
+      "path": "debug/build/proc-macro2-879990dba0680197/build-script-build",
+      "size": 587328
+    },
+    {
+      "path": "debug/build/serde_core-e9cdff7643c3abd1/build_script_build-e9cdff7643c3abd1.d",
+      "size": 612
+    },
+    {
+      "path": "debug/build/serde_core-e9cdff7643c3abd1/build-script-build",
+      "size": 562272
+    },
+    {
+      "path": "debug/build/serde_core-e9cdff7643c3abd1/build_script_build-e9cdff7643c3abd1",
+      "size": 562272
+    },
+    {
+      "path": "debug/build/uma-sim-core-41080b6fb4bb9b56/build_script_build-41080b6fb4bb9b56",
+      "size": 459616
+    },
+    {
+      "path": "debug/build/uma-sim-core-41080b6fb4bb9b56/build_script_build-41080b6fb4bb9b56.d",
+      "size": 337
+    },
+    {
+      "path": "debug/build/uma-sim-core-41080b6fb4bb9b56/build-script-build",
+      "size": 459616
+    },
+    {
+      "path": "debug/build/uma-sim-core-c1b1355fecfbee1e/stderr",
+      "size": 0
+    },
+    {
+      "path": "debug/build/uma-sim-core-c1b1355fecfbee1e/output",
+      "size": 51
+    },
+    {
+      "path": "debug/build/uma-sim-core-c1b1355fecfbee1e/root-output",
+      "size": 99
+    },
+    {
+      "path": "debug/build/uma-sim-core-c1b1355fecfbee1e/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/build/serde-fc4e58ea5b2eedf5/stderr",
+      "size": 0
+    },
+    {
+      "path": "debug/build/serde-fc4e58ea5b2eedf5/output",
+      "size": 582
+    },
+    {
+      "path": "debug/build/serde-fc4e58ea5b2eedf5/root-output",
+      "size": 92
+    },
+    {
+      "path": "debug/build/serde-fc4e58ea5b2eedf5/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/build/quote-9062f26980ee7b49/build_script_build-9062f26980ee7b49",
+      "size": 533632
+    },
+    {
+      "path": "debug/build/quote-9062f26980ee7b49/build_script_build-9062f26980ee7b49.d",
+      "size": 584
+    },
+    {
+      "path": "debug/build/quote-9062f26980ee7b49/build-script-build",
+      "size": 533632
+    },
+    {
+      "path": "debug/build/serde_json-0069927c5f3d2ac4/stderr",
+      "size": 0
+    },
+    {
+      "path": "debug/build/serde_json-0069927c5f3d2ac4/output",
+      "size": 132
+    },
+    {
+      "path": "debug/build/serde_json-0069927c5f3d2ac4/root-output",
+      "size": 97
+    },
+    {
+      "path": "debug/build/serde_json-0069927c5f3d2ac4/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/build/proc-macro2-e1a2f0cf5da63689/stderr",
+      "size": 0
+    },
+    {
+      "path": "debug/build/proc-macro2-e1a2f0cf5da63689/output",
+      "size": 1061
+    },
+    {
+      "path": "debug/build/proc-macro2-e1a2f0cf5da63689/root-output",
+      "size": 98
+    },
+    {
+      "path": "debug/build/proc-macro2-e1a2f0cf5da63689/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/build/serde-fc4e58ea5b2eedf5/out/private.rs",
+      "size": 142
+    },
+    {
+      "path": "debug/build/serde_core-7e0c0a3621d648eb/out/private.rs",
+      "size": 90
+    },
+    {
+      "path": "debug/.fingerprint/log-eb304496061c1e19/dep-lib-log",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/log-eb304496061c1e19/lib-log",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/log-eb304496061c1e19/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/log-eb304496061c1e19/lib-log.json",
+      "size": 844
+    },
+    {
+      "path": "debug/.fingerprint/uma-race-core-0e2cbd65dd693a54/dep-lib-uma_race_core",
+      "size": 444
+    },
+    {
+      "path": "debug/.fingerprint/uma-race-core-0e2cbd65dd693a54/lib-uma_race_core.json",
+      "size": 477
+    },
+    {
+      "path": "debug/.fingerprint/uma-race-core-0e2cbd65dd693a54/lib-uma_race_core",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/uma-race-core-0e2cbd65dd693a54/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/quote-3e81fc139d28354b/run-build-script-build-script-build.json",
+      "size": 325
+    },
+    {
+      "path": "debug/.fingerprint/quote-3e81fc139d28354b/run-build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/serde-df7620b1da1c8452/lib-serde.json",
+      "size": 672
+    },
+    {
+      "path": "debug/.fingerprint/serde-df7620b1da1c8452/lib-serde",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/serde-df7620b1da1c8452/dep-lib-serde",
+      "size": 69
+    },
+    {
+      "path": "debug/.fingerprint/serde-df7620b1da1c8452/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-1bde05baddcdbe02/lib-uma_sim_core",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-1bde05baddcdbe02/dep-lib-uma_sim_core",
+      "size": 1427
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-1bde05baddcdbe02/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-1bde05baddcdbe02/lib-uma_sim_core.json",
+      "size": 764
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-7e0c0a3621d648eb/run-build-script-build-script-build.json",
+      "size": 332
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-7e0c0a3621d648eb/run-build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/zmij-85da6ecd079f0ac3/dep-build-script-build-script-build",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/zmij-85da6ecd079f0ac3/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/zmij-85da6ecd079f0ac3/build-script-build-script-build.json",
+      "size": 376
+    },
+    {
+      "path": "debug/.fingerprint/zmij-85da6ecd079f0ac3/build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-f60035a9c74f4878/lib-proc_macro2",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-f60035a9c74f4878/lib-proc_macro2.json",
+      "size": 560
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-f60035a9c74f4878/dep-lib-proc_macro2",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-f60035a9c74f4878/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-21cc13a4d3d344ba/dep-lib-serde_json",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-21cc13a4d3d344ba/lib-serde_json",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-21cc13a4d3d344ba/lib-serde_json.json",
+      "size": 820
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-21cc13a4d3d344ba/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/serde_derive-991ba43884965184/dep-lib-serde_derive",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/serde_derive-991ba43884965184/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/serde_derive-991ba43884965184/lib-serde_derive.json",
+      "size": 579
+    },
+    {
+      "path": "debug/.fingerprint/serde_derive-991ba43884965184/lib-serde_derive",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/zmij-079df1e93eecee73/run-build-script-build-script-build.json",
+      "size": 325
+    },
+    {
+      "path": "debug/.fingerprint/zmij-079df1e93eecee73/run-build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/httpdate-01c0576cf3761db1/dep-lib-httpdate",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/httpdate-01c0576cf3761db1/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/httpdate-01c0576cf3761db1/lib-httpdate.json",
+      "size": 349
+    },
+    {
+      "path": "debug/.fingerprint/httpdate-01c0576cf3761db1/lib-httpdate",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-30332a0ffea4c32f/dep-build-script-build-script-build",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-30332a0ffea4c32f/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-30332a0ffea4c32f/build-script-build-script-build.json",
+      "size": 537
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-30332a0ffea4c32f/build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/chunked_transfer-128734dad6bd5f36/lib-chunked_transfer",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/chunked_transfer-128734dad6bd5f36/dep-lib-chunked_transfer",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/chunked_transfer-128734dad6bd5f36/lib-chunked_transfer.json",
+      "size": 365
+    },
+    {
+      "path": "debug/.fingerprint/chunked_transfer-128734dad6bd5f36/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/memchr-599155c480ec9623/dep-lib-memchr",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/memchr-599155c480ec9623/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/memchr-599155c480ec9623/lib-memchr.json",
+      "size": 463
+    },
+    {
+      "path": "debug/.fingerprint/memchr-599155c480ec9623/lib-memchr",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/serde-94232c090defe7b6/dep-build-script-build-script-build",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/serde-94232c090defe7b6/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/serde-94232c090defe7b6/build-script-build-script-build.json",
+      "size": 497
+    },
+    {
+      "path": "debug/.fingerprint/serde-94232c090defe7b6/build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/regex-syntax-14dd235571cfeab7/dep-lib-regex_syntax",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/regex-syntax-14dd235571cfeab7/lib-regex_syntax",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/regex-syntax-14dd235571cfeab7/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/regex-syntax-14dd235571cfeab7/lib-regex_syntax.json",
+      "size": 702
+    },
+    {
+      "path": "debug/.fingerprint/regex-automata-292971d21578ce2d/dep-lib-regex_automata",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/regex-automata-292971d21578ce2d/lib-regex_automata",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/regex-automata-292971d21578ce2d/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/regex-automata-292971d21578ce2d/lib-regex_automata.json",
+      "size": 1468
+    },
+    {
+      "path": "debug/.fingerprint/unicode-ident-988745e56f2d5c0e/lib-unicode_ident.json",
+      "size": 359
+    },
+    {
+      "path": "debug/.fingerprint/unicode-ident-988745e56f2d5c0e/dep-lib-unicode_ident",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/unicode-ident-988745e56f2d5c0e/lib-unicode_ident",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/unicode-ident-988745e56f2d5c0e/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-879990dba0680197/dep-build-script-build-script-build",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-879990dba0680197/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-879990dba0680197/build-script-build-script-build.json",
+      "size": 445
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-879990dba0680197/build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/itoa-9a3607861fdd286e/lib-itoa",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/itoa-9a3607861fdd286e/lib-itoa.json",
+      "size": 353
+    },
+    {
+      "path": "debug/.fingerprint/itoa-9a3607861fdd286e/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/itoa-9a3607861fdd286e/dep-lib-itoa",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-e9cdff7643c3abd1/dep-build-script-build-script-build",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-e9cdff7643c3abd1/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-e9cdff7643c3abd1/build-script-build-script-build.json",
+      "size": 454
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-e9cdff7643c3abd1/build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/tiny_http-4d0e3449cb6f08ac/lib-tiny_http",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/tiny_http-4d0e3449cb6f08ac/lib-tiny_http.json",
+      "size": 711
+    },
+    {
+      "path": "debug/.fingerprint/tiny_http-4d0e3449cb6f08ac/dep-lib-tiny_http",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/tiny_http-4d0e3449cb6f08ac/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-41080b6fb4bb9b56/dep-build-script-build-script-build",
+      "size": 28
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-41080b6fb4bb9b56/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-41080b6fb4bb9b56/build-script-build-script-build.json",
+      "size": 407
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-41080b6fb4bb9b56/build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/ascii-a4e71080aaa13c4d/lib-ascii.json",
+      "size": 433
+    },
+    {
+      "path": "debug/.fingerprint/ascii-a4e71080aaa13c4d/lib-ascii",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/ascii-a4e71080aaa13c4d/dep-lib-ascii",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/ascii-a4e71080aaa13c4d/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-818954515b531355/lib-serde_core",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-818954515b531355/dep-lib-serde_core",
+      "size": 74
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-818954515b531355/lib-serde_core.json",
+      "size": 507
+    },
+    {
+      "path": "debug/.fingerprint/serde_core-818954515b531355/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-c1b1355fecfbee1e/run-build-script-build-script-build.json",
+      "size": 352
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-c1b1355fecfbee1e/run-build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/serde-fc4e58ea5b2eedf5/run-build-script-build-script-build.json",
+      "size": 326
+    },
+    {
+      "path": "debug/.fingerprint/serde-fc4e58ea5b2eedf5/run-build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/zmij-53814c0d755cfbd4/dep-lib-zmij",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/zmij-53814c0d755cfbd4/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/zmij-53814c0d755cfbd4/lib-zmij.json",
+      "size": 422
+    },
+    {
+      "path": "debug/.fingerprint/zmij-53814c0d755cfbd4/lib-zmij",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/aho-corasick-48af5cbac57db5d0/dep-lib-aho_corasick",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/aho-corasick-48af5cbac57db5d0/lib-aho_corasick.json",
+      "size": 489
+    },
+    {
+      "path": "debug/.fingerprint/aho-corasick-48af5cbac57db5d0/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/aho-corasick-48af5cbac57db5d0/lib-aho_corasick",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/syn-eae552b86068f1e9/lib-syn.json",
+      "size": 748
+    },
+    {
+      "path": "debug/.fingerprint/syn-eae552b86068f1e9/dep-lib-syn",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/syn-eae552b86068f1e9/lib-syn",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/syn-eae552b86068f1e9/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-89aa2ae1608cbce4/dep-bin-uma-sim-api",
+      "size": 42
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-89aa2ae1608cbce4/bin-uma-sim-api",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-89aa2ae1608cbce4/bin-uma-sim-api.json",
+      "size": 828
+    },
+    {
+      "path": "debug/.fingerprint/uma-sim-core-89aa2ae1608cbce4/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/quote-9062f26980ee7b49/dep-build-script-build-script-build",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/quote-9062f26980ee7b49/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/quote-9062f26980ee7b49/build-script-build-script-build.json",
+      "size": 405
+    },
+    {
+      "path": "debug/.fingerprint/quote-9062f26980ee7b49/build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-0069927c5f3d2ac4/run-build-script-build-script-build.json",
+      "size": 330
+    },
+    {
+      "path": "debug/.fingerprint/serde_json-0069927c5f3d2ac4/run-build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/quote-f7e60c7293b94311/lib-quote",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/quote-f7e60c7293b94311/dep-lib-quote",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/quote-f7e60c7293b94311/lib-quote.json",
+      "size": 515
+    },
+    {
+      "path": "debug/.fingerprint/quote-f7e60c7293b94311/invoked.timestamp",
+      "size": 48
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-e1a2f0cf5da63689/run-build-script-build-script-build.json",
+      "size": 488
+    },
+    {
+      "path": "debug/.fingerprint/proc-macro2-e1a2f0cf5da63689/run-build-script-build-script-build",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/regex-b60b342fb82e613a/lib-regex.json",
+      "size": 1223
+    },
+    {
+      "path": "debug/.fingerprint/regex-b60b342fb82e613a/lib-regex",
+      "size": 16
+    },
+    {
+      "path": "debug/.fingerprint/regex-b60b342fb82e613a/dep-lib-regex",
+      "size": 14
+    },
+    {
+      "path": "debug/.fingerprint/regex-b60b342fb82e613a/invoked.timestamp",
+      "size": 48
+    }
+  ],
+  "logical_bytes": 112580132,
+  "free_before": 395124736,
+  "free_after": 489594880,
+  "preserved_binary_exact": true
+}

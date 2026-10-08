@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-08T16:37:22.292008+00:00",
+  "reviewer": "chatgpt:5f566b5ec8ef:mac_continuity",
+  "source_head": "7683f629a152be0b94249bf1527c3cd8e0f4e5e3",
+  "receipt_sha256": "ec4563c95aa22cb3447e9d01604424a562f5d58d470e0388f949db94fa27a8c6",
+  "actual_images_viewed": [
+    {
+      "path": "candidate-browser-fixed/conditions-desktop.png",
+      "sha256": "2f70cd88d721f0d4a34bc8c3f1686ce05fa1893bebb0280c9148b09fa8de6e46"
+    },
+    {
+      "path": "candidate-browser-fixed/conditions-phone.png",
+      "sha256": "ea763336b52a1176336ba3134d0c6efb885cf786c9a5bd8bb56459b49972f293"
+    }
+  ],
+  "findings": "Actual desktop and phone panel are legible, correct count and injury wording are visible, exact retained IDs stay visible, and long list is bounded with keyboard focus. Phone is 348px content within390px viewport. No visual blocker found.",
+  "unchanged_product_paths": 6,
+  "baseline_guard_classification": "All133 blocked baseline URLs equal the exact133 actual native catalog portrait URLs recorded by the final unchanged-product candidate; the original baseline exit1 remains retained.",
+  "app_exact_after_removing_two_inserted_lines": true,
+  "package_exact_after_removing_one_test_script_append": true,
+  "source_changed_by_visual_review": false
+}

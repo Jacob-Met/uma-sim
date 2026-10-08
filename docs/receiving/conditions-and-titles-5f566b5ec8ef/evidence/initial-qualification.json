@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-10-08T16:02:42.813669+00:00",
+  "canonical_base": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "native_baseline": "ac242eb732eaad0e21032d76d5a25582cda90612",
+  "steps": [
+    {
+      "name": "npm-ci-offline",
+      "command": [
+        "/opt/homebrew/bin/npm",
+        "ci",
+        "--offline",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "cwd": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/source/packages/uma-sim-ui",
+      "exit_code": 1,
+      "seconds": 0.607,
+      "log": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/evidence/npm-ci-offline.log",
+      "log_sha256": "6ccceff38b892d801c2b77b0e325bb383552541219e41c61b192c3423bd7f43a",
+      "free_after": 1910067200
+    }
+  ]
+}

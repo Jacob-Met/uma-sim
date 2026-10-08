@@ -91,3 +91,15 @@ condition = "AND"
 paths = ['''^docs/receiving/race-results-afe225d6c6be/current-044/composition\.json$''']
 regexTarget = "secret"
 regexes = ['''^4dc00f155d29fb37887524455f0627399191c915$''']
+
+# PR #109: the native API source SHA-256 is provenance, not a credential.
+# Match only these two exact retained receipts AND this verified whole value.
+[[rules.allowlists]]
+description = "Verified native API source digest in Conditions and titles browser receipts"
+condition = "AND"
+paths = [
+  '''^docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/receipt\.json$''',
+  '''^docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/receipt\.json$''',
+]
+regexTarget = "secret"
+regexes = ['''^b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa$''']

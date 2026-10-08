@@ -1,0 +1,123 @@
+{
+  "at": "2026-10-08T16:20:35.112960+00:00",
+  "canonical_base": "205178f1bf3bf5f34c04bbda88c3e4df2102f535",
+  "native_head": "8be3a6fd186d2294f2d031a2ddb2c63bfed0e144",
+  "native_tree": "bf83382a7a21750deb9be37ddabe6ddee22e1761",
+  "source_status": "",
+  "files": [
+    {
+      "path": "packages/uma-sim-ui/src/components/conditionsView.ts",
+      "size": 1299,
+      "sha256": "da99da41857a0d4285c1527d9b6e6fba48b70323480aa40b2d782d0eba890f5a",
+      "git_blob": "22a08103bf1bb3115887b1563bb6f79c5347cc20",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components/ConditionsPanel.tsx",
+      "size": 2240,
+      "sha256": "60aff7f837acccc15063ba03f3cc86abd96528f7e8954c12c0e7aa75d10afd36",
+      "git_blob": "b9014f7445bcb9003a23b1c48e796feaebc30385",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/styles/conditions.css",
+      "size": 1530,
+      "sha256": "93d68cb87fa1df27a5fa9cbf058168df91f3bfc347eda4134522e428580a5964",
+      "git_blob": "3defd4dab3194ccfcbc41510b8a7a4a098f07a50",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/test/conditions-view.test.mjs",
+      "size": 4007,
+      "sha256": "a693ad69f2a962f45a38f5a2e68f8e08737e6b2c2b6867ec0cd67bf29e030630",
+      "git_blob": "90a91f692ab0cddbe53f1c6fcfbd2561b6662cfa",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/src/App.tsx",
+      "size": 6997,
+      "sha256": "4a20a5614ceb465c0ec355a4daeec9e78d4e2488e5139072c040d62afc4d2595",
+      "git_blob": "6ff10a39667e7887cc4d79210fdffb8f17a51ebe",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "size": 979,
+      "sha256": "8e0f3d84d4effc16c9ce329d87f54ba24902c5ed85cd6afc83f2b998e1628aa4",
+      "git_blob": "2b59b74c7881d997ddfaa5ba656e14b2d30b3553",
+      "mode": "100644"
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving/conditions-titles-receiver.mjs",
+      "size": 18641,
+      "sha256": "1132609c7ec80978323b859e703ab822793cb73645185204a2ddf65e8fe30bff",
+      "git_blob": "3368fb27d4c13e40e914c346087ff5c8acc6ede5",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/conditions-and-titles.md",
+      "size": 4098,
+      "sha256": "90df19259ada54053188bd4ac96f85dd8613917a9f081b3f94aa11b5b1810ba2",
+      "git_blob": "df80d9abfd867bebc85f6c78d28111e3e40af643",
+      "mode": "100644"
+    }
+  ],
+  "built_ui": {
+    "baseline": {
+      "source_description": "Canonical205178f1 UI from immutable native ac242eb7 baseline",
+      "files": [
+        {
+          "path": "index.html",
+          "size": 394,
+          "sha256": "142f36b7df8d2cf9d8f9f6e4cdeb6f0ba61da0a5d49d4a32496b02cb34b7a106"
+        },
+        {
+          "path": "assets/index-3PVdm4ey.js",
+          "size": 209598,
+          "sha256": "1328d613876be914048997dbc69388d54aca89e3c9323b2c483454fc44d15b9a"
+        },
+        {
+          "path": "assets/index-D1W1Qb1i.css",
+          "size": 12175,
+          "sha256": "701ac3ebdd9ebf6b351ab3d639e5e1b392af0bd2ce70d23ab25a77f4be96a7e3"
+        }
+      ]
+    },
+    "candidate": {
+      "source_description": "Six product/test paths from initial-implementation.json; unchanged through this freeze",
+      "files": [
+        {
+          "path": "index.html",
+          "size": 394,
+          "sha256": "f9b6a8cb69f6fc21d732ab9fcb77fe6a35aaf3b957a53e1f4cf37c91c33df4c4"
+        },
+        {
+          "path": "assets/index-BwJjg5HG.css",
+          "size": 13427,
+          "sha256": "96f6fbdb6decf9706541c24a12ec36de85ccb1759bbde0b625d398470f09a8d2"
+        },
+        {
+          "path": "assets/index-DbHbiY9q.js",
+          "size": 211729,
+          "sha256": "b26af0c6700f3c2e2a8448d9980fe165cb0fc672e893a713b98d41433b356d1c"
+        }
+      ]
+    }
+  },
+  "qualification_to_date": {
+    "ui_tests": 75,
+    "ui_test_failures": 0,
+    "baseline_build_exit": 0,
+    "candidate_build_exit": 0,
+    "native_api_build_exit": 0,
+    "baseline_browser": {
+      "receipt_sha256": "19c94d453cc85210542f4ce44990a4ea4a5a38ce927cba2dd726023e504f9269",
+      "absence_observation_passed": true,
+      "retained_entries": 46,
+      "process_exit": 1,
+      "failure": "Global off-origin guard counted133 inherited native-catalog portrait URLs; all were blocked. No product change or baseline replay."
+    }
+  },
+  "prior_freeze_sha256": "475cd201a80b7c2fd0705be4ae5fd581115ea6322801d10e86a609f543940b0c",
+  "product_source_unchanged_from_v1": true
+}

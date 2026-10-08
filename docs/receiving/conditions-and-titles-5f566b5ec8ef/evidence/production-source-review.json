@@ -1,0 +1,40 @@
+{
+  "recorded_native_utc": "2026-10-08T16:41:32.177546+00:00",
+  "reviewer": "chatgpt:5f566b5ec8ef:production",
+  "disposition": "accepted for the reviewed source boundary; no blocking counterexample found",
+  "native_source_head": "7683f629a152be0b94249bf1527c3cd8e0f4e5e3",
+  "native_baseline_commit": "ac242eb732eaad0e21032d76d5a25582cda90612",
+  "native_baseline_tree": "a0458be13b0a43575361e2fb8f9385f222683971",
+  "source_sha256": {
+    "packages/uma-sim-ui/src/components/conditionsView.ts": "da99da41857a0d4285c1527d9b6e6fba48b70323480aa40b2d782d0eba890f5a",
+    "packages/uma-sim-ui/src/components/ConditionsPanel.tsx": "60aff7f837acccc15063ba03f3cc86abd96528f7e8954c12c0e7aa75d10afd36",
+    "packages/uma-sim-ui/src/styles/conditions.css": "93d68cb87fa1df27a5fa9cbf058168df91f3bfc347eda4134522e428580a5964",
+    "uma-sim-core/src/state.rs": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833",
+    "uma-sim-core/src/config.rs": "5da9209669a971226c4ab1b24dadd462329962c3d15f2be041c96f5fa46933f4",
+    "uma-sim-core/src/engine.rs": "5b2ad3cd6557d929d07fef8b1783357089d129190dc1e871e80f4d6e28dd075c",
+    "packages/uma-sim-ui/src/App.tsx": "4a20a5614ceb465c0ec355a4daeec9e78d4e2488e5139072c040d62afc4d2595",
+    "packages/uma-sim-ui/package.json": "8e0f3d84d4effc16c9ce329d87f54ba24902c5ed85cd6afc83f2b998e1628aa4"
+  },
+  "scope": "Read-only review of condition classification, title labels, inactive/completed-career guidance, literal preservation, inert rendering, and the App/package insertion boundary.",
+  "findings": [
+    "The injury predicate matches the current CareerState rules: case-insensitive exact injured, or a lowercase injury substring. Whitespace is not trimmed for classification; unknown and duplicate IDs remain represented in their original order.",
+    "The three friendly title labels map only the exact stub epithet IDs returned by RaceRewardConfig::epithet_for_win. Other IDs remain literal retained statuses; no external title catalog or duration/effect is invented.",
+    "Native do_train returns before training while is_injured, and do_rest replaces statuses using without_injury. The active-career guidance agrees with those branches and is explicitly conditional on Rest being available.",
+    "Completed careers receive a retained-injury statement and no Rest instruction. Missing or malformed status arrays are distinguished from a valid empty array.",
+    "conditionsView is a pure map with no mutation, sorting, deduplication or API call. The panel uses ordinary React text nodes; retained HTML-like IDs have no markup execution path. Blank IDs display an explicit quoted representation.",
+    "The panel consumes the same current cs snapshot as StatsPanel. Removing exactly its import and JSX line recovers the full native-baseline App bytes; removing one appended test argument recovers the full package.json bytes.",
+    "The CSS gives the recorded list bounded scrolling, keyboard focus, preserved whitespace and wrapping. This review does not independently claim visual/browser acceptance."
+  ],
+  "qualification_actions": {
+    "source_files_read_and_rehashed": true,
+    "app_package_removal_comparison": true,
+    "product_source_edits": false,
+    "tests_or_builds_run": false,
+    "browser_or_provider_actions": false
+  },
+  "initial_read_limit": "Canonical short ref205178f1 is not an object in this hydrated native repository. The initial read-only diff attempt failed with bad revision. The owner supplied native baseline ac242eb7, and the subsequent exact native comparison above succeeded. Its mapping to canonical205178f1 is retained in the owner's separate hydration receipt, not newly asserted by this review.",
+  "limits": [
+    "No new dynamic/RNG, browser, native test or accessibility-suite execution was performed.",
+    "Acceptance is tied to the exact source hashes above and does not cover future source changes."
+  ]
+}
