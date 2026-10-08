@@ -1,0 +1,13 @@
+diff --git a/packages/uma-sim-mcp/mcp-stdio.js b/packages/uma-sim-mcp/mcp-stdio.js
+index 723f950..24d5384 100644
+--- a/packages/uma-sim-mcp/mcp-stdio.js
++++ b/packages/uma-sim-mcp/mcp-stdio.js
+@@ -382,7 +382,7 @@ async function handle(req) {
+     send({
+       jsonrpc: "2.0",
+       id,
+-      result: { content: [{ type: "text", text: typeof result === "string" ? result : JSON.stringify(result, null, 2) }] },
++      result: { content: [{ type: "text", text: params.name === "sim_lab_report" && args.format !== "json" ? result : JSON.stringify(result, null, 2) }] },
+     });
+     return;
+   }

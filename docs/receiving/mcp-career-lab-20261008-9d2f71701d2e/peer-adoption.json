@@ -1,0 +1,156 @@
+{
+  "peerHead": "a45e2f46bee569473981f3785fb0c513890fb36f",
+  "peerTree": "ea5b3a03bebb9f57e46b79aac816612b12e6cc8b",
+  "fullHistory": true,
+  "noPrerequisites": true,
+  "bundleHeader": "# v2 git bundle\na45e2f46bee569473981f3785fb0c513890fb36f refs/heads/main\na45e2f46bee569473981f3785fb0c513890fb36f HEAD",
+  "independentBundleVerificationExit": 0,
+  "selectedReadableFiles": [
+    {
+      "path": "peer/uma-independent-complete.bundle",
+      "bytes": 83009,
+      "sha256": "667777d3d6bfe47dfdf69fea5c659af3546af87469aee18f950d9194149756b3"
+    },
+    {
+      "path": "peer/native-port/MANIFEST.json",
+      "bytes": 10313,
+      "sha256": "73efe9654d478688c145d59ab0dabef9998c7dc28ed6790ba46a70ec66114003"
+    },
+    {
+      "path": "peer/native-port/REVIEW.md",
+      "bytes": 11082,
+      "sha256": "def0c6d623675a8f408a57f3abc9e6b3e10bcba6b93f041fc4fbfcfef6c95a33"
+    },
+    {
+      "path": "peer/native-port/career-base-receipt.json",
+      "bytes": 654,
+      "sha256": "ba9f4a5a256645f788a6249c66ed4f4296bc82391e57301ef7fc8d7cad52d3aa"
+    },
+    {
+      "path": "peer/native-port/native-port-receipt.json",
+      "bytes": 2039,
+      "sha256": "061fa8b4267bdc8c1cd75aa140b0e5ad3a8271d8d35d56720f7aa585ba6b30ed"
+    },
+    {
+      "path": "peer/native-port/native-port.tap",
+      "bytes": 1788,
+      "sha256": "a0dca08c6a71bfa11b5f0a0b8dacab23caa3dc7fb3714e8f01a1e559820a0a1e"
+    },
+    {
+      "path": "peer/native-port/report-format-receipt.json",
+      "bytes": 512,
+      "sha256": "109584fdd19b07f1fe32d17483c2b650b905978562fbf8778a238edeb68bbe33"
+    },
+    {
+      "path": "peer/native-port/report-format-receiving.tap",
+      "bytes": 572,
+      "sha256": "98ec245baa46c5b1a166d9165c51280936e29fcb730b6464849f2658170c3d44"
+    },
+    {
+      "path": "peer/native-port/safe-id-receiving.tap",
+      "bytes": 1155,
+      "sha256": "1d97b97dfa2160a5fce528a3f8311a05e670893a54bbbccdb0c5e48a807fd8ea"
+    },
+    {
+      "path": "peer/native-port/independent-source-composition.json",
+      "bytes": 1473,
+      "sha256": "b35bfa0ef28d433351fd52b22e6fd977ae773998aa46f0b93fbd581b3cce1b74"
+    },
+    {
+      "path": "peer/native-port/helper-provenance.json",
+      "bytes": 732,
+      "sha256": "cf2049228344261f6e06e4b70712db426394967311f2ac6da74c4d05e74d87bb"
+    },
+    {
+      "path": "peer/payload-amendment/MANIFEST.json",
+      "bytes": 3908,
+      "sha256": "c09ba9810f8d72c95f6984c81265838d2a17d050a27ba6bf7561e1b8b93fedf1"
+    },
+    {
+      "path": "peer/payload-amendment/REVIEW.md",
+      "bytes": 4847,
+      "sha256": "ead24e8b5100a79bd91f2f4e8008ef4f6e337ec79a8c3ef815e8512ea1fe914a"
+    },
+    {
+      "path": "peer/payload-amendment/payload-receipt.json",
+      "bytes": 2655,
+      "sha256": "f94f242b10110dd8ff93b81b22ebbe7b75f87eeaf920e56491257ab900a53136"
+    },
+    {
+      "path": "peer/payload-amendment/payload-amendment.tap",
+      "bytes": 990,
+      "sha256": "d8dbd66ad41ab0fa1788820e6d551f7158ac45ba279ef8c880bdefdef72ba814"
+    },
+    {
+      "path": "peer/payload-amendment/payload-only.diff",
+      "bytes": 597,
+      "sha256": "c7fa15814146380e05a28aaf371e2fb33eeed450e8de191fc72b49f5f062b457"
+    },
+    {
+      "path": "peer/payload-amendment/source-provenance.json",
+      "bytes": 745,
+      "sha256": "78f2410f11b0b5ea7fc150440f7a1571217aa5e24247bca7a61bdf18abcf10be"
+    },
+    {
+      "path": "peer/id-guard/MANIFEST.json",
+      "bytes": 4136,
+      "sha256": "9f442e4739436b35bc1631c12a846baeeeed3bef97ae68c86a4ced67b14c4a35"
+    },
+    {
+      "path": "peer/id-guard/REVIEW.md",
+      "bytes": 7458,
+      "sha256": "93899894725e391f5e0420da594fd549548ca399eb7b56a1fa9c60fb5bb7a6db"
+    },
+    {
+      "path": "peer/id-guard/native-id-receipt.json",
+      "bytes": 1614,
+      "sha256": "2720c69ed0f71fc71606dd984ef67137490df33d145cc0d1c2b5c1c0f4da887a"
+    },
+    {
+      "path": "peer/id-guard/owner-preservation.json",
+      "bytes": 934,
+      "sha256": "9ba0e7e59eb72dd484463ea898c93019b2dedbfa5bff6e438237cde1cfaa3dc3"
+    }
+  ],
+  "fullPacketDisposition": "The standalone bundle contains every peer source snapshot, test, helper, receipt and prior Git history. The selected readable files are copied unchanged; their manifests describe the complete packet in that bundle.",
+  "addedPayloadTest": {
+    "path": "packages/uma-sim-mcp/tests/tool-string-payload-receiving.test.mjs",
+    "sha256": "6465bccd919fe017a38934c7f8da4b75f913319c307916ceca83927bedc495d4",
+    "independentQualification": "payload-amendment:2passed/0failed; prior372c compatibility negative preserved",
+    "adoptionRun": {
+      "exitCode": 0,
+      "pass": 1,
+      "fail": 0,
+      "log": "payload-test-adoption.tap",
+      "sha256": "96d06a3555b0dfe9e6559fddca5b2ece29f938617e492cce1c2f828967e9df8c"
+    }
+  },
+  "finalBridgeSha256": "5f0dfdbb44595acb62026d3da33ca6ef5904ed1aec76dad4ef05cd418ec6f584",
+  "rawFailureLogsRetainedInCompleteBundle": [
+    {
+      "path": "peer/id-guard/native-id-guard.tap",
+      "peerPath": "id-guard/native-id-guard.tap",
+      "bytes": 2061,
+      "sha256": "78f7f2098e1f922831193abefb2e6b9b5686c9b035686c139193f790a13ae77e"
+    },
+    {
+      "path": "peer/id-guard/native-predecessor-precision.tap",
+      "peerPath": "id-guard/native-predecessor-precision.tap",
+      "bytes": 1537,
+      "sha256": "8109c8a33901f3dea0603922c57f3af07d4563060b507da8adb2949072e9c225"
+    },
+    {
+      "path": "peer/native-port/linux-career-base-precision.tap",
+      "peerPath": "native-port/linux-career-base-precision.tap",
+      "bytes": 1525,
+      "sha256": "1390022189c70f7b37bc7be3f7ac4b33526c16d4c41791255906819acdd9ece4"
+    },
+    {
+      "path": "peer/payload-amendment/previous-payload-control.tap",
+      "peerPath": "payload-amendment/previous-payload-control.tap",
+      "bytes": 1305,
+      "sha256": "bfa6fa58574e43d6845b44ac4c4ca454b39185822f6ff6f87306af6ed73aa697"
+    }
+  ],
+  "rawEvidenceDisposition": "Original failed TAP logs contain reporter indentation on blank lines; exact bytes remain in the sealed complete peer bundle. They are not normalized. The historical patch is losslessly gzip-compressed, retaining its diff context and original checksum."
+}

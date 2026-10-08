@@ -1,0 +1,17 @@
+TAP version 13
+# Subtest: success payload receiving: legacy JSON strings stay encoded while default Markdown reports stay literal
+ok 1 - success payload receiving: legacy JSON strings stay encoded while default Markdown reports stay literal
+  ---
+  duration_ms: 109.256875
+  type: 'test'
+  ...
+# {"case":"success-payload-owner-contract","requests":3,"modes":["legacy JSON string","default raw Markdown","JSON report string"]}
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 214.445666

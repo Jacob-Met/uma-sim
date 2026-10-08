@@ -1,0 +1,831 @@
+TAP version 13
+# Subtest: native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+    # Subtest: save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes
+    ok 1 - save/export/import preserve the native snapshot, and conflicting writes preserve previous bytes
+      ---
+      duration_ms: 13.58775
+      type: 'test'
+      ...
+    # Subtest: forking and named actions do not mutate the source, sibling or saved checkpoint
+    ok 2 - forking and named actions do not mutate the source, sibling or saved checkpoint
+      ---
+      duration_ms: 17.395167
+      type: 'test'
+      ...
+    # Subtest: incompatible checkpoint metadata returns real 422 and preserves the target session
+    ok 3 - incompatible checkpoint metadata returns real 422 and preserves the target session
+      ---
+      duration_ms: 10.73375
+      type: 'test'
+      ...
+    # Subtest: known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics
+    ok 4 - known empty-session ambiguity is stopped while explicit activation/fork retain correct default semantics
+      ---
+      duration_ms: 17.212625
+      type: 'test'
+      ...
+    # Subtest: external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged
+    ok 5 - external-policy 503 survives MCP and leaves turn, RNG, speed and active session unchanged
+      ---
+      duration_ms: 7.570041
+      type: 'test'
+      ...
+    # Subtest: branches compare actual decisions while preserving live sessions and checkpoint bytes
+    ok 6 - branches compare actual decisions while preserving live sessions and checkpoint bytes
+      ---
+      duration_ms: 34.109166
+      type: 'test'
+      ...
+    # Subtest: invalid branch/import operations and deletions preserve unrelated native state
+    ok 7 - invalid branch/import operations and deletions preserve unrelated native state
+      ---
+      duration_ms: 17.46575
+      type: 'test'
+      ...
+    1..7
+ok 1 - native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+  ---
+  duration_ms: 471.291291
+  type: 'test'
+  ...
+# Subtest: discovery preserves existing tool and resource identities and publishes the full lab boundary
+ok 2 - discovery preserves existing tool and resource identities and publishes the full lab boundary
+  ---
+  duration_ms: 98.925625
+  type: 'test'
+  ...
+# Subtest: named run calls and the process-wide content operation retain REST identities
+    # Subtest: sim_state
+    ok 1 - sim_state
+      ---
+      duration_ms: 108.678958
+      type: 'test'
+      ...
+    # Subtest: sim_text
+    ok 2 - sim_text
+      ---
+      duration_ms: 1.493542
+      type: 'test'
+      ...
+    # Subtest: sim_choices
+    ok 3 - sim_choices
+      ---
+      duration_ms: 1.587625
+      type: 'test'
+      ...
+    # Subtest: sim_export_telemetry
+    ok 4 - sim_export_telemetry
+      ---
+      duration_ms: 2.025917
+      type: 'test'
+      ...
+    # Subtest: sim_act
+    ok 5 - sim_act
+      ---
+      duration_ms: 4.524417
+      type: 'test'
+      ...
+    # Subtest: sim_auto
+    ok 6 - sim_auto
+      ---
+      duration_ms: 1.161333
+      type: 'test'
+      ...
+    # Subtest: sim_fast_forward
+    ok 7 - sim_fast_forward
+      ---
+      duration_ms: 1.504833
+      type: 'test'
+      ...
+    # Subtest: sim_deck_place
+    ok 8 - sim_deck_place
+      ---
+      duration_ms: 1.483459
+      type: 'test'
+      ...
+    # Subtest: sim_load_content_pack
+    ok 9 - sim_load_content_pack
+      ---
+      duration_ms: 2.131
+      type: 'test'
+      ...
+    1..9
+ok 3 - named run calls and the process-wide content operation retain REST identities
+  ---
+  duration_ms: 130.491583
+  type: 'test'
+  ...
+# Subtest: start preserves default-session creation and explicit configuration
+ok 4 - start preserves default-session creation and explicit configuration
+  ---
+  duration_ms: 109.641875
+  type: 'test'
+  ...
+# Subtest: all added operations preserve their method, route, selectors and payload values
+    # Subtest: sim_sessions
+    ok 1 - sim_sessions
+      ---
+      duration_ms: 110.8015
+      type: 'test'
+      ...
+    # Subtest: sim_session_fork
+    ok 2 - sim_session_fork
+      ---
+      duration_ms: 3.822417
+      type: 'test'
+      ...
+    # Subtest: sim_session_fork
+    ok 3 - sim_session_fork
+      ---
+      duration_ms: 2.369542
+      type: 'test'
+      ...
+    # Subtest: sim_session_activate
+    ok 4 - sim_session_activate
+      ---
+      duration_ms: 2.36175
+      type: 'test'
+      ...
+    # Subtest: sim_session_close
+    ok 5 - sim_session_close
+      ---
+      duration_ms: 1.723875
+      type: 'test'
+      ...
+    # Subtest: sim_library_list
+    ok 6 - sim_library_list
+      ---
+      duration_ms: 2.421916
+      type: 'test'
+      ...
+    # Subtest: sim_library_save
+    ok 7 - sim_library_save
+      ---
+      duration_ms: 1.510791
+      type: 'test'
+      ...
+    # Subtest: sim_library_load
+    ok 8 - sim_library_load
+      ---
+      duration_ms: 1.649917
+      type: 'test'
+      ...
+    # Subtest: sim_library_delete
+    ok 9 - sim_library_delete
+      ---
+      duration_ms: 1.642625
+      type: 'test'
+      ...
+    # Subtest: sim_library_import
+    ok 10 - sim_library_import
+      ---
+      duration_ms: 2.977917
+      type: 'test'
+      ...
+    # Subtest: sim_library_export
+    ok 11 - sim_library_export
+      ---
+      duration_ms: 1.307125
+      type: 'test'
+      ...
+    # Subtest: sim_lab_branch
+    ok 12 - sim_lab_branch
+      ---
+      duration_ms: 1.931833
+      type: 'test'
+      ...
+    # Subtest: sim_lab_branches
+    ok 13 - sim_lab_branches
+      ---
+      duration_ms: 0.99875
+      type: 'test'
+      ...
+    # Subtest: sim_lab_branch_get
+    ok 14 - sim_lab_branch_get
+      ---
+      duration_ms: 1.485292
+      type: 'test'
+      ...
+    # Subtest: sim_lab_branch_delete
+    ok 15 - sim_lab_branch_delete
+      ---
+      duration_ms: 1.748125
+      type: 'test'
+      ...
+    # Subtest: sim_lab_compare
+    ok 16 - sim_lab_compare
+      ---
+      duration_ms: 1.010458
+      type: 'test'
+      ...
+    # Subtest: sim_lab_report
+    ok 17 - sim_lab_report
+      ---
+      duration_ms: 0.745209
+      type: 'test'
+      ...
+    1..17
+ok 5 - all added operations preserve their method, route, selectors and payload values
+  ---
+  duration_ms: 146.402334
+  type: 'test'
+  ...
+# Subtest: empty default-session selectors are permitted only on endpoints with correct native semantics
+    # Subtest: sim_state
+    ok 1 - sim_state
+      ---
+      duration_ms: 64.169
+      type: 'test'
+      ...
+    # Subtest: sim_text
+    ok 2 - sim_text
+      ---
+      duration_ms: 0.22175
+      type: 'test'
+      ...
+    # Subtest: sim_choices
+    ok 3 - sim_choices
+      ---
+      duration_ms: 0.286083
+      type: 'test'
+      ...
+    # Subtest: sim_export_telemetry
+    ok 4 - sim_export_telemetry
+      ---
+      duration_ms: 0.122334
+      type: 'test'
+      ...
+    # Subtest: sim_act
+    ok 5 - sim_act
+      ---
+      duration_ms: 0.247542
+      type: 'test'
+      ...
+    # Subtest: sim_auto
+    ok 6 - sim_auto
+      ---
+      duration_ms: 0.165875
+      type: 'test'
+      ...
+    # Subtest: sim_fast_forward
+    ok 7 - sim_fast_forward
+      ---
+      duration_ms: 0.431375
+      type: 'test'
+      ...
+    # Subtest: sim_deck_place
+    ok 8 - sim_deck_place
+      ---
+      duration_ms: 0.133709
+      type: 'test'
+      ...
+    # Subtest: sim_library_save
+    ok 9 - sim_library_save
+      ---
+      duration_ms: 0.294875
+      type: 'test'
+      ...
+    # Subtest: sim_library_load
+    ok 10 - sim_library_load
+      ---
+      duration_ms: 0.192875
+      type: 'test'
+      ...
+    # Subtest: sim_session_close
+    ok 11 - sim_session_close
+      ---
+      duration_ms: 0.179458
+      type: 'test'
+      ...
+    # Subtest: sim_start explicit default
+    ok 12 - sim_start explicit default
+      ---
+      duration_ms: 38.102291
+      type: 'test'
+      ...
+    # Subtest: sim_session_activate explicit default
+    ok 13 - sim_session_activate explicit default
+      ---
+      duration_ms: 1.425292
+      type: 'test'
+      ...
+    # Subtest: sim_session_fork explicit default
+    ok 14 - sim_session_fork explicit default
+      ---
+      duration_ms: 2.520292
+      type: 'test'
+      ...
+    1..14
+ok 6 - empty default-session selectors are permitted only on endpoints with correct native semantics
+  ---
+  duration_ms: 112.857
+  type: 'test'
+  ...
+# Subtest: query values cannot inject a second selector or change the endpoint
+    # Subtest: sim_state
+    ok 1 - sim_state
+      ---
+      duration_ms: 100.619125
+      type: 'test'
+      ...
+    # Subtest: sim_library_export
+    ok 2 - sim_library_export
+      ---
+      duration_ms: 1.85
+      type: 'test'
+      ...
+    # Subtest: sim_lab_branch_get
+    ok 3 - sim_lab_branch_get
+      ---
+      duration_ms: 1.616041
+      type: 'test'
+      ...
+    # Subtest: sim_lab_report
+    ok 4 - sim_lab_report
+      ---
+      duration_ms: 1.388625
+      type: 'test'
+      ...
+    1..4
+ok 7 - query values cannot inject a second selector or change the endpoint
+  ---
+  duration_ms: 109.14475
+  type: 'test'
+  ...
+# Subtest: invalid containers and mutation arguments fail before HTTP dispatch
+    # Subtest: 1: sim_state null
+    ok 1 - 1: sim_state null
+      ---
+      duration_ms: 61.700875
+      type: 'test'
+      ...
+    # Subtest: 2: sim_state []
+    ok 2 - 2: sim_state []
+      ---
+      duration_ms: 0.318959
+      type: 'test'
+      ...
+    # Subtest: 3: sim_state false
+    ok 3 - 3: sim_state false
+      ---
+      duration_ms: 0.163333
+      type: 'test'
+      ...
+    # Subtest: 4: sim_state "text"
+    ok 4 - 4: sim_state "text"
+      ---
+      duration_ms: 0.111792
+      type: 'test'
+      ...
+    # Subtest: 5: sim_state 4
+    ok 5 - 5: sim_state 4
+      ---
+      duration_ms: 0.3375
+      type: 'test'
+      ...
+    # Subtest: 6: sim_act {}
+    ok 6 - 6: sim_act {}
+      ---
+      duration_ms: 0.316625
+      type: 'test'
+      ...
+    # Subtest: 7: sim_act {"action":1}
+    ok 7 - 7: sim_act {"action":1}
+      ---
+      duration_ms: 0.356125
+      type: 'test'
+      ...
+    # Subtest: 8: sim_act {"action":"rest","session":null}
+    ok 8 - 8: sim_act {"action":"rest","session":null}
+      ---
+      duration_ms: 0.218875
+      type: 'test'
+      ...
+    # Subtest: 9: sim_act {"action":"rest","sessionId":"sibling"}
+    ok 9 - 9: sim_act {"action":"rest","sessionId":"sibling"}
+      ---
+      duration_ms: 0.294333
+      type: 'test'
+      ...
+    # Subtest: 10: sim_start {"seed":"7"}
+    ok 10 - 10: sim_start {"seed":"7"}
+      ---
+      duration_ms: 0.2145
+      type: 'test'
+      ...
+    # Subtest: 11: sim_start {"seed":9007199254740992}
+    ok 11 - 11: sim_start {"seed":9007199254740992}
+      ---
+      duration_ms: 0.296125
+      type: 'test'
+      ...
+    # Subtest: 12: sim_start {"speed":0}
+    ok 12 - 12: sim_start {"speed":0}
+      ---
+      duration_ms: 0.234625
+      type: 'test'
+      ...
+    # Subtest: 13: sim_fast_forward {"multiplier":101}
+    ok 13 - 13: sim_fast_forward {"multiplier":101}
+      ---
+      duration_ms: 0.1875
+      type: 'test'
+      ...
+    # Subtest: 14: sim_start {"raceModel":false}
+    ok 14 - 14: sim_start {"raceModel":false}
+      ---
+      duration_ms: 0.179959
+      type: 'test'
+      ...
+    # Subtest: 15: sim_library_save {"name":"mid","__proto__":{"overwrite":true}}
+    ok 15 - 15: sim_library_save {"name":"mid","__proto__":{"overwrite":true}}
+      ---
+      duration_ms: 0.163
+      type: 'test'
+      ...
+    # Subtest: 16: sim_library_save {"name":"mid","constructor":true}
+    ok 16 - 16: sim_library_save {"name":"mid","constructor":true}
+      ---
+      duration_ms: 0.108
+      type: 'test'
+      ...
+    # Subtest: 17: sim_start {"session":false}
+    ok 17 - 17: sim_start {"session":false}
+      ---
+      duration_ms: 0.16075
+      type: 'test'
+      ...
+    # Subtest: 18: sim_fast_forward {"multiplier":"3"}
+    ok 18 - 18: sim_fast_forward {"multiplier":"3"}
+      ---
+      duration_ms: 0.398
+      type: 'test'
+      ...
+    # Subtest: 19: sim_load_content_pack {"path":"pack.json","session":"sibling"}
+    ok 19 - 19: sim_load_content_pack {"path":"pack.json","session":"sibling"}
+      ---
+      duration_ms: 0.25625
+      type: 'test'
+      ...
+    # Subtest: 20: sim_session_fork {"id":5}
+    ok 20 - 20: sim_session_fork {"id":5}
+      ---
+      duration_ms: 1.070875
+      type: 'test'
+      ...
+    # Subtest: 21: sim_session_fork {"checkpoint":"mid","session":"source"}
+    ok 21 - 21: sim_session_fork {"checkpoint":"mid","session":"source"}
+      ---
+      duration_ms: 0.37025
+      type: 'test'
+      ...
+    # Subtest: 22: sim_session_activate {}
+    ok 22 - 22: sim_session_activate {}
+      ---
+      duration_ms: 0.107292
+      type: 'test'
+      ...
+    # Subtest: 23: sim_session_close {"session":5}
+    ok 23 - 23: sim_session_close {"session":5}
+      ---
+      duration_ms: 0.172625
+      type: 'test'
+      ...
+    # Subtest: 24: sim_library_save {"overwrite":"true"}
+    ok 24 - 24: sim_library_save {"overwrite":"true"}
+      ---
+      duration_ms: 0.124083
+      type: 'test'
+      ...
+    # Subtest: 25: sim_library_save {"overwrite":null}
+    ok 25 - 25: sim_library_save {"overwrite":null}
+      ---
+      duration_ms: 0.156875
+      type: 'test'
+      ...
+    # Subtest: 26: sim_library_save {"name":"mid","overwritee":true}
+    ok 26 - 26: sim_library_save {"name":"mid","overwritee":true}
+      ---
+      duration_ms: 0.103625
+      type: 'test'
+      ...
+    # Subtest: 27: sim_library_load {}
+    ok 27 - 27: sim_library_load {}
+      ---
+      duration_ms: 0.232417
+      type: 'test'
+      ...
+    # Subtest: 28: sim_library_import {}
+    ok 28 - 28: sim_library_import {}
+      ---
+      duration_ms: 0.151625
+      type: 'test'
+      ...
+    # Subtest: 29: sim_library_import {"snapshot":[]}
+    ok 29 - 29: sim_library_import {"snapshot":[]}
+      ---
+      duration_ms: 0.092417
+      type: 'test'
+      ...
+    # Subtest: 30: sim_library_import {"snapshot":"raw"}
+    ok 30 - 30: sim_library_import {"snapshot":"raw"}
+      ---
+      duration_ms: 0.15525
+      type: 'test'
+      ...
+    # Subtest: 31: sim_library_import {"snapshot":{},"overwrite":1}
+    ok 31 - 31: sim_library_import {"snapshot":{},"overwrite":1}
+      ---
+      duration_ms: 0.259792
+      type: 'test'
+      ...
+    # Subtest: 32: sim_library_export {"name":4}
+    ok 32 - 32: sim_library_export {"name":4}
+      ---
+      duration_ms: 0.117333
+      type: 'test'
+      ...
+    # Subtest: 33: sim_lab_compare {"a":"a"}
+    ok 33 - 33: sim_lab_compare {"a":"a"}
+      ---
+      duration_ms: 0.454333
+      type: 'test'
+      ...
+    # Subtest: 34: sim_lab_compare {"a":"a","b":false}
+    ok 34 - 34: sim_lab_compare {"a":"a","b":false}
+      ---
+      duration_ms: 0.161542
+      type: 'test'
+      ...
+    # Subtest: 35: sim_lab_report {"a":"a","b":"b","format":"html"}
+    ok 35 - 35: sim_lab_report {"a":"a","b":"b","format":"html"}
+      ---
+      duration_ms: 0.235
+      type: 'test'
+      ...
+    # Subtest: 36: sim_lab_branch_delete {"id":null}
+    ok 36 - 36: sim_lab_branch_delete {"id":null}
+      ---
+      duration_ms: 0.15325
+      type: 'test'
+      ...
+    # Subtest: 37: sim_lab_branch {"checkpoint":"mid","policy":"external"}
+    ok 37 - 37: sim_lab_branch {"checkpoint":"mid","policy":"external"}
+      ---
+      duration_ms: 0.158792
+      type: 'test'
+      ...
+    # Subtest: 38: sim_lab_branch {"checkpoint":"mid","maxActions":0}
+    ok 38 - 38: sim_lab_branch {"checkpoint":"mid","maxActions":0}
+      ---
+      duration_ms: 0.140666
+      type: 'test'
+      ...
+    # Subtest: 39: sim_lab_branch {"checkpoint":"mid","maxActions":501}
+    ok 39 - 39: sim_lab_branch {"checkpoint":"mid","maxActions":501}
+      ---
+      duration_ms: 0.116583
+      type: 'test'
+      ...
+    # Subtest: 40: sim_lab_branch {"checkpoint":"mid","maxActions":1.5}
+    ok 40 - 40: sim_lab_branch {"checkpoint":"mid","maxActions":1.5}
+      ---
+      duration_ms: 0.250333
+      type: 'test'
+      ...
+    # Subtest: 41: sim_lab_branch {"checkpoint":"mid","maxActions":"2"}
+    ok 41 - 41: sim_lab_branch {"checkpoint":"mid","maxActions":"2"}
+      ---
+      duration_ms: 0.133208
+      type: 'test'
+      ...
+    # Subtest: 42: sim_lab_branch {"checkpoint":"mid","maxActions":null}
+    ok 42 - 42: sim_lab_branch {"checkpoint":"mid","maxActions":null}
+      ---
+      duration_ms: 0.137917
+      type: 'test'
+      ...
+    # Subtest: 43: sim_lab_branch {"checkpoint":"mid","overrides":{}}
+    ok 43 - 43: sim_lab_branch {"checkpoint":"mid","overrides":{}}
+      ---
+      duration_ms: 0.2815
+      type: 'test'
+      ...
+    # Subtest: 44: sim_lab_branch {"checkpoint":"mid","overrides":"rest"}
+    ok 44 - 44: sim_lab_branch {"checkpoint":"mid","overrides":"rest"}
+      ---
+      duration_ms: 0.189167
+      type: 'test'
+      ...
+    # Subtest: 45: sim_lab_branch {"checkpoint":"mid","overrides":[null]}
+    ok 45 - 45: sim_lab_branch {"checkpoint":"mid","overrides":[null]}
+      ---
+      duration_ms: 0.298417
+      type: 'test'
+      ...
+    # Subtest: 46: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1}]}
+    ok 46 - 46: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1}]}
+      ---
+      duration_ms: 0.132459
+      type: 'test'
+      ...
+    # Subtest: 47: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":"1","actionId":"rest"}]}
+    ok 47 - 47: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":"1","actionId":"rest"}]}
+      ---
+      duration_ms: 0.180584
+      type: 'test'
+      ...
+    # Subtest: 48: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1.5,"actionId":"rest"}]}
+    ok 48 - 48: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1.5,"actionId":"rest"}]}
+      ---
+      duration_ms: 0.115208
+      type: 'test'
+      ...
+    # Subtest: 49: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":4294967297,"actionId":"rest"}]}
+    ok 49 - 49: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":4294967297,"actionId":"rest"}]}
+      ---
+      duration_ms: 0.207458
+      type: 'test'
+      ...
+    # Subtest: 50: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":3}]}
+    ok 50 - 50: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":3}]}
+      ---
+      duration_ms: 0.205958
+      type: 'test'
+      ...
+    # Subtest: 51: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":"rest","typo":true}]}
+    ok 51 - 51: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":"rest","typo":true}]}
+      ---
+      duration_ms: 0.422333
+      type: 'test'
+      ...
+    1..51
+ok 8 - invalid containers and mutation arguments fail before HTTP dispatch
+  ---
+  duration_ms: 78.02225
+  type: 'test'
+  ...
+# Subtest: valid numeric edges survive validation without changing the requested experiment
+ok 9 - valid numeric edges survive validation without changing the requested experiment
+  ---
+  duration_ms: 106.68725
+  type: 'test'
+  ...
+# Subtest: HTTP failures retain the native diagnostic and never retry the mutation
+    # Subtest: 400
+    ok 1 - 400
+      ---
+      duration_ms: 106.853583
+      type: 'test'
+      ...
+    # Subtest: 404
+    ok 2 - 404
+      ---
+      duration_ms: 1.126916
+      type: 'test'
+      ...
+    # Subtest: 409
+    ok 3 - 409
+      ---
+      duration_ms: 0.892833
+      type: 'test'
+      ...
+    # Subtest: 422
+    ok 4 - 422
+      ---
+      duration_ms: 0.961708
+      type: 'test'
+      ...
+    # Subtest: 503
+    ok 5 - 503
+      ---
+      duration_ms: 0.828584
+      type: 'test'
+      ...
+    1..5
+ok 10 - HTTP failures retain the native diagnostic and never retry the mutation
+  ---
+  duration_ms: 115.047625
+  type: 'test'
+  ...
+# Subtest: non-JSON HTTP errors and Markdown reports preserve readable text
+ok 11 - non-JSON HTTP errors and Markdown reports preserve readable text
+  ---
+  duration_ms: 108.099875
+  type: 'test'
+  ...
+# Subtest: connection loss after a mutation is not automatically replayed and stdio stays usable
+ok 12 - connection loss after a mutation is not automatically replayed and stdio stays usable
+  ---
+  duration_ms: 111.962417
+  type: 'test'
+  ...
+# Subtest: malformed JSON successes remain internal failures, including resource reads
+ok 13 - malformed JSON successes remain internal failures, including resource reads
+  ---
+  duration_ms: 102.389917
+  type: 'test'
+  ...
+# Subtest: concurrent response IDs, fragmented UTF-8, notifications and parse errors preserve the protocol boundary
+ok 14 - concurrent response IDs, fragmented UTF-8, notifications and parse errors preserve the protocol boundary
+  ---
+  duration_ms: 138.816375
+  type: 'test'
+  ...
+# Subtest: conformant handshake with newline-delimited framing
+ok 15 - conformant handshake with newline-delimited framing
+  ---
+  duration_ms: 420.567
+  type: 'test'
+  ...
+# Subtest: protocol negotiation, -32602 error mapping, and argument validation
+ok 16 - protocol negotiation, -32602 error mapping, and argument validation
+  ---
+  duration_ms: 104.38075
+  type: 'test'
+  ...
+# Subtest: HTTP failures are actionable tool errors, including non-JSON and empty bodies
+ok 17 - HTTP failures are actionable tool errors, including non-JSON and empty bodies
+  ---
+  duration_ms: 122.727542
+  type: 'test'
+  ...
+# Subtest: failed resource reads return RPC errors without advertising resource contents
+ok 18 - failed resource reads return RPC errors without advertising resource contents
+  ---
+  duration_ms: 104.695584
+  type: 'test'
+  ...
+# Subtest: successful HTTP payloads and run setup arguments keep their existing shape
+ok 19 - successful HTTP payloads and run setup arguments keep their existing shape
+  ---
+  duration_ms: 107.383375
+  type: 'test'
+  ...
+# Subtest: invalid JSON-RPC frames are rejected and the stdio connection stays usable
+ok 20 - invalid JSON-RPC frames are rejected and the stdio connection stays usable
+  ---
+  duration_ms: 218.684792
+  type: 'test'
+  ...
+# Subtest: malformed parameters are rejected before any backend mutation
+ok 21 - malformed parameters are rejected before any backend mutation
+  ---
+  duration_ms: 119.953708
+  type: 'test'
+  ...
+# Subtest: MCP invalid or unsafe numeric request IDs cannot execute a tool
+ok 22 - MCP invalid or unsafe numeric request IDs cannot execute a tool
+  ---
+  duration_ms: 253.631333
+  type: 'test'
+  ...
+# Subtest: string and safe integer IDs preserve accepted career-lab arguments and zero seeds
+ok 23 - string and safe integer IDs preserve accepted career-lab arguments and zero seeds
+  ---
+  duration_ms: 96.489083
+  type: 'test'
+  ...
+# Subtest: numeric overflow in valid JSON arguments is rejected before REST
+ok 24 - numeric overflow in valid JSON arguments is rejected before REST
+  ---
+  duration_ms: 58.31325
+  type: 'test'
+  ...
+# Subtest: report receiving: HTTP errors retain raw bodies before format decoding and healthy text remains text
+ok 25 - report receiving: HTTP errors retain raw bodies before format decoding and healthy text remains text
+  ---
+  duration_ms: 147.977708
+  type: 'test'
+  ...
+# {"case":"report-format-composition","statuses":[503,409,404,200,200],"requests":5,"healthyMarkdownBytes":43,"jsonReport":{"a":"left","b":"right","firstDivergence":{"kind":"decision"}}}
+# Subtest: native receiving: fork contention has one winner and closing it without main preserves surviving careers
+ok 26 - native receiving: fork contention has one winner and closing it without main preserves surviving careers
+  ---
+  duration_ms: 344.122833
+  type: 'test'
+  ...
+# {"case":"concurrent-fork-and-no-main","winner":"receiving-fork-a","surviving":["receiving-a","receiving-b"],"a":"ac28ea37be087f9bd21678262be5adf10a0d148eff23a048fa46b869d49228ed","b":"72a9918c6445e02434784d8ab8f6a063949d0982eabd2d981dcbf85d4dccb3c4"}
+# Subtest: native receiving: external-policy refusal fully restores a non-active target and permits later continuation
+ok 27 - native receiving: external-policy refusal fully restores a non-active target and permits later continuation
+  ---
+  duration_ms: 353.574917
+  type: 'test'
+  ...
+# {"case":"non-active-503-rollback-and-continuation","unchangedTarget":"d0b95354bada967f3503f207665e8e905e01c443c6e6a5491939231c2c5165c8","unchangedActive":"0ddbc93bf290fc192e16b25f9f81e20b201cff68ceadb473dd86d65f566584d0","targetSpeed":3,"activeSpeed":7}
+# Subtest: native receiving: global content reaches both existing careers and differs from an unloaded API control
+ok 28 - native receiving: global content reaches both existing careers and differs from an unloaded API control
+  ---
+  duration_ms: 670.687708
+  type: 'test'
+  ...
+# {"case":"global-content-native-control","loaded":500,"step":2,"turn":3,"a":"02886d939fd3d47230cec9dfb9ef3382a4f7f30ddf2273aa1e48ee18100c5a84","b":"02886d939fd3d47230cec9dfb9ef3382a4f7f30ddf2273aa1e48ee18100c5a84","unloaded":"3e10725cbb007b887eb8352b829cb94843f2a46866fc03ceddea5b69ac460089","active":"pack-b"}
+1..28
+# tests 135
+# suites 0
+# pass 135
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1745.13025

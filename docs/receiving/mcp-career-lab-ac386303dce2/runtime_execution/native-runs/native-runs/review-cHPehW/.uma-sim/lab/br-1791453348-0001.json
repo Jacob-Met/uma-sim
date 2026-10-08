@@ -1,0 +1,102 @@
+{
+  "id": "br-1791453348-0001",
+  "name": "review-train",
+  "checkpointName": "review-mid",
+  "checkpointTurn": 5,
+  "seed": 7,
+  "scenarioId": "ura",
+  "traineeName": "Special Week",
+  "config": {
+    "policy": "bot",
+    "maxActions": 2,
+    "overrides": [
+      {
+        "turn": 5,
+        "actionId": "train_speed"
+      }
+    ]
+  },
+  "startedAt": "2026-10-08T09:55:48Z",
+  "timeline": [
+    {
+      "stepIndex": 0,
+      "turn": 5,
+      "dateLabel": "Y1 Aug · 2nd half",
+      "phase": "FREE",
+      "actionId": "train_speed",
+      "actionLabel": "Train Speed",
+      "overrideApplied": true,
+      "overrideRejected": false,
+      "rngCallsBefore": 20,
+      "rngCallsAfter": 26,
+      "energy": 40,
+      "mood": "NORMAL",
+      "fans": 886,
+      "skillPoints": 46,
+      "stats": {
+        "speed": 132,
+        "stamina": 88,
+        "power": 113,
+        "guts": 96,
+        "wit": 91
+      },
+      "newRaces": [],
+      "totalRaces": 1,
+      "totalSkills": 1
+    },
+    {
+      "stepIndex": 1,
+      "turn": 6,
+      "dateLabel": "Y1 Sep · 1st half",
+      "phase": "EVENT",
+      "actionId": "event_3",
+      "actionLabel": "Randomly either",
+      "overrideApplied": false,
+      "overrideRejected": false,
+      "rngCallsBefore": 26,
+      "rngCallsAfter": 31,
+      "energy": 45,
+      "mood": "NORMAL",
+      "fans": 886,
+      "skillPoints": 46,
+      "stats": {
+        "speed": 132,
+        "stamina": 88,
+        "power": 113,
+        "guts": 96,
+        "wit": 91
+      },
+      "newRaces": [],
+      "totalRaces": 1,
+      "totalSkills": 1
+    }
+  ],
+  "outcome": {
+    "steps": 2,
+    "finalTurn": 7,
+    "careerComplete": false,
+    "completedRaces": [
+      "debut"
+    ],
+    "stats": {
+      "speed": 132,
+      "stamina": 88,
+      "power": 113,
+      "guts": 96,
+      "wit": 91
+    },
+    "energy": 45,
+    "mood": "NORMAL",
+    "fans": 886,
+    "skillPoints": 46,
+    "learnedSkills": [
+      "skill:100011"
+    ],
+    "sparks": [],
+    "scenarioResources": {
+      "happy_meek_badge": 3
+    },
+    "totalRngCalls": 31,
+    "telemetryRecords": 2
+  }
+}
