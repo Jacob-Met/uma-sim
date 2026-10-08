@@ -1,0 +1,209 @@
+{
+  "binarySource": "f5f9b293 Rust source plus career_lab.rs SHA-256 e84d58202d8b6fb47a16af7e8704fbccd723bb7f35a2648fc99f5134430732df",
+  "binarySha256": "bb9768847308f943b298d28a6afefd6575092fcd0ebad21b115ee0284622977d",
+  "expected": "preserved",
+  "cwd": "/workspace/scratch/ac386303dce2/product-checkpoint-evidence/checkpoint-replacement-EeuVQG",
+  "savedTurn": 1,
+  "replacementTurn": 2,
+  "previousSnapshotSha256": "c8d1bbf45b858d615c4d49ef40bacd4ea97b4fb08dfb0459c36e35930f351e52",
+  "previousMetadataSha256": "24d549088ffbcaa2f090195cf575cdc229317ad71573c81eab23fc420b13234b",
+  "snapshotAfterSha256": "c8d1bbf45b858d615c4d49ef40bacd4ea97b4fb08dfb0459c36e35930f351e52",
+  "snapshotUnchanged": true,
+  "metadataUnchanged": true,
+  "replacement": {
+    "status": 500,
+    "body": {
+      "error": "storage error: Is a directory (os error 21)"
+    }
+  },
+  "loadAfter": {
+    "status": 200,
+    "body": {
+      "compatAdvisories": [],
+      "entry": {
+        "dateLabel": "Y1 Jun · 2nd half",
+        "fingerprint": {
+          "contentPackEvents": 0,
+          "coreVersion": "0.1.0",
+          "eventCatalogCount": 3458,
+          "repoRootDetected": true,
+          "snapshotSchema": 1
+        },
+        "label": "Previous saved career",
+        "name": "keep",
+        "note": "Preserve this checkpoint",
+        "phase": "MANDATORY_RACE",
+        "rngCalls": 0,
+        "savedAt": "2026-10-08T09:59:47Z",
+        "savedAtUnix": 1791453587,
+        "scenarioId": "ura",
+        "seed": 42,
+        "traineeName": "Special Week",
+        "turn": 1
+      },
+      "state": {
+        "meta": {
+          "compatibilityScore": 0,
+          "deckSupports": [],
+          "legacyFactors": [],
+          "objectiveProfile": "general",
+          "parentNames": [],
+          "scenarioId": "ura",
+          "seed": 42,
+          "traineeName": "Special Week"
+        },
+        "rngCalls": 0,
+        "rngSeed": 42,
+        "rngState": {
+          "addend": 23238976,
+          "v": -1615262521,
+          "w": 668685995,
+          "x": -165840718,
+          "y": 1531557566,
+          "z": -2082647735
+        },
+        "settings": {
+          "allowDialogueAtHighSpeed": false,
+          "dialogueMode": "CHOICES_ONLY",
+          "raceModel": "stub",
+          "speedMultiplier": 1,
+          "traceRng": false,
+          "traceTelemetry": false
+        },
+        "state": {
+          "awaitingChoice": false,
+          "baseAptitudes": {
+            "dirt": "G",
+            "end": "C",
+            "front": "G",
+            "late": "A",
+            "long": "A",
+            "medium": "A",
+            "mile": "C",
+            "pace": "A",
+            "sprint": "F",
+            "turf": "A"
+          },
+          "careerComplete": false,
+          "completedRaces": [],
+          "date": {
+            "half": 2,
+            "month": 6,
+            "year": 1
+          },
+          "deck": {
+            "slots": []
+          },
+          "energy": 100,
+          "facilityLevels": {
+            "guts": 1,
+            "power": 1,
+            "speed": 1,
+            "stamina": 1,
+            "wit": 1
+          },
+          "facilityTrainCounts": {},
+          "fans": 0,
+          "generatedSparks": [],
+          "hintLevels": {
+            "skill:200512": 1,
+            "skill:200732": 1,
+            "skill:201352": 1
+          },
+          "learnedSkillIds": [
+            "skill:100011"
+          ],
+          "legacy": {
+            "aptitudes": {
+              "dirt": "G",
+              "end": "C",
+              "front": "G",
+              "late": "A",
+              "long": "A",
+              "medium": "A",
+              "mile": "C",
+              "pace": "A",
+              "sprint": "F",
+              "turf": "A"
+            },
+            "blueStartBonuses": {},
+            "factorIds": [],
+            "inheritanceComplete": false,
+            "inheritedSkillIds": [],
+            "inspirationEventsDone": 0,
+            "parentNames": [],
+            "pinkAptitudeTags": [],
+            "pinkFactorIds": [],
+            "pinkStarTotals": {},
+            "raceFactorIds": [],
+            "sparkCaps": {}
+          },
+          "log": [
+            "Career started: Special Week / ura / seed=42"
+          ],
+          "maxEnergy": 100,
+          "meta": {
+            "compatibilityScore": 0,
+            "deckSupports": [],
+            "legacyFactors": [],
+            "objectiveProfile": "general",
+            "parentNames": [],
+            "scenarioId": "ura",
+            "seed": 42,
+            "traineeName": "Special Week"
+          },
+          "mood": "NORMAL",
+          "pendingEventOptions": [],
+          "pendingEventTitle": null,
+          "pendingRaceId": "debut",
+          "performanceTokens": {},
+          "phase": "MANDATORY_RACE",
+          "scenarioResources": {
+            "values": {
+              "happy_meek_badge": 0
+            }
+          },
+          "skillPoints": 0,
+          "stats": {
+            "guts": 90,
+            "power": 98,
+            "speed": 83,
+            "stamina": 88,
+            "wit": 91
+          },
+          "statuses": [],
+          "turn": 1
+        }
+      }
+    }
+  },
+  "listingAfter": {
+    "status": 200,
+    "body": {
+      "entries": [
+        {
+          "dateLabel": "Y1 Jun · 2nd half",
+          "fingerprint": {
+            "contentPackEvents": 0,
+            "coreVersion": "0.1.0",
+            "eventCatalogCount": 3458,
+            "repoRootDetected": true,
+            "snapshotSchema": 1
+          },
+          "label": "Previous saved career",
+          "name": "keep",
+          "note": "Preserve this checkpoint",
+          "phase": "MANDATORY_RACE",
+          "rngCalls": 0,
+          "savedAt": "2026-10-08T09:59:47Z",
+          "savedAtUnix": 1791453587,
+          "scenarioId": "ura",
+          "seed": 42,
+          "traineeName": "Special Week",
+          "turn": 1
+        }
+      ]
+    }
+  },
+  "recoveryFiles": []
+}

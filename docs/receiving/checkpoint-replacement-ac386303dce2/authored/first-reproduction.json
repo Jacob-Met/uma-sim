@@ -1,0 +1,53 @@
+{
+  "receiverMain": "0ac14602addd1a4610aa8359896915a34cce5659",
+  "receivingLibraryBlob": "6f726976b0bbe448c1dd4d7f8e6427dfd547e199",
+  "binaryBuildBase": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "binarySha256": "fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e",
+  "cwd": "/workspace/scratch/ac386303dce2/product-checkpoint-evidence/native-ERKWaZ",
+  "savedTurn": 1,
+  "replacementTurn": 2,
+  "previousSnapshotSha256": "427d1275a6568bf81a0193eb3e363a945fa5e3ddaf54e5d0868b845800e3beb2",
+  "previousMetadataSha256": "92dafc60e9efd1cc7eb3cf2e9f7278766a18289bfe585c8b6cb6acf835e0f15d",
+  "replacement": {
+    "status": 500,
+    "body": {
+      "error": "storage error: Is a directory (os error 21)"
+    }
+  },
+  "snapshotExistsAfter": false,
+  "metadataUnchanged": true,
+  "loadAfter": {
+    "status": 404,
+    "body": {
+      "error": "no checkpoint named 'keep'"
+    }
+  },
+  "listingAfter": {
+    "status": 200,
+    "body": {
+      "entries": [
+        {
+          "dateLabel": "Y1 Jun · 2nd half",
+          "fingerprint": {
+            "contentPackEvents": 0,
+            "coreVersion": "0.1.0",
+            "eventCatalogCount": 3458,
+            "repoRootDetected": true,
+            "snapshotSchema": 1
+          },
+          "label": "Previous saved career",
+          "name": "keep",
+          "note": "",
+          "phase": "MANDATORY_RACE",
+          "rngCalls": 0,
+          "savedAt": "2026-10-08T09:23:42Z",
+          "savedAtUnix": 1791451422,
+          "scenarioId": "ura",
+          "seed": 42,
+          "traineeName": "Special Week",
+          "turn": 1
+        }
+      ]
+    }
+  }
+}

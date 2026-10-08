@@ -1,0 +1,54 @@
+{
+  "binarySource": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "binarySha256": "fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e",
+  "expected": "lost",
+  "cwd": "/workspace/scratch/ac386303dce2/product-checkpoint-evidence/checkpoint-replacement-RArLSH",
+  "savedTurn": 1,
+  "replacementTurn": 2,
+  "previousSnapshotSha256": "e7f02d945f6fa1db2c900e08dd98bda89318cf27105d9e6c4fff0e31e87426ab",
+  "previousMetadataSha256": "efee34a8a2c031330cf4949a60455acbd70dd9496a00351768b2483ff0b22f9f",
+  "snapshotAfterSha256": null,
+  "snapshotUnchanged": false,
+  "metadataUnchanged": true,
+  "replacement": {
+    "status": 500,
+    "body": {
+      "error": "storage error: Is a directory (os error 21)"
+    }
+  },
+  "loadAfter": {
+    "status": 404,
+    "body": {
+      "error": "no checkpoint named 'keep'"
+    }
+  },
+  "listingAfter": {
+    "status": 200,
+    "body": {
+      "entries": [
+        {
+          "dateLabel": "Y1 Jun · 2nd half",
+          "fingerprint": {
+            "contentPackEvents": 0,
+            "coreVersion": "0.1.0",
+            "eventCatalogCount": 3458,
+            "repoRootDetected": true,
+            "snapshotSchema": 1
+          },
+          "label": "Previous saved career",
+          "name": "keep",
+          "note": "Preserve this checkpoint",
+          "phase": "MANDATORY_RACE",
+          "rngCalls": 0,
+          "savedAt": "2026-10-08T10:00:18Z",
+          "savedAtUnix": 1791453618,
+          "scenarioId": "ura",
+          "seed": 42,
+          "traineeName": "Special Week",
+          "turn": 1
+        }
+      ]
+    }
+  },
+  "recoveryFiles": []
+}
