@@ -133,3 +133,50 @@ Run the focused format, download-boundary and native React rendering tests with:
 ```sh
 node --test test/log-export.test.mjs
 ```
+
+## Reuse a career setup
+
+The **New career** form can download and reopen an editable setup file.
+
+1. Choose the scenario, trainee, seed, speed, dialogue, race model and policy.
+   Select up to six deck supports and configure inheritance as desired.
+2. Choose **Download setup** to request a local `uma-sim-setup-v1.json` file.
+3. In a new form or browser session, choose **Open setup** and select that file.
+   Review the seed, choices, ordered deck and inheritance details.
+4. Choose **Replace setup** to replace all setup choices in the form. **Cancel**
+   keeps the current form. Replacement clears the two search filters so the
+   loaded selections can be inspected.
+5. Edit any choice, then explicitly choose **Start run**. The run receives the
+   form's selected policy, and the run toolbar starts with that same policy.
+
+Opening, reviewing, downloading and replacing a setup make no simulator API
+request and do not start a career. Setup files include disabled inheritance
+choices, all six ancestors and thirty factor/star slots, and the retained
+compatibility score. Enable inheritance again to inspect or use those choices.
+To resume an in-progress career, use the **Career library** checkpoint controls.
+
+The seed is stored and submitted as decimal text so the full signed 64-bit
+range, from `-9223372036854775808` through `9223372036854775807`, survives
+without JavaScript number rounding. Numeric JSON seeds, fractions, exponent
+notation and out-of-range seeds are refused. The form also checks the seed
+before starting a run.
+
+Version 1 files are UTF-8 JSON of at most 64 KiB, with an exact
+`{"schema":"uma-sim.run-setup","version":1,"setup":{...}}` envelope.
+All form fields are required. Missing, additional, unsupported or malformed
+values are refused as a whole. The current catalog must still contain each
+scenario, trainee name, support ID, ancestor name and factor ID in its proper
+category. No unavailable selection is silently replaced. The current
+trainee/support and enabled direct-parent exclusions also apply. A setup
+records choices against the available catalog; later catalog or engine changes
+can change a simulated outcome.
+
+A form edit, changed available choices, a busy transition, a newer file
+selection or leaving the form invalidates an outstanding file read or review.
+Open the file again to review it against the current form. File read failures
+and refused files leave all current choices intact. This is an explicit local
+download/open workflow; closing a form does not automatically save its choices.
+
+Run the focused file-admission tests with
+`node --test tests/run-setup-file.test.mjs`, or use the existing `npm test`
+command for all maintained UI tests.

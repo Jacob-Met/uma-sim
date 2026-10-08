@@ -140,7 +140,10 @@ export default function App() {
           supports={state.catalogs.supports}
           factors={state.catalogs.factors}
           busy={state.busy}
-          onStart={(req) => void startRun({ ...req, policy })}
+          onStart={(req) => {
+            setPolicy(req.policy ?? "bot");
+            void startRun(req);
+          }}
         />
       )}
 

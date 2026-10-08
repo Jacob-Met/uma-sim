@@ -1,0 +1,79 @@
+.setup-files {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  min-width: 0;
+}
+
+.setup-files p {
+  overflow-wrap: anywhere;
+}
+
+.setup-files [role="status"],
+.setup-files [role="alert"] {
+  margin: 0.6rem 0 0;
+  font-size: 0.85rem;
+}
+
+.setup-files [role="alert"] {
+  color: var(--bad);
+}
+
+.setup-file-review {
+  margin-top: 0.85rem;
+  padding: 0.85rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--bg);
+  overflow-wrap: anywhere;
+}
+
+.setup-file-review .setup-file-name {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+}
+
+.setup-file-values,
+.setup-file-ancestors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0.75rem;
+}
+
+.setup-file-review dl {
+  margin: 0;
+}
+
+.setup-file-review dt {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.setup-file-review dd {
+  margin: 0.1rem 0 0;
+}
+
+.setup-file-review h4 {
+  margin: 0.9rem 0 0.35rem;
+}
+
+.setup-file-review summary {
+  cursor: pointer;
+  margin-top: 0.75rem;
+}
+
+.setup-file-ancestors > div {
+  min-width: 0;
+}
+
+.setup-file-ancestors p {
+  margin: 0.25rem 0 0.6rem;
+}
+
+.setup-file-ancestors dl > div + div {
+  margin-top: 0.5rem;
+}
+
+.setup-file-review code {
+  white-space: normal;
+}
