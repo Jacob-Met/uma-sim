@@ -1,0 +1,421 @@
+{
+  "baselineCommit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "evaluatedDist": "/workspace/scratch/7e7ad6f8e5bd/runtime-receiver/final-candidate/packages/uma-sim-ui/dist",
+  "receiverSha256": "3d96af883b3af297826160adf9e5e49e806d2dd29d3fa8c64f2db46da4a4a531",
+  "distIndexSha256": "886bcfa77cb1acdce14d119aa91a86ac3fdbf7a1925d0490e3f5f4433678e067",
+  "browserVersion": "153.0.8010.0",
+  "runtime": "v24.19.0",
+  "capabilityPresent": true,
+  "scope": "Actual built application and downloads against independent HTTP branch fixtures; no native simulation or deployment qualification.",
+  "passed": 15,
+  "failed": 0,
+  "dependentCasesNotRun": 0,
+  "results": [
+    {
+      "name": "saved branch rows expose trace inspection in the actual application",
+      "passed": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        }
+      ]
+    },
+    {
+      "name": "trace preserves authored overrides per-step mixed flags and exact full JSON",
+      "passed": true,
+      "detail": {
+        "id": "alpha",
+        "filename": "uma-sim-branch-alpha.json",
+        "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+        }
+      ]
+    },
+    {
+      "name": "loading B never relabels or exports the old A trace as B",
+      "passed": true,
+      "detail": {
+        "id": "beta",
+        "filename": "uma-sim-branch-beta.json",
+        "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "beta"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+        }
+      ]
+    },
+    {
+      "name": "late A response cannot replace the newer B trace",
+      "passed": true,
+      "detail": {
+        "id": "beta",
+        "filename": "uma-sim-branch-beta.json",
+        "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "beta"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+        }
+      ]
+    },
+    {
+      "name": "late A failure cannot overwrite the newer B trace with an obsolete error",
+      "passed": true,
+      "detail": {
+        "id": "beta",
+        "filename": "uma-sim-branch-beta.json",
+        "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 503
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "beta"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+        }
+      ]
+    },
+    {
+      "name": "closing inspector prevents a late response from reopening it",
+      "passed": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+        }
+      ]
+    },
+    {
+      "name": "closing inspector prevents a late error from reopening it",
+      "passed": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 503
+        }
+      ]
+    },
+    {
+      "name": "unmounted trace read cannot affect a newly opened lab view",
+      "passed": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 503
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "beta"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+        }
+      ]
+    },
+    {
+      "name": "retry requests the failed branch and keeps its error identity explicit",
+      "passed": true,
+      "detail": {
+        "id": "beta",
+        "filename": "uma-sim-branch-beta.json",
+        "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "beta"
+          },
+          "responseStatus": 503
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "beta"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+        }
+      ]
+    },
+    {
+      "name": "wrong branch identity response is rejected without a wrong trace export",
+      "passed": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "cb870af4874b9200fc2f2cd33c77e23c9e29fe025bd00fb5a657928e587e9f93"
+        }
+      ]
+    },
+    {
+      "name": "missing trace configuration fails visibly without crashing the application",
+      "passed": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "7574ace931eeee3ce61c4c53ebb17e5508f96bae31f2892d4dafbeede5eb1e58"
+        }
+      ]
+    },
+    {
+      "name": "reserved branch ID is retrieved unchanged and exported intact",
+      "passed": true,
+      "detail": {
+        "id": "path/space &é",
+        "filename": "uma-sim-branch-path_space_.json",
+        "payloadSha256": "8e0b385c0d211bf44fbc11a172c2636785a2432fc8727020f26be2523100ee32"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "path/space &é"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "8e0b385c0d211bf44fbc11a172c2636785a2432fc8727020f26be2523100ee32"
+        }
+      ]
+    },
+    {
+      "name": "confirmed deletion invalidates the currently loaded trace",
+      "passed": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch/delete",
+          "query": {},
+          "body": {
+            "id": "alpha"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        }
+      ]
+    },
+    {
+      "name": "confirmed deletion prevents a pending trace response from reopening the inspector",
+      "passed": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch/delete",
+          "query": {},
+          "body": {
+            "id": "alpha"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        }
+      ]
+    },
+    {
+      "name": "failed deletion preserves the valid loaded trace",
+      "passed": true,
+      "detail": {
+        "id": "alpha",
+        "filename": "uma-sim-branch-alpha.json",
+        "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/v1/lab/branches",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/branch",
+          "query": {
+            "id": "alpha"
+          },
+          "responseStatus": 200,
+          "payloadSha256": "4179001c4447b68b21aff2359e94d5ecf78d2b445321c976e0b5aafd03dc6a88"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch/delete",
+          "query": {},
+          "body": {
+            "id": "alpha"
+          }
+        }
+      ]
+    }
+  ]
+}
