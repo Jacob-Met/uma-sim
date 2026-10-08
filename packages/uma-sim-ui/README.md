@@ -133,3 +133,25 @@ Run the focused format, download-boundary and native React rendering tests with:
 ```sh
 node --test test/log-export.test.mjs
 ```
+
+## Reading retained race results
+
+The **Race** panel reads race occurrences retained in the currently loaded
+career snapshot. **Latest retained race** shows the recorded place, field size,
+finish time and fan gain when the engine's physics record includes them. Finish
+times keep their recorded precision. **Earlier retained races** opens the other
+occurrences in newest-first order; repeated race IDs remain separate. Results
+remain available after later turns and are replaced when the supplied career
+log changes. The panel does not create an additional career archive.
+
+Older fan-only records show their recorded fan gain, with place, finish time
+and field size explicitly unrecorded. Unrecognized or malformed race records
+keep their original text and position, including when the newest record is
+unrecognized. **Original race record** expands the exact retained text, which
+also contains course, race seed and timing margins for physics records. These
+disclosures are read-only. The existing **Enter race** action remains available
+when a mandatory race is pending.
+
+Run `node --test tests/race-results.test.mjs` for the native parser and rendered
+component checks, or `npm test` for all shared UI regressions. `npm run typecheck`
+and `npm run build` cover the production receiving path.

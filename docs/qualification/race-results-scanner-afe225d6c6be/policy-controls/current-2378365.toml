@@ -1,0 +1,38 @@
+# PR #72: these two SHA256 artifact identities are not credentials.
+# Preserve the received provenance bytes while retaining all default rules.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "Verified native receiver source and executable digests in the PR72 provenance record"
+condition = "AND"
+paths = ['''^docs/qualification/tui-sessions-c6cc965b64c2/independent/server-build-provenance\.json$''']
+regexTarget = "secret"
+regexes = ['''^(3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95|fdda7861a592987391e57b59d8dc0230b870b73268e9e3b02af0f330bffcab5e)$''']
+
+
+# Durable terminal receiving: these are verified Git object identities, not credentials.
+# Each exception is limited to one exact provenance path and the observed whole value.
+[[rules.allowlists]]
+description = "Verified original API blob in the durable terminal receiving guide"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/README\.md$''']
+regexTarget = "secret"
+regexes = ['''^4ff7034bc5701d793cd93d645d89d40d73fc3273$''']
+
+[[rules.allowlists]]
+description = "Verified current owner commit in the independent terminal source manifest"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-manifest\.json$''']
+regexTarget = "secret"
+regexes = ['''^fe2e6fdcdf7625cb5beac0e0062ace0360288a02$''']
+
+[[rules.allowlists]]
+description = "Verified original and current owner commits in the independent API comparison"
+condition = "AND"
+paths = ['''^docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/api-current-impact\.json$''']
+regexTarget = "secret"
+regexes = ['''^(b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c|fe2e6fdcdf7625cb5beac0e0062ace0360288a02)$''']

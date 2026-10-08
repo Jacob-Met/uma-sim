@@ -1,0 +1,42 @@
+{
+  "status": "verified_noncredential_identities",
+  "method": "Recomputed exact source Git blob and SHA-256 from Git object bytes; decompressed and rehashed the qualified native executable; resolved its genuine source commit. All eight hosted findings matched those identities.",
+  "identities": {
+    "source_digest": "31e51bf33c6cd5f51c7f7cb79a4560fad5c2e06a77f0345ff659cf114fabdd55",
+    "source_blob": "eab9ccf7082ffc96c446f434bd76f313aff14bc9",
+    "source_bytes": 86803,
+    "executable_digest": "cca25eeadb762c71a2a4067d8d82546b72bbeb4820dca63a79134d1f49690d97",
+    "executable_bytes": 8853064,
+    "source_commit": "4dc00f155d29fb37887524455f0627399191c915",
+    "source_tree": "10bfb5a88f9dd436534bb01c281ec55c50268b29"
+  },
+  "finding_groups": [
+    {
+      "identity": "source_digest",
+      "occurrences": 5,
+      "source_path": "uma-sim-core/src/api.rs",
+      "evidence_paths": [
+        "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+        "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2/browser-receipt.json",
+        "docs/receiving/race-results-afe225d6c6be/current-044/browser-receipt.json"
+      ]
+    },
+    {
+      "identity": "executable_digest",
+      "occurrences": 2,
+      "evidence_paths": [
+        "docs/receiving/race-results-afe225d6c6be/source-freeze.json",
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json"
+      ]
+    },
+    {
+      "identity": "source_commit",
+      "occurrences": 1,
+      "evidence_paths": [
+        "docs/receiving/race-results-afe225d6c6be/current-044/composition.json"
+      ]
+    }
+  ],
+  "source_binding": "source-bindings.json preserves the five authoritative file blobs and the exact eight finding lines.",
+  "boundary": "The commit identity is the native build source commit, not the API file blob."
+}

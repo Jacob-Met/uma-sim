@@ -1,0 +1,47 @@
+{
+  "started_utc": "2026-10-08T12:45:49.930299+00:00",
+  "finished_utc": "2026-10-08T12:46:06.144134+00:00",
+  "source_commit": "4dc00f155d29fb37887524455f0627399191c915",
+  "source_tree": "10bfb5a88f9dd436534bb01c281ec55c50268b29",
+  "source_files_verified": 646,
+  "source_bytes": 16202625,
+  "lock_sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+  "lock_unchanged": true,
+  "command": [
+    "/workspace/scratch/52e56ea8fcca/agents/local-runtime/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo",
+    "build",
+    "--locked",
+    "--offline",
+    "--package",
+    "uma-sim-core",
+    "--bin",
+    "uma-sim-api"
+  ],
+  "profile_environment": {
+    "CARGO_HOME": "/dev/hamon-afe225d6c6be-uma-current/cargo-home",
+    "CARGO_TARGET_DIR": "/dev/hamon-afe225d6c6be-uma-current/target",
+    "RUSTC": "/workspace/scratch/52e56ea8fcca/agents/local-runtime/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc",
+    "RUSTDOC": "/workspace/scratch/52e56ea8fcca/agents/local-runtime/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustdoc",
+    "CARGO_NET_OFFLINE": "true",
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_DEV_STRIP": "symbols"
+  },
+  "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+  "exit_code": 0,
+  "scope": "Exact current-main uma-sim-api, default features, offline locked build; no live service or account.",
+  "repeat_reason": "First successful build was in a network-isolated non-interactive execution; this run makes its receiving artifact transferable through shared files.",
+  "binary": {
+    "path": "/dev/hamon-afe225d6c6be-uma-current/target/debug/uma-sim-api",
+    "bytes": 8853064,
+    "sha256": "cca25eeadb762c71a2a4067d8d82546b72bbeb4820dca63a79134d1f49690d97",
+    "format": "ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=0094b91edc1496e1209beeb2ebd67fda1a3104f2, stripped"
+  },
+  "compressed_binary": {
+    "path": "/dev/hamon-afe225d6c6be-uma-current/artifacts/uma-sim-api-4dc00f-linux-x86_64.gz",
+    "bytes": 2715569,
+    "sha256": "9975feedb4832780e5e6398defe27b8f15e5c17b38898c99bbdaa6b493608b3f"
+  }
+}

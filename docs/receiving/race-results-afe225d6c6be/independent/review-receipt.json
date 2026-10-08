@@ -1,0 +1,170 @@
+{
+  "status": "ACCEPT exact seven-file candidate; root owns current-main integration",
+  "frozenAt": "2026-10-08T13:30:22.448Z",
+  "repository": "Jacob-Met/uma-sim",
+  "issue": 86,
+  "base": "4dc00f155d29fb37887524455f0627399191c915",
+  "candidate": "ab287fed5e5f30b2b999c31c054b234ca1211461",
+  "candidateInputTree": "5738dfd755b6bb6c7b328dd142f55d1e7ac7bf5a",
+  "nodeReactGroups": {
+    "passed": 26,
+    "failed": 0
+  },
+  "browserGroups": {
+    "passed": 5,
+    "failed": 0
+  },
+  "productSourceCorrections": 0,
+  "receiverCorrections": [
+    {
+      "firstRun": "browser-r1/browser-review.json",
+      "scope": "CommonJS Playwright namespace binding only",
+      "successor": "browser-r2/browser-review.json"
+    }
+  ],
+  "generatedBuildCache": "source-verification.json",
+  "phoneVisualReview": {
+    "status": "ACCEPT",
+    "path": "browser-r2/independent-phone.png",
+    "observations": [
+      "Latest and earlier native race facts remain readable in separate cards at390px.",
+      "Full original records wrap within the panel.",
+      "Native disclosure focus indicator is visibly present.",
+      "The existing Event Log and choices remain legible; no horizontal overflow."
+    ]
+  },
+  "storageAndNetwork": {
+    "ownedLoopbackOnly": true,
+    "externalCatalogImageRequestsBlocked": 133,
+    "pageErrors": 0,
+    "liveServices": false
+  },
+  "sourceOnlyLaterMainAssessment": "current-native-delta.json",
+  "files": [
+    {
+      "path": "base-copy-receipt.json",
+      "bytes": 268,
+      "sha256": "ce54597631fc4cfd086431cb0f47a196770ea3557f60a99c1ad3905be9b7cfb6"
+    },
+    {
+      "path": "baseline-witness.json",
+      "bytes": 1844,
+      "sha256": "8d6d658f7755f040b780897d9c8e7fe87ab31f0faf1b276dce544ddb1879b6e6"
+    },
+    {
+      "path": "baseline-witness.mjs",
+      "bytes": 4121,
+      "sha256": "b18a6ae7bdcefc8f7e86c4bd412d3782f1fff4bf20673d9f005a29680a1ffe78"
+    },
+    {
+      "path": "browser-r1/browser-review.json",
+      "bytes": 1132,
+      "sha256": "acaa43dd2d769350b20b959db58cbf64689da1387c84293dc0b923f321a01734"
+    },
+    {
+      "path": "browser-r2/browser-review.json",
+      "bytes": 31153,
+      "sha256": "99fa6921589754b9f1ec1041dfb053179416e1962ef87fabf10d8a3654c91f8d"
+    },
+    {
+      "path": "browser-r2/independent-phone.png",
+      "bytes": 208344,
+      "sha256": "bba960df44d1886c498294656a291f09b55636016885f80cd8cea08742bb142c"
+    },
+    {
+      "path": "build-receipt.json",
+      "bytes": 370,
+      "sha256": "119cf418b224a24d02492b1498a93f50fe8dc83d945420a4704d6da901dfbb59"
+    },
+    {
+      "path": "capture-native.mjs",
+      "bytes": 9585,
+      "sha256": "daa57d53f0353e4a61314c596a39c37a5d49853bc7ec1022e62405ea294471c3"
+    },
+    {
+      "path": "component-r1.json",
+      "bytes": 18609,
+      "sha256": "675eeee07fb057a2895872f3541fad9ea274bbdb134542f1a1609aad6eddb4a3"
+    },
+    {
+      "path": "current-native-delta.json",
+      "bytes": 8418,
+      "sha256": "3825edbe02f7029c8688e94c37befd962ae107cb9345a16c41c8200e693e228b"
+    },
+    {
+      "path": "generated-tsconfig.tsbuildinfo",
+      "bytes": 918,
+      "sha256": "3e3a502f88f8d31e535777205c1c33b49312a4eef466a64996e492797c28932c"
+    },
+    {
+      "path": "native-r1/native-inputs.json",
+      "bytes": 70377,
+      "sha256": "3e818210db693d76225d7157e36f37fbc1294d7a4f820d78db84d63db3cd91d6"
+    },
+    {
+      "path": "native-r1/native-process.json",
+      "bytes": 159,
+      "sha256": "13940c3cfde662945cc672b5189ebf82019a1e0095322db05b6dbab92891c98e"
+    },
+    {
+      "path": "native-r1/native-transcript.json",
+      "bytes": 42935,
+      "sha256": "5df8b7b7d5040459007dd9a46b6cc0e704ca4905285cf56a1bc447141a12b609"
+    },
+    {
+      "path": "OWNER.txt",
+      "bytes": 159,
+      "sha256": "9d5e1548a1eb64f3a80f024938786a6d443acff678c12bc283e9bc94d6c0a3c1"
+    },
+    {
+      "path": "PRE-CANDIDATE-FREEZE.json",
+      "bytes": 1424,
+      "sha256": "725ce961312221b803534878fb7e5f446882fed547e5c05cb99175738f9b89c2"
+    },
+    {
+      "path": "review-browser-r1-initial.mjs",
+      "bytes": 21930,
+      "sha256": "e92534a088deed99b82fad7b60fa63f79775d17df152fb0fde9b6e5850fd18c0"
+    },
+    {
+      "path": "review-browser.mjs",
+      "bytes": 22001,
+      "sha256": "21b349edee9fbd581ffb125a37c75d707c74f0c20cb451ea1b1f1cb37ddd00a3"
+    },
+    {
+      "path": "review-component.mjs",
+      "bytes": 9545,
+      "sha256": "9c4375d95795b65e8f101ccd7ec544c73cb506860b5e0bf4f1b312eb0b3e371e"
+    },
+    {
+      "path": "REVIEW-CONTRACT.md",
+      "bytes": 7431,
+      "sha256": "39b711723f95268dce6849e327e9e4215603cebeec324848da40a3fafe5eaed2"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 7331,
+      "sha256": "ef2ed0468015a1545a0d44df9cedb4180061faa714d36eb90ed89c72de2a6ea6"
+    },
+    {
+      "path": "source-verification.json",
+      "bytes": 3172,
+      "sha256": "018da274eafbdc0e85b8e9d00d27dcb8c3b0387553476bc3379c1b1319129738"
+    },
+    {
+      "path": "synthetic-cases.json",
+      "bytes": 5418,
+      "sha256": "a23a69ef0379871f278a074482c49ed516235396cc7acc671858cb648c087b29"
+    },
+    {
+      "path": "typescript-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vite-build.log",
+      "bytes": 329,
+      "sha256": "923298e020f17afc871543fe7083462641934896a10917b29990f3f282c684fb"
+    }
+  ]
+}

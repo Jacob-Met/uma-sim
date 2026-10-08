@@ -1,0 +1,43 @@
+{
+  "initial_ENOSPC_partial_state": {
+    "exists": false,
+    "size": null
+  },
+  "at": "2026-10-08T16:54:21.342414+00:00",
+  "original_head": "3282156aeeb8be5618e18d3c57bd28a34380fdf7",
+  "observed_failed_push_run": 37811712460,
+  "job": 113429967646,
+  "rule": "generic-api-key",
+  "finding_count": 4,
+  "native_source_file_git_blob": "60a02556b3707918e57cac775f723e0c8f67b30d",
+  "source_matches_canonical_baseline": true,
+  "findings": [
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser/receipt.json",
+      "receipt_sha256": "19c94d453cc85210542f4ce44990a4ea4a5a38ce927cba2dd726023e504f9269",
+      "original_finding_lines": [
+        13,
+        438
+      ],
+      "field": "uma-sim-core/src/api.rs in workingSourceCustodyBefore and workingSourceCustodyAfter",
+      "verified_value_sha256_of_source": "b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa"
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed/receipt.json",
+      "receipt_sha256": "ec4563c95aa22cb3447e9d01604424a562f5d58d470e0388f949db94fa27a8c6",
+      "original_finding_lines": [
+        14,
+        924
+      ],
+      "field": "uma-sim-core/src/api.rs in workingSourceCustodyBefore and workingSourceCustodyAfter",
+      "verified_value_sha256_of_source": "b6ceead2a642f71e4a436b635352d61c642375b0d19bd448054ef51ed21f97aa"
+    }
+  ],
+  "proposal": "/Users/me/uma-conditions-20261008-5f566b5ec8ef/gitleaks-receiving-proposal-v2.toml",
+  "proposal_sha256": "4bfd369d9bc4ad8adf3cbd0be596a6be73084f85ff7f0935f2ebd36953edc9dd",
+  "original_config_sha256": "643948008079828df49c9a1ffaabb9385353725625ef50c0c765391750816ef6",
+  "preserves_entire_prior_configuration": true,
+  "scope": "One existing generic-api-key rule allowlist; AND of two exact owned receipt paths and one exact verified whole SHA-256 value. All default rules and existing allowances remain unchanged. Original receipt bytes and source-head ancestry remain unchanged.",
+  "candidate_worktree_unchanged": true,
+  "local_gitleaks": null
+}

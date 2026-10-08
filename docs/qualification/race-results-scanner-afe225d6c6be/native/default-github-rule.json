@@ -1,0 +1,22 @@
+[
+ {
+  "RuleID": "github-pat",
+  "Description": "Uncovered a GitHub Personal Access Token, potentially leading to unauthorized repository access and sensitive content exposure.",
+  "StartLine": 1,
+  "EndLine": 1,
+  "StartColumn": 12,
+  "EndColumn": 51,
+  "Match": "REDACTED",
+  "Secret": "REDACTED",
+  "File": "docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json",
+  "SymlinkFile": "",
+  "Commit": "829ae0af7187abbfa7dc6fcd362fc85a32421596",
+  "Entropy": 3.9061983,
+  "Author": "HAMON fixture",
+  "Email": "fixture@example.invalid",
+  "Date": "2000-01-01T00:00:00Z",
+  "Message": "Synthetic scanner receiving fixture",
+  "Tags": [],
+  "Fingerprint": "829ae0af7187abbfa7dc6fcd362fc85a32421596:docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json:github-pat:1"
+ }
+]

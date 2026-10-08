@@ -1,0 +1,30 @@
+{
+  "local_https_head": {
+    "url": "https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_x64.tar.gz",
+    "command": "curl --head --location --max-time 20 --silent --show-error <official-release-url>",
+    "exit_code": 28,
+    "observed_stderr": "curl: (28) Connection timed out after 20002 milliseconds",
+    "native_session": 99871,
+    "provenance": "Preserved observed native tool output; no archive was received."
+  },
+  "first_thinkpad_attempt": {
+    "device": "d55b2499-5e82-4805-819a-d0d7ddea1efe",
+    "pid": 3209884,
+    "owned_directory": "/tmp/hamon-gitleaks-afe225d6c6be-jpro187m",
+    "status": "archive write failed with OSError errno 122 Disk quota exceeded",
+    "checksum_file_bytes": 1099,
+    "checksum_file_sha256": "eefa9ab1ee69571248a6fa070a2a7de0837dd9eb72745d131f8766206aac8ac2",
+    "partial_archive_bytes": 516096,
+    "partial_archive_sha256": "3d09abc25711af01c1bb5bebbe9f208952330625959434446870a29dc38a0959",
+    "archive_verified": false,
+    "executable_run": false,
+    "original_files_preserved": true,
+    "mount": "tmpfs with usrquota"
+  },
+  "successful_recovery": {
+    "owned_directory": "/var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g",
+    "mount": "existing ext4 filesystem",
+    "capacity_floor_bytes": 1073741824,
+    "detail": "See scanner-acquisition.json. A new owned directory was used without changing mounts, dependencies, runtimes, PATH, services, or another owner's files."
+  }
+}

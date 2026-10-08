@@ -1,0 +1,15 @@
+   Compiling uma-sim-core v0.1.0 (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/source/uma-sim-core)
+    Finished `test` profile [unoptimized] target(s) in 6.68s
+     Running tests/training_inspection.rs (/Users/me/.hamon-rdc-seats/seat-5/uma-training-87eaaf0fdf63.jo98f7ht/target/debug/deps/training_inspection-e6bd9ea10d1c1f4c)
+
+running 7 tests
+test samples_stay_raw_while_energy_recovery_respects_the_cap ... ok
+test unavailable_phases_and_blocked_rows_have_no_attempt_results ... ok
+test current_energy_risk_uses_the_native_post_cost_boundary ... ok
+test repeated_inspection_preserves_snapshot_rng_and_next_action ... ok
+test scenario_zero_failure_and_effective_unity_level_are_inspected ... ok
+test actual_cli_refuses_arguments_and_unreadable_sessions_without_writes ... ok
+test actual_cli_inspects_saved_native_career_without_rewriting_it ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.13s
+
