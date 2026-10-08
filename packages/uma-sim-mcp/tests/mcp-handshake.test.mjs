@@ -118,6 +118,7 @@ test("conformant handshake with newline-delimited framing", async () => {
       "sim_library_delete",
       "sim_library_export",
       "sim_library_import",
+      "sim_library_import_json",
       "sim_library_list",
       "sim_library_load",
       "sim_library_save",
@@ -313,7 +314,7 @@ test("successful HTTP payloads and run setup arguments keep their existing shape
     assert.equal(response.error, undefined);
     assert.deepEqual(response.result.contents, [{
       uri, mimeType: name === "text" ? "text/plain" : "application/json",
-      text: name === "text" ? payloads[`/v1/run/${name}`] : JSON.stringify(payloads[`/v1/run/${name}`], null, 2),
+      text: name === "text" ? payloads[`/v1/run/${name}`] : JSON.stringify(payloads[`/v1/run/${name}`]),
     }]);
   }
 });
@@ -349,7 +350,7 @@ test("malformed parameters are rejected before any backend mutation", { timeout:
     { name: "sim_start", arguments: null },
     { name: "sim_start", arguments: [] },
     { name: "sim_start", arguments: "bad args" },
-    { name: "sim_start", arguments: { seed: "42" } },
+    { name: "sim_start", arguments: { seed: "042" } },
     { name: "sim_act", arguments: { action: {} } },
     { name: "sim_act", arguments: { action: null } },
     { name: "sim_deck_place", arguments: { supportId: "support:10001", facility: 7 } },

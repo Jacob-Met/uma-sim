@@ -43,6 +43,15 @@ class BackendHttpError extends Error {
   }
 }
 
+// Keep the validated native JSON text alongside its parsed value. Re-encoding
+// that value would round i64 seed literals before a checkpoint reaches a client.
+class JsonText {
+  constructor(text) {
+    this.value = JSON.parse(text);
+    this.text = text;
+  }
+}
+
 function isObject(value) {
   return value !== null && typeof value === "object" && !Array.isArray(value);
 }
@@ -71,7 +80,13 @@ function tool(name, description, properties = {}, required = []) {
 
 const TOOLS = [
   tool("sim_start", "Start or replace a career and make it active. Omitted session starts the default main career.", {
-    seed: { type: "integer", minimum: Number.MIN_SAFE_INTEGER, maximum: Number.MAX_SAFE_INTEGER },
+    seed: {
+      description: "Safe integer number or canonical decimal string from -9223372036854775808 through 9223372036854775807. Use a string for full signed-64-bit precision.",
+      anyOf: [
+        { type: "integer", minimum: Number.MIN_SAFE_INTEGER, maximum: Number.MAX_SAFE_INTEGER },
+        { type: "string", pattern: "^(?:0|-?[1-9][0-9]*)$", maxLength: 20 },
+      ],
+    },
     scenario: STRING, trainee: STRING,
     speed: { type: "integer", minimum: 1, maximum: 100 },
     deckSupports: STRING, legacyFactors: STRING, session: STRING, label: STRING,
@@ -104,10 +119,13 @@ const TOOLS = [
     name: NONEMPTY, session: NAMED_SESSION, label: STRING,
   }, ["name"]),
   tool("sim_library_delete", "Delete a durable checkpoint by name", { name: NONEMPTY }, ["name"]),
-  tool("sim_library_import", "Validate and import an exported snapshot object as a durable checkpoint. Existing names are preserved unless overwrite is explicitly true.", {
+  tool("sim_library_import", "Import a snapshot object containing only safe integer numbers. Use sim_library_import_json for exact exported JSON, including full signed-64-bit seeds. Existing names are preserved unless overwrite is explicitly true.", {
     snapshot: { type: "object" }, name: NONEMPTY, overwrite: { type: "boolean" },
   }, ["snapshot"]),
-  tool("sim_library_export", "Read a checkpoint's raw snapshot JSON for a portable backup or later import", { name: NONEMPTY }, ["name"]),
+  tool("sim_library_import_json", "Validate and import a checkpoint from its exact exported JSON text without rounding seed or RNG values. Existing names are preserved unless overwrite is explicitly true.", {
+    snapshotJson: NONEMPTY, name: NONEMPTY, overwrite: { type: "boolean" },
+  }, ["snapshotJson"]),
+  tool("sim_library_export", "Read a checkpoint's exact snapshot JSON text for a portable backup or sim_library_import_json", { name: NONEMPTY }, ["name"]),
   tool("sim_lab_branch", "Run an independent experiment from a checkpoint or session:<id> and retain its decisions and outcome. Source careers are unchanged. Different actions can diverge the RNG stream; one comparison does not establish policy superiority.", {
     checkpoint: NONEMPTY, name: NONEMPTY,
     policy: { type: "string", enum: ["bot", "default"] },
@@ -138,6 +156,17 @@ const TOOLS = [
 // REST intentionally coerces some fields and filters malformed overrides;
 // an MCP caller must not silently run a different experiment after a typo.
 function validate(value, schema, path = "arguments") {
+  if (schema.anyOf) {
+    for (const option of schema.anyOf) {
+      try {
+        validate(value, option, path);
+        return;
+      } catch (error) {
+        if (!(error instanceof InvalidParamsError)) throw error;
+      }
+    }
+    throw new InvalidParamsError(`${path} must match an advertised input schema`);
+  }
   const type = schema.type;
   const validType = type === "object" ? value !== null && typeof value === "object" && !Array.isArray(value)
     : type === "array" ? Array.isArray(value)
@@ -149,6 +178,12 @@ function validate(value, schema, path = "arguments") {
   }
   if (schema.minLength !== undefined && value.length < schema.minLength) {
     throw new InvalidParamsError(`${path} must not be empty`);
+  }
+  if (schema.maxLength !== undefined && value.length > schema.maxLength) {
+    throw new InvalidParamsError(`${path} is too long`);
+  }
+  if (schema.pattern !== undefined && !new RegExp(schema.pattern).test(value)) {
+    throw new InvalidParamsError(`${path} does not match its required format`);
   }
   if ((schema.minimum !== undefined && value < schema.minimum) || (schema.maximum !== undefined && value > schema.maximum)) {
     throw new InvalidParamsError(`${path} must be between ${schema.minimum} and ${schema.maximum}`);
@@ -169,6 +204,50 @@ function validate(value, schema, path = "arguments") {
   }
 }
 
+function exactSeedString(value = 42) {
+  const text = String(value);
+  const seed = BigInt(text);
+  // The equality also rejects a trailing line terminator accepted by a regexp
+  // end anchor. Never let the native API silently fall back to seed 42.
+  if (String(seed) !== text || seed < -9223372036854775808n || seed > 9223372036854775807n) {
+    throw new InvalidParamsError("seed must be a canonical signed-64-bit decimal from -9223372036854775808 through 9223372036854775807");
+  }
+  return text;
+}
+
+function requireSafeSnapshotNumbers(snapshot) {
+  const pending = [snapshot];
+  while (pending.length) {
+    const value = pending.pop();
+    if (typeof value === "number" &&
+        (!Number.isFinite(value) || (Number.isInteger(value) && !Number.isSafeInteger(value)))) {
+      throw new InvalidParamsError("snapshot contains an unsafe integer or nonfinite number; use sim_library_import_json with the original exported JSON text");
+    }
+    if (value !== null && typeof value === "object") {
+      for (const child of Object.values(value)) pending.push(child);
+    }
+  }
+}
+
+function checkpointJsonBody(args) {
+  if (!args.snapshotJson.isWellFormed()) {
+    throw new InvalidParamsError("snapshotJson must contain well-formed Unicode text");
+  }
+  let snapshot;
+  try {
+    snapshot = new JsonText(args.snapshotJson);
+  } catch {
+    throw new InvalidParamsError("snapshotJson must contain one complete JSON object");
+  }
+  if (!isObject(snapshot.value)) {
+    throw new InvalidParamsError("snapshotJson must contain one complete JSON object");
+  }
+  // Validate the complete object first, then retain its original text inside
+  // the envelope. Only the optional metadata passes through JSON.stringify.
+  const metadata = JSON.stringify({ name: args.name, overwrite: args.overwrite });
+  return new JsonText(`{"snapshot":${snapshot.text}${metadata === "{}" ? "" : "," + metadata.slice(1, -1)}}`);
+}
+
 function queryPath(path, params) {
   const query = new URLSearchParams();
   for (const [key, value] of Object.entries(params)) {
@@ -181,10 +260,11 @@ async function api(method, path, body, format = "json") {
   const res = await fetch(`${API}${path}`, {
     method,
     headers: body ? { "Content-Type": "application/json" } : undefined,
-    body: body ? JSON.stringify(body) : undefined,
+    body: body ? (body instanceof JsonText ? body.text : JSON.stringify(body)) : undefined,
   });
   if (!res.ok) throw new BackendHttpError(res.status, await res.text());
-  return format === "text" ? res.text() : res.json();
+  const text = await res.text();
+  return format === "text" ? text : new JsonText(text);
 }
 
 async function readResource(uri) {
@@ -204,7 +284,7 @@ async function callTool(name, args) {
   switch (name) {
     case "sim_start":
       return api("POST", "/v1/run/start", {
-        seed: String(args.seed ?? 42),
+        seed: exactSeedString(args.seed),
         scenario: args.scenario ?? "ura",
         trainee: args.trainee ?? "Special Week",
         speed: String(args.speed ?? 1),
@@ -258,7 +338,10 @@ async function callTool(name, args) {
     case "sim_library_delete":
       return api("POST", "/v1/library/delete", args);
     case "sim_library_import":
+      requireSafeSnapshotNumbers(args.snapshot);
       return api("POST", "/v1/library/import", args);
+    case "sim_library_import_json":
+      return api("POST", "/v1/library/import", checkpointJsonBody(args));
     case "sim_library_export":
       return api("GET", queryPath("/v1/library/export", args));
     case "sim_lab_branch":
@@ -352,7 +435,7 @@ async function handle(req) {
         contents: [{
           uri: params.uri,
           mimeType: params.uri.endsWith("/text") ? "text/plain" : "application/json",
-          text: typeof data === "string" ? data : JSON.stringify(data, null, 2),
+          text: typeof data.value === "string" ? data.value : data.text,
         }],
       },
     });
@@ -382,7 +465,7 @@ async function handle(req) {
     send({
       jsonrpc: "2.0",
       id,
-      result: { content: [{ type: "text", text: params.name === "sim_lab_report" && args.format !== "json" ? result : JSON.stringify(result, null, 2) }] },
+      result: { content: [{ type: "text", text: params.name === "sim_lab_report" && args.format !== "json" ? result : result.text }] },
     });
     return;
   }

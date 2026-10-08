@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { fixture, toolJson, toolText, paramsError, executionError } from './helpers/mcp-client.mjs';
 
 const oldNames = ['sim_start', 'sim_state', 'sim_text', 'sim_choices', 'sim_act', 'sim_auto', 'sim_fast_forward', 'sim_export_telemetry', 'sim_load_content_pack', 'sim_deck_place'];
-const newNames = ['sim_sessions', 'sim_session_fork', 'sim_session_activate', 'sim_session_close', 'sim_library_list', 'sim_library_save', 'sim_library_load', 'sim_library_delete', 'sim_library_import', 'sim_library_export', 'sim_lab_branch', 'sim_lab_branches', 'sim_lab_branch_get', 'sim_lab_branch_delete', 'sim_lab_compare', 'sim_lab_report'];
+const newNames = ['sim_sessions', 'sim_session_fork', 'sim_session_activate', 'sim_session_close', 'sim_library_list', 'sim_library_save', 'sim_library_load', 'sim_library_delete', 'sim_library_import', 'sim_library_import_json', 'sim_library_export', 'sim_lab_branch', 'sim_lab_branches', 'sim_lab_branch_get', 'sim_lab_branch_delete', 'sim_lab_compare', 'sim_lab_report'];
 
 test('discovery preserves existing tool and resource identities and publishes the full lab boundary', async t => {
   const { client, requests } = await fixture(t);
@@ -144,7 +144,7 @@ test('invalid containers and mutation arguments fail before HTTP dispatch', asyn
   const invalid = [
     ...[null, [], false, 'text', 4].map(args => ['sim_state', args]),
     ['sim_act', {}], ['sim_act', { action: 1 }], ['sim_act', { action: 'rest', session: null }],
-    ['sim_act', { action: 'rest', sessionId: 'sibling' }], ['sim_start', { seed: '7' }],
+    ['sim_act', { action: 'rest', sessionId: 'sibling' }], ['sim_start', { seed: '07' }],
     ['sim_start', { seed: 9007199254740992 }], ['sim_start', { speed: 0 }], ['sim_fast_forward', { multiplier: 101 }],
     ['sim_start', { raceModel: false }], ['sim_library_save', JSON.parse('{"name":"mid","__proto__":{"overwrite":true}}')],
     ['sim_library_save', { name: 'mid', constructor: true }],

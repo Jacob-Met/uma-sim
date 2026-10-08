@@ -1,0 +1,51 @@
+{
+  "schema": "uma_mcp.independent_source_commit_binding.v1",
+  "recorded_at": "2026-10-08T16:05:22.417Z",
+  "native_commit": "ec96217c590087b645d2715ee1c84fd5768563a4",
+  "tree": "7597d189f1a914e0cb179af9914652cd627cf91c",
+  "parent": "b026a21f437789d7a7cd04c5074258302e36814e",
+  "clean": true,
+  "all_six_reviewed_leaves_unchanged": true,
+  "files": [
+    {
+      "path": "packages/uma-sim-mcp/README.md",
+      "git_blob": "058d5b99920752f6cb3cf1c05ae1cc226b074b7f",
+      "sha256": "d824e6c992a4f58c791c6a4633901debb3acd0332b1fbfcc375c03bc68c7df05",
+      "mode": 420
+    },
+    {
+      "path": "packages/uma-sim-mcp/mcp-stdio.js",
+      "git_blob": "59df3ce6d6b18112ac9e25aed02a07346fca3f00",
+      "sha256": "3d5f61a368bae5b4bf91ba839b925820ef949a4bb9274dcf7e9d91e9cc02a736",
+      "mode": 420
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/career-lab-protocol.test.mjs",
+      "git_blob": "c8363551f718297b81958e955c07e122fcc596ec",
+      "sha256": "1023591696bff0277bbaa8bff9170aef0f28e6d861a882333b64330f29509aeb",
+      "mode": 420
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/mcp-handshake.test.mjs",
+      "git_blob": "6bd2e3ee56239ebd1aab5517f04aceb1f0dee6b9",
+      "sha256": "5d63b0d3abf10034b1f4a424ddff3d1971c214182f029e3b10200c672b046990",
+      "mode": 420
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/exact-checkpoint-native.test.mjs",
+      "git_blob": "a13e6038da99b5ce04fa31e3babd5eb2c2883934",
+      "sha256": "38acd4b0063d3ae4f14280a071977068a46162ebe3ef964ce1320b1a8c6b9381",
+      "mode": 420
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/exact-json-protocol.test.mjs",
+      "git_blob": "075403ec9ad9694a70f02a7039206809c15e120f",
+      "sha256": "9ef4b6641e9cd9e9c001f816d97ca1ebffb4303205f61247c9f499a42590c25d",
+      "mode": 420
+    }
+  ],
+  "producer_receipt_sha256": "6d35ec6a9b00905a7b24b2dfd159dc86385cb27e91946f1f2599c471ebaf28f6",
+  "original_packet_manifest": "b662798f8ed9dc4759ed16d7eb39d084bf3e58f7279a507ae043a25203764c3d",
+  "runtime_replay": "No rerun; exact reviewed runtime and package closure preserved.",
+  "limit": "Author source commit binding only, not current main composition."
+}

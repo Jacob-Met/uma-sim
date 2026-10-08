@@ -57,9 +57,38 @@ use tools for explicit named targeting.
 `sim_load_content_pack` changes the shared catalog for **all** sessions. It has
 no `session` argument.
 
+## Exact seeds and portable checkpoint text
+
+`sim_start.seed` accepts a safe integer number or a canonical decimal string.
+Use a string for the full signed-64-bit range, from `"-9223372036854775808"`
+through `"9223372036854775807"`:
+
+```json
+{ "name": "sim_start", "arguments": { "session": "exact-seed", "seed": "9223372036854775807" } }
+```
+
+Decimal strings have no leading zeros, plus sign, whitespace, exponent,
+fractional part, or negative zero. Numeric inputs remain limited to
+`-9007199254740991` through `9007199254740991`; omission still uses seed 42.
+Invalid seeds are rejected before the API can fall back to its default.
+
+Keep the **text content returned by `sim_library_export`** as the portable
+checkpoint. Pass that same text as `snapshotJson` to
+`sim_library_import_json`, with an optional `name` and boolean `overwrite`.
+The bridge validates one complete JSON object and forwards its original text
+to the native importer. This preserves large seed and RNG integer literals.
+
+Do not parse and re-encode the exported text through ordinary JavaScript
+numbers when copying a checkpoint: that can round its seed before a new
+request reaches the bridge. The existing `sim_library_import` accepts snapshot
+objects containing safe integers and other ordinary JSON values; it refuses
+unsafe integer and nonfinite number leaves and points to the JSON-text tool.
+The text tool rejects invalid JSON, a non-object root, and literal malformed
+Unicode before HTTP. The native API validates the snapshot and its storage.
+
 ## Tools
 
-The server advertises 26 tools through `tools/list`; their input schemas contain
+The server advertises 27 tools through `tools/list`; their input schemas contain
 the supported fields and bounds. Unknown fields and incorrectly typed arguments
 are rejected before any REST call.
 
@@ -75,14 +104,16 @@ are rejected before any REST call.
 | `sim_session_activate`, `sim_session_close` | Activate an existing career or discard a named live career. Save a checkpoint before closing to retain its progress. |
 | `sim_library_list`, `sim_library_save` | List durable checkpoints or save the target career with an optional name, label, and note. |
 | `sim_library_load`, `sim_library_delete` | Restore a checkpoint into a career, replacing that career's progress, or delete the checkpoint. |
-| `sim_library_export`, `sim_library_import` | Export a raw snapshot object and validate/import that object under an optional new name. |
+| `sim_library_export`, `sim_library_import_json` | Export exact snapshot JSON text and import that text under an optional new name. |
+| `sim_library_import` | Import an already parsed snapshot object whose integer values are all safe JavaScript integers. |
 | `sim_lab_branch`, `sim_lab_branches` | Execute an independent branch experiment and list retained experiments. |
 | `sim_lab_branch_get`, `sim_lab_branch_delete` | Read a complete recorded experiment or delete it by id. |
 | `sim_lab_compare`, `sim_lab_report` | Compare two branch ids or retrieve their complete Markdown/JSON report. |
 
 Checkpoint save/import preserve existing names unless the boolean
-`overwrite: true` is supplied. A string such as `"true"` is rejected. Imports
-accept the exported JSON **object**, not a string containing JSON. Canonical
+`overwrite: true` is supplied. A string such as `"true"` is rejected. Use
+`snapshotJson` with `sim_library_import_json` for exported JSON text, or
+`snapshot` with `sim_library_import` for an already parsed JSON object. Canonical
 snapshot and compatibility validation remains in Rust; its error body or
 `compatAdvisories` reaches the MCP client unchanged inside the response.
 
@@ -131,9 +162,11 @@ them, and wait for each dependent call to finish.
    `format: "json"` for structured comparison data. `sim_lab_branch_get` exposes
    the recorded decisions behind either outcome.
 
-4. Keep a portable checkpoint with `sim_library_export` and restore the returned
-   snapshot object through `sim_library_import`. An invalid or incompatible
-   import is reported as an error; it does not become a successful empty result.
+4. Keep a portable checkpoint with `sim_library_export`. For its full JSON-RPC
+   response, the exact snapshot text is `response.result.content[0].text`.
+   Pass that string as `snapshotJson` to `sim_library_import_json` to restore it,
+   with an optional new `name`. An invalid or incompatible import is reported
+   as an error; it does not become a successful empty result.
 
 Branches share the source seed and RNG position. Different actions can consume
 randomness differently, so the results do not promise matched future randomness
@@ -156,9 +189,11 @@ exactly, including JSON, plain text, whitespace, or malformed JSON. An empty
 body omits the colon and body. Failed resource reads, transport failures, and
 malformed JSON success responses remain `-32603`.
 
-Successful JSON tool payloads retain JSON encoding, including string values
-returned by the existing tools. Only the new Markdown report is delivered as
-literal text; selecting its JSON format retains JSON encoding.
+Successful JSON tool payloads retain the native JSON text, including number
+literals, whitespace, and JSON-encoded string values returned by the existing
+tools. JSON is validated before delivery. Only the Markdown report is delivered
+as literal text; selecting its JSON format retains JSON encoding. Text resources
+continue to decode a native JSON string into plain text.
 
 The wrapper does not automatically retry mutations. A lost response can leave
 the operation's outcome unknown. Inspect the relevant sessions, checkpoints, or
@@ -183,8 +218,9 @@ UMA_SIM_TEST_API_BIN="$PWD/target/debug/uma-sim-api" \
 
 Native tests use a temporary working directory, a private loopback server, and
 the repository's shipped catalogs. They check actual session isolation,
-checkpoint export/import/load, retained branch decisions, divergence reports,
-compatibility refusal, and HTTP errors through the real MCP process. They skip
+checkpoint export/import/load, exact signed-64-bit seed text and resumed RNG
+state, retained branch decisions, divergence reports, compatibility refusal,
+and HTTP errors through the real MCP process. They skip
 only when `UMA_SIM_TEST_API_BIN` is unset. Supplying an unavailable binary is a
 failure. CI supplies the freshly built release API in its Rust job; the separate
 MCP job runs the offline protocol tests with Node 20.
