@@ -1,5 +1,8 @@
 //! uma-sim CLI — parity with Kotlin `SimCliMain`.
 
+#[path = "uma_sim/paired_batches.rs"]
+mod paired_batches;
+
 use std::path::PathBuf;
 use std::time::Instant;
 use uma_sim_core::deck::DeckPlacement;
@@ -22,6 +25,7 @@ fn main() {
         "fast" => cmd_fast(&args[1..]),
         "batch" => cmd_batch(&args[1..]),
         "analyze" => cmd_analyze(&args[1..]),
+        "compare-batches" => std::process::exit(paired_batches::run(&args[1..])),
         "export-telemetry" => cmd_export_telemetry(&args[1..]),
         "validate" => cmd_validate(&args[1..]),
         "content" => match args.get(1).map(|s| s.as_str()) {
@@ -570,6 +574,7 @@ uma-sim CLI v0.4 (Rust)
   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
   batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
   analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]
+  compare-batches --input=FILE --baseline=FILE [--format=text|json]
   validate [--path=content_packs/example.json]
   content validate [--path=...]
   serve [--port=8765] [--open]

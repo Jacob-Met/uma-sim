@@ -1,0 +1,20 @@
+{
+  "runtime_started_before_correction": false,
+  "drivers_match_frozen_original_except_root_constant": true,
+  "files": [
+    {
+      "path": "receive-v1.mjs",
+      "before_sha256": "d858559684ac066c4a14f68c734e6e3c4debcbf3b9fb62f724a375fc351e9999",
+      "after_sha256": "94e3137aeebe9897a2c31a6d66192ff328255bd59340f44726c0687539ece7e1",
+      "change": "remove one staging-added trailing newline",
+      "failed_preparation_copy": "receive-v1.mjs.preparation-extra-newline"
+    },
+    {
+      "path": "admission-boundary-v1.mjs",
+      "before_sha256": "77f4aaf05664d60eac59cdd94a1c402cb34bf5271e774884945724aac58d57e1",
+      "after_sha256": "3439fbb28474b811278c52ead69711226ba136c795773bcbceaa055d3df4f27c",
+      "change": "remove one staging-added trailing newline",
+      "failed_preparation_copy": "admission-boundary-v1.mjs.preparation-extra-newline"
+    }
+  ]
+}

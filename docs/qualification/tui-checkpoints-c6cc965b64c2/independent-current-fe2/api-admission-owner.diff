@@ -1,0 +1,581 @@
+diff --git a/uma-sim-core/src/api.rs b/uma-sim-core/src/api.rs
+index 4ff7034..eab9ccf 100644
+--- a/uma-sim-core/src/api.rs
++++ b/uma-sim-core/src/api.rs
+@@ -88,7 +88,7 @@ pub fn serve_opts(port: u16, open_browser: bool) {
+         }
+         let body = read_body(&mut request);
+         let mut st = state.lock().unwrap();
+-        let response = with_cors(route(&mut st, &method, &path, &query, &body));
++        let response = with_cors(route(&mut st, &method, &path, &query, body.as_deref()));
+         drop(st);
+         let _ = request.respond(response);
+     }
+@@ -116,7 +116,7 @@ fn route(
+     method: &Method,
+     path: &str,
+     query: &HashMap<String, String>,
+-    body: &str,
++    body: Result<&str, &std::io::Error>,
+ ) -> Response<Cursor<Vec<u8>>> {
+     match (method, path) {
+         (Method::Get, "/v1/health") => handle_health(),
+@@ -124,33 +124,61 @@ fn route(
+         (Method::Get, "/v1/catalog/trainees") => handle_catalog_trainees(),
+         (Method::Get, "/v1/catalog/supports") => handle_catalog_supports(),
+         (Method::Get, "/v1/catalog/factors") => handle_catalog_factors(),
+-        (Method::Post, "/v1/run/start") => handle_start(st, body),
++        (Method::Post, "/v1/run/start") => with_json_body(body, |body| handle_start(st, body)),
+         (Method::Get, "/v1/run/state") => handle_state(st, query),
+         (Method::Get, "/v1/run/text") => handle_text(st, query),
+         (Method::Get, "/v1/run/choices") => handle_choices(st, query),
+-        (Method::Post, "/v1/run/action") => handle_action(st, body, query),
+-        (Method::Post, "/v1/run/auto") => handle_auto(st, body, query),
+-        (Method::Post, "/v1/run/fast") => handle_fast(st, body, query),
++        (Method::Post, "/v1/run/action") => {
++            with_json_body(body, |body| handle_action(st, body, query))
++        }
++        (Method::Post, "/v1/run/auto") => with_json_body(body, |body| handle_auto(st, body, query)),
++        (Method::Post, "/v1/run/fast") => with_json_body(body, |body| handle_fast(st, body, query)),
+         (Method::Get, "/v1/run/telemetry") => handle_telemetry(st, query),
+-        (Method::Post, "/v1/run/load_content_pack") => handle_load_content_pack(st, body),
+-        (Method::Post, "/v1/run/deck/place") => handle_deck_place(st, body, query),
+-        (Method::Post, "/v1/run/style") => handle_set_style(st, body, query),
++        (Method::Post, "/v1/run/load_content_pack") => {
++            with_json_body(body, |body| handle_load_content_pack(st, body))
++        }
++        (Method::Post, "/v1/run/deck/place") => {
++            with_json_body(body, |body| handle_deck_place(st, body, query))
++        }
++        (Method::Post, "/v1/run/style") => {
++            with_json_body(body, |body| handle_set_style(st, body, query))
++        }
+         // Career-lab: sessions (fork/resume), named checkpoint library, branch & compare.
+         (Method::Get, "/v1/sessions") => handle_sessions(st),
+-        (Method::Post, "/v1/session/fork") => handle_session_fork(st, body),
+-        (Method::Post, "/v1/session/close") => handle_session_close(st, body),
+-        (Method::Post, "/v1/session/activate") => handle_session_activate(st, body),
++        (Method::Post, "/v1/session/fork") => {
++            with_json_body(body, |body| handle_session_fork(st, body))
++        }
++        (Method::Post, "/v1/session/close") => {
++            with_json_body(body, |body| handle_session_close(st, body))
++        }
++        (Method::Post, "/v1/session/activate") => {
++            with_json_body(body, |body| handle_session_activate(st, body))
++        }
+         (Method::Get, "/v1/library") => handle_library_list(st),
+-        (Method::Post, "/v1/library/save") => handle_library_save(st, body),
+-        (Method::Post, "/v1/library/load") => handle_library_load(st, body),
+-        (Method::Post, "/v1/library/delete") => handle_library_delete(st, body),
+-        (Method::Post, "/v1/library/import") => handle_library_import(st, body),
++        (Method::Post, "/v1/library/save") => {
++            with_json_body(body, |body| handle_library_save(st, body))
++        }
++        (Method::Post, "/v1/library/load") => {
++            with_json_body(body, |body| handle_library_load(st, body))
++        }
++        (Method::Post, "/v1/library/delete") => {
++            with_json_body(body, |body| handle_library_delete(st, body))
++        }
++        (Method::Post, "/v1/library/import") => {
++            with_json_body(body, |body| handle_library_import(st, body))
++        }
+         (Method::Get, "/v1/library/export") => handle_library_export(st, query),
+-        (Method::Post, "/v1/lab/branch") => handle_lab_branch(st, body),
++        (Method::Post, "/v1/lab/branch") => {
++            with_json_body(body, |body| handle_lab_branch(st, body))
++        }
+         (Method::Get, "/v1/lab/branches") => handle_lab_branches(st),
+         (Method::Get, "/v1/lab/branch") => handle_lab_branch_get(st, query),
+-        (Method::Post, "/v1/lab/branch/delete") => handle_lab_branch_delete(st, body),
+-        (Method::Post, "/v1/lab/compare") => handle_lab_compare(st, body),
++        (Method::Post, "/v1/lab/branch/delete") => {
++            with_json_body(body, |body| handle_lab_branch_delete(st, body))
++        }
++        (Method::Post, "/v1/lab/compare") => {
++            with_json_body(body, |body| handle_lab_compare(st, body))
++        }
+         (Method::Get, "/v1/lab/report") => handle_lab_report(st, query),
+         _ if is_known_path(path) => method_not_allowed(),
+         (Method::Get, _) => serve_static(path),
+@@ -239,17 +267,37 @@ fn percent_decode(s: &str) -> String {
+     out
+ }
+ 
+-fn read_body(request: &mut Request) -> String {
++fn read_body(request: &mut Request) -> std::io::Result<String> {
+     let mut buf = String::new();
+-    let _ = std::io::Read::read_to_string(&mut request.as_reader(), &mut buf);
+-    buf
++    std::io::Read::read_to_string(&mut request.as_reader(), &mut buf)?;
++    Ok(buf)
+ }
+ 
+-fn parse_body(raw: &str) -> Value {
++fn parse_body(raw: &str) -> Result<Value, &'static str> {
++    // Empty bodies are an existing shorthand for an object with default fields.
+     if raw.trim().is_empty() {
+-        return json!({});
++        return Ok(json!({}));
++    }
++    let body: Value = serde_json::from_str(raw).map_err(|_| "invalid JSON request body")?;
++    if !body.is_object() {
++        return Err("JSON request body must be an object");
++    }
++    Ok(body)
++}
++
++/// Admit a body only after route/method selection, before a handler can mutate
++/// state. Reading errors (including invalid UTF-8) are never default commands.
++fn with_json_body(
++    raw: Result<&str, &std::io::Error>,
++    handler: impl FnOnce(&Value) -> Response<Cursor<Vec<u8>>>,
++) -> Response<Cursor<Vec<u8>>> {
++    match raw
++        .map_err(|_| "could not read request body")
++        .and_then(parse_body)
++    {
++        Ok(body) => handler(&body),
++        Err(error) => json_response(400, json!({"error": error})),
+     }
+-    serde_json::from_str(raw).unwrap_or_else(|_| json!({}))
+ }
+ 
+ fn body_string(body: &Value, key: &str) -> Option<String> {
+@@ -495,12 +543,11 @@ fn handle_catalog_factors() -> Response<Cursor<Vec<u8>>> {
+     json_response(200, json!({"items": items}))
+ }
+ 
+-fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let seed = body_string(&body, "seed")
++fn handle_start(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
++    let seed = body_string(body, "seed")
+         .and_then(|s| s.parse().ok())
+         .unwrap_or(42_i64);
+-    let scenario = body_string(&body, "scenario").unwrap_or_else(|| "ura".into());
++    let scenario = body_string(body, "scenario").unwrap_or_else(|| "ura".into());
+     // Reject unknown scenarios with 400: the engine silently falls back to the
+     // URA plugin while keeping the raw id, producing divergent, silently-wrong
+     // runs (see issue #6 secondary item).
+@@ -510,12 +557,12 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+             json!({"error": format!("unknown scenario '{scenario}'; expected one of: {}", crate::KNOWN_SCENARIO_IDS.join(", "))}),
+         );
+     }
+-    let trainee = body_string(&body, "trainee").unwrap_or_else(|| "Special Week".into());
+-    let speed = body_string(&body, "speed")
++    let trainee = body_string(body, "trainee").unwrap_or_else(|| "Special Week".into());
++    let speed = body_string(body, "speed")
+         .and_then(|s| s.parse::<i32>().ok())
+         .unwrap_or(1)
+         .clamp(1, 100);
+-    let legacy_factors = body_string(&body, "legacyFactors")
++    let legacy_factors = body_string(body, "legacyFactors")
+         .map(|s| {
+             s.split(',')
+                 .map(|x| x.trim().to_string())
+@@ -528,7 +575,7 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+         .cloned()
+         .and_then(|v| serde_json::from_value::<crate::state::LegacyTree>(v).ok())
+         .filter(|t| t.is_populated());
+-    let deck_supports = body_string(&body, "deckSupports")
++    let deck_supports = body_string(body, "deckSupports")
+         .map(|s| {
+             s.split(',')
+                 .map(|x| x.trim().to_string())
+@@ -536,13 +583,13 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+                 .collect::<Vec<_>>()
+         })
+         .unwrap_or_default();
+-    let trace_telemetry = body_string(&body, "traceTelemetry")
++    let trace_telemetry = body_string(body, "traceTelemetry")
+         .and_then(|s| s.parse().ok())
+         .unwrap_or(false);
+-    let trace_rng = body_string(&body, "traceRng")
++    let trace_rng = body_string(body, "traceRng")
+         .and_then(|s| s.parse().ok())
+         .unwrap_or(false);
+-    let dialogue = match body_string(&body, "dialogue")
++    let dialogue = match body_string(body, "dialogue")
+         .unwrap_or_default()
+         .to_lowercase()
+         .as_str()
+@@ -553,7 +600,7 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+     };
+     // Unknown raceModel values fail with 400 instead of silently flipping to
+     // the legacy stub when the documented default is physics.
+-    let race_model = match body_string(&body, "raceModel") {
++    let race_model = match body_string(body, "raceModel") {
+         Some(s) => match RaceModel::parse(&s) {
+             Some(m) => m,
+             None => {
+@@ -565,7 +612,7 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+         },
+         None => RaceModel::default(),
+     };
+-    if let Some(policy) = body_string(&body, "policy") {
++    if let Some(policy) = body_string(body, "policy") {
+         let p = policy.to_lowercase();
+         if p == "bot" || p == "default" || p == "external" {
+             st.default_policy = p;
+@@ -585,12 +632,12 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+     meta.legacy_factors = legacy_factors;
+     meta.legacy_tree = legacy_tree;
+     meta.deck_supports = deck_supports;
+-    if let Some(c) = body_string(&body, "compatibilityScore").and_then(|s| s.parse().ok()) {
++    if let Some(c) = body_string(body, "compatibilityScore").and_then(|s| s.parse().ok()) {
+         meta.compatibility_score = c;
+     } else if let Some(n) = body.get("compatibilityScore").and_then(|v| v.as_i64()) {
+         meta.compatibility_score = n as i32;
+     }
+-    if let Some(parents) = body_string(&body, "parentNames") {
++    if let Some(parents) = body_string(body, "parentNames") {
+         meta.parent_names = parents
+             .split(',')
+             .map(|x| x.trim().to_string())
+@@ -600,13 +647,13 @@ fn handle_start(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+     engine.start(meta);
+     // (Re)start the target session. An explicit `session` id starts an
+     // independent career; the default session keeps the legacy behavior.
+-    let session_id = body_string(&body, "session").unwrap_or_default();
++    let session_id = body_string(body, "session").unwrap_or_default();
+     if !session_id.is_empty() {
+         if let Err(e) = validate_entry_name(&session_id) {
+             return lab_error_response(&e);
+         }
+     }
+-    let label = body_string(&body, "label")
++    let label = body_string(body, "label")
+         .filter(|s| !s.trim().is_empty())
+         .unwrap_or_else(|| {
+             if session_id.is_empty() {
+@@ -655,33 +702,31 @@ fn handle_choices(st: &ApiState, query: &HashMap<String, String>) -> Response<Cu
+ 
+ fn handle_action(
+     st: &mut ApiState,
+-    raw: &str,
++    body: &Value,
+     query: &HashMap<String, String>,
+ ) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let slot = match resolve_session(st, &body, query) {
++    let slot = match resolve_session(st, body, query) {
+         Ok(s) => s,
+         Err(r) => return r,
+     };
+     let eng = &mut slot.engine;
+-    let action = body_string(&body, "action").unwrap_or_else(|| "rest".into());
++    let action = body_string(body, "action").unwrap_or_else(|| "rest".into());
+     let result = eng.step(parse_sim_action(&action));
+     step_response(eng, result.text_lines.join("\n"), result.career_ended)
+ }
+ 
+ fn handle_auto(
+     st: &mut ApiState,
+-    raw: &str,
++    body: &Value,
+     query: &HashMap<String, String>,
+ ) -> Response<Cursor<Vec<u8>>> {
+     let policy_fallback = st.default_policy.clone();
+-    let body = parse_body(raw);
+-    let slot = match resolve_session(st, &body, query) {
++    let slot = match resolve_session(st, body, query) {
+         Ok(s) => s,
+         Err(r) => return r,
+     };
+     let eng = &mut slot.engine;
+-    let policy_name = body_string(&body, "policy").unwrap_or(policy_fallback);
++    let policy_name = body_string(body, "policy").unwrap_or(policy_fallback);
+     let result = if policy_name == "bot" {
+         eng.auto_step_scoring()
+     } else if policy_name.eq_ignore_ascii_case("external") {
+@@ -705,22 +750,21 @@ fn handle_auto(
+ 
+ fn handle_fast(
+     st: &mut ApiState,
+-    raw: &str,
++    body: &Value,
+     query: &HashMap<String, String>,
+ ) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let mult = body_string(&body, "multiplier")
++    let mult = body_string(body, "multiplier")
+         .and_then(|s| s.parse::<i32>().ok())
+         .unwrap_or(st.settings.speed_multiplier)
+         .clamp(1, 100);
+-    let policy_name = body_string(&body, "policy").unwrap_or_else(|| st.default_policy.clone());
++    let policy_name = body_string(body, "policy").unwrap_or_else(|| st.default_policy.clone());
+ 
+     // Nothing is committed until the run succeeds: neither the API-level
+     // speed setting nor the engine. A 404 or 503 leaves both unchanged.
+     // The session borrow covers all of `st`, so the response fields are
+     // copied out of the block before the API-level setting is committed.
+     let (career_ended, turn, fans) = {
+-        let slot = match resolve_session(st, &body, query) {
++        let slot = match resolve_session(st, body, query) {
+             Ok(s) => s,
+             Err(r) => return r,
+         };
+@@ -770,9 +814,8 @@ fn handle_telemetry(st: &ApiState, query: &HashMap<String, String>) -> Response<
+     json_response_str(200, &slot.engine.export_telemetry_json())
+ }
+ 
+-fn handle_load_content_pack(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let Some(path_str) = body_string(&body, "path") else {
++fn handle_load_content_pack(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
++    let Some(path_str) = body_string(body, "path") else {
+         return json_response(400, json!({"error":"path required"}));
+     };
+     let root = detect_repo_root().unwrap_or_else(|| std::path::PathBuf::from("."));
+@@ -816,19 +859,18 @@ fn reinstall_event_catalog(root: &std::path::Path) {
+ 
+ fn handle_deck_place(
+     st: &mut ApiState,
+-    raw: &str,
++    body: &Value,
+     query: &HashMap<String, String>,
+ ) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let slot = match resolve_session(st, &body, query) {
++    let slot = match resolve_session(st, body, query) {
+         Ok(s) => s,
+         Err(r) => return r,
+     };
+     let eng = &mut slot.engine;
+-    let Some(support_id) = body_string(&body, "supportId") else {
++    let Some(support_id) = body_string(body, "supportId") else {
+         return json_response(400, json!({"error":"supportId required"}));
+     };
+-    let Some(facility_raw) = body_string(&body, "facility") else {
++    let Some(facility_raw) = body_string(body, "facility") else {
+         return json_response(400, json!({"error":"facility required"}));
+     };
+     let Some(facility) = DeckPlacement::parse_facility_name(&facility_raw) else {
+@@ -843,16 +885,15 @@ fn handle_deck_place(
+ 
+ fn handle_set_style(
+     st: &mut ApiState,
+-    raw: &str,
++    body: &Value,
+     query: &HashMap<String, String>,
+ ) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let slot = match resolve_session(st, &body, query) {
++    let slot = match resolve_session(st, body, query) {
+         Ok(s) => s,
+         Err(r) => return r,
+     };
+     let eng = &mut slot.engine;
+-    let Some(style) = body_string(&body, "style") else {
++    let Some(style) = body_string(body, "style") else {
+         return json_response(400, json!({"error":"style required (front|pace|late|end)"}));
+     };
+     let key = style.trim().to_ascii_lowercase();
+@@ -877,11 +918,10 @@ fn handle_sessions(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
+ /// Fork a new session from a library checkpoint (or from another live
+ /// session). The new session is an independent engine: playing it can never
+ /// mutate the checkpoint or a sibling session.
+-fn handle_session_fork(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
++fn handle_session_fork(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
+     let mut advisories: Vec<String> = Vec::new();
+     let source_label: String;
+-    let snapshot: RunSnapshot = if let Some(cp) = body_string(&body, "checkpoint") {
++    let snapshot: RunSnapshot = if let Some(cp) = body_string(body, "checkpoint") {
+         match st.library.load(&cp) {
+             Ok((snap, _, adv)) => {
+                 advisories = adv;
+@@ -891,7 +931,7 @@ fn handle_session_fork(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>
+             Err(e) => return lab_error_response(&e),
+         }
+     } else {
+-        let src_id = body_string(&body, "session").unwrap_or_else(|| st.active.clone());
++        let src_id = body_string(body, "session").unwrap_or_else(|| st.active.clone());
+         match st.sessions.get(&src_id) {
+             Some(slot) => {
+                 source_label = format!("session '{}'", slot.label);
+@@ -903,7 +943,7 @@ fn handle_session_fork(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>
+         }
+     };
+ 
+-    let new_id = body_string(&body, "id")
++    let new_id = body_string(body, "id")
+         .filter(|s| !s.trim().is_empty())
+         .map(|s| s.trim().to_string())
+         .unwrap_or_else(|| new_session_id(&source_label));
+@@ -916,7 +956,7 @@ fn handle_session_fork(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>
+             json!({"error": format!("session '{new_id}' already exists")}),
+         );
+     }
+-    let label = body_string(&body, "label")
++    let label = body_string(body, "label")
+         .filter(|s| !s.trim().is_empty())
+         .unwrap_or_else(|| new_id.clone());
+     let mut engine = SimEngine::create(snapshot.settings.clone());
+@@ -937,9 +977,8 @@ fn handle_session_fork(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>
+     )
+ }
+ 
+-fn handle_session_close(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let Some(id) = body_string(&body, "session").filter(|s| !s.is_empty()) else {
++fn handle_session_close(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
++    let Some(id) = body_string(body, "session").filter(|s| !s.is_empty()) else {
+         return json_response(400, json!({"error":"session required"}));
+     };
+     if id == st.active {
+@@ -953,9 +992,8 @@ fn handle_session_close(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>
+     json_response(200, json!({"closed": id, "active": st.active}))
+ }
+ 
+-fn handle_session_activate(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let Some(id) = body_string(&body, "session") else {
++fn handle_session_activate(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
++    let Some(id) = body_string(body, "session") else {
+         return json_response(400, json!({"error":"session required"}));
+     };
+     if !st.sessions.contains_key(&id) {
+@@ -975,22 +1013,21 @@ fn handle_library_list(st: &ApiState) -> Response<Cursor<Vec<u8>>> {
+ 
+ /// Save the target session's current run as a named checkpoint. Atomic:
+ /// a crash mid-write leaves the previous library state intact.
+-fn handle_library_save(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
++fn handle_library_save(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
+     let empty_query = HashMap::new();
+     let snapshot = {
+-        let slot = match resolve_session(st, &body, &empty_query) {
++        let slot = match resolve_session(st, body, &empty_query) {
+             Ok(s) => s,
+             Err(r) => return r,
+         };
+         slot.engine.export()
+     };
+-    let name = body_string(&body, "name")
++    let name = body_string(body, "name")
+         .filter(|s| !s.trim().is_empty())
+         .map(|s| s.trim().to_string())
+         .unwrap_or_else(|| auto_name(&snapshot));
+-    let label = body_string(&body, "label").filter(|s| !s.trim().is_empty());
+-    let note = body_string(&body, "note").filter(|s| !s.trim().is_empty());
++    let label = body_string(body, "label").filter(|s| !s.trim().is_empty());
++    let note = body_string(body, "note").filter(|s| !s.trim().is_empty());
+     let overwrite = body
+         .get("overwrite")
+         .and_then(|v| v.as_bool())
+@@ -1010,16 +1047,15 @@ fn handle_library_save(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>
+ /// Load a checkpoint into the target session (default: active). The library
+ /// entry is never modified; incompatible snapshots fail loudly (422) without
+ /// touching the live session.
+-fn handle_library_load(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let Some(name) = body_string(&body, "name").filter(|s| !s.trim().is_empty()) else {
++fn handle_library_load(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
++    let Some(name) = body_string(body, "name").filter(|s| !s.trim().is_empty()) else {
+         return json_response(400, json!({"error":"name required"}));
+     };
+     let (snapshot, entry, advisories) = match st.library.load(name.trim()) {
+         Ok(t) => t,
+         Err(e) => return lab_error_response(&e),
+     };
+-    let target = body_string(&body, "session")
++    let target = body_string(body, "session")
+         .filter(|s| !s.is_empty())
+         .unwrap_or_else(|| st.active.clone());
+     if !target.is_empty() {
+@@ -1027,7 +1063,7 @@ fn handle_library_load(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>
+             return lab_error_response(&e);
+         }
+     }
+-    let label = body_string(&body, "label")
++    let label = body_string(body, "label")
+         .filter(|s| !s.trim().is_empty())
+         .unwrap_or_else(|| format!("from '{}'", entry.name));
+     let mut engine = SimEngine::create(snapshot.settings.clone());
+@@ -1048,9 +1084,8 @@ fn handle_library_load(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>
+     )
+ }
+ 
+-fn handle_library_delete(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let Some(name) = body_string(&body, "name").filter(|s| !s.trim().is_empty()) else {
++fn handle_library_delete(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
++    let Some(name) = body_string(body, "name").filter(|s| !s.trim().is_empty()) else {
+         return json_response(400, json!({"error":"name required"}));
+     };
+     match st.library.delete(name.trim()) {
+@@ -1062,13 +1097,12 @@ fn handle_library_delete(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8
+ /// Import an externally supplied snapshot as a new checkpoint. Validation
+ /// happens before any write, so a bad import preserves the last good
+ /// library state.
+-fn handle_library_import(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
++fn handle_library_import(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
+     let Some(snapshot_value) = body.get("snapshot") else {
+         return json_response(400, json!({"error":"snapshot required"}));
+     };
+     let snapshot_raw = snapshot_value.to_string();
+-    let name = body_string(&body, "name").filter(|s| !s.trim().is_empty());
++    let name = body_string(body, "name").filter(|s| !s.trim().is_empty());
+     let overwrite = body
+         .get("overwrite")
+         .and_then(|v| v.as_bool())
+@@ -1123,16 +1157,15 @@ fn resolve_branch_source(
+ /// Run one branch to completion from a checkpoint with a built-in policy.
+ /// Synchronous: the server is busy until the run finishes (a full career is
+ /// typically seconds with the stub race model).
+-fn handle_lab_branch(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let checkpoint_ref = body_string(&body, "checkpoint")
++fn handle_lab_branch(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
++    let checkpoint_ref = body_string(body, "checkpoint")
+         .filter(|s| !s.trim().is_empty())
+         .unwrap_or_else(|| "session:active".to_string());
+     let (snapshot, checkpoint_name) = match resolve_branch_source(st, checkpoint_ref.trim()) {
+         Ok(t) => t,
+         Err(r) => return r,
+     };
+-    let policy = body_string(&body, "policy").unwrap_or_else(|| "bot".into());
++    let policy = body_string(body, "policy").unwrap_or_else(|| "bot".into());
+     if policy != "bot" && policy != "default" {
+         return json_response(
+             400,
+@@ -1162,7 +1195,7 @@ fn handle_lab_branch(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>>
+         max_actions,
+         overrides,
+     };
+-    let name = body_string(&body, "name")
++    let name = body_string(body, "name")
+         .filter(|s| !s.trim().is_empty())
+         .map(|s| s.trim().to_string())
+         .unwrap_or_else(|| format!("{checkpoint_name}-{policy}"));
+@@ -1198,9 +1231,8 @@ fn handle_lab_branch_get(
+     }
+ }
+ 
+-fn handle_lab_branch_delete(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
+-    let Some(id) = body_string(&body, "id").filter(|s| !s.trim().is_empty()) else {
++fn handle_lab_branch_delete(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
++    let Some(id) = body_string(body, "id").filter(|s| !s.trim().is_empty()) else {
+         return json_response(400, json!({"error":"id required"}));
+     };
+     match st.branches.delete(id.trim()) {
+@@ -1209,11 +1241,10 @@ fn handle_lab_branch_delete(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec
+     }
+ }
+ 
+-fn handle_lab_compare(st: &mut ApiState, raw: &str) -> Response<Cursor<Vec<u8>>> {
+-    let body = parse_body(raw);
++fn handle_lab_compare(st: &mut ApiState, body: &Value) -> Response<Cursor<Vec<u8>>> {
+     let (Some(a_id), Some(b_id)) = (
+-        body_string(&body, "a").filter(|s| !s.trim().is_empty()),
+-        body_string(&body, "b").filter(|s| !s.trim().is_empty()),
++        body_string(body, "a").filter(|s| !s.trim().is_empty()),
++        body_string(body, "b").filter(|s| !s.trim().is_empty()),
+     ) else {
+         return json_response(400, json!({"error":"a and b branch ids required"}));
+     };

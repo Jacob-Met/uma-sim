@@ -1,0 +1,82 @@
+{
+  "kind": "native-branch-ended-count-regression",
+  "worker": "production",
+  "date": "2026-10-08",
+  "repository": "Jacob-Met/uma-sim",
+  "baselineCommit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "source": {
+    "path": "uma-sim-core/src/career_lab.rs",
+    "baselineSha256": "95cb00bd9418e889372b83eb998f8100887218d91b288af9180deff0843427c7",
+    "candidateSha256": "66bc9d7478fe8169a51f6bb9bedb896f26355ab1f173da1c35e5d254f5a115e7",
+    "candidateCommit": "22ad948351b4aad1e3c08fa7d4220188370581a0",
+    "candidateTree": "28a7f2d8a752a681ebe9d42ef69850345131fc2c",
+    "scope": "Two added and two removed lines inside compare_branches' branch-ended note. The A-ended condition now uses a.timeline.len(); the B-ended condition uses b.timeline.len(). No other production change."
+  },
+  "tests": {
+    "path": "uma-sim-core/tests/career_lab_divergence.rs",
+    "commitBeforeSourceEdits": "c20aa7b36547edc3178a296816a040e57e4b52f9",
+    "sha256": "ba0f7da22a18f309bf3f220705a9c3e0b2527ed83bacfdbd4c8dcc69b162a980",
+    "count": 6,
+    "unchangedAcrossBaselineAndCandidate": true,
+    "dependenciesAdded": false,
+    "fixtureKind": "Authored complete public LabResult values; identical common timeline prefixes. No native policy or game-engine output claimed for these fixtures.",
+    "coverage": [
+      "A shorter than B with lengths 2/3, 2/7 and 5/8",
+      "B shorter than A with lengths 3/2, 7/2 and 8/5",
+      "Zero recorded steps in either A or B",
+      "Deliberately stale outcome.steps metadata in both branch directions; note remains sourced from the recorded timeline",
+      "Equal-length empty and nonempty identical timelines have no divergence",
+      "Equal-length decision and outcome differences keep their original divergence kind and position",
+      "Earlier decision or outcome divergence remains first when A or B later ends",
+      "First missing row, continuing-step metadata, optional cells and render_json note stay consistent"
+    ]
+  },
+  "nativeEnvironment": {
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+    "command": "cargo test --locked --offline -p uma-sim-core --test career_lab_divergence -- --test-threads=1",
+    "finalProfile": {
+      "CARGO_INCREMENTAL": "0",
+      "CARGO_PROFILE_DEV_DEBUG": "0",
+      "CARGO_PROFILE_TEST_DEBUG": "0"
+    },
+    "finalCandidateTarget": "/dev/shm/estate-acd057031fb2-divergence-target"
+  },
+  "results": [
+    {
+      "name": "baseline before production edit, default debug symbols",
+      "passed": 2,
+      "failed": 4,
+      "exitCode": 101,
+      "log": "baseline-career-lab-divergence.log",
+      "logSha256": "3f35c1ed8544b670a2fae9f357c6bf43a014884d4ebb899b763ea850c4ab40d7"
+    },
+    {
+      "name": "candidate compile interrupted by shared storage exhaustion",
+      "testsExecuted": false,
+      "exitCode": 101,
+      "reason": "LLVM failed writing output with No space left on device. This is not counted as a test failure or pass.",
+      "log": "candidate-career-lab-divergence.log",
+      "logSha256": "1fadb752ee7f785e016723f8f3575977c54dd7426f194cc7128011c977cbde05"
+    },
+    {
+      "name": "baseline replay with final compact build profile",
+      "passed": 2,
+      "failed": 4,
+      "exitCode": 101,
+      "log": "baseline-career-lab-divergence-compact.log",
+      "logSha256": "11a82bc2a115dcb5c9b1e1c8d53532f69cb333a8f099ad45d80196e68b000ceb"
+    },
+    {
+      "name": "candidate replay with unchanged tests and final compact build profile",
+      "passed": 6,
+      "failed": 0,
+      "exitCode": 0,
+      "log": "candidate-career-lab-divergence-compact.log",
+      "logSha256": "6865e792d850d67c45a801183b0a6d042365933178395f205de32e00bea9d6e4"
+    }
+  ],
+  "storage": "After a shared-volume build failure, the baseline was replayed with debug symbols and incremental caching disabled. The successful candidate used a fresh exclusively owned tmpfs target (133 MB at completion). Earlier renderer receipts and source pins were preserved.",
+  "integration": "This branch contains only the ended-count correction and its tests/receipts, based on f5f9. Root composes it with the separately reviewed Markdown-renderer change. The artifact worker owns independent natural API and rendered-Markdown receiving of the composition.",
+  "sharedWritesPerformed": false
+}

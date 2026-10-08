@@ -1,0 +1,126 @@
+{
+  "id": "unicode",
+  "submittedNames": [
+    "早起き ☀️ | 休む",
+    "« contrôle » · café"
+  ],
+  "inputBoundary": "Actual API branch creation; no persisted input changes.",
+  "checks": [
+    {
+      "name": "API admits each intended name without changing internal data",
+      "passed": true
+    },
+    {
+      "name": "markdown browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "json browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "Downloaded JSON preserves ordered branch IDs and original names",
+      "passed": true
+    },
+    {
+      "name": "Rendered heading retains each name as literal data",
+      "passed": true
+    },
+    {
+      "name": "Embedded name data cannot split sections or tables",
+      "passed": true
+    },
+    {
+      "name": "Rendered final Branch row preserves ordered original cell text",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    [\n      'Branch',\n+     '早起き ☀️',\n+     '休む'\n-     '早起き ☀️ | 休む',\n-     '« contrôle » · café'\n    ]\n  ]\n"
+    },
+    {
+      "name": "Rendered numeric and deterministic outcome cells match downloaded JSON",
+      "passed": true
+    },
+    {
+      "name": "markdown observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448635-0012&b=br-1791448635-0013&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448635-0012-vs-br-1791448635-0013.md\"",
+          "content-length": "1660",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 08:37:15 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "name": "json observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448635-0012&b=br-1791448635-0013&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448635-0012-vs-br-1791448635-0013.json\"",
+          "content-length": "2741",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 08:37:15 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "downloads": [
+    {
+      "format": "markdown",
+      "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448635-0012&b=br-1791448635-0013&format=markdown",
+      "suggestedFilename": "branch-compare-br-1791448635-0012-vs-br-1791448635-0013.md",
+      "failure": null,
+      "bytes": 1660,
+      "sha256": "25520f55216b6bb5e7e173866587c75f74c90146e1e49f86a93e45a3269bdedd",
+      "response": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448635-0012&b=br-1791448635-0013&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448635-0012-vs-br-1791448635-0013.md\"",
+          "content-length": "1660",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 08:37:15 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "format": "json",
+      "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448635-0012&b=br-1791448635-0013&format=json",
+      "suggestedFilename": "branch-compare-br-1791448635-0012-vs-br-1791448635-0013.json",
+      "failure": null,
+      "bytes": 2741,
+      "sha256": "d2f806f11dbf0aa0a046858710d25ffa9615ab6222d61e917760ed3284aa7350",
+      "response": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448635-0012&b=br-1791448635-0013&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448635-0012-vs-br-1791448635-0013.json\"",
+          "content-length": "2741",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 08:37:15 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "branchIds": [
+    "br-1791448635-0012",
+    "br-1791448635-0013"
+  ],
+  "admittedNames": [
+    "早起き ☀️ | 休む",
+    "« contrôle » · café"
+  ],
+  "passed": false
+}

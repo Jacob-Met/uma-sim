@@ -1,0 +1,44 @@
+{
+  "id": "equal_length_control",
+  "ids": [
+    "br-1791450109-0000",
+    "br-1791450109-0002"
+  ],
+  "steps": [
+    2,
+    2
+  ],
+  "expectedNote": null,
+  "checks": [
+    {
+      "name": "Comparison identities and actual outcome lengths match API-created branches",
+      "passed": true
+    },
+    {
+      "name": "Comparison note counts the branch that actually ended",
+      "passed": true
+    },
+    {
+      "name": "Downloaded JSON preserves the comparison and correct shorter-branch note",
+      "passed": true
+    },
+    {
+      "name": "Actual report attachments retain correct headers and received byte lengths",
+      "passed": true
+    },
+    {
+      "name": "Received Markdown states the correct shorter count or equal-length control",
+      "passed": true
+    },
+    {
+      "name": "Rendered outcome counts independently expose each branch length",
+      "passed": true
+    }
+  ],
+  "observedNotes": {
+    "comparison": null,
+    "jsonReport": null,
+    "markdown": null
+  },
+  "passed": true
+}

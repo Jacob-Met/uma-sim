@@ -1,0 +1,47 @@
+{
+  "schema": "uma-sim-pr65-composed-receiving-v1",
+  "testedCommit": "1cf2fc6e5e82aefa9d940c8a873c17fc97f9a875",
+  "reportedAcceptedMain": "0ac14602addd1a4610aa8359896915a34cce5659",
+  "acceptedMainEquality": "CONFIRMED: all 32 committed UI files match 0ac and integration f6; complete 1cf and 0ac trees equal e7d10088a713d8fbd7391c86050a92898652bdd6. The build rewrites only tsconfig.tsbuildinfo, as documented in accepted-main-equality.json.",
+  "native": {
+    "careerLabSha256": "49d68441482fa907364292bb25b43fc06be6e95b13937cbbba898a393f4e4935",
+    "apiSha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+    "binarySha256": "149600d040481e6eb2530c2a3081d1c680f223d7a16d6bcd54feb247ab50579d",
+    "nativeBaselineDeltaFromF5": "No tracked changes under uma-sim-core, Cargo.toml, Cargo.lock, assets, data, or crates between f5f9 and committed PR65 source; only the declared composed career_lab.rs patch was applied in this receiving checkout."
+  },
+  "ui": {
+    "labStoreSha256": "aeccd1b983ff988f185b2bc5ce1cfffcbf1f9d7020929fce4e6117b0e21a926a",
+    "comparePanelSha256": "5d1497dd64f0e43fb751bd9d2f1e46d94f2842da8a90421d78a56d669fdc853a",
+    "trackedFilesUnchangedAfterBothRuns": 32,
+    "builtAssetsUnchanged": 3
+  },
+  "pr65Workflow": {
+    "passed": 9,
+    "total": 9,
+    "sourcePin": "1cf2fc6e5e82aefa9d940c8a873c17fc97f9a875",
+    "displayedAndDownloadedPair": [
+      "br-1791452076-0000",
+      "br-1791452077-0001"
+    ],
+    "pageErrors": []
+  },
+  "adversarial": {
+    "passed": 6,
+    "total": 6,
+    "proxyResponses": 16,
+    "knownCatalogImagesBlocked": 133,
+    "unexpectedOutsideRequests": 0,
+    "pageErrors": 0,
+    "afterDraftDownloadedIds": [
+      "br-1791452173-0000",
+      "br-1791452173-0001"
+    ],
+    "afterDraftDownloadedNames": [
+      "Rest | **early**",
+      "Control <em>steady</em> &amp;"
+    ],
+    "sourceUnchanged": true,
+    "binaryUnchanged": true
+  },
+  "acceptedMainEvidence": "accepted-main-equality.json"
+}

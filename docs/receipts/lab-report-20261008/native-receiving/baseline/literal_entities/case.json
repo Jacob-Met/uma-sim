@@ -1,0 +1,127 @@
+{
+  "id": "literal_entities",
+  "submittedNames": [
+    "R&D &amp; &#124; literal",
+    "Control &lt;done&gt;"
+  ],
+  "inputBoundary": "Actual API branch creation; no persisted input changes.",
+  "checks": [
+    {
+      "name": "API admits each intended name without changing internal data",
+      "passed": true
+    },
+    {
+      "name": "markdown browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "json browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "Downloaded JSON preserves ordered branch IDs and original names",
+      "passed": true
+    },
+    {
+      "name": "Rendered heading retains each name as literal data",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'Branch comparison: R&D & | literal vs Control <done>'\n-   'Branch comparison: R&D &amp; &#124; literal vs Control &lt;done&gt;'\n  ]\n"
+    },
+    {
+      "name": "Embedded name data cannot split sections or tables",
+      "passed": true
+    },
+    {
+      "name": "Rendered final Branch row preserves ordered original cell text",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    [\n      'Branch',\n+     'R&D & | literal',\n+     'Control <done>'\n-     'R&D &amp; &#124; literal',\n-     'Control &lt;done&gt;'\n    ]\n  ]\n"
+    },
+    {
+      "name": "Rendered numeric and deterministic outcome cells match downloaded JSON",
+      "passed": true
+    },
+    {
+      "name": "markdown observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0014&b=br-1791448636-0015&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448636-0014-vs-br-1791448636-0015.md\"",
+          "content-length": "1650",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 08:37:16 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "name": "json observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0014&b=br-1791448636-0015&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448636-0014-vs-br-1791448636-0015.json\"",
+          "content-length": "2736",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 08:37:16 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "downloads": [
+    {
+      "format": "markdown",
+      "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0014&b=br-1791448636-0015&format=markdown",
+      "suggestedFilename": "branch-compare-br-1791448636-0014-vs-br-1791448636-0015.md",
+      "failure": null,
+      "bytes": 1650,
+      "sha256": "4cb91870670c55e5e12578b4a9c860f5d9465ddd9ae35111d4b745c9996cc5f7",
+      "response": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0014&b=br-1791448636-0015&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448636-0014-vs-br-1791448636-0015.md\"",
+          "content-length": "1650",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 08:37:16 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "format": "json",
+      "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0014&b=br-1791448636-0015&format=json",
+      "suggestedFilename": "branch-compare-br-1791448636-0014-vs-br-1791448636-0015.json",
+      "failure": null,
+      "bytes": 2736,
+      "sha256": "b142e8e85517fbfdd13799f139b3421834ace3e954deeeb71d925f87dc588054",
+      "response": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0014&b=br-1791448636-0015&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448636-0014-vs-br-1791448636-0015.json\"",
+          "content-length": "2736",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 08:37:16 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "branchIds": [
+    "br-1791448636-0014",
+    "br-1791448636-0015"
+  ],
+  "admittedNames": [
+    "R&D &amp; &#124; literal",
+    "Control &lt;done&gt;"
+  ],
+  "passed": false
+}

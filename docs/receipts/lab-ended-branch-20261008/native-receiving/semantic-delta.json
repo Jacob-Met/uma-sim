@@ -1,0 +1,33 @@
+{
+  "schema": "uma-sim-ended-note-semantic-delta-v1",
+  "excludedRuntimeFields": [
+    "aId",
+    "bId",
+    "comparedAt"
+  ],
+  "expectedOnlyBehaviorChange": "firstDivergence.note must count the ended branch rather than the continuing branch; all other comparison fields remain deeply equal.",
+  "cases": [
+    {
+      "case": "a_ends_first",
+      "beforeNote": "Branch A ended after 3 steps while the other continued.",
+      "afterNote": "Branch A ended after 2 steps while the other continued.",
+      "otherComparisonMeaningUnchanged": true,
+      "canonicalRemainingMeaningSha256": "b84d33eeecb4cde691314b2208affe4bbf0afc9311e54b137ebc6c94edcf3f67"
+    },
+    {
+      "case": "b_ends_first",
+      "beforeNote": "Branch B ended after 3 steps while the other continued.",
+      "afterNote": "Branch B ended after 2 steps while the other continued.",
+      "otherComparisonMeaningUnchanged": true,
+      "canonicalRemainingMeaningSha256": "2c6a80151ed4d19410c9441073bf707546dd6c20137d7632e3696fe440455b04"
+    },
+    {
+      "case": "equal_length_control",
+      "beforeNote": null,
+      "afterNote": null,
+      "otherComparisonMeaningUnchanged": true,
+      "canonicalRemainingMeaningSha256": "f66c08d60136bed45eaa3d43a7608f4b01083e5d88824535ba2b600878cbe944"
+    }
+  ],
+  "accepted": true
+}

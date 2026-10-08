@@ -1,0 +1,59 @@
+{
+  "accepted_candidate_cases": 92,
+  "actual_candidate_processes": 92,
+  "base_commit": "7a2e15f623a559b2d9d425e4e7b68c1e71f24cbb",
+  "base_tree": "895e790957919ee1d9e64f6336c0fc176bfb35cb",
+  "baseline_binary_sha256": "59cfce9bac7007a6b1fc347fa58565d9130dc3d61fe38470dc3530432fe97039",
+  "baseline_processes": 2,
+  "candidate_binary_native_path": "/Users/me/uma-paired-066deeadcc8b-root-review/candidate-uma-sim",
+  "candidate_binary_sha256": "ab563811709ef2788bd0bc563c14da6c842c7d1bc664218ba7c6a2e2f10b61ab",
+  "candidate_freeze_sha256": "28029900f8ac9131ffe57e09c62212ec8761f93591fc5198802453c1d6ec753a",
+  "case_sets": {
+    "baseline": {
+      "accepted": null,
+      "actual_processes": 2,
+      "sha256": "fa2ce86905b205762b1838d292df32934142d86bfab1d6ed76a03c5021b1e2e8"
+    },
+    "candidate-limits": {
+      "accepted": 6,
+      "actual_processes": 6,
+      "sha256": "25a4d325e564203c70971c91d6a2d44f416755d93f599364626d883ec5b4aea0"
+    },
+    "candidate-native-producer": {
+      "accepted": 2,
+      "actual_processes": 2,
+      "sha256": "dc70e8bd4ed6a73097c5f51967b393c73d09e575ecd9801e50c532c51b844447"
+    },
+    "candidate-regular": {
+      "accepted": 84,
+      "actual_processes": 84,
+      "sha256": "db422203bcef7d4c121a69609d296a80117a6dbeb0a99f2dffec706f1cc8e040"
+    }
+  },
+  "claim": "https://github.com/Jacob-Met/uma-sim/issues/94",
+  "declared_canonical_examples_verified": 9,
+  "limits": [
+    "No Windows output-descriptor qualification.",
+    "Matching metadata does not authenticate policy, deck, version or random-number consumption.",
+    "No policy benefit, statistical significance, installed-runtime activation or deployment claimed.",
+    "Current-parent publication and hosted integration are separate records."
+  ],
+  "native_career_pairs": 3,
+  "native_producer_receipt_sha256": "c814fb93105bf59d15c3afa12e61e2941973c720e98d3e253f95bef3527ac2c2",
+  "producer_and_aggregate_processes_attributed_to_author": 6,
+  "qualification": "Independent real CLI consumer execution on Mac.lan; unchanged frozen oracle, exact saved inputs, outputs, process statuses and before/after custody retained.",
+  "receiver_deliberate_report_defects_rejected": 4,
+  "receiver_freeze_sha256": "08437720f59c5ddb9bad53ddbf8c10a5ceaad4df417084032a14637022789bdd",
+  "receiver_frozen_at": "2026-10-08T14:07:02.656837+00:00",
+  "receiver_or_candidate_corrections_during_independent_execution": 0,
+  "receiver_sha256": "8b875808a6c3c6341937102edb1ce44d9d67b15647494d52724999ea9b6128d5",
+  "recorded_at": "2026-10-08T14:48:07.628329+00:00",
+  "repository": "Jacob-Met/uma-sim",
+  "schema": "hamon.independent_receiving.v1",
+  "source_manifest_audit_sha256": "c95a2ce5d83acc9765b338d9ca96d9d2677f65a8628351d76712d02bb41e9b7b",
+  "source_overlay_leaves": 9,
+  "source_review_sha256": "f4e1b92460982b06efe8ea3f1bd4ed89a9c1e979a8342790e3b9314a7b8ae03d",
+  "state": "accepted",
+  "unchanged_physical_canonical_leaves": 271,
+  "worker": "chatgpt-066deeadcc8b/root"
+}

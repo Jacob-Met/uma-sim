@@ -1,0 +1,34 @@
+{
+  "schema": "uma-sim-accepted-ui-receiver-provenance-v1",
+  "original": {
+    "commit": "1cf2fc6e5e82aefa9d940c8a873c17fc97f9a875",
+    "path": "packages/uma-sim-ui/tests/lab-comparison.browser.mjs",
+    "sha256": "d407593eab32880015c2b33be28e86db209618b4307c02744e52afc643ba028a",
+    "source": "Committed blob; active working-tree modifications were not copied."
+  },
+  "pr65Derivative": {
+    "path": "scripts/verify-lab-pr65-native.mjs",
+    "sha256": "f391034cc44909e4a3bb7d268f671dd6fb8815af744b5a699c1bf48684393ddc",
+    "changes": [
+      "Correct default repository path for standalone script location.",
+      "Load marked parser.",
+      "Consume saved Markdown with marked GFM and Chromium; assert exact heading and Branch cells instead of searching raw Markdown.",
+      "Save rendered HTML and DOM evidence."
+    ],
+    "interactionCases": "The original nine interaction cases, branch policies and browser event sequence are preserved."
+  },
+  "reportSpecific": {
+    "path": "scripts/verify-lab-accepted-ui.mjs",
+    "sha256": "0ce60ae23d9b22239072e2262c2a514d553be4413092a50311de95823bc9dcb9",
+    "boundary": "Actual native API and built UI; adversarial branch names; initial report bytes/meaning and real download after new draft selection; accepted preserve-displayed-result semantics.",
+    "initialOracleSha256": "8d74220ac0d78f84580cd8a84afaad2354188c0b4af6da40d456ba5b2186bfd4",
+    "oracleCorrection": {
+      "firstRun": "adversarial-initial-oracle/receipt.json",
+      "initialHarness": "adversarial-initial-oracle.mjs",
+      "observation": "The initial receiver passed four report checks, then failed because it required the same-pair Compare button to be disabled. Accepted PR65 validates on click; button disabling was an unrelated alternate-UI assumption.",
+      "change": "Replace that expectation with explicit checked A/A draft radios, while requiring the retained A/B heading, links, actual saved JSON identities, URL identities, and proxy-byte equivalence.",
+      "finalRun": "adversarial/receipt.json",
+      "finalResult": "6/6 checks pass. Product source and native binary unchanged."
+    }
+  }
+}

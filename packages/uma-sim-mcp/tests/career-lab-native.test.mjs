@@ -142,7 +142,7 @@ test('native receiving contract: independent forks, immutable checkpoints, typed
     const report = await direct('GET', `/v1/lab/report?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`);
     assert.equal(report.status, 200);
     assert.match(report.type, /^text\/markdown/);
-    assert.match(report.text, /# Branch comparison: review-rest vs review-train/);
+    assert.match(report.text, /# Branch comparison: review\\-rest vs review\\-train/);
     assert.equal(comparableReport(toolText(await client.call('sim_lab_report', { a, b }))), comparableReport(report.text));
     assert.deepEqual(comparableComparison(toolJson(await client.call('sim_lab_report', { a, b, format: 'json' }))), comparableComparison(comparison));
     await writeFile(`${cwd}/comparison.json`, JSON.stringify(comparison, null, 2) + '\n');

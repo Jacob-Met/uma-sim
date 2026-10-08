@@ -414,7 +414,8 @@ fn comparison_report_renders() {
     let cmp = compare_branches(&a, &b);
 
     let md = render_markdown(&cmp);
-    assert!(md.contains("# Branch comparison: rest-branch vs bot-branch"));
+    // The Markdown source escapes punctuation while displaying literal names.
+    assert!(md.contains(r"# Branch comparison: rest\-branch vs bot\-branch"));
     assert!(md.contains("## First divergence"));
     assert!(md.contains("## Timeline (per step)"));
     assert!(md.contains("## Final outcomes"));

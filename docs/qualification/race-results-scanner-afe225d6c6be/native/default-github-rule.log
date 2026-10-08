@@ -1,0 +1,28 @@
+Finding:     {"probe": "[1;3;mREDACTED[0m"}
+Secret:      [1;3;mREDACTED[0m
+RuleID:      github-pat
+Entropy:     3.906198
+File:        docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json
+Line:        1
+Commit:      829ae0af7187abbfa7dc6fcd362fc85a32421596
+Author:      HAMON fixture
+Email:       fixture@example.invalid
+Date:        2000-01-01T00:00:00Z
+Fingerprint: 829ae0af7187abbfa7dc6fcd362fc85a32421596:docs/receiving/race-results-afe225d6c6be/baseline-native/baseline-witness.json:github-pat:1
+
+
+    ○
+    │╲
+    │ ○
+    ○ ░
+    ░    gitleaks
+
+[90m2:51PM[0m DBG using github.com/wasilibs/go-re2 regex engine
+[90m2:51PM[0m DBG using gitleaks config /var/tmp/hamon-gitleaks-afe225d6c6be-yy3nog5g/policies/candidate.toml from `--config`
+[90m2:51PM[0m DBG extending config with default config
+[90m2:51PM[0m DBG executing: /usr/bin/git -C . log -p -U0 -1
+[90m2:51PM[0m DBG skipping finding links: repository has no configured remote.
+[90m2:51PM[0m [32mINF[0m [1m1 commits scanned.[0m
+[90m2:51PM[0m DBG Note: this number might be smaller than expected due to commits with no additions
+[90m2:51PM[0m [32mINF[0m [1mscanned ~54 bytes (54 bytes) in 211ms[0m
+[90m2:51PM[0m [33mWRN[0m [1mleaks found: 1[0m

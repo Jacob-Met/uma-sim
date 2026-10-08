@@ -1,0 +1,744 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "97754679972a3128b5b84cde2159b43a4d85c56e",
+  "startedAt": "2026-10-08T09:57:12.494Z",
+  "observedCompletedAt": "2026-10-08T09:59:31.540Z",
+  "command": "env PATH=/workspace/scratch/7183b7a84620/agents/native/toolchain/bin:\"$PATH\" CARGO_HOME=/workspace/scratch/acd057031fb2/agents/production/uma-report-cargo-home CARGO_TARGET_DIR=/dev/shm/estate-acd057031fb2-final-native-target CARGO_INCREMENTAL=0 CARGO_PROFILE_DEV_DEBUG=0 CARGO_PROFILE_TEST_DEBUG=0 CARGO_PROFILE_DEV_STRIP=symbols CARGO_PROFILE_TEST_STRIP=symbols CARGO_BUILD_JOBS=2 CARGO_NET_OFFLINE=true TMPDIR=/workspace/scratch/acd057031fb2/agents/production/final-native-tmp RUSTC=/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustc RUSTDOC=/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustdoc /workspace/scratch/7183b7a84620/agents/native/toolchain/bin/cargo test --workspace --locked --offline",
+  "exitCode": 0,
+  "outputCapture": "Concatenated native stdout/stderr tool stream, without truncation",
+  "chunkCount": 2,
+  "originalTokenCounts": [
+    52,
+    9480
+  ],
+  "profile": {
+    "debug": 0,
+    "incremental": false,
+    "strip": "symbols",
+    "buildJobs": 2,
+    "optimization": "unoptimized",
+    "features": "default"
+  },
+  "totals": {
+    "passed": 354,
+    "failed": 0,
+    "ignored": 0,
+    "measured": 0,
+    "filtered": 0
+  },
+  "suiteCount": 71,
+  "suites": [
+    {
+      "suite": "Running unittests src/lib.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/uma_race_core-2108995ebf11cd70)",
+      "result": "ok",
+      "passed": 52,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.15
+    },
+    {
+      "suite": "Running tests/checkpoint_r85.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/checkpoint_r85-ef4fb614964e081a)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.05
+    },
+    {
+      "suite": "Running tests/checkpoint_v3.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/checkpoint_v3-c374dce890c1cb81)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.11
+    },
+    {
+      "suite": "Running tests/checkpoint_v3_1000.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/checkpoint_v3_1000-af06971d6f1d5ff5)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 1.02
+    },
+    {
+      "suite": "Running tests/checkpoint_v3_wide.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/checkpoint_v3_wide-d34582b95bfe307b)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.26
+    },
+    {
+      "suite": "Running tests/condition_keywords.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/condition_keywords-40dde8128c259a78)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/probe_394_202662.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/probe_394_202662-864bc90154de6881)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.08
+    },
+    {
+      "suite": "Running tests/probe_394_pending.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/probe_394_pending-2715f5e56dbaff6d)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.07
+    },
+    {
+      "suite": "Running tests/probe_534_procs.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/probe_534_procs-b664809ba7535616)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.07
+    },
+    {
+      "suite": "Running tests/probe_534_stats.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/probe_534_stats-ca54dc7f0dd28c90)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.1
+    },
+    {
+      "suite": "Running tests/probe_last_two.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/probe_last_two-a562d5c9b32534e9)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.08
+    },
+    {
+      "suite": "Running tests/probe_residual.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/probe_residual-610b413882ee9c2e)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.1
+    },
+    {
+      "suite": "Running tests/probe_residuals_bare.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/probe_residuals_bare-3d97e5f8cc1d90a0)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.22
+    },
+    {
+      "suite": "Running unittests src/lib.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/uma_sim_core-511a78440db08542)",
+      "result": "ok",
+      "passed": 45,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 2.3
+    },
+    {
+      "suite": "Running unittests src/bin/uma-sim.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/uma_sim-5881844dcdf7b225)",
+      "result": "ok",
+      "passed": 0,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running unittests src/bin/uma-sim-api.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/uma_sim_api-14bd0a0040b800df)",
+      "result": "ok",
+      "passed": 0,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/bond_gain_config.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/bond_gain_config-aa6676efabf2876a)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/bot_parity.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/bot_parity-ef6a889fc80507d3)",
+      "result": "ok",
+      "passed": 6,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.01
+    },
+    {
+      "suite": "Running tests/career_lab.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/career_lab-b8cf3d32e47aec7b)",
+      "result": "ok",
+      "passed": 14,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 1.85
+    },
+    {
+      "suite": "Running tests/career_lab_divergence.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/career_lab_divergence-aa7066a16d388f23)",
+      "result": "ok",
+      "passed": 6,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/career_lab_reports.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/career_lab_reports-b34fa93bd1b5b513)",
+      "result": "ok",
+      "passed": 9,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.02
+    },
+    {
+      "suite": "Running tests/cli_policy.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/cli_policy-eecde27222bdf0ed)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.51
+    },
+    {
+      "suite": "Running tests/content_pack_loader.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/content_pack_loader-436a079139707b08)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/deck_placement.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/deck_placement-b9bd2c2c640b4853)",
+      "result": "ok",
+      "passed": 7,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/deck_support_bridge.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/deck_support_bridge-f86a15dcabc9f4de)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/event_effect_applier.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/event_effect_applier-e15a1b03c8aed332)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.02
+    },
+    {
+      "suite": "Running tests/event_pool_gating.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/event_pool_gating-94b917cac5f866e0)",
+      "result": "ok",
+      "passed": 4,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.09
+    },
+    {
+      "suite": "Running tests/event_probability_config.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/event_probability_config-8f5f05438e016fa3)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/facility_level_config.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/facility_level_config-55f9e603bbe985bd)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/golden_seed.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/golden_seed-7d6bc677bb515dbd)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 21.7
+    },
+    {
+      "suite": "Running tests/golden_seeds.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/golden_seeds-df7766a8ea4b61a4)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 10.53
+    },
+    {
+      "suite": "Running tests/grand_live_bot_replay.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/grand_live_bot_replay-876b9d4b911023e5)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.02
+    },
+    {
+      "suite": "Running tests/grand_live_calibration_loader.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/grand_live_calibration_loader-fc9865c3cb67e87a)",
+      "result": "ok",
+      "passed": 4,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/grand_live_catalog_loader.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/grand_live_catalog_loader-05bb1907aad92119)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.01
+    },
+    {
+      "suite": "Running tests/grand_live_formula_calibration.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/grand_live_formula_calibration-5267b8191a11ae53)",
+      "result": "ok",
+      "passed": 4,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/grand_live_l1_training.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/grand_live_l1_training-5eaf0c40638b0e6f)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/grand_live_r7.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/grand_live_r7-aff4638c93a5a7a1)",
+      "result": "ok",
+      "passed": 18,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.01
+    },
+    {
+      "suite": "Running tests/grand_live_simulation.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/grand_live_simulation-02bb25d28de83e2d)",
+      "result": "ok",
+      "passed": 24,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.4
+    },
+    {
+      "suite": "Running tests/grand_live_token_labels.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/grand_live_token_labels-c9b8bebe27491c4c)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/hint_progression_config.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/hint_progression_config-869d3e4eadcec7ab)",
+      "result": "ok",
+      "passed": 4,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/knowledge_validate.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/knowledge_validate-25749e8a697aefcc)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.15
+    },
+    {
+      "suite": "Running tests/legacy_applicator.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/legacy_applicator-4a5bef661f6fb8e8)",
+      "result": "ok",
+      "passed": 10,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.24
+    },
+    {
+      "suite": "Running tests/live_bot_telemetry.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/live_bot_telemetry-a064b9020b560b57)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.01
+    },
+    {
+      "suite": "Running tests/live_telemetry_replay.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/live_telemetry_replay-abb6306e9e2f7741)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.02
+    },
+    {
+      "suite": "Running tests/mid_run_inspiration.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/mid_run_inspiration-79821c276ae5854e)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/parity.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/parity-4f830680c073a7dc)",
+      "result": "ok",
+      "passed": 6,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.13
+    },
+    {
+      "suite": "Running tests/perf.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/perf-2cca187b2a1ed850)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.15
+    },
+    {
+      "suite": "Running tests/product_readiness.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/product_readiness-0491f31129ca3724)",
+      "result": "ok",
+      "passed": 7,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 1.74
+    },
+    {
+      "suite": "Running tests/race_npc_r86.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/race_npc_r86-e79a6b3f4073fe5a)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 1.47
+    },
+    {
+      "suite": "Running tests/race_outcomes.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/race_outcomes-728fe81eba0d9dc2)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/race_perf_r89.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/race_perf_r89-03637f3bd57f67e7)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 1.06
+    },
+    {
+      "suite": "Running tests/race_physics_r87.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/race_physics_r87-948da2f4071a0047)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.16
+    },
+    {
+      "suite": "Running tests/race_scheduler.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/race_scheduler-51a76c76dd5f35b8)",
+      "result": "ok",
+      "passed": 4,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/race_v4_dist.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/race_v4_dist-f75c64fce573be5a)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.89
+    },
+    {
+      "suite": "Running tests/rest_policy_external_stub.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/rest_policy_external_stub-82003ae544792b11)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.38
+    },
+    {
+      "suite": "Running tests/scenario_depth.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/scenario_depth-4ecb28c578e5f8c6)",
+      "result": "ok",
+      "passed": 4,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/sim_engine.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/sim_engine-acf0e2a531e3113c)",
+      "result": "ok",
+      "passed": 10,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.14
+    },
+    {
+      "suite": "Running tests/sim_telemetry_export.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/sim_telemetry_export-7a27d5087a471639)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.49
+    },
+    {
+      "suite": "Running tests/skill_hint_routing.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/skill_hint_routing-38caec7e07b07c58)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.3
+    },
+    {
+      "suite": "Running tests/soft_cap.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/soft_cap-8ee28cf693ffe601)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/spark_generation.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/spark_generation-8521af7391152604)",
+      "result": "ok",
+      "passed": 5,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.43
+    },
+    {
+      "suite": "Running tests/support_catalog.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/support_catalog-42daec6cb83deccb)",
+      "result": "ok",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.13
+    },
+    {
+      "suite": "Running tests/telemetry_replay.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/telemetry_replay-9f2eec1fb4c9cfde)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.02
+    },
+    {
+      "suite": "Running tests/trainee_catalog.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/trainee_catalog-fc08ce9d761b4a04)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.03
+    },
+    {
+      "suite": "Running tests/training_failure_config.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/training_failure_config-014ab38b937106ba)",
+      "result": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/training_failure_penalty.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/training_failure_penalty-1590f6900201d1e5)",
+      "result": "ok",
+      "passed": 4,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/training_resolver.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/training_resolver-701ed3540ede936c)",
+      "result": "ok",
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Running tests/unity_trackblazer_mechanics.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/unity_trackblazer_mechanics-33fb0d67c9908af3)",
+      "result": "ok",
+      "passed": 20,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0.02
+    },
+    {
+      "suite": "Running tests/ura_mechanics.rs (/dev/shm/estate-acd057031fb2-final-native-target/debug/deps/ura_mechanics-79387d02e852f731)",
+      "result": "ok",
+      "passed": 9,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Doc-tests uma_race_core",
+      "result": "ok",
+      "passed": 0,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    },
+    {
+      "suite": "Doc-tests uma_sim_core",
+      "result": "ok",
+      "passed": 0,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filtered": 0,
+      "durationSeconds": 0
+    }
+  ],
+  "logFile": "accepted-977-workspace-tests.log.gz",
+  "uncompressedLogSha256": "c30fe390d8450bd755e9f20bcc8166d0df75b400bdfa060b49a3ea42315f4446"
+}

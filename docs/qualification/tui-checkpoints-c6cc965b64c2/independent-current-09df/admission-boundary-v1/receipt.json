@@ -1,0 +1,1227 @@
+{
+  "schema": "hamon.uma.terminal_durable.admission_boundary.v1",
+  "source_commit": null,
+  "source_parent": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+  "source_manifest_sha256": "ddbb356e55f808cf3111a4c79f862e062db072a04730f2f9a14f4cf0a1e6147d",
+  "binary": {
+    "path": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+    "sha256": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6"
+  },
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "source_before": {
+    "owner_and_received_files": 11,
+    "baseline_tui_exact": true,
+    "binary_exact": true
+  },
+  "cases": [
+    {
+      "name": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "status": "pass",
+      "elapsed_ms": 866,
+      "http_requests": 32,
+      "details": {
+        "forwarded_body_utf8": "null",
+        "native_status": 400,
+        "native_error": "JSON request body must be an object",
+        "terminal_kept_prompt": true,
+        "rejected_mutation_count": 0,
+        "no_implicit_replay_reset_or_new_session": true,
+        "subsequent_explicit_action_status": 200,
+        "exact_independent_one_step_result": true,
+        "library_bytes_unchanged": true
+      }
+    },
+    {
+      "name": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "status": "pass",
+      "elapsed_ms": 727,
+      "http_requests": 29,
+      "details": {
+        "native_status": 400,
+        "native_error": "invalid JSON request body",
+        "rejected_save_requests": 1,
+        "rejected_new_files": 0,
+        "terminal_kept_prompt": true,
+        "subsequent_explicit_create_only_save_status": 200,
+        "exact_selected_snapshot_saved": true,
+        "main_bystander_and_original_checkpoint_unchanged": true
+      }
+    },
+    {
+      "name": "unreadable-fork-body-exits-without-session-or-fallback",
+      "status": "pass",
+      "elapsed_ms": 322,
+      "http_requests": 12,
+      "details": {
+        "forwarded_request_hex": "ff",
+        "native_status": 400,
+        "native_error": "could not read request body",
+        "terminal_exit": 1,
+        "new_sessions": 0,
+        "fork_requests": 1,
+        "no_start_load_replace_or_replay": true,
+        "checkpoint_and_session_bytes_unchanged": true
+      }
+    }
+  ],
+  "clients": [
+    {
+      "number": 1,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "args": [
+        "--session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/admission-boundary-v1/terminal-cwd",
+      "stdout": "Resuming session: edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\nResume this career with --session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 8  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 248  SP 20\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 8) ---\nDate: Year 1, Month 10, Early\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 248  SP: 20\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 9  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 425  SP 40\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 9) ---\nDate: Year 1, Month 10, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 425  SP: 40\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "POST /v1/run/auto: HTTP 400: JSON request body must be an object\n",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 19
+    },
+    {
+      "number": 2,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "args": [
+        "--session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/admission-boundary-v1/terminal-cwd",
+      "stdout": "Resuming session: edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\nResume this career with --session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\numa-sim TUI — [choice] | auto | fast | state | save NAME | checkpoints | quit\n\n\n┌─ State ─────────────────────\nTurn 9  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 425  SP 40\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 9) ---\nDate: Year 1, Month 10, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 425  SP: 40\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> \n┌─ State ─────────────────────\nTurn 9  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 425  SP 40\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 9) ---\nDate: Year 1, Month 10, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 425  SP: 40\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> Saved checkpoint 'admission-explicit-save' from session 'edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'. Reopen with --checkpoint=admission-explicit-save\n\n┌─ State ─────────────────────\nTurn 9  Y1 M10\nSPD 116 STA 88 POW 114\nGUT 96 WIT 91\nE 20  Mood NORMAL  Fans 425  SP 40\nPhase: FREE\n  Scenario: {\"happy_meek_badge\":0}\n└─────────────────────────────\n--- State (turn 9) ---\nDate: Year 1, Month 10, Late\nStats: SPD 116 STA 88 POW 114 GUT 96 WIT 91\nEnergy: 20/100  Mood: Normal  Fans: 425  SP: 40\nScenario: happy_meek_badge=0\n\nChoices: train_speed (Train Speed) | train_stamina (Train Stamina) | train_power (Train Power) | train_guts (Train Guts) | train_wit (Train Wits) | rest (Rest) | recreation (Recreation) | race (Race (optional))\n\n> ",
+      "stderr": "POST /v1/library/save: HTTP 400: invalid JSON request body\n",
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "pid": 27
+    },
+    {
+      "number": 3,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "args": [
+        "--checkpoint=--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_"
+      ],
+      "script": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/source/packages/uma-sim-cli/tui.js",
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/admission-boundary-v1/terminal-cwd",
+      "stdout": "Opening checkpoint '--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_' as session: tui-aa5f66dd-4d25-4cf5-b196-b4062e0d6c7b\n",
+      "stderr": "POST /v1/session/fork: HTTP 400: could not read request body\n",
+      "exit": {
+        "code": 1,
+        "signal": null
+      },
+      "pid": 35
+    }
+  ],
+  "http_requests": [
+    {
+      "sequence": 1,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "",
+        "seed": "-9007199254740993",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "c578f659b17ea307b6011a905cf5b52899e7b914a927751fcc7fd5000c401bc1",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 2,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "351ea5ace055e6a77d644c9532168cb4b059113a6735ad85c7e65fb9ba9fff98",
+      "response_bytes": 181
+    },
+    {
+      "sequence": 3,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 4,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "c578f659b17ea307b6011a905cf5b52899e7b914a927751fcc7fd5000c401bc1",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 5,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "seed": "-9223372036854775807",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "ee61e6a894f13bcc58120ef34a4d47f9d570edc4a63446e66ece16448049a42c",
+      "response_bytes": 2843
+    },
+    {
+      "sequence": 6,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "ee61e6a894f13bcc58120ef34a4d47f9d570edc4a63446e66ece16448049a42c",
+      "response_bytes": 2843
+    },
+    {
+      "sequence": 7,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "4072442e05493e3463dd2019c2f1e20c6b58dabf5afa3b050e1745a78e178800",
+      "response_bytes": 2776
+    },
+    {
+      "sequence": 8,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "ad5ea0402aca5b112b4c03c7dea24115605f82df2f022e45a8f1ef3b69c3e998",
+      "response_bytes": 2708
+    },
+    {
+      "sequence": 9,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "ef3bbc5d2591de0ca55e8a7ebf265989a06e6211b7f0ac8d13ad4bc46aed3411",
+      "response_bytes": 2734
+    },
+    {
+      "sequence": 10,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "78928e8c6cfb587ec4ef5434638beea0b2017624b4f90a68023f19137189e7e2",
+      "response_bytes": 2750
+    },
+    {
+      "sequence": 11,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "fe657314d1a1b6013a8fcd876a78c101933d1642fa12ba2aeb9dcb7ca8a35cd2",
+      "response_bytes": 2751
+    },
+    {
+      "sequence": 12,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "5eb2e4b7fbaacb4db3a64b69ae3d7f2fd70d08039e8f6f850a1c01865c579e09",
+      "response_bytes": 2786
+    },
+    {
+      "sequence": 13,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "3caa33b7768b7f241d0f8fb98b798e9764d8c3b3aea4938b372c57affd0b212c",
+      "response_bytes": 2808
+    },
+    {
+      "sequence": 14,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "519d003bf6080e0bb3233a1bdea92b0df88ae55c07b590bf03995dd1f84fe655",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 15,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/start",
+      "body": {
+        "session": "bystander",
+        "seed": "9007199254740993",
+        "scenario": "ura",
+        "trainee": "Special Week",
+        "speed": "1",
+        "traceTelemetry": "true",
+        "traceRng": "true"
+      },
+      "status": 200,
+      "response_sha256": "3e96d9a88f70b2ade1b2bd96306dbfa1eaeb1d414e82716cef5fe03df45b0abf",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 16,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "3e96d9a88f70b2ade1b2bd96306dbfa1eaeb1d414e82716cef5fe03df45b0abf",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 17,
+      "phase": "setup",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "overwrite": false
+      },
+      "status": 200,
+      "response_sha256": "e019fd27be26250c272e51843dc3b63eb6d230cc6da112b8a09a0c7efd5707c3",
+      "response_bytes": 503
+    },
+    {
+      "sequence": 18,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "519d003bf6080e0bb3233a1bdea92b0df88ae55c07b590bf03995dd1f84fe655",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 19,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "id": "admission-action-oracle"
+      },
+      "status": 200,
+      "response_sha256": "5afb2810b19dca37dcd30e56e5b1ff760dca4b218bce9e6e260598f218ef76e5",
+      "response_bytes": 223
+    },
+    {
+      "sequence": 20,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "session": "admission-action-oracle",
+        "policy": "bot"
+      },
+      "status": 200,
+      "response_sha256": "056a26f9dfb560b2e9219d567a740ef85996a861f91adc68ad240e0229b21d9a",
+      "response_bytes": 3022
+    },
+    {
+      "sequence": 21,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=admission-action-oracle",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 22,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 23,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6153dfc8ac95091bd0accac249b3c7b5b2e37b8c4523cd986e35f59432594605",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 24,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 25,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "519d003bf6080e0bb3233a1bdea92b0df88ae55c07b590bf03995dd1f84fe655",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 26,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "519d003bf6080e0bb3233a1bdea92b0df88ae55c07b590bf03995dd1f84fe655",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 27,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 28,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 29,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "policy": "bot",
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      },
+      "request_raw": "{\"policy\":\"bot\",\"session\":\"edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\"}",
+      "injected_fault": "replace-request-body",
+      "forwarded_request_hex": "6e756c6c",
+      "status": 400,
+      "response_sha256": "ec7983341d43c514eaadcb632e99462ffd95c99ad4159c63088c52f495fecd99",
+      "response_bytes": 47,
+      "error": "JSON request body must be an object"
+    },
+    {
+      "sequence": 30,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "519d003bf6080e0bb3233a1bdea92b0df88ae55c07b590bf03995dd1f84fe655",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 31,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "5936eef69fceedb84e7cdc5c537563525d93d74a560025f636f1e8b7be2a967f",
+      "response_bytes": 188
+    },
+    {
+      "sequence": 32,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 33,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "519d003bf6080e0bb3233a1bdea92b0df88ae55c07b590bf03995dd1f84fe655",
+      "response_bytes": 3172
+    },
+    {
+      "sequence": 34,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6153dfc8ac95091bd0accac249b3c7b5b2e37b8c4523cd986e35f59432594605",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 35,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "6153dfc8ac95091bd0accac249b3c7b5b2e37b8c4523cd986e35f59432594605",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 36,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 37,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "c578f659b17ea307b6011a905cf5b52899e7b914a927751fcc7fd5000c401bc1",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 38,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 39,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "3e96d9a88f70b2ade1b2bd96306dbfa1eaeb1d414e82716cef5fe03df45b0abf",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 40,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/run/auto",
+      "body": {
+        "policy": "bot",
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      },
+      "request_raw": "{\"policy\":\"bot\",\"session\":\"edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\"}",
+      "status": 200,
+      "response_sha256": "056a26f9dfb560b2e9219d567a740ef85996a861f91adc68ad240e0229b21d9a",
+      "response_bytes": 3022
+    },
+    {
+      "sequence": 41,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 42,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "884fe3e566eef0e6310ddb808b94adfaa398b5c32ef701ba60fc33b92498163b",
+      "response_bytes": 187
+    },
+    {
+      "sequence": 43,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 44,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 45,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "44fa04eb2b48734bc5d8b59308974dc03d7680d0b356fadb959576f19f3934e0",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 46,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 47,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "c578f659b17ea307b6011a905cf5b52899e7b914a927751fcc7fd5000c401bc1",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 48,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 49,
+      "phase": "nonobject-action-body-is-visible-and-next-explicit-action-applies-once",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "3e96d9a88f70b2ade1b2bd96306dbfa1eaeb1d414e82716cef5fe03df45b0abf",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 50,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 51,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "44fa04eb2b48734bc5d8b59308974dc03d7680d0b356fadb959576f19f3934e0",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 52,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 53,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 54,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 55,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 56,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "884fe3e566eef0e6310ddb808b94adfaa398b5c32ef701ba60fc33b92498163b",
+      "response_bytes": 187
+    },
+    {
+      "sequence": 57,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 58,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "admission-explicit-save",
+        "overwrite": false,
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      },
+      "request_raw": "{\"name\":\"admission-explicit-save\",\"overwrite\":false,\"session\":\"edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\"}",
+      "injected_fault": "replace-request-body",
+      "forwarded_request_hex": "7b2273657373696f6e223a22656467652d4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e222c226e616d65223a2261646d697373696f6e2d6578706c696369742d73617665222c226f7665727772697465223a66616c7365",
+      "status": 400,
+      "response_sha256": "0758fe982bbdaaaebae463997fa2d6a989778d27d05673ef6b420012f48549cb",
+      "response_bytes": 37,
+      "error": "invalid JSON request body"
+    },
+    {
+      "sequence": 59,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 60,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "884fe3e566eef0e6310ddb808b94adfaa398b5c32ef701ba60fc33b92498163b",
+      "response_bytes": 187
+    },
+    {
+      "sequence": 61,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 62,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 63,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "44fa04eb2b48734bc5d8b59308974dc03d7680d0b356fadb959576f19f3934e0",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 64,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "44fa04eb2b48734bc5d8b59308974dc03d7680d0b356fadb959576f19f3934e0",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 65,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 66,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "c578f659b17ea307b6011a905cf5b52899e7b914a927751fcc7fd5000c401bc1",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 67,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 68,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "3e96d9a88f70b2ade1b2bd96306dbfa1eaeb1d414e82716cef5fe03df45b0abf",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 69,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/library/save",
+      "body": {
+        "name": "admission-explicit-save",
+        "overwrite": false,
+        "session": "edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+      },
+      "request_raw": "{\"name\":\"admission-explicit-save\",\"overwrite\":false,\"session\":\"edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\"}",
+      "status": 200,
+      "response_sha256": "78ba1df7c5e59b295dae17599da30080d99baf68631d831f73e3b6664b999260",
+      "response_bytes": 421
+    },
+    {
+      "sequence": 70,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 71,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/text?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "884fe3e566eef0e6310ddb808b94adfaa398b5c32ef701ba60fc33b92498163b",
+      "response_bytes": 187
+    },
+    {
+      "sequence": 72,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/run/choices?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "1d181a1c0bf5601f70608c40e29fc12873c57a0e3a26c687c74e3fd53b77c572",
+      "response_bytes": 337
+    },
+    {
+      "sequence": 73,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 74,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "44fa04eb2b48734bc5d8b59308974dc03d7680d0b356fadb959576f19f3934e0",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 75,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 76,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "c578f659b17ea307b6011a905cf5b52899e7b914a927751fcc7fd5000c401bc1",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 77,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 78,
+      "phase": "malformed-save-body-is-visible-and-never-writes-default-checkpoint",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "3e96d9a88f70b2ade1b2bd96306dbfa1eaeb1d414e82716cef5fe03df45b0abf",
+      "response_bytes": 2826
+    },
+    {
+      "sequence": 79,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 80,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "44fa04eb2b48734bc5d8b59308974dc03d7680d0b356fadb959576f19f3934e0",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 81,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 82,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "tui",
+      "method": "GET",
+      "route": "/v1/health",
+      "request_raw": "",
+      "status": 200,
+      "response_sha256": "841b579564f7c79b485b5dc3de94fe0e960a1f788598a64d22ad0139b64694c5",
+      "response_bytes": 132
+    },
+    {
+      "sequence": 83,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "tui",
+      "method": "POST",
+      "route": "/v1/session/fork",
+      "body": {
+        "checkpoint": "--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_",
+        "id": "tui-aa5f66dd-4d25-4cf5-b196-b4062e0d6c7b"
+      },
+      "request_raw": "{\"checkpoint\":\"--KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.-_\",\"id\":\"tui-aa5f66dd-4d25-4cf5-b196-b4062e0d6c7b\"}",
+      "injected_fault": "replace-request-body",
+      "forwarded_request_hex": "ff",
+      "status": 400,
+      "response_sha256": "10e46c096ee29e0577823d5ccb776046bbf31b6ec74342b5041c022bd26ae006",
+      "response_bytes": 39,
+      "error": "could not read request body"
+    },
+    {
+      "sequence": 84,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "44fa04eb2b48734bc5d8b59308974dc03d7680d0b356fadb959576f19f3934e0",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 85,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=edge-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+      "status": 200,
+      "response_sha256": "92b5e9524f039f9cc52647ef92b3ce0331f351084605a4c6d950d02056ddf50f",
+      "response_bytes": 3305
+    },
+    {
+      "sequence": 86,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/sessions",
+      "status": 200,
+      "response_sha256": "44fa04eb2b48734bc5d8b59308974dc03d7680d0b356fadb959576f19f3934e0",
+      "response_bytes": 820
+    },
+    {
+      "sequence": 87,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": ""
+      },
+      "status": 200,
+      "response_sha256": "bd2bdb9ce50f109303a337b0a5a9fd87185df12926a947c35e32c39888f1c0f2",
+      "response_bytes": 166
+    },
+    {
+      "sequence": 88,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=",
+      "status": 200,
+      "response_sha256": "c578f659b17ea307b6011a905cf5b52899e7b914a927751fcc7fd5000c401bc1",
+      "response_bytes": 2831
+    },
+    {
+      "sequence": 89,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "POST",
+      "route": "/v1/session/activate",
+      "body": {
+        "session": "bystander"
+      },
+      "status": 200,
+      "response_sha256": "49d8a9c078c1621bcbcb3d488634c5805dcd5216c5fd35af93214e4517159c7d",
+      "response_bytes": 179
+    },
+    {
+      "sequence": 90,
+      "phase": "unreadable-fork-body-exits-without-session-or-fallback",
+      "channel": "oracle",
+      "method": "GET",
+      "route": "/v1/run/state?session=bystander",
+      "status": 200,
+      "response_sha256": "3e96d9a88f70b2ade1b2bd96306dbfa1eaeb1d414e82716cef5fe03df45b0abf",
+      "response_bytes": 2826
+    }
+  ],
+  "native_processes": [
+    {
+      "pid": 13,
+      "port": 37073,
+      "cwd": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2/admission-boundary-v1/api-cwd",
+      "binary": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+      "args": [
+        "37073"
+      ],
+      "environment": {
+        "UMA_REPO_ROOT": "/dev/shm/c6cc965b64c2-terminal-replacement-09df-v1/source-composition",
+        "UMA_POLICY_CMD": "omitted"
+      },
+      "stdout": "uma-sim REST API on http://127.0.0.1:37073\nWeb UI: http://127.0.0.1:37073/\n",
+      "stderr": "",
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM"
+      }
+    }
+  ],
+  "status": "passed",
+  "qualified": true,
+  "source_after": {
+    "owner_and_received_files": 11,
+    "baseline_tui_exact": true,
+    "binary_exact": true
+  },
+  "finished_utc": "2026-10-08T12:52:17.817Z",
+  "summary": {
+    "groups": 3,
+    "passed": 3,
+    "failures": 0,
+    "terminal_processes": 3,
+    "native_api_processes": 1,
+    "http_requests": 90
+  }
+}

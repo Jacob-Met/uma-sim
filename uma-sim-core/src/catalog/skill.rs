@@ -1,18 +1,28 @@
-//! Skill name → numeric id lookup from `knowledge/canonical/by_kind/skill.json`.
+//! Skill lookup and read-only display data from `knowledge/canonical/by_kind/skill.json`.
 
 use serde_json::Value;
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::path::Path;
 use std::sync::{LazyLock, Mutex};
 
+/// Catalog text for a retained skill ID; this is not a purchase or availability record.
+#[derive(Clone, Debug, serde::Serialize)]
+pub struct SkillDisplay {
+    pub id: String,
+    pub name: Option<String>,
+    pub description: Option<String>,
+}
+
 struct SkillCatalogState {
     by_name: HashMap<String, i32>,
+    by_id: BTreeMap<i32, SkillDisplay>,
     loaded: bool,
 }
 
 static STATE: LazyLock<Mutex<SkillCatalogState>> = LazyLock::new(|| {
     Mutex::new(SkillCatalogState {
         by_name: HashMap::new(),
+        by_id: BTreeMap::new(),
         loaded: false,
     })
 });
@@ -57,6 +67,7 @@ impl SkillCatalog {
             return false;
         };
         let mut by_name = HashMap::new();
+        let mut by_id = BTreeMap::new();
         for item in arr {
             let Some(obj) = item.as_object() else {
                 continue;
@@ -75,6 +86,22 @@ impl SkillCatalog {
             let Some(sid) = id else {
                 continue;
             };
+            by_id.entry(sid).or_insert_with(|| SkillDisplay {
+                id: format!("skill:{sid}"),
+                name: ["name_en_official", "name_en_fan", "name_ja"]
+                    .iter()
+                    .filter_map(|key| obj.get(*key).and_then(Value::as_str))
+                    .map(str::trim)
+                    .find(|name| !name.is_empty())
+                    .map(str::to_string),
+                description: obj
+                    .get("payload")
+                    .and_then(|payload| payload.get("desc_en"))
+                    .and_then(Value::as_str)
+                    .map(str::trim)
+                    .filter(|description| !description.is_empty())
+                    .map(str::to_string),
+            });
             for key in ["name_en_official", "name_en_fan", "name_ja"] {
                 if let Some(name) = obj.get(key).and_then(|v| v.as_str()) {
                     let n = normalize_name(name);
@@ -97,6 +124,7 @@ impl SkillCatalog {
         let mut st = STATE.lock().unwrap();
         st.loaded = !by_name.is_empty();
         st.by_name = by_name;
+        st.by_id = by_id;
         st.loaded
     }
 
@@ -106,6 +134,11 @@ impl SkillCatalog {
             return None;
         }
         STATE.lock().unwrap().by_name.get(&key).copied()
+    }
+
+    /// Stable ID order, copied without touching career state or its RNG.
+    pub fn list_all() -> Vec<SkillDisplay> {
+        STATE.lock().unwrap().by_id.values().cloned().collect()
     }
 
     pub fn is_loaded() -> bool {
@@ -123,6 +156,7 @@ impl SkillCatalog {
     pub fn clear_for_test() {
         let mut st = STATE.lock().unwrap();
         st.by_name.clear();
+        st.by_id.clear();
         st.loaded = false;
     }
 }

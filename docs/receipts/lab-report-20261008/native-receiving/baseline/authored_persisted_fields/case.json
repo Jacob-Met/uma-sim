@@ -1,0 +1,154 @@
+{
+  "id": "authored_persisted_fields",
+  "submittedNames": [
+    "Authored metadata A",
+    "Authored metadata B"
+  ],
+  "inputBoundary": "Explicitly authored disposable persisted string fields after actual API branch creation.",
+  "checks": [
+    {
+      "name": "API admits each intended name without changing internal data",
+      "passed": true
+    },
+    {
+      "name": "markdown browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "json browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "Downloaded JSON preserves ordered branch IDs and original names",
+      "passed": true
+    },
+    {
+      "name": "Rendered heading retains each name as literal data",
+      "passed": true
+    },
+    {
+      "name": "Embedded name data cannot split sections or tables",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n\n4 !== 2\n"
+    },
+    {
+      "name": "Rendered final Branch row preserves ordered original cell text",
+      "passed": true
+    },
+    {
+      "name": "Rendered numeric and deterministic outcome cells match downloaded JSON",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   '65 / GOOD',\n+   'literal\\n'\n-   '65 / GOOD | *literal* <br>\\nnext',\n-   '65 / B | &amp; _mood_\\nstep'\n  ]\n"
+    },
+    {
+      "name": "Code-span metadata preserves literal backticks, pipes, entities and HTML",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'cp',\n+   'long``fence``` <tag> &amp; | marker next',\n+   ' <em> &amp; | x Y',\n-   'cp` `long``fence``` <tag> &amp; | marker next',\n-   '`phase` <em> &amp; | x Y',\n    'decision',\n+   'a``` | &amp; <tag> \\\\ path next',\n+   'draft',\n+   'b`` ',\n+   'draft',\n+   'draft',\n+   'race',\n+   'race',\n+   'slot',\n+   'tick',\n+   'tick'\n-   '`a``` | &amp; <tag> \\\\ path next`',\n-   'b`` ` &raw; | finish'\n  ]\n"
+    },
+    {
+      "name": "Divergence labels and generated note remain literal within four list items",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'Step 0 · turn 1 (Date anchor | tag second) · phase ``phase <em> &amp; | x Y · kind decision',\n+   'A: a``` | &amp; <tag> \\\\ path next — A | literal draft\\n& next',\n+   'B: b`` &raw; | finish` — B | label text last',\n+   \"A chose 'A | literal draft\\n\" +\n+     \"& next' while B chose 'B | label text last' on turn 1 (Date anchor | tag second). RNG positions after the step: A=4 calls, B=4 calls.\"\n-   'Step 0 · turn 1 (Date [anchor](#target) | <i>tag</i>\\n' +\n-     'second) · phase `phase` <em> &amp; | x Y · kind decision',\n-   'A: `a``` | &amp; <tag> \\\\ path next` — A | **literal** `draft` <br> &amp;\\n' +\n-     'next',\n-   'B: b`` ` &raw; | finish — B \\\\| _label_ <em>text</em>\\nlast',\n-   \"A chose 'A | **literal** `draft` <br> &amp;\\n\" +\n-     \"next' while B chose 'B \\\\| _label_ <em>text</em>\\n\" +\n-     \"last' on turn 1 (Date [anchor](#target) | <i>tag</i>\\n\" +\n-     'second). RNG positions after the step: A=4 calls, B=4 calls.'\n  ]\n"
+    },
+    {
+      "name": "Authored timeline, race, skill and spark strings survive table receiving",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'A',\n+   'literal draft\\n&'\n-   'A | **literal** `draft` <br> &amp;\\nnext',\n-   'B \\\\| _label_ <em>text</em>\\nlast'\n  ]\n"
+    },
+    {
+      "name": "markdown observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0016&b=br-1791448636-0017&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448636-0016-vs-br-1791448636-0017.md\"",
+          "content-length": "2343",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 08:37:16 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "name": "json observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0016&b=br-1791448636-0017&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448636-0016-vs-br-1791448636-0017.json\"",
+          "content-length": "3976",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 08:37:16 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "downloads": [
+    {
+      "format": "markdown",
+      "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0016&b=br-1791448636-0017&format=markdown",
+      "suggestedFilename": "branch-compare-br-1791448636-0016-vs-br-1791448636-0017.md",
+      "failure": null,
+      "bytes": 2343,
+      "sha256": "5abba89b29f730d62380b4d9a67d92806ea41b23d999831dd16b5e1182877f4e",
+      "response": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0016&b=br-1791448636-0017&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448636-0016-vs-br-1791448636-0017.md\"",
+          "content-length": "2343",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 08:37:16 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "format": "json",
+      "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0016&b=br-1791448636-0017&format=json",
+      "suggestedFilename": "branch-compare-br-1791448636-0016-vs-br-1791448636-0017.json",
+      "failure": null,
+      "bytes": 3976,
+      "sha256": "c2eaea50e8e8a9a32455ad25f176c4ee7c2d6ea0332a4d5991909012c4aeac02",
+      "response": {
+        "url": "http://127.0.0.1:34327/v1/lab/report?a=br-1791448636-0016&b=br-1791448636-0017&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791448636-0016-vs-br-1791448636-0017.json\"",
+          "content-length": "3976",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 08:37:16 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "authoredStoreFiles": [
+    {
+      "branchId": "br-1791448636-0016",
+      "originalSha256": "2edb0900abb5d40738528e549569f4b5aeda174691a5104c021daa3b9e8cd325",
+      "authoredSha256": "a141abe996d84cd71a93b70efe8dfab1be83cb3b0e5097958b0e5a50613e735a"
+    },
+    {
+      "branchId": "br-1791448636-0017",
+      "originalSha256": "c2375cdf0ce21bb80b94f768c8c3f7fcbe7c00e7ef7c1c96d7a2f4e30a55a515",
+      "authoredSha256": "904c0ef657327d555e39e6823ad52b8b2f0a3a7286ec4ca095c5837674508442"
+    }
+  ],
+  "branchIds": [
+    "br-1791448636-0016",
+    "br-1791448636-0017"
+  ],
+  "admittedNames": [
+    "Authored metadata A",
+    "Authored metadata B"
+  ],
+  "passed": false
+}

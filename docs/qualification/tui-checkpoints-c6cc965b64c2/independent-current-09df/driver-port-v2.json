@@ -1,0 +1,34 @@
+[
+  {
+    "path": "receive-v1.mjs",
+    "before_sha256": "6588974a3182048930512a8142731aaa37ae3b9559257766bfe0c763632f2e35",
+    "after_sha256": "9ddf704208836f284d9f22767eeeada0873096b1844c7968cecfc8dbf06fd4c7",
+    "changes": [
+      {
+        "before": "const root=\"/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-fe2e6fdc-v1\";",
+        "after": "const root=\"/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2\";"
+      },
+      {
+        "before": "cp.spawn(\"/opt/homebrew/bin/node\",",
+        "after": "cp.spawn(process.execPath,"
+      }
+    ],
+    "all_other_bytes_preserved": true
+  },
+  {
+    "path": "admission-boundary-v1.mjs",
+    "before_sha256": "2b5c45b3d77d3cfd843feeb24e1ec15727ab05e2ae54ebe61d723cea9921f8f5",
+    "after_sha256": "33cc5a7cad8ea599766f8f0070a70b3c893f719ef6fe2e5e6e3e57ebac418fdf",
+    "changes": [
+      {
+        "before": "const root=\"/Users/me/Developer/hamon-mesh-author-c6cc965b64c2/terminal-durable-receiving-fe2e6fdc-v1\";",
+        "after": "const root=\"/dev/shm/c6cc965b64c2-terminal-replacement-09df-v2\";"
+      },
+      {
+        "before": "cp.spawn(\"/opt/homebrew/bin/node\",",
+        "after": "cp.spawn(process.execPath,"
+      }
+    ],
+    "all_other_bytes_preserved": true
+  }
+]

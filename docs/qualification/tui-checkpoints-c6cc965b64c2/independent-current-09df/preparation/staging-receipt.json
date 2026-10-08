@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-10-08T12:50:13Z",
+  "composition": {
+    "native_main": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+    "native_main_tree": "8352de08ded783d6d23030b312c36c5b9a4b0fe1",
+    "native_donor_root": "/workspace/scratch/ac386303dce2/product-checkpoint-recovery",
+    "native_donor_git_head": "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+    "native_working_source_and_catalog_match_current_main": true,
+    "native_input_files": 120,
+    "terminal_frozen_source": "3077775807c1eb5c2af6937038bd26cf5f00c75b",
+    "terminal_current_composition": "f419b9e03db811777d2dea6dfaf830b7bb259dc2",
+    "terminal_sha256": "653acbb0b858d7bdc420904e26452e7739dffcc9c2aa73168b8fa801a1d63b4e",
+    "workflow_source": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+    "api_body_admission_source_unchanged": true,
+    "library_source_changed": true,
+    "build_performed_by_receiver": false
+  },
+  "binary": {
+    "path": "/workspace/scratch/ac386303dce2/product-checkpoint-composed-target/debug/uma-sim-api",
+    "sha256": "b7f5a0bc40962fdfb4644a053315e8eb17cfef580b843a051739effdce9dfdb6"
+  },
+  "source_files": 11,
+  "actual_donor_native_inputs_exact": 120,
+  "scripts": {
+    "receive-v1.mjs": "d858559684ac066c4a14f68c734e6e3c4debcbf3b9fb62f724a375fc351e9999",
+    "admission-boundary-v1.mjs": "77f4aaf05664d60eac59cdd94a1c402cb34bf5271e774884945724aac58d57e1"
+  },
+  "source_manifest_sha256": "77e1394a5f033fa72b02e2d59a34b03ef9e9bf294c665db303618384c68a1027",
+  "native_builds": 0,
+  "donor_writes": 0
+}

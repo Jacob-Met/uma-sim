@@ -1,0 +1,64 @@
+{
+  "schema": "uma-pr91-verified-provenance-allowance-v1",
+  "publishedHead": "bcd1df70c0681e7f9ae3a5a0bac75d9d4984ef84",
+  "scanner": {
+    "version": "8.24.3",
+    "rule": "generic-api-key",
+    "findings": 40,
+    "files": 15
+  },
+  "scope": {
+    "condition": "AND",
+    "paths": [
+      "docs/receipts/career-lab-native-acd057031fb2/publication-scope.json",
+      "docs/receipts/career-lab-native-acd057031fb2/release/local/preparation.json",
+      "docs/receipts/career-lab-native-acd057031fb2/release/native/receipt.json",
+      "docs/receipts/lab-ended-branch-20261008/native-receiving/baseline/receipt.json",
+      "docs/receipts/lab-ended-branch-20261008/native-receiving/candidate/receipt.json",
+      "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/accepted-main-equality.json",
+      "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/adversarial-initial-oracle/receipt.json",
+      "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/adversarial/receipt.json",
+      "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/summary.json",
+      "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/receipt.json",
+      "docs/receipts/lab-report-20261008/native-receiving/baseline/receipt.json",
+      "docs/receipts/lab-report-20261008/native-receiving/candidate/receipt.json",
+      "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/receipt.json",
+      "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/receipt.json",
+      "docs/receipts/lab-report-20261008/native-receiving/json-equivalence.json"
+    ],
+    "sha256": [
+      "0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873",
+      "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+      "7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d",
+      "a3fe5fc9d14118fccd401fbe25aaf839b79a4a41d8e4c9b80ee4c980197febc4"
+    ]
+  },
+  "sourceBlobs": [
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "blob": "4ff7034bc5701d793cd93d645d89d40d73fc3273",
+      "bytes": 85709,
+      "sha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95"
+    },
+    {
+      "path": "uma-sim-core/src/api.rs",
+      "blob": "0d286ec4abf5ac81b50917e0d8fe49618ff25926",
+      "bytes": 85712,
+      "sha256": "7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim-api.rs",
+      "blob": "821ce29dc4dba0758e16392fb50d83ec5231e705",
+      "bytes": 230,
+      "sha256": "0b88d6b077153b2125d66ddf215522657d5bbd2c349c66227bc1849e64901873"
+    },
+    {
+      "path": "uma-sim-core/tests/grand_live_token_labels.rs",
+      "blob": "dd7473b5d38326973d455cca911e85a4802e8903",
+      "bytes": 844,
+      "sha256": "a3fe5fc9d14118fccd401fbe25aaf839b79a4a41d8e4c9b80ee4c980197febc4"
+    }
+  ],
+  "reason": "Every finding is the SHA-256 digest of one of these four immutable Git source blobs. The existing repository's PR72 path-and-value convention preserves the original receiving bytes and all default rules. This allowance admits only the exact listed paths and exact listed source digests.",
+  "preservation": "No original receiving file, manifest, test outcome or production source is changed by this allowance."
+}

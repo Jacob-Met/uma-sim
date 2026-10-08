@@ -1,0 +1,184 @@
+{
+  "schema": "hamon.uma_paired_publication.v1",
+  "repository": "Jacob-Met/uma-sim",
+  "issue": 94,
+  "branch": "agents/066deeadcc8b/paired-batches",
+  "original_accepted_base": "7a2e15f623a559b2d9d425e4e7b68c1e71f24cbb",
+  "original_accepted_tree": "895e790957919ee1d9e64f6336c0fc176bfb35cb",
+  "receiving_base": "4eab1798def5c19fbdee267eb2a6ea8a2726dbe7",
+  "receiving_tree": "bcd00030f309a41cb5670b509d41381f12d1e621",
+  "source_freeze_sha256": "28029900f8ac9131ffe57e09c62212ec8761f93591fc5198802453c1d6ec753a",
+  "source": [
+    {
+      "path": "docs/PAIRED_BATCHES.md",
+      "bytes": 6594,
+      "sha256": "31fea1c00010b8ac9c0f49af7c493d7a121133a080836cd00cda4df85ee711a8",
+      "git_blob": "dca48b548b0b78fae5e8ea12332c7392567faa8b"
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches/baseline.jsonl",
+      "bytes": 233,
+      "sha256": "b8713f82d84fcbf07822e30c9090ea6bfd48de426c298b540f153d09cd8cba9d",
+      "git_blob": "147ff34d9184beac1e515cf833692c3f208664c3"
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches/input.jsonl",
+      "bytes": 233,
+      "sha256": "8475f38e962f68b05542c92203b4649adf94a471e7b7a363d068aab620dcf0b6",
+      "git_blob": "1fa747ea6e99a88762853e3ece69307e6265f49a"
+    },
+    {
+      "path": "uma-sim-core/src/batch_pairs.rs",
+      "bytes": 9822,
+      "sha256": "7484075434118852a7af9c121af478cf7dceb22d3f7559d46dc97a279b3ee770",
+      "git_blob": "d083c65c64053a87da11a809de83d04184cc393b"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "bytes": 20452,
+      "sha256": "90f1594ba6e25f2af098ef0049374447959475718c5425f2228349f5afbe5676",
+      "git_blob": "3219cab93a8a7c1234f69e6ca0bea9958de177a1"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/paired_batches.rs",
+      "bytes": 3491,
+      "sha256": "2465e6a468d106bbf8beb481659ef32fe352a8cbb33e6d9161ef937a07c64379",
+      "git_blob": "3fab6f9f8669d1cc3fa5cdae52099c0846d06da9"
+    },
+    {
+      "path": "uma-sim-core/src/lib.rs",
+      "bytes": 3342,
+      "sha256": "5468e5c0e55e8701136b8cf7cdb53874e2a86e2a1ef5ebfd3f776d5705078b5e",
+      "git_blob": "e815f361d1e927f5b8fc9a0a53b317fa38917ee4"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches.rs",
+      "bytes": 7622,
+      "sha256": "1c031d01b811d4d31e67bcdb45e777560b50f77286fab0826ba249fc9c89c54b",
+      "git_blob": "cb77d7dfe9354e6d1169321eaefcd4a382bede24"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches_cli.rs",
+      "bytes": 6844,
+      "sha256": "793256047786ee6de7d97e5fcb85a39076f9eda1de91d2050a43c70a89e8af4d",
+      "git_blob": "bae14924d409470262b5880f5dfb9da11ac6405f"
+    }
+  ],
+  "archives": [
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-packet.tar.gz",
+      "bytes": 234943,
+      "sha256": "47c99fa001f5cbb369c5c8d3f77e2306d117d1033c506f5e1fdd43a77f2d07d0",
+      "git_blob": "dc2506f062cd23b2f47ae3678aa3074c710f2442",
+      "ordinary_files": 75,
+      "manifest_artifacts": 74,
+      "base": "7a2e15f623a559b2d9d425e4e7b68c1e71f24cbb",
+      "binary_sha256": "ab563811709ef2788bd0bc563c14da6c842c7d1bc664218ba7c6a2e2f10b61ab"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-packet.tar.gz",
+      "bytes": 2096650,
+      "sha256": "db973f6ff28cb10d99b276c67e33dca113727bcad5f0e01f0c2d89773ecd8c83",
+      "git_blob": "38efc984b36eb61202e953f2844a2f2d094fca41",
+      "ordinary_files": 972,
+      "manifest_artifacts": 971,
+      "base": "7a2e15f623a559b2d9d425e4e7b68c1e71f24cbb",
+      "binary_sha256": "ab563811709ef2788bd0bc563c14da6c842c7d1bc664218ba7c6a2e2f10b61ab"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/author-current-packet.tar.gz",
+      "bytes": 206466,
+      "sha256": "42bfc556fddf99a1a473885bf3084b4ecdbbf2f834c22668801dae1ad4eda7f2",
+      "git_blob": "d99aeba5a328a47ca2c9a40aa370536619c775dc",
+      "ordinary_files": 23,
+      "manifest_artifacts": 22,
+      "base": "4eab1798def5c19fbdee267eb2a6ea8a2726dbe7",
+      "binary_sha256": "01d7e9aee08492579143a297d74be01816a10da8e40045ecf4436b619ebcc989"
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b/independent-current-packet.tar.gz",
+      "bytes": 80718,
+      "sha256": "c42b418d1fc9c666e79d8b9fefdcebd58372e71965fb8593eb63d67920cd760e",
+      "git_blob": "bd63741c239818c54085096228f737f16c72dc4a",
+      "ordinary_files": 41,
+      "manifest_artifacts": 40,
+      "base": "4eab1798def5c19fbdee267eb2a6ea8a2726dbe7",
+      "binary_sha256": "01d7e9aee08492579143a297d74be01816a10da8e40045ecf4436b619ebcc989"
+    }
+  ],
+  "receiving_closure": {
+    "canonical_paths": 284,
+    "source_closure_sha256": "326117c0bada0f9104667b7370db67e912dd707d425195dd0331c45abc7ba5d4",
+    "original_owned_source_unchanged": true,
+    "current_binary": {
+      "path": "/Users/me/uma-paired-066deeadcc8b/target/debug/uma-sim",
+      "bytes": 15064864,
+      "sha256": "01d7e9aee08492579143a297d74be01816a10da8e40045ecf4436b619ebcc989"
+    },
+    "delta": "PR91: api.rs test expectation and career_lab.rs ended-branch/Markdown reporting, plus three test files. These report paths are not invoked by the new consumer or maintained batch/aggregate workflow.",
+    "all_nine_owned_files_unchanged": true
+  },
+  "native_qualification": {
+    "original_author_focused_methods": 12,
+    "original_author_actual_workflow_processes": 6,
+    "original_independent_candidate_processes": 92,
+    "original_independent_baseline_processes": 2,
+    "current_author_focused_methods": 12,
+    "current_author_gates": [
+      {
+        "command": [
+          "cargo",
+          "test",
+          "--offline",
+          "--locked",
+          "-p",
+          "uma-sim-core",
+          "--test",
+          "paired_batches",
+          "--test",
+          "paired_batches_cli"
+        ],
+        "exit": 0,
+        "log_sha256": "62724707aa40e7cd40578098edddbda6d69cb4d8a737caa0c23231ed1c5575a3"
+      },
+      {
+        "command": [
+          "cargo",
+          "fmt",
+          "--all",
+          "--",
+          "--check"
+        ],
+        "exit": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "cargo",
+          "clippy",
+          "--workspace",
+          "--all-targets",
+          "--offline",
+          "--locked"
+        ],
+        "exit": 0,
+        "log_sha256": "4020ba4288b886355ceee650467ea7422391ecbc5ab5f330dfabb90853bef932"
+      }
+    ],
+    "current_independent_processes": 3,
+    "current_independent_receipt_sha256": "bf6db8a265f3c14f09870e5b756eb1fc4fac42867e6e44c19692becbce76dd4a",
+    "current_outputs_equal_retained_accepted_outputs": true,
+    "original_packets_unchanged": true
+  },
+  "tree_guard": {
+    "base_non_tree_leaves": 1309,
+    "preserved_unowned_leaves": 1307,
+    "modified_existing_paths": [
+      "uma-sim-core/src/bin/uma-sim.rs",
+      "uma-sim-core/src/lib.rs"
+    ],
+    "canonical_manifest_lock_workflow_edits": 0
+  },
+  "limits": "Recorded identity and descriptive outcomes only; no configuration authentication, counterfactual RNG equivalence, statistical significance, Windows output-descriptor or whole-checkout native-test claim.",
+  "hosted_checks": "Pending actual PR workflow runs; native qualification is separately attributed."
+}

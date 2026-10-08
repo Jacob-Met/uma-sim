@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "createdAt": "2026-10-08T11:57:09.494Z",
+  "scannerVersion": "8.24.3",
+  "sourceHead": "97d3423abdc4f453ce73b1cba9904360dccf1f8a",
+  "sourceBase": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+  "defaultRulesPreserved": true,
+  "previousConfigPreserved": true,
+  "configSha256": "be90780c4abd7335b0a81e95005a012c8a67a08bf53914d2688bedbd4dfcc19e",
+  "classification": {
+    "rule": "generic-api-key",
+    "observedFindings": 4,
+    "verifiedGitObjects": [
+      {
+        "hash": "4ff7034bc5701d793cd93d645d89d40d73fc3273",
+        "type": "blob",
+        "boundTo": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c:uma-sim-core/src/api.rs"
+      },
+      {
+        "hash": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+        "type": "commit"
+      },
+      {
+        "hash": "fe2e6fdcdf7625cb5beac0e0062ace0360288a02",
+        "type": "commit"
+      }
+    ],
+    "exactPaths": [
+      "docs/qualification/tui-checkpoints-c6cc965b64c2/README.md",
+      "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-manifest.json",
+      "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/api-current-impact.json"
+    ],
+    "configAppendFile": "config-append.toml"
+  },
+  "controls": {
+    "exact": {
+      "name": "controls-exact",
+      "args": [
+        "git",
+        "--config",
+        "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc/.gitleaks.toml",
+        "--log-opts=--all",
+        "--redact=100",
+        "--report-format=json",
+        "--report-path=/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/gitleaks-v8.24.3/controls-exact.json",
+        "--no-banner",
+        "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/gitleaks-v8.24.3/narrow-controls-v1"
+      ],
+      "status": 0,
+      "findings": [],
+      "reportSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "negative": {
+      "name": "controls-negative",
+      "args": [
+        "git",
+        "--config",
+        "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc/.gitleaks.toml",
+        "--log-opts=d2fbe8d7796d32f19265916070da3c20fd053d29..HEAD",
+        "--redact=100",
+        "--report-format=json",
+        "--report-path=/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/gitleaks-v8.24.3/controls-negative.json",
+        "--no-banner",
+        "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/gitleaks-v8.24.3/narrow-controls-v1"
+      ],
+      "status": 1,
+      "findings": [
+        {
+          "rule": "generic-api-key",
+          "file": "docs/qualification/tui-checkpoints-c6cc965b64c2/README.md",
+          "line": 1
+        },
+        {
+          "rule": "generic-api-key",
+          "file": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/api-current-impact.json",
+          "line": 1
+        },
+        {
+          "rule": "generic-api-key",
+          "file": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-manifest-outside.json",
+          "line": 1
+        },
+        {
+          "rule": "generic-api-key",
+          "file": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-manifest.json",
+          "line": 1
+        },
+        {
+          "rule": "private-key",
+          "file": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/source-manifest.json",
+          "line": 2
+        }
+      ],
+      "reportSha256": "a95acb6c6a72591e5c43ac2d181eae1fb1434ed168e04a538d831a4b2e27c15a"
+    }
+  },
+  "classifiedCandidate": {
+    "name": "current-fe2-classified",
+    "args": [
+      "git",
+      "--config",
+      "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc/.gitleaks.toml",
+      "--log-opts=fe2e6fdcdf7625cb5beac0e0062ace0360288a02..HEAD",
+      "--redact=100",
+      "--report-format=json",
+      "--report-path=/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/gitleaks-v8.24.3/current-fe2-classified.json",
+      "--no-banner",
+      "/Users/me/Developer/uma-terminal-durable-c6cc965b64c2/receiving/current-fe2e6fdc"
+    ],
+    "status": 0,
+    "findings": [],
+    "reportSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  }
+}

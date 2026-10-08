@@ -1,0 +1,504 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "commit": "97754679972a3128b5b84cde2159b43a4d85c56e",
+    "tree": "da863f9b1df928ed5bd1ac85642ee67bfd1f4cdc",
+    "sourceRepo": "/workspace/scratch/acd057031fb2/agents/production/uma-final-native",
+    "workingTreeCleanBeforeReceiptFiles": true
+  },
+  "base": {
+    "commit": "0ac14602addd1a4610aa8359896915a34cce5659",
+    "tree": "e7d10088a713d8fbd7391c86050a92898652bdd6",
+    "isAncestor": true
+  },
+  "nativePins": {
+    "uma-sim-core/src/career_lab.rs": {
+      "sha256": "49d68441482fa907364292bb25b43fc06be6e95b13937cbbba898a393f4e4935",
+      "gitBlob": "197ea1f9da4f65d334b0496a0c27d2d5123579a8",
+      "workingBytesMatch": true
+    },
+    "uma-sim-core/tests/career_lab.rs": {
+      "sha256": "0006bf6b92c4a16985d7c6ba2f921410cc02e63c75d94a508bd30b13930d4c3e",
+      "gitBlob": "ac10b74efd030fb6e1ac52bf32bcac46109f6bbc",
+      "workingBytesMatch": true
+    },
+    "uma-sim-core/tests/career_lab_reports.rs": {
+      "sha256": "db0e1ee820ec99b621b7e29516fb85503b7176fa9051fa427816247740903a91",
+      "gitBlob": "d1c0e573cd0c9c08d4e91ba7063732f6b9dde8a4",
+      "workingBytesMatch": true
+    },
+    "uma-sim-core/tests/career_lab_divergence.rs": {
+      "sha256": "ba0f7da22a18f309bf3f220705a9c3e0b2527ed83bacfdbd4c8dcc69b162a980",
+      "gitBlob": "7a9e36ca4e04f259a4d80dff84295f0fd464afe3",
+      "workingBytesMatch": true
+    },
+    "uma-sim-core/src/api.rs": {
+      "sha256": "7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d",
+      "gitBlob": "0d286ec4abf5ac81b50917e0d8fe49618ff25926",
+      "workingBytesMatch": true
+    }
+  },
+  "changedPaths": [
+    "docs/receipts/career-lab-ended-count-acd057031fb2/native/README.md",
+    "docs/receipts/career-lab-ended-count-acd057031fb2/native/baseline-career-lab-divergence-compact.log.gz",
+    "docs/receipts/career-lab-ended-count-acd057031fb2/native/baseline-career-lab-divergence.log.gz",
+    "docs/receipts/career-lab-ended-count-acd057031fb2/native/candidate-career-lab-divergence-compact.log.gz",
+    "docs/receipts/career-lab-ended-count-acd057031fb2/native/candidate-career-lab-divergence.log.gz",
+    "docs/receipts/career-lab-ended-count-acd057031fb2/native/receipt.json",
+    "docs/receipts/career-lab-report-acd057031fb2/native/README.md",
+    "docs/receipts/career-lab-report-acd057031fb2/native/baseline-career-lab-reports-v2-completed.log.gz",
+    "docs/receipts/career-lab-report-acd057031fb2/native/baseline-career-lab-reports-v2.log.gz",
+    "docs/receipts/career-lab-report-acd057031fb2/native/baseline-career-lab-reports.log.gz",
+    "docs/receipts/career-lab-report-acd057031fb2/native/candidate-career-lab-reports.log.gz",
+    "docs/receipts/career-lab-report-acd057031fb2/native/candidate-existing-career-lab-updated.log.gz",
+    "docs/receipts/career-lab-report-acd057031fb2/native/candidate-existing-career-lab.log.gz",
+    "docs/receipts/career-lab-report-acd057031fb2/native/receipt.json",
+    "docs/receipts/lab-report-20261008/native-receiving/.gitattributes",
+    "docs/receipts/lab-report-20261008/native-receiving/README.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/authored-branch-0.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/authored-branch-1.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/simulation-branch-0.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields/simulation-branch-1.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/backslash_pipe_backticks/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/backslash_pipe_backticks/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/backslash_pipe_backticks/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/backslash_pipe_backticks/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/backslash_pipe_backticks/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/backslash_pipe_backticks/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/backslash_pipe_backticks/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/html/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/html/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/html/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/html/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/html/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/html/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/html/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/line_breaks/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/line_breaks/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/line_breaks/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/line_breaks/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/line_breaks/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/line_breaks/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/line_breaks/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/literal_entities/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/literal_entities/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/literal_entities/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/literal_entities/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/literal_entities/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/literal_entities/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/literal_entities/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/markdown/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/markdown/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/markdown/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/markdown/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/markdown/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/markdown/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/markdown/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/ordinary_names/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/ordinary_names/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/ordinary_names/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/ordinary_names/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/ordinary_names/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/ordinary_names/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/ordinary_names/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/pipe/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/pipe/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/pipe/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/pipe/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/pipe/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/pipe/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/pipe/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/receipt.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/server.log",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/unicode/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/unicode/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/unicode/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/unicode/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/unicode/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/unicode/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/baseline/unicode/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate-build.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/authored-branch-0.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/authored-branch-1.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/simulation-branch-0.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields/simulation-branch-1.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/backslash_pipe_backticks/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/backslash_pipe_backticks/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/backslash_pipe_backticks/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/backslash_pipe_backticks/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/backslash_pipe_backticks/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/backslash_pipe_backticks/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/backslash_pipe_backticks/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/html/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/html/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/html/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/html/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/html/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/html/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/html/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/line_breaks/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/line_breaks/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/line_breaks/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/line_breaks/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/line_breaks/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/line_breaks/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/line_breaks/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/literal_entities/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/literal_entities/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/literal_entities/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/literal_entities/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/literal_entities/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/literal_entities/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/literal_entities/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/markdown/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/markdown/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/markdown/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/markdown/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/markdown/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/markdown/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/markdown/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/ordinary_names/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/ordinary_names/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/ordinary_names/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/ordinary_names/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/ordinary_names/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/ordinary_names/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/ordinary_names/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/pipe/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/pipe/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/pipe/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/pipe/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/pipe/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/pipe/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/pipe/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/receipt.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/server.log",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/unicode/case.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/unicode/created-branches.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/unicode/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/unicode/rendered.png",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/unicode/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/unicode/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/candidate/unicode/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/failure-ui.png",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/receipt.json",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/rendered-report.png",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/server.log",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline/ui-comparison.png",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/receipt.json",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/rendered-dom.json",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/rendered-report.png",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/report.html",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/report.json",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/report.md",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/server.log",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/ui-comparison.png",
+    "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate/ui-selection-cleared.png",
+    "docs/receipts/lab-report-20261008/native-receiving/json-equivalence.json",
+    "docs/receipts/lab-report-20261008/native-receiving/manifest.json",
+    "scripts/verify-lab-native-ui.mjs",
+    "scripts/verify-lab-report-receiving.mjs",
+    "uma-sim-core/src/api.rs",
+    "uma-sim-core/src/career_lab.rs",
+    "uma-sim-core/tests/career_lab.rs",
+    "uma-sim-core/tests/career_lab_divergence.rs",
+    "uma-sim-core/tests/career_lab_reports.rs"
+  ],
+  "unexpectedPaths": [],
+  "unchangedScopes": {
+    "ui": {
+      "paths": [
+        "packages/uma-sim-ui"
+      ],
+      "changedPaths": []
+    },
+    "allPackages": {
+      "paths": [
+        "packages"
+      ],
+      "changedPaths": []
+    },
+    "workflows": {
+      "paths": [
+        ".github"
+      ],
+      "changedPaths": []
+    },
+    "cargo": {
+      "paths": [
+        "Cargo.toml",
+        "Cargo.lock",
+        "uma-sim-core/Cargo.toml",
+        "uma-race-core/Cargo.toml"
+      ],
+      "changedPaths": [],
+      "pins": {
+        "Cargo.toml": {
+          "sha256": "818161c35c9828641c370cc3c6b50dfb1e8e4417210bd8fa486e87234e40b1d8",
+          "gitBlob": "d55384b62968b2ada18d45aa4de2053e175579ea"
+        },
+        "Cargo.lock": {
+          "sha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+          "gitBlob": "1f99851c45524f129e8544a2d779b3c21594d816"
+        },
+        "uma-sim-core/Cargo.toml": {
+          "sha256": "4f2415320bc4548fa59ad6c115ad05a8adcad59a2b50349cf44d78d52d12c5e0",
+          "gitBlob": "66f76c43b5e98607a9d4df4d0cf7b7d9eff8c083"
+        },
+        "uma-race-core/Cargo.toml": {
+          "sha256": "c5ea8eae8e4f9703087fa43066f391b7f3656ac3b0f46c368fc88f8e1b6e73d4",
+          "gitBlob": "43fe390326bf6d0df59c30aca77a444b9c8dfea6"
+        }
+      }
+    },
+    "apiEntrypoint": {
+      "paths": [
+        "uma-sim-core/src/bin/uma-sim-api.rs"
+      ],
+      "changedPaths": []
+    },
+    "cli": {
+      "paths": [
+        "uma-sim-core/src/bin/uma-sim.rs"
+      ],
+      "changedPaths": []
+    },
+    "catalogsAndData": {
+      "paths": [
+        "knowledge",
+        "content_packs",
+        "research",
+        "uma-sim-core/src/catalog"
+      ],
+      "changedPaths": []
+    },
+    "raceCore": {
+      "paths": [
+        "uma-race-core"
+      ],
+      "changedPaths": []
+    }
+  },
+  "productionApi": {
+    "path": "uma-sim-core/src/api.rs",
+    "marker": "#[cfg(test)]\nmod tests {",
+    "baseFullSha256": "3db7edc89536c1670c26c3a900de8654fde1b27d66c552d017c94dcc31e44f95",
+    "candidateFullSha256": "7a11ad1367cd3053b79254f41ffb821e08b7693b88c0bd39583de36284be622d",
+    "baseProductionSha256": "c189eb0757df1a1f77f7af4d5533bd1265dee71b35c38d795f0b28b163fb7f19",
+    "candidateProductionSha256": "c189eb0757df1a1f77f7af4d5533bd1265dee71b35c38d795f0b28b163fb7f19",
+    "productionIdentical": true,
+    "wholeFileIdentical": false,
+    "exactTestOnlyDiff": "diff --git a/uma-sim-core/src/api.rs b/uma-sim-core/src/api.rs\nindex 4ff7034..0d286ec 100644\n--- a/uma-sim-core/src/api.rs\n+++ b/uma-sim-core/src/api.rs\n@@ -2127,7 +2127,7 @@ mod tests {\n                 .contains(\"content-type: text/markdown\"),\n             \"report must be markdown\"\n         );\n-        assert!(raw.contains(\"# Branch comparison: e2e-rest vs e2e-train\"));\n+        assert!(raw.contains(r\"# Branch comparison: e2e\\-rest vs e2e\\-train\"));\n         assert!(raw.contains(&format!(\"turn {cp_turn}\")));\n         scrub_checkpoints(&[\"lab-e2e\"]);\n     }"
+  },
+  "clippy": {
+    "exitCode": 0,
+    "command": "cargo clippy --workspace --all-targets --locked --offline",
+    "warningsWereNotDenied": true,
+    "warningLocations": [
+      {
+        "file": "uma-race-core/src/compete_fight.rs",
+        "basis": "entire file identical to base",
+        "sha256": "268b4ae82ad03416f5d75575009dc7abd9080efad11fc7d87bd4acbe1d3f56b4"
+      },
+      {
+        "file": "uma-race-core/src/condition/skill.rs",
+        "basis": "entire file identical to base",
+        "sha256": "c76eceacada786f3e40f0618f1f05acc4b60bc964cfe12f158e2704d69d27927"
+      },
+      {
+        "file": "uma-race-core/src/pos_keep.rs",
+        "basis": "entire file identical to base",
+        "sha256": "7d21115707dc4ba83927d5106b9b4af0aa0606afc75c11b9a9711ce756808959"
+      },
+      {
+        "file": "uma-race-core/src/runner.rs",
+        "basis": "entire file identical to base",
+        "sha256": "754fdd50370158c666e0404ba07a971311a6f18a1fa91467f9e09f41efbe80b4"
+      },
+      {
+        "file": "uma-race-core/src/solver.rs",
+        "basis": "entire file identical to base",
+        "sha256": "7f80be845f974404658e49568bc1ebc6de3b1665dd893bb0b7e76daa58490995"
+      },
+      {
+        "file": "uma-race-core/src/special_conditions.rs",
+        "basis": "entire file identical to base",
+        "sha256": "88d95c8f9118b76b38cb1c10e10ef5a2ffc90b1a705567862baa8806d4d80e80"
+      },
+      {
+        "file": "uma-sim-core/src/batch_analysis.rs",
+        "basis": "entire file identical to base",
+        "sha256": "062f2ad7b03b84d82dd4f87ccb2507f56405e0c878d4b7cfa70df11855fc584b"
+      },
+      {
+        "file": "uma-sim-core/src/career_lab.rs",
+        "basis": "warning lies within byte-identical sweep_stale_tmp function; renderer/count elsewhere in file changed",
+        "functionSha256": "9f0ed0b48edcd3e03f3e4171fbe43fa9f417f8a1c913aef2b47269656fc5fbf9",
+        "candidateLines": [
+          1424
+        ]
+      },
+      {
+        "file": "uma-sim-core/src/catalog/factor.rs",
+        "basis": "entire file identical to base",
+        "sha256": "c97c00886f4ddf85c3613c90a0c4d6cdf84be601c756d79cd430f6bcfdaed7cc"
+      },
+      {
+        "file": "uma-sim-core/src/catalog/support.rs",
+        "basis": "entire file identical to base",
+        "sha256": "f677cfc2ed41f192e47eb1156f086e38e3d000e045ce466290b06ba8431b851c"
+      },
+      {
+        "file": "uma-sim-core/src/catalog/trainee.rs",
+        "basis": "entire file identical to base",
+        "sha256": "1d7bfe9bbd481520566589c8dc6190b980580d96f970e51f97d43627f61b265f"
+      },
+      {
+        "file": "uma-sim-core/src/config.rs",
+        "basis": "entire file identical to base",
+        "sha256": "5da9209669a971226c4ab1b24dadd462329962c3d15f2be041c96f5fa46933f4"
+      },
+      {
+        "file": "uma-sim-core/src/deck.rs",
+        "basis": "entire file identical to base",
+        "sha256": "0de21f528ad2b099052cc1683c10220d1e206f771e8e6b3e95e78c88c392c441"
+      },
+      {
+        "file": "uma-sim-core/src/engine.rs",
+        "basis": "entire file identical to base",
+        "sha256": "5b2ad3cd6557d929d07fef8b1783357089d129190dc1e871e80f4d6e28dd075c"
+      },
+      {
+        "file": "uma-sim-core/src/policy_external.rs",
+        "basis": "entire file identical to base",
+        "sha256": "081382ca4d7f3fd1a0943e737a0f819c7c3f419c04a140113c15a204179f0221"
+      },
+      {
+        "file": "uma-sim-core/src/race.rs",
+        "basis": "entire file identical to base",
+        "sha256": "1010b41f21af0083e7cb4fdd792456b077ad2e08b5e46530ca29031242198f27"
+      },
+      {
+        "file": "uma-sim-core/src/rng.rs",
+        "basis": "entire file identical to base",
+        "sha256": "6926d2388464fff071f71dc37d80eea6d3306e9279d0cdb946da78fcd84e42cc"
+      },
+      {
+        "file": "uma-sim-core/src/scenario/grand_live.rs",
+        "basis": "entire file identical to base",
+        "sha256": "7833d334dfc9405ba4d196d3b2fcf578908d4f376d2e84c1630ba93f9a1d29ea"
+      },
+      {
+        "file": "uma-sim-core/src/scenario/grand_live_deck_support.rs",
+        "basis": "entire file identical to base",
+        "sha256": "8eb06bc1f60d10ee228d57adffa27aab9d5d487dcde4b496ed8882b9187906a4"
+      },
+      {
+        "file": "uma-sim-core/src/scenario/ura.rs",
+        "basis": "entire file identical to base",
+        "sha256": "005d64ab1e16d88e61ec7738ab439605e653f5cffe3df7dc814e0aad7f2718ed"
+      },
+      {
+        "file": "uma-sim-core/src/scenario/mod.rs",
+        "basis": "entire file identical to base",
+        "sha256": "212247478df1cc2211b8f428597bf7f33a1127af407a66a6d64d0c8004ee77ce"
+      },
+      {
+        "file": "uma-sim-core/src/scoring/rank_estimate.rs",
+        "basis": "entire file identical to base",
+        "sha256": "1fcc35506e640c159d233b3185ad7227a2a96f63246f820ebb79ced2583bb50e"
+      },
+      {
+        "file": "uma-sim-core/src/scoring/mod.rs",
+        "basis": "entire file identical to base",
+        "sha256": "c21013faaae569ad633abde7023f9879e0a10e3640308d56c61c1cb04793db49"
+      },
+      {
+        "file": "uma-sim-core/src/scoring/scoring.rs",
+        "basis": "entire file identical to base",
+        "sha256": "e2bd2c4949f18db17e977843c1c79b336bdfc95b93b1368fe4c427767c98f790"
+      },
+      {
+        "file": "uma-sim-core/src/scoring/skill_scoring.rs",
+        "basis": "entire file identical to base",
+        "sha256": "6c9fa6d2ac85d06cc18f4a181f64111a6b8561e0b9bd30411ef0dcaeed73feb4"
+      },
+      {
+        "file": "uma-sim-core/src/scoring/terminal_utility.rs",
+        "basis": "entire file identical to base",
+        "sha256": "8365116eac4f4ffce7e679b67edac1b95b2dad40b1067833c1d8fdefe30db409"
+      },
+      {
+        "file": "uma-sim-core/src/state.rs",
+        "basis": "entire file identical to base",
+        "sha256": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833"
+      },
+      {
+        "file": "uma-sim-core/src/telemetry.rs",
+        "basis": "entire file identical to base",
+        "sha256": "b9ceb28e08de1957e212addcf3dc958ec54fbb8c475691a3530725445e789548"
+      },
+      {
+        "file": "uma-sim-core/src/training.rs",
+        "basis": "entire file identical to base",
+        "sha256": "ffcba9a98219819d82d078ac117022afc677562de3512fb915b52c12762c4590"
+      },
+      {
+        "file": "uma-sim-core/tests/race_v4_dist.rs",
+        "basis": "entire file identical to base",
+        "sha256": "303c1b6fb180c9fbab0177f89a5c88788e637be1d2635c73310313ce48bb9f07"
+      },
+      {
+        "file": "uma-sim-core/tests/parity.rs",
+        "basis": "entire file identical to base",
+        "sha256": "545bc353edc38a0ed7754770e24fc8c7ae07d46210124871f6e8224dcbbe9da8"
+      },
+      {
+        "file": "uma-sim-core/examples/tb_shop_dump.rs",
+        "basis": "entire file identical to base",
+        "sha256": "e4e056a3cc6654f7ff318c0168b32e9fbf6599eb534f1967ee2ca13f34f1554c"
+      },
+      {
+        "file": "uma-race-core/tests/probe_residual.rs",
+        "basis": "entire file identical to base",
+        "sha256": "917c13dec6ddf50b08f830a3d9f774f35d48d50e39643e9c6ca558059ad722fd"
+      }
+    ],
+    "note": "Source equivalence at emitted diagnostic locations, not an additional baseline Clippy run.",
+    "log": "accepted-977-clippy.log.gz",
+    "uncompressedLogSha256": "f4dca2916fb76e55c7c27b30249adf85fe18c63d2a5fb3df8ef5669242c3edd4",
+    "warningSourceFileCount": 33
+  },
+  "boundaryNotes": [
+    "API route/schema code is unchanged; intended report Markdown and branch-ended note content changes.",
+    "Historical scripts/verify-lab-native-ui.mjs receipt uses superseded UI semantics; it is not proof of accepted 0ac UI.",
+    "Native source is qualified separately from artifact/browser receiving.",
+    "The final API module differs only in its embedded test assertion; production handlers and API entry point remain byte-identical to accepted main."
+  ],
+  "receiptBoundary": "This manifest qualifies the native source at 9775467 before later additive browser-receiving and documentation commits. Their exact final path scope must be recorded separately.",
+  "rustChangeRoles": {
+    "uma-sim-core/src/career_lab.rs": "Production Markdown text/code-span rendering and two branch-ended timeline length references.",
+    "uma-sim-core/tests/career_lab.rs": "One existing raw Markdown heading expectation and explanatory comment.",
+    "uma-sim-core/tests/career_lab_reports.rs": "Nine focused native report regressions.",
+    "uma-sim-core/tests/career_lab_divergence.rs": "Six focused ended-branch timeline regressions.",
+    "uma-sim-core/src/api.rs": "One raw Markdown heading expectation inside #[cfg(test)] mod tests; production API bytes unchanged."
+  }
+}

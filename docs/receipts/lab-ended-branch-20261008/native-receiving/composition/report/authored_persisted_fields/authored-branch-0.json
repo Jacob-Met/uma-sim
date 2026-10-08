@@ -1,0 +1,108 @@
+{
+  "id": "br-1791450344-0016",
+  "name": "Authored metadata A",
+  "checkpointName": "cp` `long``fence``` <tag> &amp; | marker\r\nnext",
+  "checkpointTurn": 1,
+  "seed": 4242,
+  "scenarioId": "ura",
+  "traineeName": "Special Week",
+  "config": {
+    "policy": "bot",
+    "maxActions": 2,
+    "overrides": []
+  },
+  "startedAt": "2026-10-08T09:05:44Z",
+  "timeline": [
+    {
+      "stepIndex": 0,
+      "turn": 1,
+      "dateLabel": "Date [anchor](#target) | <i>tag</i>\nsecond",
+      "phase": "`phase` <em> &amp; | x\rY",
+      "actionId": "`a``` | &amp; <tag> \\ path\nnext`",
+      "actionLabel": "A | **literal** `draft` <br> &amp;\nnext",
+      "overrideApplied": false,
+      "overrideRejected": false,
+      "rngCallsBefore": 0,
+      "rngCallsAfter": 4,
+      "energy": 100,
+      "mood": "NORMAL",
+      "fans": 1033,
+      "skillPoints": 45,
+      "stats": {
+        "speed": 83,
+        "stamina": 88,
+        "power": 98,
+        "guts": 90,
+        "wit": 91
+      },
+      "newRaces": [
+        "debut"
+      ],
+      "totalRaces": 1,
+      "totalSkills": 1
+    },
+    {
+      "stepIndex": 1,
+      "turn": 2,
+      "dateLabel": "Y1 Jul · 1st half",
+      "phase": "FREE",
+      "actionId": "train_speed",
+      "actionLabel": "Train Speed",
+      "overrideApplied": false,
+      "overrideRejected": false,
+      "rngCallsBefore": 4,
+      "rngCallsAfter": 11,
+      "energy": 65,
+      "mood": "NORMAL",
+      "fans": 1033,
+      "skillPoints": 45,
+      "stats": {
+        "speed": 83,
+        "stamina": 88,
+        "power": 98,
+        "guts": 90,
+        "wit": 91
+      },
+      "newRaces": [],
+      "totalRaces": 1,
+      "totalSkills": 1
+    }
+  ],
+  "outcome": {
+    "steps": 2,
+    "finalTurn": 3,
+    "careerComplete": false,
+    "completedRaces": [
+      "race | <tag>",
+      "literal `race`\nnew"
+    ],
+    "stats": {
+      "speed": 83,
+      "stamina": 88,
+      "power": 98,
+      "guts": 90,
+      "wit": 91
+    },
+    "energy": 65,
+    "mood": "GOOD | *literal* <br>\r\nnext",
+    "fans": 1033,
+    "skillPoints": 45,
+    "learnedSkills": [
+      "skill **x** | &amp;",
+      "second `slot`"
+    ],
+    "sparks": [
+      {
+        "color": "red | <b>tone</b>",
+        "factorId": "receipt-factor",
+        "stars": 3,
+        "label": "spark _star_ `tick`\nline"
+      }
+    ],
+    "scenarioResources": {
+      "happy_meek_badge": 0
+    },
+    "totalRngCalls": 11,
+    "telemetryRecords": 2
+  }
+}

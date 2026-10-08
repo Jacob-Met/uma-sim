@@ -1,0 +1,149 @@
+{
+  "id": "authored_persisted_fields",
+  "submittedNames": [
+    "Authored metadata A",
+    "Authored metadata B"
+  ],
+  "inputBoundary": "Explicitly authored disposable persisted string fields after actual API branch creation.",
+  "checks": [
+    {
+      "name": "API admits each intended name without changing internal data",
+      "passed": true
+    },
+    {
+      "name": "markdown browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "json browser attachment identity and bytes",
+      "passed": true
+    },
+    {
+      "name": "Downloaded JSON preserves ordered branch IDs and original names",
+      "passed": true
+    },
+    {
+      "name": "Rendered heading retains each name as literal data",
+      "passed": true
+    },
+    {
+      "name": "Embedded name data cannot split sections or tables",
+      "passed": true
+    },
+    {
+      "name": "Rendered final Branch row preserves ordered original cell text",
+      "passed": true
+    },
+    {
+      "name": "Rendered numeric and deterministic outcome cells match downloaded JSON",
+      "passed": true
+    },
+    {
+      "name": "Code-span metadata preserves literal backticks, pipes, entities and HTML",
+      "passed": true
+    },
+    {
+      "name": "Divergence labels and generated note remain literal within four list items",
+      "passed": true
+    },
+    {
+      "name": "Authored timeline, race, skill and spark strings survive table receiving",
+      "passed": true
+    },
+    {
+      "name": "markdown observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:45249/v1/lab/report?a=br-1791450344-0016&b=br-1791450344-0017&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791450344-0016-vs-br-1791450344-0017.md\"",
+          "content-length": "2686",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 09:05:44 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "name": "json observed HTTP attachment headers",
+      "passed": true,
+      "observed": {
+        "url": "http://127.0.0.1:45249/v1/lab/report?a=br-1791450344-0016&b=br-1791450344-0017&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791450344-0016-vs-br-1791450344-0017.json\"",
+          "content-length": "3976",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 09:05:44 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "downloads": [
+    {
+      "format": "markdown",
+      "url": "http://127.0.0.1:45249/v1/lab/report?a=br-1791450344-0016&b=br-1791450344-0017&format=markdown",
+      "suggestedFilename": "branch-compare-br-1791450344-0016-vs-br-1791450344-0017.md",
+      "failure": null,
+      "bytes": 2686,
+      "sha256": "7eab73207dc3bb1c7a6781c512dfde43be1885d27214614e6c240f8095e182cb",
+      "response": {
+        "url": "http://127.0.0.1:45249/v1/lab/report?a=br-1791450344-0016&b=br-1791450344-0017&format=markdown",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791450344-0016-vs-br-1791450344-0017.md\"",
+          "content-length": "2686",
+          "content-type": "text/markdown; charset=utf-8",
+          "date": "Thu, 08 Oct 2026 09:05:44 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    },
+    {
+      "format": "json",
+      "url": "http://127.0.0.1:45249/v1/lab/report?a=br-1791450344-0016&b=br-1791450344-0017&format=json",
+      "suggestedFilename": "branch-compare-br-1791450344-0016-vs-br-1791450344-0017.json",
+      "failure": null,
+      "bytes": 3976,
+      "sha256": "2e92f4a381b09b8054ba1450bbf3a8c028ddfd8bed094e57d1d7453a4c44c703",
+      "response": {
+        "url": "http://127.0.0.1:45249/v1/lab/report?a=br-1791450344-0016&b=br-1791450344-0017&format=json",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "content-disposition": "attachment; filename=\"branch-compare-br-1791450344-0016-vs-br-1791450344-0017.json\"",
+          "content-length": "3976",
+          "content-type": "application/json",
+          "date": "Thu, 08 Oct 2026 09:05:44 GMT",
+          "server": "tiny-http (Rust)"
+        }
+      }
+    }
+  ],
+  "authoredStoreFiles": [
+    {
+      "branchId": "br-1791450344-0016",
+      "originalSha256": "5a95238523b618252ca3114f5419ea024af19f317bc9b7c4f3c19d9a1b8a6bcb",
+      "authoredSha256": "bb72a6614f6f9f9db92f31c1a574d40f7377022369391f74de98fe1df9e4030e"
+    },
+    {
+      "branchId": "br-1791450344-0017",
+      "originalSha256": "c130384b8ef3716c08c500b70ad7c8d62a6f8968cabcdbbc0c749af5da584caf",
+      "authoredSha256": "229b7e8ba369519ed654b4050d001655d5c9f36aba2e5bc7866bfa5ceda92c45"
+    }
+  ],
+  "branchIds": [
+    "br-1791450344-0016",
+    "br-1791450344-0017"
+  ],
+  "admittedNames": [
+    "Authored metadata A",
+    "Authored metadata B"
+  ],
+  "passed": true
+}

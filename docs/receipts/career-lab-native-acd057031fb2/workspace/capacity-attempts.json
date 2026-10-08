@@ -1,0 +1,109 @@
+{
+  "partialOutputAttempt": {
+    "schemaVersion": 1,
+    "source": {
+      "commit": "97754679972a3128b5b84cde2159b43a4d85c56e",
+      "tree": "da863f9b1df928ed5bd1ac85642ee67bfd1f4cdc",
+      "repo": "/workspace/scratch/acd057031fb2/agents/production/uma-final-native"
+    },
+    "environment": {
+      "PATH": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin:<inherited PATH>",
+      "CARGO_HOME": "/workspace/scratch/acd057031fb2/agents/production/uma-report-cargo-home",
+      "CARGO_TARGET_DIR": "/dev/shm/estate-acd057031fb2-final-native-target",
+      "CARGO_INCREMENTAL": "0",
+      "CARGO_PROFILE_DEV_DEBUG": "0",
+      "CARGO_PROFILE_TEST_DEBUG": "0",
+      "CARGO_BUILD_JOBS": "2",
+      "CARGO_NET_OFFLINE": "true",
+      "TMPDIR": "/workspace/scratch/acd057031fb2/agents/production/final-native-tmp",
+      "RUSTC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustc",
+      "RUSTDOC": "/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustdoc"
+    },
+    "toolchain": {
+      "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+      "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)"
+    },
+    "startedAt": "2026-10-08T09:53:10.727Z",
+    "gates": [
+      {
+        "name": "fmt",
+        "command": [
+          "cargo",
+          "fmt",
+          "--all",
+          "--",
+          "--check"
+        ],
+        "startedAt": "2026-10-08T09:53:10.728Z",
+        "durationMs": 399,
+        "exitCode": 0,
+        "signal": null,
+        "spawnError": null,
+        "log": "/workspace/scratch/acd057031fb2/agents/production/final-native-evidence/final-fmt.log",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logBytes": 0
+      },
+      {
+        "name": "clippy",
+        "command": [
+          "cargo",
+          "clippy",
+          "--workspace",
+          "--all-targets",
+          "--locked",
+          "--offline"
+        ],
+        "startedAt": "2026-10-08T09:53:11.129Z",
+        "durationMs": 5075,
+        "exitCode": 0,
+        "signal": null,
+        "spawnError": null,
+        "log": "/workspace/scratch/acd057031fb2/agents/production/final-native-evidence/final-clippy.log",
+        "logSha256": "f4dca2916fb76e55c7c27b30249adf85fe18c63d2a5fb3df8ef5669242c3edd4",
+        "logBytes": 24791
+      },
+      {
+        "name": "tests",
+        "command": [
+          "cargo",
+          "test",
+          "--workspace",
+          "--locked",
+          "--offline"
+        ],
+        "startedAt": "2026-10-08T09:53:16.204Z",
+        "durationMs": 14770,
+        "exitCode": 101,
+        "signal": null,
+        "spawnError": null,
+        "log": "/workspace/scratch/acd057031fb2/agents/production/final-native-evidence/final-tests.log",
+        "logSha256": "f37cd9274ee87f567be300c25b56f8362415fac956ea4d8caf2b866bead06950",
+        "logBytes": 4096
+      }
+    ],
+    "finishedAt": "2026-10-08T09:53:30.974Z",
+    "workingTreeStatusAfter": ""
+  },
+  "completeDiagnosticAttempt": {
+    "sourceCommit": "97754679972a3128b5b84cde2159b43a4d85c56e",
+    "startedAt": "2026-10-08T09:55:02.494Z",
+    "command": "env PATH=/workspace/scratch/7183b7a84620/agents/native/toolchain/bin:\"$PATH\" CARGO_HOME=/workspace/scratch/acd057031fb2/agents/production/uma-report-cargo-home CARGO_TARGET_DIR=/dev/shm/estate-acd057031fb2-final-native-target CARGO_INCREMENTAL=0 CARGO_PROFILE_DEV_DEBUG=0 CARGO_PROFILE_TEST_DEBUG=0 CARGO_BUILD_JOBS=2 CARGO_NET_OFFLINE=true TMPDIR=/workspace/scratch/acd057031fb2/agents/production/final-native-tmp RUSTC=/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustc RUSTDOC=/workspace/scratch/7183b7a84620/agents/native/toolchain/bin/rustdoc /workspace/scratch/7183b7a84620/agents/native/toolchain/bin/cargo test --workspace --locked --offline",
+    "exitCode": 101,
+    "outputCapture": "Concatenated native stdout/stderr tool stream, without truncation",
+    "chunkCount": 2,
+    "originalTokenCounts": [
+      29,
+      3811
+    ],
+    "failureClassification": "Explicit ENOSPC during checkpoint and policy stub file writes; shared-lock failures follow. No complete workspace result.",
+    "logFile": "storage-tests-stream.log"
+  },
+  "classification": "The first capacity attempt preserves a 4096-byte mid-line output cutoff without a failure summary. The following streamed attempt explicitly reports code 28 for checkpoint and policy-stub writes, with poisoned-lock cascades. Neither is accepted as the workspace qualification. Source stayed at 9775467.",
+  "recovery": {
+    "oldGeneratedTarget": "/workspace/scratch/acd057031fb2/agents/production/uma-report-native-target",
+    "oldTargetCleanup": "cargo clean --target-dir after root verified inactivity and ownership was confirmed; 1.3 GiB of generated output removed",
+    "exclusiveTarget": "/dev/shm/estate-acd057031fb2-final-native-target",
+    "finalProfile": "debug=0, incremental=0, strip=symbols, build jobs=2",
+    "writableRuntime": "Owned TMPDIR and API fixture directories backed by tmpfs; tracked source files unchanged"
+  }
+}

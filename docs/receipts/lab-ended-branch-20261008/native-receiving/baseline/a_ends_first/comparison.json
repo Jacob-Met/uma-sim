@@ -1,0 +1,145 @@
+{
+  "aId": "br-1791450109-0000",
+  "aName": "Short two",
+  "bId": "br-1791450109-0001",
+  "bName": "Long three",
+  "checkpointName": "ended-branch-receiving",
+  "checkpointTurn": 1,
+  "seed": 4242,
+  "sameCheckpoint": true,
+  "comparedAt": "2026-10-08T09:01:50Z",
+  "firstDivergence": {
+    "stepIndex": 2,
+    "turn": 3,
+    "dateLabel": "Y1 Jul · 2nd half",
+    "phase": "FREE",
+    "kind": "outcome",
+    "actionA": "",
+    "actionB": "train_speed",
+    "labelA": "",
+    "labelB": "Train Speed",
+    "rngCallsAAfter": 0,
+    "rngCallsBAfter": 17,
+    "note": "Branch A ended after 3 steps while the other continued."
+  },
+  "aligned": [
+    {
+      "stepIndex": 0,
+      "turnA": 1,
+      "turnB": 1,
+      "actionA": "race",
+      "actionB": "race",
+      "labelA": "Enter mandatory race: debut",
+      "labelB": "Enter mandatory race: debut",
+      "sameAction": true,
+      "energyA": 100,
+      "energyB": 100,
+      "moodA": "NORMAL",
+      "moodB": "NORMAL",
+      "fansA": 1033,
+      "fansB": 1033,
+      "skillPointsA": 45,
+      "skillPointsB": 45,
+      "sameOutcome": true
+    },
+    {
+      "stepIndex": 1,
+      "turnA": 2,
+      "turnB": 2,
+      "actionA": "train_speed",
+      "actionB": "train_speed",
+      "labelA": "Train Speed",
+      "labelB": "Train Speed",
+      "sameAction": true,
+      "energyA": 65,
+      "energyB": 65,
+      "moodA": "NORMAL",
+      "moodB": "NORMAL",
+      "fansA": 1033,
+      "fansB": 1033,
+      "skillPointsA": 45,
+      "skillPointsB": 45,
+      "sameOutcome": true
+    },
+    {
+      "stepIndex": 2,
+      "turnA": null,
+      "turnB": 3,
+      "actionA": null,
+      "actionB": "train_speed",
+      "labelA": null,
+      "labelB": "Train Speed",
+      "sameAction": false,
+      "energyA": null,
+      "energyB": 45,
+      "moodA": null,
+      "moodB": "NORMAL",
+      "fansA": null,
+      "fansB": 1033,
+      "skillPointsA": null,
+      "skillPointsB": 45,
+      "sameOutcome": false
+    }
+  ],
+  "outcomeA": {
+    "steps": 2,
+    "finalTurn": 3,
+    "careerComplete": false,
+    "completedRaces": [
+      "debut"
+    ],
+    "stats": {
+      "speed": 83,
+      "stamina": 88,
+      "power": 98,
+      "guts": 90,
+      "wit": 91
+    },
+    "energy": 65,
+    "mood": "NORMAL",
+    "fans": 1033,
+    "skillPoints": 45,
+    "learnedSkills": [
+      "skill:100011"
+    ],
+    "sparks": [],
+    "scenarioResources": {
+      "happy_meek_badge": 0
+    },
+    "totalRngCalls": 11,
+    "telemetryRecords": 2
+  },
+  "outcomeB": {
+    "steps": 3,
+    "finalTurn": 4,
+    "careerComplete": false,
+    "completedRaces": [
+      "debut"
+    ],
+    "stats": {
+      "speed": 93,
+      "stamina": 88,
+      "power": 103,
+      "guts": 92,
+      "wit": 91
+    },
+    "energy": 45,
+    "mood": "NORMAL",
+    "fans": 1033,
+    "skillPoints": 45,
+    "learnedSkills": [
+      "skill:100011"
+    ],
+    "sparks": [],
+    "scenarioResources": {
+      "happy_meek_badge": 0
+    },
+    "totalRngCalls": 17,
+    "telemetryRecords": 3
+  },
+  "caveats": [
+    "Both branches share the checkpoint's seed and RNG position, but RNG streams diverge the moment actions differ; later randomness is NOT matched between branches.",
+    "This comparison describes observed divergence only. It does not establish that one branch's decisions caused its outcome, nor that either branch is superior.",
+    "Action overrides that were not legal on their turn were rejected and fell back to the branch policy (flagged per step as overrideRejected)."
+  ]
+}
