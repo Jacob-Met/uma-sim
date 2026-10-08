@@ -1,0 +1,18 @@
+uma-sim CLI v0.4 (Rust)
+  start [--seed=N] [--scenario=ura|grand_concert|unity|trackblazer]
+        [--trainee=Name] [--speed=1-100] [--dialogue=off|choices|full]
+        [--deck=id1,id2,...] [--legacy=factor:blue:1@3,...]
+        Deck: support:10001@speed:85 (manual facility + bond)
+  deck place <supportId> <facility>
+        [--policy=default|bot] [--race-model=stub|physics] [--trace-rng] [--trace-telemetry]
+  state
+  step [train_speed|rest|race|event_0|...]
+  fast [--seed=N] [--speed=20] [--policy=default|bot|external]
+  batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
+  analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]
+  validate [--path=content_packs/example.json]
+  content validate [--path=...]
+  serve [--port=8765] [--open]
+  clear
+Env: UMA_RACE_MODEL=stub|physics (default physics), UMA_REPO_ROOT=<folder with research/ and knowledge/>
+Session persisted to .uma-sim/session.json

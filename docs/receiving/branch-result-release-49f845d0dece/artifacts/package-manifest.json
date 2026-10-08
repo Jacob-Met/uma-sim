@@ -1,0 +1,400 @@
+{
+  "schema": "uma-sim.local-release-package.v1",
+  "createdAt": "2026-10-08T10:32:18.607Z",
+  "repository": "Jacob-Met/uma-sim",
+  "selectedSource": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "sourceTree": "619519ef197ff8bc75bd76273bf48fd1531f2377",
+  "kind": "local optimized release candidate; no public release or version tag",
+  "platform": "macos-arm64",
+  "workflowRecipe": ".github/workflows/release.yml",
+  "workflowRecipeBlob": "1ba20a73631aa35a3a733a538ef5effc3cb94ee4",
+  "buildInputReceipt": "../build/input-verification.json",
+  "zip": "/Users/me/workspace/estate/release-receiving-49f845d0dece/artifacts/uma-sim-macos-arm64-b8e3da0c-candidate.zip",
+  "zipBytes": 2828071,
+  "zipSha256": "959cf33f4d504b52ac8ba9cc224c56b6c0dbafcd1f81af60671d9af9fa87a507",
+  "packageRoot": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64",
+  "executable": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64/uma-sim",
+  "executableSha256": "05a27b50d1661709b7a98b44dad9d71e12f7a6a09858f5cb7b3188b9dc76b194",
+  "files": [
+    {
+      "path": "content_packs/example.json",
+      "bytes": 483,
+      "mode": 420,
+      "sha256": "7dfc0268758b63b6669d9a985871dcc4036b851711e614d0c595b8020bdbdc91"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/event_local.json",
+      "bytes": 1802470,
+      "mode": 420,
+      "sha256": "2d5fb029c8ebc8e54210d0bfe5273fa2a8f14888edd7b7b7ed77b9a83bd452ad"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/factor.json",
+      "bytes": 837378,
+      "mode": 420,
+      "sha256": "9305da3961c1ab2f783baf49d2c817018fa6877fd3c430320333349a3753f452"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/lesson.json",
+      "bytes": 137615,
+      "mode": 420,
+      "sha256": "c29c8a9f8da69c9d644dcdf0616a66af4d10f975eec50468462213e25a91db01"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/race.json",
+      "bytes": 242997,
+      "mode": 420,
+      "sha256": "b57f1b3033887926d69e871153545920e9613caf809114583e08ed7ccad91ec8"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/skill.json",
+      "bytes": 2448889,
+      "mode": 420,
+      "sha256": "1317b0bfc80085e0cb1aa756a1b6dbea0b0258fb12583e884e7b6f516d9a7df2"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/song.json",
+      "bytes": 21321,
+      "mode": 420,
+      "sha256": "27bb6616675b0749ffd7b2df2a06b03b9f0a5d379bd3d0cb31056741bef89d13"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/support_card.json",
+      "bytes": 3400227,
+      "mode": 420,
+      "sha256": "399c936652486f8ed684039a93645b4a60f68b5c01942a323c1b6736f208af2d"
+    },
+    {
+      "path": "knowledge/canonical/by_kind/trainee.json",
+      "bytes": 617740,
+      "mode": 420,
+      "sha256": "f22144a37818b358b1ebf188ee948de751c46c01a97a2e77faf47c746a5f8b48"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 721,
+      "mode": 420,
+      "sha256": "6200d8929718b2d04e2d26a1c58a900ed70ff4085bcccb5b60ef71ae3b8bc28e"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 1027,
+      "mode": 420,
+      "sha256": "2891e489ee7d54dd69584773367a85839978623ddccc047ebe5076f0be1b9616"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11120,
+      "mode": 420,
+      "sha256": "682f17a9c666ee30e8095179ddb1b5de3c6cc564f5b90695a1296b23da3454ca"
+    },
+    {
+      "path": "research/_check_skill_presence.py",
+      "bytes": 809,
+      "mode": 420,
+      "sha256": "bed485e8a431be7e6de3d7ae493df4fffa2a7d7c58f226b12df9e5739fa1a589"
+    },
+    {
+      "path": "research/_list_fails2.py",
+      "bytes": 552,
+      "mode": 420,
+      "sha256": "e736f8b440e0e7929ad4afe78b5e4bc834098d215ba54296252a835816d7e3e4"
+    },
+    {
+      "path": "research/_oracle_590_pk.txt",
+      "bytes": 7903,
+      "mode": 420,
+      "sha256": "d2bc329bf765ad017ec58c57d2331749d21f509e6bb2d83047365b89ee36bc8c"
+    },
+    {
+      "path": "research/_oracle_590_pos.txt",
+      "bytes": 1014,
+      "mode": 420,
+      "sha256": "05c6e50f60c84909103fcb7cb58cac5bd1ec1c93663277f4180f88dadf63cb11"
+    },
+    {
+      "path": "research/_skill_lookup.py",
+      "bytes": 1176,
+      "mode": 420,
+      "sha256": "5ff4d3042f3a589801a4aa8aea6391560ddbd60c23127c9fbe48d488b072f215"
+    },
+    {
+      "path": "research/bond_gain.json",
+      "bytes": 237,
+      "mode": 420,
+      "sha256": "15d92bc337bc71691073229d5af738368d1d1311d5631db668a5a5565c2e72c6"
+    },
+    {
+      "path": "research/crosscheck_course_fork.py",
+      "bytes": 4064,
+      "mode": 420,
+      "sha256": "cdd4b044fcd1f44b5bcb27917dc4b6339f97d00dbd711976abd7c5d98b4032c2"
+    },
+    {
+      "path": "research/event_probabilities.json",
+      "bytes": 1268,
+      "mode": 420,
+      "sha256": "4def2cc242364011ce1ccb5472295e4a8c449e3844e92391aaeb3f40d3fabf7c"
+    },
+    {
+      "path": "research/event_reward_schema.json",
+      "bytes": 539,
+      "mode": 420,
+      "sha256": "8e115a4cc6ee3c9c1e3c98b1ff5b0511c46550537a5ad5be20c9760f5fa46f4b"
+    },
+    {
+      "path": "research/grand_concert_calibration.json",
+      "bytes": 2254,
+      "mode": 420,
+      "sha256": "4e080f2903f5130ac61f12759264fec6f445ef59217256ce126e4ca17431dcf7"
+    },
+    {
+      "path": "research/grand_concert_community.json",
+      "bytes": 4461,
+      "mode": 420,
+      "sha256": "7ba448fc42c3644468079d57d3a1d04aeeb68797c677d9dec1e5bce1ab9489da"
+    },
+    {
+      "path": "research/grand_concert.json",
+      "bytes": 11781,
+      "mode": 420,
+      "sha256": "a8aeb46e3610ad9667266199bc26a842a406fb83632e467bb36809a8b8bac00e"
+    },
+    {
+      "path": "research/hint_progression.json",
+      "bytes": 154,
+      "mode": 420,
+      "sha256": "3025b3766b1156c4379c8a858ddb84e0ff85877d69d3b7362a2dcf910837160a"
+    },
+    {
+      "path": "research/inspiration.json",
+      "bytes": 912,
+      "mode": 420,
+      "sha256": "1ecd87b697dffb8d8bf091b667a4007875be4babf25e054f51c6a094e41b57c4"
+    },
+    {
+      "path": "research/legacy_deck_schema.json",
+      "bytes": 1030,
+      "mode": 420,
+      "sha256": "61a1a7ebc177dc03be2ae337aa48ff924cecd159002395ed4a33a0b350417fb0"
+    },
+    {
+      "path": "research/mood_energy.json",
+      "bytes": 454,
+      "mode": 420,
+      "sha256": "1faaed041f0460d418c2429797197dd784ade0b8a25e0998abac716635c24f7a"
+    },
+    {
+      "path": "research/R8_DONE_CRITERIA_EVIDENCE.md",
+      "bytes": 4055,
+      "mode": 420,
+      "sha256": "63b876a5a87dd82aca26c878974e146e2c3a0ea0ff1da59c7411cdc71689d62a"
+    },
+    {
+      "path": "research/R88_REFREEZE.md",
+      "bytes": 883,
+      "mode": 420,
+      "sha256": "6dbfafdc4ac2a10399022ecfd445709abcfa9c70f75cbe1cf65cbb1c9faf4cea"
+    },
+    {
+      "path": "research/race_checkpoint_sample.json",
+      "bytes": 17205,
+      "mode": 420,
+      "sha256": "9e0367f943ab013896477f0f0dbab041db42ad16b394fd23da30375bca634986"
+    },
+    {
+      "path": "research/race_checkpoint_triage.json",
+      "bytes": 5908,
+      "mode": 420,
+      "sha256": "830f2c9cfdaaa99587c35b6d8cbbc00d43d76babb34844888572823aeebeb607"
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_1000.json",
+      "bytes": 854325,
+      "mode": 420,
+      "sha256": "0138c8d357eaeae33e8b49237117746af62729024642fe04a52fb311b7523fc0"
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_240.json",
+      "bytes": 252408,
+      "mode": 420,
+      "sha256": "478948417960f6cdf0dd3ba91775262bee2daa54ee501c505f056354d4f7103a"
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample_500.json",
+      "bytes": 302200,
+      "mode": 420,
+      "sha256": "dde51de26623fe7245d73b697284617d2a41086508b225c4806f519655ee5299"
+    },
+    {
+      "path": "research/race_checkpoint_v3_sample.json",
+      "bytes": 120152,
+      "mode": 420,
+      "sha256": "df45a9a02f36f6548e0885c91ab6ed88751e00f07e62168f74f7a7b5eb433661"
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage_1000.json",
+      "bytes": 1185,
+      "mode": 420,
+      "sha256": "9ea9d20643135cc6a015200c1080142d0f0b66d0f3a716314c4a1aef4548c633"
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage_240.json",
+      "bytes": 162,
+      "mode": 420,
+      "sha256": "b6547102a6965dde9842c06a6ca2b8bb48872a1462cafecba6e54e42bb5f22b9"
+    },
+    {
+      "path": "research/race_checkpoint_v3_triage.json",
+      "bytes": 26916,
+      "mode": 420,
+      "sha256": "2f3c5d71e677acdd053e34f6b891936f502553e1a03e39d95d83ebca501c1808"
+    },
+    {
+      "path": "research/race_compete_fight.json",
+      "bytes": 819,
+      "mode": 420,
+      "sha256": "d446e94596760ec1e49d8026dba44c5ed3d634af6ea80daaaa3413ae4bd108ee"
+    },
+    {
+      "path": "research/race_course_data.json",
+      "bytes": 115753,
+      "mode": 420,
+      "sha256": "85faef3864439a200f406249be78386fde3985388257de2a693ecee1b426b8c1"
+    },
+    {
+      "path": "research/race_course_fork_crosscheck.json",
+      "bytes": 880,
+      "mode": 420,
+      "sha256": "43a9afc6b314a68de6d811050030dc3e9fe988b8c6961d5df1e17637489ec124"
+    },
+    {
+      "path": "research/race_course_mdb_crosscheck.json",
+      "bytes": 228,
+      "mode": 420,
+      "sha256": "c86d60b9cb915ddffef173a6cd339580646c9ee531d5efea83ccba056cfeec2a"
+    },
+    {
+      "path": "research/race_field_npc.json",
+      "bytes": 1887,
+      "mode": 420,
+      "sha256": "8478df955af337b32cf3bc75641db75cbea2f7326379a5d702ee53962e9c4cb3"
+    },
+    {
+      "path": "research/race_lead_competition.json",
+      "bytes": 1121,
+      "mode": 420,
+      "sha256": "79985d02cf3f5fae9208a4310743e6c0c5fabd47ff86e5ea401c7462bbdbbb1c"
+    },
+    {
+      "path": "research/race_model_constants.json",
+      "bytes": 2549,
+      "mode": 420,
+      "sha256": "280d821a3d254b5b917e33339110e513f29db59f26c98d0b9b4070fda2967bad"
+    },
+    {
+      "path": "research/race_oracle_trace_case1.csv",
+      "bytes": 1046,
+      "mode": 420,
+      "sha256": "33a8330dac252c0147c48fa269a0b8379f4546a4da7e1455492844c8ee917c47"
+    },
+    {
+      "path": "research/race_outcomes.json",
+      "bytes": 599,
+      "mode": 420,
+      "sha256": "acb56b993b97b681b24ce2830d3e09d9175b4bc3bb45302884f520bf77c6d838"
+    },
+    {
+      "path": "research/race_position_keep.json",
+      "bytes": 1986,
+      "mode": 420,
+      "sha256": "b9b5fda6524637ac8cbfcf29ea210b9ae4494b73bf723f27400431a79c5bef5e"
+    },
+    {
+      "path": "research/race_prando_vectors.json",
+      "bytes": 979,
+      "mode": 420,
+      "sha256": "2cf06ec1602bfe24bc31e56fd5c7d99da4a415ce666b7f8ae8a35a4821c86d1d"
+    },
+    {
+      "path": "research/race_rushed.json",
+      "bytes": 622,
+      "mode": 420,
+      "sha256": "404e35a0925cbbfb81e9681b71eee0d2512da42b70191994253e13c3e90cee61"
+    },
+    {
+      "path": "research/race_skill_condition_mismatches.json",
+      "bytes": 1314,
+      "mode": 420,
+      "sha256": "43b249ab8c5616fc3414e020b54331eda8fcdfa6af4795dc50ae57f24a6a5643"
+    },
+    {
+      "path": "research/race_skill_condition_patch_note.json",
+      "bytes": 944,
+      "mode": 420,
+      "sha256": "5b708327daac9e6cb5ee14f3fa3a4009940f6f9f7208bcfe9fb0cea6ebf4c41b"
+    },
+    {
+      "path": "research/race_skill_effects.json",
+      "bytes": 2363,
+      "mode": 420,
+      "sha256": "84752f4017ed4f28184a0d70433d07b978b45b33d09e738ec38decca777c289e"
+    },
+    {
+      "path": "research/race_telemetry_corpus.json",
+      "bytes": 109849,
+      "mode": 420,
+      "sha256": "665232079d4a9a99f35aedd082d649c874c6132734c45725c5a31506e81d9987"
+    },
+    {
+      "path": "research/race_v4_career_place.json",
+      "bytes": 5717,
+      "mode": 420,
+      "sha256": "3de31caf6012a6fb885ddecf15df7f2e643933596cf026c396ede89200b330b4"
+    },
+    {
+      "path": "research/race_v4_physics_dist.json",
+      "bytes": 9284,
+      "mode": 420,
+      "sha256": "665770041ef436faf5c3526e6c931cbe23b9e270c932d2106e3b2fc3bf22ad56"
+    },
+    {
+      "path": "research/trackblazer.json",
+      "bytes": 5766,
+      "mode": 420,
+      "sha256": "e8055b7df1d36d8a7326dd52b69bfd85f9821d60a3d658d9721f8b2f348e0d38"
+    },
+    {
+      "path": "research/training_failure.json",
+      "bytes": 684,
+      "mode": 420,
+      "sha256": "32ac94ba013fb060b4fb4c7e46e06491c03327b7a3b3b04937fb70ce42bb7245"
+    },
+    {
+      "path": "research/training_gain_tables.json",
+      "bytes": 4284,
+      "mode": 420,
+      "sha256": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60"
+    },
+    {
+      "path": "research/unity_cup.json",
+      "bytes": 2590,
+      "mode": 420,
+      "sha256": "3aa56ace360f1d3c4c6eff379e891cc1ae874f8ad102d413c7e2f942a23b9c50"
+    },
+    {
+      "path": "research/ura_finale.json",
+      "bytes": 1675,
+      "mode": 420,
+      "sha256": "90850730c9a041f4d1ae636cd7e9a3c8b650ce2f4e32ffab36485d70cd712d6e"
+    },
+    {
+      "path": "uma-sim",
+      "bytes": 5530576,
+      "mode": 493,
+      "sha256": "05a27b50d1661709b7a98b44dad9d71e12f7a6a09858f5cb7b3188b9dc76b194"
+    }
+  ],
+  "extractionVerification": "all file names, bytes, hashes and permission modes match staged package",
+  "platformScope": "Built and pending receiving on this Mac; no Linux or Windows package built"
+}

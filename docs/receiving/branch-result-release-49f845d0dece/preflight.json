@@ -1,0 +1,35 @@
+{
+  "schema": "uma-sim.release-candidate-receiving.v1",
+  "repository": "Jacob-Met/uma-sim",
+  "selectedMergedSource": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "receivingRef": "receiving/branch-result-release-49f845d0dece",
+  "receivingRefUrl": "https://github.com/Jacob-Met/uma-sim/tree/receiving/branch-result-release-49f845d0dece",
+  "workflow": {
+    "id": 348985135,
+    "path": ".github/workflows/release.yml",
+    "gitBlob": "1ba20a73631aa35a3a733a538ef5effc3cb94ee4",
+    "inputs": {},
+    "event": "workflow_dispatch",
+    "publicPublicationGuard": "startsWith(github.ref, 'refs/tags/v')",
+    "expectedPublicRelease": "skipped for receiving branch"
+  },
+  "dispatch": {
+    "record": "dispatch.json",
+    "exitStatus": 1,
+    "httpStatus": 401,
+    "workflowRunsAfterAttempt": 0,
+    "runId": null
+  },
+  "receiving": {
+    "originalReceiverSha256": "d0dfc775ed80d91cbd38c33dc04dd234694a541fc27398cf0be018d60abec7ac",
+    "packagedAdapterSha256": "feb19ed7e10a728651dfb032487161ef38999d948c69e3349242beedf325cf78",
+    "fixtureSha256": "093306eb6ade18a3b6ae8812f9d26751c1dcb13918b41a9f1514f5c272116a68",
+    "launchArgs": [
+      "serve",
+      "--port=<owned ephemeral port>"
+    ],
+    "sourceCheckout": "source",
+    "sourceCheckoutKind": "isolated sparse clone, detached at selected merged source",
+    "packagedExecution": "not yet run; no artifacts exist"
+  }
+}

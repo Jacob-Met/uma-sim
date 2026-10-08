@@ -1,0 +1,26 @@
+{
+  "schema": "uma-sim.packaged-layout-receiving.v1",
+  "selectedSource": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "startedAt": "2026-10-08T10:32:59.176Z",
+  "binary": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64/uma-sim",
+  "cwd": "/Users/me/workspace/estate/release-receiving-49f845d0dece/launcher-check",
+  "repoRootEnvironment": "unset for ordinary release-layout detection",
+  "help": {
+    "exitCode": 0,
+    "signal": null,
+    "sha256": "3cd93dad5afb8ed0beb0f5588d7a160810d0e0414c264b0829074753f9828aad",
+    "advertisesServe": true,
+    "advertisesPort": true
+  },
+  "layoutSmoke": {
+    "script": "scripts/smoke_release_layout.sh",
+    "exitCode": 0,
+    "signal": null,
+    "outputSha256": "308cbba8d7e70b42ff0dd4d1a0211b552c04ece9f48b6a262b9842cbc451adea",
+    "scriptHidOnlyOwnedSourceData": true,
+    "ownSourceDataRestored": true
+  },
+  "finishedAt": "2026-10-08T10:32:59.349Z",
+  "trackedSourceAfter": "",
+  "result": "passed"
+}

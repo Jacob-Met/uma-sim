@@ -1,0 +1,67 @@
+{
+  "schema": "uma-sim.local-release-build.v1",
+  "selectedSource": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "sourceTree": "619519ef197ff8bc75bd76273bf48fd1531f2377",
+  "startedAt": "2026-10-08T10:27:24.183Z",
+  "source": "/Users/me/workspace/estate/release-receiving-49f845d0dece/source",
+  "target": "/Users/me/workspace/estate/release-receiving-49f845d0dece/target",
+  "cargoHome": "/Users/me/.cargo",
+  "node": "v26.3.0",
+  "npm": "11.16.0",
+  "cargo": "cargo 1.99.0 (5f94df478 2026-08-27) (Homebrew)",
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28) (Homebrew)",
+  "architecture": "arm64",
+  "platform": "26.6.2",
+  "cargoLockSha256": "e2d929ee14f3b0a67bd8f53c7eda614eb4edf312b4ce6e2116f155b7d7be4f2c",
+  "uiLockSha256": "f85a99235d60510170cc7152c98451235c231c794d69106cfeec4088c634cfce",
+  "dependencyCustody": "UI dependency tree cloned from the retired owner's matching lock; all output paths isolated",
+  "initialAvailableBytes": 3923832832,
+  "minimumAvailableBytes": 3577016320,
+  "diskFloorBytes": 536870912,
+  "maxCargoMilliseconds": 600000,
+  "state": "failed",
+  "stages": [
+    {
+      "name": "ui",
+      "exe": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "cwd": "/Users/me/workspace/estate/release-receiving-49f845d0dece/source/packages/uma-sim-ui",
+      "log": "/Users/me/workspace/estate/release-receiving-49f845d0dece/build/ui.log",
+      "startedAt": "2026-10-08T10:27:24.476Z",
+      "state": "passed",
+      "pid": 69524,
+      "finishedAt": "2026-10-08T10:27:26.089Z",
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "cargo-release",
+      "exe": "cargo",
+      "args": [
+        "build",
+        "--locked",
+        "--release",
+        "--features",
+        "embed-ui",
+        "-p",
+        "uma-sim-core",
+        "--jobs",
+        "1"
+      ],
+      "cwd": "/Users/me/workspace/estate/release-receiving-49f845d0dece/source",
+      "log": "/Users/me/workspace/estate/release-receiving-49f845d0dece/build/cargo-release.log",
+      "startedAt": "2026-10-08T10:27:26.090Z",
+      "state": "passed",
+      "pid": 69565,
+      "finishedAt": "2026-10-08T10:28:23.146Z",
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "error": "Source changed during build",
+  "finalAvailableBytes": 3361849344,
+  "finishedAt": "2026-10-08T10:28:23.280Z"
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "uma-sim.receiving-preflight-failure.v1",
+  "nativePid": 13056,
+  "selectedSource": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "result": "preflight_failed_before_server_launch",
+  "receiver": "../receive-embedded-ui.mjs",
+  "error": "No generated UI asset paths found",
+  "cause": "Receiver assumed absolute /assets URLs; actual built HTML uses ./assets/index-uVUO5YHC.js and ./assets/index-C8rte7ax.css",
+  "correction": "v2 normalizes local asset references against the same HTTP origin before comparing bytes",
+  "sourceOrBinaryChanged": false,
+  "httpRequests": 0,
+  "sourceDirectoriesMoved": false
+}

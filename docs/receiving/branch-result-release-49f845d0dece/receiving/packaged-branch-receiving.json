@@ -1,0 +1,51 @@
+{
+  "schema": "uma-sim.packaged-branch-receiving.v1",
+  "startedAt": "2026-10-08T10:34:55.922Z",
+  "selectedSource": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "executable": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64/uma-sim",
+  "executableSha256": "05a27b50d1661709b7a98b44dad9d71e12f7a6a09858f5cb7b3188b9dc76b194",
+  "zipSha256": "959cf33f4d504b52ac8ba9cc224c56b6c0dbafcd1f81af60671d9af9fa87a507",
+  "packageDataRoot": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64",
+  "originalReceiverSha256": "d0dfc775ed80d91cbd38c33dc04dd234694a541fc27398cf0be018d60abec7ac",
+  "adapterSha256": "feb19ed7e10a728651dfb032487161ef38999d948c69e3349242beedf325cf78",
+  "sourceProvenance": {
+    "gitDir": "/Users/me/workspace/estate/release-receiving-49f845d0dece/source/.git",
+    "commandWorkingDirectory": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64",
+    "ref": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+    "method": "Real pinned Git object store supplies provenance; runtime data root is the extracted ZIP"
+  },
+  "sourceDirectoriesUnavailableDuringReceiver": true,
+  "sourceDirectoriesRestored": true,
+  "command": [
+    "node",
+    "/Users/me/workspace/estate/release-receiving-49f845d0dece/receiver/branch_publication.packaged.api.mjs"
+  ],
+  "environmentOverrides": {
+    "GIT_DIR": "/Users/me/workspace/estate/release-receiving-49f845d0dece/source/.git",
+    "UMA_LAB_REPO": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64",
+    "UMA_LAB_BINARY": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64/uma-sim",
+    "UMA_LAB_FIXTURE": "/Users/me/workspace/estate/release-receiving-49f845d0dece/fixture/portable-checkpoint.json",
+    "UMA_LAB_OUTPUT_ROOT": "/Users/me/workspace/estate/release-receiving-49f845d0dece/receiving/branch",
+    "UMA_LAB_SOURCE_REF": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+    "UMA_LAB_BINARY_BUILD": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+    "UMA_LAB_EXPECT": "preserved"
+  },
+  "exitCode": 0,
+  "signal": null,
+  "coreReceipt": "/Users/me/workspace/estate/release-receiving-49f845d0dece/receiving/branch/preserved-ltACRW/receipt.json",
+  "coreReceiptSha256": "83fd0eae1dfd80addfb42177e55f62046bff8fe23c952586acea5fa8426b4de0",
+  "coreSummary": {
+    "output": "/Users/me/workspace/estate/release-receiving-49f845d0dece/receiving/branch/preserved-ltACRW",
+    "pass": 7,
+    "fail": 0,
+    "observedLoss": false,
+    "first": "br-1791455697-029973000-1440-0000000000000000",
+    "second": "br-1791455697-046725000-1441-0000000000000000"
+  },
+  "allBootsUsePackagedData": true,
+  "allBootsExited": true,
+  "nativeSourceBindingMatches": true,
+  "result": "passed",
+  "trackedSourceAfter": "",
+  "finishedAt": "2026-10-08T10:35:02.154Z"
+}

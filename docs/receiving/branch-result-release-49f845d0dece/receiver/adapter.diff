@@ -1,0 +1,13 @@
+diff --git a/Users/me/workspace/estate/release-receiving-49f845d0dece/receiver/branch_publication.original.api.mjs b/Users/me/workspace/estate/release-receiving-49f845d0dece/receiver/branch_publication.packaged.api.mjs
+index ff367e9..eaf6e4b 100644
+--- a/Users/me/workspace/estate/release-receiving-49f845d0dece/receiver/branch_publication.original.api.mjs
++++ b/Users/me/workspace/estate/release-receiving-49f845d0dece/receiver/branch_publication.packaged.api.mjs
+@@ -51,7 +51,7 @@ const request = async (server, pathname, body) => {
+ };
+ const boot = async name => {
+   const port = await unusedPort();
+-  const child = spawn(binary, [String(port)], { cwd, env: { ...process.env, UMA_REPO_ROOT: repo }, stdio: ["ignore", "pipe", "pipe"] });
++  const child = spawn(binary, ["serve", "--port=" + port], { cwd, env: { ...process.env, UMA_REPO_ROOT: repo }, stdio: ["ignore", "pipe", "pipe"] });
+   const record = { name, pid: child.pid, port, startedAt: new Date().toISOString() };
+   const server = { child, record, url: "http://127.0.0.1:" + port, output: "" };
+   live.add(server); receipt.boots.push(record);

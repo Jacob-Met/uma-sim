@@ -1,0 +1,17 @@
+{
+  "repository": "Jacob-Met/uma-sim",
+  "ref": "receiving/branch-result-release-49f845d0dece",
+  "sourceSha": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "workflowId": 348985135,
+  "workflowPath": ".github/workflows/release.yml",
+  "workflowBlob": "1ba20a73631aa35a3a733a538ef5effc3cb94ee4",
+  "event": "workflow_dispatch",
+  "publicReleaseExpected": false,
+  "startedAt": "2026-10-08T10:15:30.272Z",
+  "state": "inspect_before_retry",
+  "finishedAt": "2026-10-08T10:15:30.697Z",
+  "exitStatus": 1,
+  "signal": null,
+  "stdout": "",
+  "stderr": "could not create workflow dispatch event: HTTP 401: Requires authentication (https://api.github.com/repos/Jacob-Met/uma-sim/actions/workflows/348985135/dispatches)\nTry authenticating with:  gh auth login -h github.com\n"
+}

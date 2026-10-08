@@ -1,0 +1,52 @@
+{
+  "schema": "uma-sim.embedded-ui-receiving.v1",
+  "selectedSource": "b8e3da0c6e152f77aa5c3e083ffa7b248bd74f8c",
+  "startedAt": "2026-10-08T10:38:36.565Z",
+  "binary": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64/uma-sim",
+  "cwd": "/Users/me/workspace/estate/release-receiving-49f845d0dece/ui-working-2",
+  "packageDataRoot": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64",
+  "repoRootEnvironment": "unset; require ordinary adjacent-data discovery",
+  "requests": [
+    {
+      "url": "/",
+      "status": 200,
+      "bytes": 394,
+      "expectedSha256": "4dbea013d8024e8236d0b0c884fc70efab5ebf5e92dec3dceaa02acf6a9dc841",
+      "receivedSha256": "4dbea013d8024e8236d0b0c884fc70efab5ebf5e92dec3dceaa02acf6a9dc841",
+      "match": true
+    },
+    {
+      "url": "/assets/index-uVUO5YHC.js",
+      "status": 200,
+      "bytes": 192349,
+      "expectedSha256": "3614049c80538516288a75776571c079ea2703e639aa4dc44bee32adced83d9c",
+      "receivedSha256": "3614049c80538516288a75776571c079ea2703e639aa4dc44bee32adced83d9c",
+      "match": true
+    },
+    {
+      "url": "/assets/index-C8rte7ax.css",
+      "status": 200,
+      "bytes": 8250,
+      "expectedSha256": "beda9c92acf18ac0a0ca344bea9c6be08715624da91d007032ffdcb5dad195ac",
+      "receivedSha256": "beda9c92acf18ac0a0ca344bea9c6be08715624da91d007032ffdcb5dad195ac",
+      "match": true
+    }
+  ],
+  "result": "passed",
+  "sourceDataAndUiDirectoriesUnavailable": true,
+  "pid": 18754,
+  "port": 57378,
+  "health": {
+    "ok": true,
+    "repoRoot": true,
+    "repoRootPath": "/Users/me/workspace/estate/release-receiving-49f845d0dece/extracted/uma-sim-macos-arm64",
+    "version": "0.1.0"
+  },
+  "exit": {
+    "code": null,
+    "signal": "SIGTERM"
+  },
+  "sourceDirectoriesRestored": true,
+  "trackedSourceAfter": "",
+  "finishedAt": "2026-10-08T10:38:36.666Z"
+}

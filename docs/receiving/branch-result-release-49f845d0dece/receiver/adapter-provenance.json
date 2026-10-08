@@ -1,0 +1,13 @@
+{
+  "createdAt": "2026-10-08T10:11:12.069Z",
+  "productReceiverSourceRef": "4745ac4b509e11cc1d9d610176e06756e6d1912b",
+  "productReceiverSourcePath": "uma-sim-core/tests/branch_publication.api.mjs",
+  "originalSha256": "d0dfc775ed80d91cbd38c33dc04dd234694a541fc27398cf0be018d60abec7ac",
+  "packagedAdapterSha256": "feb19ed7e10a728651dfb032487161ef38999d948c69e3349242beedf325cf78",
+  "fixtureSha256": "093306eb6ade18a3b6ae8812f9d26751c1dcb13918b41a9f1514f5c272116a68",
+  "onlyReplacement": {
+    "from": "spawn(binary, [String(port)],",
+    "to": "spawn(binary, [\"serve\", \"--port=\" + port],"
+  },
+  "scope": "Isolated receiving-only argv adapter; all original environment, cwd, storage and oracles unchanged"
+}
