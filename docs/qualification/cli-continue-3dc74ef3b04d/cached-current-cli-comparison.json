@@ -1,0 +1,20 @@
+{
+  "schema": "hamon.uma_continue.cached_current_cli_comparison.v1",
+  "at": "2026-10-08T23:04:15.758Z",
+  "read_only": true,
+  "network_used": false,
+  "current_main_commit": "ac4a4c2d4b4159bea1012e66cb79e76b6bc25d56",
+  "current_main_tree": "db51a8dbbfc4a193929eef5b0ddcee19965f6b15",
+  "current_cli": {
+    "blob": "a4d95cada08bc44e8d8916fd6c1b21348b2bd63f",
+    "sha256": "e57f0aead6b23d2f7f39a041a930f2ee4522366decc3f9d0679b7eb0398c1142"
+  },
+  "qualified_dependency": "248c62564bb816630d6983ec5f733b965a8e1e43",
+  "qualified_cli": {
+    "blob": "f54c2c50cdae8b78ed75c0eec89a0cdca9f36a37",
+    "sha256": "b6acab8c62d9dfee3779f9f1b282427062a21a6030bf8dfac68654bdf2a119ed"
+  },
+  "diff": "--- main-ac4a4c2d/uma-sim.rs\n+++ qualified-pr118/uma-sim.rs\n@@ -210,6 +210,7 @@\n     let result = engine.start(build_meta(&f));\n     if let Err(e) = RunSession::save(&engine) {\n         eprintln!(\"Failed to save session: {e}\");\n+        std::process::exit(1);\n     }\n     let choice_ids: Vec<String> = result.choices.into_iter().map(|c| c.id).collect();\n     print_result(&result.text_lines, &choice_ids);\n@@ -286,6 +287,7 @@\n     let result = engine.step(parse_sim_action(action_id));\n     if let Err(e) = RunSession::save(&engine) {\n         eprintln!(\"Failed to save session: {e}\");\n+        std::process::exit(1);\n     }\n     let choice_ids: Vec<String> = result.choices.into_iter().map(|c| c.id).collect();\n     print_result(&result.text_lines, &choice_ids);\n@@ -342,6 +344,7 @@\n     let elapsed = start.elapsed().as_millis();\n     if let Err(e) = RunSession::save(&engine) {\n         eprintln!(\"Failed to save session: {e}\");\n+        std::process::exit(1);\n     }\n     let lines = TextRenderer::new(build_settings(&f)).render(engine.state(), &[]);\n     let tail: Vec<String> = lines.iter().rev().take(5).cloned().collect::<Vec<_>>();\n@@ -575,6 +578,7 @@\n     }\n     if let Err(e) = RunSession::save(&engine) {\n         eprintln!(\"Failed to save session: {e}\");\n+        std::process::exit(1);\n     }\n     println!(\"Placed {support_id} on {}\", facility.key());\n }\n",
+  "only_cli_checked": true,
+  "full_current_main_compatibility_pending": true
+}
