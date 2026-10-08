@@ -1,0 +1,633 @@
+{
+  "baselineCommit": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "evaluatedDist": "/workspace/scratch/7e7ad6f8e5bd/runtime-receiver/trace-candidate/packages/uma-sim-ui/dist",
+  "browserVersion": "153.0.8010.0",
+  "runtime": "v24.19.0",
+  "receiverSha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d",
+  "distIndexSha256": "50f48aa75ce9270a66a82a775d3387d89bd11c3b7fde0d71573ec86164ae9c4c",
+  "scope": "Actual React browser behavior against independent HTTP API fixtures; not native backend simulation or deployment qualification.",
+  "passed": 23,
+  "failed": 0,
+  "results": [
+    {
+      "name": "successful comparison actual markdown and JSON downloads",
+      "passed": true,
+      "detail": {
+        "json": [
+          "alpha",
+          "beta"
+        ],
+        "markdown": [
+          "# Alpha vs Beta",
+          "",
+          "Branch A: alpha",
+          "Branch B: beta"
+        ],
+        "display": "Alpha vs Beta"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "markdown"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "json"
+          }
+        }
+      ]
+    },
+    {
+      "name": "changed selection cannot retarget displayed comparison downloads",
+      "passed": true,
+      "detail": {
+        "json": [
+          "alpha",
+          "beta"
+        ],
+        "markdown": [
+          "# Alpha vs Beta",
+          "",
+          "Branch A: alpha",
+          "Branch B: beta"
+        ],
+        "display": "Alpha vs Beta"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "markdown"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "json"
+          }
+        }
+      ]
+    },
+    {
+      "name": "failed new comparison keeps prior result and downloads coherent",
+      "passed": true,
+      "detail": {
+        "json": [
+          "alpha",
+          "beta"
+        ],
+        "markdown": [
+          "# Alpha vs Beta",
+          "",
+          "Branch A: alpha",
+          "Branch B: beta"
+        ],
+        "display": "Alpha vs Beta"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "gamma",
+            "b": "delta"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "markdown"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "json"
+          }
+        }
+      ]
+    },
+    {
+      "name": "delete displayed branch after selection changes invalidates result",
+      "passed": true,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch/delete",
+          "query": {},
+          "body": {
+            "id": "alpha"
+          }
+        }
+      ]
+    },
+    {
+      "name": "delete unrelated pending branch preserves successful comparison",
+      "passed": true,
+      "detail": {
+        "json": [
+          "alpha",
+          "beta"
+        ],
+        "markdown": [
+          "# Alpha vs Beta",
+          "",
+          "Branch A: alpha",
+          "Branch B: beta"
+        ],
+        "display": "Alpha vs Beta"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch/delete",
+          "query": {},
+          "body": {
+            "id": "gamma"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "markdown"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "json"
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleting selected compared branch requires replacement selection",
+      "passed": true,
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch/delete",
+          "query": {},
+          "body": {
+            "id": "alpha"
+          }
+        }
+      ]
+    },
+    {
+      "name": "failed branch deletion preserves valid comparison and selected row",
+      "passed": true,
+      "detail": {
+        "json": [
+          "alpha",
+          "beta"
+        ],
+        "markdown": [
+          "# Alpha vs Beta",
+          "",
+          "Branch A: alpha",
+          "Branch B: beta"
+        ],
+        "display": "Alpha vs Beta"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch/delete",
+          "query": {},
+          "body": {
+            "id": "alpha"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "markdown"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "json"
+          }
+        }
+      ]
+    },
+    {
+      "name": "confirmed deletion invalidates result when branch list refresh fails",
+      "passed": true,
+      "detail": {
+        "deletionConfirmed": true,
+        "error": "GET /v1/lab/branches: Receiver fixture branch list refresh failure Dismiss"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch/delete",
+          "query": {},
+          "body": {
+            "id": "alpha"
+          }
+        }
+      ]
+    },
+    {
+      "name": "in flight comparison cannot overwrite newer keyboard selections",
+      "passed": true,
+      "detail": {
+        "json": [
+          "alpha",
+          "beta"
+        ],
+        "markdown": [
+          "# Alpha vs Beta",
+          "",
+          "Branch A: alpha",
+          "Branch B: beta"
+        ],
+        "display": "Alpha vs Beta"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "alpha",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "markdown"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "alpha",
+            "b": "beta",
+            "format": "json"
+          }
+        }
+      ]
+    },
+    {
+      "name": "report query encoding preserves branch identity",
+      "passed": true,
+      "detail": {
+        "json": [
+          "path/space &é",
+          "beta"
+        ],
+        "markdown": [
+          "# Encoded vs Beta",
+          "",
+          "Branch A: path/space &é",
+          "Branch B: beta"
+        ],
+        "display": "Encoded vs Beta"
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/compare",
+          "query": {},
+          "body": {
+            "a": "path/space &é",
+            "b": "beta"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "path/space &é",
+            "b": "beta",
+            "format": "markdown"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lab/report",
+          "query": {
+            "a": "path/space &é",
+            "b": "beta",
+            "format": "json"
+          }
+        }
+      ]
+    },
+    {
+      "name": "invalid override malformed nonblank line blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "8:rest\nnot-an-override",
+        "submissionDisabled": true,
+        "errors": [
+          "Correct these overrides before running the branch:Line 2: use turn:actionId, for example 8:rest."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid override missing turn blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": ":rest",
+        "submissionDisabled": true,
+        "errors": [
+          "Correct these overrides before running the branch:Line 1: turn must be a whole number from 0 through 2147483647."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid override fractional turn blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "10.5:train_stamina",
+        "submissionDisabled": true,
+        "errors": [
+          "Correct these overrides before running the branch:Line 1: turn must be a whole number from 0 through 2147483647."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid override negative turn blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "-1:rest",
+        "submissionDisabled": true,
+        "errors": [
+          "Correct these overrides before running the branch:Line 1: turn must be a whole number from 0 through 2147483647."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid override unsafe integer turn blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "9007199254740992:rest",
+        "submissionDisabled": true,
+        "errors": [
+          "Correct these overrides before running the branch:Line 1: turn must be a whole number from 0 through 2147483647."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid override missing action blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "8:  ",
+        "submissionDisabled": true,
+        "errors": [
+          "Correct these overrides before running the branch:Line 1: enter an action ID after the colon."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid override conflicting duplicate turn blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "8:rest\n8:train_speed",
+        "submissionDisabled": true,
+        "errors": [
+          "Correct these overrides before running the branch:Line 2: turn 8 is already set on line 1; keep one override per turn."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid max actions empty blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "",
+        "submissionDisabled": true,
+        "errors": [
+          "Max actions must be a whole number from 1 through 500."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid max actions 0 blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "0",
+        "submissionDisabled": true,
+        "errors": [
+          "Max actions must be a whole number from 1 through 500."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid max actions 501 blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "501",
+        "submissionDisabled": true,
+        "errors": [
+          "Max actions must be a whole number from 1 through 500."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "invalid max actions 1.5 blocks branch mutation",
+      "passed": true,
+      "detail": {
+        "entered": "1.5",
+        "submissionDisabled": true,
+        "errors": [
+          "Max actions must be a whole number from 1 through 500."
+        ]
+      },
+      "requests": []
+    },
+    {
+      "name": "valid turn zero whitespace blank lines and colon action are transmitted exactly",
+      "passed": true,
+      "detail": {
+        "checkpoint": "checkpoint",
+        "name": "",
+        "policy": "bot",
+        "maxActions": 1,
+        "overrides": [
+          {
+            "turn": 0,
+            "actionId": "rest"
+          },
+          {
+            "turn": 8,
+            "actionId": "custom:action"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch",
+          "query": {},
+          "body": {
+            "checkpoint": "checkpoint",
+            "name": "",
+            "policy": "bot",
+            "maxActions": 1,
+            "overrides": [
+              {
+                "turn": 0,
+                "actionId": "rest"
+              },
+              {
+                "turn": 8,
+                "actionId": "custom:action"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "valid upper action budget and empty overrides are transmitted exactly",
+      "passed": true,
+      "detail": {
+        "checkpoint": "checkpoint",
+        "name": "",
+        "policy": "bot",
+        "maxActions": 500,
+        "overrides": []
+      },
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/v1/lab/branch",
+          "query": {},
+          "body": {
+            "checkpoint": "checkpoint",
+            "name": "",
+            "policy": "bot",
+            "maxActions": 500,
+            "overrides": []
+          }
+        }
+      ]
+    }
+  ]
+}
