@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "source_base": "09df4c25cbd86c12d16a121481c01d1633a5efb6",
+  "source_tree": "8352de08ded783d6d23030b312c36c5b9a4b0fe1",
+  "product": "Download the retained career event history currently displayed in LogPanel.",
+  "inputs": "Only the immutable-by-convention current history prop; no backend call or summary/session inference.",
+  "formats": {
+    "json": "uma-sim-retained-log/1; scope=displayed-retained-history; exact entries and entry count",
+    "text": "UTF-8 readable report with retained-history caveat and one numbered block per entry"
+  },
+  "selection": "Always every current retained entry, independent of search text and following mode.",
+  "capture": "Synchronous serialization in the click handler, before the browser download request.",
+  "effects": "One local Blob download request per explicit click; object URL cleanup; no server, simulation, persistence or selection effects.",
+  "empty": "Disable the UI action when no entries are retained; serializer can represent an empty sequence.",
+  "failure": "Synchronous preparation/request exceptions become an inline error; no automatic retry or saved-success assertion.",
+  "ownership": "No App, RacePanel, logView, native API/engine, runStore, session, library, dependency or workflow edits. Preserve PR80 authorship and current #86 RacePanel owner.",
+  "source_scope": [
+    "packages/uma-sim-ui/src/components/LogDownload.tsx",
+    "packages/uma-sim-ui/src/components/logExport.ts",
+    "packages/uma-sim-ui/src/components/LogPanel.tsx",
+    "packages/uma-sim-ui/src/components/logPanel.css",
+    "packages/uma-sim-ui/test/log-export.test.mjs",
+    "packages/uma-sim-ui/package.json",
+    "packages/uma-sim-ui/README.md"
+  ],
+  "runtime_limit": "Native Node/React/Blob and build qualification here; no available local Chromium executable. A separate browser carrier will retain actual download checks without claiming execution."
+}

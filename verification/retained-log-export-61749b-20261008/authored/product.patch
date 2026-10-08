@@ -1,0 +1,384 @@
+--- a/packages/uma-sim-ui/README.md
++++ b/packages/uma-sim-ui/README.md
+@@ -106,3 +106,30 @@
+ temporary career state parent or evidence folder. It never connects to
+ an existing uma-sim server. See [the receiving record](../../verification/career-log/README.md)
+ for the exact source baseline, comparison and browser results.
++
++### Download retained career events
++
++The Career event log includes **Download all N entries**. Choose **Plain text**
++for a numbered, readable transcript or **JSON** for the exact retained string
++array. Download always includes all entries currently retained by the displayed
++career, even while search shows only matching entries. It captures those entries
++at the click; later career changes do not change that prepared file.
++
++The file represents retained history and can omit events already discarded by the
++engine. Entry numbers are positions in the exported sequence. It contains no
++restorable career state or inferred run/session metadata. The JSON format is
++`uma-sim-retained-log/1`, with `scope: "displayed-retained-history"`, `entryCount`
++and `entries`; duplicates, empty strings, order and original string contents
++survive JSON parsing. Plain text keeps readable numbered blocks; JSON is the
++lossless choice for embedded control characters or exact entry boundaries.
++
++Downloads use the displayed data locally and issue no API request. The browser
++handles file saving; the app does not claim that a requested download was saved.
++An empty retained log disables the action. A preparation failure leaves an inline
++error and can be retried explicitly.
++
++Run the focused format, download-boundary and native React rendering tests with:
++
++```sh
++node --test test/log-export.test.mjs
++```
+--- a/packages/uma-sim-ui/package.json
++++ b/packages/uma-sim-ui/package.json
+@@ -6,7 +6,7 @@
+   "license": "GPL-3.0-only",
+   "description": "Browser UI for uma-sim career simulator",
+   "scripts": {
+-    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs",
++    "test": "node --test tests/branch-input.test.mjs tests/branch-trace-panel.test.mjs test/log-view.test.mjs test/log-export.test.mjs",
+     "test:browser": "node tests/receiving/uma-lab-receiver.mjs dist test-results/career-lab",
+     "test:trace": "node tests/receiving/uma-trace-receiver.mjs dist test-results/trace",
+     "dev": "vite",
+--- /dev/null
++++ b/packages/uma-sim-ui/src/components/LogDownload.tsx
+@@ -0,0 +1,32 @@
++import { useState } from "react";
++import { downloadLogFile, retainedLogFile, type LogExportFormat } from "./logExport";
++
++export function LogDownload({ history }: { history: readonly string[] }) {
++  const [format, setFormat] = useState<LogExportFormat>("text");
++  const [failed, setFailed] = useState(false);
++
++  function download() {
++    setFailed(false);
++    try {
++      downloadLogFile(retainedLogFile(history, format));
++    } catch {
++      setFailed(true);
++    }
++  }
++
++  return (
++    <div className="career-log-download">
++      <label>
++        <span>Log file format</span>
++        <select value={format} onChange={(event) => setFormat(event.target.value as LogExportFormat)}>
++          <option value="text">Plain text</option>
++          <option value="json">JSON</option>
++        </select>
++      </label>
++      <button disabled={history.length === 0} onClick={download}>
++        Download all {history.length} {history.length === 1 ? "entry" : "entries"}
++      </button>
++      {failed && <p role="alert">Could not start the log download. Please try again.</p>}
++    </div>
++  );
++}
+--- a/packages/uma-sim-ui/src/components/LogPanel.tsx
++++ b/packages/uma-sim-ui/src/components/LogPanel.tsx
+@@ -1,5 +1,6 @@
+ import { useId, useLayoutEffect, useMemo, useRef, useState } from "react";
+ import { historyChange, searchLog } from "./logView";
++import { LogDownload } from "./LogDownload";
+ import "./logPanel.css";
+ 
+ interface Props {
+@@ -121,6 +122,7 @@
+           <p>No retained entries match “{query}”.</p>
+         )}
+       </div>
++      <LogDownload history={history} />
+       <details className="career-log-summary">
+         <summary>Current state summary</summary>
+         <pre>{lines.length ? lines.join("\n") : "No current state summary."}</pre>
+--- /dev/null
++++ b/packages/uma-sim-ui/src/components/logExport.ts
+@@ -0,0 +1,57 @@
++export type LogExportFormat = "text" | "json";
++
++export interface LogExportFile {
++  filename: string;
++  contentType: string;
++  content: string;
++}
++
++/** Capture every currently retained entry, independently of the reader's filter. */
++export function retainedLogFile(history: readonly string[], format: LogExportFormat): LogExportFile {
++  const entries = [...history];
++  if (format === "json") {
++    return {
++      filename: "uma-sim-retained-log.json",
++      contentType: "application/json;charset=utf-8",
++      content: JSON.stringify({
++        format: "uma-sim-retained-log/1",
++        scope: "displayed-retained-history",
++        entryCount: entries.length,
++        entries,
++      }, null, 2) + "\n",
++    };
++  }
++  if (format === "text") {
++    const header = [
++      "Uma Sim — retained career event log",
++      `${entries.length} retained ${entries.length === 1 ? "entry" : "entries"}`,
++      "This file contains the entries retained by the displayed career.",
++      "Earlier events may no longer be retained. Entry numbers are positions in this file.",
++    ].join("\n");
++    const body = entries.map((entry, index) => `[Entry ${index + 1}]\n${entry}`).join("\n\n");
++    return {
++      filename: "uma-sim-retained-log.txt",
++      contentType: "text/plain;charset=utf-8",
++      content: header + (body ? "\n\n" + body : "") + "\n",
++    };
++  }
++  throw new Error("Unsupported log file format");
++}
++
++/** Request a local download; the browser owns the save decision and completion. */
++export function downloadLogFile(file: LogExportFile): void {
++  const blob = new Blob([file.content], { type: file.contentType });
++  const url = URL.createObjectURL(blob);
++  let link: HTMLAnchorElement | undefined;
++  try {
++    link = document.createElement("a");
++    link.href = url;
++    link.download = file.filename;
++    document.body.appendChild(link);
++    link.click();
++  } finally {
++    // Let the browser consume the click before releasing the temporary URL.
++    setTimeout(() => URL.revokeObjectURL(url), 0);
++    link?.remove();
++  }
++}
+--- a/packages/uma-sim-ui/src/components/logPanel.css
++++ b/packages/uma-sim-ui/src/components/logPanel.css
+@@ -101,3 +101,36 @@
+   overflow-wrap: anywhere;
+   font-size: 0.8rem;
+ }
++
++.career-log-download {
++  display: flex;
++  flex-wrap: wrap;
++  gap: 0.5rem;
++  align-items: end;
++}
++
++.career-log-download label span {
++  display: block;
++  font-size: 0.8rem;
++  margin-bottom: 0.25rem;
++}
++
++.career-log-download select {
++  border: 1px solid var(--border);
++  background: var(--bg);
++  color: inherit;
++  border-radius: 8px;
++  padding: 0.45rem 0.6rem;
++}
++
++.career-log-download select:focus-visible {
++  outline: 2px solid var(--accent);
++  outline-offset: 2px;
++}
++
++.career-log-download p {
++  flex-basis: 100%;
++  margin: 0;
++  color: var(--warn);
++  font-size: 0.8rem;
++}
+--- /dev/null
++++ b/packages/uma-sim-ui/test/log-export.test.mjs
+@@ -0,0 +1,186 @@
++import assert from "node:assert/strict";
++import { test } from "node:test";
++import { readFile } from "node:fs/promises";
++import { createElement } from "react";
++import { renderToStaticMarkup } from "react-dom/server";
++import ts from "typescript";
++
++// Existing compiler and React dependencies; no browser or extra test dependency.
++async function sourceModule(name, dependencies = {}) {
++  const source = await readFile(new URL(`../src/components/${name}`, import.meta.url), "utf8");
++  let code = ts.transpileModule(source, {
++    compilerOptions: {
++      target: ts.ScriptTarget.ES2020,
++      module: ts.ModuleKind.ESNext,
++      jsx: ts.JsxEmit.ReactJSX,
++    },
++  }).outputText;
++  const imports = {
++    "react": import.meta.resolve("react"),
++    "react/jsx-runtime": import.meta.resolve("react/jsx-runtime"),
++    ...dependencies,
++  };
++  for (const [specifier, url] of Object.entries(imports)) {
++    code = code.replaceAll(JSON.stringify(specifier), JSON.stringify(url));
++  }
++  code = code.replace(/^import ["'][^"']+\.css["'];\s*/gm, "");
++  return `data:text/javascript;base64,${Buffer.from(code).toString("base64")}`;
++}
++
++const exportUrl = await sourceModule("logExport.ts");
++const { retainedLogFile, downloadLogFile } = await import(exportUrl);
++const downloadUrl = await sourceModule("LogDownload.tsx", { "./logExport": exportUrl });
++const { LogDownload } = await import(downloadUrl);
++const viewUrl = await sourceModule("logView.ts");
++const panelUrl = await sourceModule("LogPanel.tsx", { "./logView": viewUrl, "./LogDownload": downloadUrl });
++const { LogPanel } = await import(panelUrl);
++
++const entries = [
++  "Started — ウマ娘 🏇",
++  "", "Rested", "Rested", " leading and trailing ",
++  "line 1\r\nline 2\t\u0000tail",
++  "<img src=x onerror=alert(1)> </script> & ` | =SUM(A1:A2)",
++  "e\u0301 é \ud83d end",
++];
++
++test("JSON preserves every original entry and explicit retained-history scope", () => {
++  const history = Object.freeze([...entries]);
++  const file = retainedLogFile(history, "json");
++  const parsed = JSON.parse(file.content);
++  assert.deepEqual(parsed, {
++    format: "uma-sim-retained-log/1",
++    scope: "displayed-retained-history",
++    entryCount: entries.length,
++    entries,
++  });
++  assert.equal(file.filename, "uma-sim-retained-log.json");
++  assert.equal(file.contentType, "application/json;charset=utf-8");
++  assert.deepEqual(history, entries);
++  assert.equal(file.content.endsWith("\n"), true);
++});
++
++test("a prepared file survives later append or replacement without taking a filtered subset", () => {
++  const history = ["Race one", "Rested", "Race two"];
++  const file = retainedLogFile(history, "json");
++  history.push("Later");
++  history.splice(0, history.length, "New career");
++  assert.deepEqual(JSON.parse(file.content).entries, ["Race one", "Rested", "Race two"]);
++  assert.equal(JSON.parse(file.content).entryCount, 3);
++});
++
++test("readable text retains ordered duplicate and empty numbered blocks", () => {
++  const file = retainedLogFile(["Rested", "", "Rested", "a\nb", "ウマ娘 🏇"], "text");
++  assert.equal(file.filename, "uma-sim-retained-log.txt");
++  assert.equal(file.contentType, "text/plain;charset=utf-8");
++  assert.ok(file.content.includes("5 retained entries\n"));
++  assert.ok(file.content.includes("Earlier events may no longer be retained."));
++  assert.equal(file.content.slice(file.content.indexOf("[Entry 1]")),
++    "[Entry 1]\nRested\n\n[Entry 2]\n\n\n[Entry 3]\nRested\n\n[Entry 4]\na\nb\n\n[Entry 5]\nウマ娘 🏇\n");
++});
++
++test("empty, single-entry and long histories have explicit complete counts", () => {
++  assert.deepEqual(JSON.parse(retainedLogFile([], "json").content).entries, []);
++  assert.ok(retainedLogFile([], "text").content.includes("0 retained entries\n"));
++  assert.ok(retainedLogFile(["only"], "text").content.includes("1 retained entry\n"));
++  const long = Array.from({ length: 5000 }, (_, i) => `${i} 🏇 ${"x".repeat(80)}`);
++  const parsed = JSON.parse(retainedLogFile(long, "json").content);
++  assert.equal(parsed.entryCount, long.length);
++  assert.deepEqual(parsed.entries, long);
++  assert.throws(() => retainedLogFile(["kept"], "html"), /Unsupported log file format/);
++});
++
++async function downloadBoundary(failAt, exercise) {
++  const originalDocument = Object.getOwnPropertyDescriptor(globalThis, "document");
++  const create = URL.createObjectURL;
++  const revoke = URL.revokeObjectURL;
++  const events = [];
++  let blob;
++  const link = {
++    href: "", download: "",
++    click() { events.push("click"); if (failAt === "click") throw new Error("refused click"); },
++    remove() { events.push("remove"); },
++  };
++  Object.defineProperty(globalThis, "document", { configurable: true, value: {
++    createElement(tag) {
++      events.push(`create:${tag}`);
++      if (failAt === "create") throw new Error("refused element");
++      return link;
++    },
++    body: { appendChild(value) {
++      assert.equal(value, link); events.push("append");
++      if (failAt === "append") throw new Error("refused append");
++    } },
++  } });
++  URL.createObjectURL = (value) => {
++    events.push("url");
++    if (failAt === "url") throw new Error("refused URL");
++    blob = value;
++    return "blob:retained-log-test";
++  };
++  URL.revokeObjectURL = (value) => { assert.equal(value, "blob:retained-log-test"); events.push("revoke"); };
++  try {
++    await exercise({ events, link, getBlob: () => blob });
++  } finally {
++    await new Promise((resolve) => setTimeout(resolve, 0));
++    URL.createObjectURL = create;
++    URL.revokeObjectURL = revoke;
++    if (originalDocument) Object.defineProperty(globalThis, "document", originalDocument);
++    else delete globalThis.document;
++  }
++}
++
++test("one local request delivers the actual JSON Blob and releases its URL after the click", async () => {
++  await downloadBoundary(null, async ({ events, link, getBlob }) => {
++    const file = retainedLogFile(entries, "json");
++    downloadLogFile(file);
++    assert.deepEqual(events, ["url", "create:a", "append", "click", "remove"]);
++    assert.equal(link.href, "blob:retained-log-test");
++    assert.equal(link.download, file.filename);
++    assert.equal(getBlob() instanceof Blob, true);
++    assert.equal(getBlob().type, "application/json;charset=utf-8");
++    assert.deepEqual(JSON.parse(await getBlob().text()).entries, entries);
++    await new Promise((resolve) => setTimeout(resolve, 0));
++    assert.deepEqual(events, ["url", "create:a", "append", "click", "remove", "revoke"]);
++  });
++});
++
++test("preparation and dispatch failures propagate without another click or a leaked URL", async (t) => {
++  for (const failAt of ["url", "create", "append", "click"]) {
++    await t.test(failAt, async () => {
++      await downloadBoundary(failAt, async ({ events }) => {
++        assert.throws(() => downloadLogFile(retainedLogFile(["kept"], "text")), /refused/);
++        await new Promise((resolve) => setTimeout(resolve, 0));
++        assert.equal(events.filter((event) => event === "url").length, 1);
++        assert.equal(events.filter((event) => event === "click").length, failAt === "click" ? 1 : 0);
++        assert.equal(events.filter((event) => event === "revoke").length, failAt === "url" ? 0 : 1);
++      });
++    });
++  }
++});
++
++test("native React rendering names the full count and disables only an empty log", () => {
++  const full = renderToStaticMarkup(createElement(LogDownload, { history: entries }));
++  assert.match(full, /Download all 8 entries/);
++  assert.match(full, /<option value="text" selected="">Plain text<\/option>/);
++  assert.match(full, /<option value="json">JSON<\/option>/);
++  assert.doesNotMatch(full, /disabled/);
++  const empty = renderToStaticMarkup(createElement(LogDownload, { history: [] }));
++  assert.match(empty, /<button disabled="">Download all 0 entries<\/button>/);
++});
++
++test("the actual LogPanel exposes the full-history download beside preserved reader and summary", () => {
++  const errors = [];
++  const originalError = console.error;
++  console.error = (...args) => errors.push(args.map(String).join(" "));
++  let markup;
++  try {
++    markup = renderToStaticMarkup(createElement(LogPanel, { lines: ["Current summary"], history: entries }));
++  } finally { console.error = originalError; }
++  assert.ok(errors.every((message) => message.includes("useLayoutEffect does nothing on the server")));
++  assert.match(markup, /Search retained events/);
++  assert.match(markup, /Following latest/);
++  assert.equal((markup.match(/Download all 8 entries/g) ?? []).length, 1);
++  assert.match(markup, /Current state summary/);
++  assert.match(markup, /Current summary/);
++  assert.doesNotMatch(markup, /<img src=x/);
++});
