@@ -1,0 +1,110 @@
+{
+  "evaluatedRevision": "0ac14602addd1a4610aa8359896915a34cce5659",
+  "originalContractBaseline": "f5f9b29393731d18aee2d66a31d89c315aa79c60",
+  "receiverSha256": "71774c18bfd7115047f5c2d0d3d3435743f7cddd188a4779a331b35b7fbf2e1d",
+  "buildArtifacts": [
+    {
+      "path": "assets/index-C8rte7ax.css",
+      "size": 8250,
+      "sha256": "beda9c92acf18ac0a0ca344bea9c6be08715624da91d007032ffdcb5dad195ac"
+    },
+    {
+      "path": "assets/index-X8h0Ki6P.js",
+      "size": 192346,
+      "sha256": "61864c0562e309b6307a07ce63affe3d2ed0c42123cea767d9d76c3633db7d14"
+    },
+    {
+      "path": "index.html",
+      "size": 394,
+      "sha256": "ea48c6ed630d77d8c78f2667cf3d9c4c88edcfabe7838621e13f1439f6acfe93"
+    }
+  ],
+  "dependencyVersions": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "5.4.21",
+    "typescript": "5.9.3"
+  },
+  "passed": 11,
+  "failed": 12,
+  "alreadyPassingUpstream": [
+    "successful comparison actual markdown and JSON downloads",
+    "changed selection cannot retarget displayed comparison downloads",
+    "failed new comparison keeps prior result and downloads coherent",
+    "delete displayed branch after selection changes invalidates result",
+    "delete unrelated pending branch preserves successful comparison",
+    "deleting selected compared branch requires replacement selection",
+    "failed branch deletion preserves valid comparison and selected row",
+    "in flight comparison cannot overwrite newer keyboard selections",
+    "report query encoding preserves branch identity",
+    "valid turn zero whitespace blank lines and colon action are transmitted exactly",
+    "valid upper action budget and empty overrides are transmitted exactly"
+  ],
+  "remainingFailures": [
+    {
+      "name": "confirmed deletion invalidates result when branch list refresh fails",
+      "error": "locator.waitFor: Timeout 3500ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.banner.error') to be visible\u001b[22m\n",
+      "browserErrors": [
+        "GET /v1/lab/branches: Receiver fixture branch list refresh failure"
+      ]
+    },
+    {
+      "name": "invalid override malformed nonblank line blocks branch mutation",
+      "error": "Invalid user experiment reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[{\"turn\":8,\"actionId\":\"rest\"}]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid override missing turn blocks branch mutation",
+      "error": "Invalid user experiment reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[{\"turn\":0,\"actionId\":\"rest\"}]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid override fractional turn blocks branch mutation",
+      "error": "Invalid user experiment reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[{\"turn\":10.5,\"actionId\":\"train_stamina\"}]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid override negative turn blocks branch mutation",
+      "error": "Invalid user experiment reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid override unsafe integer turn blocks branch mutation",
+      "error": "Invalid user experiment reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[{\"turn\":9007199254740992,\"actionId\":\"rest\"}]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid override missing action blocks branch mutation",
+      "error": "Invalid user experiment reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid override conflicting duplicate turn blocks branch mutation",
+      "error": "Invalid user experiment reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":120,\"overrides\":[{\"turn\":8,\"actionId\":\"rest\"},{\"turn\":8,\"actionId\":\"train_speed\"}]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid max actions empty blocks branch mutation",
+      "error": "Invalid budget reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":0,\"overrides\":[]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid max actions 0 blocks branch mutation",
+      "error": "Invalid budget reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":0,\"overrides\":[]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid max actions 501 blocks branch mutation",
+      "error": "Invalid budget reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":501,\"overrides\":[]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    },
+    {
+      "name": "invalid max actions 1.5 blocks branch mutation",
+      "error": "Invalid budget reached branch API: [{\"method\":\"POST\",\"path\":\"/v1/lab/branch\",\"query\":{},\"body\":{\"checkpoint\":\"checkpoint\",\"name\":\"\",\"policy\":\"bot\",\"maxActions\":1.5,\"overrides\":[]}}]\n\n1 !== 0\n",
+      "browserErrors": []
+    }
+  ],
+  "receipt": "canonical-main/receiver-results.json",
+  "sourceProvenance": "../canonical-main/source-provenance.json",
+  "scope": "Actual React browser behavior against independent HTTP API fixtures; not native backend simulation or deployment qualification."
+}
