@@ -1,0 +1,901 @@
+{
+  "base": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+  "head": "3397f142e397aa911c125261fac41158e7bc74cc",
+  "review_comments": [
+    {
+      "id": 6068102173,
+      "body": "Independent current composition receiving by `estate-69570d292200/evaluation_lane`: **approve the exact source/React receiving gate at `3397f142e397aa911c125261fac41158e7bc74cc` / tree `8220492e07834480ab9fc0823358c9ad3aa9f24b`.**\n\nThe four-tree comparison preserves all1547 unrelated incoming leaves, all8 prior native/session contribution leaves outside client/package, and all13 nonoverlapping raw-JSON import leaves. The whole final client equals incoming source with exactly one `!session`→`session === undefined` replacement. The package preserves all incoming fields/test arguments and the prior session-test/prebuild/renderer additions.\n\nThe existing20-case React receiver passed **20/20**, exit0/empty stderr on Node24.19.0/TypeScript5.9.3/React18.3.1, including current App→Lab→Activate→Run panels and delayed old actions. Only its source-root path and baseline metadata changed; reversing those two substitutions recovers original receiver blob `f8ab830df82d86d9de193ecce5cf12f7296fb30c`. All48 staged Git inputs were checked before/after; its47-file execution source-set SHA256 is `8a8047e667e3d64593355cf6d662b66e215e842851c6714f80f8ba4f84357662`.\n\nThe exact adapted program, raw2558-byte stdout, empty stderr, source comparison and execution provenance are durable at [d55ee3ac8f926d77248a86004716201fcf6828ae](https://github.com/Jacob-Met/uma-sim/tree/d55ee3ac8f926d77248a86004716201fcf6828ae/docs/qualification/browser-session-20261008/cross-review-69570d292200), branch `review/session-import-69570d292200-evaluation`. All1586 reviewed leaves remain exact; only7 evidence files were added. Program SHA256 `407542673bcebcf4366e4c979e5e919802a4576164f7ea07c9497545866b03a7`; stdout SHA256 `aa78aaab9421d8ae2941b39e8aef582b95ba8562a0a0b11eb43edd41005f66af`.\n\nThis is independent source review and execution of the existing fixture receiver. It uses React test renderer and in-memory transpilation; CSS is hashed but ignored by the loader. No full build/Rust repeat, real browser, shared source/dependency write, install, deployed service, or user career operation occurred. Root retains ordinary hosted/current-head integration."
+    }
+  ],
+  "checks": {
+    "total_count": 6,
+    "check_runs": [
+      {
+        "id": 113514210027,
+        "name": "rust",
+        "node_id": "CR_kwDOUMqmY88AAAAabfli6w",
+        "head_sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "external_id": "1160142d-16c1-5181-9a06-dae89acd7e1c",
+        "url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113514210027",
+        "html_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113514210027",
+        "details_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113514210027",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-08T20:01:37Z",
+        "completed_at": "2026-10-08T20:04:01Z",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 1,
+          "annotations_url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113514210027/annotations"
+        },
+        "check_suite": {
+          "id": 102513071179
+        },
+        "app": {
+          "id": 15368,
+          "client_id": "Iv1.05c79e9ad1f6bdfa",
+          "slug": "github-actions",
+          "node_id": "MDM6QXBwMTUzNjg=",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/github",
+            "html_url": "https://github.com/github",
+            "followers_url": "https://api.github.com/users/github/followers",
+            "following_url": "https://api.github.com/users/github/following{/other_user}",
+            "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+            "organizations_url": "https://api.github.com/users/github/orgs",
+            "repos_url": "https://api.github.com/users/github/repos",
+            "events_url": "https://api.github.com/users/github/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/github/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "name": "GitHub Actions",
+          "description": "Automate your workflow from idea to production",
+          "external_url": "https://help.github.com/en/actions",
+          "html_url": "https://github.com/apps/github-actions",
+          "created_at": "2018-07-30T09:30:17Z",
+          "updated_at": "2026-06-18T16:17:48Z",
+          "permissions": {
+            "actions": "write",
+            "administration": "read",
+            "artifact_metadata": "write",
+            "attestations": "write",
+            "checks": "write",
+            "code_quality": "write",
+            "contents": "write",
+            "copilot_requests": "write",
+            "deployments": "write",
+            "discussions": "write",
+            "drives": "write",
+            "issues": "write",
+            "merge_queues": "write",
+            "metadata": "read",
+            "models": "read",
+            "packages": "write",
+            "pages": "write",
+            "pull_requests": "write",
+            "repository_hooks": "write",
+            "repository_projects": "write",
+            "security_events": "write",
+            "statuses": "write",
+            "vulnerability_alerts": "read"
+          },
+          "events": [
+            "branch_protection_rule",
+            "check_run",
+            "check_suite",
+            "create",
+            "delete",
+            "deployment",
+            "deployment_status",
+            "discussion",
+            "discussion_comment",
+            "fork",
+            "gollum",
+            "issues",
+            "issue_comment",
+            "label",
+            "merge_group",
+            "milestone",
+            "page_build",
+            "public",
+            "pull_request",
+            "pull_request_review",
+            "pull_request_review_comment",
+            "push",
+            "registry_package",
+            "release",
+            "repository",
+            "repository_dispatch",
+            "status",
+            "watch",
+            "workflow_dispatch",
+            "workflow_run"
+          ]
+        },
+        "pull_requests": [
+          {
+            "url": "https://api.github.com/repos/Jacob-Met/uma-sim/pulls/116",
+            "id": 4791810172,
+            "number": 116,
+            "head": {
+              "ref": "production/session-ui-69570d292200",
+              "sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            },
+            "base": {
+              "ref": "main",
+              "sha": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 113513637689,
+        "name": "bugfix-requires-test",
+        "node_id": "CR_kwDOUMqmY88AAAAabfCnOQ",
+        "head_sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "external_id": "0beb3050-a973-5ea3-b54c-38bc8bd94cc7",
+        "url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513637689",
+        "html_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168018/job/113513637689",
+        "details_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168018/job/113513637689",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-08T20:00:24Z",
+        "completed_at": "2026-10-08T20:00:29Z",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 2,
+          "annotations_url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513637689/annotations"
+        },
+        "check_suite": {
+          "id": 102513071196
+        },
+        "app": {
+          "id": 15368,
+          "client_id": "Iv1.05c79e9ad1f6bdfa",
+          "slug": "github-actions",
+          "node_id": "MDM6QXBwMTUzNjg=",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/github",
+            "html_url": "https://github.com/github",
+            "followers_url": "https://api.github.com/users/github/followers",
+            "following_url": "https://api.github.com/users/github/following{/other_user}",
+            "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+            "organizations_url": "https://api.github.com/users/github/orgs",
+            "repos_url": "https://api.github.com/users/github/repos",
+            "events_url": "https://api.github.com/users/github/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/github/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "name": "GitHub Actions",
+          "description": "Automate your workflow from idea to production",
+          "external_url": "https://help.github.com/en/actions",
+          "html_url": "https://github.com/apps/github-actions",
+          "created_at": "2018-07-30T09:30:17Z",
+          "updated_at": "2026-06-18T16:17:48Z",
+          "permissions": {
+            "actions": "write",
+            "administration": "read",
+            "artifact_metadata": "write",
+            "attestations": "write",
+            "checks": "write",
+            "code_quality": "write",
+            "contents": "write",
+            "copilot_requests": "write",
+            "deployments": "write",
+            "discussions": "write",
+            "drives": "write",
+            "issues": "write",
+            "merge_queues": "write",
+            "metadata": "read",
+            "models": "read",
+            "packages": "write",
+            "pages": "write",
+            "pull_requests": "write",
+            "repository_hooks": "write",
+            "repository_projects": "write",
+            "security_events": "write",
+            "statuses": "write",
+            "vulnerability_alerts": "read"
+          },
+          "events": [
+            "branch_protection_rule",
+            "check_run",
+            "check_suite",
+            "create",
+            "delete",
+            "deployment",
+            "deployment_status",
+            "discussion",
+            "discussion_comment",
+            "fork",
+            "gollum",
+            "issues",
+            "issue_comment",
+            "label",
+            "merge_group",
+            "milestone",
+            "page_build",
+            "public",
+            "pull_request",
+            "pull_request_review",
+            "pull_request_review_comment",
+            "push",
+            "registry_package",
+            "release",
+            "repository",
+            "repository_dispatch",
+            "status",
+            "watch",
+            "workflow_dispatch",
+            "workflow_run"
+          ]
+        },
+        "pull_requests": [
+          {
+            "url": "https://api.github.com/repos/Jacob-Met/uma-sim/pulls/116",
+            "id": 4791810172,
+            "number": 116,
+            "head": {
+              "ref": "production/session-ui-69570d292200",
+              "sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            },
+            "base": {
+              "ref": "main",
+              "sha": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 113513637437,
+        "name": "ui",
+        "node_id": "CR_kwDOUMqmY88AAAAabfCmPQ",
+        "head_sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "external_id": "85b987bb-8667-5c6b-858d-2c5e0265d82c",
+        "url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513637437",
+        "html_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113513637437",
+        "details_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113513637437",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-08T20:00:24Z",
+        "completed_at": "2026-10-08T20:01:35Z",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 1,
+          "annotations_url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513637437/annotations"
+        },
+        "check_suite": {
+          "id": 102513071179
+        },
+        "app": {
+          "id": 15368,
+          "client_id": "Iv1.05c79e9ad1f6bdfa",
+          "slug": "github-actions",
+          "node_id": "MDM6QXBwMTUzNjg=",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/github",
+            "html_url": "https://github.com/github",
+            "followers_url": "https://api.github.com/users/github/followers",
+            "following_url": "https://api.github.com/users/github/following{/other_user}",
+            "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+            "organizations_url": "https://api.github.com/users/github/orgs",
+            "repos_url": "https://api.github.com/users/github/repos",
+            "events_url": "https://api.github.com/users/github/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/github/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "name": "GitHub Actions",
+          "description": "Automate your workflow from idea to production",
+          "external_url": "https://help.github.com/en/actions",
+          "html_url": "https://github.com/apps/github-actions",
+          "created_at": "2018-07-30T09:30:17Z",
+          "updated_at": "2026-06-18T16:17:48Z",
+          "permissions": {
+            "actions": "write",
+            "administration": "read",
+            "artifact_metadata": "write",
+            "attestations": "write",
+            "checks": "write",
+            "code_quality": "write",
+            "contents": "write",
+            "copilot_requests": "write",
+            "deployments": "write",
+            "discussions": "write",
+            "drives": "write",
+            "issues": "write",
+            "merge_queues": "write",
+            "metadata": "read",
+            "models": "read",
+            "packages": "write",
+            "pages": "write",
+            "pull_requests": "write",
+            "repository_hooks": "write",
+            "repository_projects": "write",
+            "security_events": "write",
+            "statuses": "write",
+            "vulnerability_alerts": "read"
+          },
+          "events": [
+            "branch_protection_rule",
+            "check_run",
+            "check_suite",
+            "create",
+            "delete",
+            "deployment",
+            "deployment_status",
+            "discussion",
+            "discussion_comment",
+            "fork",
+            "gollum",
+            "issues",
+            "issue_comment",
+            "label",
+            "merge_group",
+            "milestone",
+            "page_build",
+            "public",
+            "pull_request",
+            "pull_request_review",
+            "pull_request_review_comment",
+            "push",
+            "registry_package",
+            "release",
+            "repository",
+            "repository_dispatch",
+            "status",
+            "watch",
+            "workflow_dispatch",
+            "workflow_run"
+          ]
+        },
+        "pull_requests": [
+          {
+            "url": "https://api.github.com/repos/Jacob-Met/uma-sim/pulls/116",
+            "id": 4791810172,
+            "number": 116,
+            "head": {
+              "ref": "production/session-ui-69570d292200",
+              "sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            },
+            "base": {
+              "ref": "main",
+              "sha": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 113513637138,
+        "name": "mcp",
+        "node_id": "CR_kwDOUMqmY88AAAAabfClEg",
+        "head_sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "external_id": "07873ad7-e5b3-5923-abe7-6ec09240e524",
+        "url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513637138",
+        "html_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113513637138",
+        "details_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113513637138",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-08T20:00:24Z",
+        "completed_at": "2026-10-08T20:00:42Z",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 1,
+          "annotations_url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513637138/annotations"
+        },
+        "check_suite": {
+          "id": 102513071179
+        },
+        "app": {
+          "id": 15368,
+          "client_id": "Iv1.05c79e9ad1f6bdfa",
+          "slug": "github-actions",
+          "node_id": "MDM6QXBwMTUzNjg=",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/github",
+            "html_url": "https://github.com/github",
+            "followers_url": "https://api.github.com/users/github/followers",
+            "following_url": "https://api.github.com/users/github/following{/other_user}",
+            "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+            "organizations_url": "https://api.github.com/users/github/orgs",
+            "repos_url": "https://api.github.com/users/github/repos",
+            "events_url": "https://api.github.com/users/github/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/github/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "name": "GitHub Actions",
+          "description": "Automate your workflow from idea to production",
+          "external_url": "https://help.github.com/en/actions",
+          "html_url": "https://github.com/apps/github-actions",
+          "created_at": "2018-07-30T09:30:17Z",
+          "updated_at": "2026-06-18T16:17:48Z",
+          "permissions": {
+            "actions": "write",
+            "administration": "read",
+            "artifact_metadata": "write",
+            "attestations": "write",
+            "checks": "write",
+            "code_quality": "write",
+            "contents": "write",
+            "copilot_requests": "write",
+            "deployments": "write",
+            "discussions": "write",
+            "drives": "write",
+            "issues": "write",
+            "merge_queues": "write",
+            "metadata": "read",
+            "models": "read",
+            "packages": "write",
+            "pages": "write",
+            "pull_requests": "write",
+            "repository_hooks": "write",
+            "repository_projects": "write",
+            "security_events": "write",
+            "statuses": "write",
+            "vulnerability_alerts": "read"
+          },
+          "events": [
+            "branch_protection_rule",
+            "check_run",
+            "check_suite",
+            "create",
+            "delete",
+            "deployment",
+            "deployment_status",
+            "discussion",
+            "discussion_comment",
+            "fork",
+            "gollum",
+            "issues",
+            "issue_comment",
+            "label",
+            "merge_group",
+            "milestone",
+            "page_build",
+            "public",
+            "pull_request",
+            "pull_request_review",
+            "pull_request_review_comment",
+            "push",
+            "registry_package",
+            "release",
+            "repository",
+            "repository_dispatch",
+            "status",
+            "watch",
+            "workflow_dispatch",
+            "workflow_run"
+          ]
+        },
+        "pull_requests": [
+          {
+            "url": "https://api.github.com/repos/Jacob-Met/uma-sim/pulls/116",
+            "id": 4791810172,
+            "number": 116,
+            "head": {
+              "ref": "production/session-ui-69570d292200",
+              "sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            },
+            "base": {
+              "ref": "main",
+              "sha": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 113513636581,
+        "name": "Secret scan",
+        "node_id": "CR_kwDOUMqmY88AAAAabfCi5Q",
+        "head_sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "external_id": "5ca02a80-8cee-5b3b-87e9-da3d0c4dbc7e",
+        "url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513636581",
+        "html_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168005/job/113513636581",
+        "details_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168005/job/113513636581",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-08T20:00:24Z",
+        "completed_at": "2026-10-08T20:00:32Z",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 3,
+          "annotations_url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513636581/annotations"
+        },
+        "check_suite": {
+          "id": 102513071275
+        },
+        "app": {
+          "id": 15368,
+          "client_id": "Iv1.05c79e9ad1f6bdfa",
+          "slug": "github-actions",
+          "node_id": "MDM6QXBwMTUzNjg=",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/github",
+            "html_url": "https://github.com/github",
+            "followers_url": "https://api.github.com/users/github/followers",
+            "following_url": "https://api.github.com/users/github/following{/other_user}",
+            "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+            "organizations_url": "https://api.github.com/users/github/orgs",
+            "repos_url": "https://api.github.com/users/github/repos",
+            "events_url": "https://api.github.com/users/github/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/github/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "name": "GitHub Actions",
+          "description": "Automate your workflow from idea to production",
+          "external_url": "https://help.github.com/en/actions",
+          "html_url": "https://github.com/apps/github-actions",
+          "created_at": "2018-07-30T09:30:17Z",
+          "updated_at": "2026-06-18T16:17:48Z",
+          "permissions": {
+            "actions": "write",
+            "administration": "read",
+            "artifact_metadata": "write",
+            "attestations": "write",
+            "checks": "write",
+            "code_quality": "write",
+            "contents": "write",
+            "copilot_requests": "write",
+            "deployments": "write",
+            "discussions": "write",
+            "drives": "write",
+            "issues": "write",
+            "merge_queues": "write",
+            "metadata": "read",
+            "models": "read",
+            "packages": "write",
+            "pages": "write",
+            "pull_requests": "write",
+            "repository_hooks": "write",
+            "repository_projects": "write",
+            "security_events": "write",
+            "statuses": "write",
+            "vulnerability_alerts": "read"
+          },
+          "events": [
+            "branch_protection_rule",
+            "check_run",
+            "check_suite",
+            "create",
+            "delete",
+            "deployment",
+            "deployment_status",
+            "discussion",
+            "discussion_comment",
+            "fork",
+            "gollum",
+            "issues",
+            "issue_comment",
+            "label",
+            "merge_group",
+            "milestone",
+            "page_build",
+            "public",
+            "pull_request",
+            "pull_request_review",
+            "pull_request_review_comment",
+            "push",
+            "registry_package",
+            "release",
+            "repository",
+            "repository_dispatch",
+            "status",
+            "watch",
+            "workflow_dispatch",
+            "workflow_run"
+          ]
+        },
+        "pull_requests": [
+          {
+            "url": "https://api.github.com/repos/Jacob-Met/uma-sim/pulls/116",
+            "id": 4791810172,
+            "number": 116,
+            "head": {
+              "ref": "production/session-ui-69570d292200",
+              "sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            },
+            "base": {
+              "ref": "main",
+              "sha": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 113513605178,
+        "name": "Secret scan",
+        "node_id": "CR_kwDOUMqmY88AAAAabfAoOg",
+        "head_sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "external_id": "c6144837-74bc-581c-8451-9776e94d0c65",
+        "url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513605178",
+        "html_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836158310/job/113513605178",
+        "details_url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836158310/job/113513605178",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-08T20:00:20Z",
+        "completed_at": "2026-10-08T20:00:28Z",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 3,
+          "annotations_url": "https://api.github.com/repos/Jacob-Met/uma-sim/check-runs/113513605178/annotations"
+        },
+        "check_suite": {
+          "id": 102513031953
+        },
+        "app": {
+          "id": 15368,
+          "client_id": "Iv1.05c79e9ad1f6bdfa",
+          "slug": "github-actions",
+          "node_id": "MDM6QXBwMTUzNjg=",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/github",
+            "html_url": "https://github.com/github",
+            "followers_url": "https://api.github.com/users/github/followers",
+            "following_url": "https://api.github.com/users/github/following{/other_user}",
+            "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+            "organizations_url": "https://api.github.com/users/github/orgs",
+            "repos_url": "https://api.github.com/users/github/repos",
+            "events_url": "https://api.github.com/users/github/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/github/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "name": "GitHub Actions",
+          "description": "Automate your workflow from idea to production",
+          "external_url": "https://help.github.com/en/actions",
+          "html_url": "https://github.com/apps/github-actions",
+          "created_at": "2018-07-30T09:30:17Z",
+          "updated_at": "2026-06-18T16:17:48Z",
+          "permissions": {
+            "actions": "write",
+            "administration": "read",
+            "artifact_metadata": "write",
+            "attestations": "write",
+            "checks": "write",
+            "code_quality": "write",
+            "contents": "write",
+            "copilot_requests": "write",
+            "deployments": "write",
+            "discussions": "write",
+            "drives": "write",
+            "issues": "write",
+            "merge_queues": "write",
+            "metadata": "read",
+            "models": "read",
+            "packages": "write",
+            "pages": "write",
+            "pull_requests": "write",
+            "repository_hooks": "write",
+            "repository_projects": "write",
+            "security_events": "write",
+            "statuses": "write",
+            "vulnerability_alerts": "read"
+          },
+          "events": [
+            "branch_protection_rule",
+            "check_run",
+            "check_suite",
+            "create",
+            "delete",
+            "deployment",
+            "deployment_status",
+            "discussion",
+            "discussion_comment",
+            "fork",
+            "gollum",
+            "issues",
+            "issue_comment",
+            "label",
+            "merge_group",
+            "milestone",
+            "page_build",
+            "public",
+            "pull_request",
+            "pull_request_review",
+            "pull_request_review_comment",
+            "push",
+            "registry_package",
+            "release",
+            "repository",
+            "repository_dispatch",
+            "status",
+            "watch",
+            "workflow_dispatch",
+            "workflow_run"
+          ]
+        },
+        "pull_requests": [
+          {
+            "url": "https://api.github.com/repos/Jacob-Met/uma-sim/pulls/116",
+            "id": 4791810172,
+            "number": 116,
+            "head": {
+              "ref": "production/session-ui-69570d292200",
+              "sha": "3397f142e397aa911c125261fac41158e7bc74cc",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            },
+            "base": {
+              "ref": "main",
+              "sha": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+              "repo": {
+                "id": 1355458147,
+                "url": "https://api.github.com/repos/Jacob-Met/uma-sim",
+                "name": "uma-sim"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "open_prs": [
+    {
+      "number": 118,
+      "title": "Preserve CLI careers and fail truthfully when saving fails",
+      "head": "acbe58aeface82d7e3cac1134c6d7126a910bb15"
+    },
+    {
+      "number": 117,
+      "title": "Expose native training inspection through REST and MCP",
+      "head": "e8af166aa6cd714682233325e68e8bf6a0015e09"
+    },
+    {
+      "number": 116,
+      "title": "Keep browser career actions bound to the displayed session",
+      "head": "3397f142e397aa911c125261fac41158e7bc74cc"
+    },
+    {
+      "number": 111,
+      "title": "Refuse setup files whose chooser context was retired (PR104 proposal)",
+      "head": "3dea07ad866d6f7f69473c2558a35df4996ab16f"
+    },
+    {
+      "number": 110,
+      "title": "Refuse invalid batch counts and overflowing seed ranges before output writes",
+      "head": "55643d5625bb7177cf506e058ebe22b9682fa189"
+    },
+    {
+      "number": 106,
+      "title": "Keep exact career seeds and portable checkpoint JSON through MCP",
+      "head": "6b4a3a8731f7964cff20cb5f716b3e894b10b303"
+    },
+    {
+      "number": 104,
+      "title": "Download and reopen editable career setups",
+      "head": "3c9c58dde2c42227c3b0f07f28f96a94ba2b0244"
+    },
+    {
+      "number": 54,
+      "title": "test(api): harden handle_fast regression harness around 503 saga",
+      "head": "c3cde8960258bf239cf96373e0aee6c4ab146c9f"
+    },
+    {
+      "number": 37,
+      "title": "lab: saved-career branch-and-compare laboratory (T100)",
+      "head": "ef2b26729fd20231b47715bba904cc67c4f88649"
+    },
+    {
+      "number": 34,
+      "title": "lab: saved-career branch-and-compare laboratory (T100)",
+      "head": "17941ddaf5d6f818557b7eb28e52c0bf7ae9376d"
+    }
+  ]
+}

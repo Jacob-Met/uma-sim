@@ -1,0 +1,79 @@
+{
+  "schema": "uma-native-merge-freshness-v1",
+  "base": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+  "head": "3397f142e397aa911c125261fac41158e7bc74cc",
+  "tree": "8220492e07834480ab9fc0823358c9ad3aa9f24b",
+  "native_ancestor_exit_code": 0,
+  "exact_changed_paths_verified": 39,
+  "completed_at": "2026-10-08T20:27:47.676964+00:00",
+  "records": [
+    {
+      "argv": [
+        "git",
+        "init",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/Jacob-Met/uma-sim.git",
+        "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+        "3397f142e397aa911c125261fac41158e7bc74cc"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Jacob-Met/uma-sim\n * branch            0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa -> FETCH_HEAD\n * branch            3397f142e397aa911c125261fac41158e7bc74cc -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+        "3397f142e397aa911c125261fac41158e7bc74cc"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa...3397f142e397aa911c125261fac41158e7bc74cc"
+      ],
+      "exit_code": 0,
+      "stdout": ".gitleaksignore\nREADME.md\ndocs/qualification/browser-session-20261008/NATIVE_WORKSPACE.md\ndocs/qualification/browser-session-20261008/README.md\ndocs/qualification/browser-session-20261008/app-baseline.log\ndocs/qualification/browser-session-20261008/bootstrap-baseline.log\ndocs/qualification/browser-session-20261008/current-receiving/README.md\ndocs/qualification/browser-session-20261008/current-receiving/capacity-refusal.log\ndocs/qualification/browser-session-20261008/current-receiving/composition-receipt.json\ndocs/qualification/browser-session-20261008/current-receiving/hosted-ci-receipt.json\ndocs/qualification/browser-session-20261008/current-receiving/hosted-ci-rust.log\ndocs/qualification/browser-session-20261008/current-receiving/hosted-ci-ui.log\ndocs/qualification/browser-session-20261008/current-receiving/native-ui-build.json\ndocs/qualification/browser-session-20261008/current-receiving/post-import-capacity-refusal.json\ndocs/qualification/browser-session-20261008/current-receiving/post-import-composition-receipt.json\ndocs/qualification/browser-session-20261008/current-receiving/post-import-native-ui-build.json\ndocs/qualification/browser-session-20261008/current-receiving/receiving-review.json\ndocs/qualification/browser-session-20261008/current-receiving/receiving-review.log\ndocs/qualification/browser-session-20261008/current-receiving/review-receiving.mjs\ndocs/qualification/browser-session-20261008/current-receiving/review-wrapper-compatibility.mjs\ndocs/qualification/browser-session-20261008/current-receiving/scanner-checksum-review.json\ndocs/qualification/browser-session-20261008/current-receiving/wrapper-compatibility-review.json\ndocs/qualification/browser-session-20261008/current-receiving/wrapper-compatibility.log\ndocs/qualification/browser-session-20261008/rust-baseline.log\ndocs/qualification/browser-session-20261008/rust-qualified.log\ndocs/qualification/browser-session-20261008/rust-workspace-qualified.log\ndocs/qualification/browser-session-20261008/source-sha256.json\ndocs/qualification/browser-session-20261008/ui-baseline.log\ndocs/qualification/browser-session-20261008/ui-qualified.log\npackages/uma-sim-ui/README.md\npackages/uma-sim-ui/package-lock.json\npackages/uma-sim-ui/package.json\npackages/uma-sim-ui/src/App.tsx\npackages/uma-sim-ui/src/api/client.ts\npackages/uma-sim-ui/src/state/runStore.ts\npackages/uma-sim-ui/tests/compile-ui.mjs\npackages/uma-sim-ui/tests/run-session.test.mjs\numa-sim-core/src/api.rs\numa-sim-core/tests/session_targeting.rs\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "3397f142e397aa911c125261fac41158e7bc74cc^{tree}"
+      ],
+      "exit_code": 0,
+      "stdout": "8220492e07834480ab9fc0823358c9ad3aa9f24b\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--stat",
+        "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa...3397f142e397aa911c125261fac41158e7bc74cc"
+      ],
+      "exit_code": 0,
+      "stdout": " .gitleaksignore                                    |    1 +\n README.md                                          |   11 +\n .../browser-session-20261008/NATIVE_WORKSPACE.md   |   18 +\n .../browser-session-20261008/README.md             |   97 +\n .../browser-session-20261008/app-baseline.log      |   86 +\n .../bootstrap-baseline.log                         |   28 +\n .../current-receiving/README.md                    |   28 +\n .../current-receiving/capacity-refusal.log         |  130 ++\n .../current-receiving/composition-receipt.json     |  431 ++++\n .../current-receiving/hosted-ci-receipt.json       |   50 +\n .../current-receiving/hosted-ci-rust.log           | 2294 ++++++++++++++++++++\n .../current-receiving/hosted-ci-ui.log             | 1586 ++++++++++++++\n .../current-receiving/native-ui-build.json         |  283 +++\n .../post-import-capacity-refusal.json              |  408 ++++\n .../post-import-composition-receipt.json           |   34 +\n .../post-import-native-ui-build.json               |  424 ++++\n .../current-receiving/receiving-review.json        |  109 +\n .../current-receiving/receiving-review.log         |   29 +\n .../current-receiving/review-receiving.mjs         |   57 +\n .../review-wrapper-compatibility.mjs               |  125 ++\n .../current-receiving/scanner-checksum-review.json |   18 +\n .../wrapper-compatibility-review.json              |   80 +\n .../current-receiving/wrapper-compatibility.log    |   13 +\n .../browser-session-20261008/rust-baseline.log     |   60 +\n .../browser-session-20261008/rust-qualified.log    |   32 +\n .../rust-workspace-qualified.log                   |  775 +++++++\n .../browser-session-20261008/source-sha256.json    |   15 +\n .../browser-session-20261008/ui-baseline.log       |  276 +++\n .../browser-session-20261008/ui-qualified.log      |   50 +\n packages/uma-sim-ui/README.md                      |   20 +\n packages/uma-sim-ui/package-lock.json              |   49 +-\n packages/uma-sim-ui/package.json                   |    8 +-\n packages/uma-sim-ui/src/App.tsx                    |   33 +-\n packages/uma-sim-ui/src/api/client.ts              |    2 +-\n packages/uma-sim-ui/src/state/runStore.ts          |  149 +-\n packages/uma-sim-ui/tests/compile-ui.mjs           |   50 +\n packages/uma-sim-ui/tests/run-session.test.mjs     |  356 +++\n uma-sim-core/src/api.rs                            |   28 +-\n uma-sim-core/tests/session_targeting.rs            |  197 ++\n 39 files changed, 8370 insertions(+), 70 deletions(-)\n",
+      "stderr": ""
+    }
+  ]
+}

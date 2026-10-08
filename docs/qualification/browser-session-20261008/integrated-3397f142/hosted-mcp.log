@@ -1,0 +1,1083 @@
+﻿2026-10-08T20:00:25.1440488Z Current runner version: '2.337.0'
+2026-10-08T20:00:25.1465589Z ##[group]Runner Image Provisioner
+2026-10-08T20:00:25.1466476Z Hosted Compute Agent
+2026-10-08T20:00:25.1467140Z Version: 20261002.596
+2026-10-08T20:00:25.1467798Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T20:00:25.1468571Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T20:00:25.1469715Z Worker ID: {98afaae2-63d7-4326-acd1-e20fcfd5ac45}
+2026-10-08T20:00:25.1470462Z Region: canadaeast
+2026-10-08T20:00:25.1471003Z Cloud: Azure
+2026-10-08T20:00:25.1471607Z ##[endgroup]
+2026-10-08T20:00:25.1473149Z ##[group]Operating System
+2026-10-08T20:00:25.1473907Z Ubuntu
+2026-10-08T20:00:25.1474489Z 24.04.5
+2026-10-08T20:00:25.1475019Z LTS
+2026-10-08T20:00:25.1475617Z ##[endgroup]
+2026-10-08T20:00:25.1476202Z ##[group]Runner Image
+2026-10-08T20:00:25.1476850Z Image: ubuntu-24.04
+2026-10-08T20:00:25.1477431Z Version: 20261004.327.1
+2026-10-08T20:00:25.1479044Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T20:00:25.1480761Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T20:00:25.1481810Z ##[endgroup]
+2026-10-08T20:00:25.1483034Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T20:00:25.1485037Z Contents: read
+2026-10-08T20:00:25.1485732Z Metadata: read
+2026-10-08T20:00:25.1486330Z ##[endgroup]
+2026-10-08T20:00:25.1488462Z Secret source: Actions
+2026-10-08T20:00:25.1489848Z Cache mode: write
+2026-10-08T20:00:25.1490699Z Prepare workflow directory
+2026-10-08T20:00:25.1905710Z Prepare all required actions
+2026-10-08T20:00:25.1977023Z Getting action download info
+2026-10-08T20:00:25.4406653Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-08T20:00:25.5467980Z Download action repository 'actions/setup-node@820762786026740c76f36085b0efc47a31fe5020' (SHA:820762786026740c76f36085b0efc47a31fe5020)
+2026-10-08T20:00:25.7319965Z Complete job name: mcp
+2026-10-08T20:00:25.8100102Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-08T20:00:25.8101296Z with:
+2026-10-08T20:00:25.8101753Z   repository: Jacob-Met/uma-sim
+2026-10-08T20:00:25.8105619Z   token: ***
+2026-10-08T20:00:25.8106051Z   ssh-strict: true
+2026-10-08T20:00:25.8106492Z   ssh-user: git
+2026-10-08T20:00:25.8106940Z   persist-credentials: true
+2026-10-08T20:00:25.8107423Z   clean: true
+2026-10-08T20:00:25.8107870Z   sparse-checkout-cone-mode: true
+2026-10-08T20:00:25.8108401Z   fetch-depth: 1
+2026-10-08T20:00:25.8109047Z   fetch-tags: false
+2026-10-08T20:00:25.8109548Z   show-progress: true
+2026-10-08T20:00:25.8110005Z   lfs: false
+2026-10-08T20:00:25.8110417Z   submodules: false
+2026-10-08T20:00:25.8110867Z   set-safe-directory: true
+2026-10-08T20:00:25.8111386Z   allow-unsafe-pr-checkout: false
+2026-10-08T20:00:25.8112178Z ##[endgroup]
+2026-10-08T20:00:25.9130327Z Syncing repository: Jacob-Met/uma-sim
+2026-10-08T20:00:25.9133205Z ##[group]Getting Git version info
+2026-10-08T20:00:25.9134682Z Working directory is '/home/runner/work/uma-sim/uma-sim'
+2026-10-08T20:00:25.9136532Z [command]/usr/bin/git version
+2026-10-08T20:00:25.9233876Z git version 2.55.0
+2026-10-08T20:00:25.9255748Z ##[endgroup]
+2026-10-08T20:00:25.9264741Z Temporarily overriding HOME='/home/runner/work/_temp/f79c017c-1376-42f9-8988-3d9076752415' before making global git config changes
+2026-10-08T20:00:25.9278508Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T20:00:25.9280589Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:00:25.9322407Z Deleting the contents of '/home/runner/work/uma-sim/uma-sim'
+2026-10-08T20:00:25.9331408Z ##[group]Determining repository object format
+2026-10-08T20:00:25.9340346Z ##[endgroup]
+2026-10-08T20:00:25.9342353Z ##[group]Initializing the repository
+2026-10-08T20:00:25.9343850Z [command]/usr/bin/git init /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:00:25.9447714Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T20:00:25.9449937Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T20:00:25.9451030Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T20:00:25.9451849Z hint: call:
+2026-10-08T20:00:25.9452322Z hint:
+2026-10-08T20:00:25.9452906Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T20:00:25.9453595Z hint:
+2026-10-08T20:00:25.9454269Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T20:00:25.9455271Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T20:00:25.9456075Z hint:
+2026-10-08T20:00:25.9456564Z hint: 	git branch -m <name>
+2026-10-08T20:00:25.9457111Z hint:
+2026-10-08T20:00:25.9457811Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T20:00:25.9463933Z Initialized empty Git repository in /home/runner/work/uma-sim/uma-sim/.git/
+2026-10-08T20:00:25.9474673Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/uma-sim
+2026-10-08T20:00:25.9530216Z ##[endgroup]
+2026-10-08T20:00:25.9531934Z ##[group]Disabling automatic garbage collection
+2026-10-08T20:00:25.9536788Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T20:00:25.9573512Z ##[endgroup]
+2026-10-08T20:00:25.9575540Z ##[group]Setting up auth
+2026-10-08T20:00:25.9576770Z Removing SSH command configuration
+2026-10-08T20:00:25.9579989Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T20:00:25.9617103Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T20:00:25.9997961Z Removing HTTP extra header
+2026-10-08T20:00:26.0004390Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T20:00:26.0042405Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T20:00:26.0260202Z Removing includeIf entries pointing to credentials config files
+2026-10-08T20:00:26.0265144Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T20:00:26.0302510Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T20:00:26.0527531Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T20:00:26.0569702Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path /home/runner/work/_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config
+2026-10-08T20:00:26.0606863Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config
+2026-10-08T20:00:26.0645569Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config
+2026-10-08T20:00:26.0682604Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config
+2026-10-08T20:00:26.0714484Z ##[endgroup]
+2026-10-08T20:00:26.0715243Z ##[group]Fetching the repository
+2026-10-08T20:00:26.0723596Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b80d86653286887ee81c317145c36a2c281f48aa:refs/remotes/pull/116/merge
+2026-10-08T20:00:27.1950058Z From https://github.com/Jacob-Met/uma-sim
+2026-10-08T20:00:27.1952383Z  * [new ref]         b80d86653286887ee81c317145c36a2c281f48aa -> pull/116/merge
+2026-10-08T20:00:27.1958132Z ##[endgroup]
+2026-10-08T20:00:27.1960928Z ##[group]Determining the checkout info
+2026-10-08T20:00:27.1963307Z ##[endgroup]
+2026-10-08T20:00:27.1964579Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T20:00:27.2022492Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T20:00:27.2057266Z ##[group]Checking out the ref
+2026-10-08T20:00:27.2061822Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/116/merge
+2026-10-08T20:00:27.3639850Z Note: switching to 'refs/remotes/pull/116/merge'.
+2026-10-08T20:00:27.3640896Z 
+2026-10-08T20:00:27.3641671Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T20:00:27.3643558Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T20:00:27.3645354Z state without impacting any branches by switching back to a branch.
+2026-10-08T20:00:27.3646426Z 
+2026-10-08T20:00:27.3647229Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T20:00:27.3649118Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T20:00:27.3650721Z 
+2026-10-08T20:00:27.3651464Z   git switch -c <new-branch-name>
+2026-10-08T20:00:27.3652606Z 
+2026-10-08T20:00:27.3653333Z Or undo this operation with:
+2026-10-08T20:00:27.3654446Z 
+2026-10-08T20:00:27.3655244Z   git switch -
+2026-10-08T20:00:27.3656306Z 
+2026-10-08T20:00:27.3657744Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T20:00:27.3660150Z 
+2026-10-08T20:00:27.3662628Z HEAD is now at b80d866 Merge 3397f142e397aa911c125261fac41158e7bc74cc into 0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa
+2026-10-08T20:00:27.3670372Z ##[endgroup]
+2026-10-08T20:00:27.3711027Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T20:00:27.3741459Z b80d86653286887ee81c317145c36a2c281f48aa
+2026-10-08T20:00:27.4209105Z ##[group]Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+2026-10-08T20:00:27.4210901Z with:
+2026-10-08T20:00:27.4211795Z   node-version: 20
+2026-10-08T20:00:27.4212763Z   check-latest: false
+2026-10-08T20:00:27.4223687Z   token: ***
+2026-10-08T20:00:27.4224666Z   package-manager-cache: true
+2026-10-08T20:00:27.4225782Z ##[endgroup]
+2026-10-08T20:00:27.5520858Z Attempting to download 20...
+2026-10-08T20:00:28.3875682Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+2026-10-08T20:00:28.8985830Z Extracting ...
+2026-10-08T20:00:28.9149225Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/d4b4ca2c-be1c-4352-9e8c-6cb458286a65 -f /home/runner/work/_temp/c70e52f4-2ab9-427b-8e44-5a0f381dc986
+2026-10-08T20:00:29.9327501Z Adding to the cache ...
+2026-10-08T20:00:31.8715765Z ##[group]Environment details
+2026-10-08T20:00:32.0912545Z node: v20.20.2
+2026-10-08T20:00:32.0913148Z npm: 10.8.2
+2026-10-08T20:00:32.0913442Z yarn: 1.22.22
+2026-10-08T20:00:32.0913937Z ##[endgroup]
+2026-10-08T20:00:32.1084871Z ##[group]Run node --test packages/uma-sim-mcp/tests/*.test.mjs
+2026-10-08T20:00:32.1085424Z [36;1mnode --test packages/uma-sim-mcp/tests/*.test.mjs[0m
+2026-10-08T20:00:32.1354250Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:00:32.1354585Z ##[endgroup]
+2026-10-08T20:00:32.1919894Z TAP version 13
+2026-10-08T20:00:32.2460846Z # Subtest: native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports
+2026-10-08T20:00:32.2476900Z ok 1 - native receiving contract: independent forks, immutable checkpoints, typed errors, isolated branches and reports # SKIP Set UMA_SIM_TEST_API_BIN to exercise the real Rust receiver
+2026-10-08T20:00:32.2478178Z   ---
+2026-10-08T20:00:32.2479128Z   duration_ms: 3.623607
+2026-10-08T20:00:32.2479579Z   ...
+2026-10-08T20:00:32.2900928Z # Subtest: discovery preserves existing tool and resource identities and publishes the full lab boundary
+2026-10-08T20:00:32.2903865Z ok 2 - discovery preserves existing tool and resource identities and publishes the full lab boundary
+2026-10-08T20:00:32.2905146Z   ---
+2026-10-08T20:00:32.2905839Z   duration_ms: 55.805422
+2026-10-08T20:00:32.2906642Z   ...
+2026-10-08T20:00:32.3667620Z # Subtest: named run calls and the process-wide content operation retain REST identities
+2026-10-08T20:00:32.3699651Z     # Subtest: sim_state
+2026-10-08T20:00:32.3700505Z     ok 1 - sim_state
+2026-10-08T20:00:32.3729505Z       ---
+2026-10-08T20:00:32.3733227Z       duration_ms: 77.380426
+2026-10-08T20:00:32.3759516Z       ...
+2026-10-08T20:00:32.3804495Z     # Subtest: sim_text
+2026-10-08T20:00:32.3829470Z     ok 2 - sim_text
+2026-10-08T20:00:32.3859445Z       ---
+2026-10-08T20:00:32.3860231Z       duration_ms: 4.815149
+2026-10-08T20:00:32.3895970Z       ...
+2026-10-08T20:00:32.3919695Z     # Subtest: sim_choices
+2026-10-08T20:00:32.3969699Z     ok 3 - sim_choices
+2026-10-08T20:00:32.3970653Z       ---
+2026-10-08T20:00:32.3999743Z       duration_ms: 7.283642
+2026-10-08T20:00:32.4039320Z       ...
+2026-10-08T20:00:32.4065944Z     # Subtest: sim_export_telemetry
+2026-10-08T20:00:32.4119571Z     ok 4 - sim_export_telemetry
+2026-10-08T20:00:32.4173912Z       ---
+2026-10-08T20:00:32.4199560Z       duration_ms: 3.599988
+2026-10-08T20:00:32.4213874Z       ...
+2026-10-08T20:00:32.4236923Z     # Subtest: sim_act
+2026-10-08T20:00:32.4249240Z     ok 5 - sim_act
+2026-10-08T20:00:32.4250350Z       ---
+2026-10-08T20:00:32.4251151Z       duration_ms: 11.72898
+2026-10-08T20:00:32.4252036Z       ...
+2026-10-08T20:00:32.4252824Z     # Subtest: sim_auto
+2026-10-08T20:00:32.4253679Z     ok 6 - sim_auto
+2026-10-08T20:00:32.4254287Z       ---
+2026-10-08T20:00:32.4254951Z       duration_ms: 5.357463
+2026-10-08T20:00:32.4255562Z       ...
+2026-10-08T20:00:32.4256161Z     # Subtest: sim_fast_forward
+2026-10-08T20:00:32.4256821Z     ok 7 - sim_fast_forward
+2026-10-08T20:00:32.4257411Z       ---
+2026-10-08T20:00:32.4257882Z       duration_ms: 6.706042
+2026-10-08T20:00:32.4258422Z       ...
+2026-10-08T20:00:32.4259400Z     # Subtest: sim_deck_place
+2026-10-08T20:00:32.4260064Z     ok 8 - sim_deck_place
+2026-10-08T20:00:32.4260683Z       ---
+2026-10-08T20:00:32.4261212Z       duration_ms: 9.935429
+2026-10-08T20:00:32.4261823Z       ...
+2026-10-08T20:00:32.4299531Z     # Subtest: sim_load_content_pack
+2026-10-08T20:00:32.4300751Z     ok 9 - sim_load_content_pack
+2026-10-08T20:00:32.4319566Z       ---
+2026-10-08T20:00:32.4320231Z       duration_ms: 9.837075
+2026-10-08T20:00:32.4320792Z       ...
+2026-10-08T20:00:32.4417055Z     1..9
+2026-10-08T20:00:32.4431389Z ok 3 - named run calls and the process-wide content operation retain REST identities
+2026-10-08T20:00:32.4432388Z   ---
+2026-10-08T20:00:32.4432959Z   duration_ms: 150.109891
+2026-10-08T20:00:32.4434092Z   ...
+2026-10-08T20:00:32.5421327Z # Subtest: start preserves default-session creation and explicit configuration
+2026-10-08T20:00:32.5422528Z ok 4 - start preserves default-session creation and explicit configuration
+2026-10-08T20:00:32.5423486Z   ---
+2026-10-08T20:00:32.5424353Z   duration_ms: 102.636636
+2026-10-08T20:00:32.5424797Z   ...
+2026-10-08T20:00:32.6590164Z # Subtest: all added operations preserve their method, route, selectors and payload values
+2026-10-08T20:00:32.6649903Z     # Subtest: sim_sessions
+2026-10-08T20:00:32.6665334Z     ok 1 - sim_sessions
+2026-10-08T20:00:32.6677890Z       ---
+2026-10-08T20:00:32.6699388Z       duration_ms: 114.723807
+2026-10-08T20:00:32.6709540Z       ...
+2026-10-08T20:00:32.6920006Z     # Subtest: sim_session_fork
+2026-10-08T20:00:32.6989789Z     ok 2 - sim_session_fork
+2026-10-08T20:00:32.7007952Z       ---
+2026-10-08T20:00:32.7048072Z       duration_ms: 29.817175
+2026-10-08T20:00:32.7068561Z       ...
+2026-10-08T20:00:32.7107559Z     # Subtest: sim_session_fork
+2026-10-08T20:00:32.7169009Z     ok 3 - sim_session_fork
+2026-10-08T20:00:32.7217521Z       ---
+2026-10-08T20:00:32.7233749Z       duration_ms: 10.749469
+2026-10-08T20:00:32.7270293Z       ...
+2026-10-08T20:00:32.7332871Z     # Subtest: sim_session_activate
+2026-10-08T20:00:32.7376324Z     ok 4 - sim_session_activate
+2026-10-08T20:00:32.7388133Z       ---
+2026-10-08T20:00:32.7427299Z       duration_ms: 6.584336
+2026-10-08T20:00:32.7453492Z       ...
+2026-10-08T20:00:32.7473903Z     # Subtest: sim_session_close
+2026-10-08T20:00:32.7526906Z     ok 5 - sim_session_close
+2026-10-08T20:00:32.7579313Z       ---
+2026-10-08T20:00:32.7607045Z       duration_ms: 5.126551
+2026-10-08T20:00:32.7650979Z       ...
+2026-10-08T20:00:32.7690410Z     # Subtest: sim_library_list
+2026-10-08T20:00:32.7737111Z     ok 6 - sim_library_list
+2026-10-08T20:00:32.7758563Z       ---
+2026-10-08T20:00:32.7772181Z       duration_ms: 7.3468
+2026-10-08T20:00:32.7772954Z       ...
+2026-10-08T20:00:32.7773661Z     # Subtest: sim_library_save
+2026-10-08T20:00:32.7774439Z     ok 7 - sim_library_save
+2026-10-08T20:00:32.7775348Z       ---
+2026-10-08T20:00:32.7776018Z       duration_ms: 6.26001
+2026-10-08T20:00:32.7776769Z       ...
+2026-10-08T20:00:32.7777524Z     # Subtest: sim_library_load
+2026-10-08T20:00:32.7778390Z     ok 8 - sim_library_load
+2026-10-08T20:00:32.7779415Z       ---
+2026-10-08T20:00:32.7780136Z       duration_ms: 4.583497
+2026-10-08T20:00:32.7780898Z       ...
+2026-10-08T20:00:32.7781618Z     # Subtest: sim_library_delete
+2026-10-08T20:00:32.7782451Z     ok 9 - sim_library_delete
+2026-10-08T20:00:32.7783215Z       ---
+2026-10-08T20:00:32.7783894Z       duration_ms: 6.821639
+2026-10-08T20:00:32.7784642Z       ...
+2026-10-08T20:00:32.7785406Z     # Subtest: sim_library_import
+2026-10-08T20:00:32.7786308Z     ok 10 - sim_library_import
+2026-10-08T20:00:32.7786985Z       ---
+2026-10-08T20:00:32.7787576Z       duration_ms: 5.156687
+2026-10-08T20:00:32.7788211Z       ...
+2026-10-08T20:00:32.7789129Z     # Subtest: sim_library_export
+2026-10-08T20:00:32.7789856Z     ok 11 - sim_library_export
+2026-10-08T20:00:32.7790464Z       ---
+2026-10-08T20:00:32.7791084Z       duration_ms: 3.755168
+2026-10-08T20:00:32.7791674Z       ...
+2026-10-08T20:00:32.7792197Z     # Subtest: sim_lab_branch
+2026-10-08T20:00:32.7792847Z     ok 12 - sim_lab_branch
+2026-10-08T20:00:32.7793437Z       ---
+2026-10-08T20:00:32.7793965Z       duration_ms: 3.86321
+2026-10-08T20:00:32.7794543Z       ...
+2026-10-08T20:00:32.7795093Z     # Subtest: sim_lab_branches
+2026-10-08T20:00:32.7795708Z     ok 13 - sim_lab_branches
+2026-10-08T20:00:32.7796304Z       ---
+2026-10-08T20:00:32.7796810Z       duration_ms: 8.34749
+2026-10-08T20:00:32.7797417Z       ...
+2026-10-08T20:00:32.7798129Z     # Subtest: sim_lab_branch_get
+2026-10-08T20:00:32.7799066Z     ok 14 - sim_lab_branch_get
+2026-10-08T20:00:32.7799705Z       ---
+2026-10-08T20:00:32.7800233Z       duration_ms: 3.758504
+2026-10-08T20:00:32.7800821Z       ...
+2026-10-08T20:00:32.7801418Z     # Subtest: sim_lab_branch_delete
+2026-10-08T20:00:32.7802135Z     ok 15 - sim_lab_branch_delete
+2026-10-08T20:00:32.7802757Z       ---
+2026-10-08T20:00:32.7803307Z       duration_ms: 6.986207
+2026-10-08T20:00:32.7803901Z       ...
+2026-10-08T20:00:32.7804691Z     # Subtest: sim_lab_compare
+2026-10-08T20:00:32.7805775Z     ok 16 - sim_lab_compare
+2026-10-08T20:00:32.7806442Z       ---
+2026-10-08T20:00:32.7806985Z       duration_ms: 3.93309
+2026-10-08T20:00:32.7807587Z       ...
+2026-10-08T20:00:32.7808103Z     # Subtest: sim_lab_report
+2026-10-08T20:00:32.7808920Z     ok 17 - sim_lab_report
+2026-10-08T20:00:32.7809564Z       ---
+2026-10-08T20:00:32.7810323Z       duration_ms: 3.708071
+2026-10-08T20:00:32.7810958Z       ...
+2026-10-08T20:00:32.7912359Z     1..17
+2026-10-08T20:00:32.7954914Z ok 5 - all added operations preserve their method, route, selectors and payload values
+2026-10-08T20:00:32.7969141Z   ---
+2026-10-08T20:00:32.7969908Z   duration_ms: 248.360172
+2026-10-08T20:00:32.7970612Z   ...
+2026-10-08T20:00:32.8427013Z # Subtest: empty default-session selectors are permitted only on endpoints with correct native semantics
+2026-10-08T20:00:32.8462370Z     # Subtest: sim_state
+2026-10-08T20:00:32.8494322Z     ok 1 - sim_state
+2026-10-08T20:00:32.8527052Z       ---
+2026-10-08T20:00:32.8552612Z       duration_ms: 49.752181
+2026-10-08T20:00:32.8553721Z       ...
+2026-10-08T20:00:32.8554421Z     # Subtest: sim_text
+2026-10-08T20:00:32.8555060Z     ok 2 - sim_text
+2026-10-08T20:00:32.8555642Z       ---
+2026-10-08T20:00:32.8556176Z       duration_ms: 3.264902
+2026-10-08T20:00:32.8556815Z       ...
+2026-10-08T20:00:32.8557398Z     # Subtest: sim_choices
+2026-10-08T20:00:32.8558117Z     ok 3 - sim_choices
+2026-10-08T20:00:32.8559094Z       ---
+2026-10-08T20:00:32.8559793Z       duration_ms: 1.172882
+2026-10-08T20:00:32.8560504Z       ...
+2026-10-08T20:00:32.8561238Z     # Subtest: sim_export_telemetry
+2026-10-08T20:00:32.8562095Z     ok 4 - sim_export_telemetry
+2026-10-08T20:00:32.8562792Z       ---
+2026-10-08T20:00:32.8563369Z       duration_ms: 2.620287
+2026-10-08T20:00:32.8564020Z       ...
+2026-10-08T20:00:32.8564572Z     # Subtest: sim_act
+2026-10-08T20:00:32.8565206Z     ok 5 - sim_act
+2026-10-08T20:00:32.8565784Z       ---
+2026-10-08T20:00:32.8566407Z       duration_ms: 1.687214
+2026-10-08T20:00:32.8567132Z       ...
+2026-10-08T20:00:32.8567769Z     # Subtest: sim_auto
+2026-10-08T20:00:32.8568424Z     ok 6 - sim_auto
+2026-10-08T20:00:32.8569383Z       ---
+2026-10-08T20:00:32.8570009Z       duration_ms: 3.594528
+2026-10-08T20:00:32.8570664Z       ...
+2026-10-08T20:00:32.8571291Z     # Subtest: sim_fast_forward
+2026-10-08T20:00:32.8572308Z     ok 7 - sim_fast_forward
+2026-10-08T20:00:32.8573002Z       ---
+2026-10-08T20:00:32.8573573Z       duration_ms: 0.966777
+2026-10-08T20:00:32.8574184Z       ...
+2026-10-08T20:00:32.8599624Z     # Subtest: sim_deck_place
+2026-10-08T20:00:32.8600514Z     ok 8 - sim_deck_place
+2026-10-08T20:00:32.8601281Z       ---
+2026-10-08T20:00:32.8601970Z       duration_ms: 2.062048
+2026-10-08T20:00:32.8607097Z       ...
+2026-10-08T20:00:32.8609378Z     # Subtest: sim_library_save
+2026-10-08T20:00:32.8610279Z     ok 9 - sim_library_save
+2026-10-08T20:00:32.8611117Z       ---
+2026-10-08T20:00:32.8611800Z       duration_ms: 1.201326
+2026-10-08T20:00:32.8612525Z       ...
+2026-10-08T20:00:32.8660390Z     # Subtest: sim_library_load
+2026-10-08T20:00:32.8703885Z     ok 10 - sim_library_load
+2026-10-08T20:00:32.8713023Z       ---
+2026-10-08T20:00:32.8764006Z       duration_ms: 1.581296
+2026-10-08T20:00:32.8764632Z       ...
+2026-10-08T20:00:32.8765465Z     # Subtest: sim_session_close
+2026-10-08T20:00:32.8766153Z     ok 11 - sim_session_close
+2026-10-08T20:00:32.8766833Z       ---
+2026-10-08T20:00:32.8767450Z       duration_ms: 1.179264
+2026-10-08T20:00:32.8773056Z       ...
+2026-10-08T20:00:32.9312957Z     # Subtest: sim_start explicit default
+2026-10-08T20:00:32.9348680Z     ok 12 - sim_start explicit default
+2026-10-08T20:00:32.9390591Z       ---
+2026-10-08T20:00:32.9394963Z       duration_ms: 65.166055
+2026-10-08T20:00:32.9395738Z       ...
+2026-10-08T20:00:32.9406962Z     # Subtest: sim_session_activate explicit default
+2026-10-08T20:00:32.9430430Z     ok 13 - sim_session_activate explicit default
+2026-10-08T20:00:32.9431498Z       ---
+2026-10-08T20:00:32.9432318Z       duration_ms: 5.155721
+2026-10-08T20:00:32.9433808Z       ...
+2026-10-08T20:00:32.9434913Z     # Subtest: sim_session_fork explicit default
+2026-10-08T20:00:32.9436016Z     ok 14 - sim_session_fork explicit default
+2026-10-08T20:00:32.9436775Z       ---
+2026-10-08T20:00:32.9437546Z       duration_ms: 3.8844
+2026-10-08T20:00:32.9438228Z       ...
+2026-10-08T20:00:32.9462799Z     1..14
+2026-10-08T20:00:32.9473777Z ok 6 - empty default-session selectors are permitted only on endpoints with correct native semantics
+2026-10-08T20:00:32.9474868Z   ---
+2026-10-08T20:00:32.9475384Z   duration_ms: 155.98053
+2026-10-08T20:00:32.9475936Z   ...
+2026-10-08T20:00:33.0382083Z # Subtest: query values cannot inject a second selector or change the endpoint
+2026-10-08T20:00:33.0394470Z     # Subtest: sim_state
+2026-10-08T20:00:33.0394952Z     ok 1 - sim_state
+2026-10-08T20:00:33.0395327Z       ---
+2026-10-08T20:00:33.0395695Z       duration_ms: 90.296389
+2026-10-08T20:00:33.0396068Z       ...
+2026-10-08T20:00:33.0444898Z     # Subtest: sim_library_export
+2026-10-08T20:00:33.0481108Z     ok 2 - sim_library_export
+2026-10-08T20:00:33.0493356Z       ---
+2026-10-08T20:00:33.0493945Z       duration_ms: 4.688857
+2026-10-08T20:00:33.0494553Z       ...
+2026-10-08T20:00:33.0495149Z     # Subtest: sim_lab_branch_get
+2026-10-08T20:00:33.0495801Z     ok 3 - sim_lab_branch_get
+2026-10-08T20:00:33.0496369Z       ---
+2026-10-08T20:00:33.0496837Z       duration_ms: 3.753554
+2026-10-08T20:00:33.0497386Z       ...
+2026-10-08T20:00:33.0497988Z     # Subtest: sim_lab_report
+2026-10-08T20:00:33.0498637Z     ok 4 - sim_lab_report
+2026-10-08T20:00:33.0499582Z       ---
+2026-10-08T20:00:33.0500115Z       duration_ms: 3.410412
+2026-10-08T20:00:33.0500697Z       ...
+2026-10-08T20:00:33.0569970Z     1..4
+2026-10-08T20:00:33.0571376Z ok 7 - query values cannot inject a second selector or change the endpoint
+2026-10-08T20:00:33.0572363Z   ---
+2026-10-08T20:00:33.0572958Z   duration_ms: 111.50695
+2026-10-08T20:00:33.0573610Z   ...
+2026-10-08T20:00:33.0960617Z # Subtest: invalid containers and mutation arguments fail before HTTP dispatch
+2026-10-08T20:00:33.0962618Z     # Subtest: 1: sim_state null
+2026-10-08T20:00:33.0989350Z     ok 1 - 1: sim_state null
+2026-10-08T20:00:33.0990359Z       ---
+2026-10-08T20:00:33.0991077Z       duration_ms: 37.354091
+2026-10-08T20:00:33.0991797Z       ...
+2026-10-08T20:00:33.0992503Z     # Subtest: 2: sim_state []
+2026-10-08T20:00:33.0993272Z     ok 2 - 2: sim_state []
+2026-10-08T20:00:33.0993954Z       ---
+2026-10-08T20:00:33.0994535Z       duration_ms: 0.86826
+2026-10-08T20:00:33.0995271Z       ...
+2026-10-08T20:00:33.0995951Z     # Subtest: 3: sim_state false
+2026-10-08T20:00:33.0996719Z     ok 3 - 3: sim_state false
+2026-10-08T20:00:33.0997473Z       ---
+2026-10-08T20:00:33.0998135Z       duration_ms: 0.843682
+2026-10-08T20:00:33.0999123Z       ...
+2026-10-08T20:00:33.1019707Z     # Subtest: 4: sim_state "text"
+2026-10-08T20:00:33.1049491Z     ok 4 - 4: sim_state "text"
+2026-10-08T20:00:33.1050230Z       ---
+2026-10-08T20:00:33.1079847Z       duration_ms: 3.704211
+2026-10-08T20:00:33.1089372Z       ...
+2026-10-08T20:00:33.1135589Z     # Subtest: 5: sim_state 4
+2026-10-08T20:00:33.1139443Z     ok 5 - 5: sim_state 4
+2026-10-08T20:00:33.1169459Z       ---
+2026-10-08T20:00:33.1199348Z       duration_ms: 2.493944
+2026-10-08T20:00:33.1229148Z       ...
+2026-10-08T20:00:33.1229812Z     # Subtest: 6: sim_act {}
+2026-10-08T20:00:33.1279601Z     ok 6 - 6: sim_act {}
+2026-10-08T20:00:33.1309330Z       ---
+2026-10-08T20:00:33.1339275Z       duration_ms: 0.873898
+2026-10-08T20:00:33.1339948Z       ...
+2026-10-08T20:00:33.1344448Z     # Subtest: 7: sim_act {"action":1}
+2026-10-08T20:00:33.1389537Z     ok 7 - 7: sim_act {"action":1}
+2026-10-08T20:00:33.1403665Z       ---
+2026-10-08T20:00:33.1456000Z       duration_ms: 0.761917
+2026-10-08T20:00:33.1476966Z       ...
+2026-10-08T20:00:33.1505097Z     # Subtest: 8: sim_act {"action":"rest","session":null}
+2026-10-08T20:00:33.1529622Z     ok 8 - 8: sim_act {"action":"rest","session":null}
+2026-10-08T20:00:33.1552164Z       ---
+2026-10-08T20:00:33.1579916Z       duration_ms: 0.886982
+2026-10-08T20:00:33.1590932Z       ...
+2026-10-08T20:00:33.1599788Z     # Subtest: 9: sim_act {"action":"rest","sessionId":"sibling"}
+2026-10-08T20:00:33.1600806Z     ok 9 - 9: sim_act {"action":"rest","sessionId":"sibling"}
+2026-10-08T20:00:33.1601554Z       ---
+2026-10-08T20:00:33.1602094Z       duration_ms: 1.108508
+2026-10-08T20:00:33.1602767Z       ...
+2026-10-08T20:00:33.1603458Z     # Subtest: 10: sim_start {"seed":"7"}
+2026-10-08T20:00:33.1604310Z     ok 10 - 10: sim_start {"seed":"7"}
+2026-10-08T20:00:33.1605040Z       ---
+2026-10-08T20:00:33.1605641Z       duration_ms: 2.876059
+2026-10-08T20:00:33.1606256Z       ...
+2026-10-08T20:00:33.1606920Z     # Subtest: 11: sim_start {"seed":9007199254740992}
+2026-10-08T20:00:33.1607747Z     ok 11 - 11: sim_start {"seed":9007199254740992}
+2026-10-08T20:00:33.1608497Z       ---
+2026-10-08T20:00:33.1609331Z       duration_ms: 1.644933
+2026-10-08T20:00:33.1609909Z       ...
+2026-10-08T20:00:33.1610887Z     # Subtest: 12: sim_start {"speed":0}
+2026-10-08T20:00:33.1611650Z     ok 12 - 12: sim_start {"speed":0}
+2026-10-08T20:00:33.1612296Z       ---
+2026-10-08T20:00:33.1612816Z       duration_ms: 0.814657
+2026-10-08T20:00:33.1613401Z       ...
+2026-10-08T20:00:33.1614062Z     # Subtest: 13: sim_fast_forward {"multiplier":101}
+2026-10-08T20:00:33.1614939Z     ok 13 - 13: sim_fast_forward {"multiplier":101}
+2026-10-08T20:00:33.1615648Z       ---
+2026-10-08T20:00:33.1616163Z       duration_ms: 3.156595
+2026-10-08T20:00:33.1616744Z       ...
+2026-10-08T20:00:33.1617360Z     # Subtest: 14: sim_start {"raceModel":false}
+2026-10-08T20:00:33.1618145Z     ok 14 - 14: sim_start {"raceModel":false}
+2026-10-08T20:00:33.1619099Z       ---
+2026-10-08T20:00:33.1619703Z       duration_ms: 0.77345
+2026-10-08T20:00:33.1620331Z       ...
+2026-10-08T20:00:33.1621194Z     # Subtest: 15: sim_library_save {"name":"mid","__proto__":{"overwrite":true}}
+2026-10-08T20:00:33.1622324Z     ok 15 - 15: sim_library_save {"name":"mid","__proto__":{"overwrite":true}}
+2026-10-08T20:00:33.1623166Z       ---
+2026-10-08T20:00:33.1623649Z       duration_ms: 0.765083
+2026-10-08T20:00:33.1624180Z       ...
+2026-10-08T20:00:33.1624862Z     # Subtest: 16: sim_library_save {"name":"mid","constructor":true}
+2026-10-08T20:00:33.1625800Z     ok 16 - 16: sim_library_save {"name":"mid","constructor":true}
+2026-10-08T20:00:33.1626500Z       ---
+2026-10-08T20:00:33.1626966Z       duration_ms: 3.043804
+2026-10-08T20:00:33.1627489Z       ...
+2026-10-08T20:00:33.1628041Z     # Subtest: 17: sim_start {"session":false}
+2026-10-08T20:00:33.1628987Z     ok 17 - 17: sim_start {"session":false}
+2026-10-08T20:00:33.1629752Z       ---
+2026-10-08T20:00:33.1630420Z       duration_ms: 0.70958
+2026-10-08T20:00:33.1631140Z       ...
+2026-10-08T20:00:33.1631896Z     # Subtest: 18: sim_fast_forward {"multiplier":"3"}
+2026-10-08T20:00:33.1633132Z     ok 18 - 18: sim_fast_forward {"multiplier":"3"}
+2026-10-08T20:00:33.1633974Z       ---
+2026-10-08T20:00:33.1634508Z       duration_ms: 0.81659
+2026-10-08T20:00:33.1635021Z       ...
+2026-10-08T20:00:33.1635783Z     # Subtest: 19: sim_load_content_pack {"path":"pack.json","session":"sibling"}
+2026-10-08T20:00:33.1637121Z     ok 19 - 19: sim_load_content_pack {"path":"pack.json","session":"sibling"}
+2026-10-08T20:00:33.1637937Z       ---
+2026-10-08T20:00:33.1638288Z       duration_ms: 0.634139
+2026-10-08T20:00:33.1638972Z       ...
+2026-10-08T20:00:33.1639455Z     # Subtest: 20: sim_session_fork {"id":5}
+2026-10-08T20:00:33.1640084Z     ok 20 - 20: sim_session_fork {"id":5}
+2026-10-08T20:00:33.1640555Z       ---
+2026-10-08T20:00:33.1640905Z       duration_ms: 0.688851
+2026-10-08T20:00:33.1641331Z       ...
+2026-10-08T20:00:33.1641986Z     # Subtest: 21: sim_session_fork {"checkpoint":"mid","session":"source"}
+2026-10-08T20:00:33.1642921Z     ok 21 - 21: sim_session_fork {"checkpoint":"mid","session":"source"}
+2026-10-08T20:00:33.1643571Z       ---
+2026-10-08T20:00:33.1643963Z       duration_ms: 0.887052
+2026-10-08T20:00:33.1644393Z       ...
+2026-10-08T20:00:33.1645141Z     # Subtest: 22: sim_session_activate {}
+2026-10-08T20:00:33.1645798Z     ok 22 - 22: sim_session_activate {}
+2026-10-08T20:00:33.1646315Z       ---
+2026-10-08T20:00:33.1646706Z       duration_ms: 0.738664
+2026-10-08T20:00:33.1647152Z       ...
+2026-10-08T20:00:33.1647652Z     # Subtest: 23: sim_session_close {"session":5}
+2026-10-08T20:00:33.1648354Z     ok 23 - 23: sim_session_close {"session":5}
+2026-10-08T20:00:33.1649364Z       ---
+2026-10-08T20:00:33.1649778Z       duration_ms: 0.637585
+2026-10-08T20:00:33.1650210Z       ...
+2026-10-08T20:00:33.1650748Z     # Subtest: 24: sim_library_save {"overwrite":"true"}
+2026-10-08T20:00:33.1651503Z     ok 24 - 24: sim_library_save {"overwrite":"true"}
+2026-10-08T20:00:33.1652073Z       ---
+2026-10-08T20:00:33.1652864Z       duration_ms: 0.575078
+2026-10-08T20:00:33.1653307Z       ...
+2026-10-08T20:00:33.1653827Z     # Subtest: 25: sim_library_save {"overwrite":null}
+2026-10-08T20:00:33.1654524Z     ok 25 - 25: sim_library_save {"overwrite":null}
+2026-10-08T20:00:33.1655361Z       ---
+2026-10-08T20:00:33.1655743Z       duration_ms: 0.804769
+2026-10-08T20:00:33.1656137Z       ...
+2026-10-08T20:00:33.1656698Z     # Subtest: 26: sim_library_save {"name":"mid","overwritee":true}
+2026-10-08T20:00:33.1657505Z     ok 26 - 26: sim_library_save {"name":"mid","overwritee":true}
+2026-10-08T20:00:33.1658047Z       ---
+2026-10-08T20:00:33.1658366Z       duration_ms: 0.772487
+2026-10-08T20:00:33.1659518Z       ...
+2026-10-08T20:00:33.1659946Z     # Subtest: 27: sim_library_load {}
+2026-10-08T20:00:33.1660595Z     ok 27 - 27: sim_library_load {}
+2026-10-08T20:00:33.1661013Z       ---
+2026-10-08T20:00:33.1661326Z       duration_ms: 0.683692
+2026-10-08T20:00:33.1661678Z       ...
+2026-10-08T20:00:33.1662057Z     # Subtest: 28: sim_library_import {}
+2026-10-08T20:00:33.1662593Z     ok 28 - 28: sim_library_import {}
+2026-10-08T20:00:33.1663027Z       ---
+2026-10-08T20:00:33.1663353Z       duration_ms: 0.630081
+2026-10-08T20:00:33.1663739Z       ...
+2026-10-08T20:00:33.1664205Z     # Subtest: 29: sim_library_import {"snapshot":[]}
+2026-10-08T20:00:33.1664922Z     ok 29 - 29: sim_library_import {"snapshot":[]}
+2026-10-08T20:00:33.1665422Z       ---
+2026-10-08T20:00:33.1665753Z       duration_ms: 0.690494
+2026-10-08T20:00:33.1666134Z       ...
+2026-10-08T20:00:33.1666606Z     # Subtest: 30: sim_library_import {"snapshot":"raw"}
+2026-10-08T20:00:33.1667274Z     ok 30 - 30: sim_library_import {"snapshot":"raw"}
+2026-10-08T20:00:33.1667788Z       ---
+2026-10-08T20:00:33.1668116Z       duration_ms: 0.617647
+2026-10-08T20:00:33.1668474Z       ...
+2026-10-08T20:00:33.1669209Z     # Subtest: 31: sim_library_import {"snapshot":{},"overwrite":1}
+2026-10-08T20:00:33.1670156Z     ok 31 - 31: sim_library_import {"snapshot":{},"overwrite":1}
+2026-10-08T20:00:33.1670903Z       ---
+2026-10-08T20:00:33.1671332Z       duration_ms: 3.801625
+2026-10-08T20:00:33.1671805Z       ...
+2026-10-08T20:00:33.1709445Z     # Subtest: 32: sim_library_export {"name":4}
+2026-10-08T20:00:33.1710638Z     ok 32 - 32: sim_library_export {"name":4}
+2026-10-08T20:00:33.1711473Z       ---
+2026-10-08T20:00:33.1711909Z       duration_ms: 0.698629
+2026-10-08T20:00:33.1712337Z       ...
+2026-10-08T20:00:33.1713046Z     # Subtest: 33: sim_lab_compare {"a":"a"}
+2026-10-08T20:00:33.1713885Z     ok 33 - 33: sim_lab_compare {"a":"a"}
+2026-10-08T20:00:33.1714384Z       ---
+2026-10-08T20:00:33.1714736Z       duration_ms: 0.714319
+2026-10-08T20:00:33.1715419Z       ...
+2026-10-08T20:00:33.1715907Z     # Subtest: 34: sim_lab_compare {"a":"a","b":false}
+2026-10-08T20:00:33.1716851Z     ok 34 - 34: sim_lab_compare {"a":"a","b":false}
+2026-10-08T20:00:33.1717652Z       ---
+2026-10-08T20:00:33.1718026Z       duration_ms: 2.924451
+2026-10-08T20:00:33.1718663Z       ...
+2026-10-08T20:00:33.1719303Z     # Subtest: 35: sim_lab_report {"a":"a","b":"b","format":"html"}
+2026-10-08T20:00:33.1743466Z     ok 35 - 35: sim_lab_report {"a":"a","b":"b","format":"html"}
+2026-10-08T20:00:33.1744422Z       ---
+2026-10-08T20:00:33.1745486Z       duration_ms: 0.638958
+2026-10-08T20:00:33.1745974Z       ...
+2026-10-08T20:00:33.1746778Z     # Subtest: 36: sim_lab_branch_delete {"id":null}
+2026-10-08T20:00:33.1747761Z     ok 36 - 36: sim_lab_branch_delete {"id":null}
+2026-10-08T20:00:33.1748312Z       ---
+2026-10-08T20:00:33.1749006Z       duration_ms: 0.67257
+2026-10-08T20:00:33.1749412Z       ...
+2026-10-08T20:00:33.1750830Z     # Subtest: 37: sim_lab_branch {"checkpoint":"mid","policy":"external"}
+2026-10-08T20:00:33.1752026Z     ok 37 - 37: sim_lab_branch {"checkpoint":"mid","policy":"external"}
+2026-10-08T20:00:33.1753026Z       ---
+2026-10-08T20:00:33.1753394Z       duration_ms: 3.397937
+2026-10-08T20:00:33.1754077Z       ...
+2026-10-08T20:00:33.1754651Z     # Subtest: 38: sim_lab_branch {"checkpoint":"mid","maxActions":0}
+2026-10-08T20:00:33.1755727Z     ok 38 - 38: sim_lab_branch {"checkpoint":"mid","maxActions":0}
+2026-10-08T20:00:33.1756589Z       ---
+2026-10-08T20:00:33.1756954Z       duration_ms: 0.721872
+2026-10-08T20:00:33.1757937Z       ...
+2026-10-08T20:00:33.1758870Z     # Subtest: 39: sim_lab_branch {"checkpoint":"mid","maxActions":501}
+2026-10-08T20:00:33.1760140Z     ok 39 - 39: sim_lab_branch {"checkpoint":"mid","maxActions":501}
+2026-10-08T20:00:33.1760975Z       ---
+2026-10-08T20:00:33.1761341Z       duration_ms: 0.761777
+2026-10-08T20:00:33.1761746Z       ...
+2026-10-08T20:00:33.1762576Z     # Subtest: 40: sim_lab_branch {"checkpoint":"mid","maxActions":1.5}
+2026-10-08T20:00:33.1763658Z     ok 40 - 40: sim_lab_branch {"checkpoint":"mid","maxActions":1.5}
+2026-10-08T20:00:33.1764264Z       ---
+2026-10-08T20:00:33.1764613Z       duration_ms: 0.691536
+2026-10-08T20:00:33.1765012Z       ...
+2026-10-08T20:00:33.1765593Z     # Subtest: 41: sim_lab_branch {"checkpoint":"mid","maxActions":"2"}
+2026-10-08T20:00:33.1766713Z     ok 41 - 41: sim_lab_branch {"checkpoint":"mid","maxActions":"2"}
+2026-10-08T20:00:33.1767334Z       ---
+2026-10-08T20:00:33.1767685Z       duration_ms: 3.150774
+2026-10-08T20:00:33.1768095Z       ...
+2026-10-08T20:00:33.1768887Z     # Subtest: 42: sim_lab_branch {"checkpoint":"mid","maxActions":null}
+2026-10-08T20:00:33.1769792Z     ok 42 - 42: sim_lab_branch {"checkpoint":"mid","maxActions":null}
+2026-10-08T20:00:33.1797783Z       ---
+2026-10-08T20:00:33.1798194Z       duration_ms: 0.730559
+2026-10-08T20:00:33.1798631Z       ...
+2026-10-08T20:00:33.1799549Z     # Subtest: 43: sim_lab_branch {"checkpoint":"mid","overrides":{}}
+2026-10-08T20:00:33.1800464Z     ok 43 - 43: sim_lab_branch {"checkpoint":"mid","overrides":{}}
+2026-10-08T20:00:33.1801121Z       ---
+2026-10-08T20:00:33.1801502Z       duration_ms: 2.869057
+2026-10-08T20:00:33.1801925Z       ...
+2026-10-08T20:00:33.1802577Z     # Subtest: 44: sim_lab_branch {"checkpoint":"mid","overrides":"rest"}
+2026-10-08T20:00:33.1803499Z     ok 44 - 44: sim_lab_branch {"checkpoint":"mid","overrides":"rest"}
+2026-10-08T20:00:33.1804132Z       ---
+2026-10-08T20:00:33.1804511Z       duration_ms: 0.625432
+2026-10-08T20:00:33.1804920Z       ...
+2026-10-08T20:00:33.1805554Z     # Subtest: 45: sim_lab_branch {"checkpoint":"mid","overrides":[null]}
+2026-10-08T20:00:33.1806440Z     ok 45 - 45: sim_lab_branch {"checkpoint":"mid","overrides":[null]}
+2026-10-08T20:00:33.1807046Z       ---
+2026-10-08T20:00:33.1807388Z       duration_ms: 0.702125
+2026-10-08T20:00:33.1807793Z       ...
+2026-10-08T20:00:33.1808480Z     # Subtest: 46: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1}]}
+2026-10-08T20:00:33.1814146Z     ok 46 - 46: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1}]}
+2026-10-08T20:00:33.1814832Z       ---
+2026-10-08T20:00:33.1815198Z       duration_ms: 0.616916
+2026-10-08T20:00:33.1815611Z       ...
+2026-10-08T20:00:33.1816405Z     # Subtest: 47: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":"1","actionId":"rest"}]}
+2026-10-08T20:00:33.1817953Z     ok 47 - 47: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":"1","actionId":"rest"}]}
+2026-10-08T20:00:33.1818929Z       ---
+2026-10-08T20:00:33.1819319Z       duration_ms: 0.631203
+2026-10-08T20:00:33.1819789Z       ...
+2026-10-08T20:00:33.1820881Z     # Subtest: 48: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1.5,"actionId":"rest"}]}
+2026-10-08T20:00:33.1822232Z     ok 48 - 48: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1.5,"actionId":"rest"}]}
+2026-10-08T20:00:33.1823086Z       ---
+2026-10-08T20:00:33.1823495Z       duration_ms: 2.122818
+2026-10-08T20:00:33.1823958Z       ...
+2026-10-08T20:00:33.1824823Z     # Subtest: 49: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":4294967297,"actionId":"rest"}]}
+2026-10-08T20:00:33.1826170Z     ok 49 - 49: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":4294967297,"actionId":"rest"}]}
+2026-10-08T20:00:33.1826972Z       ---
+2026-10-08T20:00:33.1827356Z       duration_ms: 2.009366
+2026-10-08T20:00:33.1827774Z       ...
+2026-10-08T20:00:33.1828565Z     # Subtest: 50: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":3}]}
+2026-10-08T20:00:33.1830155Z     ok 50 - 50: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":3}]}
+2026-10-08T20:00:33.1831338Z       ---
+2026-10-08T20:00:33.1831748Z       duration_ms: 0.640571
+2026-10-08T20:00:33.1832200Z       ...
+2026-10-08T20:00:33.1833128Z     # Subtest: 51: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":"rest","typo":true}]}
+2026-10-08T20:00:33.1834498Z     ok 51 - 51: sim_lab_branch {"checkpoint":"mid","overrides":[{"turn":1,"actionId":"rest","typo":true}]}
+2026-10-08T20:00:33.1835336Z       ---
+2026-10-08T20:00:33.1835707Z       duration_ms: 0.751237
+2026-10-08T20:00:33.1836130Z       ...
+2026-10-08T20:00:33.1836447Z     1..51
+2026-10-08T20:00:33.1837199Z ok 8 - invalid containers and mutation arguments fail before HTTP dispatch
+2026-10-08T20:00:33.1837891Z   ---
+2026-10-08T20:00:33.1838245Z   duration_ms: 119.803212
+2026-10-08T20:00:33.1838644Z   ...
+2026-10-08T20:00:33.2825300Z # Subtest: valid numeric edges survive validation without changing the requested experiment
+2026-10-08T20:00:33.2827400Z ok 9 - valid numeric edges survive validation without changing the requested experiment
+2026-10-08T20:00:33.2846283Z   ---
+2026-10-08T20:00:33.2864326Z   duration_ms: 106.77862
+2026-10-08T20:00:33.2865025Z   ...
+2026-10-08T20:00:33.3608309Z # Subtest: HTTP failures retain the native diagnostic and never retry the mutation
+2026-10-08T20:00:33.3613154Z     # Subtest: 400
+2026-10-08T20:00:33.3613870Z     ok 1 - 400
+2026-10-08T20:00:33.3614443Z       ---
+2026-10-08T20:00:33.3615027Z       duration_ms: 77.726801
+2026-10-08T20:00:33.3615642Z       ...
+2026-10-08T20:00:33.3689695Z     # Subtest: 404
+2026-10-08T20:00:33.3690470Z     ok 2 - 404
+2026-10-08T20:00:33.3691318Z       ---
+2026-10-08T20:00:33.3692033Z       duration_ms: 7.812879
+2026-10-08T20:00:33.3692715Z       ...
+2026-10-08T20:00:33.3769459Z     # Subtest: 409
+2026-10-08T20:00:33.3799310Z     ok 3 - 409
+2026-10-08T20:00:33.3825092Z       ---
+2026-10-08T20:00:33.3826210Z       duration_ms: 4.164075
+2026-10-08T20:00:33.3826584Z       ...
+2026-10-08T20:00:33.3826827Z     # Subtest: 422
+2026-10-08T20:00:33.3827055Z     ok 4 - 422
+2026-10-08T20:00:33.3827254Z       ---
+2026-10-08T20:00:33.3827466Z       duration_ms: 3.512492
+2026-10-08T20:00:33.3827693Z       ...
+2026-10-08T20:00:33.3828218Z     # Subtest: 503
+2026-10-08T20:00:33.3829058Z     ok 5 - 503
+2026-10-08T20:00:33.3829547Z       ---
+2026-10-08T20:00:33.3830028Z       duration_ms: 3.987753
+2026-10-08T20:00:33.3830455Z       ...
+2026-10-08T20:00:33.3939657Z     1..5
+2026-10-08T20:00:33.3941041Z ok 10 - HTTP failures retain the native diagnostic and never retry the mutation
+2026-10-08T20:00:33.3966035Z   ---
+2026-10-08T20:00:33.3969157Z   duration_ms: 107.841846
+2026-10-08T20:00:33.3969916Z   ...
+2026-10-08T20:00:33.5006167Z # Subtest: non-JSON HTTP errors and Markdown reports preserve readable text
+2026-10-08T20:00:33.5009344Z ok 11 - non-JSON HTTP errors and Markdown reports preserve readable text
+2026-10-08T20:00:33.5010312Z   ---
+2026-10-08T20:00:33.5010831Z   duration_ms: 110.248737
+2026-10-08T20:00:33.5011411Z   ...
+2026-10-08T20:00:33.5868158Z # Subtest: connection loss after a mutation is not automatically replayed and stdio stays usable
+2026-10-08T20:00:33.5872374Z ok 12 - connection loss after a mutation is not automatically replayed and stdio stays usable
+2026-10-08T20:00:33.5873310Z   ---
+2026-10-08T20:00:33.5873884Z   duration_ms: 86.754128
+2026-10-08T20:00:33.5874517Z   ...
+2026-10-08T20:00:33.6695796Z # Subtest: malformed JSON successes remain internal failures, including resource reads
+2026-10-08T20:00:33.6700768Z ok 13 - malformed JSON successes remain internal failures, including resource reads
+2026-10-08T20:00:33.6701893Z   ---
+2026-10-08T20:00:33.6702479Z   duration_ms: 81.342736
+2026-10-08T20:00:33.6703051Z   ...
+2026-10-08T20:00:33.7887553Z # Subtest: concurrent response IDs, fragmented UTF-8, notifications and parse errors preserve the protocol boundary
+2026-10-08T20:00:33.7894777Z ok 14 - concurrent response IDs, fragmented UTF-8, notifications and parse errors preserve the protocol boundary
+2026-10-08T20:00:33.7896572Z   ---
+2026-10-08T20:00:33.7897213Z   duration_ms: 122.234848
+2026-10-08T20:00:33.7897850Z   ...
+2026-10-08T20:00:33.8478333Z # Subtest: conformant handshake with newline-delimited framing
+2026-10-08T20:00:33.8480100Z ok 15 - conformant handshake with newline-delimited framing
+2026-10-08T20:00:33.8481053Z   ---
+2026-10-08T20:00:33.8481789Z   duration_ms: 391.879548
+2026-10-08T20:00:33.8482515Z   ...
+2026-10-08T20:00:33.8483576Z # Subtest: protocol negotiation, -32602 error mapping, and argument validation
+2026-10-08T20:00:33.8485343Z ok 16 - protocol negotiation, -32602 error mapping, and argument validation
+2026-10-08T20:00:33.8486330Z   ---
+2026-10-08T20:00:33.8486827Z   duration_ms: 100.23296
+2026-10-08T20:00:33.8487370Z   ...
+2026-10-08T20:00:33.8488071Z # Subtest: HTTP failures are actionable tool errors, including non-JSON and empty bodies
+2026-10-08T20:00:33.8489105Z ok 17 - HTTP failures are actionable tool errors, including non-JSON and empty bodies
+2026-10-08T20:00:33.8489573Z   ---
+2026-10-08T20:00:33.8489788Z   duration_ms: 163.879626
+2026-10-08T20:00:33.8490005Z   ...
+2026-10-08T20:00:33.8490442Z # Subtest: failed resource reads return RPC errors without advertising resource contents
+2026-10-08T20:00:33.8491099Z ok 18 - failed resource reads return RPC errors without advertising resource contents
+2026-10-08T20:00:33.8491507Z   ---
+2026-10-08T20:00:33.8491696Z   duration_ms: 96.807091
+2026-10-08T20:00:33.8491917Z   ...
+2026-10-08T20:00:33.8492326Z # Subtest: successful HTTP payloads and run setup arguments keep their existing shape
+2026-10-08T20:00:33.8492961Z ok 19 - successful HTTP payloads and run setup arguments keep their existing shape
+2026-10-08T20:00:33.8493347Z   ---
+2026-10-08T20:00:33.8493530Z   duration_ms: 153.184789
+2026-10-08T20:00:33.8493741Z   ...
+2026-10-08T20:00:33.8494154Z # Subtest: invalid JSON-RPC frames are rejected and the stdio connection stays usable
+2026-10-08T20:00:33.8494775Z ok 20 - invalid JSON-RPC frames are rejected and the stdio connection stays usable
+2026-10-08T20:00:33.8495165Z   ---
+2026-10-08T20:00:33.8495360Z   duration_ms: 210.31412
+2026-10-08T20:00:33.8495581Z   ...
+2026-10-08T20:00:33.8495947Z # Subtest: malformed parameters are rejected before any backend mutation
+2026-10-08T20:00:33.8496736Z ok 21 - malformed parameters are rejected before any backend mutation
+2026-10-08T20:00:33.8497427Z   ---
+2026-10-08T20:00:33.8497792Z   duration_ms: 120.027074
+2026-10-08T20:00:33.8498214Z   ...
+2026-10-08T20:00:33.8499225Z # Subtest: MCP invalid or unsafe numeric request IDs cannot execute a tool
+2026-10-08T20:00:33.8500306Z ok 22 - MCP invalid or unsafe numeric request IDs cannot execute a tool
+2026-10-08T20:00:33.8500963Z   ---
+2026-10-08T20:00:33.8501276Z   duration_ms: 255.726787
+2026-10-08T20:00:33.8501648Z   ...
+2026-10-08T20:00:33.8502772Z # Subtest: string and safe integer IDs preserve accepted career-lab arguments and zero seeds
+2026-10-08T20:00:33.8504065Z ok 23 - string and safe integer IDs preserve accepted career-lab arguments and zero seeds
+2026-10-08T20:00:33.8529376Z   ---
+2026-10-08T20:00:33.8530220Z   duration_ms: 110.418221
+2026-10-08T20:00:33.8533283Z   ...
+2026-10-08T20:00:33.8856713Z # Subtest: numeric overflow in valid JSON arguments is rejected before REST
+2026-10-08T20:00:33.8857687Z ok 24 - numeric overflow in valid JSON arguments is rejected before REST
+2026-10-08T20:00:33.8858256Z   ---
+2026-10-08T20:00:33.8858586Z   duration_ms: 38.026323
+2026-10-08T20:00:33.8859355Z   ...
+2026-10-08T20:00:33.8974339Z # Subtest: report receiving: HTTP errors retain raw bodies before format decoding and healthy text remains text
+2026-10-08T20:00:33.8976042Z ok 25 - report receiving: HTTP errors retain raw bodies before format decoding and healthy text remains text
+2026-10-08T20:00:33.8976996Z   ---
+2026-10-08T20:00:33.8977382Z   duration_ms: 138.682653
+2026-10-08T20:00:33.8977815Z   ...
+2026-10-08T20:00:33.8979759Z # {"case":"report-format-composition","statuses":[503,409,404,200,200],"requests":5,"healthyMarkdownBytes":43,"jsonReport":{"a":"left","b":"right","firstDivergence":{"kind":"decision"}}}
+2026-10-08T20:00:33.8981962Z # Subtest: preserve the current fully escaped whole-second timestamp format
+2026-10-08T20:00:33.8983058Z ok 26 - preserve the current fully escaped whole-second timestamp format
+2026-10-08T20:00:33.8983724Z   ---
+2026-10-08T20:00:33.8984073Z   duration_ms: 3.30684
+2026-10-08T20:00:33.8984459Z   ...
+2026-10-08T20:00:33.8985294Z # Subtest: normalize only the whole generated line and retain identical text inside data
+2026-10-08T20:00:33.8986509Z ok 27 - normalize only the whole generated line and retain identical text inside data
+2026-10-08T20:00:33.8987254Z   ---
+2026-10-08T20:00:33.8987582Z   duration_ms: 0.184605
+2026-10-08T20:00:33.8987948Z   ...
+2026-10-08T20:00:33.8989076Z # Subtest: wrong branch identity, counts, retained dates and escape bytes remain distinguishable
+2026-10-08T20:00:33.8990441Z ok 28 - wrong branch identity, counts, retained dates and escape bytes remain distinguishable
+2026-10-08T20:00:33.8991211Z   ---
+2026-10-08T20:00:33.8991555Z   duration_ms: 0.429833
+2026-10-08T20:00:33.8991924Z   ...
+2026-10-08T20:00:33.8992595Z # Subtest: invalid timestamp syntax and unknown escape sequences refuse
+2026-10-08T20:00:33.8993587Z ok 29 - invalid timestamp syntax and unknown escape sequences refuse
+2026-10-08T20:00:33.8994205Z   ---
+2026-10-08T20:00:33.8994538Z   duration_ms: 0.831965
+2026-10-08T20:00:33.8994909Z   ...
+2026-10-08T20:00:33.8995633Z # Subtest: the escaped shape cannot admit unparseable month, day or hour values
+2026-10-08T20:00:33.8996711Z ok 30 - the escaped shape cannot admit unparseable month, day or hour values
+2026-10-08T20:00:33.8997378Z   ---
+2026-10-08T20:00:33.8997702Z   duration_ms: 9.812258
+2026-10-08T20:00:33.8998066Z   ...
+2026-10-08T20:00:33.8999077Z # Subtest: missing or duplicate generated lines cannot disappear as timestamp variance
+2026-10-08T20:00:33.9000291Z ok 31 - missing or duplicate generated lines cannot disappear as timestamp variance
+2026-10-08T20:00:33.9000998Z   ---
+2026-10-08T20:00:33.9001339Z   duration_ms: 1.557351
+2026-10-08T20:00:33.9001707Z   ...
+2026-10-08T20:00:33.9002468Z # Subtest: the JSON helper keeps its existing raw UTC and experiment identity contract
+2026-10-08T20:00:33.9003618Z ok 32 - the JSON helper keeps its existing raw UTC and experiment identity contract
+2026-10-08T20:00:33.9004316Z   ---
+2026-10-08T20:00:33.9004641Z   duration_ms: 1.244396
+2026-10-08T20:00:33.9005022Z   ...
+2026-10-08T20:00:33.9008247Z # Subtest: valid Gregorian leap days remain accepted in the current escaped format
+2026-10-08T20:00:33.9009501Z ok 33 - valid Gregorian leap days remain accepted in the current escaped format
+2026-10-08T20:00:33.9009919Z   ---
+2026-10-08T20:00:33.9010123Z   duration_ms: 0.249537
+2026-10-08T20:00:33.9010349Z   ...
+2026-10-08T20:00:33.9013641Z # Subtest: finite Date.parse normalization cannot hide day or midnight rollover
+2026-10-08T20:00:33.9014772Z ok 34 - finite Date.parse normalization cannot hide day or midnight rollover
+2026-10-08T20:00:33.9015447Z   ---
+2026-10-08T20:00:33.9016007Z   duration_ms: 0.923516
+2026-10-08T20:00:33.9016396Z   ...
+2026-10-08T20:00:33.9017399Z # Subtest: native receiving: fork contention has one winner and closing it without main preserves surviving careers
+2026-10-08T20:00:33.9020130Z ok 35 - native receiving: fork contention has one winner and closing it without main preserves surviving careers # SKIP Set UMA_SIM_TEST_API_BIN to exercise the real Rust receiver
+2026-10-08T20:00:33.9021420Z   ---
+2026-10-08T20:00:33.9021737Z   duration_ms: 2.500403
+2026-10-08T20:00:33.9022102Z   ...
+2026-10-08T20:00:33.9022850Z # Subtest: native receiving: external-policy refusal fully restores a non-active target and permits later continuation
+2026-10-08T20:00:33.9024259Z ok 36 - native receiving: external-policy refusal fully restores a non-active target and permits later continuation # SKIP Set UMA_SIM_TEST_API_BIN to exercise the real Rust receiver
+2026-10-08T20:00:33.9025009Z   ---
+2026-10-08T20:00:33.9025343Z   duration_ms: 0.22446
+2026-10-08T20:00:33.9025732Z   ...
+2026-10-08T20:00:33.9026446Z # Subtest: native receiving: global content reaches both existing careers and differs from an unloaded API control
+2026-10-08T20:00:33.9028526Z ok 37 - native receiving: global content reaches both existing careers and differs from an unloaded API control # SKIP Set UMA_SIM_TEST_API_BIN to exercise the real Rust receiver
+2026-10-08T20:00:33.9029578Z   ---
+2026-10-08T20:00:33.9029773Z   duration_ms: 0.22445
+2026-10-08T20:00:33.9030074Z   ...
+2026-10-08T20:00:33.9030691Z # Subtest: success payload receiving: legacy JSON strings stay encoded while default Markdown reports stay literal
+2026-10-08T20:00:33.9031696Z ok 38 - success payload receiving: legacy JSON strings stay encoded while default Markdown reports stay literal
+2026-10-08T20:00:33.9032196Z   ---
+2026-10-08T20:00:33.9032388Z   duration_ms: 156.713491
+2026-10-08T20:00:33.9032609Z   ...
+2026-10-08T20:00:33.9033251Z # {"case":"success-payload-owner-contract","requests":3,"modes":["legacy JSON string","default raw Markdown","JSON report string"]}
+2026-10-08T20:00:33.9033821Z 1..38
+2026-10-08T20:00:33.9033997Z # tests 138
+2026-10-08T20:00:33.9034185Z # suites 0
+2026-10-08T20:00:33.9034384Z # pass 134
+2026-10-08T20:00:33.9034562Z # fail 0
+2026-10-08T20:00:33.9034742Z # cancelled 0
+2026-10-08T20:00:33.9034936Z # skipped 4
+2026-10-08T20:00:33.9035113Z # todo 0
+2026-10-08T20:00:33.9035325Z # duration_ms 1722.887583
+2026-10-08T20:00:33.9117039Z ##[group]Run node --test packages/uma-sim-cli/tests/*.test.mjs
+2026-10-08T20:00:33.9117512Z [36;1mnode --test packages/uma-sim-cli/tests/*.test.mjs[0m
+2026-10-08T20:00:33.9182677Z shell: /usr/bin/bash -e {0}
+2026-10-08T20:00:33.9182936Z ##[endgroup]
+2026-10-08T20:00:33.9649917Z TAP version 13
+2026-10-08T20:00:34.2680942Z # Subtest: checkpoint opens an independent named career, preserves existing state, and shows advisories
+2026-10-08T20:00:34.2710141Z ok 1 - checkpoint opens an independent named career, preserves existing state, and shows advisories
+2026-10-08T20:00:34.2711390Z   ---
+2026-10-08T20:00:34.2723846Z   duration_ms: 262.403853
+2026-10-08T20:00:34.2749398Z   ...
+2026-10-08T20:00:34.4980891Z # Subtest: save is explicitly create-only and selected-session bound; checkpoint listing never advances play
+2026-10-08T20:00:34.5011222Z ok 2 - save is explicitly create-only and selected-session bound; checkpoint listing never advances play
+2026-10-08T20:00:34.5017204Z   ---
+2026-10-08T20:00:34.5018171Z   duration_ms: 227.977511
+2026-10-08T20:00:34.5019325Z   ...
+2026-10-08T20:00:34.8994121Z # Subtest: standalone list is read-only, exits with closed stdin, and supports an empty library
+2026-10-08T20:00:34.9019555Z ok 3 - standalone list is read-only, exits with closed stdin, and supports an empty library
+2026-10-08T20:00:34.9020502Z   ---
+2026-10-08T20:00:34.9020908Z   duration_ms: 403.90571
+2026-10-08T20:00:34.9021303Z   ...
+2026-10-08T20:00:35.9810480Z # Subtest: checkpoint argument conflicts and malformed names fail before HTTP
+2026-10-08T20:00:35.9812727Z ok 4 - checkpoint argument conflicts and malformed names fail before HTTP
+2026-10-08T20:00:35.9813476Z   ---
+2026-10-08T20:00:35.9813845Z   duration_ms: 1084.206668
+2026-10-08T20:00:35.9814268Z   ...
+2026-10-08T20:00:36.2101270Z # Subtest: malformed save commands are refused locally rather than sent as game choices
+2026-10-08T20:00:36.2102978Z ok 5 - malformed save commands are refused locally rather than sent as game choices
+2026-10-08T20:00:36.2103968Z   ---
+2026-10-08T20:00:36.2104486Z   duration_ms: 227.715972
+2026-10-08T20:00:36.2105043Z   ...
+2026-10-08T20:00:37.1026757Z # Subtest: fork refusal never falls back to start, load, or another career
+2026-10-08T20:00:37.1045720Z ok 6 - fork refusal never falls back to start, load, or another career
+2026-10-08T20:00:37.1046567Z   ---
+2026-10-08T20:00:37.1047038Z   duration_ms: 891.283596
+2026-10-08T20:00:37.1047562Z   ...
+2026-10-08T20:00:37.5532843Z # Subtest: save storage or session refusal stays visible and permits later play
+2026-10-08T20:00:37.5539979Z ok 7 - save storage or session refusal stays visible and permits later play
+2026-10-08T20:00:37.5541304Z   ---
+2026-10-08T20:00:37.5541848Z   duration_ms: 453.350459
+2026-10-08T20:00:37.5542423Z   ...
+2026-10-08T20:00:37.7429264Z # Subtest: save with disconnect after commit retains recovery identity and never retries
+2026-10-08T20:00:37.7430740Z ok 8 - save with disconnect after commit retains recovery identity and never retries
+2026-10-08T20:00:37.7431665Z   ---
+2026-10-08T20:00:37.7432128Z   duration_ms: 189.289288
+2026-10-08T20:00:37.7432606Z   ...
+2026-10-08T20:00:37.9497080Z # Subtest: save with invalid JSON after commit retains recovery identity and never retries
+2026-10-08T20:00:37.9499192Z ok 9 - save with invalid JSON after commit retains recovery identity and never retries
+2026-10-08T20:00:37.9500546Z   ---
+2026-10-08T20:00:37.9501183Z   duration_ms: 206.646173
+2026-10-08T20:00:37.9501580Z   ...
+2026-10-08T20:00:38.1530554Z # Subtest: save with wrong identity after commit retains recovery identity and never retries
+2026-10-08T20:00:38.1532111Z ok 10 - save with wrong identity after commit retains recovery identity and never retries
+2026-10-08T20:00:38.1535513Z   ---
+2026-10-08T20:00:38.1535884Z   duration_ms: 201.316519
+2026-10-08T20:00:38.1536300Z   ...
+2026-10-08T20:00:38.3502970Z # Subtest: fork with disconnect after commit retains recovery identity and never retries
+2026-10-08T20:00:38.3504781Z ok 11 - fork with disconnect after commit retains recovery identity and never retries
+2026-10-08T20:00:38.3505517Z   ---
+2026-10-08T20:00:38.3505850Z   duration_ms: 199.909141
+2026-10-08T20:00:38.3506217Z   ...
+2026-10-08T20:00:38.5213219Z # Subtest: fork with invalid JSON after commit retains recovery identity and never retries
+2026-10-08T20:00:38.5215056Z ok 12 - fork with invalid JSON after commit retains recovery identity and never retries
+2026-10-08T20:00:38.5216054Z   ---
+2026-10-08T20:00:38.5216616Z   duration_ms: 170.127498
+2026-10-08T20:00:38.5217274Z   ...
+2026-10-08T20:00:38.6927458Z # Subtest: fork with wrong identity after commit retains recovery identity and never retries
+2026-10-08T20:00:38.6929556Z ok 13 - fork with wrong identity after commit retains recovery identity and never retries
+2026-10-08T20:00:38.6930551Z   ---
+2026-10-08T20:00:38.6931055Z   duration_ms: 172.170387
+2026-10-08T20:00:38.6931460Z   ...
+2026-10-08T20:00:38.8602908Z # Subtest: EOF during pending save preserves identity without replay
+2026-10-08T20:00:38.8606125Z ok 14 - EOF during pending save preserves identity without replay
+2026-10-08T20:00:38.8606892Z   ---
+2026-10-08T20:00:38.8607253Z   duration_ms: 167.642808
+2026-10-08T20:00:38.8607653Z   ...
+2026-10-08T20:00:39.0376469Z # Subtest: SIGINT during pending save preserves identity without replay
+2026-10-08T20:00:39.0377779Z ok 15 - SIGINT during pending save preserves identity without replay
+2026-10-08T20:00:39.0378950Z   ---
+2026-10-08T20:00:39.0379615Z   duration_ms: 176.940018
+2026-10-08T20:00:39.0380272Z   ...
+2026-10-08T20:00:39.2054140Z # Subtest: EOF during pending fork preserves identity without replay
+2026-10-08T20:00:39.2055555Z ok 16 - EOF during pending fork preserves identity without replay
+2026-10-08T20:00:39.2056164Z   ---
+2026-10-08T20:00:39.2056836Z   duration_ms: 167.988683
+2026-10-08T20:00:39.2057225Z   ...
+2026-10-08T20:00:39.3674632Z # Subtest: SIGINT during pending fork preserves identity without replay
+2026-10-08T20:00:39.3676684Z ok 17 - SIGINT during pending fork preserves identity without replay
+2026-10-08T20:00:39.3677535Z   ---
+2026-10-08T20:00:39.3678004Z   duration_ms: 161.917458
+2026-10-08T20:00:39.3678247Z   ...
+2026-10-08T20:00:39.6993852Z # Subtest: invalid library response reports failure without mutating a session
+2026-10-08T20:00:39.6995260Z ok 18 - invalid library response reports failure without mutating a session
+2026-10-08T20:00:39.6995949Z   ---
+2026-10-08T20:00:39.6996285Z   duration_ms: 332.690403
+2026-10-08T20:00:39.6996635Z   ...
+2026-10-08T20:00:39.7059860Z # Subtest: ordinary seed/scenario creates a fresh named career and every operation stays on it
+2026-10-08T20:00:39.7061314Z ok 19 - ordinary seed/scenario creates a fresh named career and every operation stays on it
+2026-10-08T20:00:39.7061890Z   ---
+2026-10-08T20:00:39.7062099Z   duration_ms: 231.874079
+2026-10-08T20:00:39.7062424Z   ...
+2026-10-08T20:00:39.7063093Z # Subtest: --new always creates another unique session while existing careers survive
+2026-10-08T20:00:39.7063868Z ok 20 - --new always creates another unique session while existing careers survive
+2026-10-08T20:00:39.7064339Z   ---
+2026-10-08T20:00:39.7064603Z   duration_ms: 437.633132
+2026-10-08T20:00:39.7064923Z   ...
+2026-10-08T20:00:39.7065424Z # Subtest: resume never starts, activates or closes a career and remains explicit when active changes
+2026-10-08T20:00:39.7066312Z ok 21 - resume never starts, activates or closes a career and remains explicit when active changes
+2026-10-08T20:00:39.7066968Z   ---
+2026-10-08T20:00:39.7067171Z   duration_ms: 222.182684
+2026-10-08T20:00:39.7067387Z   ...
+2026-10-08T20:00:39.7067862Z # Subtest: listing sessions is read-only and includes the legacy main label
+2026-10-08T20:00:39.7068531Z ok 22 - listing sessions is read-only and includes the legacy main label
+2026-10-08T20:00:39.7069259Z   ---
+2026-10-08T20:00:39.7069498Z   duration_ms: 219.030585
+2026-10-08T20:00:39.7069727Z   ...
+2026-10-08T20:00:39.7070132Z # Subtest: a missing resume target fails without starting or falling back to active
+2026-10-08T20:00:39.7071120Z ok 23 - a missing resume target fails without starting or falling back to active
+2026-10-08T20:00:39.7071654Z   ---
+2026-10-08T20:00:39.7071855Z   duration_ms: 204.002662
+2026-10-08T20:00:39.7072071Z   ...
+2026-10-08T20:00:39.7072531Z # Subtest: rejected new career is reported before entering the prompt
+2026-10-08T20:00:39.7073170Z ok 24 - rejected new career is reported before entering the prompt
+2026-10-08T20:00:39.7073605Z   ---
+2026-10-08T20:00:39.7073804Z   duration_ms: 206.281613
+2026-10-08T20:00:39.7074016Z   ...
+2026-10-08T20:00:39.7074586Z # Subtest: rejected actions and unavailable external fast policy leave an interactive prompt
+2026-10-08T20:00:39.7075438Z ok 25 - rejected actions and unavailable external fast policy leave an interactive prompt
+2026-10-08T20:00:39.7076051Z   ---
+2026-10-08T20:00:39.7076244Z   duration_ms: 202.186312
+2026-10-08T20:00:39.7076560Z   ...
+2026-10-08T20:00:39.7076996Z # Subtest: disconnect after an action reports uncertainty and never retries the action
+2026-10-08T20:00:39.7077871Z ok 26 - disconnect after an action reports uncertainty and never retries the action
+2026-10-08T20:00:39.7078279Z   ---
+2026-10-08T20:00:39.7078573Z   duration_ms: 200.061233
+2026-10-08T20:00:39.7079111Z   ...
+2026-10-08T20:00:39.7079685Z # Subtest: invalid JSON after an action reports uncertainty and never retries the action
+2026-10-08T20:00:39.7080457Z ok 27 - invalid JSON after an action reports uncertainty and never retries the action
+2026-10-08T20:00:39.7080850Z   ---
+2026-10-08T20:00:39.7081152Z   duration_ms: 225.235545
+2026-10-08T20:00:39.7081372Z   ...
+2026-10-08T20:00:39.7081951Z # Subtest: a read failure discards the incomplete display and can recover without a mutation
+2026-10-08T20:00:39.7082757Z ok 28 - a read failure discards the incomplete display and can recover without a mutation
+2026-10-08T20:00:39.7083279Z   ---
+2026-10-08T20:00:39.7083474Z   duration_ms: 214.957808
+2026-10-08T20:00:39.7083756Z   ...
+2026-10-08T20:00:39.7084191Z # Subtest: EOF at the prompt exits without changing the career
+2026-10-08T20:00:39.7084690Z ok 29 - EOF at the prompt exits without changing the career
+2026-10-08T20:00:39.7085059Z   ---
+2026-10-08T20:00:39.7085306Z   duration_ms: 207.963661
+2026-10-08T20:00:39.7085525Z   ...
+2026-10-08T20:00:39.7086095Z # Subtest: EOF while an action is pending cancels waiting, keeps its identity and does not replay
+2026-10-08T20:00:39.7086909Z ok 30 - EOF while an action is pending cancels waiting, keeps its identity and does not replay
+2026-10-08T20:00:39.7087438Z   ---
+2026-10-08T20:00:39.7087633Z   duration_ms: 200.249608
+2026-10-08T20:00:39.7088102Z   ...
+2026-10-08T20:00:39.7088575Z # Subtest: SIGINT at the prompt exits without changing the career
+2026-10-08T20:00:39.7089589Z ok 31 - SIGINT at the prompt exits without changing the career
+2026-10-08T20:00:39.7090017Z   ---
+2026-10-08T20:00:39.7090218Z   duration_ms: 203.162058
+2026-10-08T20:00:39.7090544Z   ...
+2026-10-08T20:00:39.7091153Z # Subtest: SIGINT while an action is pending cancels waiting, keeps its identity and does not replay
+2026-10-08T20:00:39.7092010Z ok 32 - SIGINT while an action is pending cancels waiting, keeps its identity and does not replay
+2026-10-08T20:00:39.7092551Z   ---
+2026-10-08T20:00:39.7092752Z   duration_ms: 210.325801
+2026-10-08T20:00:39.7093070Z   ...
+2026-10-08T20:00:39.7093519Z # Subtest: empty, whitespace, unsafe and conflicting session arguments fail before HTTP
+2026-10-08T20:00:39.7094283Z ok 33 - empty, whitespace, unsafe and conflicting session arguments fail before HTTP
+2026-10-08T20:00:39.7094792Z   ---
+2026-10-08T20:00:39.7095080Z   duration_ms: 705.403481
+2026-10-08T20:00:39.7095307Z   ...
+2026-10-08T20:00:39.7095884Z # Subtest: a failing health response is fatal and never treated as permission to create a career
+2026-10-08T20:00:39.7096789Z ok 34 - a failing health response is fatal and never treated as permission to create a career
+2026-10-08T20:00:39.7097353Z   ---
+2026-10-08T20:00:39.7097630Z   duration_ms: 214.060655
+2026-10-08T20:00:39.7097950Z   ...
+2026-10-08T20:00:39.7098558Z # Subtest: help and invalid seeds finish without contacting the server
+2026-10-08T20:00:39.7099458Z ok 35 - help and invalid seeds finish without contacting the server
+2026-10-08T20:00:39.7099987Z   ---
+2026-10-08T20:00:39.7100316Z   duration_ms: 209.257681
+2026-10-08T20:00:39.7100749Z   ...
+2026-10-08T20:00:39.7100933Z 1..35
+2026-10-08T20:00:39.7101108Z # tests 35
+2026-10-08T20:00:39.7101294Z # suites 0
+2026-10-08T20:00:39.7101472Z # pass 35
+2026-10-08T20:00:39.7101651Z # fail 0
+2026-10-08T20:00:39.7101840Z # cancelled 0
+2026-10-08T20:00:39.7102027Z # skipped 0
+2026-10-08T20:00:39.7102213Z # todo 0
+2026-10-08T20:00:39.7106993Z # duration_ms 5753.481517
+2026-10-08T20:00:39.7301872Z Post job cleanup.
+2026-10-08T20:00:39.8573174Z Post job cleanup.
+2026-10-08T20:00:39.9426074Z [command]/usr/bin/git version
+2026-10-08T20:00:39.9471753Z git version 2.55.0
+2026-10-08T20:00:39.9510336Z Temporarily overriding HOME='/home/runner/work/_temp/8c987e23-cf2e-44a9-90ef-a91fcdd038b9' before making global git config changes
+2026-10-08T20:00:39.9512316Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T20:00:39.9516309Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uma-sim/uma-sim
+2026-10-08T20:00:39.9550394Z Removing SSH command configuration
+2026-10-08T20:00:39.9556607Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T20:00:39.9595131Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T20:00:39.9854829Z Removing HTTP extra header
+2026-10-08T20:00:39.9860818Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T20:00:39.9902121Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T20:00:40.0154352Z Removing includeIf entries pointing to credentials config files
+2026-10-08T20:00:40.0162549Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T20:00:40.0194567Z includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path
+2026-10-08T20:00:40.0195662Z includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path
+2026-10-08T20:00:40.0196681Z includeif.gitdir:/github/workspace/.git.path
+2026-10-08T20:00:40.0197692Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-08T20:00:40.0205308Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path
+2026-10-08T20:00:40.0231864Z /home/runner/work/_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config
+2026-10-08T20:00:40.0259776Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-c1b8c0f7\-ff02\-47d5\-8385\-3dca7ca66579\.config
+2026-10-08T20:00:40.0299259Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path
+2026-10-08T20:00:40.0333183Z /home/runner/work/_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config
+2026-10-08T20:00:40.0342512Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/uma-sim/uma-sim/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-c1b8c0f7\-ff02\-47d5\-8385\-3dca7ca66579\.config
+2026-10-08T20:00:40.0383621Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-08T20:00:40.0412830Z /github/runner_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config
+2026-10-08T20:00:40.0421049Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-c1b8c0f7\-ff02\-47d5\-8385\-3dca7ca66579\.config
+2026-10-08T20:00:40.0460377Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-08T20:00:40.0486957Z /github/runner_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config
+2026-10-08T20:00:40.0497799Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-c1b8c0f7\-ff02\-47d5\-8385\-3dca7ca66579\.config
+2026-10-08T20:00:40.0534411Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T20:00:40.0760065Z Removing credentials config '/home/runner/work/_temp/git-credentials-c1b8c0f7-ff02-47d5-8385-3dca7ca66579.config'
+2026-10-08T20:00:40.0912301Z Cleaning up orphan processes

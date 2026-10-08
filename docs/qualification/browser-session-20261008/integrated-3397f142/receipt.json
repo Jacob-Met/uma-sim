@@ -1,0 +1,117 @@
+{
+  "schema": "uma-browser-session-integration-v1",
+  "source_head": "3397f142e397aa911c125261fac41158e7bc74cc",
+  "source_tree": "8220492e07834480ab9fc0823358c9ad3aa9f24b",
+  "main_parent": "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+  "merge_commit": "38291c1aaf915da17229eca0afbbd58d9b3ce453",
+  "merged_tree": "8220492e07834480ab9fc0823358c9ad3aa9f24b",
+  "pr": 116,
+  "issue": 63,
+  "method": "normal merge with expected_head_sha",
+  "independent_approval_commit": "d55ee3ac8f926d77248a86004716201fcf6828ae",
+  "independent_tests": {
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0
+  },
+  "hosted_ci": {
+    "run": 37836168022,
+    "checkout": "b80d86653286887ee81c317145c36a2c281f48aa",
+    "checkout_tree": "8220492e07834480ab9fc0823358c9ad3aa9f24b",
+    "checkout_parents": [
+      "0ad4bd4d2ca0a133fe91080b6b7818efbaedb2fa",
+      "3397f142e397aa911c125261fac41158e7bc74cc"
+    ],
+    "ui": {
+      "job": 113513637437,
+      "tests": 116,
+      "passed": 116,
+      "failed": 0,
+      "skipped": 0,
+      "typescript": "pass",
+      "build": "pass",
+      "browser": "pass",
+      "trace": "pass"
+    },
+    "rust": {
+      "job": 113514210027,
+      "passed": 414,
+      "failed": 0,
+      "ignored": 1,
+      "summaries": 81,
+      "fmt": "pass",
+      "clippy": "pass",
+      "release": "pass",
+      "terminal_tests": 11,
+      "native_mcp_tests": 11,
+      "release_layout": "pass",
+      "strict_calibration": "pass"
+    },
+    "mcp": {
+      "job": 113513637138,
+      "passed": 134,
+      "failed": 0,
+      "native_only_skipped": 4,
+      "cli_passed": 35
+    },
+    "head_checks": [
+      {
+        "id": 113514210027,
+        "name": "rust",
+        "head": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113514210027"
+      },
+      {
+        "id": 113513637689,
+        "name": "bugfix-requires-test",
+        "head": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168018/job/113513637689"
+      },
+      {
+        "id": 113513637437,
+        "name": "ui",
+        "head": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113513637437"
+      },
+      {
+        "id": 113513637138,
+        "name": "mcp",
+        "head": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168022/job/113513637138"
+      },
+      {
+        "id": 113513636581,
+        "name": "Secret scan",
+        "head": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836168005/job/113513636581"
+      },
+      {
+        "id": 113513605178,
+        "name": "Secret scan",
+        "head": "3397f142e397aa911c125261fac41158e7bc74cc",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/uma-sim/actions/runs/37836158310/job/113513605178"
+      }
+    ]
+  },
+  "native_git": {
+    "device": "hamon-thinkpad",
+    "execution_root": "/dev/shm/uma-root-69570d292200-merge-z8r1pr_w",
+    "ancestor_exit_code": 0,
+    "changed_paths": 39,
+    "all_paths_expected": true,
+    "local_attempt": "Network fetch timed out after50seconds before ancestry execution; the native host fetch and actual Git ancestry/diff gate succeeded."
+  },
+  "deployment": "No installed runtime or service change."
+}
