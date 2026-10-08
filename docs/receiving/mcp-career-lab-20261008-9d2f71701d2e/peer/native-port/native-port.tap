@@ -1,0 +1,31 @@
+TAP version 13
+# Subtest: native receiving: fork contention has one winner and closing it without main preserves surviving careers
+ok 1 - native receiving: fork contention has one winner and closing it without main preserves surviving careers
+  ---
+  duration_ms: 368.629708
+  type: 'test'
+  ...
+# {"case":"concurrent-fork-and-no-main","winner":"receiving-fork-a","surviving":["receiving-a","receiving-b"],"a":"6af6f9ed9ce465e2fcb147ccadb6f4992afaa5ed1960bf25377043eb6a7988c2","b":"6a8fdffae67c757bf2b8a40097905b3792d2b55dec3e04570194857142c2aa70"}
+# Subtest: native receiving: external-policy refusal fully restores a non-active target and permits later continuation
+ok 2 - native receiving: external-policy refusal fully restores a non-active target and permits later continuation
+  ---
+  duration_ms: 318.958208
+  type: 'test'
+  ...
+# {"case":"non-active-503-rollback-and-continuation","unchangedTarget":"4926c20d00b865a267404eca2fd34bf047e9e8b06e5f69024ad9cfdefa9b69f3","unchangedActive":"7c79067ab252eab60508872078aec3bc660d89de21cf34d51fe9b765323b0fdd","targetSpeed":3,"activeSpeed":7}
+# Subtest: native receiving: global content reaches both existing careers and differs from an unloaded API control
+ok 3 - native receiving: global content reaches both existing careers and differs from an unloaded API control
+  ---
+  duration_ms: 639.122917
+  type: 'test'
+  ...
+# {"case":"global-content-native-control","loaded":500,"step":2,"turn":3,"a":"5b1c63d461e738024ec16d9c5729801feebfcbee4c2cc6d7eb5760685b0861c1","b":"5b1c63d461e738024ec16d9c5729801feebfcbee4c2cc6d7eb5760685b0861c1","unloaded":"f02c7bf2431b4bb5ccdaf17d7f18b3599ec99d4b0a630edbfef381caeb3063d7","active":"pack-b"}
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1437.244208

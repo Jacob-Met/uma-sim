@@ -1,0 +1,18 @@
+{
+  "commit": "490f205d013abbf1774894ea23c5b1ac2c3d32c7",
+  "files": {
+    "mcp-stdio.js": "0bbc3707639338a8e10c4b55404a02b383bf36a456a4afa8264f485757a8d9da",
+    "package.json": "947b8bf426b2ffbd370f228aedc4361e5ec02c97cf9113692d67dea919051f72"
+  },
+  "node": "v24.19.0",
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "--test-name-pattern=unrepresentable integer",
+    "/dev/shm/engine-uma-id-guard-9d2f71701d2e/id-guard.test.mjs"
+  ],
+  "exit_code": 1,
+  "log_sha256": "1390022189c70f7b37bc7be3f7ac4b33526c16d4c41791255906819acdd9ece4",
+  "harness_sha256": "5e313326a434487c7e4ac792fee7e657e1c499de2b0a8b9378efe38dd4c87837"
+}
