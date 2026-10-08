@@ -150,6 +150,6 @@ export function comparableComparison(value) {
 export function comparableReport(value) {
   const generated = value.split('\n').filter(line => line.startsWith('- Compared at: '));
   assert.equal(generated.length, 1);
-  assert.match(generated[0].slice('- Compared at: '.length), UTC_TIMESTAMP);
+  assert.match(generated[0].slice('- Compared at: '.length), /^\d{4}\\-\d{2}\\-\d{2}T\d{2}\\:\d{2}\\:\d{2}Z$/);
   return value.replace(generated[0], '- Compared at: <generated per request>');
 }
