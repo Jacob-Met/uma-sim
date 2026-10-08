@@ -1,0 +1,116 @@
+{
+  "schema": "uma.browser-checkpoint.publication-readback.v1",
+  "source_head": "618ad8f9702a39d23965e0ff68065822629bb9ba",
+  "tree": {
+    "base": "8a77986dcacbdb137a31f4e438561153b38f8c06",
+    "target": "8457386cf41c5530b39dec1fa6be127dfc430d01",
+    "owned_files": 15,
+    "unchanged_incoming_leaves": 1541,
+    "total_leaves": 1556,
+    "exact": true
+  },
+  "file_contents": [
+    {
+      "path": "packages/uma-sim-ui/src/api/checkpointJson.ts",
+      "exact": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api/client.ts",
+      "exact": true
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state/labStore.ts",
+      "exact": true
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/checkpoint-json.test.mjs",
+      "exact": true
+    },
+    {
+      "path": "packages/uma-sim-ui/package.json",
+      "exact": true
+    },
+    {
+      "path": "docs/browser-checkpoint-import.md",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/README.md",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/gate-runner.cjs",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/gate-input.json",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/gate-execution.json",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/compiler-custody.json",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/owner-scope.json",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/source-manifest.json",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/publication-plan.json",
+      "exact": true
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/MANIFEST.json",
+      "exact": true
+    }
+  ],
+  "pr_snapshot": {
+    "url": "https://github.com/Jacob-Met/uma-sim/pull/114",
+    "number": 114,
+    "state": "open",
+    "merged": false,
+    "mergeable": true,
+    "draft": true,
+    "body": "The browser Career library currently parses imported checkpoint JSON into JavaScript numbers and then serializes it again. That can change valid signed-64-bit seed literals before the existing native endpoint receives them.\n\n## Change\n\nPreserve the complete snapshot text in the existing import envelope. A small helper admits one JSON object and safely encodes the optional library name. An explicit serialized-body argument in the existing private request helper reuses the current route, response parser and errors. Only the library-store import hook switches to the additive method; the existing object import remains available.\n\nThe exact three production files are the independently reviewed candidate. This PR adds a newly authored maintained transport test, one append to the current package test command, usage documentation and a recovery evidence packet. Current conditions, skills, race, training-inspection, setup, native/API, dependencies and workflows are preserved.\n\nThe [current #63 owner fence](https://github.com/Jacob-Met/uma-sim/issues/63#issuecomment-6066934788) explicitly excludes private `req` and response/error transport. This contribution preserves `withSession` and every run/session method; the owner's separate session change can compose independently.\n\n## Exact source and custody\n\n- Head: `618ad8f9702a39d23965e0ff68065822629bb9ba`\n- Parent: `8d74413d7dbc3caf1745779c92d56b6eb7feea42`\n- Tree: `8457386cf41c5530b39dec1fa6be127dfc430d01`\n- Complete tree readback: **15 contribution files and 1,541 unchanged incoming leaves/modes, 1,556 leaves total**. All 15 contributed file contents also read back byte for byte.\n- [Recovery packet and exact execution record](https://github.com/Jacob-Met/uma-sim/blob/618ad8f9702a39d23965e0ff68065822629bb9ba/docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb/README.md); manifest SHA256 `0479dbe2a385c2fc6a6470550711ec4a1815ca27977d9f4fe7124c0dc87f56c9`.\n\n## Actual accessible qualification\n\nThe new maintained test passed **15/15, zero failures or skips**, using Linux Node24.19.0 and TypeScript5.9.3, the current lock's compiler version. It covers seven decimal seeds including both signed-i64 endpoints, malformed/nonobject zero-request refusals, optional names and escaping, unchanged object import and ordinary request defaults, shared HTTP/JSON diagnostics and network failure without retry.\n\nThe exact test and production modules ran in memory because the shared filesystem had no available unreserved space. Only the test's two source reads were supplied by the exact recovered strings; standard `node:test`, the verified installed compiler and a private inert fetch receiver executed the code. Complete program, input, output and exit0 are retained. This does not claim a full application build or native API/browser execution.\n\nThe [complete independent source review](https://github.com/Jacob-Met/uma-sim/blob/09c94cc504b6f51ef329cf765ca075e89e7beb72/docs/continuity/evidence/browser-checkpoint-import-independent-20261008-d98d06fb/README.md) accepted the exact source scope and preserves its distinct lexical transport control, owner-composition comparison and original failed comparison. Those controls were not rerun during recovery.\n\n## Pending receiving\n\nThis PR is a draft. The original author reported successful Mac npm/test/typecheck/build and seven composition controls, but the unpublished author packet and original maintained-test bytes are unavailable after the execution gap; they were not reconstructed or counted as new evidence.\n\nThe original Mac candidate-browser launch and its single result read timed out. Its exported-checkpoint import and native continuation result remain **unknown**, and that attempt has not been relaunched. Required current-head hosted gates and this native receiving boundary must be resolved before integration. No installed-package or production benefit is claimed.\n\nRefs #107. Source identity: `chatgpt:d98d06fbfc35:production_execution`; recovery continuation: `production_recovery`.\n",
+    "title": "Preserve exact checkpoint JSON through browser import",
+    "base": "main",
+    "base_sha": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+    "head": "work/astra-browser-checkpoint-json-d98d06fb-20261008",
+    "head_sha": "618ad8f9702a39d23965e0ff68065822629bb9ba",
+    "head_repo_id": 1355458147,
+    "head_repo_full_name": "Jacob-Met/uma-sim",
+    "merge_commit_sha": "d6b747d37b01dcc41d63fc82120a99eb0a8d119f",
+    "user": {
+      "login": "Jacob-Met",
+      "name": "Jacob-Met",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/150724801?v=4",
+      "id": 150724801
+    },
+    "requested_reviewers": null,
+    "requested_team_reviewers": null,
+    "diff": null,
+    "comments": null,
+    "created_at": "2026-10-08T19:19:02Z",
+    "updated_at": "2026-10-08T19:19:02Z",
+    "closed_at": null,
+    "merged_at": null,
+    "commits": 1,
+    "changed_files": 15,
+    "additions": 530,
+    "deletions": 12,
+    "display_url": "https://github.com/Jacob-Met/uma-sim/pull/114",
+    "display_title": "Preserve exact checkpoint JSON through browser import"
+  },
+  "combined_statuses_snapshot": {
+    "statuses": []
+  },
+  "scope": "Normalized source publication observations. Actual hosted outcomes are separately retained in the raw fetched run/check payloads."
+}

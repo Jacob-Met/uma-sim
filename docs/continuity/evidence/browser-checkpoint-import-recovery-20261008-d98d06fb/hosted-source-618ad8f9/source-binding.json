@@ -1,0 +1,80 @@
+{
+  "schema": "uma.browser-checkpoint.hosted-source-binding.v1",
+  "source_head": "618ad8f9702a39d23965e0ff68065822629bb9ba",
+  "current_base": "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+  "source_tree": "8457386cf41c5530b39dec1fa6be127dfc430d01",
+  "checkout_commit": "d6b747d37b01dcc41d63fc82120a99eb0a8d119f",
+  "checkout_tree": "8457386cf41c5530b39dec1fa6be127dfc430d01",
+  "checkout_parents": [
+    "8d74413d7dbc3caf1745779c92d56b6eb7feea42",
+    "618ad8f9702a39d23965e0ff68065822629bb9ba"
+  ],
+  "checkout_evidence": "Each of the ui, mcp and rust raw logs records exact git log -1 output d6b747d37b01dcc41d63fc82120a99eb0a8d119f.",
+  "run": {
+    "id": 37831034339,
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "618ad8f9702a39d23965e0ff68065822629bb9ba"
+  },
+  "jobs": [
+    {
+      "id": 113496118512,
+      "name": "ui",
+      "conclusion": "success",
+      "unit_tests": {
+        "pass": 103,
+        "fail": 0,
+        "skipped": 0
+      },
+      "typecheck": "success",
+      "production_build": "success",
+      "existing_browser_cases": {
+        "pass": 23,
+        "fail": 0
+      },
+      "existing_trace_cases": {
+        "pass": 15,
+        "fail": 0,
+        "dependentCasesNotRun": 0
+      }
+    },
+    {
+      "id": 113496118830,
+      "name": "mcp",
+      "conclusion": "success",
+      "protocol_tests": {
+        "pass": 134,
+        "fail": 0,
+        "skipped": 4
+      },
+      "cli_tests": {
+        "pass": 35,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": 113496545362,
+      "name": "rust",
+      "conclusion": "success",
+      "workspace_fmt_clippy_tests_release_build": "success",
+      "native_terminal_tests": {
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      },
+      "native_mcp_tests": {
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      },
+      "release_smoke_and_calibration": "success"
+    }
+  ],
+  "limits": [
+    "Existing browser and trace receivers are the repository's existing gates; they do not establish the unresolved original Mac candidate-browser result.",
+    "Hosted native terminal/MCP gates are separate from the intended browser checkpoint i64 continuation proof.",
+    "No installed-package receiving or production benefit is claimed."
+  ]
+}
