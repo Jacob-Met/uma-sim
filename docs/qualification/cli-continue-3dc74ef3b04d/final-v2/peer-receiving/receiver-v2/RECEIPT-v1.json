@@ -1,0 +1,70 @@
+{
+  "actor": "hamon-3dc74ef3b04d-20261008/estate_coordination",
+  "kind": "independent native Uma continuation receiving",
+  "binary_sha256": "db18c2878f4627ed14d247ed26e1e94327a3d14b6aadc600d407c3292f67ab4a",
+  "source_sha256": {
+    "uma-sim-core/src/bin/uma_sim/continue_run.rs": "26caa3ab1c6253f21a4ee4ea77c2a0e8df6de35c0635baf3f379c7a8d4feb17a",
+    "uma-sim-core/src/bin/uma-sim.rs": "4201e9d1928177f9fa15ea72fcdadec0e4b2eb5750bfd02be11dbc32dcff14af",
+    "docs/CLI_CONTINUE.md": "72a8ef899afaf4adec856361e9e75c73d80c1a4b547654b80cb3c116671f3e9a",
+    "uma-sim-core/tests/cli_continue.rs": "cc6f6a63990c6464f3fc0903785eb28e1d0466346124aa687aa5429e135104e7"
+  },
+  "expected_seed_decimal": "9007199254741123",
+  "integer_handling": "Python arbitrary-precision integers; raw checkpoint copies.",
+  "passed": 1,
+  "failed": 4,
+  "cases": [
+    {
+      "name": "authored large-i64 unity pending checkpoint with support10001 and saved stub/speed2",
+      "pass": false,
+      "error": "Authored support identity is not10001",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 125, in author_checkpoint\n    assertion(support_key is not None and slots[0][support_key] == 10001, 'Authored support identity is not10001')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Authored support identity is not10001\n"
+    },
+    {
+      "name": "default continuation preserves checkpoint identity/settings/history and hard-linked backup",
+      "pass": false,
+      "error": "No admitted authored checkpoint; dependent case not run",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 229, in <lambda>\n    check('default continuation preserves checkpoint identity/settings/history and hard-linked backup', lambda: continuation('default', True))\n                                                                                                                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 139, in continuation\n    assertion(checkpoint is not None, 'No admitted authored checkpoint; dependent case not run')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No admitted authored checkpoint; dependent case not run\n"
+    },
+    {
+      "name": "bot continuation preserves checkpoint settings/history and ignores external-policy environment",
+      "pass": false,
+      "error": "No admitted authored checkpoint; dependent case not run",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 230, in <lambda>\n    check('bot continuation preserves checkpoint settings/history and ignores external-policy environment', lambda: continuation('bot'))\n                                                                                                                    ~~~~~~~~~~~~^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 139, in continuation\n    assertion(checkpoint is not None, 'No admitted authored checkpoint; dependent case not run')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No admitted authored checkpoint; dependent case not run\n"
+    },
+    {
+      "name": "read-only completed save is an exact byte inode mtime no-op",
+      "pass": false,
+      "error": "No completed default career; dependent case not run",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 181, in completed_noop\n    assertion(completed_default is not None, 'No completed default career; dependent case not run')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No completed default career; dependent case not run\n"
+    },
+    {
+      "name": "help and invalid continuation options finish before loading an owned FIFO",
+      "pass": true,
+      "detail": {
+        "variants": 7,
+        "all_parse_before_load": true,
+        "fifo_metadata": {
+          "kind": "fifo",
+          "inode": "6453958",
+          "device": "66306",
+          "mtime_ns": "1791501674548100518",
+          "mode": "0o600",
+          "bytes": 0
+        },
+        "owned_empty_fifo_removed_after_recording": true
+      }
+    }
+  ],
+  "command_count": 10,
+  "artifact_bytes_before_receipt": 38932,
+  "artifact_budget_bytes": 2097152,
+  "compiler_invoked": false,
+  "network_invoked": false,
+  "product_mutations": false,
+  "policy_marker_exists": false,
+  "limits": [
+    "No equality claim for complete outcomes across fresh processes; native factor HashMap nondeterminism retained.",
+    "Continuation cases begin from copies of one real authored pending checkpoint.",
+    "The original author24-case suite was not rerun."
+  ]
+}

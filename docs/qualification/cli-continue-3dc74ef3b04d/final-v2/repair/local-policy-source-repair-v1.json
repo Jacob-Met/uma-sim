@@ -1,0 +1,28 @@
+{
+  "schema": "hamon.uma_continue.local_policy_source_repair.v1",
+  "at": "2026-10-08T23:53:25.590Z",
+  "parent": "8c42784da16f8cfa82a131273342d75da7352bef",
+  "baseline_receipt_sha256": "ebc952cadf777822fc173f65608773a285ec284a41fcdb3a3c4b97d58719ca25",
+  "rustfmt_status": 0,
+  "rustfmt_stderr": "",
+  "files": [
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/continue_run.rs",
+      "sha256": "a8268730246e41088f614d10c94ecf40a2426d089cf55e4a305e8388dbefb448"
+    },
+    {
+      "path": "docs/CLI_CONTINUE.md",
+      "sha256": "98b816dd7109fda662bb40e355a77df8b12d05d55c9bdc62232b987b46e264ac"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_continue.rs",
+      "sha256": "47f0572cb8356f34a9d4ce17960db6bbf7c37ed23073343c872f0e78cf80b526"
+    }
+  ],
+  "diff": " docs/CLI_CONTINUE.md                         |  9 ++++--\n uma-sim-core/src/bin/uma_sim/continue_run.rs | 36 ++++++++++++++++++++-\n uma-sim-core/tests/cli_continue.rs           | 47 ++++++++++++++++++++++++++++\n 3 files changed, 88 insertions(+), 4 deletions(-)\n",
+  "changed_paths": [
+    "docs/CLI_CONTINUE.md",
+    "uma-sim-core/src/bin/uma_sim/continue_run.rs",
+    "uma-sim-core/tests/cli_continue.rs"
+  ]
+}

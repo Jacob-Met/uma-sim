@@ -1,0 +1,117 @@
+{
+  "actor": "hamon-3dc74ef3b04d-20261008/estate_coordination",
+  "status": "BLOCKED: confirmed bot external-policy invocation against explicit local-policy contract",
+  "binary_sha256": "db18c2878f4627ed14d247ed26e1e94327a3d14b6aadc600d407c3292f67ab4a",
+  "raw_v3_receipt_sha256": "72482ec222175a87e1d9f35008a1d8ccd5b5d9e439da68b9865258355ad09eab",
+  "unchanged_v3_method_sha256": "b01b3358258c3e9cecb34844df2b300f55d982a096f1d9c028379ac47164ce37",
+  "confirmed_failure": {
+    "label": "continue-bot",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "continue",
+      "--policy=bot"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/continue-bot",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate",
+      "UMA_RACE_MODEL": "physics",
+      "UMA_POLICY_CMD": "/usr/bin/python3 /home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/harmless-policy-marker.py"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE"
+    ],
+    "exit": 101,
+    "seconds": 1.2875251939985901,
+    "stdout": "",
+    "stderr": "\nthread 'main' (2741272) panicked at uma-sim-core/src/policy_external.rs:218:19:\n[external-policy] failed to start: policy ping failed: {}\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
+    "timed_out": false
+  },
+  "marker_script_sha256": "772c948a5a2795ad90a8743dd5e28535af36bcf1a9c96a1486ba6170c14d2efb",
+  "marker_sha256": "bc69e87c39b560fda820ba20ac3e6ea8c0b6c280fde87f3bd35982fc85cb3650",
+  "bot_checkpoint_still_exact": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+  "case_disposition": [
+    "Actual EVENTturn4 checkpoint admission passed.",
+    "Default continuation passed all intended save/settings/history/deck/RNG and hardlink-backup assertions.",
+    "Bot continuation invoked the owned harmless external-policy marker then panicked at policy_external.rs218, exit101, retaining exact checkpoint bytes.",
+    "Completed no-op reached its final marker-presence assertion after its own success/status/byte/inode/mtime/mode comparisons; the shared marker already existed from bot. No additional invocation is established.",
+    "FIFO case recorded all7 expected statuses, no timeouts and unchanged FIFO metadata, but the final shared-marker assertion also saw the bot-created marker. No additional invocation is established."
+  ],
+  "fifo_observations": [
+    {
+      "args": [
+        "continue",
+        "--help"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--policy=external"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--policy",
+        "bot"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--policy=default",
+        "--policy=bot"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--seed=1"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--race-model=physics"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--help",
+        "--policy=bot"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    }
+  ],
+  "raw_receipt_unchanged": true,
+  "no_rerun_or_product_edits_after_failure": true,
+  "next_gate": "Owner/root policy repair, independent source review, then reuse exact checkpoint and unchanged primary assertions. Both earlier adapter negatives retained."
+}

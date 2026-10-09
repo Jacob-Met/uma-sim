@@ -1,0 +1,94 @@
+{
+  "before": {
+    "kind": "fifo",
+    "inode": "6453958",
+    "device": "66306",
+    "mtime_ns": "1791501674548100518",
+    "mode": "0o600",
+    "bytes": 0
+  },
+  "after": {
+    "kind": "fifo",
+    "inode": "6453958",
+    "device": "66306",
+    "mtime_ns": "1791501674548100518",
+    "mode": "0o600",
+    "bytes": 0
+  },
+  "observations": [
+    {
+      "args": [
+        "continue",
+        "--help"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--policy=external"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--policy",
+        "bot"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--policy=default",
+        "--policy=bot"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--seed=1"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--race-model=physics"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    },
+    {
+      "args": [
+        "continue",
+        "--help",
+        "--policy=bot"
+      ],
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "timed_out": false,
+      "fifo_metadata_unchanged": true
+    }
+  ],
+  "removal_scope": "Only this owned empty FIFO after metadata capture."
+}

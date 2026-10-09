@@ -1,0 +1,35 @@
+{
+  "schema": "hamon.uma_continue.local_policy_native_commit.v1",
+  "at": "2026-10-08T23:58:32.920Z",
+  "commit": "9a59897c34efee3d9414e19b698213c8d73badff",
+  "tree": "767f6330212462eaa0f7a0d5b0a3b3059b398850",
+  "parents": "8c42784da16f8cfa82a131273342d75da7352bef",
+  "branch": "fix/cli-continue-local-policy-3dc74ef3b04d",
+  "status": "",
+  "changed_paths": [
+    "docs/CLI_CONTINUE.md",
+    "uma-sim-core/src/bin/uma_sim/continue_run.rs",
+    "uma-sim-core/tests/cli_continue.rs"
+  ],
+  "source_files": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "sha256": "4201e9d1928177f9fa15ea72fcdadec0e4b2eb5750bfd02be11dbc32dcff14af"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/continue_run.rs",
+      "sha256": "a8268730246e41088f614d10c94ecf40a2426d089cf55e4a305e8388dbefb448"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_continue.rs",
+      "sha256": "47f0572cb8356f34a9d4ce17960db6bbf7c37ed23073343c872f0e78cf80b526"
+    },
+    {
+      "path": "docs/CLI_CONTINUE.md",
+      "sha256": "98b816dd7109fda662bb40e355a77df8b12d05d55c9bdc62232b987b46e264ac"
+    }
+  ],
+  "native_gate_sha256": "a2e8269324f2e3d783923c20ecd720704927827f4841f46e0fceacaf51d794db",
+  "independent_receiving": "pending; original V3 external-policy defect retained",
+  "commit_output": "[fix/cli-continue-local-policy-3dc74ef3b04d 9a59897] Keep saved-career bot continuation on the local scoring path\n 3 files changed, 88 insertions(+), 4 deletions(-)\n"
+}

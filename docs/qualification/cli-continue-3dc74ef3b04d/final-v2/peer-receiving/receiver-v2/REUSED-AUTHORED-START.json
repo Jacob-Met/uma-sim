@@ -1,0 +1,34 @@
+{
+  "source": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/authored-checkpoint/.uma-sim/session.json",
+  "sha256": "c636d7a749b006c1cbbbf2f2020efb8f8d7a3e3ff6347fc836b8b138afcf7f2e",
+  "source_command_receipt": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/commands-v1.json",
+  "start_command": {
+    "label": "start-authored-career",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "start",
+      "--seed=9007199254741123",
+      "--scenario=unity",
+      "--race-model=stub",
+      "--speed=2",
+      "--dialogue=off",
+      "--deck=support:10001@speed:85",
+      "--trace-rng"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/authored-checkpoint",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE",
+      "UMA_POLICY_CMD",
+      "UMA_RACE_MODEL"
+    ],
+    "exit": 0,
+    "seconds": 0.3537296709837392,
+    "stdout": "--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: unity_rank_wit=1 unity_rank_stamina=1 unity_rank_power=1 unity_rank_guts=1 unity_rank_speed=1\n=== Year 1 Jun (Late), turn 1 ===\nChoices: race\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  "boundary": "Exact raw bytes from the successful v1 authored start; no second start/reset command."
+}

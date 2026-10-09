@@ -1,0 +1,1380 @@
+{
+  "schema": "hamon.uma_continue.root_current_source_compatibility.v1",
+  "at": "2026-10-08T23:32:38.347Z",
+  "status": "source_component_compatible_with_explicit_pr118_dependency",
+  "repository": "Jacob-Met/uma-sim",
+  "current_commit": "ac4a4c2d4b4159bea1012e66cb79e76b6bc25d56",
+  "current_tree": "db51a8dbbfc4a193929eef5b0ddcee19965f6b15",
+  "source_tree_entries": 1997,
+  "reconstructed_git_trees": 260,
+  "dependency_commit": "248c62564bb816630d6983ec5f733b965a8e1e43",
+  "dependency_tree": "7cab649fb15bb8e7071d66eab329aba5f5cd68e9",
+  "component_files": 302,
+  "exact_component_matches": 298,
+  "differences": [
+    {
+      "path": "README.md",
+      "dependency_blob": "ba2e8101303d8d82dcda560341d5102e57e38787",
+      "dependency_mode": "100644",
+      "current_blob": "82c3d9ff4d875688606f19b84913986e8ee1cc91",
+      "current_mode": "100644"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "dependency_blob": "f54c2c50cdae8b78ed75c0eec89a0cdca9f36a37",
+      "dependency_mode": "100644",
+      "current_blob": "a4d95cada08bc44e8d8916fd6c1b21348b2bd63f",
+      "current_mode": "100644"
+    },
+    {
+      "path": "uma-sim-core/src/session.rs",
+      "dependency_blob": "8298731be4ee70a6338cc5d708c7c5f2f4549749",
+      "dependency_mode": "100644",
+      "current_blob": "c407f70093b955801126d1f3c93af79a279d2346",
+      "current_mode": "100644"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_session_persistence.rs",
+      "dependency_blob": "ac3a6e11a293f153db49016c756555ad4fffdcd2",
+      "dependency_mode": "100644",
+      "current_blob": null,
+      "current_mode": null
+    }
+  ],
+  "runtime_data_roots": [
+    "uma-sim-core/",
+    "uma-race-core/",
+    "knowledge/",
+    "research/"
+  ],
+  "additional_current_runtime_or_data_leaves": [],
+  "new_paths_absent": [
+    "uma-sim-core/src/bin/uma_sim/continue_run.rs",
+    "uma-sim-core/tests/cli_continue.rs",
+    "docs/CLI_CONTINUE.md"
+  ],
+  "inputs": [
+    {
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-intake/component-source-manifest.json",
+      "bytes": 78845,
+      "sha256": "196bcda1792f2e5d05a4e6f9ad7eb59cd49288dcebf0597fdb8a46df1d768520"
+    },
+    {
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/current-main-tree-ac4a4c2.json",
+      "bytes": 329509,
+      "sha256": "359134ca578c27a85b52946e6ca3aad0733da4e44a6071f808cc0cb8d503fc69"
+    },
+    {
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/verify-current-component-v1.mjs",
+      "sha256": "7ab0317188a00879c020bdcea025898fa3602780cd67ad782603119318f35682"
+    }
+  ],
+  "tree_checks": [
+    {
+      "path": "",
+      "sha": "db51a8dbbfc4a193929eef5b0ddcee19965f6b15",
+      "children": 19
+    },
+    {
+      "path": ".github",
+      "sha": "761e75bf4ab0d101d5a1a872af21f2e52a900315",
+      "children": 3
+    },
+    {
+      "path": ".github/scripts",
+      "sha": "da84d8f3e8d9896c750eeb014e0f57c9f1cc678e",
+      "children": 1
+    },
+    {
+      "path": ".github/workflows",
+      "sha": "117821a95780e49cf5ce6be25133ba2dece23f11",
+      "children": 7
+    },
+    {
+      "path": "content_packs",
+      "sha": "e0a9cccc9ffdd4fe23cd6fd81e74aa69544cd132",
+      "children": 1
+    },
+    {
+      "path": "docs",
+      "sha": "99ff8bba4cff9a8a425110d3a8725a593d8c1af3",
+      "children": 18
+    },
+    {
+      "path": "docs/continuity",
+      "sha": "0f84aaa8c48841c3e4d77f88d6fbb2c3e77756bc",
+      "children": 1
+    },
+    {
+      "path": "docs/continuity/evidence",
+      "sha": "c37a0a851a38f320ba34897c2ffc2645272811e6",
+      "children": 1
+    },
+    {
+      "path": "docs/continuity/evidence/browser-checkpoint-import-recovery-20261008-d98d06fb",
+      "sha": "6a72b3cbdf268d4a07a62969edad6049df484b17",
+      "children": 9
+    },
+    {
+      "path": "docs/qualification",
+      "sha": "a5c36e79525d268412721861ee497fd8f9adf812",
+      "children": 5
+    },
+    {
+      "path": "docs/qualification/api-body-admission-7a9310dad255",
+      "sha": "64993a3407fb016cb95f42b84cc9198200d72782",
+      "children": 13
+    },
+    {
+      "path": "docs/qualification/browser-session-20261008",
+      "sha": "f007416c757c0b3599f43d4cf2bc2db0f7366e8c",
+      "children": 11
+    },
+    {
+      "path": "docs/qualification/browser-session-20261008/current-receiving",
+      "sha": "26e9e2d22f29fab9efa4d8588607c47a2c1f4ec4",
+      "children": 17
+    },
+    {
+      "path": "docs/qualification/race-results-scanner-afe225d6c6be",
+      "sha": "677c80ce0ad88b39c4f6d0af4a1adde82d7e3148",
+      "children": 13
+    },
+    {
+      "path": "docs/qualification/race-results-scanner-afe225d6c6be/current-4eab",
+      "sha": "a7c9c387a49784dc498ec542946c37b55d21366a",
+      "children": 4
+    },
+    {
+      "path": "docs/qualification/race-results-scanner-afe225d6c6be/native",
+      "sha": "f95320babf13655e92b4334d8a964b0b1bfdd4dc",
+      "children": 21
+    },
+    {
+      "path": "docs/qualification/race-results-scanner-afe225d6c6be/original-hosted-logs",
+      "sha": "7972811aed5bfc05cddebf198f3c8c6301761f67",
+      "children": 2
+    },
+    {
+      "path": "docs/qualification/race-results-scanner-afe225d6c6be/policy-controls",
+      "sha": "405dbed2fa2b2d2d58729a34f74b617bfccca80d",
+      "children": 4
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2",
+      "sha": "36f26fc6e8b061097d0f28b0e47a37b1c318f286",
+      "children": 10
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored",
+      "sha": "861ed6003d8354dc5eb9315712ddc00443b2440d",
+      "children": 16
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline-v2",
+      "sha": "54840cf67ad5f71dda9c94308fed8813d9fec85b",
+      "children": 2
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-baseline",
+      "sha": "65683758c3a501d309d69a7ded7c097dd9cb6d61",
+      "children": 2
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v1",
+      "sha": "97ae6444798cc01454667c2dc2145494c9095a05",
+      "children": 11
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-candidate-v2",
+      "sha": "5459b8b726a398fa6ea02c13389ab6111235e28e",
+      "children": 12
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/authored/native-final",
+      "sha": "0b5702cd2e1d662d3830f91e032bf0b0208246b0",
+      "children": 12
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-a3",
+      "sha": "506b7b1e628d1c4fc53c33a6c016ae58c14f8ec0",
+      "children": 4
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-f278",
+      "sha": "331e5ed823ff6b22e1e65afeaeb84b06dab55fa4",
+      "children": 2
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2",
+      "sha": "6192391fb9d7c56f25fe345b33aa0a1998f804a2",
+      "children": 7
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/current-fe2/native",
+      "sha": "4b3f8f1991d87c7b3c5a030d8a4ddc97276fbd0b",
+      "children": 12
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-09df",
+      "sha": "082e34abd5ff329a00bd44487e407fdb36f49738",
+      "children": 18
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-09df/admission-boundary-v1",
+      "sha": "b8659df8dfda2af8bf96b6c6f5bf1d30eddee86c",
+      "children": 1
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-09df/preparation",
+      "sha": "f68341a1237cb2410bf0dab56b0eeba88a761bd4",
+      "children": 11
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-09df/preparation/admission-boundary-v1",
+      "sha": "a041ab346fa336eddd832e9a0860e64a35a15a99",
+      "children": 1
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-09df/preparation/run-v1",
+      "sha": "ee4ad3abc702baf73a712b3c4096a3f21adc4c7a",
+      "children": 1
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-09df/run-v1",
+      "sha": "cb3320a2669575cf59287bf93ab8be1cdff951d4",
+      "children": 2
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-09df/run-v1/artifacts",
+      "sha": "f08459b70db57e9b2e044ad991c1224bd9bb65ab",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2",
+      "sha": "3b6443ce548b553d9045f7c50d759bc7175403e8",
+      "children": 18
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/admission-boundary-v1",
+      "sha": "52a47dd3807073474a43f181f9d6af9b13118780",
+      "children": 1
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1",
+      "sha": "da57958c702ce76d3bac645815e3d760e850a6c1",
+      "children": 2
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent-current-fe2/run-v1/artifacts",
+      "sha": "88a8086757f82f2006f7c86a534735110d7ee189",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent",
+      "sha": "7bd89ad0f3cc76fc269fc9d4294f3a622bb944dc",
+      "children": 9
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1",
+      "sha": "2e585913b427b2c3b002241f4608cf1d0ba71533",
+      "children": 2
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/independent/run-v1/artifacts",
+      "sha": "5a1a86494e8df6c3f74a9622118cd4a8a334ae96",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-checkpoints-c6cc965b64c2/scanner",
+      "sha": "59838b628eb6b226db7832c9c0ad9d341f569a09",
+      "children": 15
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2",
+      "sha": "01221bd5dda077bb1dfb6746c8731d6ad7c69650",
+      "children": 3
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/authored",
+      "sha": "a93cfa7e68d6cf96d62e99624484f4e645630198",
+      "children": 4
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent",
+      "sha": "9b54aa7e92ad86d3a4237479ae13d5a108bd04d9",
+      "children": 6
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/baseline",
+      "sha": "a1513db0462fb70c6a285675cb329f1be11f539c",
+      "children": 2
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/baseline/fresh-session-preserves-real-main",
+      "sha": "ec08fff825a4c659194d165d7b029d8d518861b2",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate",
+      "sha": "9db0e932d68d69c9f96c52401ecbc51dd1f36365",
+      "children": 12
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/committed-action-disconnect-is-never-replayed",
+      "sha": "fc00c73d1deeb9d4fd9277fe8aa6b542011cd4ee",
+      "children": 10
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/committed-action-invalid-json-is-never-replayed",
+      "sha": "69ed9f2e06f3757ab7d96f34217fbe7ca2b829e4",
+      "children": 10
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/eof-during-committed-start-retains-resume-id",
+      "sha": "2637dd585a0b7caf7bb58915fdb7abb22deefcf9",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/eof-during-initial-read-prevents-new-career",
+      "sha": "879c9dbf4c30ee6ef12ceb1c4ade521784dd4242",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/fresh-session-preserves-real-main",
+      "sha": "f1483b3ef63795a72ac884869dc0192f7ab1db5b",
+      "children": 11
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/incomplete-read-is-visible-without-partial-state-or-mutation",
+      "sha": "412bdabe7b61d3418d6be36c970272d93abcc76d",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/native-external-policy-error-preserves-session-and-recovers",
+      "sha": "c963df0d83321cce448ef001f4b0c13f4f7ba725",
+      "children": 9
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/parser-readonly-discovery-and-native-rejections",
+      "sha": "d7407b061f5792e5dbb5256fc3ff311b5fd4dcd1",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/resume-survives-active-churn-for-every-operation",
+      "sha": "6390f994e2fef7401030025df580989945bfa1e8",
+      "children": 9
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/sigint-during-committed-start-retains-resume-id",
+      "sha": "201808758e5234b1f82fa93e093b42b76ff89e99",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/candidate/signed-i64-seeds-reach-native-engine-exactly",
+      "sha": "77b83d2042b74bc3601d5de0aded6698f69c5c07",
+      "children": 8
+    },
+    {
+      "path": "docs/qualification/tui-sessions-c6cc965b64c2/independent/drivers",
+      "sha": "3c3f1826151ab66c46e6782fe5992f9a809ff688",
+      "children": 2
+    },
+    {
+      "path": "docs/receipts",
+      "sha": "bfaf07128f51f5c52f8c95e23596f0da35dd53af",
+      "children": 5
+    },
+    {
+      "path": "docs/receipts/career-lab-ended-count-acd057031fb2",
+      "sha": "a01296c41dfdb971b452f112f5d6b51c801c651a",
+      "children": 1
+    },
+    {
+      "path": "docs/receipts/career-lab-ended-count-acd057031fb2/native",
+      "sha": "26b749290c91de06bd151b2a02fbfd43a4c48ef6",
+      "children": 6
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2",
+      "sha": "36d6c7bb3f454cae841f0e58efa532688367a7bc",
+      "children": 6
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/independent-review",
+      "sha": "3401da1ff51564ecc8e9e4a8cafb7284d58a867b",
+      "children": 3
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/integration-review",
+      "sha": "9e3868051e7b2d6d86630746e9cccf700641c016",
+      "children": 1
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/release",
+      "sha": "2f7a74ede05540663fc28b9ba2a5e23e2a73e5b6",
+      "children": 6
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/release/local",
+      "sha": "95e3d3f4e6e7f42107d277d919fdb538febc47d4",
+      "children": 21
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/release/local/ui-dist",
+      "sha": "39e2a28322e56e07b9ac0895b614d3efa3a504e5",
+      "children": 2
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/release/local/ui-dist/assets",
+      "sha": "b76037bf0087d9d9164d84bba1e16631c2c7b7ec",
+      "children": 2
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/release/native",
+      "sha": "e5f25bbfaa12af925b1b71ec872089e8ac190e83",
+      "children": 11
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/release/native/embedded-runtime",
+      "sha": "39e2a28322e56e07b9ac0895b614d3efa3a504e5",
+      "children": 2
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/release/native/embedded-runtime/assets",
+      "sha": "b76037bf0087d9d9164d84bba1e16631c2c7b7ec",
+      "children": 2
+    },
+    {
+      "path": "docs/receipts/career-lab-native-acd057031fb2/workspace",
+      "sha": "5782faec61a12f63a7a45566ce557641470f9a01",
+      "children": 15
+    },
+    {
+      "path": "docs/receipts/career-lab-report-acd057031fb2",
+      "sha": "8736b606404612a894cff8f9b83de3d57387e92f",
+      "children": 1
+    },
+    {
+      "path": "docs/receipts/career-lab-report-acd057031fb2/native",
+      "sha": "3a72e0e39beb91306224fec848e518709566456f",
+      "children": 8
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008",
+      "sha": "7a75ce050241ca96830b55938e2bf4f246f1c76c",
+      "children": 1
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving",
+      "sha": "236aeac38825a924fc982c76d635555833616437",
+      "children": 10
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/baseline",
+      "sha": "41507dd69f8008a408024368a1b37d7b13c1e3fc",
+      "children": 6
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/baseline/a_ends_first",
+      "sha": "19909e6a5e9747afc98423341de554ecc399001f",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/baseline/b_ends_first",
+      "sha": "43eeab2c0ddcddee5bd81f4fd6d59fbcdb37780a",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/baseline/equal_length_control",
+      "sha": "479f419551628912ab7d0eb35f89f4817dd8317c",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/candidate",
+      "sha": "63170d30b99759d9b5d52c9cb5b4bcaaef522026",
+      "children": 6
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/candidate/a_ends_first",
+      "sha": "ad8ef36bdd1c75329e4724b98c57f639fab1ca1c",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/candidate/b_ends_first",
+      "sha": "b74658ed27637b70c38e2f9489cccbc6275cc066",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/candidate/equal_length_control",
+      "sha": "dc8ea544c09200b74c67c05bda3190d3500caf7d",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition",
+      "sha": "0eb403c20dadfbb7e7567f84e11d2e0f81e1e1cd",
+      "children": 2
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui",
+      "sha": "008de7cbfb4c885e31b5a0a52b3f13e777bbfe7d",
+      "children": 13
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/adversarial-initial-oracle",
+      "sha": "5e00e05e17a9d897ad666b5633fa9cd2a7d4578b",
+      "children": 10
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/adversarial",
+      "sha": "8949854dde1a5615bfaf960e1a1b056e39548e38",
+      "children": 10
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/accepted-ui/pr65-workflow",
+      "sha": "094ea52f0a0b29d5fa1c73901a5d010ebaa3b440",
+      "children": 8
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report",
+      "sha": "e917dba3f6d652597ad0b8377acfdd132fb1d6fb",
+      "children": 11
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/authored_persisted_fields",
+      "sha": "0850ca0b33f1b121f147a436a73d1a372a9c157c",
+      "children": 11
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/backslash_pipe_backticks",
+      "sha": "1546ae1af53c5ac1ed1b594342e690ab7ed529d2",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/html",
+      "sha": "da01bd97a17e3a5f070ad8bdbb9670a14276d20d",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/line_breaks",
+      "sha": "8331031fc0159fcaadbc18ac5a3344385225da3a",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/literal_entities",
+      "sha": "188353e898513ccdb97b52739103b81a38a496a8",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/markdown",
+      "sha": "ce2484597ec1b1774dd1e7d66c63d925a8773d67",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/ordinary_names",
+      "sha": "026ecbd44b4a17c3905044f976abca9932cd22db",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/pipe",
+      "sha": "33b7e3db4778ff9e53155bba778850ca9ed2f348",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-ended-branch-20261008/native-receiving/composition/report/unicode",
+      "sha": "1b8a957aa048e10ea2cbb5791606a6a757fc5c63",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008",
+      "sha": "1862c54796c569fc465365bfb373b1f5cbcd9fbe",
+      "children": 1
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving",
+      "sha": "40e602adeb8dd69be5db9398cea748b6a300d711",
+      "children": 9
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline",
+      "sha": "edebddc247998f20138904ee3d313cd0907cea04",
+      "children": 11
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/authored_persisted_fields",
+      "sha": "ccf694e22446df0a03e3061e4c2bb204405793fb",
+      "children": 11
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/backslash_pipe_backticks",
+      "sha": "ce96e2a65cf7ec4433f95068114fb5ca0bf22e32",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/html",
+      "sha": "2779680a9f4197a02d9c22acf3f73bce1206faa9",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/line_breaks",
+      "sha": "d8f99cbcfbda567d87a0c692b290736f0ef72fa7",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/literal_entities",
+      "sha": "2dac82a91d40c7445547e6e676d07b51efbe8175",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/markdown",
+      "sha": "fba696e06580e6e018ee194e6ec7c11934f686f3",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/ordinary_names",
+      "sha": "22718e87991ef859449783d55bbb972b02cda757",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/pipe",
+      "sha": "3ae046271f03f6bedc970a4d4ef86e8b4391fc49",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/baseline/unicode",
+      "sha": "abf1800ea955e3dfab203866d7907ccab638a692",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate",
+      "sha": "2e9ec6ca4d0140ae9787c59f53001621b789f23a",
+      "children": 11
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/authored_persisted_fields",
+      "sha": "32f6d1046b0e5ecec416035b57474e3081f84b81",
+      "children": 11
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/backslash_pipe_backticks",
+      "sha": "535c8638b727969ec08b320690027a7852c94ba6",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/html",
+      "sha": "0976de978f2da4a17050e5504b502803bc5ae446",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/line_breaks",
+      "sha": "adaab1ddf37626b7c4020c9e1aa2fc60a311a502",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/literal_entities",
+      "sha": "d7bcf2726c264e908bd533b80ee01f20d6e43768",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/markdown",
+      "sha": "4b7d5ac1c803464f054d7c893f14a8e52d84f34c",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/ordinary_names",
+      "sha": "9bf5dadaf3d6966abb57b93f8e2df0a50db4fb3b",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/pipe",
+      "sha": "b86480c01ec06571fa613e48fa4e7e36be309784",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/candidate/unicode",
+      "sha": "ae48049ac9553c485e4afedd0578b9aaa40307dd",
+      "children": 7
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/historical",
+      "sha": "0fdb81e7e441fd2a7d2a2264c2360c704b51a78a",
+      "children": 1
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/integrated",
+      "sha": "ecd96158e8981f6d5d8c64fa83e7cc17a043da9f",
+      "children": 2
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/integrated/baseline",
+      "sha": "db6e3da17d1e188b114113896cb6d2d8d63f523f",
+      "children": 9
+    },
+    {
+      "path": "docs/receipts/lab-report-20261008/native-receiving/integrated/candidate",
+      "sha": "7d7af623cd00eaafb9ed6615b2107252a195b1d3",
+      "children": 9
+    },
+    {
+      "path": "docs/receiving",
+      "sha": "ea07e35f1d955a3695ae901ecd7d1e7c0a92708e",
+      "children": 14
+    },
+    {
+      "path": "docs/receiving/batch-output-failures-20261008-31a349052b90",
+      "sha": "2216bc4ecd31001d672a84e4fb9ef23951bb7837",
+      "children": 5
+    },
+    {
+      "path": "docs/receiving/branch-publication-49f845d0dece",
+      "sha": "af10fa4f75a15e608a120ac1a1751b2c100344d0",
+      "children": 10
+    },
+    {
+      "path": "docs/receiving/branch-publication-49f845d0dece/api-baseline",
+      "sha": "d8bc6da8c5096b893e766b2166366ca98a485a81",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/branch-publication-49f845d0dece/api-candidate",
+      "sha": "7ea55eb1c903143d84c13d12470ab2029a1f8d88",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/branch-publication-49f845d0dece/independent",
+      "sha": "13e47b71f990ac78a9890608e70d46b7c71c4b17",
+      "children": 9
+    },
+    {
+      "path": "docs/receiving/career-lab-comparison-49f845d0dece",
+      "sha": "3858a490ead4d159e0cfd09e7f24ae307b6a216a",
+      "children": 11
+    },
+    {
+      "path": "docs/receiving/checkpoint-portability-49f845d0dece",
+      "sha": "17933e509ede2cb62fd72bc88cc27bd6291cf16c",
+      "children": 5
+    },
+    {
+      "path": "docs/receiving/checkpoint-portability-49f845d0dece/baseline",
+      "sha": "5c15e72650a1d707538e17096c2f90874033b294",
+      "children": 7
+    },
+    {
+      "path": "docs/receiving/checkpoint-portability-49f845d0dece/candidate",
+      "sha": "357254d40a89ff336e914664f9abf42aefd0ccfe",
+      "children": 7
+    },
+    {
+      "path": "docs/receiving/checkpoint-replacement-ac386303dce2",
+      "sha": "b194b7211dc72b6712d0d0df7a2784d3f0d786ba",
+      "children": 8
+    },
+    {
+      "path": "docs/receiving/checkpoint-replacement-ac386303dce2/authored",
+      "sha": "4a10f0a81898e7d337835f172722f2aa07a8184d",
+      "children": 5
+    },
+    {
+      "path": "docs/receiving/checkpoint-replacement-ac386303dce2/composition-review",
+      "sha": "0a146198ae4e6123b7e4cda91748a01b36cae7de",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/checkpoint-replacement-ac386303dce2/publication-review",
+      "sha": "058ec5af4bb96c3824a12c06af9b797f32632bab",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/checkpoint-replacement-ac386303dce2/runtime_execution",
+      "sha": "db2ae7f67e57c1dcc29504a6afc9acc12dd1f92f",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/checkpoint-replacement-ac386303dce2/runtime_execution/qualified",
+      "sha": "22441cbc4bb5bb44f211788bd403a2f04b2119e9",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef",
+      "sha": "f6fd9513acdef4a8c4c93ff638a75c80359636b2",
+      "children": 7
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/baseline-browser",
+      "sha": "751dfc1de90cae37c3a03eaf2d69b2229470d2f8",
+      "children": 6
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser-fixed",
+      "sha": "b7bb8e7cb5fe004f529d0c66f544ddaad3735c57",
+      "children": 23
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/candidate-browser",
+      "sha": "58dbcb5f167ee28dd5756b2892b7693387806a53",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/current-e1",
+      "sha": "196876f6133002727aec1ec43a75befb8d801f04",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/evidence",
+      "sha": "172bf71240bee2175b611567294a9509d618078e",
+      "children": 33
+    },
+    {
+      "path": "docs/receiving/conditions-and-titles-5f566b5ec8ef/scripts",
+      "sha": "b1880595ccc940c58495e5794941f95ffeded57a",
+      "children": 7
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79",
+      "sha": "3bf0dccd925ed1673d2ea9bbb0ebcf46dd01c720",
+      "children": 14
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/author-205",
+      "sha": "bab4fb67c2e95a113d4bea9b701b75b9d454df29",
+      "children": 21
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/current-38291",
+      "sha": "87628219bb0ac59c70ab7a1659e823aaa3b64339",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/current-5670",
+      "sha": "bd8a5cd587342f2787002d5e5b0b8d8c626d914e",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/current-8d",
+      "sha": "5c73ca76f40c4570797437145d625360b2700455",
+      "children": 6
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/focused-and-compiler",
+      "sha": "ad4a9ad1073bf81d3bd41d6f8969fa00faa922e0",
+      "children": 4
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/historical-method-boundaries",
+      "sha": "19f153e5537bdf1fdeadd653abd7ed54458568b2",
+      "children": 14
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui",
+      "sha": "da62828412387f8ec933ac7880bfc72aac82bc85",
+      "children": 6
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui/accepted",
+      "sha": "25e544faafc31d7871fd619b93a4faac71719d83",
+      "children": 17
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui/methods",
+      "sha": "e53f7d6528e1548f661ad4fa699539736733d254",
+      "children": 4
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui/nonaccepting",
+      "sha": "4b0df9f7de06a0df18d7efea4b00da17ceeb9f0c",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui/nonaccepting/v1",
+      "sha": "991927d922e9590b088606f69cafb7f591775050",
+      "children": 5
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui/nonaccepting/v2",
+      "sha": "80aa06d90e8e2218f00ea3ba54d74d5f2b1f66ee",
+      "children": 5
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui/saved-native",
+      "sha": "a2140f8a155f48c4b8376a237819ba6441182c5f",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui/saved-native/.uma-sim",
+      "sha": "25de16b5dbe8ff444e2a19b53068cc2b96615750",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/independent-current-ui/saved-native/.uma-sim/library",
+      "sha": "9bf032dc5bde0ec7112131f2c2a8b0edbd98f5dd",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/inheritance-record-401c5d17da79/reviews",
+      "sha": "3948cc558141a6cac86470f5ab6f42491549ca68",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/mcp-career-controls-0378a7b6",
+      "sha": "d2d5cd60401e50f97b18386ff41d5caf95691de2",
+      "children": 41
+    },
+    {
+      "path": "docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z",
+      "sha": "69156504d9833806d9aca875c4a6dbbcf60184f3",
+      "children": 5
+    },
+    {
+      "path": "docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z/native-runs",
+      "sha": "7805f136574c46a9783858331efabe08f59793b2",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z/native-runs/review-QP0WYY",
+      "sha": "7894397f62d2b766641e1b4d3768ff7e112b9853",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z/native-runs/review-QP0WYY/.uma-sim",
+      "sha": "620e0f925e17386b7e6c22e5982a6a604208350b",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/mcp-career-controls-0378a7b6/root-independent-20261008T2020Z/native-runs/review-QP0WYY/.uma-sim/library",
+      "sha": "70e9834e5b2f7bec52249e1c06b03efbedc418e1",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/mcp-career-controls-scan-0378a7b6",
+      "sha": "e6c20bffcb4e7232949da112890e671a7f395b72",
+      "children": 6
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-20261008-9d2f71701d2e",
+      "sha": "c537ba7ff553f256c88bf044ce9f62ae4140d6d4",
+      "children": 14
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-20261008-9d2f71701d2e/peer",
+      "sha": "0998082752895499ed39d693f3590a1e6c027d27",
+      "children": 4
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-20261008-9d2f71701d2e/peer/id-guard",
+      "sha": "d06b258a8da2aaa5e62722b0219596fe7f9d5921",
+      "children": 4
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-20261008-9d2f71701d2e/peer/native-port",
+      "sha": "55a1c53cc757a9c24edcb937dbdfc17d101dfa67",
+      "children": 10
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-20261008-9d2f71701d2e/peer/payload-amendment",
+      "sha": "9ab4d73fe266e64f908bc11982f92ebc435eb5fb",
+      "children": 6
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-20261008-9d2f71701d2e/predecessor",
+      "sha": "a32377bce803c97d886ed509050e1b13f710df6b",
+      "children": 4
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2",
+      "sha": "167a35803ac91a1c0fc9ad026872542ac0a7dc70",
+      "children": 4
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2/main-b8-review",
+      "sha": "13191b2dd38d6413285efc8d9852b96ffab23bef",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2/runtime_execution",
+      "sha": "e6a01db6dcec895fe29f2fde6acee9c7282c2649",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2/runtime_execution/native-runs",
+      "sha": "a4f2fcb0c5d33c81d095fa58775a9dad6fc89564",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2/runtime_execution/native-runs/native-runs",
+      "sha": "10308cb8295ddbea490f5d771bc60e3803aabde7",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2/runtime_execution/native-runs/native-runs/review-cHPehW",
+      "sha": "1306b7f48d8d3991acd26f1837c6ac759f30abad",
+      "children": 5
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2/runtime_execution/native-runs/native-runs/review-cHPehW/.uma-sim",
+      "sha": "0bed8745a92168cd1327432ff399b7450b4c46d5",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2/runtime_execution/native-runs/native-runs/review-cHPehW/.uma-sim/lab",
+      "sha": "a50a08217bc12e43a698b0be4163be11910cdebf",
+      "children": 1
+    },
+    {
+      "path": "docs/receiving/mcp-career-lab-ac386303dce2/runtime_execution/native-runs/native-runs/review-cHPehW/.uma-sim/library",
+      "sha": "fd30e4a149374a8e94aeb973b93fd49eb4e92260",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/paired-batches-066deeadcc8b",
+      "sha": "e8775b5bc54ab2c3c5809634757def322cc738b9",
+      "children": 22
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be",
+      "sha": "3083d9899e23914d94c8da06930ec3e1d4c283aa",
+      "children": 29
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/baseline-native",
+      "sha": "19e6da6ea3b6a8db7594f040122f93ccefeca3bf",
+      "children": 4
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/candidate-browser-r2",
+      "sha": "45e9948329f3214065ab89d7333fadaeb22fc32e",
+      "children": 2
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/current-044",
+      "sha": "ae0b81b977d97866f51914f16dbf1771f1b632ff",
+      "children": 7
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/current-205",
+      "sha": "7da37c7b0cf7857f58e3d44fa9e6bf12cb28af74",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/current",
+      "sha": "189563cae24175c36f42b0773ebada486da74e5e",
+      "children": 5
+    },
+    {
+      "path": "docs/receiving/race-results-afe225d6c6be/independent",
+      "sha": "5ef040ced0e7c4984cc8f290946a9dfd8512d46e",
+      "children": 3
+    },
+    {
+      "path": "docs/receiving/training-inspection-87eaaf0fdf63",
+      "sha": "eb3f7cf0b02e30edfecfb053d301e10df17a8c22",
+      "children": 24
+    },
+    {
+      "path": "docs/verification",
+      "sha": "0c0e67be155b172c81325982628df1c889c56d96",
+      "children": 1
+    },
+    {
+      "path": "docs/verification/career-lab-integrity-20261008",
+      "sha": "5a646e1530244550c57071cf0fe4d434f71981c3",
+      "children": 13
+    },
+    {
+      "path": "knowledge",
+      "sha": "e39e17625fbd977af59a4914a778a24a1ff64bee",
+      "children": 7
+    },
+    {
+      "path": "knowledge/canonical",
+      "sha": "a703ea8811ef126fd3ce410a0c0a7e30aa6c6daa",
+      "children": 1
+    },
+    {
+      "path": "knowledge/canonical/by_kind",
+      "sha": "a9ad15e91aa4ba38624c51f93b5d5d6d0cb7f6ee",
+      "children": 8
+    },
+    {
+      "path": "knowledge/mechanics",
+      "sha": "31ea336d9b185de38e3dd8402ece8a96a382e32e",
+      "children": 10
+    },
+    {
+      "path": "knowledge/scenarios",
+      "sha": "bbfb14607c22ba1871f095cb9da7ca42d9f8df30",
+      "children": 4
+    },
+    {
+      "path": "knowledge/schema",
+      "sha": "234eb9832cdfc1d3a6a7078e569990537d90ee8e",
+      "children": 2
+    },
+    {
+      "path": "knowledge/validate",
+      "sha": "f7c989bfb2af439dfc6bc6d5e0b5d8141f51ed7c",
+      "children": 1
+    },
+    {
+      "path": "packages",
+      "sha": "0630a5a9b9a6f3d1e9d03ed18627de57be02c11c",
+      "children": 4
+    },
+    {
+      "path": "packages/training-demo",
+      "sha": "98d37e19f8fadf1bb76cc58aedcc40ed4e009725",
+      "children": 10
+    },
+    {
+      "path": "packages/training-demo/out",
+      "sha": "e7f8cbc3bbf22b86f2da54f2a55c9d1215e9b5bc",
+      "children": 2
+    },
+    {
+      "path": "packages/training-demo/src",
+      "sha": "803373401803661510ee7af81affa29c8558f1d1",
+      "children": 2
+    },
+    {
+      "path": "packages/training-demo/tests",
+      "sha": "136d72541e82bc0b53aa7f08ecbec5f235d7df90",
+      "children": 5
+    },
+    {
+      "path": "packages/uma-sim-cli",
+      "sha": "66771f4aeb822b6a66d530ea3616f049137048ef",
+      "children": 5
+    },
+    {
+      "path": "packages/uma-sim-cli/tests",
+      "sha": "1a84c721ab27d5e7419582b0f75c36485af32ce3",
+      "children": 4
+    },
+    {
+      "path": "packages/uma-sim-mcp",
+      "sha": "09a0256189f7634324153ad9278844442aef7e97",
+      "children": 5
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests",
+      "sha": "0761ea288b27b780dd82ec2e6e1fcaeee1ebd3f5",
+      "children": 10
+    },
+    {
+      "path": "packages/uma-sim-mcp/tests/helpers",
+      "sha": "e5cd173bf842902f504425a66e3ac91288322cb0",
+      "children": 2
+    },
+    {
+      "path": "packages/uma-sim-ui",
+      "sha": "0ef0f0281189d9e6afbee0db561de1fd5ac78cf2",
+      "children": 11
+    },
+    {
+      "path": "packages/uma-sim-ui/src",
+      "sha": "b08061fc2b25f2fc940c0e5efec84471ccb7ae88",
+      "children": 6
+    },
+    {
+      "path": "packages/uma-sim-ui/src/api",
+      "sha": "213a2563dd2089e6de98ac57490f81debcc50c5e",
+      "children": 3
+    },
+    {
+      "path": "packages/uma-sim-ui/src/components",
+      "sha": "0024f6d4cb43df1611a1c6bd58d9eda82fbf7356",
+      "children": 33
+    },
+    {
+      "path": "packages/uma-sim-ui/src/state",
+      "sha": "06191890dcd11de10c885f5e2025c65a316a89dc",
+      "children": 3
+    },
+    {
+      "path": "packages/uma-sim-ui/src/styles",
+      "sha": "07c1bb48dbc608e484054bd41503d5f86ffccce3",
+      "children": 3
+    },
+    {
+      "path": "packages/uma-sim-ui/test",
+      "sha": "cfc37f155e723e371a612fb86979fe073a8e7d5d",
+      "children": 6
+    },
+    {
+      "path": "packages/uma-sim-ui/tests",
+      "sha": "c65341e04250ef794c8ac6e3c5d08fa8c81d1e4e",
+      "children": 9
+    },
+    {
+      "path": "packages/uma-sim-ui/tests/receiving",
+      "sha": "52f50bb5415a6b4209ec5f7b92320a650e1ffa78",
+      "children": 5
+    },
+    {
+      "path": "research",
+      "sha": "3f8906277fd05c181cd1f181a5b06d9542b0bf7b",
+      "children": 50
+    },
+    {
+      "path": "scripts",
+      "sha": "b2dca74cf9b7cec0427cd95a37434564b9844850",
+      "children": 15
+    },
+    {
+      "path": "uma-race-core",
+      "sha": "40350211c784bfd3231a0e9a35506cc2b6baa6cf",
+      "children": 6
+    },
+    {
+      "path": "uma-race-core/src",
+      "sha": "28d1803df9ec2d5949242e6baa3ee09764a6a9fe",
+      "children": 14
+    },
+    {
+      "path": "uma-race-core/src/condition",
+      "sha": "8a880738fff70e3b00ba47dbee1d3e7681452ecb",
+      "children": 6
+    },
+    {
+      "path": "uma-race-core/tests",
+      "sha": "b43e827ca13117f9fb8b5e000c0a648b52016e3d",
+      "children": 12
+    },
+    {
+      "path": "uma-sim-core",
+      "sha": "e7d06ea6f457fe65cfb8d955238617d16371ff32",
+      "children": 9
+    },
+    {
+      "path": "uma-sim-core/examples",
+      "sha": "164707fe3e82c65e0c966f8e3d30bdd534250dd1",
+      "children": 10
+    },
+    {
+      "path": "uma-sim-core/examples/paired_batches",
+      "sha": "555366d7ca999b782935b6a7b0ef45293a20100f",
+      "children": 2
+    },
+    {
+      "path": "uma-sim-core/src",
+      "sha": "93c315483483a54e6aa79436b300a9eb886c5d3f",
+      "children": 31
+    },
+    {
+      "path": "uma-sim-core/src/bin",
+      "sha": "24f4a7ce541839da3f6285486ab992497cc94cf3",
+      "children": 3
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim",
+      "sha": "3f55efd259fc0a1fe66c4b3a199c29b2cbb0d4a7",
+      "children": 1
+    },
+    {
+      "path": "uma-sim-core/src/catalog",
+      "sha": "a7f887f9ac09de79b8c99b01c021dde9a8eb101c",
+      "children": 6
+    },
+    {
+      "path": "uma-sim-core/src/scenario",
+      "sha": "02d243fbe18f08bca1b9f962a17452659d18ad18",
+      "children": 9
+    },
+    {
+      "path": "uma-sim-core/src/scoring",
+      "sha": "8c59b4ca6c2e22928185ac978148ae599bb6e9f4",
+      "children": 12
+    },
+    {
+      "path": "uma-sim-core/tests",
+      "sha": "dccb644a7894aaea30a9cfda2e2399a8f9adc315",
+      "children": 66
+    },
+    {
+      "path": "uma-sim-core/tests/common",
+      "sha": "d3d34cabad2ecafabe33c74c7581294ffb4c0e76",
+      "children": 1
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures",
+      "sha": "c0e9b45125384cbfe37116890d4a852272368fbe",
+      "children": 31
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/cli_rest",
+      "sha": "c042fa4475bd0c51a3255719f895ee0f918541a7",
+      "children": 12
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/grand_live_replay",
+      "sha": "4b3901a33b7079086318cda81e4961132fedece0",
+      "children": 1
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin",
+      "sha": "b507be34c8dd69ff4b1d993c4b5ecd78f881c5f7",
+      "children": 2
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/golden",
+      "sha": "d2eb739fc5b23e508ee3c4322898423129de70ef",
+      "children": 1
+    },
+    {
+      "path": "uma-sim-core/tests/fixtures/kotlin/telemetry_replay",
+      "sha": "0615a442eb756ff0f65a9d8a4237be40aa7fb2fa",
+      "children": 3
+    },
+    {
+      "path": "verification",
+      "sha": "e062900a242742e07bd2c3b1e4850add4e00273e",
+      "children": 2
+    },
+    {
+      "path": "verification/career-log",
+      "sha": "ad663862c3bd111ea0807007bbfe3e50acfd4c0f",
+      "children": 8
+    },
+    {
+      "path": "verification/career-log/receiving-61749b-20261008",
+      "sha": "fb363870ee747962c1a0eaf0282572ed8397cb33",
+      "children": 14
+    },
+    {
+      "path": "verification/retained-log-export-61749b-20261008",
+      "sha": "4f7a811b71e0cdab6010ba146b4c3b54c7a8269d",
+      "children": 12
+    },
+    {
+      "path": "verification/retained-log-export-61749b-20261008/authored",
+      "sha": "39844856315658f0708f94306bc8d809ef510b6b",
+      "children": 16
+    },
+    {
+      "path": "verification/retained-log-export-61749b-20261008/authored/native-events-baseline",
+      "sha": "8f8cca5834fb581fb1a83c5d5f0723e467c9e0b8",
+      "children": 1
+    },
+    {
+      "path": "verification/retained-log-export-61749b-20261008/authored/native-events-candidate",
+      "sha": "3edf380c94b984f5b5f4205dec7eea83630107f7",
+      "children": 7
+    },
+    {
+      "path": "verification/retained-log-export-61749b-20261008/independent",
+      "sha": "97edd24c47d7b167564fb7d1d1fa0368a8743c95",
+      "children": 7
+    },
+    {
+      "path": "verification/retained-log-export-61749b-20261008/independent/native-dispatch-refusal",
+      "sha": "6baa349ac4cc4df9e41c60fe3d9c91d3e3785faf",
+      "children": 3
+    }
+  ],
+  "disposition": [
+    "PR118 atomic session writer and its four existing CLI error exits remain an explicit unmerged dependency.",
+    "Preserve current README and all current unrelated source/documents when composing.",
+    "The source match permits reuse of exact compiled dependency evidence; it is not a new whole-repository build, repository merge, installed adoption or acceptance of the pending local-policy repair.",
+    "Private55e3 setup/resume/batch and d98 target inspection require independent shared-CLI composition; their private native deltas were not included in this canonical-main comparison."
+  ]
+}

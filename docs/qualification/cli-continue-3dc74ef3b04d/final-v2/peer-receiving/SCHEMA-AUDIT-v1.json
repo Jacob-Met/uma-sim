@@ -1,0 +1,77 @@
+{
+  "actor": "hamon-3dc74ef3b04d-20261008/estate_coordination",
+  "complete_checkpoint_read": true,
+  "checkpoint_sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+  "checkpoint_bytes": 3355,
+  "rust_sources": {
+    "uma-sim-core/src/state.rs": "19c65a56d9cc6e2b192b623f9f3232546b8c9a744157bab36db91faffc990833",
+    "uma-sim-core/src/snapshot.rs": "95dcb1d92dacac6494a403cb9d39ef06b42e855aa22dfb3013f39c941c2f3e68"
+  },
+  "mappings": [
+    {
+      "json": "meta and state.meta",
+      "rust": "RunMeta, camelCase; seed:i64, scenario_id:String, deck_supports:Vec<String>",
+      "observed": "Equal objects; seed9007199254741123, scenarioIdunity, deckSupports[support:10001@speed:85]",
+      "assertion": "Exact structural equality retained across continuation"
+    },
+    {
+      "json": "settings",
+      "rust": "SimSettings, camelCase; speed_multiplier:i32; race_model:RaceModel",
+      "observed": {
+        "dialogueMode": "OFF",
+        "speedMultiplier": 2,
+        "allowDialogueAtHighSpeed": false,
+        "traceTelemetry": false,
+        "traceRng": true,
+        "raceModel": "stub"
+      },
+      "assertion": "Exact structural equality; speedMultiplier2 and raceModelstub despite child UMA_RACE_MODELphysics"
+    },
+    {
+      "json": "state.phase, turn, careerComplete",
+      "rust": "CareerState camelCase: phase:String, turn:i32, career_complete:bool",
+      "observed": {
+        "phase": "EVENT",
+        "turn": 4,
+        "careerComplete": false,
+        "pendingEventOptions": [
+          "Wit +10",
+          "Stamina +10"
+        ]
+      },
+      "assertion": "Real pending checkpoint then completed career with advanced turn"
+    },
+    {
+      "json": "state.deck.slots[].supportId",
+      "rust": "DeckSlot support_id:String, camelCase",
+      "observed": [
+        "support:10001"
+      ],
+      "assertion": "Exact ordered qualified-string identities and slot count retained; bond/facility may evolve"
+    },
+    {
+      "json": "state.log",
+      "rust": "CareerState.log:Vec<String>",
+      "observed_entries": 5,
+      "assertion": "List prefix equality, not string startswith"
+    },
+    {
+      "json": "rngSeed/rngCalls/rngState",
+      "rust": "RunSnapshot rng_seed:i64, rng_calls:u32, rng_state:Option<RngStateWords>",
+      "observed": {
+        "rngSeed_decimal": "9007199254741123",
+        "rngCalls": 12,
+        "rngState_keys": [
+          "x",
+          "y",
+          "z",
+          "w",
+          "v",
+          "addend"
+        ]
+      },
+      "assertion": "Python integer seed retained; calls and exact words advance; no whole-outcome equality"
+    }
+  ],
+  "prior_adapter_failures": "V1 assumed settings.speed; V2 assumed numeric support identity and had a latent string-log assumption. Raw negative receipts preserved. V3 uses the actual serialized schema without changing intended preservation requirements."
+}

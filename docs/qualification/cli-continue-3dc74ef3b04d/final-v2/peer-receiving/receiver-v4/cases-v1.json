@@ -1,0 +1,120 @@
+[
+  {
+    "name": "authored large-i64 unity pending checkpoint with support10001 and saved stub/speed2",
+    "pass": true,
+    "detail": {
+      "steps": 3,
+      "phase": "EVENT",
+      "turn": 4,
+      "checkpoint": {
+        "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+        "kind": "regular",
+        "inode": "6463322",
+        "device": "66306",
+        "mtime_ns": "1791503910804926495",
+        "mode": "0o664",
+        "bytes": 3355
+      },
+      "rng_seed_decimal": "9007199254741123",
+      "rng_calls": 12,
+      "prior_log_entries": 5,
+      "support_key_observed": "supportId",
+      "support_ids": [
+        "support:10001"
+      ],
+      "fixture_adapters": "Observed speedMultiplier, qualified string supportId and array-prefix log semantics; earlier receiver negatives preserved."
+    }
+  },
+  {
+    "name": "default continuation preserves checkpoint identity/settings/history and hard-linked backup",
+    "pass": true,
+    "detail": {
+      "turn_before": 4,
+      "turn_after": 72,
+      "seed_decimal": "9007199254741123",
+      "rng_calls_before": 12,
+      "rng_calls_after": 326,
+      "completed": true,
+      "meta_and_settings_retained": true,
+      "prior_log_prefix_retained": true,
+      "external_policy_invocations": 0,
+      "save": {
+        "sha256": "dae00c3269080a7e48934910ec470b51474243e3f8117c1739925004e91749cf",
+        "kind": "regular",
+        "inode": "6463329",
+        "device": "66306",
+        "mtime_ns": "1791503911515897916",
+        "mode": "0o664",
+        "bytes": 7256
+      },
+      "hardlink_backup_before_after": {
+        "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+        "kind": "regular",
+        "inode": "6463328",
+        "device": "66306",
+        "mtime_ns": "1791503910805544255",
+        "mode": "0o664",
+        "bytes": 3355
+      },
+      "replacement_inode_differs_from_backup": true
+    }
+  },
+  {
+    "name": "bot continuation preserves checkpoint settings/history and ignores external-policy environment",
+    "pass": true,
+    "detail": {
+      "turn_before": 4,
+      "turn_after": 72,
+      "seed_decimal": "9007199254741123",
+      "rng_calls_before": 12,
+      "rng_calls_after": 362,
+      "completed": true,
+      "meta_and_settings_retained": true,
+      "prior_log_prefix_retained": true,
+      "external_policy_invocations": 0,
+      "save": {
+        "sha256": "13452b9ec68fd70a85d561cfe100ab2e77f577b26194f759f306ae9cfd9ffbce",
+        "kind": "regular",
+        "inode": "6463334",
+        "device": "66306",
+        "mtime_ns": "1791503912187895148",
+        "mode": "0o664",
+        "bytes": 8006
+      }
+    }
+  },
+  {
+    "name": "read-only completed save is an exact byte inode mtime no-op",
+    "pass": true,
+    "detail": {
+      "before_after": {
+        "sha256": "dae00c3269080a7e48934910ec470b51474243e3f8117c1739925004e91749cf",
+        "kind": "regular",
+        "inode": "6463336",
+        "device": "66306",
+        "mtime_ns": "1791503912194865639",
+        "mode": "0o444",
+        "bytes": 7256
+      },
+      "stdout": "Saved career is already complete at turn 72; the save was not changed.\n",
+      "exact_noop": true
+    }
+  },
+  {
+    "name": "help and invalid continuation options finish before loading an owned FIFO",
+    "pass": true,
+    "detail": {
+      "variants": 7,
+      "all_parse_before_load": true,
+      "fifo_metadata": {
+        "kind": "fifo",
+        "inode": "6463370",
+        "device": "66306",
+        "mtime_ns": "1791503912713638302",
+        "mode": "0o600",
+        "bytes": 0
+      },
+      "owned_empty_fifo_removed_after_recording": true
+    }
+  }
+]

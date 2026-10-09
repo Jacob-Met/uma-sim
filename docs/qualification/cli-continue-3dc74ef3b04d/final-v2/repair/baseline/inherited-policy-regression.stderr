@@ -1,0 +1,8 @@
+
+thread 'inherited_external_policy_command_cannot_override_local_continuation' (2880351) panicked at /home/jacob/uma-continue-3dc74ef3b04d-local-policy/uma-sim-core/tests/cli_continue.rs:381:9:
+local --policy=bot invoked the inherited external policy: 
+thread 'main' (2881239) panicked at uma-sim-core/src/policy_external.rs:218:19:
+[external-policy] failed to start: policy server closed stdout
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

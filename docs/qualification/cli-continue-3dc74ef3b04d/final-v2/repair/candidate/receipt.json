@@ -1,0 +1,177 @@
+{
+  "schema": "hamon.uma_continue.local_policy_native.v1",
+  "phase": "candidate",
+  "started": "2026-10-08T23:53:28.173Z",
+  "source": "/home/jacob/uma-continue-3dc74ef3b04d-local-policy",
+  "method_sha256": "7fea52494431af481f3149939941f2a3aa348596b0bb6263ada6bcb37c0ba585",
+  "records": [
+    {
+      "label": "compile-cli",
+      "program": "/usr/bin/rustc",
+      "args": [
+        "--edition=2021",
+        "-C",
+        "debuginfo=0",
+        "-L",
+        "dependency=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps",
+        "--extern",
+        "uma_sim_core=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+        "--extern",
+        "serde_json=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+        "--extern",
+        "serde=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde-132e5c206af072e5.rlib",
+        "/home/jacob/uma-continue-3dc74ef3b04d-local-policy/uma-sim-core/src/bin/uma-sim.rs",
+        "-o",
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/candidate-uma-sim"
+      ],
+      "started": "2026-10-08T23:53:28.595Z",
+      "finished": "2026-10-08T23:53:33.428Z",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "compile-continue",
+      "program": "/usr/bin/rustc",
+      "args": [
+        "--edition=2021",
+        "-C",
+        "debuginfo=0",
+        "-L",
+        "dependency=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps",
+        "--extern",
+        "uma_sim_core=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+        "--extern",
+        "serde_json=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+        "--extern",
+        "serde=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde-132e5c206af072e5.rlib",
+        "--test",
+        "/home/jacob/uma-continue-3dc74ef3b04d-local-policy/uma-sim-core/tests/cli_continue.rs",
+        "-o",
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/continue-tests"
+      ],
+      "started": "2026-10-08T23:53:33.568Z",
+      "finished": "2026-10-08T23:53:39.252Z",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "continue-tests",
+      "program": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/continue-tests",
+      "args": [
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "started": "2026-10-08T23:53:39.255Z",
+      "finished": "2026-10-08T23:55:36.282Z",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "6931ce8c0f46d77c52b1f0c2351901d9a60cbd80de85af6de3fab66cc5268fd2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "compile-writer",
+      "program": "/usr/bin/rustc",
+      "args": [
+        "--edition=2021",
+        "-C",
+        "debuginfo=0",
+        "-L",
+        "dependency=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps",
+        "--extern",
+        "uma_sim_core=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+        "--extern",
+        "serde_json=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+        "--extern",
+        "serde=/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde-132e5c206af072e5.rlib",
+        "--test",
+        "/home/jacob/uma-continue-3dc74ef3b04d-local-policy/uma-sim-core/tests/cli_session_persistence.rs",
+        "-o",
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/writer-tests"
+      ],
+      "started": "2026-10-08T23:55:36.284Z",
+      "finished": "2026-10-08T23:55:38.383Z",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "writer-tests",
+      "program": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/writer-tests",
+      "args": [
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "started": "2026-10-08T23:55:38.383Z",
+      "finished": "2026-10-08T23:55:51.013Z",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout_sha256": "a8dc5f5ab203bda657aad048ce377d0273e6488bee15068e92b5619bd8cf6d55",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "ok": true,
+  "free_bytes": 690049024,
+  "required_bytes": 209715200,
+  "libraries": [
+    {
+      "name": "uma_sim_core",
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libuma_sim_core-865e3118938fe570.rlib",
+      "sha256": "d0dcf73a808cba8d53244463b94bd57e0c5b586cd11e7e7bfcd898ec86008f45",
+      "bytes": 18682714
+    },
+    {
+      "name": "serde_json",
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde_json-b3cb19963cc98e70.rlib",
+      "sha256": "b34ce1716ba3be9f8ab8f325d53fd5101f00626bb5ab3b7edbdabf368d32a93b",
+      "bytes": 2400590
+    },
+    {
+      "name": "serde",
+      "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/target/debug/deps/libserde-132e5c206af072e5.rlib",
+      "sha256": "ebb1f58637a049c1a6a07b220b36ec9538276b903784fb65bcb25f2befee7585",
+      "bytes": 936240
+    }
+  ],
+  "unchanged_component_files": 301,
+  "source_files": [
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "sha256": "4201e9d1928177f9fa15ea72fcdadec0e4b2eb5750bfd02be11dbc32dcff14af"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/continue_run.rs",
+      "sha256": "a8268730246e41088f614d10c94ecf40a2426d089cf55e4a305e8388dbefb448"
+    },
+    {
+      "path": "uma-sim-core/tests/cli_continue.rs",
+      "sha256": "47f0572cb8356f34a9d4ce17960db6bbf7c37ed23073343c872f0e78cf80b526"
+    },
+    {
+      "path": "docs/CLI_CONTINUE.md",
+      "sha256": "98b816dd7109fda662bb40e355a77df8b12d05d55c9bdc62232b987b46e264ac"
+    }
+  ],
+  "baseline_binary": {
+    "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+    "sha256": "db18c2878f4627ed14d247ed26e1e94327a3d14b6aadc600d407c3292f67ab4a",
+    "bytes": 25075392
+  },
+  "binary": {
+    "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/candidate-uma-sim",
+    "bytes": 25075520,
+    "sha256": "882cca7cec9081b715ff23b1eef2c79cb8da0facf2e3ef40f4ddf4238248605f"
+  },
+  "continue_test_result": "test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 117.01s",
+  "writer_test_result": "test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 12.62s",
+  "finished": "2026-10-08T23:55:51.150Z"
+}

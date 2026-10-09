@@ -1,0 +1,187 @@
+[
+  {
+    "label": "start-authored-career",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "start",
+      "--seed=9007199254741123",
+      "--scenario=unity",
+      "--race-model=stub",
+      "--speed=2",
+      "--dialogue=off",
+      "--deck=support:10001@speed:85",
+      "--trace-rng"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/authored-checkpoint",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE",
+      "UMA_POLICY_CMD",
+      "UMA_RACE_MODEL"
+    ],
+    "exit": 0,
+    "seconds": 0.3537296709837392,
+    "stdout": "--- State (turn 1) ---\nDate: Year 1, Month 6, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 0  SP: 0\nScenario: unity_rank_wit=1 unity_rank_stamina=1 unity_rank_power=1 unity_rank_guts=1 unity_rank_speed=1\n=== Year 1 Jun (Late), turn 1 ===\nChoices: race\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  {
+    "label": "fifo-parser-1",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "continue",
+      "--help"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/parser-fifo",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate",
+      "UMA_RACE_MODEL": "physics",
+      "UMA_POLICY_CMD": "/usr/bin/python3 /home/jacob/uma-continue-3dc74ef3b04d-root-receiving/harmless-policy-marker.py"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE"
+    ],
+    "exit": 0,
+    "seconds": 0.0014684279449284077,
+    "stdout": "Usage: uma-sim continue [--policy=default|bot]\nFinish the saved career in .uma-sim/session.json using its existing settings.\n",
+    "stderr": "",
+    "timed_out": false
+  },
+  {
+    "label": "fifo-parser-2",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "continue",
+      "--policy=external"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/parser-fifo",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate",
+      "UMA_RACE_MODEL": "physics",
+      "UMA_POLICY_CMD": "/usr/bin/python3 /home/jacob/uma-continue-3dc74ef3b04d-root-receiving/harmless-policy-marker.py"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE"
+    ],
+    "exit": 2,
+    "seconds": 0.0012497790157794952,
+    "stdout": "",
+    "stderr": "Usage: uma-sim continue [--policy=default|bot]\nOnly one local policy option is accepted; saved career settings are retained.\n",
+    "timed_out": false
+  },
+  {
+    "label": "fifo-parser-3",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "continue",
+      "--policy",
+      "bot"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/parser-fifo",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate",
+      "UMA_RACE_MODEL": "physics",
+      "UMA_POLICY_CMD": "/usr/bin/python3 /home/jacob/uma-continue-3dc74ef3b04d-root-receiving/harmless-policy-marker.py"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE"
+    ],
+    "exit": 2,
+    "seconds": 0.0010640090331435204,
+    "stdout": "",
+    "stderr": "Usage: uma-sim continue [--policy=default|bot]\nOnly one local policy option is accepted; saved career settings are retained.\n",
+    "timed_out": false
+  },
+  {
+    "label": "fifo-parser-4",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "continue",
+      "--policy=default",
+      "--policy=bot"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/parser-fifo",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate",
+      "UMA_RACE_MODEL": "physics",
+      "UMA_POLICY_CMD": "/usr/bin/python3 /home/jacob/uma-continue-3dc74ef3b04d-root-receiving/harmless-policy-marker.py"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE"
+    ],
+    "exit": 2,
+    "seconds": 0.0010358250001445413,
+    "stdout": "",
+    "stderr": "Usage: uma-sim continue [--policy=default|bot]\nOnly one local policy option is accepted; saved career settings are retained.\n",
+    "timed_out": false
+  },
+  {
+    "label": "fifo-parser-5",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "continue",
+      "--seed=1"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/parser-fifo",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate",
+      "UMA_RACE_MODEL": "physics",
+      "UMA_POLICY_CMD": "/usr/bin/python3 /home/jacob/uma-continue-3dc74ef3b04d-root-receiving/harmless-policy-marker.py"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE"
+    ],
+    "exit": 2,
+    "seconds": 0.00118231400847435,
+    "stdout": "",
+    "stderr": "Usage: uma-sim continue [--policy=default|bot]\nOnly one local policy option is accepted; saved career settings are retained.\n",
+    "timed_out": false
+  },
+  {
+    "label": "fifo-parser-6",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "continue",
+      "--race-model=physics"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/parser-fifo",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate",
+      "UMA_RACE_MODEL": "physics",
+      "UMA_POLICY_CMD": "/usr/bin/python3 /home/jacob/uma-continue-3dc74ef3b04d-root-receiving/harmless-policy-marker.py"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE"
+    ],
+    "exit": 2,
+    "seconds": 0.0010409950045868754,
+    "stdout": "",
+    "stderr": "Usage: uma-sim continue [--policy=default|bot]\nOnly one local policy option is accepted; saved career settings are retained.\n",
+    "timed_out": false
+  },
+  {
+    "label": "fifo-parser-7",
+    "command": [
+      "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+      "continue",
+      "--help",
+      "--policy=bot"
+    ],
+    "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/parser-fifo",
+    "explicit_environment": {
+      "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate",
+      "UMA_RACE_MODEL": "physics",
+      "UMA_POLICY_CMD": "/usr/bin/python3 /home/jacob/uma-continue-3dc74ef3b04d-root-receiving/harmless-policy-marker.py"
+    },
+    "unset_environment": [
+      "LLVM_PROFILE_FILE"
+    ],
+    "exit": 2,
+    "seconds": 0.0009726720163598657,
+    "stdout": "",
+    "stderr": "Usage: uma-sim continue [--policy=default|bot]\nOnly one local policy option is accepted; saved career settings are retained.\n",
+    "timed_out": false
+  }
+]

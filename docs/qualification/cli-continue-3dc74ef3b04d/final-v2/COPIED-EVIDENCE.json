@@ -1,0 +1,522 @@
+{
+  "schema": "hamon.uma_continue.exact_evidence_copy.v1",
+  "files": [
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/FINAL-RECEIVING-RECEIPT-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/FINAL-RECEIVING-RECEIPT-v1.json",
+      "bytes": 2058,
+      "sha256": "53c1f5d2cfce3282740be1dd62dc0f06ef6fcc6780b85a05c2b2f85535755341"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/FROZEN-V3-MANIFEST.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/FROZEN-V3-MANIFEST.json",
+      "bytes": 7146,
+      "sha256": "72a7e04c6e2130512ad7e90bfdd1ddb3a807ef1e9a8a16d38e6b2d614bec7ba2"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/LOCAL-POLICY-SOURCE-REVIEW-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/LOCAL-POLICY-SOURCE-REVIEW-v1.json",
+      "bytes": 3749,
+      "sha256": "03974994e5beecf07100866370f663138f505e3a0b2c89f11b8c3b83832cdf97"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/RECEIPT-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/RECEIPT-v1.json",
+      "bytes": 6546,
+      "sha256": "005ad8f1ff569e83967ff9e53a823378c17b8030fda6e03797c8abfc827e2f2f"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/REPAIRED-SOURCE-PINS-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/REPAIRED-SOURCE-PINS-v1.json",
+      "bytes": 1033,
+      "sha256": "068f5927f1c789f182567c438add5fc80c5123164157310d210613e408db998f"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/SCHEMA-AUDIT-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/SCHEMA-AUDIT-v1.json",
+      "bytes": 2893,
+      "sha256": "c9c794650eda8c383de1f8af0ee4bd6c8c035ea6659a8dcead699d43733cc9d7"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/V3-DISPOSITION.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/V3-DISPOSITION.json",
+      "bytes": 4180,
+      "sha256": "6f1156803b5a191aebcfd2df4bd5c9db5a846159683b569d0cd76d5287960722"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/authored-checkpoint/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/authored-checkpoint/.uma-sim/session.json",
+      "bytes": 3176,
+      "sha256": "c636d7a749b006c1cbbbf2f2020efb8f8d7a3e3ff6347fc836b8b138afcf7f2e"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/cases-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/cases-v1.json",
+      "bytes": 5123,
+      "sha256": "ebd1b5ee1b45e46608fb228fd88029d2987ca893b4e0515c9709e901fe9b86ae"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/commands-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/commands-v1.json",
+      "bytes": 6925,
+      "sha256": "ad30a5c03866a710127034f0e8ce2384511bcb3cd3c4053777f5de97e8667251"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/fifo-metadata-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/fifo-metadata-v1.json",
+      "bytes": 1846,
+      "sha256": "09a8ebc613c03bb240311bd61970790ef709f9c88985d3170496d2730d33c9d4"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/harmless-policy-marker.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/harmless-policy-marker.py",
+      "bytes": 164,
+      "sha256": "90a63f27f8c63159ee7ca204ba40109b18290d38a7eb347523d20c4ffae7feed"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/initial-observation.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/initial-observation.json",
+      "bytes": 701,
+      "sha256": "aedc5c144dc1c5fc69496c77c3ee3539bcd437f4f165d04de4399068ae3344b4"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/intake-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/intake-v1.json",
+      "bytes": 875,
+      "sha256": "c034551bbdf409ac43218dd7ce1597655c5a48dde18e0d24ab4d056b48a8487e"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/prepare-post-repair-v4.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/prepare-post-repair-v4.py",
+      "bytes": 4769,
+      "sha256": "a35510c47cf4ea8c7e1aa01fc82546b0cf982e0a2d7c659bec06935d1c7739c6"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receive-continue-v1.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py",
+      "bytes": 15845,
+      "sha256": "41ad97aad22fe5dc0e48470ed2682219eae28b79304b581da8cb2c63f339d80a"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/RECEIPT-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/RECEIPT-v1.json",
+      "bytes": 6773,
+      "sha256": "574084ec43d22cd634c2e40578ab45ff5f236a69d12b6e3a021622a9081ac157"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/REUSED-AUTHORED-START.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/REUSED-AUTHORED-START.json",
+      "bytes": 1481,
+      "sha256": "68378571f6a09acd1641ad1ead8a35c3c9a5d9cf4fbcb37d0cd9841f3a603c35"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/authored-checkpoint/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/authored-checkpoint/.uma-sim/session.json",
+      "bytes": 3355,
+      "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/cases-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/cases-v1.json",
+      "bytes": 5349,
+      "sha256": "8862504d630142137f360e71f1d76cc6d2e3fedeb4d0bc6347499b65be2899f6"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/commands-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/commands-v1.json",
+      "bytes": 8912,
+      "sha256": "a1e9539ffd0a0459a09b3f9d46cc677ad3487c736fd46216da1c171419afbfa0"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/fifo-metadata-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/fifo-metadata-v1.json",
+      "bytes": 1846,
+      "sha256": "05951556b8739e13ecf38852c99441f23bd434b2a97e18af510ce323686b733b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/harmless-policy-marker.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/harmless-policy-marker.py",
+      "bytes": 176,
+      "sha256": "4fae647beff24ee01852c79e26366851b4496dea284386719ce02c6fb1124108"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/initial-observation.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/initial-observation.json",
+      "bytes": 701,
+      "sha256": "aedc5c144dc1c5fc69496c77c3ee3539bcd437f4f165d04de4399068ae3344b4"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/intake-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/intake-v1.json",
+      "bytes": 875,
+      "sha256": "c034551bbdf409ac43218dd7ce1597655c5a48dde18e0d24ab4d056b48a8487e"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v2/receive-continue-v2.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/receive-continue-v2.py",
+      "bytes": 16237,
+      "sha256": "1babf45610c87320a0f80308c6cb5d6e9731231c0d208747463c89b5fe4f7293"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/RECEIPT-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/RECEIPT-v1.json",
+      "bytes": 7071,
+      "sha256": "72482ec222175a87e1d9f35008a1d8ccd5b5d9e439da68b9865258355ad09eab"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/REUSED-AUTHORED-CHECKPOINT.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/REUSED-AUTHORED-CHECKPOINT.json",
+      "bytes": 3785,
+      "sha256": "b894b06973f540e7fe2cd1689b14be58101ad1d816dd572b98d63a4a64ab4394"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/authored-checkpoint/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/authored-checkpoint/.uma-sim/session.json",
+      "bytes": 3355,
+      "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/cases-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/cases-v1.json",
+      "bytes": 5574,
+      "sha256": "bbe1eb7006a91b21e68a558b59f36abedaf7f530f930b9467dcb25388534dbb5"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/checkpoint-original.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/checkpoint-original.json",
+      "bytes": 3355,
+      "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/commands-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/commands-v1.json",
+      "bytes": 8632,
+      "sha256": "e1cea2b3d8b434c07c3c162953bd5cf9ca5b12ed4b09d3922358ea0d7b50ad1d"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/completed-readonly/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/completed-readonly/.uma-sim/session.json",
+      "bytes": 7256,
+      "sha256": "2fecc049924b71e6769d11107f1db1bdae24209d335cb732bf13a48a7fa572a5"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/continue-bot/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/continue-bot/.uma-sim/session.json",
+      "bytes": 3355,
+      "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/continue-default/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/continue-default/.uma-sim/session.json",
+      "bytes": 7256,
+      "sha256": "2fecc049924b71e6769d11107f1db1bdae24209d335cb732bf13a48a7fa572a5"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/continue-default/checkpoint-hardlink-backup.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/continue-default/checkpoint-hardlink-backup.json",
+      "bytes": 3355,
+      "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/external-policy-invoked.txt",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/external-policy-invoked.txt",
+      "bytes": 22,
+      "sha256": "bc69e87c39b560fda820ba20ac3e6ea8c0b6c280fde87f3bd35982fc85cb3650"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/fifo-metadata-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/fifo-metadata-v1.json",
+      "bytes": 1846,
+      "sha256": "114ca96388ccfee48ea9c97ba232cec0a296ae4353fe9ae2494bb93e740289a0"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/harmless-policy-marker.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/harmless-policy-marker.py",
+      "bytes": 176,
+      "sha256": "772c948a5a2795ad90a8743dd5e28535af36bcf1a9c96a1486ba6170c14d2efb"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/intake-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/intake-v1.json",
+      "bytes": 875,
+      "sha256": "c034551bbdf409ac43218dd7ce1597655c5a48dde18e0d24ab4d056b48a8487e"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v3/receive-continue-v3.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py",
+      "bytes": 15710,
+      "sha256": "b01b3358258c3e9cecb34844df2b300f55d982a096f1d9c028379ac47164ce37"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/METHOD-ADAPTER.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/METHOD-ADAPTER.json",
+      "bytes": 2032,
+      "sha256": "78c9f3bbfb1caed8f41560f29f627ac449500159cc40cd648f948cfda4476d8a"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/RECEIPT-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/RECEIPT-v1.json",
+      "bytes": 5860,
+      "sha256": "f81dab6ee8430d6f55cdee93190328c33c6917c82b0ad2878df537be3f529166"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/REUSED-AUTHORED-CHECKPOINT.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/REUSED-AUTHORED-CHECKPOINT.json",
+      "bytes": 3785,
+      "sha256": "b894b06973f540e7fe2cd1689b14be58101ad1d816dd572b98d63a4a64ab4394"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/authored-checkpoint/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/authored-checkpoint/.uma-sim/session.json",
+      "bytes": 3355,
+      "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/cases-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/cases-v1.json",
+      "bytes": 3665,
+      "sha256": "eeaf50a5df65db3eabbce6992777ac6702673b0fdbaa6cd6baa0f6dd3f9f3e34"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/checkpoint-original.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/checkpoint-original.json",
+      "bytes": 3355,
+      "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/commands-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/commands-v1.json",
+      "bytes": 8741,
+      "sha256": "8604b6042892d65b9536435e5adee182c32725096c6a26070d8b648813697464"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/completed-readonly/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/completed-readonly/.uma-sim/session.json",
+      "bytes": 7256,
+      "sha256": "dae00c3269080a7e48934910ec470b51474243e3f8117c1739925004e91749cf"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/continue-bot/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/continue-bot/.uma-sim/session.json",
+      "bytes": 8006,
+      "sha256": "13452b9ec68fd70a85d561cfe100ab2e77f577b26194f759f306ae9cfd9ffbce"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/continue-default/.uma-sim/session.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/continue-default/.uma-sim/session.json",
+      "bytes": 7256,
+      "sha256": "dae00c3269080a7e48934910ec470b51474243e3f8117c1739925004e91749cf"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/continue-default/checkpoint-hardlink-backup.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/continue-default/checkpoint-hardlink-backup.json",
+      "bytes": 3355,
+      "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/fifo-metadata-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/fifo-metadata-v1.json",
+      "bytes": 1846,
+      "sha256": "3fe3f54accc644864f0caeaf495ce90b8f777d7ddf9d6fa949bdb7e78b4263da"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/harmless-policy-marker.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/harmless-policy-marker.py",
+      "bytes": 176,
+      "sha256": "e72cbb36011607221a7f6c864f5ce122aed03ea8a482092d9ed9afefb97eb010"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/intake-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/intake-v1.json",
+      "bytes": 1511,
+      "sha256": "b954d7a7019d442b1064e03e3422addf7ba91ec9a48da635fd66e8262ec2e46e"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/receiver-v4/receive-continue-v4.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v4/receive-continue-v4.py",
+      "bytes": 16304,
+      "sha256": "38bd092e2a8005d54d1e3ee02f0637b5cef9446d33b3122130daeb1aae4f0bd8"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/seal-final-receiving-v1.py",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/seal-final-receiving-v1.py",
+      "bytes": 4200,
+      "sha256": "2f6b038b09efc1231403fdb34144d33406c55afd1df7f99a0d48762e905846cc"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/peer-receiving/FINAL-RECEIVING-MANIFEST-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/FINAL-RECEIVING-MANIFEST-v1.json",
+      "bytes": 11169,
+      "sha256": "168183c3ea4faf045fb373610ec83c74f6eeb796088ed2833a5d23eb3c9d2971"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/current-source/ROOT-CURRENT-SOURCE-COMPATIBILITY-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/ROOT-CURRENT-SOURCE-COMPATIBILITY-v1.json",
+      "bytes": 46795,
+      "sha256": "c2bfe51f798b77548e538cc085eb9821c78d9c129c14dba70b80eaf481c54513"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/current-source/verify-current-component-v1.mjs",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/verify-current-component-v1.mjs",
+      "bytes": 5026,
+      "sha256": "7ab0317188a00879c020bdcea025898fa3602780cd67ad782603119318f35682"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/current-source/current-main-tree-ac4a4c2.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/current-main-tree-ac4a4c2.json",
+      "bytes": 329509,
+      "sha256": "359134ca578c27a85b52946e6ca3aad0733da4e44a6071f808cc0cb8d503fc69"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/apply-local-policy-v1.mjs",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/apply-local-policy-v1.mjs",
+      "bytes": 2210,
+      "sha256": "c90c51a49c49bd4fc2808be26fcb7284ecbe9217ead52c8aad0986a16c00e8ca"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/local-policy-native-commit-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-native-commit-v1.json",
+      "bytes": 1465,
+      "sha256": "560fd8308fc29f8613f7715f94c0f61db577ee780d6dd82a3fe8faabbe850553"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/local-policy-product-patch-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-product-patch-v1.json",
+      "bytes": 7014,
+      "sha256": "69727d1e8c071ce73e808f4bc9c360c304bda367b5d12822ebadb5a9edecfb71"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/local-policy-source-repair-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-source-repair-v1.json",
+      "bytes": 1187,
+      "sha256": "af1b1e1dd288b663271dde0347a7aa4b06cde7badb289d54837f1a556363667b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/local-policy-test-patch-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-test-patch-v1.json",
+      "bytes": 13772,
+      "sha256": "b454202d1023214b7f5c4d762209b71675e746cd128ef5f2d38518206e31d9a1"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/qualify-local-policy-v1.mjs",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/qualify-local-policy-v1.mjs",
+      "bytes": 5792,
+      "sha256": "7fea52494431af481f3149939941f2a3aa348596b0bb6263ada6bcb37c0ba585"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/baseline/compile-regression.stderr",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/baseline/compile-regression.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/baseline/compile-regression.stdout",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/baseline/compile-regression.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/baseline/inherited-policy-regression.stderr",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/baseline/inherited-policy-regression.stderr",
+      "bytes": 553,
+      "sha256": "e1c47a65f6b0e700f24177f63437b9d33965dd86551380a0943046d8cf442097"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/baseline/inherited-policy-regression.stdout",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/baseline/inherited-policy-regression.stdout",
+      "bytes": 298,
+      "sha256": "3c9ee9f4626e51906eb1c1eb1f89efb2d6e2d4bec8480e6967af0c907b82dc0b"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/baseline/receipt.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/baseline/receipt.json",
+      "bytes": 4077,
+      "sha256": "ebc952cadf777822fc173f65608773a285ec284a41fcdb3a3c4b97d58719ca25"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/compile-cli.stderr",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/compile-cli.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/compile-cli.stdout",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/compile-cli.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/compile-continue.stderr",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/compile-continue.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/compile-continue.stdout",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/compile-continue.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/compile-writer.stderr",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/compile-writer.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/compile-writer.stdout",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/compile-writer.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/continue-tests.stderr",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/continue-tests.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/continue-tests.stdout",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/continue-tests.stdout",
+      "bytes": 1167,
+      "sha256": "6931ce8c0f46d77c52b1f0c2351901d9a60cbd80de85af6de3fab66cc5268fd2"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/receipt.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/receipt.json",
+      "bytes": 7377,
+      "sha256": "a2e8269324f2e3d783923c20ecd720704927827f4841f46e0fceacaf51d794db"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/writer-tests.stderr",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/writer-tests.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/repair/candidate/writer-tests.stdout",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/writer-tests.stdout",
+      "bytes": 705,
+      "sha256": "a8dc5f5ab203bda657aad048ce377d0273e6488bee15068e92b5619bd8cf6d55"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/prior-custody/HOLD-LOCAL-POLICY-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-handoff/HOLD-LOCAL-POLICY-v1.json",
+      "bytes": 2208,
+      "sha256": "765e299d7883594fdbe9364100e55e1513f7fe5fd71f6ae35fadb47a71d4dd2c"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/prior-custody/CURRENT-SOURCE-CUSTODY-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-handoff/CURRENT-SOURCE-CUSTODY-v1.json",
+      "bytes": 2665,
+      "sha256": "d68b348f34fb4cc06c1196327a25ae62e35732b35bc2e6de246e7db5ee909fb3"
+    },
+    {
+      "path": "docs/qualification/cli-continue-3dc74ef3b04d/final-v2/prior-custody/la7-custody-v1.json",
+      "original": "/home/jacob/uma-continue-3dc74ef3b04d-proof/la7-custody-v1.json",
+      "bytes": 7499,
+      "sha256": "60c8e2d06d1809801862a4527a105f46c0fb977f82d1367dd0dbc0b3475c513a"
+    }
+  ],
+  "nonregular_peer_paths": []
+}

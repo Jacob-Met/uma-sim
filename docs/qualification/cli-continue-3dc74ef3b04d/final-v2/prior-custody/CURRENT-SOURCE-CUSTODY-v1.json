@@ -1,0 +1,66 @@
+{
+  "schema": "hamon.uma_continue.hold_and_current_source_custody.v1",
+  "at": "2026-10-08 23:59:20 UTC",
+  "status": "ORIGINAL_CANDIDATE_HELD_PENDING_REPAIR_AND_INDEPENDENT_RECEIVING",
+  "hold": {
+    "native_path": "/home/jacob/uma-continue-3dc74ef3b04d-handoff/HOLD-LOCAL-POLICY-v1.json",
+    "la7_path": "C:\\Users\\minec\\hamon\\stage\\uma-continue-3dc74ef3b04d\\HOLD-LOCAL-POLICY-v1.json",
+    "sha256": "765e299d7883594fdbe9364100e55e1513f7fe5fd71f6ae35fadb47a71d4dd2c",
+    "native_mode": "0444",
+    "la7_read_only": true
+  },
+  "current_source": {
+    "native_stage": "/home/jacob/uma-continue-3dc74ef3b04d-handoff/current-source-v1",
+    "la7_stage": "C:\\Users\\minec\\hamon\\stage\\uma-continue-3dc74ef3b04d\\current-source-v1",
+    "archive_sha256": "61ed782eae546cc00269a2e34f5772976c8f0adfe6f22f0c1166288a2d77120b",
+    "archive_bytes": 82673,
+    "files": [
+      {
+        "name": "current-main-tree-ac4a4c2.json",
+        "bytes": 329509,
+        "sha256": "359134ca578c27a85b52946e6ca3aad0733da4e44a6071f808cc0cb8d503fc69"
+      },
+      {
+        "name": "ROOT-CURRENT-SOURCE-COMPATIBILITY-v1.json",
+        "bytes": 46795,
+        "sha256": "c2bfe51f798b77548e538cc085eb9821c78d9c129c14dba70b80eaf481c54513"
+      },
+      {
+        "name": "SHA256SUMS",
+        "bytes": 303,
+        "sha256": "979f1f167eee139d82cfd8d84a36a199264d1fe6150b4dce9f10d487908a513a"
+      },
+      {
+        "name": "verify-current-component-v1.mjs",
+        "bytes": 5026,
+        "sha256": "7ab0317188a00879c020bdcea025898fa3602780cd67ad782603119318f35682"
+      }
+    ],
+    "checks": [
+      "ROOT-CURRENT-SOURCE-COMPATIBILITY-v1.json: OK",
+      "verify-current-component-v1.mjs: OK",
+      "current-main-tree-ac4a4c2.json: OK"
+    ],
+    "hash_check_exit": 0,
+    "sha256sums_sha256": "979f1f167eee139d82cfd8d84a36a199264d1fe6150b4dce9f10d487908a513a"
+  },
+  "root_comparison_scope": {
+    "main": "ac4a4c2d4b4159bea1012e66cb79e76b6bc25d56",
+    "tree": "db51a8dbbfc4a193929eef5b0ddcee19965f6b15",
+    "reconstructed_git_trees": 260,
+    "component_paths": 302,
+    "exact_matches": 298,
+    "explicit_differences": [
+      "README.md",
+      "uma-sim-core/src/bin/uma-sim.rs",
+      "uma-sim-core/src/session.rs",
+      "uma-sim-core/tests/cli_session_persistence.rs"
+    ],
+    "not_whole_repository_build_or_merge_acceptance": true
+  },
+  "transport": "Existing RDC data text, certutil decode, exact archive SHA256, tar list, tar -xkzf unique subfolder, Git sha256sum --check and checksum-list own pin",
+  "method_executed_on_la7": false,
+  "original_v1_packet_modified": false,
+  "product_or_build_write": false,
+  "github_or_actions_operation": false
+}

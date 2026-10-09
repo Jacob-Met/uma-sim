@@ -1,0 +1,38 @@
+{
+  "actor": "hamon-3dc74ef3b04d-20261008/estate_coordination",
+  "status": "Independent source review and unchanged V4 receiving accepted",
+  "source_review_sha256": "03974994e5beecf07100866370f663138f505e3a0b2c89f11b8c3b83832cdf97",
+  "source_pins_sha256": "068f5927f1c789f182567c438add5fc80c5123164157310d210613e408db998f",
+  "candidate_binary": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/candidate-uma-sim",
+  "candidate_binary_sha256": "882cca7cec9081b715ff23b1eef2c79cb8da0facf2e3ef40f4ddf4238248605f",
+  "receiver_method_sha256": "38bd092e2a8005d54d1e3ee02f0637b5cef9446d33b3122130daeb1aae4f0bd8",
+  "receiver_receipt_sha256": "f81dab6ee8430d6f55cdee93190328c33c6917c82b0ad2878df537be3f529166",
+  "primary_assertions_byte_identical_to_v3": true,
+  "reused_event_checkpoint_sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+  "observed_process": {
+    "pid": 2924000,
+    "exit": 0,
+    "runtime_seconds": 2.35,
+    "explicit_completion_readback": true
+  },
+  "result": {
+    "groups_passed": 5,
+    "groups_failed": 0,
+    "actual_cli_commands": 10,
+    "external_marker_absent": true
+  },
+  "earlier_negatives": {
+    "v1": "Receiver speed field adapter error; immutable.",
+    "v2": "Receiver support ID type adapter error; immutable.",
+    "v3": "One confirmed external policy invocation from bot, exit101. Later completed/FIFO marker assertions contaminated by that same shared marker; original raw2/5 result remains immutable.",
+    "all_36_frozen_files_verified_unchanged": true,
+    "frozen_manifest_sha256": "72a7e04c6e2130512ad7e90bfdd1ddb3a807ef1e9a8a16d38e6b2d614bec7ba2"
+  },
+  "limits": [
+    "No cross-process full-outcome determinism claim.",
+    "No new authored start/step/reset in V4; actual prior transitions remain preserved.",
+    "No compiler, GitHub, network or product mutation by receiver.",
+    "Unix native receiver does not claim Windows Uma binary qualification.",
+    "Current-main ownership, unmerged writer dependency and publication gates remain separate."
+  ]
+}

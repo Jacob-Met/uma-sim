@@ -1,0 +1,83 @@
+{
+  "source": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/authored-checkpoint/.uma-sim/session.json",
+  "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+  "source_metadata": {
+    "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+    "kind": "regular",
+    "inode": "6453954",
+    "device": "66306",
+    "mtime_ns": "1791501674539074727",
+    "mode": "0o664",
+    "bytes": 3355
+  },
+  "original_start_commands": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/commands-v1.json",
+  "actual_step_commands": [
+    {
+      "label": "checkpoint-step-1",
+      "command": [
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+        "step",
+        "race"
+      ],
+      "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/authored-checkpoint",
+      "explicit_environment": {
+        "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate"
+      },
+      "unset_environment": [
+        "LLVM_PROFILE_FILE",
+        "UMA_POLICY_CMD",
+        "UMA_RACE_MODEL"
+      ],
+      "exit": 0,
+      "seconds": 0.43508221802767366,
+      "stdout": "--- State (turn 2) ---\nDate: Year 1, Month 7, Early\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 955  SP: 45\nScenario: unity_rank_stamina=1 unity_rank_guts=1 unity_rank_power=1 unity_rank_wit=1 unity_rank_speed=1\n\u2192 Year 1 Jul (Early), turn 2\nChoices: train_speed, train_stamina, train_power, train_guts, train_wit, rest, recreation, race\n",
+      "stderr": "",
+      "timed_out": false
+    },
+    {
+      "label": "checkpoint-step-2",
+      "command": [
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+        "step",
+        "rest"
+      ],
+      "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/authored-checkpoint",
+      "explicit_environment": {
+        "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate"
+      },
+      "unset_environment": [
+        "LLVM_PROFILE_FILE",
+        "UMA_POLICY_CMD",
+        "UMA_RACE_MODEL"
+      ],
+      "exit": 0,
+      "seconds": 0.41389945696573704,
+      "stdout": "--- State (turn 3) ---\nDate: Year 1, Month 7, Late\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 955  SP: 45\nScenario: unity_rank_guts=1 unity_rank_power=1 unity_rank_stamina=1 unity_rank_speed=1 unity_rank_wit=1\n\u2192 Year 1 Jul (Late), turn 3\nChoices: train_speed, train_stamina, train_power, train_guts, train_wit, rest, recreation, race\n",
+      "stderr": "",
+      "timed_out": false
+    },
+    {
+      "label": "checkpoint-step-3",
+      "command": [
+        "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+        "step",
+        "rest"
+      ],
+      "cwd": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v2/authored-checkpoint",
+      "explicit_environment": {
+        "UMA_REPO_ROOT": "/home/jacob/uma-continue-3dc74ef3b04d-candidate"
+      },
+      "unset_environment": [
+        "LLVM_PROFILE_FILE",
+        "UMA_POLICY_CMD",
+        "UMA_RACE_MODEL"
+      ],
+      "exit": 0,
+      "seconds": 0.4624145139241591,
+      "stdout": "--- State (turn 4) ---\nDate: Year 1, Month 8, Early\nStats: SPD 83 STA 88 POW 98 GUT 90 WIT 91\nEnergy: 100/100  Mood: Normal  Fans: 955  SP: 45\nScenario: unity_rank_guts=1 unity_rank_speed=1 unity_rank_power=1 unity_rank_wit=1 unity_rank_stamina=1\n\u2192 Year 1 Aug (Early), turn 4\nChoices: event_0, event_1\n",
+      "stderr": "",
+      "timed_out": false
+    }
+  ],
+  "boundary": "Raw checkpoint from actual race/rest/rest transitions following the successful high-seed authored start. No manufactured session or repeated start/reset."
+}

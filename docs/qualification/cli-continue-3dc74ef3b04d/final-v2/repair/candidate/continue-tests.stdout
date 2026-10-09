@@ -1,0 +1,21 @@
+
+running 16 tests
+test bot_continues_saved_career_with_its_existing_settings ... ok
+test continue_keeps_existing_session_symlink_and_publishes_to_its_target ... ok
+test corrupt_session_fails_without_replacing_evidence ... ok
+test default_continues_partial_saved_career_without_reset ... ok
+test failed_publication_preserves_prior_save_without_success_output ... ok
+test help_is_read_only_and_discoverable ... ok
+test inconsistent_saved_identity_is_rejected_without_overwrite ... ok
+test inherited_external_policy_command_cannot_override_local_continuation ... ok
+test invalid_options_fail_before_loading_or_creating_a_session ... ok
+test invalid_options_preserve_an_existing_career ... ok
+test local_bot_nonprogress_preserves_the_existing_save ... ok
+test missing_session_fails_without_creating_state ... ok
+test nonprogressing_saved_state_hits_bound_without_replacing_save ... ok
+test older_snapshot_without_rng_words_remains_loadable ... ok
+test terminal_session_is_an_exact_byte_preserving_noop ... ok
+test unknown_saved_scenario_does_not_silently_fall_back ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 117.01s
+

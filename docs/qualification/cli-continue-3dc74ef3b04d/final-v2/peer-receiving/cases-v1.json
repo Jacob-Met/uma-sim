@@ -1,0 +1,43 @@
+[
+  {
+    "name": "authored large-i64 unity pending checkpoint with support10001 and saved stub/speed2",
+    "pass": false,
+    "error": "Saved speed is not the requested2",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 106, in author_checkpoint\n    assertion(initial['settings'].get('speed') == 2, 'Saved speed is not the requested2')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Saved speed is not the requested2\n"
+  },
+  {
+    "name": "default continuation preserves checkpoint identity/settings/history and hard-linked backup",
+    "pass": false,
+    "error": "No admitted authored checkpoint; dependent case not run",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 225, in <lambda>\n    check('default continuation preserves checkpoint identity/settings/history and hard-linked backup', lambda: continuation('default', True))\n                                                                                                                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 135, in continuation\n    assertion(checkpoint is not None, 'No admitted authored checkpoint; dependent case not run')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No admitted authored checkpoint; dependent case not run\n"
+  },
+  {
+    "name": "bot continuation preserves checkpoint settings/history and ignores external-policy environment",
+    "pass": false,
+    "error": "No admitted authored checkpoint; dependent case not run",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 226, in <lambda>\n    check('bot continuation preserves checkpoint settings/history and ignores external-policy environment', lambda: continuation('bot'))\n                                                                                                                    ~~~~~~~~~~~~^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 135, in continuation\n    assertion(checkpoint is not None, 'No admitted authored checkpoint; dependent case not run')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No admitted authored checkpoint; dependent case not run\n"
+  },
+  {
+    "name": "read-only completed save is an exact byte inode mtime no-op",
+    "pass": false,
+    "error": "No completed default career; dependent case not run",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 177, in completed_noop\n    assertion(completed_default is not None, 'No completed default career; dependent case not run')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receive-continue-v1.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No completed default career; dependent case not run\n"
+  },
+  {
+    "name": "help and invalid continuation options finish before loading an owned FIFO",
+    "pass": true,
+    "detail": {
+      "variants": 7,
+      "all_parse_before_load": true,
+      "fifo_metadata": {
+        "kind": "fifo",
+        "inode": "6453800",
+        "device": "66306",
+        "mtime_ns": "1791501527486151809",
+        "mode": "0o600",
+        "bytes": 0
+      },
+      "owned_empty_fifo_removed_after_recording": true
+    }
+  }
+]

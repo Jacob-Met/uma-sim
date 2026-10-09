@@ -1,0 +1,107 @@
+{
+  "actor": "hamon-3dc74ef3b04d-20261008/estate_coordination",
+  "kind": "independent native Uma continuation receiving",
+  "binary_sha256": "db18c2878f4627ed14d247ed26e1e94327a3d14b6aadc600d407c3292f67ab4a",
+  "source_sha256": {
+    "uma-sim-core/src/bin/uma_sim/continue_run.rs": "26caa3ab1c6253f21a4ee4ea77c2a0e8df6de35c0635baf3f379c7a8d4feb17a",
+    "uma-sim-core/src/bin/uma-sim.rs": "4201e9d1928177f9fa15ea72fcdadec0e4b2eb5750bfd02be11dbc32dcff14af",
+    "docs/CLI_CONTINUE.md": "72a8ef899afaf4adec856361e9e75c73d80c1a4b547654b80cb3c116671f3e9a",
+    "uma-sim-core/tests/cli_continue.rs": "cc6f6a63990c6464f3fc0903785eb28e1d0466346124aa687aa5429e135104e7"
+  },
+  "expected_seed_decimal": "9007199254741123",
+  "integer_handling": "Python arbitrary-precision integers; raw checkpoint copies.",
+  "passed": 2,
+  "failed": 3,
+  "cases": [
+    {
+      "name": "authored large-i64 unity pending checkpoint with support10001 and saved stub/speed2",
+      "pass": true,
+      "detail": {
+        "steps": 3,
+        "phase": "EVENT",
+        "turn": 4,
+        "checkpoint": {
+          "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+          "kind": "regular",
+          "inode": "6454006",
+          "device": "66306",
+          "mtime_ns": "1791501780481945521",
+          "mode": "0o664",
+          "bytes": 3355
+        },
+        "rng_seed_decimal": "9007199254741123",
+        "rng_calls": 12,
+        "prior_log_entries": 5,
+        "support_key_observed": "supportId",
+        "support_ids": [
+          "support:10001"
+        ],
+        "fixture_adapters": "Observed speedMultiplier, qualified string supportId and array-prefix log semantics; earlier receiver negatives preserved."
+      }
+    },
+    {
+      "name": "default continuation preserves checkpoint identity/settings/history and hard-linked backup",
+      "pass": true,
+      "detail": {
+        "turn_before": 4,
+        "turn_after": 72,
+        "seed_decimal": "9007199254741123",
+        "rng_calls_before": 12,
+        "rng_calls_after": 326,
+        "completed": true,
+        "meta_and_settings_retained": true,
+        "prior_log_prefix_retained": true,
+        "external_policy_invocations": 0,
+        "save": {
+          "sha256": "2fecc049924b71e6769d11107f1db1bdae24209d335cb732bf13a48a7fa572a5",
+          "kind": "regular",
+          "inode": "6454013",
+          "device": "66306",
+          "mtime_ns": "1791501782781633368",
+          "mode": "0o664",
+          "bytes": 7256
+        },
+        "hardlink_backup_before_after": {
+          "sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+          "kind": "regular",
+          "inode": "6454012",
+          "device": "66306",
+          "mtime_ns": "1791501780492338345",
+          "mode": "0o664",
+          "bytes": 3355
+        },
+        "replacement_inode_differs_from_backup": true
+      }
+    },
+    {
+      "name": "bot continuation preserves checkpoint settings/history and ignores external-policy environment",
+      "pass": false,
+      "error": "Continuation failed: \nthread 'main' (2741272) panicked at uma-sim-core/src/policy_external.rs:218:19:\n[external-policy] failed to start: policy ping failed: {}\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 221, in <lambda>\n    check('bot continuation preserves checkpoint settings/history and ignores external-policy environment', lambda: continuation('bot'))\n                                                                                                                    ~~~~~~~~~~~~^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 141, in continuation\n    assertion(result['exit'] == 0 and not result['timed_out'], 'Continuation failed: ' + result['stderr'])\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Continuation failed: \nthread 'main' (2741272) panicked at uma-sim-core/src/policy_external.rs:218:19:\n[external-policy] failed to start: policy ping failed: {}\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n"
+    },
+    {
+      "name": "read-only completed save is an exact byte inode mtime no-op",
+      "pass": false,
+      "error": "No-op invoked external policy",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 182, in completed_noop\n    assertion(not marker.exists(), 'No-op invoked external policy')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No-op invoked external policy\n"
+    },
+    {
+      "name": "help and invalid continuation options finish before loading an owned FIFO",
+      "pass": false,
+      "error": "Parser invoked external policy",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 71, in check\n    detail = action()\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 210, in parse_before_fifo_load\n    assertion(not marker.exists(), 'Parser invoked external policy')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/receive-continue-v3.py\", line 21, in assertion\n    if not condition: raise AssertionError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Parser invoked external policy\n"
+    }
+  ],
+  "command_count": 10,
+  "artifact_bytes_before_receipt": 64552,
+  "artifact_budget_bytes": 2097152,
+  "compiler_invoked": false,
+  "network_invoked": false,
+  "product_mutations": false,
+  "policy_marker_exists": true,
+  "limits": [
+    "No equality claim for complete outcomes across fresh processes; native factor HashMap nondeterminism retained.",
+    "Continuation cases begin from copies of one real authored pending checkpoint.",
+    "The original author24-case suite was not rerun."
+  ]
+}

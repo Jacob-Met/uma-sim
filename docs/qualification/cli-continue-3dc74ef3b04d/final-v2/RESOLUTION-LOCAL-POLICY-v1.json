@@ -1,0 +1,28 @@
+{
+  "schema": "hamon.uma_continue.local_policy_resolution.v1",
+  "at": "2026-10-09T00:04:53.504Z",
+  "status": "REPAIRED_NATIVE_CANDIDATE_ACCEPTED_WITH_EXPLICIT_DEPENDENCY; PUBLICATION_HELD",
+  "resolved_product_commit": "9a59897c34efee3d9414e19b698213c8d73badff",
+  "resolved_binary": {
+    "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/local-policy-v1/candidate/candidate-uma-sim",
+    "bytes": 25075520,
+    "sha256": "882cca7cec9081b715ff23b1eef2c79cb8da0facf2e3ef40f4ddf4238248605f"
+  },
+  "original_product_commit": "6f6c325445cb0f52b193dbddf7c379ad0c3ffa43",
+  "original_binary": {
+    "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+    "sha256": "db18c2878f4627ed14d247ed26e1e94327a3d14b6aadc600d407c3292f67ab4a",
+    "bytes": 25075392
+  },
+  "original_binary_remains_held": true,
+  "native_gate_sha256": "a2e8269324f2e3d783923c20ecd720704927827f4841f46e0fceacaf51d794db",
+  "native_tests_passed": 26,
+  "independent_v4_receipt_sha256": "f81dab6ee8430d6f55cdee93190328c33c6917c82b0ad2878df537be3f529166",
+  "independent_final_receipt_sha256": "53c1f5d2cfce3282740be1dd62dc0f06ef6fcc6780b85a05c2b2f85535755341",
+  "independent_groups_passed": 5,
+  "independent_actual_commands": 10,
+  "current_source_receipt_sha256": "c2bfe51f798b77548e538cc085eb9821c78d9c129c14dba70b80eaf481c54513",
+  "required_writer_commit": "248c62564bb816630d6983ec5f733b965a8e1e43",
+  "full_current_main_merge_or_workspace_build_accepted": false,
+  "github_actions_deployment_authorized": false
+}

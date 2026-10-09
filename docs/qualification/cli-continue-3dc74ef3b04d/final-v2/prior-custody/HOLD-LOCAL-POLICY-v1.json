@@ -1,0 +1,28 @@
+{
+  "schema": "hamon.uma_continue.local_policy_hold.v1",
+  "at": "2026-10-08 23:53:21 UTC",
+  "status": "NOT_FINALLY_ACCEPTED: LOCAL_POLICY_REPAIR_UNDERWAY",
+  "preserved_packet_version": "v1-8c42784d",
+  "source_commit": "8c42784da16f8cfa82a131273342d75da7352bef",
+  "product_commit": "6f6c325445cb0f52b193dbddf7c379ad0c3ffa43",
+  "original_binary": {
+    "path": "/home/jacob/uma-continue-3dc74ef3b04d-proof/scoped-v2/candidate-uma-sim",
+    "sha256": "db18c2878f4627ed14d247ed26e1e94327a3d14b6aadc600d407c3292f67ab4a"
+  },
+  "independent_negative": {
+    "receipt_path": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/receiver-v3/RECEIPT-v1.json",
+    "receipt_sha256": "72482ec222175a87e1d9f35008a1d8ccd5b5d9e439da68b9865258355ad09eab",
+    "disposition_path": "/home/jacob/uma-continue-3dc74ef3b04d-root-receiving/V3-DISPOSITION.json",
+    "disposition_sha256": "6f1156803b5a191aebcfd2df4bd5c9db5a846159683b569d0cd76d5287960722",
+    "frozen_manifest_sha256": "72a7e04c6e2130512ad7e90bfdd1ddb3a807ef1e9a8a16d38e6b2d614bec7ba2",
+    "genuine_failure": "continue --policy=bot invoked the receiver-owned harmless UMA_POLICY_CMD marker, then panicked in policy_external.rs:218 with exit101; original checkpoint bytes remained intact",
+    "marker_sha256": "bc69e87c39b560fda820ba20ac3e6ea8c0b6c280fde87f3bd35982fc85cb3650",
+    "checkpoint_sha256": "aa52629d8c9b9367ca155f904e647116f47d9f273c709201c8534f84a6924a5b",
+    "limits": "Default preservation assertions passed. Later terminal/FIFO global-marker assertions were contaminated by the already-existing bot marker and do not establish extra invocations. Earlier schema-adapter negatives remain method failures."
+  },
+  "author_native_tests": "The 24 passing author cases remain historical evidence; they do not establish final acceptance after this independent defect.",
+  "repair_owner": "hamon-3dc74ef3b04d-20261008/root temporary execution",
+  "repair_boundary": "Explicit local-policy selection inside the new continuation command; preserve engine/formulas/writer and process environment; independently re-receive repaired frozen source before final v2",
+  "original_packet_unchanged": true,
+  "github_publication_and_actions_held": true
+}
