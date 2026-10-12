@@ -1,0 +1,26 @@
+{
+  "schema_version": "uma-calibration-input-witness/v1",
+  "parent": "cd852b3be106855524e789c42670d38f419d3bd5",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-I",
+    "-B",
+    "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-sim/scripts/calibrate_sim.py",
+    "--telemetry",
+    "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-lld8x_ri/misspelled-requested.jsonl",
+    "--runs-dir",
+    "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-lld8x_ri/runs"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"count\": 1,\n  \"median_error\": 0.0,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+  "stderr": "",
+  "requested_file_exists": false,
+  "input_hashes": {
+    "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-sim/scripts/calibrate_sim.py": "21a84801ca74e674ef7299b5c62ba3d3ec14fdeb5a2ece3c36c2d0ea2873618b",
+    "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-sim/research/training_gain_tables.json": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60",
+    "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-lld8x_ri/runs/unrelated-valid.jsonl": "5ced4a3180b83c6fc76b77910b3fca70edb9424ec7dffe8c0f0ba4ca74067aa4"
+  },
+  "source_and_inputs_unchanged": true,
+  "expected": "Exit 1 and no calibration JSON because the explicitly requested file is missing",
+  "actual": "Exit 0 with a passing one-record calibration from the unrelated runs directory"
+}

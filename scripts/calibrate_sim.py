@@ -230,8 +230,12 @@ def main() -> int:
                 },
                 "post": {"main_gain": round(predicted), "delta": {"stats": {"speed": round(predicted)}}},
             })
-    elif args.telemetry and args.telemetry.exists():
-        records = load_records_from_path(args.telemetry)
+    elif args.telemetry:
+        try:
+            records = load_records_from_path(args.telemetry)
+        except (OSError, UnicodeError) as exc:
+            print(f"Cannot read telemetry {args.telemetry}: {exc}", file=sys.stderr)
+            return 1
     elif args.runs_dir and args.runs_dir.exists():
         files = discover_telemetry_files(args.runs_dir)
         for path in files:

@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+"""Independent, literal CLI receiving course for explicit telemetry selection.
+
+This exercises source-selection behavior using synthetic JSONL. It does not
+validate UMA simulator accuracy or treat synthetic records as calibration data.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+import subprocess
+import sys
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def record(gain: int, *, level: int = 1, mood: str = "NORMAL",
+           supports: int = 0, growth: int = 0) -> dict:
+    return {
+        "type": "turn",
+        "decision": {"action": "TRAIN", "trainingStat": "speed"},
+        "pre": {"facilityLevels": {"speed": level}, "mood": mood,
+                "supportsOnFacility": supports, "umaGrowthPct": growth},
+        "post": {"delta": {"stats": {"speed": gain}}},
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", required=True, type=Path)
+    parser.add_argument("--work", required=True, type=Path)
+    parser.add_argument("--receipt", required=True, type=Path)
+    args = parser.parse_args()
+    root, work = args.root.resolve(), args.work.resolve()
+    work.mkdir(parents=False, exist_ok=False)
+    script = root / "scripts/calibrate_sim.py"
+    source_files = [script, root / "research/training_gain_tables.json"]
+    source_before = {str(p.relative_to(root)): digest(p) for p in source_files}
+    runs = work / "runs"
+    for rel, gain in [("one/telemetry/pass.jsonl", 10),
+                      ("sim-telemetry/export.jsonl", 12), ("flat.jsonl", 9)]:
+        path = runs / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(record(gain)) + "\n", encoding="utf-8")
+    files = {
+        "selected_fail": [record(n) for n in (7, 13, 20, 10)],
+        "selected_pass": [record(n) for n in (10, 12)],
+        "selected_mixed": [record(28, level=3, mood="GOOD", supports=2, growth=20)],
+        "empty": [],
+    }
+    for name, records in files.items():
+        (work / (name + ".jsonl")).write_text(
+            "".join(json.dumps(r) + "\n" for r in records), encoding="utf-8")
+    (work / "bad_utf8.jsonl").write_bytes(b"\xff\xfe not utf8\n")
+    (work / "parse_policy.jsonl").write_text(
+        "\n{broken json\n" + json.dumps(record(10)) + "\n\n" +
+        json.dumps({"type": "run_start"}) + "\n" +
+        json.dumps(record(12)) + "\n" + json.dumps(record(0)) + "\n",
+        encoding="utf-8")
+    (work / "selected_directory").mkdir()
+    (work / "dangling.jsonl").symlink_to(work / "missing_target.jsonl")
+    (work / "preserved-sentinel.txt").write_bytes(b"preexisting independent sentinel\n")
+    fixture_before = {str(p.relative_to(work)): digest(p)
+                      for p in work.rglob("*") if p.is_file() and not p.is_symlink()}
+
+    observations = {}
+    checks = []
+
+    def run(name: str, cli: list[str], *, permission_path: Path | None = None):
+        if permission_path is None:
+            command = [sys.executable, "-I", "-B", str(script), *cli]
+            kind = "actual isolated CLI and filesystem"
+        else:
+            # Inject only an OS read failure; argument parsing, error boundary,
+            # stdout delivery and process exit execute through actual main().
+            bootstrap = """import errno, pathlib, runpy, sys
+script, selected = sys.argv[1:3]
+old = pathlib.Path.read_text
+def read_text(path, *args, **kwargs):
+    if path == pathlib.Path(selected):
+        raise PermissionError(errno.EACCES, 'independent injected denial', str(path))
+    return old(path, *args, **kwargs)
+pathlib.Path.read_text = read_text
+sys.argv = [script, *sys.argv[3:]]
+runpy.run_path(script, run_name='__main__')
+"""
+            command = [sys.executable, "-I", "-B", "-c", bootstrap,
+                       str(script), str(permission_path), *cli]
+            kind = "actual CLI with injected Path.read_text PermissionError"
+        proc = subprocess.run(command, cwd=work, capture_output=True, timeout=15)
+        stdout = proc.stdout.decode("utf-8")
+        stderr = proc.stderr.decode("utf-8")
+        try:
+            result = json.loads(stdout)
+        except json.JSONDecodeError:
+            result = None
+        obs = {"exit_code": proc.returncode, "stdout": stdout, "stderr": stderr,
+               "result": result, "execution_kind": kind, "arguments": cli}
+        observations[name] = obs
+        return obs
+
+    def check(name: str, passed: bool, **detail):
+        checks.append({"name": name, "pass": bool(passed), **detail})
+
+    def failure_case(name: str, selected: Path, runs_dir: Path,
+                     *, permission=False):
+        obs = run(name, ["--telemetry", str(selected), "--runs-dir", str(runs_dir)],
+                  permission_path=selected if permission else None)
+        check(name, obs["exit_code"] == 1 and obs["stdout"] == "" and
+              "Cannot read telemetry" in obs["stderr"] and str(selected) in obs["stderr"]
+              and "Traceback" not in obs["stderr"])
+
+    failure_case("missing_selected_with_passing_fallback", work / "missing.jsonl", runs)
+    failure_case("missing_selected_without_fallback", work / "missing.jsonl", work / "absent_runs")
+    failure_case("dangling_selected_with_passing_fallback", work / "dangling.jsonl", runs)
+    failure_case("directory_selected", work / "selected_directory", runs)
+    failure_case("invalid_utf8_selected", work / "bad_utf8.jsonl", runs)
+    failure_case("injected_permission_denial", work / "selected_pass.jsonl", runs, permission=True)
+
+    selected_fail = run("selected_fail", ["--telemetry", str(work / "selected_fail.jsonl"), "--runs-dir", str(runs)])
+    expected_fail = {"count": 4, "median_error": 3.0, "pct_within_2": 0.25, "pass": False}
+    check("explicit_failure_result_from_selected_records", selected_fail["exit_code"] == 2
+          and selected_fail["result"] == expected_fail and selected_fail["stderr"] == "",
+          literal_expected=expected_fail)
+    selected_pass = run("selected_pass", ["--telemetry", str(work / "selected_pass.jsonl"), "--runs-dir", str(runs)])
+    expected_pass = {"count": 2, "median_error": 1.0, "pct_within_2": 1.0, "pass": True}
+    check("changed_selected_records_change_result", selected_pass["exit_code"] == 0
+          and selected_pass["result"] == expected_pass and selected_pass["stderr"] == ""
+          and selected_pass["stdout"] != selected_fail["stdout"], literal_expected=expected_pass)
+    mixed = run("selected_mixed", ["--telemetry", str(work / "selected_mixed.jsonl"), "--runs-dir", str(runs)])
+    mixed_result = mixed["result"] or {}
+    check("literal_level_mood_support_growth_arithmetic", mixed["exit_code"] == 0
+          and mixed_result.get("count") == 1 and mixed_result.get("pass") is True
+          and mixed_result.get("pct_within_2") == 1.0
+          and math.isclose(mixed_result.get("median_error", -1), 0.4592, abs_tol=1e-12)
+          and mixed["stderr"] == "", literal_prediction="14 * 1.4 * 1.1 * 1.1 * 1.2 = 28.4592",
+          literal_error="abs(28 - 28.4592) = 0.4592")
+    implicit = run("implicit_runs_scan", ["--runs-dir", str(runs)])
+    expected_implicit = {"count": 3, "median_error": 1.0, "pct_within_2": 1.0,
+                         "pass": True, "files_scanned": 3}
+    check("implicit_three_location_scan_preserved", implicit["exit_code"] == 0
+          and implicit["result"] == expected_implicit and implicit["stderr"] == "",
+          literal_expected=expected_implicit)
+    stub = run("stub_alone", ["--stub"])
+    check("stub_control", stub["exit_code"] == 0 and (stub["result"] or {}).get("count") == 5
+          and (stub["result"] or {}).get("pass") is True and stub["stderr"] == "")
+    for label, selected in [("missing", work / "missing.jsonl"), ("invalid_utf8", work / "bad_utf8.jsonl")]:
+        obs = run("stub_with_" + label, ["--stub", "--telemetry", str(selected), "--runs-dir", str(runs)])
+        check("stub_precedence_over_" + label, obs["exit_code"] == stub["exit_code"]
+              and obs["stdout"] == stub["stdout"] and obs["stderr"] == stub["stderr"])
+    empty = run("empty_selected", ["--telemetry", str(work / "empty.jsonl"), "--runs-dir", str(runs)])
+    check("empty_selected_preserves_zero_count_behavior", empty["exit_code"] == 0
+          and empty["result"] == {"count": 0, "median_error": None, "pct_within_2": 0.0, "pass": False}
+          and empty["stderr"] == "WARN: no training records with main_gain found\n")
+    parse = run("parse_policy", ["--telemetry", str(work / "parse_policy.jsonl"), "--runs-dir", str(runs)])
+    check("blank_malformed_nontraining_zero_gain_policy_preserved", parse["exit_code"] == 0
+          and parse["result"] == expected_pass and parse["stderr"] == "")
+
+    source_after = {str(p.relative_to(root)): digest(p) for p in source_files}
+    fixture_after = {str(p.relative_to(work)): digest(p)
+                     for p in work.rglob("*") if p.is_file() and not p.is_symlink()}
+    check("source_and_table_bytes_preserved", source_after == source_before)
+    check("all_fixture_and_sentinel_bytes_preserved", fixture_after == fixture_before)
+    result = {"schema": "uma-explicit-telemetry-independent-receiving/v1",
+              "receiver_sha256": digest(Path(__file__)), "source_root": str(root),
+              "source_before": source_before, "source_after": source_after,
+              "fixture_sha256": fixture_before, "checks": checks, "observations": observations,
+              "passed": sum(c["pass"] for c in checks), "total": len(checks),
+              "limits": ["All telemetry fixtures are synthetic.",
+                         "No Rust/native simulator or live calibration claim.",
+                         "PermissionError is injected and labeled separately from actual file controls."]}
+    with args.receipt.open("x", encoding="utf-8") as output:
+        json.dump(result, output, indent=2)
+        output.write("\n")
+    print(json.dumps({"passed": result["passed"], "total": result["total"],
+                      "failed": [c["name"] for c in checks if not c["pass"]],
+                      "receipt": str(args.receipt.resolve())}, indent=2))
+    return 0 if result["passed"] == result["total"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

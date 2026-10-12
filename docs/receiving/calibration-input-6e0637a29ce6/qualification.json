@@ -1,0 +1,124 @@
+{
+  "schema": "uma-calibration-explicit-input-qualification/v1",
+  "parent": "cd852b3be106855524e789c42670d38f419d3bd5",
+  "candidate_script_sha256": "d51d8d1bca70d414afd0527ce322ae7c26d9a5e817c63def92c49c4116c2aacd",
+  "original_script_sha256": "21a84801ca74e674ef7299b5c62ba3d3ec14fdeb5a2ece3c36c2d0ea2873618b",
+  "unchanged_tables_sha256": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60",
+  "maintained_test_sha256": "60eaed67707dc9f306929f22b4538157a64d53fae07ad5a6ce8ca7b87cc504f3",
+  "only_production_change": {
+    "path": "scripts/calibrate_sim.py",
+    "insertions": 6,
+    "deletions": 2,
+    "exact_inverse_restores_original": true
+  },
+  "runtime": "Python 3.12.14; standard-library subprocess/unittest receiving",
+  "author_original": {
+    "command": "python3 -I -B scripts/tests/test_calibration_input.py -v",
+    "source_root": "preserved original script/table layout with the exact final maintained test",
+    "returncode": 1,
+    "passed": 4,
+    "total": 8,
+    "stdout": "uma-calibration-original-final-tests.stdout",
+    "stderr": "uma-calibration-original-final-tests.stderr"
+  },
+  "author_candidate": {
+    "command": "python3 -I -B scripts/tests/test_calibration_input.py -v",
+    "returncode": 0,
+    "passed": 8,
+    "total": 8,
+    "stdout": "uma-calibration-candidate-tests.stdout",
+    "stderr": "uma-calibration-candidate-tests.stderr"
+  },
+  "independent": {
+    "original": "11/17",
+    "candidate": "17/17",
+    "decision": "approve",
+    "successful_original_process_parity": "All nine exit/stdout/stderr outcomes exact",
+    "permission_denial": "Explicitly injected Path.read_text PermissionError, not native OS permission evidence"
+  },
+  "validation": [
+    {
+      "command": [
+        "/workspace/scratch/6e0637a29ce6/portfolio_engineer/venv/bin/ruff",
+        "check",
+        "scripts/tests/test_calibration_input.py"
+      ],
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "scripts/calibrate_sim.py",
+        "scripts/tests/test_calibration_input.py",
+        "docs/CALIBRATION_INPUT.md"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "source_ownership": "Fresh exact calibrate_sim.py issue and PR searches empty; race telemetry #150, replay #151 and knowledge validation #142 owners retain their separate paths.",
+  "publication_route": "Source branch only, with [skip actions]. No PR because duplicate-pr-guard subscribes to pull_request_target opened/reopened. No main, tag, dispatch, hosted run or deployment requested. Fresh repository has_pages=false.",
+  "workflow_sha256": {
+    ".github/workflows/ci.yml": "9657948fde9a1813b3c94e48292299382d7ec8d596ccd8d5718ea475f01122f8",
+    ".github/workflows/duplicate-pr-guard.yml": "013275ef0daddb17bf4f871d844cf8d78c60ebbc94f438dfe8e8149eaf5e50ff",
+    ".github/workflows/gitleaks.yml": "c3fbca91885df919c64e29169a2253e6bfcade212935ec40fb101cb95cac4cb0",
+    ".github/workflows/pr-test-gate.yml": "79b1cb0d82d6083e34a4aa5e8e618d1cad6dbd92a118ad71b5098944ff616243",
+    ".github/workflows/release.yml": "6af60b0869bc59f238446582696a91fd96abbb3de4efa073efb0bee8f2bc1810",
+    ".github/workflows/rust-audit.yml": "15f9b8ee23d1696a0642ca37f40a754ef48b84988ae6a42793c85ce444dd804e",
+    ".github/workflows/workflow-yaml-lint.yml": "95e859a79c19dbab67f7a8d45b0a4badc6d4691f9673ee843773e858e4ee2570"
+  },
+  "retained_evidence": {
+    "review_uma_selection.py.txt": {
+      "bytes": 10349,
+      "sha256": "975872d8d42e70e21527bda12732bae89b902de5fbccf9b6c09561261ef47ac9"
+    },
+    "uma-calibration-candidate-tests.stderr": {
+      "bytes": 1276,
+      "sha256": "7d16ba93366e99f66d903ec22e140cb4c5c8627313f50bc485badc0f645d47f9"
+    },
+    "uma-calibration-candidate-tests.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "uma-calibration-original-final-tests.stderr": {
+      "bytes": 6968,
+      "sha256": "57b23a8b86fafced1d56b22521418c6e5d0232fb104daf0584292839e2382d0a"
+    },
+    "uma-calibration-original-final-tests.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "uma-calibration-original-witness.json": {
+      "bytes": 1526,
+      "sha256": "412c5cbd95c0d2fe1996bba24b89ab3750eb858f8a3fbbdd5682585e74575a89"
+    },
+    "uma-candidate-review.json": {
+      "bytes": 13804,
+      "sha256": "905567dd1c4f5cb73642a53f7529fc2e7939e9e590b9221dba9a46f2d1be407e"
+    },
+    "uma-independent-approval.json": {
+      "bytes": 2315,
+      "sha256": "b4e31ab2ad79e32fcf8ec0b215319300d87eff30084f3fa7e2657ffa6de8fa7b"
+    },
+    "uma-original-review.json": {
+      "bytes": 16234,
+      "sha256": "fccc8fe97f7dd4c63107b46fe2740b00b6d1cc3f5ad33d9aa687ebae5f4ef1e0"
+    },
+    "uma-review-contract.json": {
+      "bytes": 3026,
+      "sha256": "db3eda036b3556aadf1c31bbe6b46009f1019f542a03c3652f5d27f49dedda1c"
+    }
+  },
+  "limits": [
+    "Synthetic source-selection evidence does not establish simulator accuracy, physical calibration or observed native workload quality.",
+    "The CLI writes JSON to stdout and has no output-file option. Shell redirection is not transactional.",
+    "No Rust build, career simulation, browser or device execution was performed.",
+    "The existing empty-file, malformed-line, calibration math and threshold policies are preserved."
+  ]
+}

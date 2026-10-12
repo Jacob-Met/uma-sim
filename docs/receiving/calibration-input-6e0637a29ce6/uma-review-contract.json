@@ -1,0 +1,30 @@
+{
+  "schema": "uma-explicit-telemetry-independent-contract/v1",
+  "recorded_utc": "2026-10-12T21:54:00Z",
+  "original_commit": "cd852b3be106855524e789c42670d38f419d3bd5",
+  "original_script_sha256": "21a84801ca74e674ef7299b5c62ba3d3ec14fdeb5a2ece3c36c2d0ea2873618b",
+  "tables_sha256": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60",
+  "candidate_source_read_before_freeze": false,
+  "contract": "When --telemetry is explicitly supplied without --stub, use that file or return exit 1 with targeted stderr and no JSON stdout; do not silently scan --runs-dir. Preserve stub precedence, implicit discovery, successful selected-file result bytes, parsing and calibration math.",
+  "independent_cases": [
+    "Missing explicit file alongside three distinct passing fallback logs must exit 1 without JSON, identify selected telemetry and path, no traceback.",
+    "Missing explicit file without a fallback directory must yield the same targeted selected-file error.",
+    "Dangling symlink selected file must not switch to valid fallback logs.",
+    "Existing directory selected as telemetry must exit 1 with targeted stderr and no JSON or traceback.",
+    "Invalid UTF-8 selected file must exit 1 with targeted stderr and no JSON or traceback.",
+    "Controlled read PermissionError must exit 1 with targeted stderr and no JSON or traceback; distinguish this injected error seam from native filesystem evidence.",
+    "Explicit valid selected telemetry gains 7,13,20,10 at level1 NORMAL with no supports has count4, median_error3, pct_within_2=0.25, pass=false and exit2, even with passing fallback logs; stdout byte-identical to original.",
+    "Changed valid selected telemetry gains 10,12 at level1 NORMAL has count2, median_error1, pct_within_2=1, pass=true and exit0; stdout byte-identical to original.",
+    "Mixed level3 GOOD, two supports, 20% growth has literal prediction28.4592; gain28 expected error0.4592; original and candidate results remain identical within float tolerance.",
+    "Implicit --runs-dir scans nested telemetry, sim-telemetry and flat JSONL fixtures, returns count3, median_error1, pct_within_2=1, pass=true, files_scanned3 and exit0; stdout byte-identical to original.",
+    "--stub with missing or invalid selected file preserves precedence and original bytes, returns five synthetic records and exit0; no real-workload claim.",
+    "Valid empty selected file preserves original count0 JSON, warning and exit0 instead of switching to fallback.",
+    "Valid JSONL parse policy with blank and malformed lines remains unchanged.",
+    "Original source/table/input bytes and unrelated sentinel files unchanged by all controls."
+  ],
+  "limits": [
+    "No Rust or native simulator execution; pure Python calibration selection boundary.",
+    "Synthetic JSONL demonstrates selection and unchanged arithmetic, not model calibration validity or measured accuracy.",
+    "Calibration JSON is stdout; the CLI has no output-file option, so no invented output-file transaction claim."
+  ]
+}

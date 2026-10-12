@@ -1,0 +1,73 @@
+{
+  "schema": "uma-explicit-telemetry-independent-approval/v1",
+  "decision": "approve",
+  "source_sha256": "d51d8d1bca70d414afd0527ce322ae7c26d9a5e817c63def92c49c4116c2aacd",
+  "original_sha256": "21a84801ca74e674ef7299b5c62ba3d3ec14fdeb5a2ece3c36c2d0ea2873618b",
+  "tables_sha256": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60",
+  "original_cases_passed": 11,
+  "candidate_cases_passed": 17,
+  "total_cases": 17,
+  "successful_original_output_parity": [
+    {
+      "name": "selected_fail",
+      "pass": true
+    },
+    {
+      "name": "selected_pass",
+      "pass": true
+    },
+    {
+      "name": "selected_mixed",
+      "pass": true
+    },
+    {
+      "name": "implicit_runs_scan",
+      "pass": true
+    },
+    {
+      "name": "stub_alone",
+      "pass": true
+    },
+    {
+      "name": "stub_with_missing",
+      "pass": true
+    },
+    {
+      "name": "stub_with_invalid_utf8",
+      "pass": true
+    },
+    {
+      "name": "empty_selected",
+      "pass": true
+    },
+    {
+      "name": "parse_policy",
+      "pass": true
+    }
+  ],
+  "only_change_inverted_to_original_exactly": true,
+  "witness": "Original missing selected file with three unrelated passing fallback logs exits0 and prints count3/passtrue; revised source exits1, targets missing selected path and prints no JSON. Valid selected failing4-row JSONL retains exit2, median3, within2=0.25 even with passing fallback logs.",
+  "artifacts": [
+    {
+      "path": "uma-review-contract.json",
+      "sha256": "db3eda036b3556aadf1c31bbe6b46009f1019f542a03c3652f5d27f49dedda1c"
+    },
+    {
+      "path": "review_uma_selection.py",
+      "sha256": "975872d8d42e70e21527bda12732bae89b902de5fbccf9b6c09561261ef47ac9"
+    },
+    {
+      "path": "uma-original-review.json",
+      "sha256": "fccc8fe97f7dd4c63107b46fe2740b00b6d1cc3f5ad33d9aa687ebae5f4ef1e0"
+    },
+    {
+      "path": "uma-candidate-review.json",
+      "sha256": "905567dd1c4f5cb73642a53f7529fc2e7939e9e590b9221dba9a46f2d1be407e"
+    }
+  ],
+  "limits": [
+    "Synthetic evidence tests explicit-source admission and unchanged math, not simulator accuracy or actual calibration.",
+    "Read-denial test injects PermissionError; other invalid-path controls use actual filesystem and isolated process.",
+    "No browser/native simulator/Actions/Pages execution."
+  ]
+}

@@ -1,0 +1,65 @@
+test_directory_selection_has_a_targeted_read_error (__main__.CalibrationInputTests.test_directory_selection_has_a_targeted_read_error) ... FAIL
+test_empty_selected_file_does_not_use_passing_runs (__main__.CalibrationInputTests.test_empty_selected_file_does_not_use_passing_runs) ... ok
+test_implicit_runs_scan_retains_its_result_and_file_count (__main__.CalibrationInputTests.test_implicit_runs_scan_retains_its_result_and_file_count) ... ok
+test_missing_explicit_file_does_not_use_default_runs (__main__.CalibrationInputTests.test_missing_explicit_file_does_not_use_default_runs) ... FAIL
+test_missing_explicit_file_does_not_use_supplied_runs (__main__.CalibrationInputTests.test_missing_explicit_file_does_not_use_supplied_runs) ... FAIL
+test_non_utf8_selection_has_a_targeted_read_error (__main__.CalibrationInputTests.test_non_utf8_selection_has_a_targeted_read_error) ... FAIL
+test_stub_retains_precedence_over_both_file_selectors (__main__.CalibrationInputTests.test_stub_retains_precedence_over_both_file_selectors) ... ok
+test_valid_explicit_file_takes_priority_over_passing_runs (__main__.CalibrationInputTests.test_valid_explicit_file_takes_priority_over_passing_runs) ... ok
+
+======================================================================
+FAIL: test_directory_selection_has_a_targeted_read_error (__main__.CalibrationInputTests.test_directory_selection_has_a_targeted_read_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-source/scripts/tests/test_calibration_input.py", line 76, in test_directory_selection_has_a_targeted_read_error
+    self.assert_read_refusal(self.invoke("--telemetry", self.runs), self.runs)
+  File "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-source/scripts/tests/test_calibration_input.py", line 60, in assert_read_refusal
+    self.assertIn("Cannot read telemetry", result.stderr)
+AssertionError: 'Cannot read telemetry' not found in 'Traceback (most recent call last):\n  File "/tmp/uma-calibration-input-llxsqoje/scripts/calibrate_sim.py", line 257, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File "/tmp/uma-calibration-input-llxsqoje/scripts/calibrate_sim.py", line 234, in main\n    records = load_records_from_path(args.telemetry)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/tmp/uma-calibration-input-llxsqoje/scripts/calibrate_sim.py", line 151, in load_records_from_path\n    text = path.read_text(encoding="utf-8")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text\n    with self.open(mode=\'r\', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIsADirectoryError: [Errno 21] Is a directory: \'/tmp/uma-calibration-input-llxsqoje/runs\'\n'
+
+======================================================================
+FAIL: test_missing_explicit_file_does_not_use_default_runs (__main__.CalibrationInputTests.test_missing_explicit_file_does_not_use_default_runs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-source/scripts/tests/test_calibration_input.py", line 66, in test_missing_explicit_file_does_not_use_default_runs
+    self.assert_read_refusal(self.invoke("--telemetry", selected), selected)
+  File "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-source/scripts/tests/test_calibration_input.py", line 58, in assert_read_refusal
+    self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+AssertionError: 0 != 1 : {
+  "count": 3,
+  "median_error": 0.0,
+  "pct_within_2": 1.0,
+  "pass": true
+}
+
+
+======================================================================
+FAIL: test_missing_explicit_file_does_not_use_supplied_runs (__main__.CalibrationInputTests.test_missing_explicit_file_does_not_use_supplied_runs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-source/scripts/tests/test_calibration_input.py", line 71, in test_missing_explicit_file_does_not_use_supplied_runs
+    self.assert_read_refusal(
+  File "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-source/scripts/tests/test_calibration_input.py", line 58, in assert_read_refusal
+    self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+AssertionError: 0 != 1 : {
+  "count": 3,
+  "median_error": 0.0,
+  "pct_within_2": 1.0,
+  "pass": true
+}
+
+
+======================================================================
+FAIL: test_non_utf8_selection_has_a_targeted_read_error (__main__.CalibrationInputTests.test_non_utf8_selection_has_a_targeted_read_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-source/scripts/tests/test_calibration_input.py", line 81, in test_non_utf8_selection_has_a_targeted_read_error
+    self.assert_read_refusal(self.invoke("--telemetry", selected), selected)
+  File "/workspace/scratch/6e0637a29ce6/portfolio_engineer/uma-calibration-original-source/scripts/tests/test_calibration_input.py", line 60, in assert_read_refusal
+    self.assertIn("Cannot read telemetry", result.stderr)
+AssertionError: 'Cannot read telemetry' not found in 'Traceback (most recent call last):\n  File "/tmp/uma-calibration-input-a4fffyig/scripts/calibrate_sim.py", line 257, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File "/tmp/uma-calibration-input-a4fffyig/scripts/calibrate_sim.py", line 234, in main\n    records = load_records_from_path(args.telemetry)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/tmp/uma-calibration-input-a4fffyig/scripts/calibrate_sim.py", line 151, in load_records_from_path\n    text = path.read_text(encoding="utf-8")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1028, in read_text\n    return f.read()\n           ^^^^^^^^\n  File "<frozen codecs>", line 322, in decode\nUnicodeDecodeError: \'utf-8\' codec can\'t decode byte 0xff in position 0: invalid start byte\n'
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.398s
+
+FAILED (failures=4)

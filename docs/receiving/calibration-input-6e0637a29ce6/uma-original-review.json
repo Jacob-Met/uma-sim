@@ -1,0 +1,373 @@
+{
+  "schema": "uma-explicit-telemetry-independent-receiving/v1",
+  "receiver_sha256": "975872d8d42e70e21527bda12732bae89b902de5fbccf9b6c09561261ef47ac9",
+  "source_root": "/workspace/scratch/6e0637a29ce6/research_delivery/uma_original",
+  "source_before": {
+    "scripts/calibrate_sim.py": "21a84801ca74e674ef7299b5c62ba3d3ec14fdeb5a2ece3c36c2d0ea2873618b",
+    "research/training_gain_tables.json": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60"
+  },
+  "source_after": {
+    "scripts/calibrate_sim.py": "21a84801ca74e674ef7299b5c62ba3d3ec14fdeb5a2ece3c36c2d0ea2873618b",
+    "research/training_gain_tables.json": "6dc5973bfe504569a976791830fa2a41cc962aa7711c5f327b7e72f14fdd9d60"
+  },
+  "fixture_sha256": {
+    "selected_mixed.jsonl": "69dc52fb95861d4cb15485fab1ce32ebd45343f3d58eb27034c5a0945842d6e8",
+    "preserved-sentinel.txt": "10c8f8fdc5db8fafc95a9b74079090856e3c2701fd0cdbacb3033d16da80873b",
+    "bad_utf8.jsonl": "8e7a60bbe476d22919008cd5108e552d388f870ee099095c008245ff6b4932d7",
+    "selected_pass.jsonl": "95f9d306ba9253afc3a911fa370ffc2034449fe7714455c6e1b4acf45b3b4bec",
+    "parse_policy.jsonl": "600d733fe2059c22c6f7e0d6690c00c868736dc6aeb34adb76e09a65271dba22",
+    "empty.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "selected_fail.jsonl": "58d6a618d1a5a5e08b60df3f862b53731ccf1e519b5555ab433909b8436ff70f",
+    "runs/flat.jsonl": "909082bf2bb4d3360d92ff06fbae52fd17a06d4a2f7decccde2bbad97da9b7b1",
+    "runs/sim-telemetry/export.jsonl": "3f3e11e3a7d55ac93cd278d5998e1b4f38f76903d727d2a3d61169d9396013e4",
+    "runs/one/telemetry/pass.jsonl": "c3b441d362850d353b7b9c7a22bbb7941e91dc499fa64308af79771ecd6efaa7"
+  },
+  "checks": [
+    {
+      "name": "missing_selected_with_passing_fallback",
+      "pass": false
+    },
+    {
+      "name": "missing_selected_without_fallback",
+      "pass": false
+    },
+    {
+      "name": "dangling_selected_with_passing_fallback",
+      "pass": false
+    },
+    {
+      "name": "directory_selected",
+      "pass": false
+    },
+    {
+      "name": "invalid_utf8_selected",
+      "pass": false
+    },
+    {
+      "name": "injected_permission_denial",
+      "pass": false
+    },
+    {
+      "name": "explicit_failure_result_from_selected_records",
+      "pass": true,
+      "literal_expected": {
+        "count": 4,
+        "median_error": 3.0,
+        "pct_within_2": 0.25,
+        "pass": false
+      }
+    },
+    {
+      "name": "changed_selected_records_change_result",
+      "pass": true,
+      "literal_expected": {
+        "count": 2,
+        "median_error": 1.0,
+        "pct_within_2": 1.0,
+        "pass": true
+      }
+    },
+    {
+      "name": "literal_level_mood_support_growth_arithmetic",
+      "pass": true,
+      "literal_prediction": "14 * 1.4 * 1.1 * 1.1 * 1.2 = 28.4592",
+      "literal_error": "abs(28 - 28.4592) = 0.4592"
+    },
+    {
+      "name": "implicit_three_location_scan_preserved",
+      "pass": true,
+      "literal_expected": {
+        "count": 3,
+        "median_error": 1.0,
+        "pct_within_2": 1.0,
+        "pass": true,
+        "files_scanned": 3
+      }
+    },
+    {
+      "name": "stub_control",
+      "pass": true
+    },
+    {
+      "name": "stub_precedence_over_missing",
+      "pass": true
+    },
+    {
+      "name": "stub_precedence_over_invalid_utf8",
+      "pass": true
+    },
+    {
+      "name": "empty_selected_preserves_zero_count_behavior",
+      "pass": true
+    },
+    {
+      "name": "blank_malformed_nontraining_zero_gain_policy_preserved",
+      "pass": true
+    },
+    {
+      "name": "source_and_table_bytes_preserved",
+      "pass": true
+    },
+    {
+      "name": "all_fixture_and_sentinel_bytes_preserved",
+      "pass": true
+    }
+  ],
+  "observations": {
+    "missing_selected_with_passing_fallback": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 3,\n  \"median_error\": 1.0,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 3,
+        "median_error": 1.0,
+        "pct_within_2": 1.0,
+        "pass": true
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/missing.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "missing_selected_without_fallback": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "No telemetry provided; use --telemetry, --runs-dir, or --stub\n",
+      "result": null,
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/missing.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/absent_runs"
+      ]
+    },
+    "dangling_selected_with_passing_fallback": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 3,\n  \"median_error\": 1.0,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 3,
+        "median_error": 1.0,
+        "pct_within_2": 1.0,
+        "pass": true
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/dangling.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "directory_selected": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 257, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 234, in main\n    records = load_records_from_path(args.telemetry)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 151, in load_records_from_path\n    text = path.read_text(encoding=\"utf-8\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIsADirectoryError: [Errno 21] Is a directory: '/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/selected_directory'\n",
+      "result": null,
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/selected_directory",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "invalid_utf8_selected": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 257, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 234, in main\n    records = load_records_from_path(args.telemetry)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 151, in load_records_from_path\n    text = path.read_text(encoding=\"utf-8\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1028, in read_text\n    return f.read()\n           ^^^^^^^^\n  File \"<frozen codecs>\", line 322, in decode\nUnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte\n",
+      "result": null,
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/bad_utf8.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "injected_permission_denial": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 10, in <module>\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 257, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 234, in main\n    records = load_records_from_path(args.telemetry)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/6e0637a29ce6/research_delivery/uma_original/scripts/calibrate_sim.py\", line 151, in load_records_from_path\n    text = path.read_text(encoding=\"utf-8\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<string>\", line 6, in read_text\nPermissionError: [Errno 13] independent injected denial: '/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/selected_pass.jsonl'\n",
+      "result": null,
+      "execution_kind": "actual CLI with injected Path.read_text PermissionError",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/selected_pass.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "selected_fail": {
+      "exit_code": 2,
+      "stdout": "{\n  \"count\": 4,\n  \"median_error\": 3.0,\n  \"pct_within_2\": 0.25,\n  \"pass\": false\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 4,
+        "median_error": 3.0,
+        "pct_within_2": 0.25,
+        "pass": false
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/selected_fail.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "selected_pass": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 2,\n  \"median_error\": 1.0,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 2,
+        "median_error": 1.0,
+        "pct_within_2": 1.0,
+        "pass": true
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/selected_pass.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "selected_mixed": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 1,\n  \"median_error\": 0.45919999999999916,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 1,
+        "median_error": 0.45919999999999916,
+        "pct_within_2": 1.0,
+        "pass": true
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/selected_mixed.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "implicit_runs_scan": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 3,\n  \"median_error\": 1.0,\n  \"pct_within_2\": 1.0,\n  \"pass\": true,\n  \"files_scanned\": 3\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 3,
+        "median_error": 1.0,
+        "pct_within_2": 1.0,
+        "pass": true,
+        "files_scanned": 3
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "stub_alone": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 5,\n  \"median_error\": 0.3999999999999986,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 5,
+        "median_error": 0.3999999999999986,
+        "pct_within_2": 1.0,
+        "pass": true
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--stub"
+      ]
+    },
+    "stub_with_missing": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 5,\n  \"median_error\": 0.3999999999999986,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 5,
+        "median_error": 0.3999999999999986,
+        "pct_within_2": 1.0,
+        "pass": true
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--stub",
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/missing.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "stub_with_invalid_utf8": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 5,\n  \"median_error\": 0.3999999999999986,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 5,
+        "median_error": 0.3999999999999986,
+        "pct_within_2": 1.0,
+        "pass": true
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--stub",
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/bad_utf8.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "empty_selected": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 0,\n  \"median_error\": null,\n  \"pct_within_2\": 0.0,\n  \"pass\": false\n}\n",
+      "stderr": "WARN: no training records with main_gain found\n",
+      "result": {
+        "count": 0,
+        "median_error": null,
+        "pct_within_2": 0.0,
+        "pass": false
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/empty.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    },
+    "parse_policy": {
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 2,\n  \"median_error\": 1.0,\n  \"pct_within_2\": 1.0,\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "result": {
+        "count": 2,
+        "median_error": 1.0,
+        "pct_within_2": 1.0,
+        "pass": true
+      },
+      "execution_kind": "actual isolated CLI and filesystem",
+      "arguments": [
+        "--telemetry",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/parse_policy.jsonl",
+        "--runs-dir",
+        "/workspace/scratch/6e0637a29ce6/research_delivery/uma-original-receiving/runs"
+      ]
+    }
+  },
+  "passed": 11,
+  "total": 17,
+  "limits": [
+    "All telemetry fixtures are synthetic.",
+    "No Rust/native simulator or live calibration claim.",
+    "PermissionError is injected and labeled separately from actual file controls."
+  ]
+}
