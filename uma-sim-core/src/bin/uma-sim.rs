@@ -137,6 +137,10 @@ fn parse_flags(args: &[String]) -> CliFlags {
                 .filter(|s| !s.is_empty())
                 .collect();
         } else if let Some(v) = arg.strip_prefix("--policy=") {
+            if !matches!(v, "default" | "bot" | "external") {
+                eprintln!("Error: unknown policy '{v}'; expected one of: default, bot, external");
+                std::process::exit(2);
+            }
             f.policy = v.to_string();
         } else if let Some(v) = arg.strip_prefix("--race-model=") {
             // Reject unknown race models loudly instead of silently flipping
