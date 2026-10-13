@@ -1,0 +1,390 @@
+{
+  "schema": "uma-html-independent-oracle/1",
+  "native_basis": "cd852b3be106855524e789c42670d38f419d3bd5",
+  "native_blob": "d083c65c64053a87da11a809de83d04184cc393b",
+  "historical_study": "eb4f7de067824ed24818d93d5fdca87d3818a2da",
+  "mixed": {
+    "format": "uma-sim.paired-batches.v1",
+    "direction": "input_minus_baseline",
+    "identity_fields": [
+      "scenario",
+      "trainee",
+      "seed"
+    ],
+    "summary": {
+      "count": 14,
+      "wins": 6,
+      "ties": 3,
+      "losses": 5,
+      "mean_score_delta": 0.35714285714285715,
+      "median_score_delta": 0.0,
+      "min_score_delta": -4294967295,
+      "max_score_delta": 4294967295,
+      "population_stddev_score_delta": 1623345050.2465413
+    },
+    "comparisons": [
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": -9223372036854775808,
+        "baseline_score": -2147483648,
+        "input_score": 2147483647,
+        "score_delta": 4294967295,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": -9007199254740993,
+        "baseline_score": 2147483647,
+        "input_score": -2147483648,
+        "score_delta": -4294967295,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": -3,
+        "baseline_score": 0,
+        "input_score": 0,
+        "score_delta": 0,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": -2,
+        "baseline_score": 100,
+        "input_score": 110,
+        "score_delta": 10,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": -1,
+        "baseline_score": 100,
+        "input_score": 90,
+        "score_delta": -10,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": 0,
+        "baseline_score": 20,
+        "input_score": 30,
+        "score_delta": 10,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": 1,
+        "baseline_score": 20,
+        "input_score": 10,
+        "score_delta": -10,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": 2,
+        "baseline_score": 0,
+        "input_score": 1,
+        "score_delta": 1,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": 3,
+        "baseline_score": 0,
+        "input_score": -1,
+        "score_delta": -1,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": 9007199254740992,
+        "baseline_score": 7,
+        "input_score": 7,
+        "score_delta": 0,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": 9007199254740993,
+        "baseline_score": 90,
+        "input_score": 100,
+        "score_delta": 10,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "URA <b>literal</b>&雪",
+        "trainee": "Special \"Week\"\t#1",
+        "seed": 9223372036854775807,
+        "baseline_score": 90,
+        "input_score": 80,
+        "score_delta": -10,
+        "baseline_grade": "F",
+        "input_grade": "A\"&<"
+      },
+      {
+        "scenario": "ura",
+        "trainee": "Line\r\nTwo\u0000end",
+        "seed": -7,
+        "baseline_score": 0,
+        "input_score": 0,
+        "score_delta": 0,
+        "baseline_grade": "F",
+        "input_grade": "F"
+      },
+      {
+        "scenario": "Ω track",
+        "trainee": "=literal+1",
+        "seed": 7,
+        "baseline_score": 100,
+        "input_score": 105,
+        "score_delta": 5,
+        "baseline_grade": "B",
+        "input_grade": "A"
+      }
+    ]
+  },
+  "identity_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "delta_desc": [
+    0,
+    3,
+    5,
+    10,
+    13,
+    7,
+    2,
+    9,
+    12,
+    8,
+    4,
+    6,
+    11,
+    1
+  ],
+  "delta_asc": [
+    1,
+    4,
+    6,
+    11,
+    8,
+    2,
+    9,
+    12,
+    7,
+    13,
+    3,
+    5,
+    10,
+    0
+  ],
+  "absolute_delta": [
+    0,
+    1,
+    3,
+    4,
+    5,
+    6,
+    10,
+    11,
+    13,
+    7,
+    8,
+    2,
+    9,
+    12
+  ],
+  "wins": [
+    0,
+    3,
+    5,
+    7,
+    10,
+    13
+  ],
+  "ties": [
+    2,
+    9,
+    12
+  ],
+  "losses": [
+    1,
+    4,
+    6,
+    8,
+    11
+  ],
+  "searches": {
+    "LITERAL": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13
+    ],
+    "Ω": [
+      13
+    ],
+    "no-such-row-596c": []
+  },
+  "malformed_cases": [
+    {
+      "name": "wrong-format",
+      "file": "wrong-format.json"
+    },
+    {
+      "name": "wrong-direction",
+      "file": "wrong-direction.json"
+    },
+    {
+      "name": "wrong-identity-fields",
+      "file": "wrong-identity-fields.json"
+    },
+    {
+      "name": "unknown-top-field",
+      "file": "unknown-top-field.json"
+    },
+    {
+      "name": "unknown-summary-field",
+      "file": "unknown-summary-field.json"
+    },
+    {
+      "name": "unknown-row-field",
+      "file": "unknown-row-field.json"
+    },
+    {
+      "name": "empty-rows",
+      "file": "empty-rows.json"
+    },
+    {
+      "name": "bool-seed",
+      "file": "bool-seed.json"
+    },
+    {
+      "name": "float-seed",
+      "file": "float-seed.json"
+    },
+    {
+      "name": "large-seed",
+      "file": "large-seed.json"
+    },
+    {
+      "name": "large-score",
+      "file": "large-score.json"
+    },
+    {
+      "name": "wrong-delta",
+      "file": "wrong-delta.json"
+    },
+    {
+      "name": "wrong-count",
+      "file": "wrong-count.json"
+    },
+    {
+      "name": "wrong-wins",
+      "file": "wrong-wins.json"
+    },
+    {
+      "name": "wrong-mean",
+      "file": "wrong-mean.json"
+    },
+    {
+      "name": "wrong-stddev",
+      "file": "wrong-stddev.json"
+    },
+    {
+      "name": "duplicate-identity",
+      "file": "duplicate-identity.json"
+    },
+    {
+      "name": "wrong-order",
+      "file": "wrong-order.json"
+    },
+    {
+      "name": "empty-scenario",
+      "file": "empty-scenario.json"
+    },
+    {
+      "name": "unicode-byte-overflow",
+      "file": "unicode-byte-overflow.json"
+    },
+    {
+      "name": "grade-byte-overflow",
+      "file": "grade-byte-overflow.json"
+    },
+    {
+      "name": "negative-small-stddev",
+      "file": "negative-small-stddev.json"
+    },
+    {
+      "name": "duplicate-key",
+      "file": "duplicate-key.json"
+    },
+    {
+      "name": "nonfinite",
+      "file": "nonfinite.json"
+    },
+    {
+      "name": "invalid-utf8",
+      "file": "invalid-utf8.json"
+    },
+    {
+      "name": "truncated",
+      "file": "truncated.json"
+    }
+  ],
+  "additional_path_refusals": [
+    "wrong-digest",
+    "existing-output",
+    "input-alias",
+    "symlink-output",
+    "symlink-input"
+  ],
+  "labels": {
+    "baseline": "Old <b>literal</b> & 雪",
+    "input": "New \"quoted\" & Ω"
+  }
+}

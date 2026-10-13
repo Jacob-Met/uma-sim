@@ -1,0 +1,47 @@
+{
+  "schema": "uma-paired-reader-maintained/1",
+  "args": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "scripts/tests",
+    "-p",
+    "test_paired_comparison_report_596c.py",
+    "-v"
+  ],
+  "cwd": "/dev/shm/estate-product-596cb2f61c57/uma-paired-report/candidate",
+  "runtime": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "exit": 0,
+  "seconds": 0.886077880859375,
+  "methods": 8,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "74934d34071026c22b88bfadebaa76e6a68db5db5f9f6f11b518ed8037bf1639",
+  "source_before": {
+    "scripts/render_paired_comparison.py": {
+      "bytes": 20970,
+      "sha256": "f4a7aa5c1de55880f76028fdfc7d0cd32f5184f4f40d625ec73024390e985cf8",
+      "mtime_ns": 1791904955573922742
+    },
+    "scripts/tests/test_paired_comparison_report_596c.py": {
+      "bytes": 11964,
+      "sha256": "7e045e68cac99a8fb86a7914aea2725fe3ef16ec23bfc606e4f6a0eb7335cbb7",
+      "mtime_ns": 1791905085040434594
+    }
+  },
+  "source_after": {
+    "scripts/render_paired_comparison.py": {
+      "bytes": 20970,
+      "sha256": "f4a7aa5c1de55880f76028fdfc7d0cd32f5184f4f40d625ec73024390e985cf8",
+      "mtime_ns": 1791904955573922742
+    },
+    "scripts/tests/test_paired_comparison_report_596c.py": {
+      "bytes": 11964,
+      "sha256": "7e045e68cac99a8fb86a7914aea2725fe3ef16ec23bfc606e4f6a0eb7335cbb7",
+      "mtime_ns": 1791905085040434594
+    }
+  },
+  "history": "Initial eight-method course passed on f527 source before explicit nonnegative stddev guard. This retained final course adds that admission guard and before/after-write custody refusal controls. No simulator or native Rust course."
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "uma-html-offline-reconciliation/1",
+  "result": "PASS",
+  "packet_sha256": "6f457aef80cf35e6f93aff7b3a5921d97e2f4bbecacdf71403712693b47d19d2",
+  "payload_count": 115,
+  "source_sha256": "f4a7aa5c1de55880f76028fdfc7d0cd32f5184f4f40d625ec73024390e985cf8",
+  "maintained_methods": 8,
+  "actual_consumer_calls": 32,
+  "positive_calls": 1,
+  "refusals": 31,
+  "recorded_predicates": 125,
+  "raw_consumer_streams": 64,
+  "recorded_protected_identities": 39,
+  "saved16_author_generation_received_once": true,
+  "complete_static_reports_equal": true,
+  "mixed_html_sha256": "3b96ebf10c9a03240bc99aebb1a9ffb911aab057f06cfaad6db7995ef3497950",
+  "saved16_html_sha256": "6d554fc356e8a09ee135e5727b5955185f66fd12dbb3fda477f277680c34a198",
+  "embedded_json_exact": true,
+  "full_static_tables_and_summaries": true,
+  "static_order_oracle_recomputed": true,
+  "browser": "UNQUALIFIED: security policy refused local-file navigation before report load; no browser behavior was observed.",
+  "execution": "Pure offline evidence reconciliation; no renderer, browser, simulator or Rust process launched."
+}

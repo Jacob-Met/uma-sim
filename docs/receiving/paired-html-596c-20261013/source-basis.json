@@ -1,0 +1,100 @@
+{
+  "schema": "uma-paired-html-source-basis/1",
+  "repository": "Jacob-Met/uma-sim",
+  "source_commit": "cd852b3be106855524e789c42670d38f419d3bd5",
+  "source_tree": "cd852b3be106855524e789c42670d38f419d3bd5",
+  "read_sources": [
+    {
+      "path": "docs/agent-operations.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4113412c01f73323cdbb80dfb2313f57c5d3b29e",
+      "size": 3171,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/4113412c01f73323cdbb80dfb2313f57c5d3b29e"
+    },
+    {
+      "path": "docs/PAIRED_BATCHES.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dca48b548b0b78fae5e8ea12332c7392567faa8b",
+      "size": 6594,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/dca48b548b0b78fae5e8ea12332c7392567faa8b"
+    },
+    {
+      "path": "uma-sim-core/src/batch_pairs.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d083c65c64053a87da11a809de83d04184cc393b",
+      "size": 9822,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/d083c65c64053a87da11a809de83d04184cc393b"
+    }
+  ],
+  "root_and_nested_agents_files": [],
+  "workflows": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1c912fa665c94995c2b73c3b7f4fb9c1bd757d3",
+      "size": 4949,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/e1c912fa665c94995c2b73c3b7f4fb9c1bd757d3"
+    },
+    {
+      "path": ".github/workflows/duplicate-pr-guard.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90bc56d82dfdf083ddb3ab7487d50dc160c86cae",
+      "size": 918,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/90bc56d82dfdf083ddb3ab7487d50dc160c86cae"
+    },
+    {
+      "path": ".github/workflows/gitleaks.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ecb8ab7d4601d4665ff3aeba811aa541654c0960",
+      "size": 1108,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/ecb8ab7d4601d4665ff3aeba811aa541654c0960"
+    },
+    {
+      "path": ".github/workflows/pr-test-gate.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dac5f66df41e5f24db186002c57b5f107f65863f",
+      "size": 4294,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/dac5f66df41e5f24db186002c57b5f107f65863f"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ba20a73631aa35a3a733a538ef5effc3cb94ee4",
+      "size": 6112,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/1ba20a73631aa35a3a733a538ef5effc3cb94ee4"
+    },
+    {
+      "path": ".github/workflows/rust-audit.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e700051cc22023a46241b973ed9303a646e3de54",
+      "size": 1851,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/e700051cc22023a46241b973ed9303a646e3de54"
+    },
+    {
+      "path": ".github/workflows/workflow-yaml-lint.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0afa85ff0fa2a814e2c0e7dd4bf02c72d6d48dd3",
+      "size": 2019,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/0afa85ff0fa2a814e2c0e7dd4bf02c72d6d48dd3"
+    }
+  ],
+  "publication_scope": "New reader/test/guide/evidence paths only. Existing 1738 leaves and all seven workflows remain unchanged. No shared checkout, native simulator, deployment or merge.",
+  "event_boundary": "Inherited unrestricted push workflow requires skip-marked commit. No PR because pull_request_target opened/reopened would run. No issue/comment subscribers in the seven complete workflow bodies read. Pages false; rulesets empty at preflight. Exact remote Actions readback required after branch publication.",
+  "historical_input": {
+    "study_commit": "eb4f7de067824ed24818d93d5fdca87d3818a2da",
+    "path": "docs/research/paired-policy-cohort-713adaab/raw/paired-comparison.stdout",
+    "bytes": 4069,
+    "sha256": "7b15171bbdec97c6bc52671b106deba787dfec3f5ecac50b79bf30f5faa4f473",
+    "producer_basis": "4eab1798def5c19fbdee267eb2a6ea8a2726dbe7 plus then-qualified paired-comparison overlay; not current-main simulation"
+  }
+}

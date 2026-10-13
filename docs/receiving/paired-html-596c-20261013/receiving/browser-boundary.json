@@ -1,0 +1,29 @@
+{
+  "schema": "uma-html-browser-boundary/1",
+  "result": "UNQUALIFIED",
+  "environment": "Cloud Chrome cdp; owned blank tab27",
+  "initial_infrastructure_error": "Attempted to exit cancel scope in a different task than it was entered in",
+  "recovery": "getState and isolated about:blank tab succeeded",
+  "shared_file_copies": [
+    {
+      "path": "/workspace/scratch/596cb2f61c57/consumer/uma-paired-html-browser/mixed14.html",
+      "bytes": 20664,
+      "sha256": "3b96ebf10c9a03240bc99aebb1a9ffb911aab057f06cfaad6db7995ef3497950"
+    },
+    {
+      "path": "/workspace/scratch/596cb2f61c57/consumer/uma-paired-html-browser/saved16.html",
+      "bytes": 20364,
+      "sha256": "6d554fc356e8a09ee135e5727b5955185f66fd12dbb3fda477f277680c34a198"
+    }
+  ],
+  "attempted_url": "file:///home/oai/share/596cb2f61c57/consumer/uma-paired-html-browser/mixed14.html",
+  "exact_rejection": "Browser Use rejected this action due to browser security policy. Reason: The browser URL policy blocks this action. Cloud browser cannot visit the requested page. The requested URL protocol is not allowed. Allowed protocols: \"http:\", \"https:\". The agent must not attempt to achieve the same outcome via workaround, indirect execution, raw CDP or browser commands, alternate browser surfaces, or policy circumvention. Proceed only with a materially safer alternative that does not require this blocked browser action; if none exists, stop and request user input.",
+  "stopped": true,
+  "workarounds_attempted": false,
+  "report_loaded": false,
+  "interactive_sort_filter_search": false,
+  "browser_download": false,
+  "disabled_javascript": false,
+  "visual_viewport_review": false,
+  "retained_valid_scope": "Source review,32 actual CLI calls/125 predicates,full static row/summary/data/custody checks."
+}

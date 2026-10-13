@@ -1,0 +1,162 @@
+{
+  "format": "uma-sim.paired-batches.v1",
+  "direction": "input_minus_baseline",
+  "identity_fields": [
+    "scenario",
+    "trainee",
+    "seed"
+  ],
+  "summary": {
+    "count": 14,
+    "wins": 6,
+    "ties": 3,
+    "losses": 5,
+    "mean_score_delta": 0.35714285714285715,
+    "median_score_delta": 0.0,
+    "min_score_delta": -4294967295,
+    "max_score_delta": 4294967295,
+    "population_stddev_score_delta": 1623345050.2465413
+  },
+  "comparisons": [
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": -9223372036854775808,
+      "baseline_score": -2147483648,
+      "input_score": 2147483647,
+      "score_delta": 4294967295,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": -9007199254740993,
+      "baseline_score": 2147483647,
+      "input_score": -2147483648,
+      "score_delta": -4294967295,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": -3,
+      "baseline_score": 0,
+      "input_score": 0,
+      "score_delta": 0,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": -2,
+      "baseline_score": 100,
+      "input_score": 110,
+      "score_delta": 10,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": -1,
+      "baseline_score": 100,
+      "input_score": 90,
+      "score_delta": -10,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": 0,
+      "baseline_score": 20,
+      "input_score": 30,
+      "score_delta": 10,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": 1,
+      "baseline_score": 20,
+      "input_score": 10,
+      "score_delta": -10,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": 2,
+      "baseline_score": 0,
+      "input_score": 1,
+      "score_delta": 1,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": 3,
+      "baseline_score": 0,
+      "input_score": -1,
+      "score_delta": -1,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": 9007199254740992,
+      "baseline_score": 7,
+      "input_score": 7,
+      "score_delta": 0,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": 9007199254740993,
+      "baseline_score": 90,
+      "input_score": 100,
+      "score_delta": 10,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "URA <b>literal</b>&雪",
+      "trainee": "Special \"Week\"\t#1",
+      "seed": 9223372036854775807,
+      "baseline_score": 90,
+      "input_score": 80,
+      "score_delta": -10,
+      "baseline_grade": "F",
+      "input_grade": "A\"&<"
+    },
+    {
+      "scenario": "ura",
+      "trainee": "Line\r\nTwo\u0000end",
+      "seed": -7,
+      "baseline_score": 0,
+      "input_score": 0,
+      "score_delta": 0,
+      "baseline_grade": "F",
+      "input_grade": "F"
+    },
+    {
+      "scenario": "Ω track",
+      "trainee": "=literal+1",
+      "seed": 7,
+      "baseline_score": 100,
+      "input_score": 105,
+      "score_delta": 5,
+      "baseline_grade": "B",
+      "input_grade": "A"
+    }
+  ]
+}

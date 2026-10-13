@@ -1,0 +1,38 @@
+{
+  "schema": "uma-paired-html-owner-retained-review/1",
+  "status": "PASS",
+  "reviewer": "estate_product-596c",
+  "receiving_protocol_sha256": "9847f9b84cc09f97a0f540de7d21220b534b51a45395ba76488d833e5cf2adfa",
+  "receiver_sha256": "7de8e76003d34a7c8b9f1bc4478bfd3c955512c0d63b851fa6a05de3249fe942",
+  "cli_receipt_sha256": "f04b12b6d8b982b7cfc947926e4a8323888056358cf12438c87802d7e87213f2",
+  "commands": 32,
+  "successes": 1,
+  "refusals": 31,
+  "predicates": 125,
+  "source_sha256": "f4a7aa5c1de55880f76028fdfc7d0cd32f5184f4f40d625ec73024390e985cf8",
+  "static_reconciliations": [
+    {
+      "result": "PASS",
+      "html_bytes": 20664,
+      "html_sha256": "3b96ebf10c9a03240bc99aebb1a9ffb911aab057f06cfaad6db7995ef3497950",
+      "input_sha256": "f197ee11331486e52c3c4caaf77790540d129bf82a941b4739e435d821e3d7f7",
+      "embedded_exact": true,
+      "static_full_table": true,
+      "script_sha256": "0bfb4cf1755462604a06d60e4ac4434020793669177eb1248d189fd35c99a827",
+      "scope": "Static HTML reconciliation, not browser interaction."
+    },
+    {
+      "result": "PASS",
+      "html_bytes": 20364,
+      "html_sha256": "6d554fc356e8a09ee135e5727b5955185f66fd12dbb3fda477f277680c34a198",
+      "input_sha256": "7b15171bbdec97c6bc52671b106deba787dfec3f5ecac50b79bf30f5faa4f473",
+      "embedded_exact": true,
+      "static_full_table": true,
+      "script_sha256": "0bfb4cf1755462604a06d60e4ac4434020793669177eb1248d189fd35c99a827",
+      "scope": "Static HTML reconciliation, not browser interaction."
+    }
+  ],
+  "scope": "Read entire pre-candidate protocol/oracle and prelaunch receiver. Reconciled every raw command stream,125 actual/expected checks and all current protected byte/inode/nanosecond snapshots. Recomputed only pure static HTML reconciliation; exact JSON reports match. No renderer/simulator/CLI course repeated.",
+  "reviewer_history": "Initial pure static replay used direct Python equality against deserialized JSON; summary-card tuples differ from JSON arrays. Confirmed this was the sole mismatch, then compared complete JSON serialization. No source, fixture, output or receiving expectation changed.",
+  "browser": "UNQUALIFIED: local-file navigation rejected by available browser security policy before page load. No workaround or alternate execution; static evidence does not establish browser controls, download, disabled-JavaScript or responsive layout."
+}

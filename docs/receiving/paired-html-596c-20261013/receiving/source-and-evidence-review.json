@@ -1,0 +1,29 @@
+{
+  "schema": "uma-html-source-evidence-review/1",
+  "result": "PASS",
+  "source_sha256": "f4a7aa5c1de55880f76028fdfc7d0cd32f5184f4f40d625ec73024390e985cf8",
+  "test_sha256": "7e045e68cac99a8fb86a7914aea2725fe3ef16ec23bfc606e4f6a0eb7335cbb7",
+  "full_source_review": [
+    "Strict complete native schema and sorted identity; bounded integer comparisons precede float arithmetic",
+    "Literal HTML escaping and control-marker mapping; exact original bytes embedded independently",
+    "Seeds stay decimal text; only safe bounded delta and row index enter JavaScript Number",
+    "No external assets, network calls, source-data executable interpolation or event attributes",
+    "Exclusive output creation and source checks; inode-bound best-effort cleanup, limitations explicit"
+  ],
+  "maintained_methods": 8,
+  "maintained_raw_log_verified": true,
+  "saved16_actual_argv_and_streams_verified": true,
+  "saved16_generation_count": 1,
+  "saved16_source_input_byte_ns_custody": true,
+  "consumer_calls": 32,
+  "consumer_predicates": 125,
+  "consumer_raw_streams_bound": 64,
+  "consumer_complete_custody": true,
+  "static_outputs": [
+    "complete14 mixed rows and summary",
+    "complete16 historical rows and summary",
+    "both exact embedded original JSON byte sequences",
+    "both inline script CSP digests"
+  ],
+  "browser_scope": "Not qualified: local-file URL rejected by browser security policy; no browser page interaction or download occurred. Guide browser claims require correction before publication."
+}

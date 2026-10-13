@@ -1,0 +1,46 @@
+{
+  "schema": "uma-paired-reader-independent-source-review/1",
+  "reviewer": "optimizer-596c",
+  "status": "PASS",
+  "source_basis": "Jacob-Met/uma-sim@cd852b3be106855524e789c42670d38f419d3bd5",
+  "files": [
+    {
+      "path": "scripts/render_paired_comparison.py",
+      "bytes": 20970,
+      "sha256": "f4a7aa5c1de55880f76028fdfc7d0cd32f5184f4f40d625ec73024390e985cf8"
+    },
+    {
+      "path": "scripts/tests/test_paired_comparison_report_596c.py",
+      "bytes": 11964,
+      "sha256": "7e045e68cac99a8fb86a7914aea2725fe3ef16ec23bfc606e4f6a0eb7335cbb7"
+    },
+    {
+      "path": "docs/PAIRED_COMPARISON_REPORT.md",
+      "bytes": 9984,
+      "sha256": "a27ec78fec1f71e1a765f9abc3c20b81ea3a595d201bfe1b4aaddee4ebbc1ea9"
+    }
+  ],
+  "reviewed_primary_native_source": {
+    "path": "uma-sim-core/src/batch_pairs.rs",
+    "git_blob_sha": "d083c65c64053a87da11a809de83d04184cc393b",
+    "via": "Complete connected GitHub source at the exact qualification basis"
+  },
+  "findings": [
+    "Read the complete source, all eight maintained methods, frozen contract and guide. Exact top/row/summary schema, duplicate/nonfinite JSON refusal, UTF-8 byte limits, signed i64 identities, signed i32 scores and widened deltas match maintained native structures.",
+    "Unique sorted Python string/seed identities preserve the native valid-UTF-8 lexicographic identity order. Mean and population variance use sorted deltas; admitted sums cannot overflow native i64 or the exact-integer range of binary64. Summary integer facts are exact; real comparison tolerance is explicit.",
+    "Independently identified the tiny-negative population standard deviation edge while reviewing the first source; author separately added the same narrow nonnegative check. Final existing statistics method contains an all-tie -5e-10 witness that distinguishes this check from the 1e-9 tolerance.",
+    "All row/label text is HTML escaped, raw input is embedded as base64 in a download link, and source text is not inserted into executable JavaScript. The exact seed is never converted to JavaScript Number; only bounded deltas and row indices are numeric sort keys.",
+    "Filter/sort source keeps complete-cohort summary separate from displayed matches and uses original identity order for ties. Complete rows and the original-data link are statically present. These are source-level findings, not observed browser acceptance.",
+    "Regular nonsymlink bounded reads bind inode/size/mtime and caller hash, recheck before/after output, and use exclusive creation. Error cleanup targets only the created inode. The final guide accurately describes best-effort removal and possible incomplete output after filesystem refusal.",
+    "Read the final postwrite-input-change and fsync-failure cleanup controls. Bound raw final maintained stdout/stderr hashes, eight actual method lines, exit0, CPython3.12.14 and exact two-source before/after bytes and nanosecond timestamps; no test rerun by reviewer.",
+    "Final guide is exactly the fully read prior guide plus the two reviewed cleanup/browser precision blocks; reverse reconstruction reproduced prior guide hash ae687deb. Descriptive-only scientific wording and reader-supplied provenance labels are clear."
+  ],
+  "historical_changes": [
+    "Initial source f527d836 was reviewed before the author disclosed a narrow stddev sign admission update; final production f4a7aa5c is the reviewed publication candidate.",
+    "The final test adds the tiny-negative all-tie witness and the detected postwrite input-change cleanup case to existing methods.",
+    "Browser file navigation was explicitly rejected by the available browser policy before either page loaded. No alternate surface, server, encoded transfer or indirect execution was used to bypass that rejection."
+  ],
+  "runtime_actions_by_reviewer": 0,
+  "browser_acceptance": "UNQUALIFIED: search/filter/sort, matched counts, actual download, JavaScript-disabled behavior and responsive layout have static/source evidence only. Consumer CLI/static receiving is separate.",
+  "scope": "Consequential source/test/guide review plus reconciliation of retained maintained logs. No simulator, Rust build, adapter, CLI, browser or maintained-test execution by this reviewer; no source edits or installation."
+}
