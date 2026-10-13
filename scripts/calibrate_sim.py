@@ -60,9 +60,10 @@ def parse_telemetry_line(line: str) -> dict | None:
     if not line:
         return None
     try:
-        return json.loads(line)
+        record = json.loads(line)
     except json.JSONDecodeError:
         return None
+    return record if isinstance(record, dict) else None
 
 
 def _stat_delta(rec: dict, stat: str | None) -> int | None:
