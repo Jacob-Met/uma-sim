@@ -218,6 +218,44 @@ pub fn compare(input: &PairedBatch, baseline: &PairedBatch) -> Result<PairedComp
     })
 }
 
+/// Export every pair in comparison order as UTF-8 CSV with CRLF records.
+/// String fields are always quoted and embedded quotes are doubled; their
+/// literal contents are retained. Integer fields use exact decimal notation.
+pub fn render_csv(comparison: &PairedComparison) -> String {
+    use std::fmt::Write;
+
+    fn quoted(output: &mut String, value: &str) {
+        output.push('"');
+        for character in value.chars() {
+            if character == '"' {
+                output.push('"');
+            }
+            output.push(character);
+        }
+        output.push('"');
+    }
+
+    let mut csv = String::from(
+        "scenario,trainee,seed,baseline_score,input_score,score_delta,baseline_grade,input_grade\r\n",
+    );
+    for row in &comparison.comparisons {
+        quoted(&mut csv, &row.scenario);
+        csv.push(',');
+        quoted(&mut csv, &row.trainee);
+        write!(
+            csv,
+            ",{},{},{},{},",
+            row.seed, row.baseline_score, row.input_score, row.score_delta
+        )
+        .expect("writing a String cannot fail");
+        quoted(&mut csv, &row.baseline_grade);
+        csv.push(',');
+        quoted(&mut csv, &row.input_grade);
+        csv.push_str("\r\n");
+    }
+    csv
+}
+
 /// Human-readable summary with the ten largest absolute differences.
 /// JSON exports retain every pair; this view explicitly limits its detail rows.
 pub fn render_text(comparison: &PairedComparison) -> String {

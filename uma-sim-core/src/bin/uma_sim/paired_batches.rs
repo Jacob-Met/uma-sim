@@ -5,7 +5,7 @@ use std::io::Write;
 use uma_sim_core::batch_pairs::{self, PairedBatch};
 
 const USAGE: &str =
-    "Usage: uma-sim compare-batches --input=FILE --baseline=FILE [--format=text|json]\n";
+    "Usage: uma-sim compare-batches --input=FILE --baseline=FILE [--format=text|json|csv]\n";
 
 pub(super) fn run(args: &[String]) -> i32 {
     match prepare(args).and_then(|output| {
@@ -69,8 +69,10 @@ fn prepare(args: &[String]) -> Result<Vec<u8>, String> {
     let input = input.ok_or_else(|| format!("--input is required; {USAGE}"))?;
     let baseline = baseline.ok_or_else(|| format!("--baseline is required; {USAGE}"))?;
     let format = format.unwrap_or("text");
-    if format != "text" && format != "json" {
-        return Err(format!("--format must be text or json, got {format:?}"));
+    if format != "text" && format != "json" && format != "csv" {
+        return Err(format!(
+            "--format must be text, json, or csv, got {format:?}"
+        ));
     }
     // Validate every flag before opening either explicit caller-supplied path.
     let input_file =
@@ -80,6 +82,9 @@ fn prepare(args: &[String]) -> Result<Vec<u8>, String> {
         .map_err(|error| format!("could not open baseline {baseline:?}: {error}"))?;
     let baseline_batch = PairedBatch::from_reader(baseline_file, "baseline")?;
     let comparison = batch_pairs::compare(&input_batch, &baseline_batch)?;
+    if format == "csv" {
+        return Ok(batch_pairs::render_csv(&comparison).into_bytes());
+    }
     let mut output = if format == "json" {
         serde_json::to_vec_pretty(&comparison)
             .map_err(|error| format!("could not serialize comparison: {error}"))?

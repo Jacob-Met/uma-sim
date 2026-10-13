@@ -604,7 +604,7 @@ uma-sim CLI v0.4 (Rust)
   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
   batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]
   analyze --input=<batch.jsonl> [--compare=<other.jsonl>] [--format=text|json] [--top=N]
-  compare-batches --input=FILE --baseline=FILE [--format=text|json]
+  compare-batches --input=FILE --baseline=FILE [--format=text|json|csv]
   validate [--path=content_packs/example.json]
   content validate [--path=...]
   serve [--port=8765] [--open]

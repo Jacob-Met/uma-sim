@@ -37,7 +37,7 @@ cargo run --locked -p uma-sim-core --bin uma-sim -- compare-batches \
 The command reads the two supplied paths relative to the current directory. It
 does not start a simulation, load content packs, consult simulator settings, or
 read or save a session. `--help` by itself prints the usage line. The accepted
-syntax is `--input=FILE --baseline=FILE [--format=text|json]`; each option may be
+syntax is `--input=FILE --baseline=FILE [--format=text|json|csv]`; each option may be
 provided once. Text is the default. Missing, empty, repeated, and unknown options
 are errors.
 
@@ -99,9 +99,50 @@ delta	baseline	input	[scenario,trainee,seed]
 ```
 
 The gaps in the two final lines are literal tabs. Encoding the identity as JSON
-keeps embedded tabs and newlines escaped on one output line. Both formats end
-with a newline. Use JSON when downstream work needs every pair or full numeric
-precision.
+keeps embedded tabs and newlines escaped on one output line. Text and JSON end
+with a newline. JSON includes both the summary and every pair with exact integer
+fields. CSV provides every pair as a table, without summary rows.
+
+## Export all pairs as CSV
+
+```sh
+cargo run --locked -p uma-sim-core --bin uma-sim -- compare-batches \
+  --input=out/paired/bot.jsonl --baseline=out/paired/default.jsonl --format=csv \
+  > comparison.csv
+```
+
+The first record is this unquoted header, followed by every matched pair in
+scenario, trainee, then numeric signed seed order:
+
+```csv
+scenario,trainee,seed,baseline_score,input_score,score_delta,baseline_grade,input_grade
+"ura","Special Week",5,10,17,7,"F","F"
+```
+
+This one-pair illustration is the same schema example as above. The actual file
+uses UTF-8 without a byte-order mark and CRLF (`\r\n`) record terminators,
+including after the final record. All four string fields are always quoted;
+embedded double quotes are doubled. Literal commas, tabs, whitespace, Unicode,
+carriage returns and newlines remain inside the quoted value. A record can span
+multiple physical lines: use a CSV parser, not line splitting.
+
+| Columns | CSV representation |
+| --- | --- |
+| `scenario`, `trainee`, `baseline_grade`, `input_grade` | Quoted literal strings; no trimming or rewriting |
+| `seed` | Unquoted exact signed 64-bit decimal integer |
+| `baseline_score`, `input_score` | Unquoted exact signed 32-bit decimal integers |
+| `score_delta` | Unquoted exact signed 64-bit input-minus-baseline difference |
+
+The exporter performs no new comparison or aggregation. Every admitted pair is
+included, even when the text report's ten-detail-row limit would omit it. There
+are no empty/null substitutions or summary records.
+
+When importing into a spreadsheet, select **text** for the seed and literal
+string columns. Automatic type inference can change long seeds or interpret
+formula-looking values. CSV quoting preserves field boundaries; it does not
+force a spreadsheet cell type. The exporter retains the saved values literally
+and does not encode them as spreadsheet expressions. A CSV parser that leaves
+fields as strings can retain these values exactly.
 
 ## Input admission and failure behavior
 

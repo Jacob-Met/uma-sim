@@ -122,7 +122,7 @@ fn unknown_duplicate_empty_and_missing_flags_refuse_before_input_access() {
         assert!(!output.stderr.is_empty(), "{args:?}");
     }
     let output = fixture.run(&["--input=missing", "--baseline=missing", "--format=xml"]);
-    assert!(String::from_utf8_lossy(&output.stderr).contains("--format must be text or json"));
+    assert!(String::from_utf8_lossy(&output.stderr).contains("--format must be text, json, or csv"));
     fixture.assert_unchanged();
 }
 
@@ -157,7 +157,7 @@ fn help_is_available_without_files() {
     assert!(output.stderr.is_empty());
     assert_eq!(
         String::from_utf8(output.stdout).unwrap(),
-        "Usage: uma-sim compare-batches --input=FILE --baseline=FILE [--format=text|json]\n"
+        "Usage: uma-sim compare-batches --input=FILE --baseline=FILE [--format=text|json|csv]\n"
     );
     fixture.assert_unchanged();
 }
@@ -166,7 +166,7 @@ fn help_is_available_without_files() {
 #[test]
 fn actual_unwritable_output_and_diagnostic_sinks_return_failure_without_panicking() {
     let fixture = Fixture::new();
-    for format in ["text", "json"] {
+    for format in ["text", "json", "csv"] {
         // A read-only file descriptor is a deterministic failing sink on Unix.
         let sink = fs::File::open(fixture.0.join("baseline.jsonl")).unwrap();
         let output = fixture
