@@ -1,0 +1,121 @@
+{
+  "archive_bytes": 3512008,
+  "archive_members": 16,
+  "archive_path": "D:\\hamon-consumer-596c-uma-csv-20261013\\uma-sim-paired-csv-windows-392499683b3b.zip",
+  "archive_sha256": "58558c930502cdabedefecdbda027118500dd24349c6ddd15c36e3e3491c8d1c",
+  "device_id": "9ea77fe9-bb87-46e0-a5a8-8b3e25f6ff7e",
+  "host": "MSI",
+  "native_uma_not_rerun": true,
+  "payloads": [
+    {
+      "bytes": 814,
+      "git_blob": "398c2fc02aa855ff5006bafd3a2b33a98c7136a4",
+      "path": "comparison.csv",
+      "sha256": "1bb11f90b36721b9ddf3c701efe4d289073f9cf5c27e476c1985a408c632fc6a"
+    },
+    {
+      "bytes": 6097,
+      "git_blob": "dfeb322af48b1955bf77e475bc924844d773572c",
+      "path": "evidence/independent-publication.json",
+      "sha256": "ddd3a9436eeb50b85f9b3db6ba1456e543c15ab9c49a0a1580c0da6677507e99"
+    },
+    {
+      "bytes": 59641,
+      "git_blob": "6c26ef3a1209bada48d1e41ea9bbf135814c9a92",
+      "path": "evidence/independent-source-bindings.json",
+      "sha256": "4a6b2726a604b34f4870f3edde44ab1a1b77e65df31d435fb6693f7394575515"
+    },
+    {
+      "bytes": 1417,
+      "git_blob": "4187c66de7dde1b09abb865d9c0247495a284f6b",
+      "path": "evidence/native-independent-review.json",
+      "sha256": "cd95e13e6f6fb2289d3e7142f87292d8f4907670363536390390f4630efd39a9"
+    },
+    {
+      "bytes": 291888,
+      "git_blob": "ed622466c95948c2839f1206b6474ab763e85f25",
+      "path": "evidence/native-receipts.json.gz",
+      "sha256": "c99bb18ef451251ac22e9744c126a2590a7e65dc6665f0f296f4e6a643c7cdb2"
+    },
+    {
+      "bytes": 9462,
+      "git_blob": "c4e36272df5dbe9ebcac7c2b0a400d6ada52797f",
+      "path": "evidence/review_native_csv.py",
+      "sha256": "15f1f85975d089917347a8f39aa3ea513f4483251a07ddfe864236027dc273d0"
+    },
+    {
+      "bytes": 91,
+      "git_blob": "26cfe56853c7f82969b1bb3eeb68a4f53ef8a8c3",
+      "path": "fixtures/analysis-positive.jsonl",
+      "sha256": "616f080682838b30180bc98f0dc03f7b2fa9800df440ede8793377a8f69fa77c"
+    },
+    {
+      "bytes": 1160,
+      "git_blob": "d476bd1cd1ef4c0a52504231acfdb1e23f586e07",
+      "path": "fixtures/baseline.jsonl",
+      "sha256": "9543915fb79280c71e4be4962ad314299e518069de929c9052f759a4dc267879"
+    },
+    {
+      "bytes": 1160,
+      "git_blob": "c0ea2df7b0ffcb0141c8bf1b75ace3e66448860e",
+      "path": "fixtures/input.jsonl",
+      "sha256": "e18ee11b7d41509ac9074b5a1c4833796f54dea881ed50576c113ec36d12874c"
+    },
+    {
+      "bytes": 721,
+      "git_blob": "64d59960fad930c340d914fee75da2212ecd64fd",
+      "path": "LICENSE",
+      "sha256": "6200d8929718b2d04e2d26a1c58a900ed70ff4085bcccb5b60ef71ae3b8bc28e"
+    },
+    {
+      "bytes": 1027,
+      "git_blob": "ac9a82abb33e56a70afe2ebf4e3dd4fda1b460fd",
+      "path": "NOTICE",
+      "sha256": "2891e489ee7d54dd69584773367a85839978623ddccc047ebe5076f0be1b9616"
+    },
+    {
+      "bytes": 9695,
+      "git_blob": "5944c6ae08373f23239a628b3e3d15410ccd0569",
+      "path": "README.md",
+      "sha256": "aab3ada093710aac30d1c0c121fa9f3cce4e64d59ef32b99e3c2582fc85bc654"
+    },
+    {
+      "bytes": 513295,
+      "git_blob": "6457df987a9bd8d1ae94643d3493f305946e4169",
+      "path": "source-projection.zip",
+      "sha256": "25f952d55c4578fe92fda7c3c4051f18912d10b9ad67ac3a57f02d251453fca8"
+    },
+    {
+      "bytes": 8274114,
+      "git_blob": "5916cbb2483efa3c7b919a389b3309310d7d91ca",
+      "path": "uma-sim.exe",
+      "sha256": "9a57e48af9c23bb42a25593c74d6508ac428e75948bb18f0eeb875767cd86255"
+    },
+    {
+      "bytes": 5470,
+      "git_blob": "e10fd7e1c5d647200d162fba3106a682958dca7d",
+      "path": "VERIFY.py",
+      "sha256": "e8b78e06e8f99de66258b1f58d7490de49405e5eb3d98a66338920c6b6de52f4"
+    }
+  ],
+  "python": "3.11.9",
+  "source_and_executable_custody_preserved": true,
+  "source_commit": "392499683b3b52cf032222d4ed9ea6274fb10131",
+  "source_tree": "d5aed1e3a90b4e9bf9646a5ac81f186102f4f56a",
+  "success": true,
+  "user_home": "C:\\Users\\Veria",
+  "validation_runs": [
+    {
+      "exit": 0,
+      "label": "packet-verify",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "00803e00f7ffde1b750784050c96035313bf691a700a318f0fac604c8b55a3e4"
+    },
+    {
+      "exit": 0,
+      "label": "independent-offline-review",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "280d232daf519663adf82c85ad68d6e1791d651c56fb1db989bc81f9cf5e4e02"
+    }
+  ]
+}

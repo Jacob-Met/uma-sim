@@ -1,0 +1,39 @@
+{
+  "source_commit": "392499683b3b52cf032222d4ed9ea6274fb10131",
+  "source_tree": "d5aed1e3a90b4e9bf9646a5ac81f186102f4f56a",
+  "artifact": {
+    "url": "https://drive.google.com/file/d/15HchAEkuAvXLzsPUMNMLv4bfFNmdT3hI/view",
+    "file_id": "15HchAEkuAvXLzsPUMNMLv4bfFNmdT3hI",
+    "name": "uma-sim-paired-csv-windows-392499683b3b-20261013.zip",
+    "bytes": 3512008,
+    "sha256": "58558c930502cdabedefecdbda027118500dd24349c6ddd15c36e3e3491c8d1c",
+    "members": 16,
+    "payloads": 15
+  },
+  "receiving": {
+    "native_device_id": "9ea77fe9-bb87-46e0-a5a8-8b3e25f6ff7e",
+    "native_source_files": 228,
+    "original": {
+      "predicates": 73,
+      "cli_calls": 23
+    },
+    "candidate": {
+      "predicates": 176,
+      "cli_calls": 31
+    },
+    "maintained_windows_cargo_methods": 14,
+    "portable_use": {
+      "predicates": 10,
+      "cli_calls": 2
+    },
+    "full_raw_evidence_sha256": "c99bb18ef451251ac22e9744c126a2590a7e65dc6665f0f296f4e6a643c7cdb2"
+  },
+  "drive_full_download_byte_equality": {
+    "observed_by": "consumer worker",
+    "equal": true,
+    "report_date": "2026-10-13"
+  },
+  "independent_archive_review": "artifact-independent-review.json",
+  "native_seal_receipt": "sealed-packet-receipt.json",
+  "installation_or_merge_claimed": false
+}

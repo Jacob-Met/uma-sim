@@ -1,0 +1,154 @@
+{
+  "format": "uma-sim.paired-csv.independent-publication.v1",
+  "reviewer": "optimizer596c",
+  "commit": "392499683b3b52cf032222d4ed9ea6274fb10131",
+  "tree": "d5aed1e3a90b4e9bf9646a5ac81f186102f4f56a",
+  "parent": "18d6cf1b9f1e6f7bfd947e9c04cac467bca5988a",
+  "branch": "refs/heads/feat/paired-csv-596cb2f61c57",
+  "oldLeaves": 1740,
+  "newLeaves": 1741,
+  "preservedLeaves": 1735,
+  "changed": [
+    {
+      "path": "docs/PAIRED_BATCHES.md",
+      "old": "dca48b548b0b78fae5e8ea12332c7392567faa8b",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc86c0bd1315942c52e6cf41fc499adaca3e541a",
+      "size": 8617,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/dc86c0bd1315942c52e6cf41fc499adaca3e541a"
+    },
+    {
+      "path": "uma-sim-core/src/batch_pairs.rs",
+      "old": "d083c65c64053a87da11a809de83d04184cc393b",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0cca84f6ddcd00f2aaae44aa0307db48316f8817",
+      "size": 11058,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/0cca84f6ddcd00f2aaae44aa0307db48316f8817"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "old": "a4d95cada08bc44e8d8916fd6c1b21348b2bd63f",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48b94b0675ab745abd087d9b04d510297187400f",
+      "size": 21442,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/48b94b0675ab745abd087d9b04d510297187400f"
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/paired_batches.rs",
+      "old": "3fab6f9f8669d1cc3fa5cdae52099c0846d06da9",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a7113f8abea419aca4df6e97309a1b82c4571f5",
+      "size": 3643,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/1a7113f8abea419aca4df6e97309a1b82c4571f5"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches_cli.rs",
+      "old": "bae14924d409470262b5880f5dfb9da11ac6405f",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0bf79ccc006f19a9f843661086d98dfdaae55bfb",
+      "size": 6861,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/0bf79ccc006f19a9f843661086d98dfdaae55bfb"
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches_csv.rs",
+      "old": null,
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29a4d7d1d8d6b306e4ecc030d1acfbea3baa648a",
+      "size": 5997,
+      "url": "https://api.github.com/repos/Jacob-Met/uma-sim/git/blobs/29a4d7d1d8d6b306e4ecc030d1acfbea3baa648a"
+    }
+  ],
+  "removed": [],
+  "workflows": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha": "e1c912fa665c94995c2b73c3b7f4fb9c1bd757d3",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/duplicate-pr-guard.yml",
+      "sha": "90bc56d82dfdf083ddb3ab7487d50dc160c86cae",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/gitleaks.yml",
+      "sha": "ecb8ab7d4601d4665ff3aeba811aa541654c0960",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/pr-test-gate.yml",
+      "sha": "dac5f66df41e5f24db186002c57b5f107f65863f",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "sha": "1ba20a73631aa35a3a733a538ef5effc3cb94ee4",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/rust-audit.yml",
+      "sha": "e700051cc22023a46241b973ed9303a646e3de54",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/workflow-yaml-lint.yml",
+      "sha": "0afa85ff0fa2a814e2c0e7dd4bf02c72d6d48dd3",
+      "unchanged": true
+    }
+  ],
+  "actions": 0,
+  "remote_bodies": [
+    {
+      "path": "uma-sim-core/src/batch_pairs.rs",
+      "sha": "0cca84f6ddcd00f2aaae44aa0307db48316f8817",
+      "exactContent": true
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma_sim/paired_batches.rs",
+      "sha": "1a7113f8abea419aca4df6e97309a1b82c4571f5",
+      "exactContent": true
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches_cli.rs",
+      "sha": "0bf79ccc006f19a9f843661086d98dfdaae55bfb",
+      "exactContent": true
+    },
+    {
+      "path": "uma-sim-core/tests/paired_batches_csv.rs",
+      "sha": "29a4d7d1d8d6b306e4ecc030d1acfbea3baa648a",
+      "exactContent": true
+    },
+    {
+      "path": "docs/PAIRED_BATCHES.md",
+      "sha": "dc86c0bd1315942c52e6cf41fc499adaca3e541a",
+      "exactContent": true
+    },
+    {
+      "path": "uma-sim-core/src/bin/uma-sim.rs",
+      "sha": "48b94b0675ab745abd087d9b04d510297187400f",
+      "exactContent": true
+    }
+  ],
+  "candidate_packet_sha256": "ef12ed0e50bfaea665f54851377eca6c8f8c428c53b827b2d38428107922768f",
+  "code_review": {
+    "status": "PASS",
+    "scope": "Entire six-file diff plus complete comparison model/renderer/CLI adapter, both changed CLI test files, and guide; unchanged main body verified through exact diff.",
+    "findings": [
+      "CSV emits all admitted pairs in established order with exact integer decimal values; all four strings are quoted and embedded quotes doubled, retaining Unicode/control whitespace.",
+      "Both complete input files and identity pairing are admitted before the CSV branch; formatting is complete before existing delivery, preserving refusal/write-failure paths.",
+      "Text and JSON product paths unchanged. Main-file change is exactly one top-level usage line.",
+      "Three actual CLI tests cover integer endpoints/delta width/literal quoting/order, more than ten pairs, and late-invalid/duplicate/unmatched/empty cohorts with no header output; source/input/session byte and mtime checks retained.",
+      "Spreadsheet import limitations explicitly and accurately documented; source output retains literal recorded strings.",
+      "No source revision requested."
+    ],
+    "execution": "No duplicate Cargo/native execution by this reviewer. Consumer's independently completed native receiving is separate."
+  },
+  "disposition": "PASS source and remote publication; no merge, PR creation, deployment, or hosted-CI pass implied. Seven inherited workflows unchanged; exact-head Actions zero.",
+  "checked_at": "2026-10-13 04:34:49 UTC"
+}

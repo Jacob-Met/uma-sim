@@ -1,0 +1,107 @@
+{
+  "scope": "standalone maintained batch_pairs and private CLI adapter; not full Cargo",
+  "rustc": "rustc 1.93.1 (01f6ddf75 2026-02-11)",
+  "command": [
+    "/workspace/scratch/196c5c518e98/product_increments/rustup/toolchains/1.93.1-x86_64-unknown-linux-gnu/bin/rustc",
+    "--edition=2021",
+    "/dev/shm/estate-product-596cb2f61c57/uma-csv/linux-adapter-check/main.rs",
+    "--extern",
+    "serde=/workspace/scratch/196c5c518e98/product_increments/tsuka-portability-target/release/deps/libserde-d52c8a740f15dbd7.rlib",
+    "--extern",
+    "serde_json=/workspace/scratch/196c5c518e98/product_increments/tsuka-portability-target/release/deps/libserde_json-f7bb92b971bd72f0.rlib",
+    "-L",
+    "dependency=/workspace/scratch/196c5c518e98/product_increments/tsuka-portability-target/release/deps",
+    "-C",
+    "debuginfo=0",
+    "-C",
+    "strip=symbols",
+    "-C",
+    "codegen-units=1",
+    "-o",
+    "/dev/shm/estate-product-596cb2f61c57/uma-csv/linux-adapter-check/paired-adapter"
+  ],
+  "build_exit": 0,
+  "runs": [
+    {
+      "case": "csv writable control",
+      "exit": 0,
+      "stdout_hex": "7363656e6172696f2c747261696e65652c736565642c626173656c696e655f73636f72652c696e7075745f73636f72652c73636f72655f64656c74612c626173656c696e655f67726164652c696e7075745f67726164650d0a2273222c2274222c2d393232333337323033363835343737353830382c2d323134373438333634382c323134373438333634372c343239343936373239352c2246222c2246220d0a",
+      "stderr_hex": ""
+    },
+    {
+      "case": "text read-only stdout descriptor",
+      "exit": 1,
+      "stderr_hex": "636f6d706172652d626174636865733a20636f756c64206e6f742064656c6976657220636f6d70617269736f6e206f75747075743a204261642066696c652064657363726970746f7220286f73206572726f722039290a"
+    },
+    {
+      "case": "json read-only stdout descriptor",
+      "exit": 1,
+      "stderr_hex": "636f6d706172652d626174636865733a20636f756c64206e6f742064656c6976657220636f6d70617269736f6e206f75747075743a204261642066696c652064657363726970746f7220286f73206572726f722039290a"
+    },
+    {
+      "case": "csv read-only stdout descriptor",
+      "exit": 1,
+      "stderr_hex": "636f6d706172652d626174636865733a20636f756c64206e6f742064656c6976657220636f6d70617269736f6e206f75747075743a204261642066696c652064657363726970746f7220286f73206572726f722039290a"
+    }
+  ],
+  "checks": [
+    {
+      "name": "csv exact writable control",
+      "pass": true
+    },
+    {
+      "name": "text checked write failure",
+      "pass": true
+    },
+    {
+      "name": "json checked write failure",
+      "pass": true
+    },
+    {
+      "name": "csv checked write failure",
+      "pass": true
+    },
+    {
+      "name": "input/session bytes and mtimes preserved",
+      "pass": true
+    },
+    {
+      "name": "candidate bytes and mtimes preserved",
+      "pass": true
+    },
+    {
+      "name": "no simulator root created",
+      "pass": true
+    }
+  ],
+  "success": true,
+  "candidate_snapshot": {
+    "docs/PAIRED_BATCHES.md": {
+      "sha256": "2b4d06d06dd0a1a6bab9f7f125b9cce1e56375beedd1b73f32babd611064e987",
+      "mtime_ns": 1791863950621404818
+    },
+    "uma-sim-core/src/batch_pairs.rs": {
+      "sha256": "296f19996b3867a99ddd37cbca38176f30dded0ceb4f6fd7be53876f8739fae6",
+      "mtime_ns": 1791863949637386264
+    },
+    "uma-sim-core/src/bin/uma_sim/paired_batches.rs": {
+      "sha256": "01b65f8a01dc931a5222f8c0303707d26bbdd62c0ae7aac584cde603b84638c2",
+      "mtime_ns": 1791864013486554699
+    },
+    "uma-sim-core/tests/paired_batches.rs": {
+      "sha256": "1c031d01b811d4d31e67bcdb45e777560b50f77286fab0826ba249fc9c89c54b",
+      "mtime_ns": 1791863715420582752
+    },
+    "uma-sim-core/tests/paired_batches_cli.rs": {
+      "sha256": "bd46e3955d2b34e5ca049126a00ac053a6842e5e727a799b29ffb1ac2f601817",
+      "mtime_ns": 1791863950273398256
+    },
+    "uma-sim-core/tests/paired_batches_csv.rs": {
+      "sha256": "2cc37f4a822a97095cb45d20dca305e63216100183d82ab5c8ca16724c6219b9",
+      "mtime_ns": 1791864013498554894
+    }
+  },
+  "executable_bytes": 675544,
+  "executable_sha256": "c97ef6fbc029ce9252688962f6e81d669df401bb13fb6b9ede50da1ebb33be30",
+  "free_after_cleanup": 3969024
+}

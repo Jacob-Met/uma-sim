@@ -1,0 +1,38 @@
+{
+  "verdict": "PASS",
+  "source_commit": "392499683b3b52cf032222d4ed9ea6274fb10131",
+  "packet_sha256": "c99bb18ef451251ac22e9744c126a2590a7e65dc6665f0f296f4e6a643c7cdb2",
+  "independent_source_bindings_sha256": "4a6b2726a604b34f4870f3edde44ab1a1b77e65df31d435fb6693f7394575515",
+  "payloads_verified": 171,
+  "raw_stream_bindings_verified": 126,
+  "unchanged_original_command_results": 21,
+  "original": {
+    "invocations": 23,
+    "predicates": 73
+  },
+  "candidate": {
+    "invocations": 31,
+    "predicates": 176
+  },
+  "maintained_test_methods": [
+    7,
+    4,
+    3
+  ],
+  "build_predicates": 12,
+  "portable_use": {
+    "invocations": 2,
+    "predicates": 10,
+    "csv_bytes": 814,
+    "csv_sha256": "1bb11f90b36721b9ddf3c701efe4d289073f9cf5c27e476c1985a408c632fc6a",
+    "shop_gain_mean": 4294967295.0
+  },
+  "source_files": 228,
+  "source_inputs_session_executable_custody": "PASS including cross-course equality",
+  "release_executable": {
+    "bytes": 8274114,
+    "sha256": "9a57e48af9c23bb42a25593c74d6508ac428e75948bb18f0eeb875767cd86255"
+  },
+  "rustc_verbose": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-gnu\nrelease: 1.99.0\nLLVM version: 23.1.1\n",
+  "scope": "Offline verification of recorded native observations; no new executable invocation, install, simulation or benchmark."
+}
