@@ -1,0 +1,38 @@
+{
+  "format": "uma-saved-cohort-csv.delivery.v1",
+  "source_commit": "392499683b3b52cf032222d4ed9ea6274fb10131",
+  "study_commit": "eb4f7de067824ed24818d93d5fdca87d3818a2da",
+  "drive_url": "https://drive.google.com/file/d/1nDJON-K6vRPC3kdk4dt2YEUOJ0qePp7K/view",
+  "archive": {
+    "bytes": 79019,
+    "members": 15,
+    "path": "/dev/shm/hamon-consumer-596c/uma-csv/uma-saved-cohort-csv-eb4f7de-392499-20261013.zip",
+    "payloads": 14,
+    "sha256": "5975300c3265493f66d0647fccc58b2d97ce2239fd63eef5b0d9b10f9f778e13"
+  },
+  "drive_complete_bytes_equal": true,
+  "verification": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "-B",
+      "VERIFY.py"
+    ],
+    "exit": 0,
+    "python": "3.12.14",
+    "result": {
+      "csv_bytes": 850,
+      "csv_sha256": "f6bf094b84bda463e79357e4757529597ea001e74f7ca49ecb4f4deb0ce53131",
+      "extra_files_not_verified": [],
+      "historical_json_byte_equal": true,
+      "native_evidence_payloads": 24,
+      "new_uma_invocations": 0,
+      "payloads_verified": 14,
+      "saved_pairs": 16,
+      "success": true
+    },
+    "stderr": "",
+    "stdout": "{\"csv_bytes\": 850, \"csv_sha256\": \"f6bf094b84bda463e79357e4757529597ea001e74f7ca49ecb4f4deb0ce53131\", \"extra_files_not_verified\": [], \"historical_json_byte_equal\": true, \"native_evidence_payloads\": 24, \"new_uma_invocations\": 0, \"payloads_verified\": 14, \"saved_pairs\": 16, \"success\": true}\n"
+  },
+  "new_comparator_invocations": 2,
+  "new_simulator_invocations": 0
+}
