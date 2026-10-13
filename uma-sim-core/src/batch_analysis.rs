@@ -149,7 +149,8 @@ pub fn analyze_text(input: &str, top_n: usize) -> Result<Summary, String> {
             u_nonzero += 1;
         }
         sp_sum += r.sp_spent as i64;
-        shop_gain_sum += (r.score - r.score_before_shop) as i64;
+        // Both admitted i32 endpoints are valid: widen before subtracting.
+        shop_gain_sum += i64::from(r.score) - i64::from(r.score_before_shop);
         for (k, v) in [
             ("speed", r.stats.speed),
             ("stamina", r.stats.stamina),
