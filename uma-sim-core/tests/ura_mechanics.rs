@@ -286,16 +286,25 @@ fn max_level_meek_win_unlocks_past_my_limits() {
 }
 
 #[test]
-fn ura_finale_distance_gap_documented() {
+fn ura_finale_history_policy_documented() {
     let raw = std::fs::read_to_string(concat!(
         env!("CARGO_MANIFEST_DIR"),
         "/../research/ura_finale.json"
     ))
     .expect("research");
     let v: serde_json::Value = serde_json::from_str(&raw).unwrap();
+    assert_eq!(v["finale_history_model"]["version"], 1);
+    assert_eq!(
+        v["finale_history_model"]["source_quality"],
+        "community-grounded policy; not official game parity"
+    );
+    assert_eq!(
+        v["finale_history_model"]["tests"],
+        "uma-sim-core/tests/ura_finale_history.rs"
+    );
     assert!(v["sim_implementation_status"]["not_modeled"]
         .as_array()
         .unwrap()
         .iter()
-        .any(|x| x.as_str() == Some("finale distance/surface from race history")));
+        .any(|x| x.as_str() == Some("legacy save race-history reconstruction")));
 }

@@ -19,3 +19,7 @@ Meek can appear on a facility; pick a stat category (or Energy) to compete. Succ
 ## Training notes
 
 No scenario resource economy. Optimize classic rainbow/bond + race schedule. Soft-cap 1200 still applies before hard 1400.
+
+## Simulator participation-class policy
+
+The native simulator records known race-completion occurrences for new URA careers and fixes a joint surface/distance class before its existing qualifier. Wins do not weight the counts. Old or unavailable history retains legacy stage courses. This is a community-grounded model using existing course metadata; the approximate calendar, generic race chooser and full game venue parity are unchanged. See [the exact policy and evidence limits](../../docs/URA_FINALE_HISTORY.md).

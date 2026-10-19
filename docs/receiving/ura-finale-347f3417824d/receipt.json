@@ -1,0 +1,53 @@
+{
+  "schema": "hamon.external_qualification.v1",
+  "repository": "Jacob-Met/uma-sim",
+  "base": "38291c1aaf915da17229eca0afbbd58d9b3ce453",
+  "base_tree": "8220492e07834480ab9fc0823358c9ad3aa9f24b",
+  "scope_issue": 120,
+  "external_contributor": "chatgpt-347f3417824d/memory-integration",
+  "authored_paths": [
+    "knowledge/scenarios/ura.md",
+    "research/ura_finale.json",
+    "uma-sim-core/src/race.rs",
+    "uma-sim-core/src/scenario/mod.rs",
+    "uma-sim-core/tests/ura_mechanics.rs",
+    "docs/SIMULATOR.md",
+    "docs/URA_FINALE_HISTORY.md",
+    "uma-sim-core/src/scenario/ura_finale.rs",
+    "uma-sim-core/tests/ura_finale_history.rs"
+  ],
+  "source_freeze_sha256": "4921f972e0bb88b3c62c7ed15c63d069b0afb20001e552957497e06cb17331c3",
+  "component_native_methods": 86,
+  "current_api_methods": 5,
+  "independent_ordinary_route": "pass; actual pre-finale races preserved, all three finales now10601;71 actions and272 career RNG calls retained",
+  "independent_public_api_cases": 20,
+  "independent_original_public_api_cases_passed": 6,
+  "golden_data_modified": false,
+  "original_source_modified": false,
+  "archive": {
+    "path": "native-evidence.tar.gz",
+    "bytes": 204781,
+    "sha256": "b2e49fd1f5f66309f6e28d9e4a482e50df1eb053f99b4970dae1cde74f93bd87",
+    "members": 53
+  },
+  "independent_nested_archive_sha256": "3ae00122c2f3f572bca5e38836974e60fa3818887f0e54ec49221aa8adf451ca",
+  "composition_acceptance_sha256": "cb0742c93c98cc751d5d1a3c013794364e979109597fc077b087a6ec34a5b886",
+  "independent_component_acceptance_sha256": "e29d79e8b72fde70f388b554a00c6b099605bc2541f85a5ac8d545f7cf6bc81c",
+  "independent_composition_review_sha256": "2a1d6fd872c2589d2d1778604f0745aeb96e4c48f5083676ca03a3e68a433c0e",
+  "native_mode_limitation": [
+    {
+      "path": "uma-sim-core/tests/fixtures/policy_stub.sh",
+      "native_mode": "0o664",
+      "git_mode": "100755",
+      "git_blob": "6476895b26b607ef057edf450013f5d14e688b55"
+    }
+  ],
+  "publication_preserves_unowned_git_modes": true,
+  "limits": [
+    "Community-grounded model policy, not official game parity",
+    "No canonical engine race picker or calendar/NPC/formula change",
+    "Legacy unavailable history preserves old stage courses",
+    "Native shell fixture executable mode was not qualified; inherited Git100755 unchanged",
+    "No installed runtime adoption or live account execution"
+  ]
+}

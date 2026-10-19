@@ -6,6 +6,7 @@ pub mod grand_live_lesson_scoring;
 pub mod trackblazer;
 pub mod unity;
 pub mod ura;
+pub(crate) mod ura_finale;
 
 pub use grand_live::{ConcertOutcome, GrandLiveMechanics, PERF_CODES};
 pub use grand_live_catalog::{
@@ -186,6 +187,19 @@ impl ScenarioPlugin for UraScenarioPlugin {
     fn mandatory_races(&self) -> &[MandatoryRace] {
         &self.base.races
     }
+    fn initial_scenario_resources(&self, _meta: &RunMeta) -> ScenarioResources {
+        ura_finale::initial_resources()
+    }
+    fn on_race_complete(
+        &self,
+        state: &CareerState,
+        race_id: &str,
+        _won: bool,
+    ) -> (CareerState, Vec<String>) {
+        let mut next = state.clone();
+        next.scenario_resources = ura_finale::record_race(state, race_id);
+        (next, Vec::new())
+    }
     fn on_turn_start(&self, state: &CareerState) -> (CareerState, Vec<String>) {
         // Match Kotlin UraScenarioPlugin: inheritance event before badge roll.
         if state.turn == 13
@@ -216,6 +230,9 @@ impl ScenarioPlugin for UraScenarioPlugin {
             lines.push(format!("Happy Meek duel badge on {}", badge.key()));
         }
         base.scenario_resources = with_badge.scenario_resources;
+        let (resources, finale_lines) = ura_finale::freeze(&base);
+        base.scenario_resources = resources;
+        lines.extend(finale_lines);
         (base, lines)
     }
     fn on_training_complete(
