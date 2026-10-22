@@ -1,0 +1,17 @@
+[package]
+name = "uma-sim-lab"
+version = "0.1.0"
+edition = "2021"
+
+description = "Saved-career branch-and-compare laboratory for uma-sim"
+license = "GPL-3.0"
+repository = "https://github.com/Jacob-Met/uma-sim"
+
+[dependencies]
+uma-sim-core = { path = "../uma-sim-core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[[bin]]
+name = "uma-lab"
+path = "src/bin/uma-lab.rs"
