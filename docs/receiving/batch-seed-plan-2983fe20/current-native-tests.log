@@ -1,0 +1,84 @@
+   Compiling uma-sim-core v0.1.0 (/home/jacob/estate-production-2983fe20/uma-batch/uma-sim-core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 21.06s
+     Running unittests src/bin/uma-sim.rs (/home/jacob/estate-production-2983fe20/candidate-target/debug/deps/uma_sim-79e26d96079b482a)
+
+running 8 tests
+test batch_seeds::tests::default_cohort_keeps_100_consecutive_seeds ... ok
+test batch_seeds::tests::explicit_and_default_overflow_are_refused ... ok
+test batch_seeds::tests::first_count_wins_and_explicit_list_overrides_ignored_count ... ok
+test batch_seeds::tests::invalid_first_explicit_list_keeps_its_original_error ... ok
+test batch_seeds::tests::minimum_seed_and_signed_positive_count_are_valid ... ok
+test batch_seeds::tests::maximum_count_is_admitted_lazily_without_a_batch_size_cap ... ok
+test batch_seeds::tests::range_including_maximum_seed_finishes_without_overflow ... ok
+test batch_seeds::tests::zero_negative_malformed_and_out_of_range_counts_are_refused ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/batch_output_failures.rs (/home/jacob/estate-production-2983fe20/candidate-target/debug/deps/batch_output_failures-caa3f86480474256)
+
+running 3 tests
+test batch_output_open_failure_is_nonzero_and_preserves_existing_directory ... ok
+test batch_success_writes_every_requested_career_and_returns_zero ... ok
+test batch_midstream_write_failure_is_nonzero_and_retains_the_written_prefix ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.71s
+
+     Running tests/batch_seed_plan.rs (/home/jacob/estate-production-2983fe20/candidate-target/debug/deps/batch_seed_plan-3b8fff7421ea8b20)
+
+running 8 tests
+test explicit_list_refusal_keeps_original_status_and_output ... ok
+test refusal_happens_before_creating_output_parents_or_session ... ok
+test overflowing_explicit_and_default_ranges_preserve_output ... ok
+test malformed_seed_remains_the_first_refusal ... ok
+test explicit_list_retains_order_duplicates_and_ignored_count ... ok
+test first_count_precedence_is_preserved ... ok
+test invalid_effective_counts_preserve_output_and_saved_career ... ok
+test consecutive_signed_boundary_seeds_are_exact ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.64s
+
+     Running tests/cli_seed_admission.rs (/home/jacob/estate-production-2983fe20/candidate-target/debug/deps/cli_seed_admission-e50263371aac637d)
+
+running 15 tests
+test malformed_seed_does_not_create_a_first_career ... ok
+test fractional_seed_preserves_existing_career ... ok
+test malformed_batch_preserves_output_before_zero_career_run ... ok
+test malformed_seed_after_valid_duplicate_is_refused ... ok
+test malformed_seed_before_valid_duplicate_is_refused ... ok
+test last_valid_duplicate_seed_still_wins ... ok
+test malformed_seed_is_refused_even_when_explicit_list_would_override_it ... ok
+test empty_seed_preserves_existing_career ... ok
+test seed_below_i64_min_preserves_existing_career ... ok
+test malformed_start_preserves_existing_career ... ok
+test seed_above_i64_max_preserves_existing_career ... ok
+test omitted_seed_still_starts_seed_42 ... ok
+test explicit_seed_list_still_overrides_valid_seed_and_count ... ok
+test valid_signed_seeds_are_saved_exactly ... ok
+test signed_i64_boundaries_are_admitted_in_one_record_batches ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.14s
+
+     Running tests/paired_batches_cli.rs (/home/jacob/estate-production-2983fe20/candidate-target/debug/deps/paired_batches_cli-7e478207cdca9e2b)
+
+running 5 tests
+test help_is_available_without_files ... ok
+test real_cli_reports_saved_records_without_session_or_simulator_configuration ... ok
+test actual_unwritable_output_and_diagnostic_sinks_return_failure_without_panicking ... ok
+test missing_late_invalid_and_unmatched_input_produce_no_primary_output ... ok
+test unknown_duplicate_empty_and_missing_flags_refuse_before_input_access ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/training_inspection.rs (/home/jacob/estate-production-2983fe20/candidate-target/debug/deps/training_inspection-20d4338ba6095d8c)
+
+running 7 tests
+test repeated_inspection_preserves_snapshot_rng_and_next_action ... ok
+test current_energy_risk_uses_the_native_post_cost_boundary ... ok
+test samples_stay_raw_while_energy_recovery_respects_the_cap ... ok
+test actual_cli_refuses_arguments_and_unreadable_sessions_without_writes ... ok
+test scenario_zero_failure_and_effective_unity_level_are_inspected ... ok
+test unavailable_phases_and_blocked_rows_have_no_attempt_results ... ok
+test actual_cli_inspects_saved_native_career_without_rewriting_it ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.24s
+

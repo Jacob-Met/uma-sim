@@ -1,0 +1,62 @@
+{
+  "schema": "uma-sim.batch-seed-plan-receiving.v1",
+  "created_at": "2026-10-08T17:11:00.165Z",
+  "base_commit": "6245d48132df3f07aaa314f5faa9cb31536449b1",
+  "code_commit": "a248e4c25dc50c6f28116a149d6aa7051933e91b",
+  "author_native_tests": {
+    "passed": 39,
+    "failed": 0
+  },
+  "entries": [
+    {
+      "file": "README.md",
+      "bytes": 6359,
+      "sha256": "8b5afcabe123211223ae6f3bfd572fc36abe5f79088185a43d6e594b64b9a0a0"
+    },
+    {
+      "file": "author-native-tests.log",
+      "bytes": 4841,
+      "sha256": "ad667cc6d7610982037380c31de465d5212e0c91915c8d1b9c99cd5dc3237743"
+    },
+    {
+      "file": "baseline-debug-build.log",
+      "bytes": 1236,
+      "sha256": "a3fdc190ab920fd5a5796c2e627813258fff7b056484df64e8507bed47458a5e"
+    },
+    {
+      "file": "baseline-debug.json",
+      "bytes": 11327,
+      "sha256": "932562c0d91fcc326723feb09ad9c4b3e89b6224d442836890979005f23704d2"
+    },
+    {
+      "file": "baseline-release-build.log",
+      "bytes": 861,
+      "sha256": "000ee975c1d6c41dd989709b7e1f9a37f4202db1aeee0fe6b87435264962fcfd"
+    },
+    {
+      "file": "baseline-release.json",
+      "bytes": 11600,
+      "sha256": "99ad1ba58008e92427231cc3cec5cf6f52d800a74a5e1681d3057d83eb616002"
+    },
+    {
+      "file": "current-native-tests.log",
+      "bytes": 4899,
+      "sha256": "3f7f39a915152e7af5fba52ce8b948642e6a2b47ddc8390340f1bb11cdd79cd7"
+    },
+    {
+      "file": "receive-batch-plan.mjs",
+      "bytes": 2793,
+      "sha256": "dcb0a96b6cc2d679858cae55d2684d4a5e81b526f145787618516d9b76455e19"
+    }
+  ],
+  "current_main_qualification": {
+    "main_commit": "e1ca9baaa89036103d783c6eb02b98deed48c69f",
+    "composition_commit": "2e6d1cb734e804a209db1fe3c392061e088ffb02",
+    "author_native_tests": {
+      "passed": 46,
+      "failed": 0
+    },
+    "independent_receiving": "pending",
+    "hosted_ci": "pending"
+  }
+}

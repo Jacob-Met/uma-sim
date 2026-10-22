@@ -1,5 +1,7 @@
 //! uma-sim CLI — parity with Kotlin `SimCliMain`.
 
+#[path = "uma_sim/batch_seeds.rs"]
+mod batch_seeds;
 #[path = "uma_sim/paired_batches.rs"]
 mod paired_batches;
 
@@ -366,36 +368,16 @@ fn cmd_batch(args: &[String]) {
     if f.speed == 1 {
         f.speed = 100;
     }
-    let seed_start = f.seed;
-    // Explicit seed list overrides --count/--seed: re-run exactly these
-    // seeds (e.g. the interesting ones `analyze --top` surfaced).
-    let seeds: Vec<i64> = match args.iter().find_map(|a| a.strip_prefix("--seeds=")) {
-        Some(v) => {
-            let list: Result<Vec<i64>, _> = v
-                .split(',')
-                .filter(|s| !s.trim().is_empty())
-                .map(|s| s.trim().parse::<i64>())
-                .collect();
-            match list {
-                Ok(l) if !l.is_empty() => l,
-                _ => {
-                    eprintln!("--seeds needs a comma-separated list of integer seeds, got: {v}");
-                    std::process::exit(1);
-                }
-            }
-        }
-        None => {
-            let count: i64 = args
-                .iter()
-                .find_map(|a| a.strip_prefix("--count="))
-                .and_then(|v| v.parse().ok())
-                .unwrap_or(100);
-            (0..count).map(|i| seed_start + i).collect()
+    let seed_plan = match batch_seeds::parse(args, f.seed) {
+        Ok(plan) => plan,
+        Err(error) => {
+            eprintln!("{}", error.message);
+            std::process::exit(error.code);
         }
     };
-    let count = seeds.len() as i64;
+    let count = seed_plan.count;
     let root = detect_repo_root().unwrap_or_else(|| PathBuf::from("."));
-    let name_seed = seeds.first().copied().unwrap_or(seed_start);
+    let name_seed = seed_plan.first;
     let out_rel = f
         .output
         .clone()
@@ -415,7 +397,7 @@ fn cmd_batch(args: &[String]) {
     let start = Instant::now();
     let mut written = 0i64;
     let mut nonzero_u = 0i64;
-    for seed in seeds {
+    for seed in seed_plan.seeds {
         f.seed = seed;
         let mut engine = SimEngine::create(build_settings(&f));
         engine.start(build_meta(&f));
