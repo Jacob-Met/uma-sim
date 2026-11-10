@@ -41,7 +41,7 @@ function newFixture() {
       finalTurn: 9, fans: 100, startedAt: '2026-10-08T00:00:00Z',
     })),
     calls: [], failures: [], compareGate: null, failComparison: false, failDelete: false,
-    failListAfterDelete: false, deletionConfirmed: false,
+    failListAfterDelete: false, deletionConfirmed: false, comparisonOverride: null,
   };
 }
 let fixture = newFixture();
@@ -82,7 +82,7 @@ const server = http.createServer(async (req, res) => {
       if (url.pathname === '/v1/lab/compare') {
         if (current.compareGate) await current.compareGate;
         if (current.failComparison) return json(res, { error: 'Receiver fixture comparison failure' }, 503);
-        return json(res, comparison(body.a, body.b));
+        return json(res, current.comparisonOverride ?? comparison(body.a, body.b));
       }
       if (url.pathname === '/v1/lab/branch') return json(res, { branch: current.branches[0], outcome });
       if (url.pathname === '/v1/lab/report') {
@@ -195,6 +195,58 @@ async function runCase(name, fn) {
 }
 
 try {
+  await runCase('outcome deltas and changed-step filter explain real comparison shape', async (page, f) => {
+    const c = comparison('alpha','beta');
+    c.outcomeA = { ...outcome, fans: 100, skillPoints: 30 };
+    c.outcomeB = { ...outcome, stats: { ...outcome.stats, speed: 113, stamina: 80 },
+      fans: 120, skillPoints: 45, completedRaces: ['race-1'] };
+    const row = (stepIndex, sameAction, sameOutcome) => ({
+      stepIndex, turnA: 8 + stepIndex, turnB: 8 + stepIndex,
+      actionA: sameAction ? 'rest' : 'train_speed', actionB: 'rest',
+      labelA: sameAction ? 'Rest' : 'Train speed', labelB: 'Rest',
+      sameAction, energyA: 60, energyB: 55, moodA: 'NORMAL', moodB: 'NORMAL',
+      fansA: 100, fansB: 120, skillPointsA: 30, skillPointsB: 45, sameOutcome
+    });
+    c.aligned = [row(1,true,true),row(2,false,false),row(3,true,false)];
+    c.firstDivergence = { stepIndex: 2, turn: 10, dateLabel: 'Junior June',
+      phase: 'training', kind: 'decision', actionA: 'train_speed', actionB: 'rest',
+      labelA: 'Train speed', labelB: 'Rest', rngCallsAAfter: 5, rngCallsBAfter: 5,
+      note: 'different decisions' };
+    f.comparisonOverride=c;
+    await compare(page);
+    const summary = page.getByRole('region', {name:'Branch comparison timeline'});
+    assert.equal(await page.getByText('What changed in the outcome', {exact:true}).count(),1);
+    const changes = await page.locator('.comparison-delta').allTextContents();
+    assert(changes.some(x=>x.includes('Speed') && x.includes('+13') && x.includes('100 → 113')), JSON.stringify(changes));
+    assert(changes.some(x=>x.includes('Stamina') && x.includes('-10')), JSON.stringify(changes));
+    assert(changes.some(x=>x.includes('Fans') && x.includes('+20')), JSON.stringify(changes));
+    assert(changes.some(x=>x.includes('Races') && x.includes('+1')), JSON.stringify(changes));
+    assert.equal(await summary.locator('tbody tr').count(),3);
+    await page.getByLabel('Show changed steps only').check();
+    assert.equal(await summary.locator('tbody tr').count(),2);
+    assert.match(await page.locator('.comparison-timeline-tools').textContent(),/Showing 2 of 3 steps · 2 differ/);
+    await page.screenshot({path:path.join(output,'outcome-deltas-desktop.png'),fullPage:true});
+    await page.setViewportSize({width:390,height:844});
+    await page.screenshot({path:path.join(output,'outcome-deltas-mobile.png'),fullPage:true});
+    const scroll = await page.evaluate(()=>({width:document.documentElement.clientWidth,
+      scrollWidth:document.documentElement.scrollWidth,
+      regionWidth:document.querySelector('.comparison-table-scroll').clientWidth,
+      tableWidth:document.querySelector('.comparison-table-scroll table').scrollWidth}));
+    assert.equal(scroll.width,390);
+    assert.equal(scroll.scrollWidth,scroll.width,'Mobile page must not overflow horizontally');
+    assert(scroll.tableWidth > scroll.regionWidth,'Wide timeline must scroll within its own region');
+    await page.getByLabel('Show changed steps only').uncheck();
+    assert.equal(await summary.locator('tbody tr').count(),3);
+    return {changedCount:2,totalCount:3,speedDelta:13,fansDelta:20,mobile:scroll};
+  });
+  await runCase('unmatched checkpoints are explicitly not a controlled policy comparison',async(page,f)=>{
+    const c=comparison('alpha','beta');
+    c.sameCheckpoint=false;
+    f.comparisonOverride=c;
+    await compare(page);
+    assert.match(await page.locator('.comparison-delta-summary .banner.warn').textContent(),/do not share a checkpoint/);
+    return {warning:'visible'};
+  });
   await runCase('successful comparison actual markdown and JSON downloads', async (page) => {
     await compare(page);
     return reportsMatch(page, 'alpha', 'beta');
