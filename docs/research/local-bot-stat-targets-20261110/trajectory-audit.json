@@ -1,0 +1,617 @@
+{
+  "totals": {
+    "baseline_wall": 22.018611871993926,
+    "candidate_wall": 20.409150275991124,
+    "baseline_cpu": 22.007071999999997,
+    "candidate_cpu": 20.399655000000003,
+    "improved": 338,
+    "regressed": 45,
+    "tied": 1,
+    "weighted_delta": 109608.0,
+    "mean_score_delta": 285.4375
+  },
+  "trajectory_audit": [
+    {
+      "context": "sorrel-bot-judge-6d21",
+      "race_rank_counts": {
+        "baseline": {
+          "9": 358
+        },
+        "candidate": {
+          "9": 358
+        }
+      },
+      "trajectory_details": [
+        {
+          "scenario": "ura",
+          "rank": "worst",
+          "kind": "baseline",
+          "delta": -1305,
+          "trains": 22,
+          "fails": 2,
+          "rests": 11,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "worst",
+          "kind": "candidate",
+          "delta": -1305,
+          "trains": 16,
+          "fails": 9,
+          "rests": 14,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "median",
+          "kind": "baseline",
+          "delta": 293,
+          "trains": 18,
+          "fails": 7,
+          "rests": 13,
+          "race_rank_counts": {
+            "9": 27
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "median",
+          "kind": "candidate",
+          "delta": 293,
+          "trains": 18,
+          "fails": 7,
+          "rests": 13,
+          "race_rank_counts": {
+            "9": 27
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "best",
+          "kind": "baseline",
+          "delta": 1640,
+          "trains": 20,
+          "fails": 7,
+          "rests": 12,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "best",
+          "kind": "candidate",
+          "delta": 1640,
+          "trains": 23,
+          "fails": 5,
+          "rests": 14,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "worst",
+          "kind": "baseline",
+          "delta": -683,
+          "trains": 18,
+          "fails": 5,
+          "rests": 10,
+          "race_rank_counts": {
+            "9": 31
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "worst",
+          "kind": "candidate",
+          "delta": -683,
+          "trains": 16,
+          "fails": 5,
+          "rests": 10,
+          "race_rank_counts": {
+            "9": 31
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "median",
+          "kind": "baseline",
+          "delta": 118,
+          "trains": 15,
+          "fails": 9,
+          "rests": 13,
+          "race_rank_counts": {
+            "9": 31
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "median",
+          "kind": "candidate",
+          "delta": 118,
+          "trains": 15,
+          "fails": 9,
+          "rests": 13,
+          "race_rank_counts": {
+            "9": 31
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "best",
+          "kind": "baseline",
+          "delta": 854,
+          "trains": 18,
+          "fails": 6,
+          "rests": 11,
+          "race_rank_counts": {
+            "9": 32
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "best",
+          "kind": "candidate",
+          "delta": 854,
+          "trains": 19,
+          "fails": 5,
+          "rests": 12,
+          "race_rank_counts": {
+            "9": 32
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "worst",
+          "kind": "baseline",
+          "delta": 15,
+          "trains": 15,
+          "fails": 8,
+          "rests": 11,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "worst",
+          "kind": "candidate",
+          "delta": 15,
+          "trains": 15,
+          "fails": 8,
+          "rests": 11,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "median",
+          "kind": "baseline",
+          "delta": 484,
+          "trains": 23,
+          "fails": 0,
+          "rests": 10,
+          "race_rank_counts": {
+            "9": 27
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "median",
+          "kind": "candidate",
+          "delta": 484,
+          "trains": 23,
+          "fails": 0,
+          "rests": 10,
+          "race_rank_counts": {
+            "9": 27
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "best",
+          "kind": "baseline",
+          "delta": 1136,
+          "trains": 28,
+          "fails": 0,
+          "rests": 13,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "best",
+          "kind": "candidate",
+          "delta": 1136,
+          "trains": 28,
+          "fails": 0,
+          "rests": 13,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "worst",
+          "kind": "baseline",
+          "delta": -59,
+          "trains": 11,
+          "fails": 4,
+          "rests": 6,
+          "race_rank_counts": {
+            "9": 35
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "worst",
+          "kind": "candidate",
+          "delta": -59,
+          "trains": 11,
+          "fails": 4,
+          "rests": 6,
+          "race_rank_counts": {
+            "9": 35
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "median",
+          "kind": "baseline",
+          "delta": 109,
+          "trains": 13,
+          "fails": 6,
+          "rests": 10,
+          "race_rank_counts": {
+            "9": 36
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "median",
+          "kind": "candidate",
+          "delta": 109,
+          "trains": 13,
+          "fails": 6,
+          "rests": 10,
+          "race_rank_counts": {
+            "9": 36
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "best",
+          "kind": "baseline",
+          "delta": 318,
+          "trains": 16,
+          "fails": 3,
+          "rests": 8,
+          "race_rank_counts": {
+            "9": 35
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "best",
+          "kind": "candidate",
+          "delta": 318,
+          "trains": 16,
+          "fails": 3,
+          "rests": 8,
+          "race_rank_counts": {
+            "9": 35
+          }
+        }
+      ]
+    },
+    {
+      "context": "secondary",
+      "race_rank_counts": {
+        "baseline": {
+          "9": 338
+        },
+        "candidate": {
+          "9": 337
+        }
+      },
+      "trajectory_details": [
+        {
+          "scenario": "ura",
+          "rank": "worst",
+          "kind": "baseline",
+          "delta": -97,
+          "trains": 8,
+          "fails": 5,
+          "rests": 5,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "worst",
+          "kind": "candidate",
+          "delta": -97,
+          "trains": 7,
+          "fails": 6,
+          "rests": 6,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "median",
+          "kind": "baseline",
+          "delta": 569,
+          "trains": 12,
+          "fails": 4,
+          "rests": 7,
+          "race_rank_counts": {
+            "9": 25
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "median",
+          "kind": "candidate",
+          "delta": 569,
+          "trains": 13,
+          "fails": 6,
+          "rests": 9,
+          "race_rank_counts": {
+            "9": 25
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "best",
+          "kind": "baseline",
+          "delta": 1856,
+          "trains": 18,
+          "fails": 1,
+          "rests": 5,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "ura",
+          "rank": "best",
+          "kind": "candidate",
+          "delta": 1856,
+          "trains": 15,
+          "fails": 4,
+          "rests": 8,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "worst",
+          "kind": "baseline",
+          "delta": -519,
+          "trains": 8,
+          "fails": 5,
+          "rests": 5,
+          "race_rank_counts": {
+            "9": 28
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "worst",
+          "kind": "candidate",
+          "delta": -519,
+          "trains": 5,
+          "fails": 8,
+          "rests": 5,
+          "race_rank_counts": {
+            "9": 27
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "median",
+          "kind": "baseline",
+          "delta": 85,
+          "trains": 9,
+          "fails": 4,
+          "rests": 4,
+          "race_rank_counts": {
+            "9": 28
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "median",
+          "kind": "candidate",
+          "delta": 85,
+          "trains": 9,
+          "fails": 3,
+          "rests": 4,
+          "race_rank_counts": {
+            "9": 28
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "best",
+          "kind": "baseline",
+          "delta": 883,
+          "trains": 11,
+          "fails": 1,
+          "rests": 4,
+          "race_rank_counts": {
+            "9": 30
+          }
+        },
+        {
+          "scenario": "grand_concert",
+          "rank": "best",
+          "kind": "candidate",
+          "delta": 883,
+          "trains": 13,
+          "fails": 3,
+          "rests": 6,
+          "race_rank_counts": {
+            "9": 30
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "worst",
+          "kind": "baseline",
+          "delta": -135,
+          "trains": 9,
+          "fails": 3,
+          "rests": 5,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "worst",
+          "kind": "candidate",
+          "delta": -135,
+          "trains": 5,
+          "fails": 8,
+          "rests": 5,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "median",
+          "kind": "baseline",
+          "delta": 376,
+          "trains": 11,
+          "fails": 5,
+          "rests": 6,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "median",
+          "kind": "candidate",
+          "delta": 376,
+          "trains": 10,
+          "fails": 5,
+          "rests": 7,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "best",
+          "kind": "baseline",
+          "delta": 1294,
+          "trains": 15,
+          "fails": 0,
+          "rests": 6,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "unity",
+          "rank": "best",
+          "kind": "candidate",
+          "delta": 1294,
+          "trains": 15,
+          "fails": 0,
+          "rests": 7,
+          "race_rank_counts": {
+            "9": 26
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "worst",
+          "kind": "baseline",
+          "delta": -95,
+          "trains": 8,
+          "fails": 0,
+          "rests": 3,
+          "race_rank_counts": {
+            "9": 34
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "worst",
+          "kind": "candidate",
+          "delta": -95,
+          "trains": 7,
+          "fails": 4,
+          "rests": 5,
+          "race_rank_counts": {
+            "9": 34
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "median",
+          "kind": "baseline",
+          "delta": 147,
+          "trains": 5,
+          "fails": 3,
+          "rests": 3,
+          "race_rank_counts": {
+            "9": 28
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "median",
+          "kind": "candidate",
+          "delta": 147,
+          "trains": 5,
+          "fails": 3,
+          "rests": 3,
+          "race_rank_counts": {
+            "9": 28
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "best",
+          "kind": "baseline",
+          "delta": 557,
+          "trains": 7,
+          "fails": 2,
+          "rests": 4,
+          "race_rank_counts": {
+            "9": 35
+          }
+        },
+        {
+          "scenario": "trackblazer",
+          "rank": "best",
+          "kind": "candidate",
+          "delta": 557,
+          "trains": 7,
+          "fails": 2,
+          "rests": 4,
+          "race_rank_counts": {
+            "9": 35
+          }
+        }
+      ]
+    }
+  ]
+}
