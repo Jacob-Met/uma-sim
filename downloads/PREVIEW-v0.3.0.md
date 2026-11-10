@@ -42,7 +42,7 @@ ZIP: uma-sim-v0.3.0-preview.20261110-linux-x64-glibc239.zip, **3,107,703 bytes**
 
 SHA-256: `914e942a8142735822ae38cdee9f24acb393dbfb908a1e534fe1bc8e7b67b2ab`.
 
-Verify with `sha256sum -c SHA256SUMS` after downloading both files into one folder. [Download checksum](SHA256SUMS?raw=true).
+Verify with `sha256sum --ignore-missing -c SHA256SUMS` after downloading both files into one folder. [Download checksum](SHA256SUMS?raw=true).
 
 Built on the Renpō Linux fleet with Rust 1.99.1 and Node 22.23.4. Actual extracted copies were launched from unrelated working directories, including with the source data hidden. Native complete 72-turn careers, direct batch-to-paired comparisons, and actual Chrome desktop/phone journeys were exercised. The merged UI passed 131 tests. The decision UI and CLI correction received separate independent actual-use reviews. No GitHub Actions were used.
 
