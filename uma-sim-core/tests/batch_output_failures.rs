@@ -192,3 +192,52 @@ fn batch_midstream_write_failure_is_nonzero_and_retains_the_written_prefix() {
         result
     );
 }
+
+#[test]
+fn relative_batch_outputs_feed_paired_comparison_from_the_callers_directory() {
+    let fixture = Fixture::new("relative-paired");
+    for name in ["out/candidate.jsonl", "out/baseline.jsonl"] {
+        let result = fixture.command(Path::new(name)).output().unwrap();
+        assert!(result.status.success(), "{:?}", result);
+        assert!(
+            fixture.root.join(name).is_file(),
+            "output missing from caller directory: {name}"
+        );
+    }
+    let result = Command::new(env!("CARGO_BIN_EXE_uma-sim"))
+        .current_dir(&fixture.root)
+        .args([
+            "compare-batches",
+            "--input=out/candidate.jsonl",
+            "--baseline=out/baseline.jsonl",
+            "--format=json",
+        ])
+        .output()
+        .unwrap();
+    assert!(result.status.success(), "{:?}", result);
+    let comparison: serde_json::Value = serde_json::from_slice(&result.stdout).unwrap();
+    assert!(comparison.is_object());
+}
+
+#[test]
+fn default_batch_output_is_relative_to_the_callers_directory() {
+    let fixture = Fixture::new("default-location");
+    let result = Command::new(env!("CARGO_BIN_EXE_uma-sim"))
+        .current_dir(&fixture.root)
+        .env(
+            "UMA_REPO_ROOT",
+            Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap(),
+        )
+        .env_remove("UMA_POLICY_CMD")
+        .args([
+            "batch",
+            "--count=1",
+            "--seed=83",
+            "--scenario=ura",
+            "--policy=default",
+        ])
+        .output()
+        .unwrap();
+    assert!(result.status.success(), "{:?}", result);
+    assert!(fixture.root.join("out/sim-batch/batch-ura-83.jsonl").is_file());
+}

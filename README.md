@@ -127,7 +127,10 @@ a career. Consecutive seeds are streamed without allocating the whole range.
 The first `--count=` is used when repeated. An explicit `--seeds=` list retains
 its existing precedence: its first supplied list determines the ordered careers,
 including repeated seeds, and the count is ignored. Valid batches still replace
-the chosen output file; keep prior results under a different filename.
+the chosen output file; keep prior results under a different filename. Relative
+batch output paths (including the default `out/sim-batch/` path) are resolved
+from your current working directory, so `compare-batches` can consume the same
+paths directly. `UMA_REPO_ROOT` selects simulator data, not batch output storage.
 
 `start`, `fast`, `batch`, and `export-telemetry` accept `--seed=<integer>`
 as a signed 64-bit seed; omitting it uses 42. These commands reject an empty,
