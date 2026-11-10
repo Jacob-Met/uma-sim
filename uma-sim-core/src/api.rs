@@ -367,7 +367,38 @@ fn run_view_json(eng: &SimEngine) -> Value {
     let mut view: Value = serde_json::from_str(&RunSnapshotCodec::encode(&eng.export()))
         .expect("a serialized run snapshot is valid JSON");
     view["trainingInspection"] = json!(eng.training_inspection());
+    view["localBotRecommendation"] = local_bot_recommendation_json(eng);
     view
+}
+
+/// Read-only advice from the native local heuristic, never an external policy.
+fn local_bot_recommendation_json(eng: &SimEngine) -> Value {
+    let Some(advice) = eng.local_bot_recommendation() else {
+        return Value::Null;
+    };
+    let action_id = advice.action_id();
+    let choices = eng.choices();
+    let Some(choice) = choices.iter().find(|choice| choice.id == action_id) else {
+        return Value::Null;
+    };
+    let state = eng.state();
+    json!({
+        "schemaVersion": 1,
+        "turn": state.turn,
+        "phase": state.phase,
+        "scenarioId": state.meta.scenario_id,
+        "traineeName": state.meta.trainee_name,
+        "actionId": action_id,
+        "actionLabel": choice.label,
+        "reason": advice.reason,
+        "trainingScores": advice.training_scores.iter().map(|(facility, score)| {
+            json!({
+                "actionId": format!("train_{}", facility.key()),
+                "facility": facility.key(),
+                "score": score,
+            })
+        }).collect::<Vec<_>>(),
+    })
 }
 
 /// Session id targeted by a request: explicit `session` field (POST body) or
@@ -1642,6 +1673,16 @@ mod tests {
                 .len(),
             5
         );
+        let recommendation = &before["localBotRecommendation"];
+        assert_eq!(recommendation["schemaVersion"], 1);
+        assert_eq!(recommendation["turn"], before["state"]["turn"]);
+        assert_eq!(recommendation["phase"], before["state"]["phase"]);
+        assert_eq!(recommendation["scenarioId"], before["state"]["meta"]["scenarioId"]);
+        assert_eq!(recommendation["traineeName"], before["state"]["meta"]["traineeName"]);
+        let recommended_action = recommendation["actionId"].as_str().unwrap();
+        assert!(recommended_action.starts_with("train_"));
+        assert_eq!(recommendation["trainingScores"].as_array().unwrap().len(), 5);
+        assert!(!recommendation["reason"].as_str().unwrap().is_empty());
         for _ in 0..3 {
             let (_, after) = http_get(port, "/v1/run/state?session=inspected");
             assert_eq!(serde_json::from_str::<Value>(&after).unwrap(), before);
@@ -1649,12 +1690,13 @@ mod tests {
         let (a_status, a) = http_post(
             port,
             "/v1/run/action",
-            r#"{"session":"inspected","action":"train_speed"}"#,
+            &json!({"session":"inspected", "action":recommended_action}).to_string(),
         );
+        // Applying the visible suggestion must be exactly the native bot move.
         let (b_status, b) = http_post(
             port,
-            "/v1/run/action",
-            r#"{"session":"control","action":"train_speed"}"#,
+            "/v1/run/auto",
+            r#"{"session":"control","policy":"bot"}"#,
         );
         assert_eq!(a_status, 200);
         assert_eq!(b_status, 200);
@@ -1677,6 +1719,31 @@ mod tests {
             a["state"]
         );
         assert_eq!(http_get(port, "/v1/run/state?session=missing").0, 404);
+    }
+
+
+    #[test]
+    fn local_bot_advice_disappears_after_an_actual_complete_career() {
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
+        let mut engine = SimEngine::create(SimSettings::default());
+        engine.start(RunMeta::new(42, "ura", "Special Week"));
+        let first = run_view_json(&engine);
+        assert_eq!(first["localBotRecommendation"]["actionId"], "race");
+        assert!(first["localBotRecommendation"]["reason"]
+            .as_str().unwrap().contains("mandatory"));
+        assert_eq!(first["localBotRecommendation"]["trainingScores"], json!([]));
+        for _ in 0..500 {
+            if engine.state().career_complete {
+                break;
+            }
+            let recommendation = engine.local_bot_recommendation().unwrap();
+            engine.step(recommendation.action);
+        }
+        assert!(engine.state().career_complete);
+        assert!(run_view_json(&engine)["localBotRecommendation"].is_null());
+        let checkpoint: Value =
+            serde_json::from_str(&RunSnapshotCodec::encode(&engine.export())).unwrap();
+        assert!(checkpoint.get("localBotRecommendation").is_none());
     }
 
     #[test]
