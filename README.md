@@ -93,6 +93,11 @@ directory`.
 
 Between commands, the current career is saved in `.uma-sim/session.json` in
 the working directory.
+`start`, `step`, `fast`, and `deck place` report success only after saving.
+A save error is printed to stderr and exits with status 1. A failed write,
+sync, or replacement retains the previously saved career so it can be resumed.
+New session files are private to the current user on Unix; replacements retain
+the existing permission bits. Run commands one at a time in each working directory.
 
 ```bash
 # Step through a career yourself

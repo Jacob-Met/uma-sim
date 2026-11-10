@@ -212,6 +212,7 @@ fn cmd_start(args: &[String]) {
     let result = engine.start(build_meta(&f));
     if let Err(e) = RunSession::save(&engine) {
         eprintln!("Failed to save session: {e}");
+        std::process::exit(1);
     }
     let choice_ids: Vec<String> = result.choices.into_iter().map(|c| c.id).collect();
     print_result(&result.text_lines, &choice_ids);
@@ -288,6 +289,7 @@ fn cmd_step(args: &[String]) {
     let result = engine.step(parse_sim_action(action_id));
     if let Err(e) = RunSession::save(&engine) {
         eprintln!("Failed to save session: {e}");
+        std::process::exit(1);
     }
     let choice_ids: Vec<String> = result.choices.into_iter().map(|c| c.id).collect();
     print_result(&result.text_lines, &choice_ids);
@@ -344,6 +346,7 @@ fn cmd_fast(args: &[String]) {
     let elapsed = start.elapsed().as_millis();
     if let Err(e) = RunSession::save(&engine) {
         eprintln!("Failed to save session: {e}");
+        std::process::exit(1);
     }
     let lines = TextRenderer::new(build_settings(&f)).render(engine.state(), &[]);
     let tail: Vec<String> = lines.iter().rev().take(5).cloned().collect::<Vec<_>>();
@@ -557,6 +560,7 @@ fn cmd_deck_place(args: &[String]) {
     }
     if let Err(e) = RunSession::save(&engine) {
         eprintln!("Failed to save session: {e}");
+        std::process::exit(1);
     }
     println!("Placed {support_id} on {}", facility.key());
 }
