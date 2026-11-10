@@ -134,7 +134,11 @@ impl BotDecisionAdapter {
         resolver: &TrainingResolver,
     ) -> Vec<(TrainingFacility, f64)> {
         let caps = stat_caps_from_legacy(state, plugin);
-        let config = TrainingPreview::to_training_config(state, caps);
+        let mut config = TrainingPreview::to_training_config(state, caps);
+        // The local bot has no user-supplied per-stat goals. Use its effective
+        // scenario/legacy caps as built-in targets; an empty target map makes
+        // every stat gain contribute zero and reduces training to tie breaks.
+        config.stat_targets = config.stat_caps.clone();
         let previews = TrainingPreview::build_options(state, resolver);
         let mut scores = Vec::new();
         for facility in TrainingFacility::ALL {
