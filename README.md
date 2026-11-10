@@ -19,6 +19,15 @@ Scenarios: URA Finale (`ura`), Grand Live (`grand_concert`), Unity Cup
 Fan project, not affiliated with Cygames. See [NOTICE](NOTICE) for data sources
 and attribution.
 
+## Experimental Linux player preview
+
+[Download the November 10 player preview](downloads/uma-sim-v0.3.0-preview.20261110-linux-x64-glibc239.zip?raw=true) · [Launch instructions and limitations](downloads/PREVIEW.md) · [SHA-256](downloads/SHA256SUMS)
+
+This versioned preview includes the current embedded browser, readable training decisions,
+policy selection fixes and direct batch comparisons. It requires **Linux x86-64 with glibc
+2.39+ (Ubuntu 24.04+)**. It is an experimental repository download; **v0.2.2 remains the
+stable release**, including its wider platform support.
+
 ## Quick start from source
 
 Needs a stable Rust toolchain, 1.80 or newer (install with [rustup](https://rustup.rs)).
