@@ -357,8 +357,17 @@ fn state_json(st: &ApiState) -> String {
     let id = st.active.clone();
     st.sessions
         .get(&id)
-        .map(|s| RunSnapshotCodec::encode(&s.engine.export()))
+        .map(|s| run_view_json(&s.engine).to_string())
         .unwrap_or_else(|| "{}".to_string())
+}
+
+/// The live HTTP view includes samples from the very same engine state.
+/// Checkpoint export/encoding remains unchanged; previews are not persisted.
+fn run_view_json(eng: &SimEngine) -> Value {
+    let mut view: Value = serde_json::from_str(&RunSnapshotCodec::encode(&eng.export()))
+        .expect("a serialized run snapshot is valid JSON");
+    view["trainingInspection"] = json!(eng.training_inspection());
+    view
 }
 
 /// Session id targeted by a request: explicit `session` field (POST body) or
@@ -440,8 +449,7 @@ fn choices_json(eng: &SimEngine) -> Vec<Value> {
 }
 
 fn step_response(eng: &SimEngine, text: String, career_ended: bool) -> Response<Cursor<Vec<u8>>> {
-    let state: Value = serde_json::from_str(&RunSnapshotCodec::encode(&eng.export()))
-        .unwrap_or_else(|_| json!({}));
+    let state = run_view_json(eng);
     json_response(
         200,
         json!({
@@ -679,7 +687,7 @@ fn handle_state(st: &ApiState, query: &HashMap<String, String>) -> Response<Curs
         Ok(s) => s,
         Err(r) => return r,
     };
-    json_response_str(200, &RunSnapshotCodec::encode(&slot.engine.export()))
+    json_response(200, run_view_json(&slot.engine))
 }
 
 fn handle_text(st: &ApiState, query: &HashMap<String, String>) -> Response<Cursor<Vec<u8>>> {
@@ -879,7 +887,7 @@ fn handle_deck_place(
     if !eng.assign_deck_slot(&support_id, facility) {
         return json_response(409, json!({"error":"cannot place card"}));
     }
-    let snapshot = RunSnapshotCodec::encode(&eng.export());
+    let snapshot = run_view_json(eng).to_string();
     json_response_str(200, &snapshot)
 }
 
@@ -901,7 +909,7 @@ fn handle_set_style(
         return json_response(400, json!({"error":"style must be front|pace|late|end"}));
     }
     eng.set_preferred_running_style(if key.is_empty() { None } else { Some(key) });
-    let snapshot = RunSnapshotCodec::encode(&eng.export());
+    let snapshot = run_view_json(eng).to_string();
     json_response_str(200, &snapshot)
 }
 
@@ -1575,6 +1583,100 @@ mod tests {
             thread::sleep(Duration::from_millis(50));
         }
         panic!("server did not become ready on port {port}");
+    }
+
+    #[test]
+    fn training_view_is_session_specific_and_does_not_change_the_next_action() {
+        let _env_guard = EXTERNAL_TEST_LOCK.lock().unwrap();
+        let port = free_port();
+        thread::spawn(move || serve(port));
+        wait_ready(port);
+        for session in ["inspected", "control"] {
+            let (status, _) = http_post(
+                port,
+                "/v1/run/start",
+                &format!(
+                    r#"{{"seed":271,"scenario":"unity","trainee":"Special Week","raceModel":"stub","session":"{session}"}}"#
+                ),
+            );
+            assert_eq!(status, 200);
+        }
+        // Drive identical careers to their first actual training decision.
+        let mut ready = false;
+        for _ in 0..16 {
+            let (status, raw) = http_get(port, "/v1/run/state?session=inspected");
+            assert_eq!(status, 200);
+            let view: Value = serde_json::from_str(&raw).unwrap();
+            if !view["trainingInspection"]["rows"]
+                .as_array()
+                .unwrap()
+                .is_empty()
+            {
+                ready = true;
+                break;
+            }
+            for session in ["inspected", "control"] {
+                let (status, _) = http_post(
+                    port,
+                    "/v1/run/auto",
+                    &format!(r#"{{"policy":"bot","session":"{session}"}}"#),
+                );
+                assert_eq!(status, 200);
+            }
+        }
+        assert!(ready, "reach a real training turn");
+        let (_, before) = http_get(port, "/v1/run/state?session=inspected");
+        let before: Value = serde_json::from_str(&before).unwrap();
+        assert_eq!(
+            before["trainingInspection"]["turn"],
+            before["state"]["turn"]
+        );
+        assert_eq!(
+            before["trainingInspection"]["energy"],
+            before["state"]["energy"]
+        );
+        assert_eq!(
+            before["trainingInspection"]["rows"]
+                .as_array()
+                .unwrap()
+                .len(),
+            5
+        );
+        for _ in 0..3 {
+            let (_, after) = http_get(port, "/v1/run/state?session=inspected");
+            assert_eq!(serde_json::from_str::<Value>(&after).unwrap(), before);
+        }
+        let (a_status, a) = http_post(
+            port,
+            "/v1/run/action",
+            r#"{"session":"inspected","action":"train_speed"}"#,
+        );
+        let (b_status, b) = http_post(
+            port,
+            "/v1/run/action",
+            r#"{"session":"control","action":"train_speed"}"#,
+        );
+        assert_eq!(a_status, 200);
+        assert_eq!(b_status, 200);
+        let a: Value = serde_json::from_str(&a).unwrap();
+        let b: Value = serde_json::from_str(&b).unwrap();
+        assert_eq!(
+            a["state"], b["state"],
+            "inspection cannot change the result or RNG"
+        );
+        // Advance only the active control session. An explicit inspected read
+        // must still describe the displayed career, not the server's active one.
+        http_post(
+            port,
+            "/v1/run/auto",
+            r#"{"session":"control","policy":"bot"}"#,
+        );
+        let (_, inspected) = http_get(port, "/v1/run/state?session=inspected");
+        assert_eq!(
+            serde_json::from_str::<Value>(&inspected).unwrap(),
+            a["state"]
+        );
+        assert_eq!(http_get(port, "/v1/run/state?session=missing").0, 404);
     }
 
     #[test]

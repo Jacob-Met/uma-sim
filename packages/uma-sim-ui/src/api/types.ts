@@ -138,7 +138,38 @@ export interface CareerState {
   preferredRunningStyle?: string | null;
 }
 
+export interface TrainingInspectionRow {
+  actionId: string;
+  facility: string;
+  label: string;
+  level: number;
+  statGains: TraineeStats;
+  energyCost: number;
+  energyDelta: number | null;
+  failureChancePct: number | null;
+  numRainbow: number;
+  numSkillHints: number;
+  available: boolean;
+  blockedReason: "injured" | "insufficient_energy" | null;
+}
+
+export interface TrainingInspection {
+  schemaVersion: number;
+  turn: number;
+  phase: string;
+  scenarioId: string;
+  traineeName: string;
+  energy: number;
+  maxEnergy: number;
+  sampleKind: string;
+  notes: string[];
+  unavailableReason: string | null;
+  rows: TrainingInspectionRow[];
+}
+
 export interface RunSnapshot {
+  /** Read-only live API samples; not part of the stored checkpoint schema. */
+  trainingInspection?: TrainingInspection;
   meta: RunMeta;
   settings: SimSettings;
   state: CareerState;
