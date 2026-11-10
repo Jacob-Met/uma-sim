@@ -30,13 +30,15 @@ stable release**, including its wider platform support.
 
 ## Quick start from source
 
-Needs a stable Rust toolchain, 1.80 or newer (install with [rustup](https://rustup.rs)).
+Install the current stable Rust toolchain with [rustup](https://rustup.rs). The merged native workspace and experimental Linux preview were built and tested with **Rust 1.99.1**. Older host defaults can fail to compile the current source; an earlier minimum version has not been validated.
 Node 20 is only needed for the browser UI and the Node wrappers.
 
 ```bash
 git clone https://github.com/Jacob-Met/uma-sim.git
 cd uma-sim
-cargo build --release -p uma-sim-core
+rustup update stable
+rustc +stable --version
+cargo +stable build --locked --release -p uma-sim-core
 
 # Play one career to the end with the default policy (seed 42)
 ./target/release/uma-sim fast --seed=42
@@ -57,11 +59,11 @@ Build the UI once, then embed it into the binary:
 
 ```bash
 cd packages/uma-sim-ui && npm ci && npm run build && cd ../..
-cargo build --release --features embed-ui -p uma-sim-core
+cargo +stable build --locked --release --features embed-ui -p uma-sim-core
 ./target/release/uma-sim serve --open        # http://127.0.0.1:8765/
 ```
 
-For UI work with hot reload, run `cargo run -p uma-sim-core --bin uma-sim -- serve`
+For UI work with hot reload, run `cargo +stable run -p uma-sim-core --bin uma-sim -- serve`
 in one terminal and `npm run dev` in `packages/uma-sim-ui` in another, then
 open the Vite URL (it proxies `/v1` to port 8765).
 
@@ -332,7 +334,7 @@ the shipped catalogs.
 ## Tests
 
 ```bash
-cargo test --workspace                          # about 300 tests, including 200 golden seeds
+cargo +stable test --workspace --locked                          # about 300 tests, including 200 golden seeds
 python scripts/calibrate_grand_live.py --strict
 cd packages/uma-sim-ui && npm run typecheck && npm run build
 ```
