@@ -21,11 +21,11 @@ and attribution.
 
 ## Experimental Linux player preview
 
-[Download the November 10 player preview](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.1-preview.20261110/uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip) · [Launch instructions and limitations](downloads/PREVIEW.md) · [SHA-256](downloads/SHA256SUMS)
+[Download the November 10 player preview](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.2-preview.20261110/uma-sim-v0.3.2-preview.20261110-linux-x64-glibc239.zip) · [Launch instructions and limitations](downloads/PREVIEW.md) · [SHA-256](downloads/SHA256SUMS)
 
-This versioned preview includes the current embedded browser, readable training decisions,
+This versioned preview includes the current embedded browser, inspectable local bot suggestions, readable training decisions,
 policy selection fixes, direct batch comparisons and the independently evaluated local-bot stat-value correction. Racing performance remains limited; see the linked evidence and caveats. It requires **Linux x86-64 with glibc
-2.39+ (Ubuntu 24.04+)**. It is a published [experimental prerelease](https://github.com/Jacob-Met/uma-sim/releases/tag/v0.3.1-preview.20261110); **v0.2.2 remains the
+2.39+ (Ubuntu 24.04+)**. It is a published [experimental prerelease](https://github.com/Jacob-Met/uma-sim/releases/tag/v0.3.2-preview.20261110); **v0.2.2 remains the
 stable release**, including its wider platform support.
 
 ## Quick start from source
@@ -108,6 +108,8 @@ change and current failure chance. Samples come from the same live career view;
 reading them does not advance a turn or its random sequence. They are neither
 guaranteed next-turn outcomes nor expected values. The explanation beside the
 rows describes the scope, and blocked rows say what must change before training.
+
+The local bot suggestion can be inspected and applied as one manual choice. Its relative training scores are heuristic values; Auto step still uses the selected policy. Advice does not guarantee a better career or race win.
 
 History, support placement, skills, lineage and racing style remain available
 below the decision on a phone and beside it on a wider screen. The policy chosen

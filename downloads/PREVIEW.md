@@ -1,64 +1,53 @@
-# Uma Sim experimental Linux player preview — November 10, 2026
+# Uma Sim experimental Linux player preview — v0.3.2
 
-[Download the runnable ZIP](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.1-preview.20261110/uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip)
+[Download the runnable ZIP](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.2-preview.20261110/uma-sim-v0.3.2-preview.20261110-linux-x64-glibc239.zip) · [Checksums](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.2-preview.20261110/SHA256SUMS)
 
-This is a published [experimental GitHub prerelease](https://github.com/Jacob-Met/uma-sim/releases/tag/v0.3.1-preview.20261110). Stable v0.2.2 remains available with its wider platform support. It contains the actual native CLI, embedded browser UI, runtime catalogs, license and attribution. No Rust or Node installation is needed to play.
+The native CLI and embedded browser player require **Linux x86-64, glibc 2.39+ (Ubuntu 24.04+)**. No Rust or Node installation is needed. Stable v0.2.2 remains available with wider platform support.
 
-## Watch the player
+## Inspect and apply a local suggestion
 
-[Watch or download the 29-second walkthrough](media/uma-preview-walkthrough.mp4?raw=true) · [Caption transcript](media/uma-preview-walkthrough.srt)
+The current turn now shows the native local bot's proposed action beside an **Apply** button. Open **Why this local suggestion?** below the manual choices to read its reason and relative training scores. Apply makes exactly one manual choice through the same session-bound action route as the other buttons.
 
-This silent, captioned recording uses the earlier v0.3.0 preview. The manual decision interface and sample display are unchanged in v0.3.1. It follows one real seed-42 career: enter the required debut race, compare all five training choices, read the sample caveat, choose Speed manually, and inspect the retained history. The sample shows Speed +10; the actual history records +11. Samples are not guaranteed gains or expected values. Captions sit below the original browser image.
+The suggestion is explicitly the built-in local heuristic. **Auto step still uses the policy selected in the toolbar**, which can differ. Scores are relative decision values, not success chances or predicted gains. Manual training samples retain their separate energy, failure and sample-gain explanations.
 
-![Desktop training choices with sample gains, energy cost and failure chance](media/desktop-training.png)
+![Actual phone player with native Stamina suggestion and manual training choices](media/local-suggestion-phone.png)
 
-[Phone training view](media/phone-training.png) · [Required race view](media/desktop-race.png)
+This image is the actual production UI against the native API, with Default selected for automation. All five training rows and Rest remain visible at 390 × 844. The same UI was then embedded and independently played: Apply entered the mandatory race, suggested Stamina on turn 2, and retained the actual training event on turn 3. Opening the explanation submitted no action.
 
 ## Launch
 
-1. Use x86-64 Linux with **glibc 2.39 or newer**, such as Ubuntu 24.04+.
-2. Extract the complete ZIP into a writable folder.
-3. Open a terminal in the extracted `uma-sim-linux-x64-glibc239-preview` folder.
-4. Run `chmod +x uma-sim`, then `./uma-sim serve --open`.
-5. If the browser does not open, visit <http://127.0.0.1:8765/>. Stop the server with Ctrl+C.
+1. Extract the complete ZIP into a writable folder.
+2. Open a terminal inside `uma-sim-linux-x64-glibc239-preview`.
+3. Run `chmod +x uma-sim`, then `./uma-sim serve --open`.
+4. If the browser does not open, visit <http://127.0.0.1:8765/>. Stop with Ctrl+C.
+5. Wait for **Ready · career catalogs loaded** before starting a career. The initial embedded review encountered a disabled Start button before readiness; a subsequent ready-state interaction passed. That initial delay remains an observed limitation.
 
-Keep `research/`, `knowledge/` and `content_packs/` next to the executable. The server can be launched from a different working directory. The CLI saves its career under `.uma-sim/` in the current working directory.
+Keep `research/`, `knowledge/` and `content_packs/` beside the executable. CLI careers save to `.uma-sim/` in the caller's working directory. `./uma-sim fast --seed=42 --policy=bot` starts a fresh full career and replaces that directory's saved career.
 
-Run a full career with `./uma-sim fast --seed=42 --policy=bot`. Available scenarios are `ura`, `grand_concert`, `unity` and `trackblazer`. The `fast` command starts a new career and replaces the saved career in that working directory.
+## Source and checks
 
-## Local bot correction in v0.3.1
+Source: [`e42d09e59062feaa20a549dbf5ec68cfef908faf`](https://github.com/Jacob-Met/uma-sim/tree/e42d09e59062feaa20a549dbf5ec68cfef908faf). Runtime catalogs and embedded UI come from this exact tree.
 
-The native local bot now assigns nonzero value to training stat gains, using effective scenario/legacy caps as its default targets. Previously the empty target map made all stat gains contribute zero.
+ZIP: `uma-sim-v0.3.2-preview.20261110-linux-x64-glibc239.zip`, **2,885,002 bytes**. SHA-256:
 
-A separate, frozen evaluation covered 384 paired full careers across four scenarios and two trainee/deck contexts: 338 terminal scores improved, 45 regressed and one tied. Mean score improved in every context/scenario cell; the largest observed primary URA loss was **1,305 points**. The empty-deck policy still concentrates heavily on Stamina. **All parsed races in 48 selected full-career replays remained ninth place on both policies.** This is a terminal-score correction, not a claim of stronger racing. [Protocol, raw outcomes, costs and replay logs](../docs/research/local-bot-stat-targets-20261110/README.md).
+```text
+aea09777da97fbfe9923300c2269e7411521c7609ea0997abd0fa2bd43057033
+```
 
-## Player improvements retained
+Extracted binary SHA-256: `0788d13b30c05f085b135c9f6ab1da4655b69335f81173fda22768e649e6fe64`.
 
-- Current turn, energy, stats and manual choices appear together. Required race actions and all five training choices are readable on a 390px phone.
-- Training choices show native sample gains, successful energy change and current failure chance, with explicit limits on what samples predict.
-- Selecting Default during setup now also selects Default for the next automatic step.
-- Relative batch outputs are written in the caller's directory and can feed directly into `compare-batches`.
-- The embedded browser includes the current branch outcome comparison and required event dialog work.
+Download SHA256SUMS beside the ZIP and run `sha256sum --ignore-missing -c SHA256SUMS`. Built on the Renpō fleet with Rust 1.99.1; GitHub Actions stayed disabled.
 
-## Exact source and integrity
+The UI production build and 132 tests passed. The native API passed 14 tests, including unchanged session/RNG on reads, application matching the native local action, completed-career null advice and unchanged stored checkpoint schema. The extracted ZIP passed the maintained release-layout smoke test from an unrelated directory with the source data hidden: both stub and physics careers reached turn 72. Separate fresh visual and interactive reviews accepted phone/desktop readability and the real two-action suggestion workflow, including the embedded native route.
 
-Source: [`a035857cffdd3a44799767b9123bfbf80ae9d200`](https://github.com/Jacob-Met/uma-sim/tree/a035857cffdd3a44799767b9123bfbf80ae9d200). The runtime data is copied from that exact Git tree, and the browser UI is built and embedded from the same source.
+## Policy limits
 
-ZIP: uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip, **2,884,641 bytes**.
+This update adds player access to advice; it does not change the bot policy. The v0.3.1 stat-target correction's frozen comparison remains the applicable evidence: 384 paired careers, 338 higher terminal scores, 45 lower and one tie, with mean improvement in all eight scenario/context cells. The largest primary URA loss was 1,305 points. Every parsed race in 48 selected full-career replays remained ninth on both policies. Recovery, racing and training balance remain weak. [Protocol and raw evidence](../docs/research/local-bot-stat-targets-20261110/README.md).
 
-SHA-256: `4556c0853b73614789b202a62eb59ab55211ca8f1dc86654ca9187b11bf732b2`.
+This is an unofficial fan simulator, not affiliated with Cygames. Game parity is incomplete; simulated scores are not actual-game win-rate predictions. No Windows/macOS binary is supplied here. The internal engine version still reads 0.1.0; the source commit identifies this build. LICENSE and NOTICE are bundled.
 
-Verify with `sha256sum --ignore-missing -c SHA256SUMS` after downloading both files into one folder. [Download checksum](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.1-preview.20261110/SHA256SUMS).
+## Earlier previews and walkthrough
 
-Built on the Renpō Linux fleet with Rust 1.99.1 and the unchanged embedded UI from the same source tree. The extracted v0.3.1 package completed all four native 72-turn scenarios with fresh seed 887, produced bot/default batches for seeds 887/991/1069 in the caller's directory, and fed those files into native paired comparison. Actual Chrome phone use exercised setup, the required race, all five training choices and a manual Speed action to turn 3. The merged correction passed the full Rust workspace suite; the retained UI had passed 131 tests. No GitHub Actions were used. A separate reviewer downloaded the published GitHub Release asset anonymously, verified its ZIP and executable hashes, extracted it and completed a fresh 72-turn physics career from an unrelated working directory. The published asset is byte-identical to the accepted repository preview.
+[v0.3.1 source, download and checks](PREVIEW-v0.3.1.md) · [v0.3.0 source, download and checks](PREVIEW-v0.3.0.md)
 
-## Limits
-
-This preview requires glibc 2.39; it does not retain stable v0.2.2's glibc 2.28 compatibility. It supplies no Windows or macOS binary. The internal engine version shown in the UI remains 0.1.0; the source commit above identifies this preview build.
-
-Unofficial fan simulator, not affiliated with Cygames. Game parity is incomplete, and in-simulator outcomes are not actual game win-rate predictions. The measured local-policy improvement is limited to the terminal objectives above; recovery and optional-race scheduling remain weak. See the included LICENSE, NOTICE and [simulator documentation](../docs/SIMULATOR.md).
-
-
-## Previous preview
-
-[v0.3.0 download](uma-sim-v0.3.0-preview.20261110-linux-x64-glibc239.zip?raw=true) · [Original source, checksum and notes](PREVIEW-v0.3.0.md). The earlier artifact is preserved unchanged.
+[Silent 29-second manual walkthrough](media/uma-preview-walkthrough.mp4?raw=true) · [Captions](media/uma-preview-walkthrough.srt). This older recording uses v0.3.0 and shows manual training samples/history; it does not show the new suggestion controls. Earlier ZIPs remain unchanged.
