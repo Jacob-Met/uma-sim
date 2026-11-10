@@ -89,6 +89,19 @@ the path of the CI machine that built them and stop on the first race with
 `read /home/runner/work/uma-sim/…/race_course_data.json: No such file or
 directory`.
 
+## Making a career decision
+
+The browser puts the next available action beside the current energy and stats.
+Training rows show the native engine's fixed sample gains, successful energy
+change and current failure chance. Samples come from the same live career view;
+reading them does not advance a turn or its random sequence. They are neither
+guaranteed next-turn outcomes nor expected values. The explanation beside the
+rows describes the scope, and blocked rows say what must change before training.
+
+History, support placement, skills, lineage and racing style remain available
+below the decision on a phone and beside it on a wider screen. The policy chosen
+when starting a career is also used by its automation controls.
+
 ## CLI
 
 Between commands, the current career is saved in `.uma-sim/session.json` in

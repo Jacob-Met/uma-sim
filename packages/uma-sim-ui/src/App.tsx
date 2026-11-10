@@ -61,7 +61,8 @@ export default function App() {
       const n = Number(e.key);
       if (n >= 1 && n <= 9) {
         const choice = visibleChoices[n - 1];
-        if (choice) {
+        const blocked = state.snapshot?.trainingInspection?.rows.find((row) => row.actionId === choice?.id)?.available === false;
+        if (choice && !blocked) {
           e.preventDefault();
           void act(choice.id);
         }
@@ -74,6 +75,13 @@ export default function App() {
   const cs = state.snapshot?.state;
   const phase = (cs?.phase ?? "").toUpperCase();
   const mandatory = phase === "MANDATORY_RACE";
+
+  useEffect(() => {
+    if (tab === "run" && state.sessionId !== null) {
+      window.scrollTo(0, 0);
+      document.getElementById("turn-heading")?.focus({ preventScroll: true });
+    }
+  }, [state.sessionId, tab]);
 
   async function exportTelemetry() {
     if (state.sessionId === null) return;
@@ -133,10 +141,7 @@ export default function App() {
 
       {state.health?.repoRoot && !cs && (
         <div className="banner ok">
-          Connected · catalogs loaded
-          {state.health.repoRootPath
-            ? ` · ${state.health.repoRootPath}`
-            : ""}
+          Ready · career catalogs loaded
         </div>
       )}
 
@@ -157,7 +162,7 @@ export default function App() {
           supports={state.catalogs.supports}
           factors={state.catalogs.factors}
           busy={state.busy}
-          onStart={(req) => void startRun({ ...req, policy })}
+          onStart={(req) => { setPolicy(req.policy ?? "bot"); void startRun(req); }}
         />
       )}
 
@@ -173,32 +178,14 @@ export default function App() {
             onExport={() => void exportTelemetry()}
           />
           <CareerSummary state={cs} onNew={newRun} />
-          <div className="turn-layout">
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-              <StatsPanel state={cs} />
-              <ConditionsPanel state={cs} />
-              <DeckPanel
+          <div className="turn-workspace">
+            <main className="turn-main">
+              <ChoicePanel
+                choices={visibleChoices}
                 state={cs}
-                supports={state.catalogs.supports}
+                inspection={state.snapshot?.trainingInspection}
                 busy={state.busy}
-                onPlace={(id, fac) => void placeDeck(id, fac)}
-              />
-              <AptitudePanel
-                state={cs}
-                busy={state.busy}
-                onStyle={(style) => void setStyle(style)}
-              />
-              <InheritancePanel state={cs} factors={state.catalogs.factors} />
-              <SkillsPanel state={cs} />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-              <LogPanel lines={state.textLines} history={cs.log} />
-              <RacePanel
-                lines={cs.log}
-                mandatory={mandatory}
-                pendingRaceId={cs.pendingRaceId}
-                busy={state.busy}
-                onRace={() => void act("race")}
+                onChoose={(id) => void act(id)}
               />
               <GrandLivePanel
                 state={cs}
@@ -206,13 +193,45 @@ export default function App() {
                 busy={state.busy}
                 onChoose={(id) => void act(id)}
               />
-            </div>
-            <ChoicePanel
-              choices={visibleChoices}
-              state={cs}
-              busy={state.busy}
-              onChoose={(id) => void act(id)}
-            />
+              <RacePanel
+                lines={cs.log}
+                mandatory={mandatory}
+                pendingRaceId={cs.pendingRaceId}
+                busy={state.busy}
+                onRace={() => void act("race")}
+              />
+              <details className="career-reference turn-history">
+                <summary>Career history · {cs.log.length} entries</summary>
+                <LogPanel lines={state.textLines} history={cs.log} />
+              </details>
+            </main>
+            <aside className="turn-reference" aria-label="Career reference">
+              <details className="career-reference">
+                <summary>Full status &amp; facilities</summary>
+                <StatsPanel state={cs} />
+              </details>
+              <details className="career-reference">
+                <summary>Conditions &amp; titles</summary>
+                <ConditionsPanel state={cs} />
+              </details>
+              <details className="career-reference">
+                <summary>Support deck · {cs.deck.slots.length} cards</summary>
+                <DeckPanel state={cs} supports={state.catalogs.supports} busy={state.busy}
+                  onPlace={(id, fac) => void placeDeck(id, fac)} />
+              </details>
+              <details className="career-reference">
+                <summary>Aptitudes &amp; racing style</summary>
+                <AptitudePanel state={cs} busy={state.busy} onStyle={(style) => void setStyle(style)} />
+              </details>
+              <details className="career-reference">
+                <summary>Inheritance record</summary>
+                <InheritancePanel state={cs} factors={state.catalogs.factors} />
+              </details>
+              <details className="career-reference">
+                <summary>Skills &amp; hints</summary>
+                <SkillsPanel state={cs} />
+              </details>
+            </aside>
           </div>
           <EventDialog
             state={cs}

@@ -1,0 +1,92 @@
+/* The turn is a decision workspace: actions and their costs, then reference material. */
+.run-toolbar {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.35rem 0 0.7rem;
+  gap: 0.4rem;
+}
+.run-toolbar .field { flex-direction: row; align-items: center; gap: 0.4rem; }
+.run-toolbar button, .run-toolbar select { font-size: 0.84rem; padding: 0.4rem 0.55rem; }
+.turn-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.25rem; align-items: start; }
+.turn-main, .turn-reference { min-width: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+.turn-decisions { border-top: 3px solid var(--train); padding: 1rem 0 0; min-width: 0; }
+.turn-heading-row { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
+.turn-heading-row h2 { margin: 0; font-size: 1.2rem; line-height: 1.3; font-weight: 650; letter-spacing: -0.02em; }
+.turn-heading-row h2:focus { outline: none; }
+.turn-heading-row h2 span { color: var(--muted); font-weight: 400; font-size: 0.85em; }
+.turn-heading-row p { color: var(--muted); font-size: 0.82rem; margin: 0.4rem 0 0; }
+.turn-energy { display: flex; flex-direction: column; flex: 0 0 100px; gap: 0.15rem; }
+.turn-energy > span { color: var(--muted); font-size: 0.72rem; }
+.turn-energy strong { font-size: 1.3rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.turn-energy small { font-size: 0.72rem; color: var(--muted); font-weight: 400; }
+.turn-energy meter { width: 100%; height: 9px; accent-color: var(--good); }
+.turn-stats { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); margin: 1rem 0 0.5rem; padding: 0.6rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.turn-stats > div { border-left: 1px solid var(--border); padding-left: 0.8rem; }
+.turn-stats > div:first-child { border: 0; padding-left: 0; }
+.turn-stats dt { font-size: 0.75rem; color: var(--muted); }
+.turn-stats dd { margin: 0.1rem 0 0; font-size: 1.4rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+.turn-context { display: flex; flex-wrap: wrap; gap: 0.4rem 1.15rem; font-size: 0.75rem; color: var(--muted); margin: 0.6rem 0 1rem; }
+.turn-context strong { color: var(--text); font-weight: 500; }
+.training-caption { margin: 0.3rem 0 0.6rem; color: var(--muted); font-size: 0.76rem; }
+.decision-list { gap: 0; border-top: 1px solid var(--border); }
+.decision-list button { background: transparent; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 0.75rem 0.65rem; }
+.decision-list button:hover:not(:disabled) { background: var(--bg-elev-2); }
+.decision-list button:focus-visible { outline: 2px solid var(--train); outline-offset: -2px; }
+.decision-list button:disabled { opacity: 0.7; }
+.decision-row { display: grid; align-items: center; gap: 0.4rem 1rem; width: 100%; }
+.decision-row.has-training { grid-template-columns: minmax(105px, 0.8fr) minmax(0, 1.8fr) minmax(110px, 0.8fr); }
+.decision-label { display: flex; align-items: center; gap: 0.5rem; min-width: 0; }
+.decision-label strong { font-size: 0.95rem; font-weight: 550; }
+.decision-label kbd { color: var(--muted); font: 0.75rem ui-monospace, monospace; flex: 0 0 0.7rem; }
+.decision-label small { color: var(--muted); font-size: 0.7rem; white-space: nowrap; margin-left: auto; }
+.training-gains { display: flex; flex-wrap: wrap; gap: 0.2rem 0.65rem; color: var(--muted); font-size: 0.73rem; }
+.training-gains strong { color: var(--good); font-variant-numeric: tabular-nums; font-weight: 550; }
+.training-cost { display: flex; justify-content: flex-end; gap: 0.8rem; font-size: 0.72rem; color: var(--muted); }
+.training-cost > span { display: flex; flex-direction: column; gap: 0.12rem; align-items: flex-end; }
+.training-cost strong { color: var(--text); font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+.training-cost .training-risk strong { color: var(--warn); }
+.training-blocked { color: var(--warn); font-size: 0.72rem; line-height: 1.4; }
+.training-explainer { color: var(--muted); font-size: 0.76rem; margin-top: 0.75rem; }
+.training-explainer summary { cursor: pointer; }
+.training-explainer p { max-width: 75ch; }
+.career-reference { border-top: 1px solid var(--border); padding: 0.2rem 0; }
+.career-reference > summary { cursor: pointer; padding: 0.6rem 0.2rem; font-size: 0.86rem; color: var(--muted); }
+.career-reference[open] > summary { color: var(--text); }
+.career-reference > .card { border-radius: 0; border: 0; padding: 0.5rem 0.2rem; background: transparent; }
+.turn-reference .card h2 { display: none; }
+.turn-history > .card { border: 0; padding: 0.4rem 0; background: transparent; }
+.turn-history .log { min-height: 180px; max-height: 380px; }
+@media (max-width: 980px) {
+  .turn-workspace { grid-template-columns: 1fr; }
+  .turn-reference { border-top: 1px solid var(--border); }
+}
+@media (max-width: 600px) {
+  .app { padding: 0.75rem 0.85rem 2rem; }
+  .header { align-items: center; gap: 0.5rem; }
+  .header h1 { font-size: 1.15rem; }
+  .header .sub { font-size: 0.72rem; }
+  .tabs button { font-size: 0.8rem; padding: 0.4rem 0.55rem; }
+  .run-toolbar { gap: 0.35rem; }
+  .run-toolbar button, .run-toolbar select { font-size: 0.76rem; }
+  .turn-heading-row { gap: 0.5rem; }
+  .turn-heading-row h2 { font-size: 1.04rem; }
+  .turn-heading-row p { font-size: 0.73rem; }
+  .turn-energy { flex-basis: 78px; }
+  .turn-stats { margin-top: 0.75rem; }
+  .turn-stats > div { padding-left: 0.5rem; }
+  .turn-stats dt { font-size: 0.66rem; }
+  .turn-stats dd { font-size: 1.2rem; }
+  .turn-context { font-size: 0.7rem; gap: 0.4rem 0.7rem; margin-bottom: 0.7rem; }
+  .decision-row.has-training { grid-template-columns: minmax(0, 1fr) 110px; }
+  .decision-list button { padding: 0.6rem 0.45rem; }
+  .decision-label { gap: 0.4rem; }
+  .decision-label strong { font-size: 0.9rem; }
+  .decision-label small { margin-left: 0.25rem; }
+  .training-gains { grid-column: 1 / -1; grid-row: 2; padding-left: 1.1rem; }
+  .training-cost { grid-column: 2; grid-row: 1; flex-direction: row; }
+  .training-cost > span { flex-direction: row; align-items: baseline; gap: 0.2rem; }
+  .training-blocked { grid-column: 1 / -1; padding-left: 1.1rem; }
+  .training-caption { font-size: 0.69rem; }
+}

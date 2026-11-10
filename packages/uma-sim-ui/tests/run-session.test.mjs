@@ -265,14 +265,21 @@ test("starting main hydrates main even when another client activates a fork", as
   assert.equal(store.value.state.choices[0].label, "Rest main");
 });
 
-async function mountApp(t, server) {
+async function mountApp(t, server, startRequest = { seed: 10 }) {
   const previousFetch = globalThis.fetch;
   const previousWindow = globalThis.window;
+  const previousDocument = globalThis.document;
   globalThis.fetch = server.fetch;
   const listeners = new Map();
   let modalOpen = false;
+  const viewportCalls = [];
   globalThis.window = {
+    scrollTo(...args) { viewportCalls.push({ kind: "scroll", args }); },
     document: {
+      getElementById(id) {
+        assert.equal(id, "turn-heading");
+        return { focus(options) { viewportCalls.push({ kind: "focus", options }); } };
+      },
       querySelector(selector) {
         assert.equal(selector, "dialog.event-modal[open]");
         return modalOpen ? {} : null;
@@ -285,6 +292,7 @@ async function mountApp(t, server) {
     removeEventListener(type, fn) { listeners.get(type)?.delete(fn); },
     setTimeout, clearTimeout,
   };
+  globalThis.document = globalThis.window.document;
   const App = loadUiModule("App").default;
   const { RunSetup } = loadUiModule("components/RunSetup");
   let renderer;
@@ -293,9 +301,11 @@ async function mountApp(t, server) {
     await act(async () => renderer.unmount());
     globalThis.fetch = previousFetch;
     globalThis.window = previousWindow;
+    globalThis.document = previousDocument;
   });
-  await act(async () => renderer.root.findByType(RunSetup).props.onStart({ seed: 10 }));
+  await act(async () => renderer.root.findByType(RunSetup).props.onStart(startRequest));
   return {
+    viewportCalls,
     setModalOpen(value) { modalOpen = value; },
     async click(text) {
       const button = renderer.root.findAllByType("button").find((node) => node.children.join("") === text);
@@ -366,4 +376,14 @@ test("telemetry export uses the displayed career even after external activation"
     URL.createObjectURL = previousCreate;
     URL.revokeObjectURL = previousRevoke;
   }
+});
+
+test("setup policy governs the next automatic step and opening a run restores its viewport", async (t) => {
+  const server = fixtureServer();
+  const app = await mountApp(t, server, { seed: 10, policy: "default" });
+  assert.equal(server.calls.find(call => call.path === "/v1/run/start").body.policy, "default");
+  assert.ok(app.viewportCalls.some(call => call.kind === "scroll" && call.args[0] === 0 && call.args[1] === 0));
+  assert.ok(app.viewportCalls.some(call => call.kind === "focus" && call.options.preventScroll === true));
+  await app.click("Auto step");
+  assert.equal(server.calls.find(call => call.path === "/v1/run/auto").body.policy, "default");
 });

@@ -18,8 +18,8 @@ export function ControlsBar({
   onExport,
 }: Props) {
   return (
-    <div className="card controls">
-      <label className="field" style={{ minWidth: 140 }}>
+    <div className="controls run-toolbar">
+      <label className="field">
         <span style={{ fontSize: "0.75rem", color: "var(--muted)" }}>Policy</span>
         <select
           value={policy}
