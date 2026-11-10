@@ -270,7 +270,14 @@ async function mountApp(t, server) {
   const previousWindow = globalThis.window;
   globalThis.fetch = server.fetch;
   const listeners = new Map();
+  let modalOpen = false;
   globalThis.window = {
+    document: {
+      querySelector(selector) {
+        assert.equal(selector, "dialog.event-modal[open]");
+        return modalOpen ? {} : null;
+      },
+    },
     addEventListener(type, fn) {
       if (!listeners.has(type)) listeners.set(type, new Set());
       listeners.get(type).add(fn);
@@ -289,6 +296,7 @@ async function mountApp(t, server) {
   });
   await act(async () => renderer.root.findByType(RunSetup).props.onStart({ seed: 10 }));
   return {
+    setModalOpen(value) { modalOpen = value; },
     async click(text) {
       const button = renderer.root.findAllByType("button").find((node) => node.children.join("") === text);
       assert.ok(button, `button ${text} must exist`);
@@ -325,6 +333,11 @@ test("keyboard shortcuts operate only the visible run and its displayed choice n
     { target: { tagName: "TEXTAREA" } },
   ]) await app.key(options);
   assert.equal(server.calls.filter((call) => call.path === "/v1/run/action").length, 0);
+  app.setModalOpen(true);
+  await app.key();
+  assert.equal(server.calls.filter((call) => call.path === "/v1/run/action").length, 0,
+    "required modal must suppress the underlying numbered career choice");
+  app.setModalOpen(false);
   const event = await app.key();
   const actions = server.calls.filter((call) => call.path === "/v1/run/action");
   assert.equal(actions.length, 1);

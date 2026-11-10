@@ -624,3 +624,17 @@ button.primary {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* The required event choice uses the browser's native modal top layer. */
+dialog.event-modal {
+  margin: auto;
+  width: min(520px, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  overflow-wrap: anywhere;
+  color: var(--text);
+}
+
+dialog.event-modal::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
