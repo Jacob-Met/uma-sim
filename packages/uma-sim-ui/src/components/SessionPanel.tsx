@@ -15,6 +15,7 @@ export function SessionPanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
         <strong> active </strong>
         session; forks and checkpoints cannot mutate each other.
       </p>
+      <div className="comparison-table-scroll" role="region" aria-label="Career sessions" tabIndex={0}>
       <table className="data-table">
         <thead>
           <tr>
@@ -59,6 +60,7 @@ export function SessionPanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
           ))}
         </tbody>
       </table>
+      </div>
       <h3>Fork a session</h3>
       <div className="field-row">
         <label>
