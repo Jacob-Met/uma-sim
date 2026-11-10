@@ -184,6 +184,7 @@ export default function App() {
                 choices={visibleChoices}
                 state={cs}
                 inspection={state.snapshot?.trainingInspection}
+                recommendation={state.snapshot?.localBotRecommendation}
                 busy={state.busy}
                 onChoose={(id) => void act(id)}
               />

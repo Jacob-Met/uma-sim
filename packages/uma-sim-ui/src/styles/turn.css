@@ -90,3 +90,14 @@
   .training-blocked { grid-column: 1 / -1; padding-left: 1.1rem; }
   .training-caption { font-size: 0.69rem; }
 }
+
+.local-suggestion { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin: 0.2rem 0 0.5rem; font-size: 0.76rem; color: var(--muted); }
+.local-suggestion strong { color: var(--text); font-weight: 550; }
+.local-suggestion button { flex: 0 0 auto; padding: 0.32rem 0.65rem; font-size: 0.76rem; background: transparent; }
+.decision-list .locally-suggested { box-shadow: inset 3px 0 var(--train); }
+.local-suggestion-explainer { color: var(--muted); font-size: 0.76rem; margin-top: 0.75rem; }
+.local-suggestion-explainer summary { cursor: pointer; }
+.local-suggestion-explainer p { max-width: 75ch; line-height: 1.5; }
+.local-training-scores { display: flex; flex-wrap: wrap; gap: 0.5rem 1.3rem; margin: 0.8rem 0; }
+.local-training-scores > div { display: flex; gap: 0.4rem; }
+.local-training-scores dd { margin: 0; color: var(--text); font-variant-numeric: tabular-nums; }

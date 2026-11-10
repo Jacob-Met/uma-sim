@@ -167,7 +167,21 @@ export interface TrainingInspection {
   rows: TrainingInspectionRow[];
 }
 
+export interface LocalBotRecommendation {
+  schemaVersion: number;
+  turn: number;
+  phase: string;
+  scenarioId: string;
+  traineeName: string;
+  actionId: string;
+  actionLabel: string;
+  reason: string;
+  trainingScores: { actionId: string; facility: string; score: number }[];
+}
+
 export interface RunSnapshot {
+  /** Native local heuristic only; independent of the selected automatic policy. */
+  localBotRecommendation?: LocalBotRecommendation | null;
   /** Read-only live API samples; not part of the stored checkpoint schema. */
   trainingInspection?: TrainingInspection;
   meta: RunMeta;

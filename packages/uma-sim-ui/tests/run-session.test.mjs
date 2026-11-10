@@ -387,3 +387,43 @@ test("setup policy governs the next automatic step and opening a run restores it
   await app.click("Auto step");
   assert.equal(server.calls.find(call => call.path === "/v1/run/auto").body.policy, "default");
 });
+
+test("local suggestion applies the offered action and rejects stale or unavailable advice", async () => {
+  const { ChoicePanel } = loadUiModule("components/ChoicePanel");
+  const state = {
+    turn: 2, phase: "TRAINING", meta: { scenarioId: "ura", traineeName: "Special Week" },
+    date: { year: 1, month: 1, half: 1 }, energy: 80, maxEnergy: 100,
+    stats: { speed: 100, stamina: 100, power: 100, guts: 100, wit: 100 },
+    mood: "NORMAL", fans: 0, skillPoints: 0, facilityLevels: {}, careerComplete: false,
+  };
+  const choices = [{ id: "train_speed", label: "Speed" }, { id: "rest", label: "Rest" }];
+  const recommendation = { schemaVersion: 1, turn: 2, phase: "TRAINING", scenarioId: "ura",
+    traineeName: "Special Week", actionId: "train_speed", actionLabel: "Train Speed",
+    reason: "Highest local training score.", trainingScores: [{ actionId: "train_speed", facility: "speed", score: 12.5 }] };
+  const selected = [];
+  let renderer;
+  const render = (overrides = {}) => {
+    const props = { state, choices, recommendation, busy: false, onChoose: id => selected.push(id), ...overrides };
+    act(() => { if (renderer) renderer.update(React.createElement(ChoicePanel, props)); else renderer = create(React.createElement(ChoicePanel, props)); });
+  };
+  const apply = () => renderer.root.findAllByType("button").find(n => n.props["aria-label"]?.startsWith("Apply local suggestion:"));
+  try {
+    render();
+    assert.equal(apply().props["aria-label"], "Apply local suggestion: Speed");
+    act(() => apply().props.onClick());
+    assert.deepEqual(selected, ["train_speed"]);
+    render({ busy: true }); assert.equal(apply().props.disabled, true);
+    for (const change of [{ turn: 1 }, { phase: "EVENT" }, { scenarioId: "unity" },
+      { traineeName: "Other" }, { schemaVersion: 2 }, { actionId: "missing" }]) {
+      render({ recommendation: { ...recommendation, ...change } });
+      assert.equal(apply(), undefined);
+    }
+    render({ recommendation: null }); assert.equal(apply(), undefined);
+    render({ state: { ...state, careerComplete: true } }); assert.equal(apply(), undefined);
+    render({ inspection: { ...recommendation, rows: [{ actionId: "train_speed", available: false,
+      blockedReason: "injured", statGains: state.stats, level: 1 }] } });
+    assert.equal(apply(), undefined);
+    render();
+    assert.equal(renderer.root.findAllByType("summary").some(n => n.children.join("") === "Why this local suggestion?"), true);
+  } finally { act(() => renderer.unmount()); }
+});
