@@ -4,6 +4,16 @@
 
 This is a versioned experimental repository download, not a replacement for the stable v0.2.2 releases. It contains the actual native CLI, embedded browser UI, runtime catalogs, license and attribution. No Rust or Node installation is needed to play.
 
+## Watch the player
+
+[Watch or download the 29-second walkthrough](media/uma-preview-walkthrough.mp4?raw=true) · [Caption transcript](media/uma-preview-walkthrough.srt)
+
+This silent, captioned recording uses the exact native ZIP below. It follows one real seed-42 career: enter the required debut race, compare all five training choices, read the sample caveat, choose Speed manually, and inspect the retained history. The sample shows Speed +10; the actual history records +11. Samples are not guaranteed gains or expected values. Captions sit below the original browser image.
+
+![Desktop training choices with sample gains, energy cost and failure chance](media/desktop-training.png)
+
+[Phone training view](media/phone-training.png) · [Required race view](media/desktop-race.png)
+
 ## Launch
 
 1. Use x86-64 Linux with **glibc 2.39 or newer**, such as Ubuntu 24.04+.
