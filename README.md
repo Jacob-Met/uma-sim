@@ -21,10 +21,10 @@ and attribution.
 
 ## Experimental Linux player preview
 
-[Download the November 10 player preview](downloads/uma-sim-v0.3.0-preview.20261110-linux-x64-glibc239.zip?raw=true) · [Launch instructions and limitations](downloads/PREVIEW.md) · [SHA-256](downloads/SHA256SUMS)
+[Download the November 10 player preview](downloads/uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip?raw=true) · [Launch instructions and limitations](downloads/PREVIEW.md) · [SHA-256](downloads/SHA256SUMS)
 
 This versioned preview includes the current embedded browser, readable training decisions,
-policy selection fixes and direct batch comparisons. It requires **Linux x86-64 with glibc
+policy selection fixes, direct batch comparisons and the independently evaluated local-bot stat-value correction. Racing performance remains limited; see the linked evidence and caveats. It requires **Linux x86-64 with glibc
 2.39+ (Ubuntu 24.04+)**. It is an experimental repository download; **v0.2.2 remains the
 stable release**, including its wider platform support.
 
@@ -49,8 +49,7 @@ Ended: career=true turn=72 fans=1217 elapsed=… speed=x20 policy=default
 Terminal: U=9.000 grade=F score=770 sp_spent=121 φ=4.50 ψ=4.50
 ```
 
-`--policy=bot` plays the same seed with the built-in scoring bot and finishes
-with a much stronger career (grade C, score 3734 at the time of writing).
+`--policy=bot` uses the built-in scoring policy. Its current stat-value correction improves the measured terminal objective in a frozen paired evaluation, with individual regressions and unresolved racing weakness. See [the independent evidence](docs/research/local-bot-stat-targets-20261110/README.md).
 
 ### Browser UI
 
