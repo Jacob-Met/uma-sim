@@ -306,6 +306,21 @@ impl SimEngine {
         ))
     }
 
+    /// Explain the actual built-in local bot move without stepping the career,
+    /// saving, consuming the RNG stream, or invoking UMA_POLICY_CMD.
+    pub fn local_bot_recommendation(&self) -> Option<crate::bot::LocalBotRecommendation> {
+        let choices = self.choices();
+        if choices.is_empty() {
+            return None;
+        }
+        Some(crate::bot::BotDecisionAdapter::recommend_local(
+            &choices,
+            &self.state,
+            self.plugin.as_ref(),
+            &self.training_resolver,
+        ))
+    }
+
     /// Choose the default-heuristic-policy action for the current state
     /// without stepping. Used by the career lab to record branch decisions.
     pub fn default_action(&self) -> Option<SimAction> {

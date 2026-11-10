@@ -24,6 +24,7 @@ fn main() {
         "start" => cmd_start(&args[1..]),
         "state" => cmd_state(),
         "training" => cmd_training(&args[1..]),
+        "recommend" => cmd_recommend(&args[1..]),
         "step" => cmd_step(&args[1..]),
         "fast" => cmd_fast(&args[1..]),
         "batch" => cmd_batch(&args[1..]),
@@ -278,6 +279,51 @@ fn cmd_training(args: &[String]) {
     } else {
         print!("{}", inspection.render_text());
     }
+}
+
+/// Inspect the next *local* bot action. A supplied JVM policy command uses a
+/// different decision maker, so decline rather than pretending to explain it.
+fn cmd_recommend(args: &[String]) {
+    if !args.is_empty() {
+        eprintln!("Usage: uma-sim recommend");
+        std::process::exit(2);
+    }
+    if std::env::var_os("UMA_POLICY_CMD").is_some() {
+        eprintln!("Cannot explain UMA_POLICY_CMD: recommend supports only the built-in local bot.");
+        std::process::exit(2);
+    }
+    let Some((engine, _)) = RunSession::load() else {
+        eprintln!("No readable saved career. Run: uma-sim start --seed=42");
+        std::process::exit(1);
+    };
+    let Some(recommendation) = engine.local_bot_recommendation() else {
+        println!("Career complete; no next action is available.");
+        return;
+    };
+    let id = recommendation.action_id();
+    let choices = engine.choices();
+    let Some(choice) = choices.iter().find(|c| c.id == id) else {
+        eprintln!("Local bot chose {id}, but that choice is unavailable; no action was taken.");
+        std::process::exit(1);
+    };
+    println!("Recommended: {} ({id})", choice.label);
+    println!("Why: {}", recommendation.reason);
+    if !recommendation.training_scores.is_empty() {
+        println!("Local training policy scores (higher is better):");
+        for (facility, score) in &recommendation.training_scores {
+            println!(
+                "  {:<8} {:>10.3}{}",
+                facility.name(),
+                score,
+                if format!("train_{}", facility.key()) == id {
+                    "  <- selected"
+                } else {
+                    ""
+                }
+            );
+        }
+    }
+    println!("Read-only: career state and RNG have not advanced. Use: uma-sim step {id}");
 }
 
 fn cmd_step(args: &[String]) {
@@ -586,6 +632,7 @@ uma-sim CLI v0.4 (Rust)
         [--policy=default|bot] [--race-model=stub|physics] [--trace-rng] [--trace-telemetry]
   state
   training [--format=text|json]
+  recommend                    # explain the built-in local bot next move (read-only)
   step [train_speed|rest|race|event_0|...]
   fast [--seed=N] [--speed=20] [--policy=default|bot|external]
   batch [--count=100] [--seed=N] [--seeds=1,2,3] [--scenario=ura] [--policy=external|bot|default] [--output=out/sim-batch/...]

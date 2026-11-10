@@ -21,6 +21,36 @@ use crate::training::{TrainingPreview, TrainingResolver};
 
 pub struct BotDecisionAdapter;
 
+/// A read-only explanation of the local, built-in scoring bot's next action.
+/// This never calls an external policy process or steps the career.
+#[derive(Debug, Clone)]
+pub struct LocalBotRecommendation {
+    pub action: SimAction,
+    pub reason: String,
+    /// Exact policy scores in deterministic facility order; only populated
+    /// when the bot chooses training. These are heuristic scores, not outcomes.
+    pub training_scores: Vec<(TrainingFacility, f64)>,
+}
+
+impl LocalBotRecommendation {
+    pub fn action_id(&self) -> String {
+        match self.action.kind {
+            SimActionKind::Train => format!(
+                "train_{}",
+                self.action.payload.as_deref().unwrap_or("speed")
+            ),
+            SimActionKind::Choose => {
+                format!("event_{}", self.action.payload.as_deref().unwrap_or("0"))
+            }
+            SimActionKind::Lesson => self.action.payload.clone().unwrap_or_default(),
+            SimActionKind::Race => "race".to_string(),
+            SimActionKind::Rest => "rest".to_string(),
+            SimActionKind::Recreation => "recreation".to_string(),
+            SimActionKind::Advance => "advance".to_string(),
+        }
+    }
+}
+
 impl BotDecisionAdapter {
     pub fn to_decision_context(
         state: &CareerState,
@@ -97,16 +127,16 @@ impl BotDecisionAdapter {
         choose_best_event_option(&ctx, &state.pending_event_options).0 as i32
     }
 
-    pub fn choose_training_facility(
+    /// The same scores and original facility-order tie break as the local bot.
+    pub fn training_scores(
         state: &CareerState,
         plugin: &dyn ScenarioPlugin,
         resolver: &TrainingResolver,
-    ) -> TrainingFacility {
+    ) -> Vec<(TrainingFacility, f64)> {
         let caps = stat_caps_from_legacy(state, plugin);
         let config = TrainingPreview::to_training_config(state, caps);
         let previews = TrainingPreview::build_options(state, resolver);
-        let mut best = TrainingFacility::Speed;
-        let mut best_score = f64::NEG_INFINITY;
+        let mut scores = Vec::new();
         for facility in TrainingFacility::ALL {
             let Some(option) = previews.get(&facility) else {
                 continue;
@@ -127,12 +157,62 @@ impl BotDecisionAdapter {
                 fail_pct,
                 30,
             );
+            scores.push((facility, score));
+        }
+        scores
+    }
+
+    pub fn choose_training_facility(
+        state: &CareerState,
+        plugin: &dyn ScenarioPlugin,
+        resolver: &TrainingResolver,
+    ) -> TrainingFacility {
+        let mut best = TrainingFacility::Speed;
+        let mut best_score = f64::NEG_INFINITY;
+        for (facility, score) in Self::training_scores(state, plugin, resolver) {
             if score > best_score {
                 best_score = score;
                 best = facility;
             }
         }
         best
+    }
+
+    /// Derive the selected action by running the *actual* local bot policy,
+    /// then explain the branch it selected. No career RNG is consumed.
+    pub fn recommend_local(
+        choices: &[SimChoice],
+        state: &CareerState,
+        plugin: &dyn ScenarioPlugin,
+        resolver: &TrainingResolver,
+    ) -> LocalBotRecommendation {
+        let action = Self::choose_action_local(choices, state, plugin, resolver);
+        let training_scores = if action.kind == SimActionKind::Train {
+            Self::training_scores(state, plugin, resolver)
+        } else {
+            Vec::new()
+        };
+        let reason = match action.kind {
+            SimActionKind::Race if choices.iter().any(|c|
+                c.id == "race" && c.label.to_lowercase().contains("mandatory")
+            ) => "The next race is mandatory; training and recovery cannot replace it.".to_string(),
+            SimActionKind::Race => "The local race scheduler recommends an optional race now.".to_string(),
+            SimActionKind::Choose => "A pending event must be resolved. The local event evaluator selected this option.".to_string(),
+            SimActionKind::Lesson => "A Grand Live lesson is available; the scenario lesson scorer selected this one.".to_string(),
+            SimActionKind::Rest if state.is_injured() =>
+                "The trainee is injured, so the local bot prioritizes recovery.".to_string(),
+            SimActionKind::Rest if state.energy < 40 =>
+                format!("Energy {} is below the bot's 40-point rest threshold.", state.energy),
+            SimActionKind::Rest => "The local policy falls back to rest for the current choices.".to_string(),
+            SimActionKind::Train =>
+                "This facility leads the local bot's training score after scenario bias. These scores are heuristics, not guaranteed gains.".to_string(),
+            _ => "The local bot's fallback policy selected the available action.".to_string(),
+        };
+        LocalBotRecommendation {
+            action,
+            reason,
+            training_scores,
+        }
     }
 
     pub fn choose_action(

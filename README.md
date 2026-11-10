@@ -150,6 +150,19 @@ or batch's `--seeds=` list overrides it. The last valid `--seed=` wins; a valid
 (extra events merged in at run time without engine changes). The full command
 reference is in [docs/SIMULATOR.md](docs/SIMULATOR.md).
 
+### Ask the built-in bot for its next move
+
+After `uma-sim start --seed=42`, run `uma-sim recommend` to see the action
+the local scoring bot would select and why. For training, it also prints the
+five facility scores used by that bot, including its scenario-specific
+adjustment. These are heuristic decision scores, **not** guaranteed next-turn
+results. The command does not advance the career, consume RNG, or rewrite the
+session; `uma-sim step <action-id>` applies the suggested move if you choose.
+
+`recommend` intentionally refuses when `UMA_POLICY_CMD` is set: that external
+policy has different behavior, which the local explanation cannot claim to
+represent.
+
 ### Inspect training before choosing
 
 Run `uma-sim training` beside a saved career to compare Speed, Stamina,
