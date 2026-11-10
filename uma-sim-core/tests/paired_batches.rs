@@ -205,8 +205,18 @@ fn text_ranks_ten_largest_absolute_deltas_and_json_keeps_all_pairs() {
     let report = compare(&batch(&input), &batch(&baseline)).unwrap();
     let text = render_text(&report);
     let lines: Vec<_> = text.lines().collect();
-    assert_eq!(lines.len(), 15);
+    // The original ranked table remains at the same line positions.
+    // The expanded uncertainty explanation follows it rather than displacing it.
+    assert_eq!(lines.len(), 20);
     assert_eq!(lines[1], "Pairs: 13; wins: 6; ties: 1; losses: 6");
+    assert_eq!(lines[15], "");
+    assert!(lines[16].starts_with("Paired mean standard error: "));
+    assert_eq!(
+        lines[17],
+        "Mean score interval: omitted (need at least 30 matched pairs)"
+    );
+    assert!(lines[18].starts_with("Decisive win rate (ties excluded): "));
+    assert!(lines[19].starts_with("Intervals assume matched careers are independent samples;"));
     assert_eq!(lines[5], "-6\t20\t14\t[\"ura\",\"A\",-6]");
     assert_eq!(lines[6], "+6\t20\t26\t[\"ura\",\"A\",6]");
     assert_eq!(lines[14], "+2\t20\t22\t[\"ura\",\"A\",2]");
