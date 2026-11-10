@@ -231,9 +231,10 @@ try {
     const scroll = await page.evaluate(()=>({width:document.documentElement.clientWidth,
       scrollWidth:document.documentElement.scrollWidth,
       regionWidth:document.querySelector('.comparison-table-scroll').clientWidth,
-      tableWidth:document.querySelector('.comparison-table-scroll table').scrollWidth}));
+      tableWidth:document.querySelector('.comparison-table-scroll table').scrollWidth,
+      offenders:[...document.querySelectorAll('body *')].map(el=>({tag:el.tagName,cls:el.className,rect:el.getBoundingClientRect(),scrollWidth:el.scrollWidth,clientWidth:el.clientWidth})).filter(x=>x.rect.right>392&&x.rect.width>0).slice(0,25).map(x=>({tag:x.tag,cls:typeof x.cls==='string'?x.cls.slice(0,90):'',right:Math.round(x.rect.right),width:Math.round(x.rect.width),scrollWidth:x.scrollWidth,clientWidth:x.clientWidth}))}));
     assert.equal(scroll.width,390);
-    assert.equal(scroll.scrollWidth,scroll.width,'Mobile page must not overflow horizontally');
+    assert.equal(scroll.scrollWidth,scroll.width,'Mobile page must not overflow horizontally: '+JSON.stringify(scroll.offenders));
     assert(scroll.tableWidth > scroll.regionWidth,'Wide timeline must scroll within its own region');
     await page.getByLabel('Show changed steps only').uncheck();
     assert.equal(await summary.locator('tbody tr').count(),3);
