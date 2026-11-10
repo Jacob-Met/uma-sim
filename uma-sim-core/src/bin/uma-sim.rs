@@ -425,13 +425,12 @@ fn cmd_batch(args: &[String]) {
         }
     };
     let count = seed_plan.count;
-    let root = detect_repo_root().unwrap_or_else(|| PathBuf::from("."));
     let name_seed = seed_plan.first;
     let out_rel = f
         .output
         .clone()
         .unwrap_or_else(|| format!("out/sim-batch/batch-{}-{}.jsonl", f.scenario, name_seed));
-    let out_path = root.join(&out_rel);
+    let out_path = PathBuf::from(out_rel);
     if let Some(parent) = out_path.parent() {
         let _ = std::fs::create_dir_all(parent);
     }
