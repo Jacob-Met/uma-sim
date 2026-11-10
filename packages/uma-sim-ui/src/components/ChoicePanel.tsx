@@ -1,9 +1,10 @@
-import type { CareerState, Choice, TrainingInspection, TrainingInspectionRow } from "../api/types";
+import type { CareerState, Choice, LocalBotRecommendation, TrainingInspection, TrainingInspectionRow } from "../api/types";
 
 interface Props {
   choices: Choice[];
   state: CareerState;
   inspection?: TrainingInspection;
+  recommendation?: LocalBotRecommendation | null;
   busy: boolean;
   onChoose: (id: string) => void;
 }
@@ -52,12 +53,21 @@ function TrainingDetail({ row, energy }: { row: TrainingInspectionRow; energy: n
   );
 }
 
-export function ChoicePanel({ choices, state, inspection, busy, onChoose }: Props) {
+export function ChoicePanel({ choices, state, inspection, recommendation, busy, onChoose }: Props) {
   // Only display samples belonging to this exact visible turn and phase.
   const current = inspection?.turn === state.turn && inspection.phase === state.phase
     && inspection.scenarioId === state.meta.scenarioId
     && inspection.traineeName === state.meta.traineeName ? inspection : undefined;
   const rows = new Map(current?.rows.map((row) => [row.actionId, row]) ?? []);
+  const suggestedChoice = choices.find((choice) => choice.id === recommendation?.actionId);
+  const suggestion = !state.careerComplete && recommendation?.schemaVersion === 1
+    && recommendation.turn === state.turn && recommendation.phase === state.phase
+    && recommendation.scenarioId === state.meta.scenarioId
+    && recommendation.traineeName === state.meta.traineeName
+    && suggestedChoice && rows.get(suggestedChoice.id)?.available !== false
+      ? recommendation : undefined;
+  const scores = suggestion?.trainingScores.filter((score) => Number.isFinite(score.score)
+    && choices.some((choice) => choice.id === score.actionId)) ?? [];
   const hasTraining = choices.some((choice) => choice.id.startsWith("train_"));
   const phase = state.careerComplete ? "Career complete"
     : state.phase === "MANDATORY_RACE" ? "Race day"
@@ -82,6 +92,11 @@ export function ChoicePanel({ choices, state, inspection, busy, onChoose }: Prop
         <span>Fans <strong>{state.fans.toLocaleString()}</strong></span>
         <span>Skill points <strong>{state.skillPoints}</strong></span>
       </div>
+      {suggestion && <div className="local-suggestion" id="local-suggestion">
+        <span>Local bot suggests <strong>{suggestedChoice!.label}</strong></span>
+        <button type="button" disabled={busy} onClick={() => onChoose(suggestion.actionId)}
+          aria-label={`Apply local suggestion: ${suggestedChoice!.label}`}>Apply</button>
+      </div>}
       {hasTraining && <p className="training-caption">
         {current ? "Sample gains · energy on success · current failure chance" : "Training details are unavailable from this server."}
       </p>}
@@ -94,7 +109,7 @@ export function ChoicePanel({ choices, state, inspection, busy, onChoose }: Prop
           return (
             <button
               key={c.id}
-              className={`decision-row ${kind(c.id)}${row ? " has-training" : ""}`}
+              className={`decision-row ${kind(c.id)}${row ? " has-training" : ""}${suggestion?.actionId === c.id ? " locally-suggested" : ""}`}
               disabled={busy || row?.available === false}
               onClick={() => onChoose(c.id)}
               title={`Shortcut ${i + 1}`}
@@ -108,6 +123,21 @@ export function ChoicePanel({ choices, state, inspection, busy, onChoose }: Prop
           );
         })}
       </div>
+      {suggestion && <details className="local-suggestion-explainer" key={`${state.turn}:${state.phase}:${suggestion.actionId}`}>
+        <summary>Why this local suggestion?</summary>
+        <p>{suggestion.reason}</p>
+        <p>This is the built-in local heuristic. Auto step uses the policy selected above, which can differ. Applying this suggestion makes one manual choice.</p>
+        {scores.length > 0 && <>
+          <p>Training scores are relative heuristic values, not success chances or predicted stat gains. Higher scores are preferred when the bot chooses training.</p>
+          <dl className="local-training-scores" aria-label="Local training scores">
+            {scores.map((score) => <div key={score.actionId}>
+              <dt>{choices.find((choice) => choice.id === score.actionId)?.label}</dt>
+              <dd>{score.score.toLocaleString(undefined, { maximumFractionDigits: 2 })}</dd>
+            </div>)}
+          </dl>
+        </>}
+        <p>The heuristic has known weaknesses in recovery, racing and training balance. Its suggestion does not guarantee a better career or a race win.</p>
+      </details>}
       {hasTraining && current && <details className="training-explainer">
         <summary>What the training numbers mean</summary>
         <p>Stat gains are a fixed sample before stat caps and later scenario or event effects. They are neither guaranteed next-turn results nor expected values.</p>

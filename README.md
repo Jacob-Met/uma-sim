@@ -21,11 +21,11 @@ and attribution.
 
 ## Experimental Linux player preview
 
-[Download the November 10 player preview](downloads/uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip?raw=true) · [Launch instructions and limitations](downloads/PREVIEW.md) · [SHA-256](downloads/SHA256SUMS)
+[Download the November 10 player preview](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.1-preview.20261110/uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip) · [Launch instructions and limitations](downloads/PREVIEW.md) · [SHA-256](downloads/SHA256SUMS)
 
 This versioned preview includes the current embedded browser, readable training decisions,
 policy selection fixes, direct batch comparisons and the independently evaluated local-bot stat-value correction. Racing performance remains limited; see the linked evidence and caveats. It requires **Linux x86-64 with glibc
-2.39+ (Ubuntu 24.04+)**. It is an experimental repository download; **v0.2.2 remains the
+2.39+ (Ubuntu 24.04+)**. It is a published [experimental prerelease](https://github.com/Jacob-Met/uma-sim/releases/tag/v0.3.1-preview.20261110); **v0.2.2 remains the
 stable release**, including its wider platform support.
 
 ## Quick start from source
@@ -69,7 +69,7 @@ open the Vite URL (it proxies `/v1` to port 8765).
 
 ## Install from a release zip
 
-[Releases](https://github.com/Jacob-Met/uma-sim/releases) carry one zip per
+The historical [stable v0.2.2 release](https://github.com/Jacob-Met/uma-sim/releases/tag/v0.2.2) carries one zip per
 platform: the binary (web UI embedded) plus the `research/`, `knowledge/` and
 `content_packs/` folders it reads at run time. Download the zip for your
 platform, extract it and run:
@@ -85,11 +85,12 @@ platform, extract it and run:
 | `uma-sim-linux-x64.zip` | Linux on x86-64 | glibc 2.28 or newer (Ubuntu 20.04+, Debian 10+, RHEL/Alma/Rocky 8+) |
 | `uma-sim-macos-arm64.zip` | macOS on Apple Silicon (M1 or newer) | none. Intel Macs are not supported |
 
-The Linux zip is built inside a `manylinux_2_28` (glibc 2.28) container, and CI
-fails the build if the binary needs a newer glibc symbol. Older releases
-(v0.2.1 and earlier) were built on Ubuntu 24.04 and need glibc 2.39. Every
-zip is unzipped fresh in CI and run through the layout smoke test before it
-is published.
+The stable v0.2.2 Linux zip was built inside a `manylinux_2_28` (glibc 2.28) container, with a historical CI gate
+rejecting newer glibc symbols. Older releases
+(v0.2.1 and earlier) were built on Ubuntu 24.04 and need glibc 2.39. The stable release pipeline
+unzipped its platform archives for layout smoke tests. The November 10 experimental
+Linux preview instead requires glibc 2.39 and was built, downloaded and exercised
+on the Renpō fleet. GitHub Actions remain disabled.
 
 Keep the three data folders next to the binary. It finds them there whatever
 directory you start it from; set `UMA_REPO_ROOT` if you keep them elsewhere.

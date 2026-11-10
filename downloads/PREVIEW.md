@@ -1,8 +1,8 @@
 # Uma Sim experimental Linux player preview — November 10, 2026
 
-[Download the runnable ZIP](uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip?raw=true)
+[Download the runnable ZIP](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.1-preview.20261110/uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip)
 
-This is a versioned experimental repository download, not a replacement for the stable v0.2.2 releases. It contains the actual native CLI, embedded browser UI, runtime catalogs, license and attribution. No Rust or Node installation is needed to play.
+This is a published [experimental GitHub prerelease](https://github.com/Jacob-Met/uma-sim/releases/tag/v0.3.1-preview.20261110). Stable v0.2.2 remains available with its wider platform support. It contains the actual native CLI, embedded browser UI, runtime catalogs, license and attribution. No Rust or Node installation is needed to play.
 
 ## Watch the player
 
@@ -48,9 +48,9 @@ ZIP: uma-sim-v0.3.1-preview.20261110-linux-x64-glibc239.zip, **2,884,641 bytes**
 
 SHA-256: `4556c0853b73614789b202a62eb59ab55211ca8f1dc86654ca9187b11bf732b2`.
 
-Verify with `sha256sum --ignore-missing -c SHA256SUMS` after downloading both files into one folder. [Download checksum](SHA256SUMS?raw=true).
+Verify with `sha256sum --ignore-missing -c SHA256SUMS` after downloading both files into one folder. [Download checksum](https://github.com/Jacob-Met/uma-sim/releases/download/v0.3.1-preview.20261110/SHA256SUMS).
 
-Built on the Renpō Linux fleet with Rust 1.99.1 and the unchanged embedded UI from the same source tree. The extracted v0.3.1 package completed all four native 72-turn scenarios with fresh seed 887, produced bot/default batches for seeds 887/991/1069 in the caller's directory, and fed those files into native paired comparison. Actual Chrome phone use exercised setup, the required race, all five training choices and a manual Speed action to turn 3. The merged correction passed the full Rust workspace suite; the retained UI had passed 131 tests. No GitHub Actions were used.
+Built on the Renpō Linux fleet with Rust 1.99.1 and the unchanged embedded UI from the same source tree. The extracted v0.3.1 package completed all four native 72-turn scenarios with fresh seed 887, produced bot/default batches for seeds 887/991/1069 in the caller's directory, and fed those files into native paired comparison. Actual Chrome phone use exercised setup, the required race, all five training choices and a manual Speed action to turn 3. The merged correction passed the full Rust workspace suite; the retained UI had passed 131 tests. No GitHub Actions were used. A separate reviewer downloaded the published GitHub Release asset anonymously, verified its ZIP and executable hashes, extracted it and completed a fresh 72-turn physics career from an unrelated working directory. The published asset is byte-identical to the accepted repository preview.
 
 ## Limits
 
