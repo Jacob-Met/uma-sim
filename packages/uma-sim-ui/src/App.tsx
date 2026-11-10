@@ -52,6 +52,9 @@ export default function App() {
     function onKey(e: KeyboardEvent) {
       if (tab !== "run" || state.busy || !state.snapshot || e.defaultPrevented ||
           e.repeat || e.isComposing || e.ctrlKey || e.metaKey || e.altKey) return;
+      // A pending event is a required choice. Native modal focus/inertness does
+      // not stop window-level keyboard shortcuts from reaching this listener.
+      if (window.document?.querySelector("dialog.event-modal[open]")) return;
       const target = e.target as HTMLElement | null;
       const tag = target?.tagName;
       if (target?.isContentEditable || tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
