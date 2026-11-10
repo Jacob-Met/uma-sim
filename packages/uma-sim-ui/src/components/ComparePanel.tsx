@@ -53,6 +53,51 @@ function OutcomeCard({
   );
 }
 
+
+function OutcomeDeltaSummary({ comparison }: { comparison: BranchComparison }) {
+  const a = comparison.outcomeA;
+  const b = comparison.outcomeB;
+  const metrics: [string, number, number][] = [
+    ["Speed", a.stats.speed, b.stats.speed],
+    ["Stamina", a.stats.stamina, b.stats.stamina],
+    ["Power", a.stats.power, b.stats.power],
+    ["Guts", a.stats.guts, b.stats.guts],
+    ["Wit", a.stats.wit, b.stats.wit],
+    ["Fans", a.fans, b.fans],
+    ["Skill points", a.skillPoints, b.skillPoints],
+    ["Races", a.completedRaces.length, b.completedRaces.length],
+    ["Skills", a.learnedSkills.length, b.learnedSkills.length],
+  ];
+  return (
+    <section className="comparison-delta-summary" aria-label="Outcome differences">
+      <h4>What changed in the outcome</h4>
+      <p className="hint">
+        B minus A: {comparison.bName} compared with {comparison.aName}.
+        These are descriptive changes, not a winner or a causal effect.
+      </p>
+      {!comparison.sameCheckpoint && (
+        <p className="banner warn" role="status">
+          These branches do not share a checkpoint. Their differences cannot
+          isolate the effect of one action or policy.
+        </p>
+      )}
+      <div className="comparison-delta-grid">
+        {metrics.map(([label, before, after]) => {
+          const diff = after - before;
+          const formatted = diff > 0 ? "+" + diff.toLocaleString() : diff.toLocaleString();
+          return (
+            <div className="comparison-delta" key={label}>
+              <span>{label}</span>
+              <strong>{formatted}</strong>
+              <small>{before.toLocaleString()} → {after.toLocaleString()}</small>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 export function ComparePanel({ lab, onInspectTrace }: {
   lab: ReturnType<typeof useLabStore>;
   onInspectTrace: (id: string) => void;
@@ -63,6 +108,7 @@ export function ComparePanel({ lab, onInspectTrace }: {
   const [policy, setPolicy] = useState("bot");
   const [maxActions, setMaxActions] = useState("120");
   const [overridesText, setOverridesText] = useState("");
+  const [onlyChangedSteps, setOnlyChangedSteps] = useState(false);
   const draft = validateBranchDraft(overridesText, maxActions);
   const issues = draft.ok ? [] : draft.issues;
   const overrideIssues = issues.filter((issue) => issue.field === "overrides");
@@ -81,6 +127,8 @@ export function ComparePanel({ lab, onInspectTrace }: {
 
   const c = state.comparison;
   const selectionChanged = c && (c.aId !== state.compareA || c.bId !== state.compareB);
+  const changedSteps = c?.aligned.filter((step) => !step.sameAction || !step.sameOutcome) ?? [];
+  const visibleSteps = c ? (onlyChangedSteps ? changedSteps : c.aligned) : [];
 
   return (
     <div className="card">
@@ -318,7 +366,19 @@ export function ComparePanel({ lab, onInspectTrace }: {
             <OutcomeCard title={`A — ${c.aName}`} outcome={c.outcomeA} />
             <OutcomeCard title={`B — ${c.bName}`} outcome={c.outcomeB} />
           </div>
+          <OutcomeDeltaSummary comparison={c} />
           <h4>Turn-by-turn timeline</h4>
+          <div className="comparison-timeline-tools">
+            <label className="checkbox">
+              <input type="checkbox" checked={onlyChangedSteps}
+                onChange={(event) => setOnlyChangedSteps(event.target.checked)} />
+              Show changed steps only
+            </label>
+            <span role="status" aria-live="polite">
+              Showing {visibleSteps.length} of {c.aligned.length} steps · {changedSteps.length} differ
+            </span>
+          </div>
+          <div className="comparison-table-scroll" role="region" aria-label="Branch comparison timeline" tabIndex={0}>
           <table className="data-table">
             <thead>
               <tr>
@@ -335,7 +395,10 @@ export function ComparePanel({ lab, onInspectTrace }: {
               </tr>
             </thead>
             <tbody>
-              {c.aligned.map((r) => (
+              {visibleSteps.length === 0 && (
+                <tr><td colSpan={10}>No changed steps in this comparison. Show all steps to inspect the complete timeline.</td></tr>
+              )}
+              {visibleSteps.map((r) => (
                 <tr
                   key={r.stepIndex}
                   className={!r.sameAction || !r.sameOutcome ? "diverged" : ""}
@@ -354,6 +417,7 @@ export function ComparePanel({ lab, onInspectTrace }: {
               ))}
             </tbody>
           </table>
+          </div>
           <h4>Reading these results</h4>
           <ul>
             {c.caveats.map((cv, i) => (
