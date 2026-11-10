@@ -243,6 +243,7 @@ export function ComparePanel({ lab, onInspectTrace }: {
       {state.branches.length === 0 ? (
         <p className="hint">No branches yet — run one above.</p>
       ) : (
+        <div className="comparison-table-scroll" role="region" aria-label="Saved branches" tabIndex={0}>
         <table className="data-table">
           <thead>
             <tr>
@@ -302,6 +303,7 @@ export function ComparePanel({ lab, onInspectTrace }: {
             ))}
           </tbody>
         </table>
+        </div>
       )}
       <div className="field-row">
         <button
