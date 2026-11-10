@@ -136,6 +136,9 @@ pub struct PairSummary {
     /// Approximate normal-theory 95% interval for mean paired score lift.
     /// Only emitted for at least 30 matched careers; it is not a game-model validity claim.
     pub mean_score_delta_95pct_normal_interval: Option<[f64; 2]>,
+    /// Why this normal interval was or was not reported. A reported interval
+    /// remains a model-based approximation, not verified 95% coverage.
+    pub mean_score_delta_normal_interval_status: &'static str,
     /// Fraction of decisive pairs won by the input; ties are excluded.
     pub decisive_win_rate: Option<f64>,
     /// Wilson score 95% interval for the decisive win fraction.
@@ -214,7 +217,17 @@ pub fn compare(input: &PairedBatch, baseline: &PairedBatch) -> Result<PairedComp
     // Bessel-corrected paired variance / n. The normal interval is deliberately
     // omitted for small n rather than suggesting unjustified precision.
     let standard_error = (count > 1).then(|| (variance / (count - 1) as f64).sqrt());
-    let normal_interval = if count >= 30 {
+    // Thirty samples alone cannot establish normality or rule out rare tails.
+    // In particular, identical observed deltas produce a zero-width interval
+    // even though an unseen rare effect may exist. Do not print that as a 95% CI.
+    let normal_interval_status = if count < 30 {
+        "omitted_fewer_than_30_pairs"
+    } else if variance == 0.0 {
+        "omitted_no_observed_variation"
+    } else {
+        "reported_normal_assumptions_unverified"
+    };
+    let normal_interval = if normal_interval_status == "reported_normal_assumptions_unverified" {
         standard_error.map(|se| [mean - Z_95 * se, mean + Z_95 * se])
     } else {
         None
@@ -238,6 +251,7 @@ pub fn compare(input: &PairedBatch, baseline: &PairedBatch) -> Result<PairedComp
             population_stddev_score_delta: variance.sqrt(),
             score_delta_standard_error: standard_error,
             mean_score_delta_95pct_normal_interval: normal_interval,
+            mean_score_delta_normal_interval_status: normal_interval_status,
             decisive_win_rate: win_rate,
             decisive_win_rate_95pct_wilson_interval: win_interval,
         },
@@ -322,6 +336,8 @@ pub fn render_text(comparison: &PairedComparison) -> String {
             "Mean score delta approx. 95% normal interval: [{low:.3}, {high:.3}]"
         )
         .expect("writing a String cannot fail");
+    } else if summary.count >= 30 {
+        text.push_str("Mean score interval: omitted (no observed variation; zero-width sample interval cannot rule out rare effects)\n");
     } else {
         text.push_str("Mean score interval: omitted (need at least 30 matched pairs)\n");
     }
@@ -340,7 +356,15 @@ pub fn render_text(comparison: &PairedComparison) -> String {
     } else {
         text.push_str("Decisive win rate: unavailable (all paired scores tied)\n");
     }
-    text.push_str("Intervals assume matched careers are independent samples; they do not validate the simulator or prove a policy change caused the differences.\n");
+    if summary.count >= 30 && summary.ties >= summary.count / 2 {
+        writeln!(
+            text,
+            "Sparse changes: {} of {} pairs tied. Rare gains/losses can dominate the normal interval.",
+            summary.ties, summary.count
+        )
+        .expect("writing a String cannot fail");
+    }
+    text.push_str("Normal mean interval is only a model-based approximation: 30+ pairs do not guarantee 95% coverage with rare/heavy-tailed deltas. Intervals assume independent careers; they neither validate the simulator nor prove causality.\n");
     text
 }
 
@@ -399,7 +423,7 @@ mod tests {
         assert!(lo < 0.5 && hi > 0.5);
         let report = render_text(&c);
         assert!(report.contains("95% Wilson"));
-        assert!(report.contains("do not validate the simulator"));
+        assert!(report.contains("neither validate the simulator"));
     }
 
     #[test]
@@ -408,10 +432,30 @@ mod tests {
         let c = compare(&batch(&career), &batch(&career)).unwrap();
         assert_eq!(c.summary.decisive_win_rate, None);
         assert_eq!(c.summary.decisive_win_rate_95pct_wilson_interval, None);
+        assert_eq!(c.summary.mean_score_delta_95pct_normal_interval, None);
         assert_eq!(
-            c.summary.mean_score_delta_95pct_normal_interval,
-            Some([0.0, 0.0])
+            c.summary.mean_score_delta_normal_interval_status,
+            "omitted_no_observed_variation"
         );
+        let report = render_text(&c);
+        assert!(report.contains("zero-width sample interval cannot rule out rare effects"));
+    }
+
+    #[test]
+    fn one_rare_gain_in_thirty_is_visibly_uncertain() {
+        let baseline: Vec<_> = (0..30).map(|seed| (seed, 100)).collect();
+        let input: Vec<_> = (0..30)
+            .map(|seed| (seed, if seed == 29 { 1100 } else { 100 }))
+            .collect();
+        let result = compare(&batch(&input), &batch(&baseline)).unwrap();
+        assert_eq!(result.summary.ties, 29);
+        assert_eq!(
+            result.summary.mean_score_delta_normal_interval_status,
+            "reported_normal_assumptions_unverified"
+        );
+        let report = render_text(&result);
+        assert!(report.contains("Sparse changes: 29 of 30 pairs tied."));
+        assert!(report.contains("do not guarantee 95% coverage"));
     }
 
     #[test]
