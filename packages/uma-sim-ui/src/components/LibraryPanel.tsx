@@ -64,6 +64,7 @@ export function LibraryPanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
       {state.library.length === 0 ? (
         <p className="hint">No checkpoints saved yet.</p>
       ) : (
+        <div className="comparison-table-scroll" role="region" aria-label="Saved checkpoints" tabIndex={0}>
         <table className="data-table">
           <thead>
             <tr>
@@ -126,6 +127,7 @@ export function LibraryPanel({ lab }: { lab: ReturnType<typeof useLabStore> }) {
             ))}
           </tbody>
         </table>
+        </div>
       )}
       <h3>Import a checkpoint file</h3>
       <p className="hint">
